@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @mixin flex-center{
   display:flex;
   justify-content: center;
@@ -15,3 +16,9 @@
   flex-direction: ($direction);
   justify-content: center;
 };
+=======
+@mixin direction-center($direction){
+  flex-direction: $direction;
+  justify-content: center;
+}
+>>>>>>> fa38520 (chore: set file structure of scss, bem)

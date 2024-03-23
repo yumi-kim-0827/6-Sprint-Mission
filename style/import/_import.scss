@@ -1,6 +1,7 @@
 @import 'https://meyerweb.com/eric/tools/css/reset/reset.css';
 @import '../mixin/mixin';
 @import '../common/button';
+<<<<<<< HEAD
 @import '../common/description';
 @import '../common/link';
 @import '../common/container';
@@ -14,3 +15,8 @@
 figure {
   margin: 0;
 }
+=======
+@import '../common/link';
+@import '../header/header';
+@import '../main/main';
+>>>>>>> fa38520 (chore: set file structure of scss, bem)
