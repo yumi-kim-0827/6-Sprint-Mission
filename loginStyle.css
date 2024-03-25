@@ -82,36 +82,28 @@ input:focus {
   background: #3692ff;
 }
 .social-login-container {
-  display: flex;
-  width: 100%;
-  height: 74px;
-  margin-top: 20px;
-  background: #e6f2ff;
-  justify-content: space-between;
+  background-color: #e6f2ff;
   border-radius: 8px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+  margin: 24px 0;
 }
 #log {
-  font-family: Pretendard;
-  font-size: 16px;
   font-weight: 500;
+  font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #1f2937;
-  margin-left: 23px;
 }
 .social-login {
   display: flex;
   flex-direction: row-reverse;
+  gap: 16px;
 }
-.kakao-login,
+/* .kakao-login,
 .google-login {
   text-decoration: none;
-  margin-right: 15px;
-  width: 42px;
-  height: 42px;
-}
+} */
 
 .go-Signup,
 .go-Login {
@@ -142,4 +134,45 @@ input:focus {
   letter-spacing: 0em;
   text-align: left;
   padding-top: 5px;
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .auth-container {
+    padding: 0;
+    max-width: 600px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .auth-container {
+    padding: 0;
+    max-width: 500px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .auth-container {
+    padding: 0;
+    width: calc(100% - 32px);
+  }
+
+  .email-input,
+  .password-input,
+  .nickname-input,
+  .check-password-input,
+  .login-button,
+  .social-login,
+  .social-login-container,
+  .go-Login,
+  .go-Signup,
+  .social-login-container > a {
+    width: 100%;
+    max-width: 400px;
+  }
+  .logo img {
+    max-width: 198px;
+  }
 }
