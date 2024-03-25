@@ -96,7 +96,7 @@ button {
   height: 74px;
   border-radius: 8px;
   padding: 25px;
-  background-color: #e6f2ff;
+  background-color: var(--social_login_background);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,7 +128,7 @@ button {
   color: var(--gray-800);
 }
 .link_wrapper a {
-  color: #3182f6;
+  color: var(--link-color);
   text-decoration: underline;
   cursor: pointer;
 }
