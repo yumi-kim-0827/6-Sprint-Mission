@@ -161,3 +161,42 @@ img {
   text-align: center;
   color: #ffffff;
 }
+
+/* PC 사이즈 */
+@media (min-width: 1200px) {
+  header {
+    padding: 0 32px;
+  }
+}
+
+/* Tablet 사이즈 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  header {
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+
+  header img {
+    margin-left: 24px;
+  }
+
+  #signinLink {
+    margin-right: 24px;
+  }
+}
+
+/* Mobile 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  header {
+    padding: 0 16px;
+    justify-content: space-between;
+  }
+
+  header img {
+    margin-left: 16px;
+  }
+
+  #signinLink {
+    margin-right: 16px;
+  }
+}
