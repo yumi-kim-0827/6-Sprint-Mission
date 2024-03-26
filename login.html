@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - 판다마켓</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <img src="img/logo.svg" alt="logo" />
+    <form action="index.html" method="get">
+      <label for="username">이메일</label>
+      <input
+        name="username"
+        type="email"
+        placeholder="이메일을 입력해주세요"
+        id="username"
+      />
+      <label for="password">비밀번호</label>
+      <input
+        name="password"
+        type="password"
+        placeholder="비밀번호를 입력해주세요"
+        id="password"
+      />
+      <input type="submit" value="로그인" />
+      <div>
+        <span>간편 로그인하기</span>
+        <div>
+          <img src="img/ic_google.png" alt="google" />
+          <img src="img/ic_kakaoTalk.png" alt="kakaoTalk" />
+        </div>
+      </div>
+      <p>판다마켓이 처음이신가요? <a href="/">회원가입</a></p>
+    </form>
+  </body>
+</html>
