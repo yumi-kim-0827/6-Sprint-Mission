@@ -1,13 +1,9 @@
 :root {
-  --inputColor:#3692ff;
-  --fontColor:#1f2937;
+  --inputColor: #3692ff;
+  --fontColor: #1f2937;
 }
-
-
 body {
   box-sizing: border-box;
- 
-
 }
 .card {
   margin-top: 60px;
@@ -30,9 +26,8 @@ body {
   gap: 24px;
 }
 .card input {
-  background: #F3F4F6;
+  background: #f3f4f6;
 
- 
   height: 56px;
   border: none;
   border-radius: 12px;
@@ -87,7 +82,6 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-
 .signUp {
   display: flex;
   justify-content: center;

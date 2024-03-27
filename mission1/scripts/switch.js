@@ -1,14 +1,13 @@
 let flag = false;
 function toggleSwitch() {
-  const passIcon = document.getElementById("passIcon");
-  const switchElement = document.getElementById("password");
-  const passBox = document.getElementById("shown");
+  const eyeIcon = document.getElementById("eyeIcon");
+  const passwordLabel = document.getElementsByClassName("passwordBar");
   flag = !flag;
   if (flag) {
-    passIcon.src = "/icon/openPassword.png";
-    return (passBox.type = "text");
+    eyeIcon.src = "/icon/openPassword.png";
+    return (passwordLabel[0].type = "text");
   }
-  passIcon.src = "/icon/hidePassword.png";
-  return (passBox.type = "password");
+  eyeIcon.src = "/icon/hidePassword.png";
+  return (passwordLabel[0].type = "password");
 }
 
