@@ -66,6 +66,7 @@ header a:last-child{
     height: 51px;
 }
 .login-btn{
+    width: 128px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px;
@@ -248,49 +249,4 @@ footer{
 .footer-sns{
     display: flex;
     gap: 12px;
-}
-
-@media(max-width: 1200px) {
-    .banner{
-      
-        grid-template-columns:  100px 1fr 100px;
-    
-    }
-    main{
-    grid-template: 540px 1fr 540px / 100px 1fr 100px;
-}
-
-
-    .banner-content {
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .banner-txt p {
-        text-align: center;
-    }
-
-    .top .banner-img {
-        position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-    }
-
-    .bottom .banner-img {
-        position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-    }
-    .info-card{
-        flex-direction: column;
-        align-items: center;
-    }
-    .info-card-txt{
-        align-items: center;
-    }
-
-
 }
