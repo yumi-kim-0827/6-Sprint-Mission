@@ -1,5 +1,5 @@
 /* Tablet size */
-@media(max-width: 1200px) {
+@media(min-width: 768px) and (max-width: 1199px) {
 
 
     /* header */
@@ -101,6 +101,11 @@
 
     .search .info-card-img {
         order: 1;
+    }
+
+    /* footer */
+    .footer-content{
+        margin: 0 100px;
     }
 
 
