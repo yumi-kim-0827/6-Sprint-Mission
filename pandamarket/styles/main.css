@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  background-color: skyblue;
 }
 
 h1 {
@@ -24,21 +23,15 @@ p {
   line-height: 28.8px;
 }
 
-.container {
-  max-width: 1920px;
-  width: auto;
-  background-color: #ffffff;
-  margin: 0 auto;
-}
+
 
 .header-container {
   padding-top: 0;
-  margin: 0 200px;
+  padding: 0 200px;
 }
 
 .main-container {
   display: grid;
-  width: 1920px;
   grid-template: repeat(3, 720px) / 1fr 1200px 1fr;
   grid-template-areas:
   ". m1 ."
@@ -50,7 +43,7 @@ p {
 .footer-container {
   height: 160px;
   background-color: #111827;
-  width: 1920px;
+  width: 100%;
 }
 
 .footer {
@@ -85,11 +78,12 @@ p {
   flex-shrink: 0;
   padding: 12px 20px;
   gap: 10px;
+  font-family: 'Pretendard';
 
   width: 128px;
   height: 48px;
   right: 20px;
-  top: calc(50% - 48px/2 - 102px);
+  font-weight: 600;
 
   /* brand/blue */
   background: #3692FF;
@@ -104,7 +98,7 @@ p {
   position: relative;
   background-color: #cfe5ff;
   height: 540px;
-  width: 1920px;
+  width: 100%;
 }
 
 .go-to-store-button {
@@ -174,6 +168,7 @@ p {
   line-height: 25.2px;
   font-size: 18px;
   color: #3692FF;
+  font-weight: 700;
 }
 
 .search {
@@ -197,4 +192,8 @@ p {
 .privacy a {
   color: #e5e7eb;
   text-decoration: none;
+}
+
+#login {
+  decoration: none;
 }
