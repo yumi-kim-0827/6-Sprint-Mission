@@ -1,4 +1,6 @@
-
+html {
+    font-size: 10px;
+}
 
 a {
     cursor: pointer;
@@ -7,7 +9,7 @@ a {
 header {
     display: flex;
     justify-content: space-between;
-    height: 4.375rem;
+    height: 7rem;
     position: sticky;
     top: 0;
     padding: 11px 200px;
@@ -22,8 +24,8 @@ header > .login {
     height: 48px;
     border-radius: 8px;
     padding-block: 14px;
-    font-size: 1rem;
-    line-height: 1.1931rem;
+    font-size: 1.6rem;
+    line-height: 1.909rem;
     text-align: center;
     background-color: var(--header-logo-color);
     color: var(--button-font-color);
@@ -40,9 +42,9 @@ header > .title {
 
 header > .title > .name > a {
     font-family: "ROKAF Bold";
-    font-size: 1.6em;
+    font-size: 2.56rem;
     font-weight: 700;
-    line-height: 34.6px;
+    line-height: 3.46rem;
     color: var(--header-logo-color);
     text-decoration: none;
 }
@@ -56,7 +58,7 @@ main {
 
 footer {
     width: inherit;
-    height: 160px;
+    height: 16rem;
     display: grid;
     background-color: var(--footer-bg-color);
     grid-template-columns: repeat(3, 1fr);
@@ -66,8 +68,8 @@ footer {
 
 footer > .codeit-footer {
     font-family: "Pretendard";
-    font-size: 1em;
-    line-height: 19.09px;
+    font-size: 1.6rem;
+    line-height: 1.909rem;
 }
 
 footer > .codeit-footer.codeit-copyright {
@@ -97,49 +99,43 @@ footer > .codeit-footer.codeit-sns {
 .panda-banner {
     background-color: var(--banner-bg-color);
     display: flex;
+    position: relative;
     width: 100%;
-    height: 33.75rem;
+    height: 54rem;
     justify-content: center;
     align-items: center;
 }
 
-.panda-banner.top-banner > img {
-    position: relative;
-    width: 62.25rem;
-    height: 27.9375rem;
-    top: 2.875rem;
-    left: 6.25rem;
+.panda-banner.top-banner > span {
+    padding-Block-start: 12rem;
+}
+.panda-banner.bottom-banner > span {
+    padding-inline-start: 5rem;
 }
 
-.panda-banner.top-banner > div {
-    font-family: "pretendard";
-    display: flex;
-    flex-direction: column;
-    width: 22.5rem;
-    height: 3.75rem;
-    position: relative;
-    left: 6.25rem;
-    bottom: 4rem;
+.panda-banner.top-banner > span > img,
+.panda-banner.bottom-banner > span > img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-.panda-banner.bottom-banner > h2
+.panda-banner.top-banner > div,
+.panda-banner.bottom-banner > div
 {
     font-family: "pretendard";
     display: flex;
+    position: relative;
     flex-direction: column;
-    position: relative;
-    justify-content: center;
-    left: 3.125rem;
-}
-
-.panda-banner.bottom-banner > img {
-    position: relative;
-    left: 3.125rem;
+    width: 36rem;
+    height: 6rem;
+    bottom: 6.4rem;
+    margin-inline-start: 40rem;
 }
 
 .panda-banner.top-banner > div > h2,
-.panda-banner.bottom-banner > h2 {
-    font-size: 2.5em;
+.panda-banner.bottom-banner > div > h2 {
+    font-size: 4rem;
     font-weight: 700;
     line-height: 56px;
     padding-bottom: 20px;
@@ -157,7 +153,7 @@ footer > .codeit-footer.codeit-sns {
     text-decoration: none;
     text-align: center;
     padding-block: 16px;
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -183,30 +179,26 @@ footer > .codeit-footer.codeit-sns {
 }
 
 .panda-section > div > h2 {
-    font-size: 1.125em;
+    font-size: 1.8rem;
     line-height: 25.2px;
     color: var(--header-logo-color);
     letter-spacing: 1px;
 }
 
 .panda-section > div > h3 {
-    font-size: 2.5em;
+    font-size: 4rem;
     line-height: 56px;
 }
 
 .panda-section > div > p {
-    font-size: 1.5em;
+    font-size: 2.4rem;
     font-weight: 500;
     line-height: 28.8px;
     letter-spacing: 3px;
     padding-block-start: 12px;
 }
 
-.panda-section.left-start {
-    padding-inline-end: 190px;
-}
 .panda-section.right-start {
     flex-flow: row-reverse;
     text-align: right;
-    padding-inline-start: 190px;
 }
