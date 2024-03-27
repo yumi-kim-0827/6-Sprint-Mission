@@ -1,6 +1,18 @@
 /* Tablet size */
 @media(max-width: 1200px) {
 
+    header{
+        grid-template-columns: 177px 1fr 152px;
+    }
+    header a:first-child {
+        margin: auto 0 auto 24px;
+    }
+
+    header a:last-child {
+        margin: auto 24px auto 0;
+    }
+
+
 
 
 
