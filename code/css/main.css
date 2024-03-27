@@ -167,7 +167,7 @@ main{
 .info-card{
     display: flex;
     gap:64px;
-    flex-wrap: wrap;
+    
 }
 .search{
     justify-content: end;

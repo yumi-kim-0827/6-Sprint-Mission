@@ -1,9 +1,12 @@
 /* Tablet size */
 @media(max-width: 1200px) {
 
-    header{
+
+    /* header */
+    header {
         grid-template-columns: 177px 1fr 152px;
     }
+
     header a:first-child {
         margin: auto 0 auto 24px;
     }
@@ -14,51 +17,92 @@
 
 
 
-
-
-    .banner {
-
-        grid-template-columns: 100px 1fr 100px;
-
-    }
-
+    /* main */
     main {
-        grid-template: 540px 1fr 540px / 100px 1fr 100px;
+        grid-template: 771px 1fr 927px / 24px 1fr 24px;
     }
 
 
-    .banner-content {
+    /* banner */
+    .banner {
+        display: block;
+    }
+
+
+    .top .banner-content {
         flex-direction: column;
-        justify-content: flex-end;
         align-items: center;
+        margin-top: 84px;
+        gap: 100px;
+
     }
 
-    .banner-txt p {
-        text-align: center;
+    .top .banner-txt {
+        align-items: center;
+        gap: 24px
+    }
+
+    .top .action-btn {
+        width: 355px;
+    }
+
+    .top .banner-txt p br {
+        display: none;
     }
 
     .top .banner-img {
         position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
+        width: 996px;
+    }
+
+    .bottom .banner-content {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 201px;
+        gap: 74px;
+
+    }
+
+    .bottom .banner-txt {
+        text-align: center;
     }
 
     .bottom .banner-img {
         position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
+        width: 996px;
+    }
+
+    /* info */
+
+    .info-section {
+        grid-template-rows: 24px 1fr 32px 32px 1fr 32px 32px 1fr 80px;
+
     }
 
     .info-card {
+        display: flex;
         flex-direction: column;
-        align-items: center;
+        margin: 0 auto;
+        gap: 20px;
     }
 
-    .info-card-txt {
-        align-items: center;
+    .info-card-img {
+        width: 696px;
+        height: 524px;
+    }
+
+    .info-card-txt .big-info br {
+        display: none;
+    }
+
+    .search .info-card-txt {
+        order: 2;
+    }
+
+    .search .info-card-img {
+        order: 1;
     }
 
 
 }
+
