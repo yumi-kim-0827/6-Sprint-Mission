@@ -104,10 +104,143 @@
     }
 
     /* footer */
-    .footer-content{
+    .footer-content {
         margin: 0 100px;
     }
 
 
 }
 
+@media(min-width: 375px) and (max-width: 767px) {
+
+    /* header */
+    header {
+        grid-template-columns: 169px 1fr 144px;
+    }
+
+    header a:first-child {
+        margin: auto 0 auto 16px;
+    }
+
+    header a:last-child {
+        margin: auto 16px auto 0;
+    }
+
+
+
+    /* main */
+    main {
+        grid-template: 540px 1fr 540px / 16px 1fr 16px;
+    }
+
+
+    /* banner */
+    .banner {
+        display: block;
+    }
+    .banner-txt p{
+        font-size: 32px;
+        line-height: 44.8px;
+    }
+    .top .banner-content {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 48px;
+        gap: 55px;
+
+    }
+
+    .top .banner-txt {
+        align-items: center;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .top .action-btn {
+        width: 156px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .top .banner-img {
+        position: static;
+        width: 626px;
+        height: 281px;
+    }
+
+    .bottom .banner-content {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 121px;
+        gap: 59px;
+
+    }
+
+    .bottom .banner-txt {
+        text-align: center;
+    }
+
+    .bottom .banner-img {
+        position: static;
+        width: 497px;
+        height: 270px;
+    }
+
+    /* info */
+
+    .info-section {
+        grid-template-rows: 24px 1fr 32px 32px 1fr 32px 32px 1fr 64px;
+
+    }
+
+    .info-card {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    .info-card-img {
+        width: 100%;
+        
+    }
+    .info-card-txt .big-info br {
+        display: none;
+    }
+
+    .search .info-card-txt {
+        order: 2;
+    }
+
+    .search .info-card-img {
+        order: 1;
+    }
+
+    .info-title {
+        font-size: 16px;
+        line-height: 22.4px;
+    }
+    .big-info{
+        font-size: 24px;
+        line-height: 33.6px;
+    }
+    .small-info{
+        font-size: 16px;
+        line-height: 19.2px;
+
+    }
+    /* footer */
+    footer{
+        padding-bottom: 32px;
+    }
+    .footer-content {
+        grid-template: 1fr 1fr / 1fr 1fr;
+        row-gap: 60px;
+        margin: 0 32px;
+    }
+    .footer-company{
+        grid-row:2/3;
+        grid-column: 1/2;
+    }
+
+
+}

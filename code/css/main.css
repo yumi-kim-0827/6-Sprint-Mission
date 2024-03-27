@@ -233,6 +233,9 @@ footer{
 }
 .footer-company{
     color:var(--gray400);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
 }
 .footer-policy-faq a{
     color:var(--gray200);
