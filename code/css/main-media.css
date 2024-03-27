@@ -102,6 +102,15 @@
     .search .info-card-img {
         order: 1;
     }
+    .big-info{
+        font-size: 32px;
+        line-height: 44px;
+        margin-bottom: 20px;
+    }
+    .small-info{
+        font-size: 18px;
+        line-height: 21.6px;
+    }
 
     /* footer */
     .footer-content {
@@ -218,10 +227,12 @@
     .info-title {
         font-size: 16px;
         line-height: 22.4px;
+        margin-bottom: 8px;
     }
     .big-info{
         font-size: 24px;
         line-height: 33.6px;
+        margin-bottom: 14px;
     }
     .small-info{
         font-size: 16px;
