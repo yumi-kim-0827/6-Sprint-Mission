@@ -57,7 +57,7 @@ header {
   background-image: url(../assets/images/home_bottom.png);
 }
 
-section {
+.main-section {
   height: 540px;
   background-color: #CFE5FF;
   background-repeat: no-repeat;
@@ -68,18 +68,19 @@ section {
   align-items: center;
 }
 
-section > div {
+.main-content {
   max-width: 1200px;
+  min-width: 375px;
   width: 100%;
   margin: 0 auto;
 }
 
 .visit-button {
   font-size: 20px;
-  font-weight: 600;
-  line-height: 24px;
+  font-weight: 700;
+  line-height: 28px;
   letter-spacing: 0em;
-  padding: 16px 126px;
+  padding: 16px 125px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -94,20 +95,10 @@ section > div {
   font-weight: 700;
   line-height: 56px;
   word-break: keep-all; /*글자가 단어단위로 잘림*/
+  margin-bottom: 32px;
 }
 
-
-.home-panda {
-  max-width: 996px;
-  height: 447px;
-  margin-top: 93px;
-}
-
-.container {
-  background-color: var(--white);
-}
-
-figure {
+.figure {
   max-width: 1200px;
   height: 720px;
   display: flex;
@@ -174,7 +165,7 @@ footer {
 
 .footer-info {
   color: var(--gray400);
-  word-break: keep-all; /*글자가 단어단위로 잘림*/
+  flex-shrink: 0;
 }
 
 .footer-buttons {
@@ -185,7 +176,7 @@ footer {
 .footer-button {
   color: var(--gray200);
   text-decoration: none;
-  word-break: keep-all; /*글자가 단어단위로 잘림*/
+  flex-shrink: 0;
 }
 
 .footer-links {
@@ -194,3 +185,89 @@ footer {
   gap: 12px;
 }
 
+@media (max-width: 1199px) {
+  .logo-login {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .main-section {
+    background-size: 130%;
+    background-position: center bottom;
+    align-items: flex-start;
+    height: 800px;
+  }
+  #main-bottom {
+    height: 960px;
+    margin-top: 16px;
+  }
+  .main-content {
+    text-align: center;
+    margin-top: 84px;
+  }
+  .description {
+    margin-bottom: 24px;
+  }
+  .head > br, .main-introductions > br { display: none; }
+  .figure {
+    flex-direction: column;
+    padding: 24px 24px 40px;
+    height: auto;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .figure-right {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .home-img {
+    width: 100%;
+  }
+  .main-introductions {
+    font-size: 32px;
+    line-height: 44.8px;
+    margin-bottom: 20px;
+  }
+  .footer-container {
+    padding-left: 104px;
+    padding-right: 104px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-login {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .main-section, #main-bottom { height: 620px; }
+  #main-bottom { margin-top: 0; }
+  .main-content {
+    text-align: center;
+    margin-top: 60px;
+  }
+  .description {
+    font-size: 32px;
+    line-height: 44.8px;
+    margin-bottom: 18px;
+  }
+  .description > br {display: inline;}
+  .visit-button {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.09px;
+    padding: 14.5px 33.5px;
+  }
+  .figure {
+    padding: 40px 24px 24px;
+  }
+  .footer-container {
+    padding: 32px;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 509px) and (min-width:375px) {
+  .footer-info {
+    order: 1;
+  }
+}
