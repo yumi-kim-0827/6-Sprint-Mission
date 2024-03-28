@@ -5,16 +5,16 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 10px
 }
 
-body{
-    background-color: #ffffff;
+body {
+    background-color: #fff;
     margin:0;
 }
 
-.wrap{
+.wrap {
     width: 100%;
     min-width: 1200px;
     position: relative;
@@ -64,7 +64,7 @@ h3 {
     font-size: 2.4rem;
 }
 
-.background-sky{
+.hero-banner__main {
     width: 100%;
     background-color: #CFE5FF;
     height: 540px;
@@ -105,33 +105,33 @@ h3 {
     right: -137px;
 }
 
-.main-title{
+.main-title {
     color: #3692FF;
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-.disc-img img{
+.disc-img img {
     width: 588px;
     height: 444px;
 }
 
-.discription li{
+.discription li {
     display: flex;
     align-items: center;
     padding: 138px 0;
 }
 
-.li-right{
+.li-right {
     display: absolute;
     right: 0;
 }
 
-.disc-txt{
+.disc-txt {
     margin: 60px;
 }
 
-.disc-txt-right{
+.disc-txt-right {
     text-align: right;
     margin-right: 60px;
 }
@@ -156,7 +156,7 @@ footer .link {
     align-items: center;
     gap: 30px;
 }
-footer .link a{
+footer .link a {
     text-decoration: none;
     color: #E5E7EB;
 }
