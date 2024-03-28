@@ -4,22 +4,22 @@
 
     /* header */
     header {
-        grid-template-columns: 177px 1fr 152px;
+        grid-template-columns: 17.7rem 1fr 15.2rem;
     }
 
     header a:first-child {
-        margin: auto 0 auto 24px;
+        margin: auto 0 auto 2.4rem;
     }
 
     header a:last-child {
-        margin: auto 24px auto 0;
+        margin: auto 2.4rem auto 0;
     }
 
 
 
     /* main */
     main {
-        grid-template: 771px 1fr 927px / 24px 1fr 24px;
+        grid-template: 77.1rem 1fr 92.7rem / 2.4rem 1fr 2.4rem;
     }
 
 
@@ -32,18 +32,18 @@
     .top .banner-content {
         flex-direction: column;
         align-items: center;
-        margin-top: 84px;
-        gap: 100px;
+        margin-top: 8.4rem;
+        gap: 10rem;
 
     }
 
     .top .banner-txt {
         align-items: center;
-        gap: 24px
+        gap: 2.4rem;
     }
 
     .top .action-btn {
-        width: 355px;
+        width: 35.5rem;
     }
 
     .top .banner-txt p br {
@@ -52,14 +52,14 @@
 
     .top .banner-img {
         position: static;
-        width: 996px;
+        width: 99.6rem;
     }
 
     .bottom .banner-content {
         flex-direction: column;
         align-items: center;
-        margin-top: 201px;
-        gap: 74px;
+        margin-top: 20.1rem;
+        gap: 7.4rem;
 
     }
 
@@ -69,13 +69,13 @@
 
     .bottom .banner-img {
         position: static;
-        width: 996px;
+        width: 99.6rem;
     }
 
     /* info */
 
     .info-section {
-        grid-template-rows: 24px 1fr 32px 32px 1fr 32px 32px 1fr 80px;
+        grid-template-rows: 2.4rem 1fr 3.2rem 3.2rem 1fr 3.2rem 3.2rem 1fr 8rem;
 
     }
 
@@ -83,12 +83,12 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        gap: 20px;
+        gap: 2rem;
     }
 
     .info-card-img {
-        width: 696px;
-        height: 524px;
+        width: 69.6rem;
+        height: 52.4rem;
     }
 
     .info-card-txt .big-info br {
@@ -103,18 +103,18 @@
         order: 1;
     }
     .big-info{
-        font-size: 32px;
-        line-height: 44px;
-        margin-bottom: 20px;
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+        margin-bottom: 2rem;
     }
     .small-info{
-        font-size: 18px;
-        line-height: 21.6px;
+        font-size: 1.8rem;
+        line-height: 2.16rem;
     }
 
     /* footer */
     .footer-content {
-        margin: 0 100px;
+        margin: 0 10rem;
     }
 
 
@@ -124,22 +124,22 @@
 
     /* header */
     header {
-        grid-template-columns: 169px 1fr 144px;
+        grid-template-columns: 16.9rem 1fr 14.4rem;
     }
 
     header a:first-child {
-        margin: auto 0 auto 16px;
+        margin: auto 0 auto 1.6rem;
     }
 
     header a:last-child {
-        margin: auto 16px auto 0;
+        margin: auto 1.6rem auto 0;
     }
 
 
 
     /* main */
     main {
-        grid-template: 540px 1fr 540px / 16px 1fr 16px;
+        grid-template: 54rem 1fr 54rem / 1.6rem 1fr 1.6rem;
     }
 
 
@@ -148,39 +148,39 @@
         display: block;
     }
     .banner-txt p{
-        font-size: 32px;
-        line-height: 44.8px;
+        font-size: 3.2rem;
+        line-height: 4.48rem;
     }
     .top .banner-content {
         flex-direction: column;
         align-items: center;
-        margin-top: 48px;
-        gap: 55px;
+        margin-top: 4.8rem;
+        gap: 5.5rem;
 
     }
 
     .top .banner-txt {
         align-items: center;
-        gap: 18px;
+        gap: 1.8rem;
         text-align: center;
     }
 
     .top .action-btn {
-        width: 156px;
-        font-size: 16px;
-        line-height: 19px;
+        width: 15.6rem;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
     }
     .top .banner-img {
         position: static;
-        width: 626px;
-        height: 281px;
+        width: 62.6rem;
+        height: 28.1rem;
     }
 
     .bottom .banner-content {
         flex-direction: column;
         align-items: center;
-        margin-top: 121px;
-        gap: 59px;
+        margin-top: 12.1rem;
+        gap: 5.9rem;
 
     }
 
@@ -190,14 +190,14 @@
 
     .bottom .banner-img {
         position: static;
-        width: 497px;
-        height: 270px;
+        width: 49.7rem;
+        height: 27rem;
     }
 
     /* info */
 
     .info-section {
-        grid-template-rows: 24px 1fr 32px 32px 1fr 32px 32px 1fr 64px;
+        grid-template-rows: 2.4rem 1fr 3.2rem 3.2rem 1fr 3.2rem 3.2rem 1fr 6.4rem;
 
     }
 
@@ -205,7 +205,7 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        gap: 20px;
+        gap: 2rem;
     }
 
     .info-card-img {
@@ -225,28 +225,28 @@
     }
 
     .info-title {
-        font-size: 16px;
-        line-height: 22.4px;
-        margin-bottom: 8px;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        margin-bottom: 0.8rem;
     }
     .big-info{
-        font-size: 24px;
-        line-height: 33.6px;
-        margin-bottom: 14px;
+        font-size: 2.4rem;
+        line-height: 3.36rem;
+        margin-bottom: 1.4rem;
     }
     .small-info{
-        font-size: 16px;
-        line-height: 19.2px;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
 
     }
     /* footer */
     footer{
-        padding-bottom: 32px;
+        padding-bottom: 3.2rem;
     }
     .footer-content {
         grid-template: 1fr 1fr / 1fr 1fr;
-        row-gap: 60px;
-        margin: 0 32px;
+        row-gap: 6rem;
+        margin: 0 3.2rem;
     }
     .footer-company{
         grid-row:2/3;
