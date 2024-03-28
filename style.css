@@ -239,6 +239,8 @@ footer {
     max-height: 20px;
 }
 
+
+
 /*Tablet: 768px 이상 ~ 1199px 이하*/
 @media (max-width: 1199px) {
     .nav-header {
@@ -253,7 +255,6 @@ footer {
     
     .banner > .banner-center {
         position: relative;
-        justify-content: center;
         flex-direction : column;
         overflow:hidden;
     }
@@ -276,6 +277,17 @@ footer {
 
     .top img {
         top: 324px;
+        left: calc(50% - 498px);
+    }
+
+    .bottom-text {
+        top: -262.5px;
+        position: relative;
+        text-align: center;
+    }
+
+    .bottom img {
+        top: 387px;
         left: calc(50% - 498px);
     }
 
@@ -324,6 +336,7 @@ footer {
 
     .bottom {
         top: 3149px;
+        height: 927px;
     }
     
     footer {
@@ -377,6 +390,21 @@ footer {
         left: calc(50% - 313.06px);
     }
 
+    .bottom-text {
+        top: -135px;
+        font-size: 32px;
+        line-height: 44.8px;
+        position: relative;
+        text-align: center;
+    }
+
+    .bottom img {
+        width: 497.91px;
+        height: 269.95px;
+        top: 270px;
+        left: calc(50% - 248.955px);
+    }
+
     .main-middle {
         max-width: 376px;
         padding-top: 575px;
@@ -409,6 +437,15 @@ footer {
 
     .section-text {
         gap: 8px;
+    }
+
+    .bottom {
+        top: 2055px;
+        height: 540px;
+    }
+    
+    footer {
+        top: 2595px;   
     }
 
 }
