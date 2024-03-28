@@ -167,6 +167,17 @@ button:hover {
 
 
 
+/*Tablet: 768px 이상 ~ 1199px 이하*/
+@media (max-width: 1199px) {
+
+}
+
+
+
+/*Mobile: 375px 이상 ~ 767px 이하*/
+@media (max-width: 767px) {
+
+}
 
 
 

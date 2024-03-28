@@ -113,7 +113,7 @@ main h2 {
 
 .explore-btn {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 24px;
     text-align: center;
     width: 357px;
@@ -239,8 +239,115 @@ footer {
     max-height: 20px;
 }
 
+/*Tablet: 768px 이상 ~ 1199px 이하*/
+@media (max-width: 1199px) {
+    .nav-header {
+        padding: 10px 24px;
+    }
+
+    .banner {
+        height: 771px;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .banner > .banner-center {
+        position: relative;
+        justify-content: center;
+        flex-direction : column;
+        overflow:hidden;
+    }
+
+    .banner-section {
+        width: 100%;
+        height: 331px;
+        top: 84px;
+        text-align: center;
+    }
+
+    .banner-section br {
+        display:none !important;
+    }
+    
+    .explore-btn {
+        border-radius: 45.5px;
+        margin-top: 24px;
+    }
+
+    .top img {
+        top: 324px;
+        left: calc(50% - 498px);
+    }
+    
+    .main-middle {
+        padding-top: 771px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .content {
+        margin: 0;
+        padding: 24px;
+        display: flex;
+        justify-content: left;
+        flex-direction : column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .content img {
+        max-height: 524px;
+        max-width: 696px;
+    }
+}
 
 
+
+/*Mobile: 375px 이상 ~ 767px 이하*/
+@media (max-width: 767px) {
+    .nav-header {
+        padding: 10px 16px;
+    }
+
+    .banner {
+        height: 540px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .banner-section {
+        height: 156px;
+        top: 48px;
+    }
+
+    #banner-text{
+        font-size: 32px;
+        line-height: 44.8px;
+    }
+
+    .banner-section br {
+        display: block !important;
+    }
+
+    .explore-btn {
+        width: 154px;
+        height: 48px; 
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19.09px;
+        border-radius: 24px;
+        margin-top: 18px;
+        padding : 16px, 20px;
+    }
+
+    .top img {
+        width: 626.12px;
+        height: 281px;
+        top: 259px;
+        left: calc(50% - 313.06px);
+    }
+
+}
 
 
 
