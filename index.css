@@ -6,6 +6,7 @@ a {
     cursor: pointer;
 }
 
+/** PC */
 header {
     display: flex;
     justify-content: space-between;
@@ -106,17 +107,22 @@ footer > .codeit-footer.codeit-sns {
     align-items: center;
 }
 
-.panda-banner.top-banner > span {
-    padding-Block-start: 12rem;
+.panda-banner > div > h2 > span {
+    display: block;
 }
+
+.panda-banner.top-banner > span,
 .panda-banner.bottom-banner > span {
-    padding-inline-start: 5rem;
+    position: absolute;
+    bottom: 0;
+    margin-inline-start: 70rem;
 }
 
 .panda-banner.top-banner > span > img,
-.panda-banner.bottom-banner > span > img {
+.panda-banner.bottom-banner > span > img
+{
     width: 100%;
-    height: auto;
+    /*height: auto;*/
     object-fit: contain;
 }
 
@@ -125,13 +131,21 @@ footer > .codeit-footer.codeit-sns {
 {
     font-family: "pretendard";
     display: flex;
-    position: relative;
+    position: absolute;
     flex-direction: column;
-    width: 36rem;
-    height: 6rem;
-    bottom: 6.4rem;
-    margin-inline-start: 40rem;
+    margin-inline-end: 90rem;
+    top: 15rem;
 }
+
+.panda-banner.top-banner > div {
+    margin-inline-start: 30rem;
+}
+
+.panda-banner.bottom-banner > div {
+    margin-inline-start: 15rem;
+    padding: 0;
+}
+
 
 .panda-banner.top-banner > div > h2,
 .panda-banner.bottom-banner > div > h2 {
@@ -141,9 +155,6 @@ footer > .codeit-footer.codeit-sns {
     padding-bottom: 20px;
 }
 
-/*
-*이렇게 클래스 이름이 아닌 규칙 준 이유는 CSS 내 0-0-0 규칙 상 때문에 클래스 이름을 되도록 주지 않았습니다.
-*/
 .panda-banner.top-banner > div > a {
     width: 356px;
     height: 56px;
@@ -163,6 +174,11 @@ footer > .codeit-footer.codeit-sns {
     justify-content: center;
     padding-block: 138px;
     gap: 0px 64px;
+}
+
+.panda-section > span > img {
+    width: 100%;
+    object-fit: contain;
 }
 
 .panda-section > div {
@@ -198,7 +214,269 @@ footer > .codeit-footer.codeit-sns {
     padding-block-start: 12px;
 }
 
+.panda-section > div > h2 > span,
+.panda-section > div > h3 > span {
+    display: block;
+}
+
+
 .panda-section.right-start {
     flex-flow: row-reverse;
     text-align: right;
+}
+
+/** Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    header {
+        padding: 11px 24px;
+    }
+
+    header > .login {
+        flex-shrink: 1;
+    }
+
+    .panda-banner {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 88dvh;
+    }
+
+    .panda-banner > div {
+        margin-block-end: 10%;
+    }
+
+    .panda-banner.top-banner > div > h2 > span
+    {
+        display: inline-block;
+    }
+
+    .panda-banner.bottom-banner > div > h2 > span
+    {
+        display: block;
+    }
+
+    .panda-banner.top-banner > div,
+    .panda-banner.bottom-banner > div {
+        display: flex;
+        position: absolute;
+        text-align: center;
+        align-items: center;
+        margin: 0;
+        top: 10%;
+    }
+
+    .panda-banner.top-banner > div > h2,
+    .panda-banner.bottom-banner > div > h2 {
+        padding-block-start: 1rem;
+        padding-inline: 0;
+        width: 52.1rem;
+    }
+
+    .panda-banner.top-banner > div > a {
+        width: 35.5rem;
+        height: 6rem;
+    }
+
+    .panda-banner.top-banner > span,
+    .panda-banner.bottom-banner > span {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        padding: 0;
+        bottom: 0;
+        margin: 0;
+    }
+
+    .panda-banner.bottom-banner > span {
+        bottom: -0.1rem;
+    }
+
+    .panda-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-block: 4rem;
+        padding-inline: 2.4rem;
+    }
+
+    .panda-section.right-start {
+        flex-flow: column;
+    }
+    .panda-section > div > h2 {
+        font-size: 1.8rem;
+        line-height: 2.52rem;
+        padding-block-start: 1.2rem;
+    }
+
+    .panda-section > div > h3 > span
+    {
+        display: inline-block;
+    }
+
+    footer {
+        gap: 2.4rem;
+        padding-inline: 10.4rem;
+    }
+
+    footer > .codeit-footer.codeit-faqs {
+       font-size: 1.6rem;
+       font-family: 'Abel';
+       line-height: 2.039rem;
+       gap: 2rem;
+    }
+}
+
+/** Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    header {
+        padding: 11px 16px;
+    }
+
+    header > .title > img {
+        display: none;
+    }
+
+    header > .login {
+        flex-shrink: 1;
+    }
+
+    .panda-banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 70dvh;
+    }
+
+    .panda-banner > div > h2 > span
+    {
+        display: block;
+    }
+
+    .panda-banner.top-banner > div,
+    .panda-banner.bottom-banner > div {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin: 0;
+        position: absolute;
+    }
+
+    .panda-banner.top-banner > div {
+        top: 10dvh;
+    }
+
+    .panda-banner.bottom-banner > div {
+        top: 20dvh;
+    }
+
+    .panda-banner.top-banner > div > h2,
+    .panda-banner.bottom-banner > div > h2 {
+        font-size: 3.2rem;
+        line-height: 4.48rem;
+        padding-block-start: 1rem;
+        padding-inline: 0;
+        width: 23.6rem;
+    }
+
+    .panda-banner.top-banner > div > a {
+        font-size: 1.6rem;
+        font-weight: 600;
+        width: 15.4rem;
+        height: 4.8rem;
+        padding: 16px 20px;
+    }
+
+    .panda-banner.top-banner > span,
+    .panda-banner.bottom-banner > span {
+        width: 100%;
+        position: absolute;
+        padding: 0;
+        bottom: 0;
+        margin: 0;
+    }
+
+    .panda-banner.bottom-banner > span {
+        bottom: -0.1rem;
+    }
+
+    .panda-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-block: 4rem;
+        padding-inline: 2.4rem;
+    }
+
+    .panda-section.right-start {
+        flex-flow: column;
+    }
+
+    .panda-section > div {
+        column-gap: 1.2rem
+    }
+
+    .panda-section > div > h2 {
+        font-size: 1.8rem;
+        line-height: 2.52rem;
+        padding-block-start: 1.2rem;
+    }
+
+    .panda-section > div > h3 {
+        font-size: 2.3rem;
+        line-height: 3.36rem;
+    }
+
+    .panda-section > div > h3 > span
+    {
+        display: inline-block;
+    }
+
+    .panda-section > div > p {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 25.2px;
+        letter-spacing: 2px;
+        padding: 0;
+    }
+
+    footer {
+        width: inherit;
+        height: 16rem;
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer > .codeit-footer {
+        font-family: "Arial";
+    }
+
+    footer > .codeit-footer.codeit-copyright {
+        color: var(--panda-gray-color);
+        display: flex;
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 2;
+        justify-content: center;
+        padding-inline-end: 6rem;
+    }
+
+    footer > .codeit-footer.codeit-faqs {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+
+    footer > .codeit-footer.codeit-sns {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+    }
 }
