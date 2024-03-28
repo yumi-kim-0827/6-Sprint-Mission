@@ -5,7 +5,7 @@
 body {
   box-sizing: border-box;
 }
-.card {
+.section {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ body {
   align-items: center;
 }
 
-.card .loginBox {
+.section .loginBox {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -22,7 +22,7 @@ body {
   color: var(--fontColor);
   gap: 24px;
 }
-.card input {
+.section input {
   background: #f3f4f6;
 
   height: 56px;
@@ -30,11 +30,11 @@ body {
   border-radius: 12px;
   width: 640px;
 }
-.card input:focus {
+.section input:focus {
   background-color: #ffffff;
   border-color: var(--inputColor);
 }
-.card input::placeholder {
+.section input::placeholder {
   padding: 16px 24px;
 }
 .passwordLabel {
@@ -87,23 +87,22 @@ body {
 }
 
 @media (max-width: 769px) {
-  .card .homeBtn > img {
+  .section .homeBtn > img {
     width: 198px;
     height: 66px;
   }
-  .card input {
+  .section input {
     background: #f3f4f6;
-  
+
     height: 56px;
     border: none;
     border-radius: 12px;
     width: 343px;
   }
-.loginButton {
-  width: 343px;
-}
-.simpleLoginBox {
-  width: 344px;
-}
-
+  .loginButton {
+    width: 343px;
+  }
+  .simpleLoginBox {
+    width: 344px;
+  }
 }
