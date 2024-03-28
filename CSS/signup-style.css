@@ -8,10 +8,13 @@
   margin-top: 60px;
 }
 .signup {
-  margin-left: 640px;
-  margin-top: 30px;
+  margin-left: calc(50% - 640px / 2);
+  margin-top: 32px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.signup > p {
+.signup > label {
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
@@ -58,6 +61,7 @@
   text-align: center;
   color: #ffffff;
   text-decoration: none;
+  border: none;
 }
 
 .easy-login {

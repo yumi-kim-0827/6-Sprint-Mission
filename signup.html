@@ -18,22 +18,26 @@
     </a>
   </header>
   <body>
+      <div class="signup">
+        <label for="email">이메일</label>
+        <input
+          class="email"
+          type="email"
+          id="email"
+          placeholder="이메일을 입력해주세요"
+        />
+      </div>
     <div class="signup">
-      <p>이메일</p>
-      <input
-        class="email"
-        type="email"
-        id="email"
-        placeholder="이메일을 입력해주세요"
-      />
-      <p>닉네임</p>
+      <label for="nickname">닉네임</label>
       <input
         class="nickname"
         type="text"
         id="nickname"
         placeholder="닉네임을 입력해주세요"
       />
-      <p>비밀번호</p>
+      </div>
+      <div class="signup">
+      <label for="password">비밀번호</label>
       <div style="position: relative">
         <input
           class="password"
@@ -43,7 +47,9 @@
         />
         <img class="eyeoff" src="./images/eyeoff.svg" />
       </div>
-      <p>비밀번호 확인</p>
+      </div>
+      <div class="signup">
+      <label for="password">비밀번호 확인</label>
       <div style="position: relative">
         <input
           class="password"
@@ -53,6 +59,9 @@
         />
         <img class="eyeoff" src="./images/eyeoff.svg" />
       </div>
+      </div>
+    </div>
+    <div class="signup">
       <button type="submit" class="login-button" id="loginButton">
         회원가입
       </button>
