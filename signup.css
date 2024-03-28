@@ -90,3 +90,26 @@
   font-size: 15px;
   line-height: 17.9px;
 }
+  
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* 테블릿의 크기는 동일하므로 그대로 상속받게 처리 */
+  /* @media screen and (min-width: 768px) 로 기본 CSS를 감싸주려 했으나,
+  모바일 모드가 상속을 못 받으므로 이대로 처리 */
+}
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  body {
+    width: 100%;
+  }
+  
+  main {
+    width: 400px;
+  }
+
+  .main_container {
+    width: 400px;
+  }
+
+  .add_icon {
+    background-position: 360px center;
+  }
+}
