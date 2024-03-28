@@ -1,25 +1,14 @@
 /* Home Logo */
-.auth-container {
-  max-width: 640px;
-  margin: auto;
-}
-
 .logo-home-wrapper {
   display: flex;
   justify-content: center;
   margin: 60px auto 40px;
 }
 
-.img-auth-logo {
-  width: 396px;
-}
-
 /* Input */
 label {
   color: var(--gray-800);
   font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 16px;
 }
 
 input {
@@ -107,4 +96,43 @@ input:focus {
   color: #3182f6;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* Mobile */
+@media (min-width: 375px) {
+  /* Home Logo */
+  .auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .img-auth-logo {
+    width: 200px;
+  }
+
+  /* Input */
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+  /* Home Logo */
+  .auth-container {
+    max-width: 640px;
+    padding: 0;
+  }
+
+  .img-auth-logo {
+    width: 396px;
+  }
+
+  /* Input */
+  label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
 }
