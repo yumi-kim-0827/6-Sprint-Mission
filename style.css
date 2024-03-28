@@ -287,13 +287,11 @@ footer {
     section h1 {
         line-height: 44.8px;
         font-size: 32px;
-        letter-spacing: 0.02em;
     }
     
     section h2 {
         line-height: 21.6px;
         font-size: 18px;
-        letter-spacing: 0.08em;
     }
 
     .content {
@@ -314,9 +312,14 @@ footer {
     }
 
     .content img {
-        max-height: 524px;
         max-width: 696px;
+        max-height: 524px;
         align-self: center;
+    }
+
+    .section-text {
+        gap: 10px;
+        padding-bottom: 48px;
     }
 
     .bottom {
@@ -372,6 +375,40 @@ footer {
         height: 281px;
         top: 259px;
         left: calc(50% - 313.06px);
+    }
+
+    .main-middle {
+        max-width: 376px;
+        padding-top: 575px;
+    }
+
+    section p {
+        line-height: 22.4px;
+        font-size: 16px;
+    }
+
+    section h1 {
+        line-height: 33.6px;
+        font-size: 24px;
+    }
+    
+    section h2 {
+        line-height: 19.2px;
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 16px;
+        gap: 6px;
+    }
+
+    .content img {
+        max-width: 344px;
+        max-height: 259px;
+    }
+
+    .section-text {
+        gap: 8px;
     }
 
 }
