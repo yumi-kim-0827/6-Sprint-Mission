@@ -1,54 +1,107 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회원가입 ㅣ 판다마켓</title>
-  <link rel="icon" href="images/icons/ic_panda_face.svg">
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <div class="signin-container">
-    <header class="login-logo">
-      <a href="./index.html">
-        <img src="images/home-banner/logo.svg" alt="판다마켓" class="header-title">
-      </a>
-    </header>
-  
-    <form id="login-form">
-      <div>
-        <label for="user-email" class="label">이메일</label>
-        <input type="email" id="user-email" placeholder="이메일을 입력해주세요" class="input">
-      </div>  
-      <div>
-        <label for="user-name" class="label">닉네임</label>
-        <input type="text" id="user-name" placeholder="닉네임을 입력해주세요" class="input">
-      </div>     
-      <div>
-        <label for="user-pw" class="label">비밀번호</label>
-        <input type="password" placeholder="비밀번호를 입력해주세요" class="input">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 회원가입</title>
+    <link rel="icon" href="images/logo/favicon.ico" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/auth.css" />
+  </head>
+
+  <body>
+    <div class="auth-container">
+      <div class="logo-home-button-wrapper">
+        <a href="/"
+          ><img src="images/logo/logo.svg" alt="판다마켓 홈" width="396"
+        /></a>
       </div>
-      <div>
-        <label for="user-pw-check" class="label">비밀번호 확인</label>
-        <input type="password" id="user-pw-check" placeholder="비밀번호를 다시 한 번 입력해주세요" class="input">
-      </div>  
-      <button type="submit" class="signup-btn">회원가입</button>
-    </form>
-    <div class="sns-login-box signup">간편 로그인하기
-      <div class="icon-login">
-        <a href="https://www.google.com/">
-          <img src="images/icons/ic_google.svg" alt="login for google" >
-        </a>
-        <a href="https://www.kakaocorp.com/page">
-          <img src="images/icons/ic_kakaotalk.svg" alt="login for kakaotalk">
-        </a>
+
+      <form method="post">
+        <div class="input-item">
+          <label for="email">이메일</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="이메일을 입력해 주세요"
+          />
+        </div>
+        <div class="input-item">
+          <label for="nickname">닉네임</label>
+          <input
+            id="nickname"
+            name="nickname"
+            type="text"
+            placeholder="닉네임을 입력해 주세요"
+          />
+        </div>
+        <div class="input-item">
+          <label for="password">비밀번호</label>
+          <div class="input-wrapper">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호를 입력해 주세요"
+            />
+            <img
+              src="images/icons/eye-invisible.svg"
+              alt="비밀번호 숨김"
+              class="toggle-password"
+            />
+          </div>
+        </div>
+        <div class="input-item">
+          <label for="passwordConfirmation">비밀번호 확인</label>
+          <div class="input-wrapper">
+            <input
+              id="passwordConfirmation"
+              name="passwordConfirmation"
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해 주세요"
+            />
+            <img
+              src="images/icons/eye-invisible.svg"
+              alt="비밀번호 숨김"
+              class="toggle-password"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="button pill-button full-width">
+          회원가입
+        </button>
+      </form>
+
+      <div class="social-login-container">
+        <h3>간편 로그인하기</h3>
+        <div class="social-login-buttons-container">
+          <a href="https://www.google.com/" target="_blank"
+            ><img
+              src="images/social/google-logo.png"
+              alt="구글 로그인"
+              width="42"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img
+              src="images/social/kakao-logo.png"
+              alt="카카오톡 로그인"
+              width="42"
+          /></a>
+        </div>
+      </div>
+
+      <div class="auth-switch">
+        이미 회원이신가요? <a href="signin.html">로그인</a>
       </div>
     </div>
-    <div class="question-signup-box">
-        이미 회원이신가요?
-        <a href="./signin.html" class="signin">로그인</a>
-      </span>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
