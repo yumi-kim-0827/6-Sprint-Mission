@@ -12,10 +12,7 @@ body {
   gap: 24px;
   align-items: center;
 }
-.card > img {
-  width: 396px;
-  height: 132px;
-}
+
 .card .loginBox {
   display: flex;
   flex-direction: column;
@@ -44,11 +41,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .passwordLabel img {
   cursor: pointer;
   position: absolute;
-  right: 550px;
+  right: 30px;
 }
 .loginButton {
   cursor: pointer;
@@ -88,3 +86,24 @@ body {
   margin-top: 30px;
 }
 
+@media (max-width: 769px) {
+  .card .homeBtn > img {
+    width: 198px;
+    height: 66px;
+  }
+  .card input {
+    background: #f3f4f6;
+  
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    width: 343px;
+  }
+.loginButton {
+  width: 343px;
+}
+.simpleLoginBox {
+  width: 344px;
+}
+
+}
