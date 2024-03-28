@@ -45,8 +45,11 @@ nav .nav_logo {
   display: flex;
   align-items: center;
   flex: 1 1 auto;
-
-  
+  font-family: ROKAF;
+  font-weight: 700;
+  font-size: 25.63px;
+  line-height: 34.6px;
+  color: var(--common-color);
    /* border: 1px solid red; */
 }
 
@@ -56,14 +59,6 @@ nav div .mainlogo {
   margin: 15.02px 8.59px 14.85px 0px;
 }
 
-nav .nav_logo>a {
-  text-decoration: none;
-  color: var(--common-color);
-  font-family: ROKAF;
-  font-weight: 700;
-  font-size: 25.63px;
-  line-height: 34.6px;
-}
 
 
 .login_button {
