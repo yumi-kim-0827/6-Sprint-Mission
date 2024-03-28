@@ -8,12 +8,6 @@
   justify-content: center;
 }
 
-.banner-container,
-.promotion-container {
-  display: flex;
-  align-items: center;
-}
-
 .banner-container:hover {
   cursor: default;
 }
@@ -23,27 +17,14 @@
 }
 
 .banner-container h2 {
-  font-size: 40px;
+  text-align: center;
   font-weight: 700;
   line-height: 56px;
   color: #374151;
 }
 
-.banner-top-wrap img {
-  width: 996px;
-  height: 447px;
-}
-
-.banner-bottom-wrap img {
-  width: 996px;
-  height: 540px;
-}
-
 .btn-items {
-  font-size: 20px;
   font-weight: 600;
-  width: 355px;
-  height: 56px;
   border-radius: 40px;
 }
 
@@ -59,7 +40,6 @@
 }
 
 .promotion-container {
-  height: 720px;
   display: flex;
   align-items: center;
 }
@@ -68,22 +48,14 @@
   justify-content: right;
 }
 
-.promotion-container img {
-  width: 588px;
-  height: 444px;
-}
-
 .promotion-title span {
-  font-size: 18px;
   font-weight: 700;
   line-height: 26px;
   color: var(--blue-500);
 }
 
 .promotion-title h2 {
-  font-size: 40px;
   font-weight: 700;
-  line-height: 56px;
   color: var(--gray-600);
 }
 
@@ -96,6 +68,87 @@
 
 /* Mobile */
 @media (min-width: 375px) {
+  /* 상단&하단 배너 */
+  .banner-top-wrap {
+    height: 646px;
+  }
+  .banner-bottom-wrap {
+    height: 594px;
+  }
+
+  .banner-top-wrap br,
+  .banner-bottom-wrap br {
+    display: inline;
+  }
+
+  .banner-top-wrap img {
+    width: 626px;
+    height: 280px;
+  }
+
+  .banner-bottom-wrap img {
+    width: 540px;
+    height: 300px;
+  }
+
+  .banner-container {
+    flex-direction: column;
+  }
+
+  .banner-container h2 {
+    font-size: 32px;
+    margin: 130px auto 24px;
+  }
+
+  .banner-title {
+    margin-bottom: 52px;
+  }
+
+  .promotion-title h2 {
+    font-size: 24px;
+  }
+
+  .promotion-title h2 br {
+    display: none;
+  }
+
+  .btn-items {
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    width: 154px;
+    height: 48px;
+  }
+
+  /* 중간 프로모션 구간 */
+  .promotion-container {
+    height: 420px;
+    display: grid;
+    grid-template-areas:
+      'img'
+      'title';
+    margin: 24px auto 80px;
+  }
+
+  .promotion-title {
+    grid-area: title;
+    margin: 20px 16px;
+  }
+
+  .promotion-title span,
+  .promotion-title p {
+    font-size: 16px;
+  }
+
+  .promotion-container img {
+    grid-area: img;
+    width: 344px;
+    height: 260px;
+  }
+
+  .promotion-container:nth-child(even) .promotion-title {
+    text-align: right;
+  }
 }
 
 /* Tablet */
@@ -108,19 +161,23 @@
 
   .banner-top-wrap img {
     margin-top: 76px;
+    width: 996px;
+    height: 447px;
   }
 
   .banner-bottom-wrap img {
+    width: 996px;
+    height: 540px;
     margin-top: 40px;
   }
 
-  .banner-container {
-    flex-direction: column;
+  .banner-container h2 {
+    font-size: 40px;
+    margin: 180px auto 24px;
   }
 
-  .banner-container h2 {
-    text-align: center;
-    margin: 180px auto 24px;
+  .banner-title {
+    margin-bottom: 0;
   }
 
   .banner-container br,
@@ -128,26 +185,30 @@
     display: none;
   }
 
-  .btn-items {
-    display: block;
-    margin: 0 auto;
+  .promotion-title h2 {
+    font-size: 32px;
+    line-height: 26px;
   }
 
+  .promotion-title span,
+  .promotion-title p {
+    font-size: 18px;
+  }
+
+  .btn-items {
+    font-size: 20px;
+    width: 355px;
+    height: 56px;
+  }
+
+  /* 중간 프로모션 구간 */
   .promotion-container {
-    display: grid;
-    grid-template-areas:
-      'img'
-      'title';
+    height: 720px;
     gap: 20px;
     margin: 24px auto 80px;
   }
 
-  .promotion-title {
-    grid-area: title;
-  }
-
   .promotion-container img {
-    grid-area: img;
     width: 696px;
     height: 524px;
   }
@@ -189,7 +250,17 @@
     display: inline;
   }
 
+  .promotion-title h2 {
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  /* 중간 프로모션 구간 */
   .promotion-container {
     gap: 60px;
+  }
+
+  .promotion-title p {
+    font-size: 24px;
   }
 }
