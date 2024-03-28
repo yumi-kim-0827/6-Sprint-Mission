@@ -1,4 +1,4 @@
-export let flag = false;
+let flag = false;
 export function toggleSwitch() {
   const eyeIcon = document.getElementById("eyeIcon");
   const passwordLabel = document.getElementsByClassName("passwordBar");
