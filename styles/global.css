@@ -133,3 +133,18 @@ button {
 .full-width {
   width: 100%;
 }
+
+@media(min-width: 768px) {
+  header,
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  footer {
+    padding: 32px 100px 104px 104px;
+  }
+
+  #copyright {
+    flex-basis: auto;
+  }
+}
