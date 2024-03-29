@@ -1,6 +1,57 @@
+@media (width <= 1200px) {
+  .content {
+    &-card {
+      height: auto;
+      &__description {
+        margin: 0;
+      }
+      &__content img {
+        width: 94%;
+        margin: 3%;
+      }
+      &--margin-top-138px{
+        margin-top:8rem;
+      }
+    }
+    &-figure__image {
+      background-position: center bottom;
+    }
+    &-card__content {
+      &--grid {
+        display: grid;
+        grid-template: 1fr 0.2fr / 1fr;
+        grid-template-areas:
+          "image"
+          "description";
+      }
+    }
+  }
+  .description-head--white-spacing {
+    white-space: unset;
+    width: auto;
+  }
+  .description-footer {
+    &__description {
+      margin-top: 20rem;
+      text-align: center;
+    }
+  }
+  .description-header {
+    &__description {
+    width: auto;
+      margin-top: 10rem;
+      text-align: center;
+    }
+  }
+  .footer {
+  padding-inline: 16rem;
+  height: 20rem;
+  font-size: 2rem;
+  padding-top: 4rem;
+}
 @media (768px <= width <= 1200px) {
   html {
-    font-size: 8px;
+    font-size: 9px;
   }
   .header-main__content {
     margin-inline: 24px;
@@ -11,9 +62,6 @@
     }
   }
   .content {
-    &-figure__image {
-      background-position: center bottom;
-    }
     &-description {
       align-items: center;
       &--nextline {
@@ -21,21 +69,20 @@
       }
     }
     &-card {
-      &__content img {
-        width: 100%;
-      }
       &__content {
-        width: auto;
+        width: 100%;
       }
       &--flex-center {
         align-items: flex-start;
-        padding-top: 84px;
       }
       &--first {
         height: 771px;
       }
       &--last {
-        height: px;
+        height: 927px;
+      }
+      &__description {
+        margin-inline: 3rem;
       }
     }
   }
@@ -57,16 +104,12 @@
   }
   .content {
     &-figure__image {
-      background-position: center bottom;
       background-size: 660px;
     }
     &-description {
       align-items: center;
     }
     &-card {
-      &__content {
-        width: auto;
-      }
       &--flex-center {
         align-items: flex-start;
         padding-top: 48px;
@@ -77,11 +120,9 @@
       &--last {
         height: 540px;
       }
-    }
-  }
-  .footer {
-    padding-inline: 32px;
-    &__content {
+      &__description {
+        margin-inline: 3rem;
+      }
     }
   }
 }

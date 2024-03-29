@@ -5,6 +5,7 @@ html {
   font-size: 4rem;
   font-weight: 700;
   line-height: 5.6rem;
+  margin-bottom: 1.2rem;
   &--text-align-left {
     text-align: left;
   }
@@ -13,6 +14,11 @@ html {
   }
   &--color-374151 {
     color: #374151;
+  }
+  &--white-spacing {
+    white-space: initial;
+    word-break: keep-all;
+    width: 34rem;
   }
 }
 .description-detail {
@@ -27,10 +33,16 @@ html {
   &--text-align-right {
     text-align: right;
   }
+  &--white-spacing {
+    white-space: initial;
+    word-break: keep-all;
+    width: 38rem;
+  }
 }
 .description-tip {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
+  margin-bottom: 2.2rem;
   &--line-height-21-48px {
     line-height: 2.148rem;
   }
@@ -47,6 +59,14 @@ html {
     color: #3692ff;
   }
 }
+
+.description-header{
+  &__description {
+    width: 40rem;
+    word-break: keep-all;
+  }
+}
+
 .description-footer {
   font-size: 1.6rem;
   font-weight: 400;
@@ -54,6 +74,10 @@ html {
   text-align: center;
   &--color-e5e7eb {
     color: #e5e7eb;
+  }
+  &__description {
+    width: 36rem;
+    word-break: keep-all;
   }
   &--color-9ca3af {
     color: #9ca3af;

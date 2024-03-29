@@ -2,15 +2,28 @@
   height: 540px;
   width: 100%;
   &__content {
-    width: 1200px;
-    display: flex;
+    width: 120rem;
+    &--grid {
+      display: grid;
+      grid-template: 1fr / 60rem 60rem;
+      grid-template-areas: "image description";
+      > img {
+        grid-area: image;
+      }
+      > .content-card__description {
+        grid-area: description;
+      }
+    }
   }
-  &__content img{
-    width:50%;
+  &--reverse {
+    grid-template-areas: "description image";
   }
   &__description {
     @include flex-direction-center(column);
     margin: auto;
+    &--reverse{
+      align-items: flex-end;
+    }
   }
   &--flex-center {
     @include flex-center;
@@ -54,9 +67,9 @@
     position: relative;
     z-index: 2;
   }
-  &--nextline{
-    white-space:initial;
-    width:36rem;
+  &--nextline {
+    white-space: initial;
+    width: 36rem;
   }
 }
 
