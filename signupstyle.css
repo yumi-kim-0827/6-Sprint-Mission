@@ -34,11 +34,12 @@ header {
 }
 
 main {
-  width: 640px;
-  height: 600px;
-  margin: 0 auto;
-  /* border: 1px solid red; */
   position: relative;
+  top: 40px;
+  width: 640px;
+  height: 664px;
+  margin: 0 auto;
+  border: 1px solid rgb(0, 4, 255);
 }
 
 .main_logo {
@@ -64,23 +65,32 @@ main {
 
 .login_form {
   width: 640px;
-  height: 290px;
-  position: absolute;
-  top: 40px;
-  
+  height: 524px;
+  /* position: relative; */
+  border: 1px solid red;
 }
 
-
 .email_label {
-  /* border: 3px solid green; */
   display: inline;
   width: 47px;
   height: 21px;
   font-family: 'Pretendard-Regular';
   font-weight: 700;
   font-size: 18px;
-  color: var(--font-color);
+  color: var(--font-color);margin-top: 40px;
 }
+
+.username_label {
+  display: block;
+  width: 47px;
+  height: 21px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--font-color);
+  margin-top: 40px;
+}
+
 
 .login_input {
  display: block;
@@ -101,7 +111,6 @@ main {
 }
 
 
-
 .email_input::placeholder {
   width: 143px;
   height: 24px;
@@ -110,6 +119,12 @@ main {
 
 .password_input::placeholder {
   width: 592px;
+  height: 24px;
+  padding: 16px 24px;
+}
+
+.username_input::placeholder {
+  width: 143px;
   height: 24px;
   padding: 16px 24px;
 }
@@ -139,7 +154,7 @@ input:focus {
   color: var(--font-color);
 }
 
-.login_button {
+.signup_button {
   margin-top: 24px;
   width: 640px;
   height: 56px;
@@ -152,7 +167,7 @@ input:focus {
 }
 
 
-.login_button>a {
+.signup_button>a {
   position: absolute;
   top: 0;
   left: 0;
@@ -169,10 +184,9 @@ input:focus {
   height: 100%;
 }
 
-
 .easy_login_box {
-  /* border: 1px solid blue; */
-  /* margin-top: 24px; */
+  
+  margin-top: 24px;
   width: 640px;
   height: 74px;
   border-radius: 8px;
@@ -180,8 +194,7 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 360px;
+  position: relative;
 }
 
 .easy_login {
@@ -213,8 +226,7 @@ input:focus {
   display: flex;
   margin: 0 auto;
   gap: 4px;
-  position: relative;
-  top : 450px;
+  
 }
 
 .sign_up_box>p {
