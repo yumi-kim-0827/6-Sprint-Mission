@@ -196,7 +196,7 @@ footer a {
     }
 
     label {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 
     input {
@@ -204,12 +204,12 @@ footer a {
     }
 
     button {
-        font-size: 16px;
+        font-size: 1.6rem;
         width: 100%;
     }
 
     .password_eye_wrap,
     .pw_check_eye_wrap {
-        top: 40px;
+        top: 4rem;
     }
 }

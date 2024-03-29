@@ -392,28 +392,28 @@ footer img {
 
 @media (max-width: 767px) {
     .logo img {
-        width: 103px;
+        width: 10.3rem;
     }
 
     .main_banner_container,
     .bottom_banner_container {
-        height: 540px;
+        height: 54rem;
         position: relative;
     }
 
     .main_banner_text {
         position: absolute;
-        top: 48px;
+        top: 4.8rem;
     }
 
     .main_banner_text .title {
-        font-size: 32px;
-        width: 240px;
-        line-height: 44.8px;
+        font-size: 3.2rem;
+        width: 24rem;
+        line-height: 4.48rem;
     }
     .main_banner_btn {
-        width: 154px;
-        font-size: 16px;
+        width: 15.4rem;
+        font-size: 1.6rem;
     }
 
     .main_banner_img,
@@ -432,8 +432,8 @@ footer img {
     /* main_info */
     .main_info .img_wrap,
     .main_info_second .img_wrap {
-        width: 344px;
-        height: 259px;
+        width: 34.4rem;
+        height: 25.9rem;
         margin: 0 auto;
     }
 
@@ -442,27 +442,27 @@ footer img {
     }
 
     .text_wrap .blue-title {
-        font-size: 16px;
-        line-height: 22.4px;
+        font-size: 1.6rem;
+        line-height: 2.24rem;
     }
 
     .text_wrap .title {
-        font-size: 24px;
-        line-height: 33.6px;
+        font-size: 2.4rem;
+        line-height: 3.36rem;
     }
 
     .text_wrap .description {
-        font-size: 16px;
-        line-height: 19.2px;
-        width: 202px;
+        font-size: 1.6rem;
+        line-height: 1.92rem;
+        width: 20.2rem;
     }
 
     .main_info .description {
-        width: 210px;
+        width: 21rem;
     }
 
     .main_info .text_wrap .description:last-child {
-        width: 260px;
+        width: 26rem;
     }
 
     /* bottom-banner */
@@ -472,9 +472,9 @@ footer img {
 
     .bottom_banner_text .title {
         position: absolute;
-        top: 121px;
-        font-size: 32px;
-        line-height: 44.8px;
+        top: 12.1rem;
+        font-size: 3.2rem;
+        line-height: 4.48rem;
     }
 
     footer {

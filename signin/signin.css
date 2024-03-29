@@ -85,11 +85,11 @@ button:hover {
 /* Password Toggle Btn */
 .password_eye_wrap {
     display: inline;
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
     position: absolute;
-    top: 45px;
-    right: 20px;
+    top: 4.5rem;
+    right: 2rem;
 }
 
 .password_eye_wrap input[type='checkbox'] {
@@ -105,8 +105,8 @@ button:hover {
     background-size: cover;
     position: absolute;
     content: '';
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
 .password_eye_wrap::before {
@@ -114,8 +114,8 @@ button:hover {
     background-size: cover;
     position: absolute;
     content: '';
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
 .password_eye_wrap input[type='checkbox']:checked + label::after {
@@ -186,7 +186,7 @@ footer a {
     }
 
     label {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 
     input {
@@ -194,12 +194,12 @@ footer a {
     }
 
     button {
-        font-size: 16px;
+        font-size: 1.6rem;
         width: 100%;
     }
 
     .password_eye_wrap,
     .pw_check_eye_wrap {
-        top: 40px;
+        top: 4rem;
     }
 }
