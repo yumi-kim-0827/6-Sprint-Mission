@@ -18,6 +18,10 @@ body {
   text-align: center;
 }
 
+img {
+  vertical-align: bottom;
+}
+
 .input {
   font-family: 'Pretendard-Regular';
   font-size: 16px;
@@ -45,6 +49,11 @@ body {
   font-weight: 600;
   text-align: center;
   text-decoration: none;
+}
+
+.membership {
+  display: flex;
+  gap: 16px;
 }
 
 .login-btn {
@@ -76,12 +85,14 @@ body {
 
 .input-name {
   color: #1F2937;
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: 700;
   display: flex;
 }
 
 .simple {
+  font-size: 16px;
+  font-weight: 500;
   color: #000;
   width: 640px;
   height: 74px;
@@ -91,12 +102,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 23px;
-}
-
-.login {
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
 }
 
 .style {
