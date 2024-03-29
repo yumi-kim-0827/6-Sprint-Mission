@@ -104,21 +104,6 @@ section {
   padding-block: 8.75rem;
 }
 
-section:nth-child(even) {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 5rem;
-  padding-block: 8.75rem;
-  > div {
-    order: -1;
-  }
-}
-
-.section-image {
-  max-width: 45%;
-}
-
 .seciton-content {
   display: flex;
   flex-direction: column;
@@ -183,6 +168,15 @@ footer {
   gap: 0.75rem;
 }
 
+/* 데스크탑 사이즈 */
+@media (min-width: 1120px) {
+  section:nth-child(even) {
+    > div {
+      order: -1;
+    }
+  }
+}
+
 /* 테블릿 사이즈 */
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -209,6 +203,39 @@ footer {
 
   .banner-image {
     height: 27.9375rem;
+  }
+
+  /* 메인 */
+  section {
+    flex-direction: column;
+    padding-inline: 1.5rem;
+    padding-block: 2rem;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  section:nth-child(even) > div {
+    order: 1;
+  }
+
+  .section-image {
+    width: 100%;
+  }
+
+  .seciton-content {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin: 0;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    line-height: 1.35rem;
   }
 }
 
