@@ -1,8 +1,6 @@
 .banner {
   background-color: #cfe5ff;
   height: 540px;
-  display: flex;
-  align-items: center;
   background-repeat: no-repeat;
   background-position: 80% bottom;
   background-size: 55%;
@@ -13,7 +11,7 @@
 }
 
 #features {
-  padding-bottom: 138px;
+  padding-top: 50px;
 }
 
 #bottomBanner {
@@ -33,9 +31,11 @@
 
 .feature {
   padding: 138px 0;
-  display: flex;
-  align-items: center;
-  gap: 5%;
+}
+
+.feature img {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .feature:nth-child(2) {
@@ -46,12 +46,18 @@
   flex: 1;
 }
 
-.feature-tag {
-  color: var(--blue);
-  font-size: 18px;
-  line-height: 25px;
+.feature-content h1 {
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 12px;
+  line-height: 33.6px;
+}
+
+.feature-content h2 {
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .feature-description {
@@ -113,8 +119,11 @@
   }
 
   .banner h1 {
-    padding-top: 0;
-    padding-bottom: 32px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44.8px;
+    padding-top: 40px;
+    padding-bottom: px;
   }
 
   #hero h1 br {
