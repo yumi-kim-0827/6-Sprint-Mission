@@ -199,6 +199,7 @@ body {
   background-color: var(--easy-login-blue);
   border-radius: 8px;
 }
+
 .easylogin-content p {
   font-family: var(--pretendard);
   font-size: 16px;
@@ -252,4 +253,76 @@ body {
 .goto-signin-title .goto-signin {
   color: var(--brand-blue);
   text-decoration: underline;
+}
+
+
+@media (max-width: 767px){
+
+  .signup-container {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 24px 16px 0;
+  }
+
+  /* Signup Title */
+  .signup-title {
+    width: 100%;
+    max-width: 400px;
+    height: 66px;
+
+    justify-content: center;
+
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .signup-title .title-logo {
+    width: 51.76px;
+    height: 51.94px;
+
+    border-radius: 14.47px;
+  }
+
+  .title-logo img {
+    width: 34.91px;
+    height: 31.65px;
+  }
+
+  .signup-title h1 {
+    font-size: 33.17px;
+    line-height: 44.78px;
+  }
+
+  /* From */
+  .form-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-content .input-items {
+    height: 81px;
+  
+    gap: 8px;
+  }
+
+  .input-items label {
+    font-size: 14px;
+    line-height: 16.71px;
+  } 
+
+  .form-content .input-items:nth-child(3) button {
+    display: none;
+  }
+
+  .signup-btn {
+    width: 100%;
+  }
+
+  /* Easy Login */
+  .easylogin-content {
+    width: 100%;
+    height: 74px;
+  }
+
 }
