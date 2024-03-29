@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'ROKAF';
+  src: url('ROKAF\ Sans\ Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+:root {
+  --common-color : #3692FF;
+  --visual-color : #CFE5FF;
+  --font-color : #1F2937;
+  --input-color : #F3F4F6;
+  --placeholder-color : #9CA3AF;
+}
+
+
+header {
+  width: 396px;
+  height: 132px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.main_logo {
+  width: 103.53px;
+  height: 103.88px;
+  margin-right: 22.24px;
+}
+
+.main_title {
+  width: 266px;
+  height: 90px;
+}
+
+.main_title > a {
+  font-family: 'ROKAF';
+  font-size: 66.34px;
+  font-weight: 700;
+  line-height: 89.56px;
+  text-decoration: none;
+  color: var(--common-color);
+}
+
+
+.login_form {
+  width: 640px;
+  height: 430px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.email_label {
+  display: block;
+  width: 47px;
+  height: 21px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--font-color);
+  margin-top: 40px;
+}
+
+.login_input {
+ display: block;
+ margin-top: 16px;
+ width: 640px;
+ height: 56px;
+ background-color: var(--input-color);
+ border: none;
+ border-radius: 12px;
+ gap: 10px;
+}
+
+.password_input {
+  background-image: url(password_eye.png);
+  background-position: 592px center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
+
+
+
+.email_input::placeholder {
+  width: 143px;
+  height: 24px;
+  padding: 16px 24px;
+}
+
+.password_input::placeholder {
+  width: 592px;
+  height: 24px;
+  padding: 16px 24px;
+}
+
+.login_input::placeholder {
+  font-family: 'Pretendard-Regular';
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--placeholder-color);
+  /* border: 1px solid red; */
+}
+
+input:focus {
+  outline: none;
+  border: 3px solid #3692FF;
+}
+
+
+
+.password_label {
+  margin-top: 24px;
+  display: block;
+  width: 63px;
+  height: 21px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--font-color);
+}
