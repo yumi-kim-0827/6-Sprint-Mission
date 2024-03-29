@@ -206,6 +206,10 @@ footer {
     text-align: center;
     width: 33rem;
   }
+
+  .banner-image {
+    height: 27.9375rem;
+  }
 }
 
 /* 모바일 사이즈 */
@@ -237,6 +241,10 @@ footer {
 
   .large-button {
     width: 9.625rem;
+  }
+
+  .banner-image {
+    height: 17.5625rem;
   }
 
   /* 푸터 */
