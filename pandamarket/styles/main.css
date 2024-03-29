@@ -33,6 +33,13 @@ footer {
   width: 100%;
 }
 
+  #logo {
+    width: 153px;
+    height: 51px;
+    background-image: url("../images/login_logo.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
 
 .main-container {
   display: grid;
@@ -195,6 +202,11 @@ footer {
   text-decoration: none;
 }
 
+.sns-container {
+  display: flex;
+  gap: 13px;
+}
+
 /* Tablet */
 @media (max-width: 1199px) {
   header {
@@ -277,6 +289,13 @@ footer {
 
 /* mobile */
 @media (max-width: 767px) {
+  #logo {
+    width: 103px;
+    height: 51px;
+    background-image: url("../images/logo-mobile.png");
+    background-repeat: no-repeat;
+  }
+
   header {
     padding: 1.5px 16px;
   }
@@ -284,6 +303,10 @@ footer {
   .bottomBanner,
   .topBanner {
     height: 540px;
+  }
+
+  .bottomBanner {
+    background-size: 100%;
   }
 
   .topBanner-content {
@@ -322,9 +345,14 @@ footer {
     font-size: 16px;
   }
 
+  .footer-codeit {
+    width: 100%;
+  }
 
   .footer-container {
     padding: 32px;
+    row-gap: 60px;
+    gap: 30px;
+    flex-wrap: wrap-reverse;
   }
-
 }
