@@ -104,6 +104,12 @@ section {
   padding-block: 8.75rem;
 }
 
+section:nth-child(even) {
+  > div {
+    order: -1;
+  }
+}
+
 .seciton-content {
   display: flex;
   flex-direction: column;
@@ -169,13 +175,13 @@ footer {
 }
 
 /* 데스크탑 사이즈 */
-@media (min-width: 1120px) {
+/* @media (min-width: 1120px) {
   section:nth-child(even) {
     > div {
       order: -1;
     }
   }
-}
+} */
 
 /* 테블릿 사이즈 */
 
@@ -214,8 +220,12 @@ footer {
     gap: 1.25rem;
   }
 
-  section:nth-child(even) > div {
-    order: 1;
+  section:nth-child(even) {
+    .seciton-content {
+      order: 0;
+      align-items: flex-end;
+      text-align: end;
+    }
   }
 
   .section-image {
@@ -231,6 +241,9 @@ footer {
     font-size: 2rem;
     line-height: 2.8rem;
     margin: 0;
+    > br {
+      display: none;
+    }
   }
 
   .section-description {
