@@ -98,7 +98,7 @@ main {
   width: 100%;
 }
 
-.banner_top .title{
+.banner_top .title {
   font-family: pretendard;
   font-weight: 700;
   font-size: 40px;
@@ -205,6 +205,10 @@ a {
 }
 
 @media (max-width: 1199px) {
+  header {
+    padding: 0 24px;
+  }
+
   .section1,
   .section2,
   .section3 {
@@ -214,5 +218,15 @@ a {
     align-items: ;
     gap: 64px;
     height: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 0 16px;
+  }
+
+  header a img {
+    content: url('../images/logo_home_word.svg');
   }
 }
