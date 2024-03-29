@@ -12,7 +12,7 @@ main {
 }
 
 
-.logo-image {
+.logo__image {
   width: 396px;
   height: 132px;
   display: inline-block;
@@ -31,7 +31,7 @@ form label {
   line-height: 21.48px;
 }
 
-.input {
+.form__input {
   /* display: block; */
   /* height: 56px;필요없었음 */
   border-radius: 12px;
@@ -46,35 +46,35 @@ form label {
   width: 100%;
 }
 
-.input:focus {
+.form__input:focus {
   /* border-color: var(--blue); border로 안되고 outline으로 됨
   border: 1px solid var(--blue); */ /*border는 테두리가 바깥쪽에 생기고 outline은 안쪽에 생김*/
   /* outline-color: var(--blue);  */
   outline: 2.5px solid var(--blue);
 }
 
-.password-container {
+.form__passwordContainer {
   position: relative;
 }
 
-.invisible-button {
+.form__invisibleButton {
   position: absolute;
   top: 16px;
   right: 24px;
   cursor: pointer;
 }
 
-.invisible-button img {
+.form__invisibleButton img {
   width: 24px;
   height: 24px;
 }
 
-.input::placeholder {
+.form__input::placeholder {
   color: var(--gray400);
   /* line-height: 24px; */
 }
 
-.button {
+.form__button {
   /* height: 56px; *//*필요없었음*/
   border: none;
   border-radius: 40px;
@@ -88,7 +88,7 @@ form label {
   cursor: pointer;
 }
 
-.simple-login {
+.simpleLogin {
   background-color: #e6f2ff;
   display: flex;
   justify-content: space-between;
@@ -99,25 +99,25 @@ form label {
   border-radius: 8px;
 }
 
-.text {
+.simpleLogin__text {
   font-weight: 500;
   font-size: 16px;
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.icon-sns {
+.simpleLogin__snsIcons {
   display: flex;
   align-items: center;
   gap: 16px;
   /* line-height: 0; */
 }
 
-.img-icn {
+.simpleLogin__item {
   width: 42px;
   height: 42px;
 }
 
-.ask-whether-user {
+.askWhetherUser {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
@@ -127,16 +127,16 @@ form label {
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.user-link {
+.askWhetherUser__link {
   color: #3182f6;
 }
 
 @media (max-width: 1199px) {
-  .logo-image { margin-top: 48px; }
+  .logo__image { margin-top: 48px; }
 }
 
 @media (max-width: 767px) {
-  .logo-image {
+  .logo__image {
     margin-top: 24px;
     width: 198px;
     height: 66px;
