@@ -216,6 +216,29 @@ footer {
     padding-inline: 1rem;
   }
 
+  /* 배너 */
+  .banner-container {
+    height: 33.75rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-content {
+    gap: 1.125rem;
+  }
+
+  .banner-title {
+    text-align: center;
+    width: 15rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin-bottom: 0;
+  }
+
+  .large-button {
+    width: 9.625rem;
+  }
+
   /* 푸터 */
   footer {
     position: relative;
