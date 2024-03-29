@@ -7,33 +7,47 @@ a {
   cursor: pointer;
 }
 
-header {
+.header {
   background-color: var(--white);
   border-bottom: 1px solid #dfdfdf;
   height: 70px;
 
   position: sticky;
   top: 0;
+  display: flex;
+  align-items: center;
 }
 
-.logo-login {
+.header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 9.5px 200px;
+  flex-grow: 1;
 }
 
-.logo, .logo-image {
+.logo {
   width: 153px;
   height: 51px;
+}
+
+.logo__link, .logo__image {
+  width: 100%;
+  height: 100%;
   display: inline-block;
 }
 
 .login {
-  background-color: var(--blue);
   width: 128px;
   height: 48px;
+  flex-shrink: 0;
+}
+
+.login__link {
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
+  background-color: var(--blue);
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
@@ -42,22 +56,21 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
 }
 
-.login:hover, .visit-button:hover {
+.login__link:hover, .section__visitLinkButton:hover {
   background-color: #1251AA;
 }
 
-#main-top {
+.section__topBackground {
   background-image: url(../assets/images/home_top.png);
 }
 
-#main-bottom {
+.section__bottomBackground {
   background-image: url(../assets/images/home_bottom.png);
 }
 
-.main-section {
+.section {
   height: 540px;
   background-color: #CFE5FF;
   background-repeat: no-repeat;
@@ -68,14 +81,22 @@ header {
   align-items: center;
 }
 
-.main-content {
+.section__content {
   max-width: 1200px;
   min-width: 375px;
   width: 100%;
   margin: 0 auto;
 }
 
-.visit-button {
+.section__description {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  word-break: keep-all; /*글자가 단어단위로 잘림*/
+  margin-bottom: 32px;
+}
+
+.section__visitLinkButton {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
@@ -90,15 +111,11 @@ header {
   color: var(--white);
 }
 
-.description {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  word-break: keep-all; /*글자가 단어단위로 잘림*/
-  margin-bottom: 32px;
+.figure {
+  background-color: var(--white);
 }
 
-.figure {
+.figure__container {
   max-width: 1200px;
   height: 720px;
   display: flex;
@@ -107,19 +124,19 @@ header {
   margin: 0 auto;
 }
 
-.figure-right {
+.figure--right {
   justify-content: flex-end;
 }
 
-.box-right {
-  text-align: right;
-}
-
-.home-img {
+.figure__homeImg {
   width: 50%;
 }
 
-.small-sticker {
+.figure__alignHelperBox--right {
+  text-align: right;
+}
+
+.figure__label {
 
   font-size: 18px;
   font-weight: 700;
@@ -128,7 +145,7 @@ header {
   color: var(--blue);
 }
 
-.main-introductions {
+.figure__phrase {
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
@@ -138,7 +155,7 @@ header {
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.main-descriptions {
+.figure__description {
   font-size: 24px;
   font-weight: 500;
   line-height: 29px;
@@ -148,11 +165,11 @@ header {
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-footer {
+.footer {
   background-color: var(--gray900);
 }
 
-.footer-container {
+.footer__container {
   margin: 0 auto;
   padding: 32px 200px 108px;
   display: flex;
@@ -163,103 +180,103 @@ footer {
   letter-spacing: 0em;
 }
 
-.footer-info {
+.footer__info {
   color: var(--gray400);
   flex-shrink: 0;
 }
 
-.footer-buttons {
+.footer__links {
   display: flex;
   gap: 30px;
 }
 
-.footer-button {
+.footer__link {
   color: var(--gray200);
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.footer-links {
+.footer__sns {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 @media (max-width: 1199px) {
-  .logo-login {
+  .header__inner {
     padding-left: 24px;
     padding-right: 24px;
   }
-  .main-section {
+  .section {
     background-size: 130%;
     background-position: center bottom;
     align-items: flex-start;
     height: 800px;
   }
-  #main-bottom {
+  .section__bottomBackground {
     height: 960px;
     margin-top: 16px;
   }
-  .main-content {
+  .section__content {
     text-align: center;
     margin-top: 84px;
   }
-  .description {
+  .section__description {
     margin-bottom: 24px;
   }
-  .head > br, .main-introductions > br { display: none; }
-  .figure {
+  .section__description--brNone > br, .figure__phrase > br { display: none; }
+  .figure__container {
     flex-direction: column;
     padding: 24px 24px 40px;
     height: auto;
     align-items: flex-start;
     gap: 20px;
   }
-  .figure-right {
+  .figure--right {
     flex-direction: column-reverse;
     align-items: flex-end;
   }
-  .home-img {
+  .figure__homeImg {
     width: 100%;
   }
-  .main-introductions {
+  .figure__phrase {
     font-size: 32px;
     line-height: 44.8px;
     margin-bottom: 20px;
   }
-  .footer-container {
+  .footer__container {
     padding-left: 104px;
     padding-right: 104px;
   }
 }
 
 @media (max-width: 767px) {
-  .logo-login {
+  .header__inner {
     padding-left: 16px;
     padding-right: 16px;
   }
-  .main-section, #main-bottom { height: 620px; }
-  #main-bottom { margin-top: 0; }
-  .main-content {
+  .section, .section__bottomBackground { height: 620px; }
+  .section__bottomBackground { margin-top: 0; }
+  .section__content {
     text-align: center;
     margin-top: 60px;
   }
-  .description {
+  .section__description {
     font-size: 32px;
     line-height: 44.8px;
     margin-bottom: 18px;
   }
-  .description > br {display: inline;}
-  .visit-button {
+  .section__description > br {display: inline;}
+  .section__visitLinkButton {
     font-size: 16px;
     font-weight: 600;
     line-height: 19.09px;
     padding: 14.5px 33.5px;
   }
-  .figure {
+  .figure__container {
     padding: 40px 24px 24px;
   }
-  .footer-container {
+  .footer__container {
     padding: 32px;
     gap: 30px;
     flex-wrap: wrap;
@@ -267,7 +284,7 @@ footer {
 }
 
 @media (max-width: 509px) and (min-width:375px) {
-  .footer-info {
+  .footer__info {
     order: 1;
   }
 }
