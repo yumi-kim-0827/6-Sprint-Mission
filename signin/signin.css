@@ -168,32 +168,6 @@ footer a {
     text-underline-offset: 2px;
 }
 
-@media (max-width: 1199px) {
-    .container {
-        max-width: 500px;
-        padding: 16px;
-        margin: 0 auto;
-    }
-
-    header {
-        margin: 0 auto;
-        max-width: 396px;
-    }
-
-    form {
-        gap: 16px;
-    }
-
-    input {
-        width: 100%;
-    }
-
-    button {
-        width: 100%;
-        font-size: 16px;
-    }
-}
-
 @media (max-width: 767px) {
     .container {
         max-width: 400px;
@@ -215,8 +189,13 @@ footer a {
         font-size: 14px;
     }
 
+    input {
+        width: 100%;
+    }
+
     button {
         font-size: 16px;
+        width: 100%;
     }
 
     .password_eye_wrap,
