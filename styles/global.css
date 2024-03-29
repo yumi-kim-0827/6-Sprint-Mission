@@ -128,3 +128,16 @@ button {
   }
 }
 
+@media (min-width: 1200px) {
+  header {
+    padding: 0 200px;
+  }
+
+  .feature-line-break {
+    display: inline;
+  }
+
+  footer {
+    padding: 32px 200px;
+  }
+}
