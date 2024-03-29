@@ -227,11 +227,11 @@ a {
 
   .contents {
     padding: 24px;
+    width: 100%;
   }
 
   .contents img {
     width: 100%;
-    height: 100%;
   }
 
   .section1,
@@ -243,6 +243,8 @@ a {
     align-items: flex-start;
     gap: 64px;
     margin-bottom: 64px;
+    width: 100%;
+    height: 100%;
   }
 
   .section2 {
@@ -255,6 +257,15 @@ a {
   }
   .section2 img {
     order: 1;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .paragraph {
+    font-size: 18px;
+    line-height: 21.6px;
   }
 }
 
@@ -293,6 +304,19 @@ a {
     padding: 14.5px 33.5px;
   }
 
+  .title_tag {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 33.6px;
+  }
+  .paragraph {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
   footer {
     padding: 32px;
   }
@@ -306,7 +330,7 @@ a {
     top: 0;
     margin: 0;
   }
-  
+
   .footer_nav_left {
     position: absolute;
     bottom: 0;
