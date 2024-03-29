@@ -111,18 +111,36 @@ input:focus {
 .Oauth_img {
   display: flex;
   gap: 30px;
+  width: ;
 }
 
+.OAuth > div {
+  white-space:nowrap;
+}
+
+/*mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .login-container {
     padding: 0 16px;
     margin: 24px auto;
+    width: auto;
+  }
+
+  .Oauth_img {
+    gap: 16px;
+  }
+
+  .logo a img {
+    width: 198px;
+    height: 66px;
   }
 }
 
+/* tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .login-container {
     padding: 0 53px;
     margin: 48px auto;
   }
+
 }
