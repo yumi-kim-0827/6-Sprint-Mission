@@ -150,4 +150,17 @@ input::placeholder {
     max-width: 25rem;
     width: calc(100vw - 1rem);
   }
+
+  .form-container {
+    gap: 1rem;
+  }
+
+  .input-container {
+    gap: 0.5rem;
+  }
+
+  .input-container > label {
+    font-size: 0.875rem;
+    line-height: 1.0444rem;
+  }
 }
