@@ -5,20 +5,20 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
+    <link rel="icon" href="..\assets\panda-market-icon.png" />
   </head>
   <body>
     <nav>
-      <img class="logoImg" src="logo.png" />
+      <a href="../main/index.html" style="text-decoration-line: none">
+        <img class="logoImg" src="logo.png" />
+      </a>
       <a href="../login/login.html" style="text-decoration-line: none">
         <button class="loginButton">로그인</button>
       </a>
     </nav>
     <header>
       <div class="header-title">
-        <p>
-          일상의 모든 물건을<br />
-          거래해 보세요
-        </p>
+        <p>일상의 모든 물건을 거래해 보세요</p>
         <a href="../items.html" style="text-decoration-line: none">
           <button class="headerButton">구경하러 가기</button>
         </a>
@@ -26,9 +26,9 @@
       <img class="headerPanda" src="header-panda.png" />
     </header>
     <main>
-      <section>
+      <section class="section1">
         <img src="section1-img.png" />
-        <div class="sectionText">
+        <div class="sectionText1">
           <p class="category">Hot item</p>
           <h1 class="sectionTitle">인기 상품을<br />확인해 보세요</h1>
           <p class="sectionContent">
@@ -37,10 +37,10 @@
           </p>
         </div>
       </section>
-      <section>
+      <section class="section2">
         <img src="section2-img.png" />
-        <div class="sectionText">
-          <p class="category">Search</p>
+        <div class="sectionText2">
+          <p class="category-section2">Search</p>
           <h1 class="sectionTitle">구매를 원하는<br />상품을 검색하세요</h1>
           <p class="sectionContent">
             구매하고 싶은 물품은 검색해서<br />
@@ -48,9 +48,9 @@
           </p>
         </div>
       </section>
-      <section>
+      <section class="section3">
         <img src="section3-img.png" />
-        <div class="sectionText">
+        <div class="sectionText3">
           <p class="category">Register</p>
           <h1 class="sectionTitle">판매를 원하는<br />상품을 등록하세요</h1>
           <p class="sectionContent">
@@ -61,11 +61,40 @@
       </section>
     </main>
     <footer>
-      <p>
-        믿을 수 있는<br />
-        판다마켓 중고거래
-      </p>
-      <img src="footerPanda.png" />
+      <div class="footer-banner">
+        <p>
+          믿을 수 있는<br />
+          판다마켓 중고거래
+        </p>
+        <img src="../main/footer-Panda.png" />
+      </div>
+      <div class="real-footer">
+        <div class="footer-content">
+          <p>©codeit - 2024</p>
+          <div class="footer-link">
+            <a class="policy-link" href="../policy.html">
+              <p class="policy-text">Privacy Policy</p>
+            </a>
+            <a class="faq-link" href="../faq.html">
+              <p class="faq-text">FAQ</p>
+            </a>
+          </div>
+          <div class="footer-image">
+            <a href="https://www.facebook.com/" target="_blank">
+              <img src="ic-facebook.png" />
+            </a>
+            <a href="https://twitter.com/?lang=ko" target="_blank">
+              <img src="ic-twitter.png" />
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+              <img src="ic-youtube.png" />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <img src="ic-instagram.png" />
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
