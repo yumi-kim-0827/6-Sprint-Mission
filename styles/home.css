@@ -100,3 +100,54 @@
     line-height: 21.6px;
   }
 }
+
+@media(min-width: 1280px) {
+  .banner {
+    height: 540px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 55%;
+    text-align: left;
+  }
+
+  .banner h1 {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  #hero h1 br {
+    display: inline;
+  }
+
+  #features {
+    padding: 130px 0;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+  }
+
+  .feature:nth-child(2) {
+    flex-direction: row-reverse;
+  }
+
+  .feature img {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .feature-content h1 {
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  .feature-description {
+    font-size: 24px;
+    line-height: 28.8px;
+    margin-top: 20px;
+  }
+}
