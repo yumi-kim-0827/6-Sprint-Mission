@@ -70,7 +70,7 @@ img {
 .login-btn:hover {
   width: 640px;
   height: 56px;
-  background-color: #3692FF;
+  background-color: var(--blue);
   border-radius: 40px;
   border: 0 solid #fff;
   gap: 10px;
