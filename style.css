@@ -74,7 +74,9 @@ h1{
     gap: 64px;
     
 }
-
+#section2 {
+    text-align: right;
+}
 .section-description {
     flex: 1px;
     
@@ -98,6 +100,7 @@ h1{
     font-weight: 500;
     line-height: 28.8px;
     letter-spacing: 0.08em;
+    
 
 
 }
@@ -113,7 +116,7 @@ h1{
     right : 0px;
     bottom : 0px;
     left : 381px
-    /* position: absolute; */
+
 }
 .search{
     color: #3692FF;
@@ -181,3 +184,64 @@ h1{
     font-weight: 400;
     line-height: 19px;
 }
+
+@media (min-width: 768px){
+    div{
+      float:left; 
+      padding:0;
+      margin:0;
+    }
+    .header-frame{
+      height: 70px;
+      padding : 0 24px;
+    }
+    
+    .header {
+      height : 771px;
+      width : 100%;
+      top:70px;
+      flex-wrap:wrap;
+
+    }
+    #home_top{
+        width: 100%;
+        top: 394px;
+        left: -126px;
+        
+    }
+    .section-box{
+        display: flex;
+        flex-direction: column;
+        width : 100%;
+        flex-wrap: wrap;
+    }
+    .section4{
+        flex-wrap:wrap;
+        width : 100%;
+    }
+    .header-description{
+        font-family: Pretendard;
+        margin : 0 auto;
+        justify-content : center;
+    }
+    #section3.section-box{
+        width: 100%;
+        margin-left:0px;
+    }
+    img{
+        width:100%;
+    }
+    #home_bottom {
+        overflow-x: hidden;
+    }
+    .section4{
+        height : 927px;
+    }
+    .footerFrame{
+        display:flex;
+        justify-content: space-between;
+        width: 100%;
+        /* overflow-x: hidden; */
+    }
+
+  }

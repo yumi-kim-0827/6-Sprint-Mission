@@ -5,7 +5,6 @@
 
 @import "normalize.css/normalize.css"
 
-
 body{
     color: #374151;
     width: 100%;
@@ -43,7 +42,6 @@ form{
     max-width: 640px;
     padding : 0;
     box-sizing: border-box;
-
 }
 label {
     display: block;
@@ -64,16 +62,17 @@ input{
     margin-top: 16px;
     border : none;
     padding: 16px 24px;
-    width: 640px;
+    width: 100%;
 }
-.pw_input{
-    background-color : #F3F4F6;
+.input{
+    width: 640px;
     gap: 10px;
     border-radius: 12px;
     opacity: 0px;
     margin-top: 16px;
+    border : none;
 }
-.loginButton{
+.signinButton{
     background-color:#3692FF;
     width:640px;
     height:56px;
@@ -94,10 +93,15 @@ input{
     align-items: center;
     justify-content: center;
     margin-top: 24px;
-    
-   
 }
 .easylogin_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height : 42px;
+    width: 594px;
+}
+.{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,7 +124,7 @@ img{
     height: 42px;
 
 }
-.signin{
+.auth-switch{
     display: flex;
     justify-content: center ;
     margin-top: 24px;
