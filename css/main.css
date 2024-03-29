@@ -12,14 +12,13 @@ header {
 header .logo {
   margin-left: 200px;
 }
-header a {
-  margin-right: 200px;
-}
 .login-btn {
   border-radius: 8px;
   padding: 16px 40px;
   font-size: 1rem;
   font-weight: 600;
+  margin-right: 200px;
+  white-space: no-wrap;
 }
 /*banner*/
 .banner-container {
