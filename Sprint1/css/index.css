@@ -19,7 +19,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 200px;
+    padding: 0 16px;
 }
 
 .login_btn {
@@ -165,4 +165,17 @@ footer {
 .footer_nav_logo3 {
     display: flex;
     gap: 12px;
+}
+
+
+@media (min-width : 768px ) {
+    .header_container {
+        padding: 0 24px;
+    }
+}
+
+@media (min-width : 1200px) {
+    .header_container {
+        padding: 0 200px;
+    }
 }
