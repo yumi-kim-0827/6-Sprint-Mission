@@ -108,5 +108,23 @@ button {
   display: none;
 }
 
+@media (min-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
 
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  .pill-button {
+    font-weight: 700;
+    font-size: 20px;
+    padding: 16px 120px;
+  }
+
+  footer {
+    padding: 32px 104px 108px 104px;
+  }
+}
 

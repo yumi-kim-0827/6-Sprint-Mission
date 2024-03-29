@@ -78,4 +78,36 @@
   margin-top: 24px;
 }
 
+@media (min-width: 768px) {
+  .banner {
+    background-size: 100%;
+  }
 
+  .banner h1 {
+    font-size: 40px;
+    padding-top: 84px;
+    padding-bottom: 24px;
+    line-height: 44.8px;
+  }
+
+  #features {
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  .feature-content h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 22.4px;
+  }
+
+  .feature-content h1 {
+    font-size: 24px;
+    line-height: 33.6px;
+  }
+
+  .feature-description {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+}
