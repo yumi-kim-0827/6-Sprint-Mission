@@ -116,3 +116,92 @@
 /*Tablet*/
 @media (max-width: 1199px) {
 }
+/*Mobile*/
+@media (max-width: 767px) {
+  .logo {
+    width: 198px;
+    height: 66px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .login {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 24px);
+  }
+  .input-section > label {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1f2937;
+  }
+  .email,
+  .password {
+    height: 56px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    border: none;
+    padding-left: 20px;
+    width: 100%;
+  }
+
+  .login-button {
+    width: calc(100% - 24px);
+  }
+
+  .easy-login {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100% - 24px);
+    height: 74px;
+    top: 0px;
+    background: #e6f2ff;
+    border-radius: 8px;
+    padding: 0 23px 0 23px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 3fr  1fr;
+  }
+  .easy-login > p {
+    width: 120px;
+    height: 24px;
+    font-size: 16px;
+  }
+  .image-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .google-logo {
+    width: 42px;
+    height: 42px;
+    margin: 0 8px 0 100px;
+    
+  }
+  .kakao-logo {
+    width: 42px;
+    height: 42px;
+  }
+  .signup-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Pretendard;
+    font-size: 15px;
+    gap: 5px;
+  }
+  .signup {
+    color: #3182f6;
+  }
+}

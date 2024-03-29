@@ -156,7 +156,6 @@ main {
   letter-spacing: 0.08em;
   color: #374151;
   margin: -3vw 3vw 0vw 3vw;
-  width: ;
 }
 .banner-img2 {
   position: absolute;
@@ -327,8 +326,6 @@ footer {
   }
   .codeit {
     margin: 0 17vw 0 5vw;
-  }
-  .footer-text {
   }
   .icon-img {
     display: flex;
