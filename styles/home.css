@@ -2,16 +2,12 @@
   background-color: #cfe5ff;
   height: 540px;
   background-repeat: no-repeat;
-  background-position: 80% bottom;
-  background-size: 55%;
+  background-position: bottom;
+  background-size: 130%;
 }
 
 #hero {
   background-image: url("../images/home/hero-image.png");
-}
-
-#features {
-  padding-top: 50px;
 }
 
 #bottomBanner {
@@ -25,12 +21,12 @@
   padding: 14.5px 43px;
 }
 
-.banner .pill-button {
-  margin-top: 32px;
+#features {
+  padding-top: 50px;
 }
 
 .feature {
-  padding: 138px 0;
+  margin-bottom: 60px;
 }
 
 .feature img {
@@ -90,15 +86,15 @@
     padding-bottom: 16px;
   }
 
+  .feature-content h1 {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
   .feature-content h2 {
     font-size: 18px;
     line-height: 25.2px;
     margin-bottom: 10px;
-  }
-
-  .feature-content h1 {
-    font-size: 32px;
-    line-height: 44.8px;
   }
 
   .feature-description {
@@ -119,11 +115,8 @@
   }
 
   .banner h1 {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 44.8px;
-    padding-top: 40px;
-    padding-bottom: px;
+    padding-top: 0;
+    padding-bottom: 32px;
   }
 
   #hero h1 br {
@@ -138,6 +131,7 @@
     display: flex;
     align-items: center;
     gap: 5%;
+    margin-bottom: 138px;
   }
 
   .feature:nth-child(2) {

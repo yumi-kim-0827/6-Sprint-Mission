@@ -83,13 +83,13 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 90px;
+  padding-top: 20px;
 }
 
-h1 {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  letter-spacing: 0.02em;
+.wrapper h1 {
+  line-height: 44.8px;
+  padding-bottom: 18px;
 }
 
 button {
@@ -130,10 +130,10 @@ button {
 }
 
 .pill-button {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   border-radius: 999px;
-  padding: 16px 126px;
+  padding: 14px 33px 
 }
 
 .full-width {
@@ -141,10 +141,20 @@ button {
 }
 
 @media(min-width: 768px) {
-  header,
-  .wrapper {
+  header {
     padding: 0 24px;
   }
+
+  .wrapper {
+    padding: 0 154px;
+  }
+
+  .pill-button {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 126px;
+  }
+
 
   footer {
     padding: 32px 100px 104px 104px;
