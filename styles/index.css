@@ -192,8 +192,11 @@ footer {
     gap: 1.5rem;
   }
 
-  .banner-title > br {
-    display: none;
+  .banner-title {
+    width: 100%;
+    > br {
+      display: none;
+    }
   }
 
   .banner-image {
