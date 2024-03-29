@@ -20,10 +20,9 @@ label {
 input {
   width: 100%;
   border-radius: 12px;
-  border: none;
   height: 56px;
   padding: 16px 24px;
-  background-color: var(--cool-gray-100);
+  background: var(--cool-gray-100);
 }
 input:focus {
   outline: 2px solid #3692ff;
@@ -36,9 +35,8 @@ input::placeholder {
 }
 .pw-box img {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
+  left: 575px;
   margin: auto 20px;
   cursor: pointer;
 }
@@ -46,7 +44,6 @@ input::placeholder {
 button {
   width: 100%;
   height: 56px;
-  border: none;
   border-radius: 40px;
   font-size: 20px;
   font-weight: 600;
@@ -59,7 +56,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e6f2ff;
+  background: #e6f2ff;
   border-radius: 8px;
   padding: 25px 23px;
   gap: 16px;
@@ -78,5 +75,5 @@ button {
 }
 .signup a {
   text-decoration: underline;
-  color: var(--Brand-blue);
+  color: var(--brand-blue);
 }
