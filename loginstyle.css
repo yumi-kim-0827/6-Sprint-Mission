@@ -199,3 +199,23 @@ input:focus {
   height: 42px;
 }
 
+.sign_up_box {
+  width: 210px;
+  height: 18px;
+  display: flex;
+  margin: 0 auto;
+  gap: 4px;
+  
+}
+
+.sign_up_box>p {
+  font-family: 'Pretendard-Regular';
+  font-weight: 500px;
+  font-size: 15px;
+  line-height: 17.9px;
+  color: var(--font-color);
+}
+
+#sign_up {
+  color: #3182F6;
+}
