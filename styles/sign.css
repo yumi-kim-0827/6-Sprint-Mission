@@ -71,7 +71,7 @@
   cursor: pointer;
 }
 
-.button.form {
+.form-button {
   border: none;
   border-radius: 40px;
   padding: 16px 24px;
@@ -112,4 +112,38 @@
 .form-helper-link {
   color: var(--primary500);
   text-decoration: underline;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .body {
+    padding: 48px 48px 96px;
+  }
+}
+
+@media (max-width: 767px) {
+  .body {
+    padding: 24px 16px 80px;
+  }
+
+  .logo {
+    width: 198px;
+    height: 66px;
+  }
+
+  .form-container {
+    margin-top: 24px;
+    max-width: 400px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  .form-input {
+    margin-top: 8px;
+  }
 }
