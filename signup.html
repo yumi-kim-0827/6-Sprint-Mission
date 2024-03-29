@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓 - 로그인</title>
+    <title>판다마켓 - 회원가입</title>
     <link rel="icon" href="images/logo/favicon.ico" />
     <link
       rel="stylesheet"
@@ -16,7 +16,7 @@
 
   <body>
     <div class="container">
-        <div class="login-header">
+        <div class="home-button">
             <a href="/"
               ><img
                 src="images/logo/panda-market-logo.png"
@@ -25,22 +25,22 @@
             /></a>      
         </div>
         <form>
-            <div class="login-input">
+            <div class="input-item">
                 <label for="email">이메일</label>
                 <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요">
             </div> 
-            <div class="login-input">
+            <div class="input-item">
                 <label for="nickname">닉네임</label>
                 <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요">
             </div>
-            <div class="login-input">
+            <div class="input-item">
                 <label for="password">비밀번호</label>
                 <div class="password-input">
                   <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요">
                   <img src="/images/logo/password.png" alt="비밀번호" class="password-image">
                 </div>
               </div>          
-              <div class="login-input">
+              <div class="input-item">
                 <label for="password-repeat">비밀번호</label>
                 <div class="password-input">
                   <input id="password-repeat" name="password-repeat" type="password" placeholder="비밀번호를 다시 한 번 입력해 주세요">
@@ -48,10 +48,10 @@
                 </div>
               </div>
         </form>
-        <button class="login-pill-button">회원가입</button>
+        <button type= "submit" class="login-pill-button">회원가입</button>
         <div class="social-logins">
             <span>간편 로그인하기</span>
-            <div class="social-logins-logo">
+            <div class="social-logo">
               <a href= "https://www.google.com/">
                 <img src="images/social/google-logo.png" alt="구글로고" width="42px">
               </a>
@@ -60,7 +60,7 @@
               </a>
             </div>   
         </div>
-        <div class="login-bottom">
+        <div class="container-bottom">
             <span>이미 회원이신가요?</span>
             <a href="/login.html">로그인</a>
           </div>
