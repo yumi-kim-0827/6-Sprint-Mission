@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.main-btn:hover {
+  background-color: var(--darkblue);
+}
+
 .main-panda-img {
   position: absolute;
   bottom: 0;

@@ -14,49 +14,81 @@
   </head>
 
   <body>
-    <a href="/"><img src="img/logo.svg" alt="logo" class="login__logo" /></a>
-    <form action="index.html" method="get" class="login">
-      <label for="email" class="login__label">이메일</label>
-      <input
-        name="email"
-        type="email"
-        placeholder="이메일을 입력해주세요"
-        class="login__input"
-      />
-      <label for="username" class="login__label">닉네임</label>
-      <input
-        name="username"
-        type="text"
-        placeholder="닉네임을 입력해주세요"
-        class="login__input"
-      />
-      <label for="password" class="login__label">비밀번호</label>
-      <input
-        name="password"
-        type="password"
-        placeholder="비밀번호를 입력해주세요"
-        class="login__input"
-      />
-      <label for="password-check" class="login__label">비밀번호 확인</label>
-      <input
-        name="password-check"
-        type="password"
-        placeholder="비밀번호를 다시 한 번 입력해주세요"
-        class="login__input"
-      />
-      <input type="submit" value="회원가입" class="login__submit" />
-      <div>
-        <span>간편 로그인하기</span>
-        <div class="login__icons">
-          <a href="https://www.google.com/"
-            ><img src="img/ic_google.png" alt="google"
-          /></a>
-          <a href="https://www.kakaocorp.com/page/">
-            <img src="img/ic_kakaoTalk.png" alt="kakaoTalk"
-          /></a>
+    <header class="login__header">
+      <a href="/"><img src="img/logo.svg" alt="logo" class="login__logo" /></a>
+    </header>
+
+    <div class="login__form-container1">
+      <form action="index.html" method="get" class="login__form">
+        <div class="login__form-container2">
+          <label for="email" class="login__label">이메일</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            class="login__input"
+          />
         </div>
-      </div>
-      <p>이미 회원이신가요? <a href="/login.html">로그인</a></p>
-    </form>
+        <div class="login__form-container2">
+          <label for="username" class="login__label">닉네임</label>
+          <input
+            name="username"
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            class="login__input"
+          />
+        </div>
+        <div class="login__form-container2">
+          <label for="password" class="login__label">비밀번호</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            class="login__input"
+          />
+          <img
+            src="img/btn_visibility_off.png"
+            alt="password-icon"
+            id="password-icon"
+          />
+        </div>
+        <div class="login__form-container2">
+          <label for="password-check" class="login__label">비밀번호 확인</label>
+          <input
+            name="password-check"
+            type="password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+            class="login__input"
+          />
+          <img
+            src="img/btn_visibility_off.png"
+            alt="password-icon"
+            id="password-icon"
+          />
+        </div>
+        <input type="submit" value="회원가입" class="login__submit" />
+        <div class="login__social">
+          <span>간편 로그인하기</span>
+          <div class="login__social-icons">
+            <a href="https://www.google.com/"
+              ><img
+                src="img/ic_google.png"
+                alt="google"
+                class="login__social-icon"
+            /></a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img
+                src="img/ic_kakaoTalk.png"
+                alt="kakaoTalk"
+                class="login__social-icon"
+            /></a>
+          </div>
+        </div>
+        <p class="login__member">
+          이미 회원이신가요?
+          <a href="/login.html" class="login__member-link">로그인</a>
+        </p>
+      </form>
+    </div>
   </body>
 </html>
