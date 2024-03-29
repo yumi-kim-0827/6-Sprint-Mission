@@ -1,0 +1,114 @@
+.form-container {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 400px;
+}
+  
+.home-button {
+    display: block;
+    width: 198px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.home-button img {
+    width: 100%;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 17px;
+}
+
+input {
+    border-radius: 12px;
+    border: none;
+    background-color: #F3F4F6;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+}
+
+.login-pill-button {
+    padding: 16px 124px;
+    border-radius: 40px;
+    background-color: #9CA3AF;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #FFFFFF;
+    border: none;
+}
+
+.login-pill-button:focus {
+    background-color: #3692ff;
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-image {
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+}
+
+.social-logins {
+    background-color: #E6F2FF;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 16px 23px;
+}
+
+.social-login-container h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.social-logo {
+    display: flex;
+    gap: 16px;
+}
+
+.container-bottom {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: #1F2937;
+}
+
+.container-bottom > a {
+    text-decoration: underline;
+    color: #3182F6;
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        max-width: 640px;
+    }
+
+    .home-button {
+        width: 396px;
+        margin-top: 48px;
+        margin-bottom: 48px;
+    }
+}
+
