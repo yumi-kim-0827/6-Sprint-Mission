@@ -1,6 +1,7 @@
 /*header*/
 header {
   position: fixed;
+  top: 0;
   background: #fff;
   width: 100%;
   height: 70px;
@@ -43,6 +44,9 @@ header .logo {
   margin-bottom: 40px;
   line-height: 56px;
   flex-shrink: 0;
+}
+.banner-description {
+  width: 350px;
 }
 .item-btn {
   display: flex;
@@ -112,3 +116,45 @@ footer .footer-tab {
 footer .social-icons a {
   margin-right: 12px;
 }
+
+/*desktop*/
+@media (min-width: 1200px) {
+}
+
+/*tablet*/
+@media (max-width: 1199px) {
+  header .logo {
+    margin-left: 24px;
+  }
+  .login-btn {
+    margin-right: 24px;
+  }
+  main {
+    margin-top: 70px;
+  }
+  .banner-container {
+    width: 100%;
+    height: 771px;
+  }
+  .banner-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*section*/
+
+  .featured-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .featured-box:nth-child(2) img {
+    order: 1;
+  }
+  .featured-box:nth-child(2) div {
+    order: 2;
+  }
+}
+
+/*mobile*/
+/* @media (max-width: 767px) {
+} */
