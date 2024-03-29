@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    margin: 0;
+    margin: 0 auto;
     /*width: 1920px;*/
     /*text-align: center;*/
 }
@@ -13,18 +13,17 @@ header{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    /*align-items: center;*/
-
+    align-items: center;
     height: 70px;
-    padding: 10px 200px 9px;
+    padding: 0 200px;
+    background-color: #ffffff;
     
 }
+
 .logo{
     width: 153px;
     height: 51px;
 }
-
-
 
 .loginBtn{
     display: flex;
@@ -46,22 +45,39 @@ header{
     color: #ffffff;
 }
 
-.home_top{
+.home_top, .home-bottom{
     background-color: #CFE5FF;
     height: 540px;
-    margin: 0 auto;
+}
+.banner-container, .bottom-container{
+    width: 1200px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    
-}
-.home_bottom
-{
-    background-color: #CFE5FF;
     margin: 0 auto;
-
 }
+
+.banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0 0 32px;
+}
+
+.banner-img, .bottom-img{
+    width: 996px;
+}
+
+.box {
+    width: 1200px;
+    margin: 138px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 64px;
+}
+
 .subtitle{
     color: #3692FF;
     font-weight: 700;
@@ -96,28 +112,42 @@ header{
     background-color: #1967D6;
 }
 
-.home_top .banner-text{
-    display: flex;
-    flex-direction: column;
-    gap: 0 0 32px;
-}
-
-.box{
-    width:  1200px;
-    margin: 0 auto;
-}
-
-.box-right {
-    width: 1200px;
-    margin: 0 auto;
-    text-align: right
-}
-
 .text-box{
     display: inline-block;
+}
 
+.text-box-right{
+    text-align: right;
 }
 
 a {
     text-decoration-line: none;
+}
+
+footer{
+    background: #111827;
+    color: #9ca3af;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 200px 108px;
+}
+
+.footer-q{
+    display: flex;
+    gap: 30px;
+}
+
+.footer-q a{
+    color: #e5e7eb;
+}
+
+.footer-social{
+    display: flex;
+    gap: 12px;
+}
+
+.footer-img{
+    width: 12px;
 }
