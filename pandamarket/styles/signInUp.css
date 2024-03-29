@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+}
 
 .login-container {
   margin: 60px auto auto;
@@ -48,6 +52,8 @@ input {
   margin-top: 16px;
   margin-bottom: 16px;
   border: none;
+  background-color: #F3F4F6;
+  border-radius: 12px;
 }
 
 input:focus {
@@ -105,4 +111,18 @@ input:focus {
 .Oauth_img {
   display: flex;
   gap: 30px;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .login-container {
+    padding: 0 16px;
+    margin: 24px auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .login-container {
+    padding: 0 53px;
+    margin: 48px auto;
+  }
 }

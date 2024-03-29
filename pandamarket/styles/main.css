@@ -322,11 +322,9 @@ footer {
     font-size: 16px;
   }
 
-  .banner-text-bottom {
-    padding: 40% 0;
-  }
 
-  .footer {
+  .footer-container {
     padding: 32px;
   }
+
 }
