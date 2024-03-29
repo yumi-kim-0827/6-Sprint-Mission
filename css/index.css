@@ -225,10 +225,6 @@ a {
     display: none;
   }
 
-  .title {
-    content: ;
-  }
-
   .section1,
   .section2,
   .section3 {
@@ -248,5 +244,31 @@ a {
 
   header a img {
     content: url("../images/logo_home_word.svg");
+  }
+
+  .banner_top,
+  .banner_bottom {
+    height: 540px;
+    padding-top: 48px;
+    background-size: contain;
+  }
+  .banner_bottom {
+    padding-top: 121px;
+  }
+
+  .br_title {
+    display: block;
+  }
+
+  .banner_top .title,
+  .banner_bottom .title {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
+  .banner_top .watch {
+    font-size: 16px;
+    line-height: 19.09px;
+    padding: 14.5px 33.5px;
   }
 }
