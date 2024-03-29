@@ -140,6 +140,7 @@ html {
 
 .link {
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .container-easy-login {
@@ -270,6 +271,18 @@ html {
 }
 .footer__nav--gap-30px {
   gap: 30px;
+}
+.footer__faq {
+  grid-area: faq;
+}
+.footer__author {
+  grid-area: author;
+}
+.footer__policy {
+  grid-area: policy;
+}
+.footer__link {
+  grid-area: link;
 }
 
 .content-card {
@@ -477,7 +490,10 @@ html {
     margin-inline: 3rem;
   }
   .footer {
-    padding-inline: 104px;
+    padding-inline: 12rem;
+    height: 20rem;
+    font-size: 2rem;
+    padding-top: 4rem;
   }
 }
 @media (375px <= width <= 767px) {
@@ -508,6 +524,36 @@ html {
   }
   .content-card__description {
     margin-inline: 3rem;
+  }
+  .footer {
+    padding-inline: 5.5rem;
+    height: 16rem;
+    font-size: 2.5rem;
+    padding-top: 5rem;
+  }
+  .footer__content {
+    display: grid;
+    height: 100%;
+    grid-template: 1fr 1fr/1fr 1fr 1fr;
+    grid-template-areas: "policy faq link" "author . .";
+  }
+  .footer__faq {
+    text-align: center;
+    align-self: flex-start;
+  }
+  .footer__author {
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .footer__policy {
+    gap: 8rem;
+    align-self: flex-start;
+  }
+  .footer__link {
+    justify-content: flex-end;
+    align-self: flex-start;
   }
 }
 * {

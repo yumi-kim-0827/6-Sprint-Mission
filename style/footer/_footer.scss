@@ -20,4 +20,16 @@
       gap: 30px;
     }
   }
+  &__faq{
+    grid-area:faq;
+  }
+  &__author {
+    grid-area: author;
+  }
+  &__policy {
+    grid-area: policy;
+  }
+  &__link {
+    grid-area: link;
+  }
 }

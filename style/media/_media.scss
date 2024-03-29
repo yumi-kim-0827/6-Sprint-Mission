@@ -9,8 +9,8 @@
         width: 94%;
         margin: 3%;
       }
-      &--margin-top-138px{
-        margin-top:8rem;
+      &--margin-top-138px {
+        margin-top: 8rem;
       }
     }
     &-figure__image {
@@ -38,16 +38,11 @@
   }
   .description-header {
     &__description {
-    width: auto;
+      width: auto;
       margin-top: 10rem;
       text-align: center;
     }
   }
-  .footer {
-  padding-inline: 16rem;
-  height: 20rem;
-  font-size: 2rem;
-  padding-top: 4rem;
 }
 @media (768px <= width <= 1200px) {
   html {
@@ -87,7 +82,10 @@
     }
   }
   .footer {
-    padding-inline: 104px;
+    padding-inline: 12rem;
+    height: 20rem;
+    font-size: 2rem;
+    padding-top: 4rem;
   }
 }
 @media (375px <= width <= 767px) {
@@ -123,6 +121,36 @@
       &__description {
         margin-inline: 3rem;
       }
+    }
+  }
+  .footer {
+    padding-inline: 5.5rem;
+    height: 16rem;
+    font-size: 2.5rem;
+    padding-top: 5rem;
+    &__content {
+      display: grid;
+      height:100%;
+      grid-template: 1fr 1fr / 1fr 1fr 1fr;
+      grid-template-areas: "policy faq link" "author . .";
+    }
+    &__faq{
+      text-align: center;
+      align-self: flex-start;
+    }
+    &__author{
+      display:flex;
+      height:100%;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    &__policy {
+      gap:8rem;
+      align-self: flex-start;
+    }
+    &__link {
+      justify-content: flex-end;
+      align-self: flex-start;
     }
   }
 }
