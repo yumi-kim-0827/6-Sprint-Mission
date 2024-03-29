@@ -1,15 +1,42 @@
 * {
   box-sizing: border-box;
 }
+@media screen and (min-width: 768px) and (max-width: 1199px) {
 
+  body{
+    max-width: 1199px;
+    padding: 24px;
+  }
+
+  .img {
+    width: 199px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    min-width: 344px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  body{
+    max-width: 400px;
+  }
+
+  .img {
+    width: 199px;
+  }
+}
 
 body {
+  width: 100%;
   font-family: 'Pretendard-Regular';
   color: #2b2b2b;
   background-color: #fff;
   font-size: 18px;
   font-weight: 500;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -58,7 +85,7 @@ img {
 
 .login-btn {
   font-family: 'Pretendard-Regular';
-  width: 640px;
+  width: 100%;
   height: 56px;
   background-color: var(--blue);
   border-radius: 40px;
@@ -68,7 +95,7 @@ img {
 }
 
 .login-btn:hover {
-  width: 640px;
+  width: 100%;
   height: 56px;
   background-color: var(--blue);
   border-radius: 40px;
@@ -78,7 +105,7 @@ img {
 }
 
 .main {
-  width: 640px;
+  width: 100%;
   height: 430px;
   margin: 0 auto;
 }
@@ -94,7 +121,7 @@ img {
   font-size: 16px;
   font-weight: 500;
   color: #000;
-  width: 640px;
+  width: 100%;
   height: 74px;
   border-radius: 8px;
   background-color: #E6F2FF;
