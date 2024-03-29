@@ -83,7 +83,6 @@ main {
   width: 100%;
 }
 .contents {
-  width: 1200px;
   padding-bottom: 138px;
 }
 
@@ -209,6 +208,27 @@ a {
     padding: 0 24px;
   }
 
+  .banner_top,
+  .banner_bottom {
+    height: 771px;
+    text-align: center;
+    align-items: flex-start;
+    padding-top: 84px;
+  }
+
+  .banner_bottom {
+    height: 927px;
+    padding-top: 201px;
+  }
+
+  .br_title {
+    display: none;
+  }
+
+  .title {
+    content: ;
+  }
+
   .section1,
   .section2,
   .section3 {
@@ -227,6 +247,6 @@ a {
   }
 
   header a img {
-    content: url('../images/logo_home_word.svg');
+    content: url("../images/logo_home_word.svg");
   }
 }
