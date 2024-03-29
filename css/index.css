@@ -25,6 +25,7 @@ header {
 }
 main {
   margin-top: 70px;
+  width: 100%;
 }
 
 .logo_home {
@@ -94,11 +95,10 @@ main {
   align-items: center;
   gap: 64px;
   height: 720px;
+  width: 100%;
 }
-.banner_top .text_box,
-.banner_bottom .text_box {
-}
-.banner_top .text1 {
+
+.banner_top .title{
   font-family: pretendard;
   font-weight: 700;
   font-size: 40px;
@@ -107,7 +107,7 @@ main {
 
   color: #374151;
 }
-.banner_bottom .text1 {
+.banner_bottom .title {
   font-family: pretendard;
   font-weight: 700;
   font-size: 40px;
@@ -128,7 +128,7 @@ main {
   border: none;
 }
 
-.text1 {
+.title_tag {
   font-family: pretendard;
   font-weight: 700;
   font-size: 18px;
@@ -136,7 +136,7 @@ main {
   color: #3692ff;
   margin-bottom: 12px;
 }
-.text2 {
+.title {
   font-family: pretendard;
   font-weight: 700;
   font-size: 40px;
@@ -145,7 +145,7 @@ main {
   color: #374151;
   margin-bottom: 24px;
 }
-.text3 {
+.paragraph {
   font-family: pretendard;
   font-weight: 500;
   font-size: 24px;
@@ -202,4 +202,17 @@ main {
 a {
   text-decoration: none;
   color: #e5e7eb;
+}
+
+@media (max-width: 1199px) {
+  .section1,
+  .section2,
+  .section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: ;
+    align-items: ;
+    gap: 64px;
+    height: 720px;
+  }
 }
