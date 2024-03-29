@@ -130,3 +130,27 @@ form label {
 .user-link {
   color: #3182f6;
 }
+
+@media (max-width: 1199px) {
+  .logo-image { margin-top: 48px; }
+}
+
+@media (max-width: 767px) {
+  .logo-image {
+    margin-top: 24px;
+    width: 198px;
+    height: 66px;
+  }
+  main {
+    max-width: 432px;
+    width: 100%;
+    margin-top: 24px;
+    padding-left: 16px; /*margin을 줘버리면 가운데 정렬이 덮어씌워짐, body에 패딩을 주는 것(그러면 min-width를 깔끔하게 400px로 설정가능)보다 main에 padding을 줘도 같은 효과(432px감수) */
+    padding-right: 16px;
+  }
+  form { gap: 8px; }
+  form label {
+    font-size: 14px;
+    line-height: 16.71px;
+  }
+}
