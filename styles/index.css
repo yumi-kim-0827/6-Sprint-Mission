@@ -189,3 +189,12 @@ footer {
     padding-inline: 1.5rem;
   }
 }
+
+/* 모바일 사이즈 */
+
+@media (max-width: 767px) {
+  /* 헤더 */
+  header {
+    padding-inline: 1rem;
+  }
+}
