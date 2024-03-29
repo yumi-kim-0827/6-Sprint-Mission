@@ -4,21 +4,21 @@
 .logo {
   width: 396px;
   height: 132px;
-  margin-left: calc(50% - 396px / 2);
   margin-top: 60px;
+  justify-content: center;
 }
 .login {
-  margin-left: calc(50% - 640px / 2);
   margin-top: 30px;
   display: flex;
-
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 }
 .input-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 624px;
 }
 .input-section > label {
   font-family: "Pretendard";
