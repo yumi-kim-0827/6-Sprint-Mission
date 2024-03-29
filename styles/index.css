@@ -180,3 +180,12 @@ footer {
   display: flex;
   gap: 0.75rem;
 }
+
+/* 테블릿 사이즈 */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* 헤더 */
+  header {
+    padding-inline: 1.5rem;
+  }
+}
