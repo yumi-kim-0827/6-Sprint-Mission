@@ -43,6 +43,7 @@ header {
 /* 배너 */
 
 .banner {
+  padding-top: 4.375rem;
   background-color: var(--banner-bg);
 }
 
@@ -60,6 +61,7 @@ header {
   flex-direction: column;
   gap: 2rem;
   margin: auto 0;
+  align-items: center;
 }
 
 .banner-title {
@@ -67,7 +69,7 @@ header {
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.5rem;
-  width: 22.1875rem;
+  width: 19rem;
 }
 
 .large-button {
@@ -187,6 +189,22 @@ footer {
   /* 헤더 */
   header {
     padding-inline: 1.5rem;
+  }
+
+  /* 배너 */
+  .banner-container {
+    height: 48.1875rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-content {
+    gap: 1.5rem;
+  }
+
+  .banner-title {
+    text-align: center;
+    width: 33rem;
   }
 }
 
