@@ -2,6 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>판다마켓</title>
     <link rel="icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="styles/reset.css" />
@@ -18,24 +19,28 @@
     <header class="header">
       <div class="header-contents">
         <a class="full-height" href="/">
-          <img class="full-height" src="/assets/logo.png" alt="판다마켓 로고" />
+          <img
+            class="logo-small"
+            src="/assets/logo_small.svg"
+            alt="판다마켓 로고"
+          />
+          <img
+            class="logo-big"
+            src="/assets/logo_big.svg"
+            alt="판다마켓 로고"
+          />
         </a>
-        <a class="small button" href="/signin.html">로그인</a>
+        <a class="button button-small" href="/signin.html">로그인</a>
       </div>
     </header>
     <main class="main">
-      <section class="banner">
+      <section class="banner banner-top">
         <div class="banner-contents container">
           <h1 class="banner-title">
             일상의 모든 물건을<br />
             거래해 보세요
           </h1>
-          <a class="large button" href="/items.html">구경하러 가기</a>
-          <img
-            class="banner-image"
-            src="/assets/img_home_top.png"
-            alt="판다가 인사하는 모습"
-          />
+          <a class="button button-large" href="/items.html">구경하러 가기</a>
         </div>
       </section>
       <article class="topics container">
@@ -94,17 +99,12 @@
           </div>
         </section>
       </article>
-      <section class="banner">
+      <section class="banner banner-bottom">
         <div class="banner-contents container">
           <h1 class="banner-title">
             믿을 수 있는<br />
             판다마켓 중고거래
           </h1>
-          <img
-            class="banner-image"
-            src="/assets/img_home_bottom.png"
-            alt="판다가 중고거래하는 모습"
-          />
         </div>
       </section>
     </main>
