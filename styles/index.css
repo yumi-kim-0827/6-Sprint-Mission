@@ -160,7 +160,7 @@ footer {
   color: var(--blue-disabled);
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.1931rem;
+  line-height: 1.2744rem;
   text-align: center;
 }
 
@@ -171,7 +171,7 @@ footer {
     color: var(--gray-200);
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.1931rem;
+    line-height: 1.2744rem;
     text-align: center;
   }
 }
@@ -196,5 +196,21 @@ footer {
   /* 헤더 */
   header {
     padding-inline: 1rem;
+  }
+
+  /* 푸터 */
+  footer {
+    position: relative;
+  }
+
+  .footer-copyright {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    line-height: 1.15rem;
+  }
+
+  .footer-document > a {
+    line-height: 1.15rem;
   }
 }
