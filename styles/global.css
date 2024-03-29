@@ -148,3 +148,13 @@ button {
     flex-basis: auto;
   }
 }
+
+@media(min-width: 1280px) {
+  header {
+    padding: 0 200px;
+  }
+
+  footer {
+    padding: 32px 200px 104px 200px;
+  }
+}
