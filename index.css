@@ -248,7 +248,6 @@ footer > .codeit-footer.codeit-sns {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 99.6rem;
         height: 75dvh;
         overflow: hidden;
     }
