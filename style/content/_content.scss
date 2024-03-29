@@ -5,6 +5,9 @@
     width: 1200px;
     display: flex;
   }
+  &__content img{
+    width:50%;
+  }
   &__description {
     @include flex-direction-center(column);
     margin: auto;
@@ -25,16 +28,20 @@
   &--margin-top-138px {
     margin-top: 138px;
   }
+  &--last {
+    background-image: url("../../image/main-page/Img_home_bottom.png");
+  }
+  &--first {
+    background-image: url("../../image/main-page/Img_home_top.png");
+  }
 }
-
 .content-figure {
   &--width-1920px {
     width: 1920px;
   }
   &__image {
-    position: absolute;
-    bottom: 0;
-    right: 200px;
+    background-position: 80% bottom;
+    background-repeat: no-repeat;
   }
 }
 
@@ -47,6 +54,10 @@
     position: relative;
     z-index: 2;
   }
+  &--nextline{
+    white-space:initial;
+    width:36rem;
+  }
 }
 
 .content-form {
@@ -55,14 +66,14 @@
     flex-direction: column;
     gap: 24px;
   }
-  &__icon{
-    position:absolute;
-    top:16px;
-    right:16px;
-    width:24px;
-    height:24px;
-    &:hover{
-      cursor:pointer;
+  &__icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    &:hover {
+      cursor: pointer;
     }
   }
   &__input {

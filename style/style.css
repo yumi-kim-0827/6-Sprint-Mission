@@ -1,5 +1,4 @@
 @import 'https://meyerweb.com/eric/tools/css/reset/reset.css';
-<<<<<<< HEAD
 .button {
   border-radius: 8px;
   border: none;
@@ -7,7 +6,6 @@
 }
 .button__wide {
   padding: 16px 124px;
-  height: 56px;
 }
 .button__login {
   padding: 12px 20px;
@@ -32,10 +30,14 @@
   background-color: #9ca3af;
 }
 
+html {
+  font-size: 10px;
+}
+
 .description-head {
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 5.6rem;
 }
 .description-head--text-align-left {
   text-align: left;
@@ -48,10 +50,10 @@
 }
 
 .description-detail {
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 500;
-  line-height: 28.8px;
-  letter-spacing: 0.08em;
+  line-height: 2.88rem;
+  letter-spacing: 0.08rem;
   text-align: left;
 }
 .description-detail--color-374151 {
@@ -62,14 +64,14 @@
 }
 
 .description-tip {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 .description-tip--line-height-21-48px {
-  line-height: 21.48px;
+  line-height: 2.148rem;
 }
 .description-tip--line-height-25-2px {
-  line-height: 25.2px;
+  line-height: 2.52rem;
 }
 .description-tip--text-align-left {
   text-align: left;
@@ -82,9 +84,9 @@
 }
 
 .description-footer {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 19.09px;
+  line-height: 1.909rem;
   text-align: center;
 }
 .description-footer--color-e5e7eb {
@@ -95,22 +97,23 @@
 }
 
 .description-button {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 2.4rem;
   text-align: center;
+  vertical-align: middle;
 }
 
 .description-login {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
-  line-height: 19.09px;
+  line-height: 1.909rem;
 }
 
 .description-input {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
   text-align: left;
 }
 
@@ -155,49 +158,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-=======
-* {
-  box-sizing: border-box;
-}
-
-.button {
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-.button--background-color-blue {
-  background-color: #3692ff;
-  color: #ffffff;
-}
-.button--background-color-blue:hover {
-  background-color: #1967d6;
-}
-.button--background-color-blue:focus {
-  background-color: #1251aa;
-}
-.button--background-color-blue:disabled {
-  background-color: #9ca3af;
-}
-
-.link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.main-header {
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.main-header--position-fixed-top {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1;
->>>>>>> fa38520 (chore: set file structure of scss, bem)
 }
 .main-header--padding-inline-200px {
   padding-inline: 200px;
@@ -206,7 +166,6 @@
   background-color: #ffffff;
 }
 
-<<<<<<< HEAD
 .header-big {
   display: flex;
   justify-content: center;
@@ -231,94 +190,6 @@
 }
 .main-signup__wrap {
   width: 640px;
-=======
-.sign-in-header {
-  margin-top: 30px;
-  margin-bottom: 40px;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-}
-.header-content--gap-8px {
-  gap: 8px;
-}
-
-.main-header_login {
-  font-size: 16px;
-  padding: 14.5px 43px;
-}
-
-.main-main {
-  margin-top: 70px;
-}
-
-footer {
-  background-color: #111827;
-}
-
-figure {
-  margin: 0;
-}
-
-.blueContent {
-  background-color: #cfe5ff;
-  position: relative;
-  z-index: 0;
-  height: 540px;
-}
-
-#mainContentContainer {
-  display: flex;
-  justify-content: center;
-}
-
-#mainContent {
-  width: 1200px;
-  margin-inline: auto;
-}
-
-#mainContent figure {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 720px;
-  align-items: center;
-  gap: 64px;
-}
-
-#topContent .blueButton {
-  padding: 16px 122px;
-  border-radius: 40px;
-  display: block;
-}
-
-#topContent a {
-  display: inline-block;
-}
-
-#topContent {
-  width: 1920px;
-}
-
-#topDescriptionContainer {
-  position: absolute;
-  top: 170px;
-  left: 360px;
-  z-index: 2;
-}
-
-.pandaImage {
-  position: absolute;
-  bottom: 0;
-  right: 223px;
-  z-index: 1;
-}
-
-.reverse {
->>>>>>> fa38520 (chore: set file structure of scss, bem)
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -388,6 +259,9 @@ figure {
   width: 1200px;
   display: flex;
 }
+.content-card__content img {
+  width: 50%;
+}
 .content-card__description {
   display: flex;
   flex-direction: column;
@@ -412,14 +286,19 @@ figure {
 .content-card--margin-top-138px {
   margin-top: 138px;
 }
+.content-card--last {
+  background-image: url("../../image/main-page/Img_home_bottom.png");
+}
+.content-card--first {
+  background-image: url("../../image/main-page/Img_home_top.png");
+}
 
 .content-figure--width-1920px {
   width: 1920px;
 }
 .content-figure__image {
-  position: absolute;
-  bottom: 0;
-  right: 200px;
+  background-position: 80% bottom;
+  background-repeat: no-repeat;
 }
 
 .content-description {
@@ -431,6 +310,10 @@ figure {
 .content-description--position-relative {
   position: relative;
   z-index: 2;
+}
+.content-description--nextline {
+  white-space: initial;
+  width: 36rem;
 }
 
 .content-form__fieldset {
@@ -492,6 +375,79 @@ figure {
   text-align: left;
 }
 
+@media (768px <= width <= 1200px) {
+  html {
+    font-size: 8px;
+  }
+  .header-main__content {
+    margin-inline: 24px;
+  }
+  .button__wide {
+    padding: 16px 125px;
+  }
+  .content-figure__image {
+    background-position: center bottom;
+  }
+  .content-description {
+    align-items: center;
+  }
+  .content-description--nextline {
+    width: auto;
+  }
+  .content-card__content img {
+    width: 100%;
+  }
+  .content-card__content {
+    width: auto;
+  }
+  .content-card--flex-center {
+    align-items: flex-start;
+    padding-top: 84px;
+  }
+  .content-card--first {
+    height: 771px;
+  }
+  .content-card--last {
+    height: px;
+  }
+  .footer {
+    padding-inline: 104px;
+  }
+}
+@media (375px <= width <= 767px) {
+  html {
+    font-size: 6px;
+  }
+  .header-main__content {
+    margin-inline: 16px;
+  }
+  .button__wide {
+    padding: 16px 34px;
+  }
+  .content-figure__image {
+    background-position: center bottom;
+    background-size: 660px;
+  }
+  .content-description {
+    align-items: center;
+  }
+  .content-card__content {
+    width: auto;
+  }
+  .content-card--flex-center {
+    align-items: flex-start;
+    padding-top: 48px;
+  }
+  .content-card--first {
+    height: 540px;
+  }
+  .content-card--last {
+    height: 540px;
+  }
+  .footer {
+    padding-inline: 32px;
+  }
+}
 * {
   box-sizing: border-box;
 }
