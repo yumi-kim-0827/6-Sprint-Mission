@@ -130,13 +130,7 @@ input:focus {
 }
 
 .login_button {
-  font-family: 'Pretendard-Regular';
-  font-weight: 600px;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
   margin-top: 24px;
-  color: #FFFFFF;
   width: 640px;
   height: 56px;
   background-color: #9CA3AF;
@@ -145,3 +139,15 @@ input:focus {
   gap: 10px;
   border: none;
 }
+
+
+.login_button>a {
+  font-family: 'Pretendard-Regular';
+  font-weight: 600px;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
