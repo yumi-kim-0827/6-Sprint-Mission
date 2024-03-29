@@ -98,3 +98,77 @@
 .signin {
   color: #3182f6;
 }
+
+/*Mobile*/
+@media (max-width: 767px) {
+  .logo {
+    width: 198px;
+    height: 66px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .signup {
+    margin-top: 32px;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 24px);
+  }
+  .signup > label {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1f2937;
+  }
+  .email,
+  .password,
+  .nickname {
+    height: 56px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    border: none;
+    padding-left: 20px;
+    width: 100%;
+  }
+  .password-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+  .eyeoff {
+    left: 87vw;
+    width: 24px;
+    height: 24px;
+  }
+
+  .login-button {
+    width: 100%;
+  }
+  .easy-login {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 3fr  1fr;
+  }
+
+  .image-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .google-logo {
+    width: 42px;
+    height: 42px;
+    margin: 0 8px 0 100px;
+    
+  }
+  .kakao-logo {
+    width: 42px;
+    height: 42px;
+  }
+}
