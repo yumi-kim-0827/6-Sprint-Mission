@@ -346,7 +346,7 @@ footer > .codeit-footer.codeit-sns {
         padding: 11px 16px;
     }
 
-    header > .title > img {
+    header > .title > span > svg {
         display: none;
     }
 
