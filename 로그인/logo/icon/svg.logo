@@ -1,0 +1,8 @@
+/* logo */
+
+position: absolute;
+width: 396px;
+height: 132px;
+left: calc(50% - 396px/2);
+top: 60px;
+
