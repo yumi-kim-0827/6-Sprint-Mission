@@ -104,8 +104,20 @@
     width: 100%;
     margin-inline: auto;
   }
-  .main-signup__wrap > *{
-    width:100%;
+  .main-signup__wrap > * {
+    width: 100%;
+  }
+  .main-login {
+    margin-inline: 16px;
+    width: 100%;
+  }
+  .main-login__wrap {
+    max-width: 400px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .main-login__wrap > * {
+    width: 100%;
   }
   .button {
     &__wide {

@@ -181,12 +181,6 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-.main-header--padding-inline-200px {
-  padding-inline: 200px;
-}
-.main-header--background-color-white {
-  background-color: #ffffff;
-}
 
 .header-big {
   display: flex;
@@ -513,6 +507,18 @@ html {
     margin-inline: auto;
   }
   .main-signup__wrap > * {
+    width: 100%;
+  }
+  .main-login {
+    margin-inline: 16px;
+    width: 100%;
+  }
+  .main-login__wrap {
+    max-width: 400px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .main-login__wrap > * {
     width: 100%;
   }
   .button__wide {
