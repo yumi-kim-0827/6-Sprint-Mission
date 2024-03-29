@@ -141,9 +141,12 @@ button{
   background-position:74% bottom;
 }
 .bottom_banner .bt_container{
+  margin:0 auto;
   display:flex;
   flex-direction:column;
   justify-content:center;
+  width:100%;
+  max-width:1200px;
   height:100%;
 }
 .bottom_banner .bt_container p{
@@ -219,14 +222,6 @@ footer .footer_wrap .sns_link ul{
   @media screen and (max-width: 1200px) {
     footer {
       padding:16px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    footer .footer_wrap {
-      flex-direction:column;
-    }
-    footer .footer_wrap .page_link{
-      margin:16px 0;
     }
   }
 /****************** signin *********************/
