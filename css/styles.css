@@ -3,6 +3,7 @@ body {
     margin:0;
 }
 
+/* PC */
 .wrap {
     width: 100%;
     min-width: 1200px;
@@ -57,6 +58,7 @@ h3 {
     width: 100%;
     background-color: #CFE5FF;
     height: 540px;
+    position: relative;
 }
 
 
@@ -90,7 +92,7 @@ h3 {
 
 .top-bottom-img {
     position: absolute;
-    bottom: -3px;
+    bottom: 0px;
     right: -137px;
 }
 
@@ -154,4 +156,48 @@ footer .sns-link {
     display: flex;
     align-items: center;
     gap: 9px
+}
+
+/* Tablet */
+@media screen and (max-width: 1199px) {
+        
+    .logo {
+        margin-left: 24px;
+    }
+
+    .login_btn {
+        margin-right: 24px;
+    }
+    
+    .wrap {
+        width: 100%;
+        position: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-banner__main {
+        height: 771px;
+    }
+    
+    .top-bottom-title {
+        position: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .top-bottom-title .bold-txt {
+        text-align: center;
+        margin: 0;
+    }
+    
+    .top-bottom-img {
+        position: absolute;
+        bottom: 0;
+    }
+
+
+    
 }
