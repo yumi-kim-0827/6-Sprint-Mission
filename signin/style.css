@@ -1,7 +1,24 @@
 * {
   box-sizing: border-box;
 }
+
+@media screen and (min-width: 1200px) {
+  html {
+    max-width: 640px;
+    margin: 48px auto;
+  }
+
+  body{
+    max-width: 1199px;
+    padding: 24px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+  html {
+    max-width: 640px;
+    margin: 48px auto;
+  }
 
   body{
     max-width: 1199px;
@@ -97,7 +114,7 @@ img {
 .login-btn:hover {
   width: 100%;
   height: 56px;
-  background-color: var(--blue);
+  background-color: #1967D6;
   border-radius: 40px;
   border: 0 solid #fff;
   gap: 10px;
