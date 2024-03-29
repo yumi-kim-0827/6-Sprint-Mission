@@ -137,3 +137,17 @@ input::placeholder {
   color: var(--link-typography);
   text-decoration: underline;
 }
+
+/* 테블릿 사이즈 */
+
+@media (max-width: 767px) {
+  .header-logo {
+    width: 12.375rem;
+  }
+  .form-container,
+  .form-button,
+  .social-login-container {
+    max-width: 25rem;
+    width: calc(100vw - 1rem);
+  }
+}
