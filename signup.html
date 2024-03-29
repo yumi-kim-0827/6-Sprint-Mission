@@ -36,12 +36,24 @@
           />
 
           <label for="password" class="password_label">비밀번호</label>
+
           <input
             id="password"
             class="login_input password_input"
             name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
+            required
+          />
+          <label for="password_check" class="password_check"
+            >비밀번호 확인</label
+          >
+          <input
+            id="password_check"
+            class="login_input password_check_input"
+            name="passwordCheck"
+            type="password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
             required
           />
         </div>
@@ -64,8 +76,8 @@
 
       <div class="sign_up_box">
         <p>
-          판다마켓이 처음이신가요?
-          <a href="/signup" id="sign_up">회원가입</a>
+          이미 회원이신가요?
+          <a href="/signup" id="sign_up">로그인</a>
         </p>
       </div>
     </main>

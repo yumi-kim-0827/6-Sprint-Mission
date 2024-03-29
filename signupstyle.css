@@ -39,7 +39,7 @@ main {
   width: 640px;
   height: 664px;
   margin: 0 auto;
-  border: 1px solid rgb(0, 4, 255);
+  /* border: 1px solid rgb(0, 4, 255); */
 }
 
 .main_logo {
@@ -66,8 +66,6 @@ main {
 .login_form {
   width: 640px;
   height: 524px;
-  /* position: relative; */
-  border: 1px solid red;
 }
 
 .email_label {
@@ -88,7 +86,7 @@ main {
   font-weight: 700;
   font-size: 18px;
   color: var(--font-color);
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 
@@ -110,6 +108,15 @@ main {
   background-size: 24px 24px;
 }
 
+.password_check_input {
+  background-image: url(password_eye.png);
+  background-position: 592px center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
+
+
+
 
 .email_input::placeholder {
   width: 143px;
@@ -122,11 +129,17 @@ main {
   height: 24px;
   padding: 16px 24px;
 }
+.password_check_input::placeholder {
+  width: 592px;
+  height: 24px;
+  padding: 16px 24px;
+}
 
 .username_input::placeholder {
   width: 143px;
   height: 24px;
   padding: 16px 24px;
+ 
 }
 
 .login_input::placeholder {
@@ -147,6 +160,17 @@ input:focus {
   margin-top: 24px;
   display: block;
   width: 63px;
+  height: 21px;
+  font-family: 'Pretendard-Regular';
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--font-color);
+}
+
+.password_check {
+  margin-top: 24px;
+  display: block;
+  width: 98px;
   height: 21px;
   font-family: 'Pretendard-Regular';
   font-weight: 700;
@@ -187,6 +211,7 @@ input:focus {
 .easy_login_box {
   
   margin-top: 24px;
+  margin-bottom: 24px;
   width: 640px;
   height: 74px;
   border-radius: 8px;
@@ -226,7 +251,6 @@ input:focus {
   display: flex;
   margin: 0 auto;
   gap: 4px;
-  
 }
 
 .sign_up_box>p {
