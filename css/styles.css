@@ -1,16 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 10px
-}
-
 body {
-    background-color: #fff;
+    background: #fff;
     margin:0;
 }
 
@@ -33,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background: #fff;
     height:70px;
     padding:0 200px;
     z-index: 1;
@@ -41,26 +30,26 @@ header {
     
 
 .login_btn {
-    background: #3692FF;
+    background: var(--primary-color);
     border:none;
     outline: none;
     width: 128px;
     height: 48px;
     font-size: 16px;
     font-weight: 600;
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
 }
 
 
 
 h2 {
-    color: #374151;
+    color: var(--gray700);
     font-size: 4rem;
 }
 
 h3 {
-    color: #374151;
+    color: var(--gray700);
     font-size: 2.4rem;
 }
 
@@ -80,21 +69,21 @@ h3 {
 }
 
 .top-bottom-title .bold-txt {
-    color: #374151;
+    color: var(--gray700);
     font-size: 4rem;
     font-weight: 700;
     line-height: 56px;
 }
 
 .top_contents_btn {
-    background: #3692FF;
+    background: var(--primary-color);
     border:none;
     outline: none;
     width: 357px;
     height: 56px;
     font-size: 20px;
     font-weight: 600;
-    color: #ffffff;
+    color: #fff;
     border-radius: 30px;
     margin-top: 32px;
 }
@@ -106,7 +95,7 @@ h3 {
 }
 
 .main-title {
-    color: #3692FF;
+    color: var(--primary-color);
     font-size: 1.8rem;
     font-weight: bold;
 }
@@ -148,7 +137,7 @@ footer {
 }
 
 footer .year {
-    color: #9CA3AF;
+    color: var(--cool-gray400);
 }
 
 footer .link {
@@ -156,9 +145,9 @@ footer .link {
     align-items: center;
     gap: 30px;
 }
+
 footer .link a {
-    text-decoration: none;
-    color: #E5E7EB;
+    color: var(--gray200);
 }
 
 footer .sns-link {
