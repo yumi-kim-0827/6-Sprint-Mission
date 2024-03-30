@@ -1,6 +1,7 @@
 .main-container {
   position: relative;
   height: 540px;
+  overflow: hidden;
   background-color: var(--skyblue);
 }
 
