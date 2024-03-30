@@ -183,7 +183,7 @@ footer{
     color: #fff;
 }
 
-/*mobile*/
+/*tablet*/
 @media (max-width:1199px){
 
     .head_area{padding: 8px 24px}
@@ -232,4 +232,9 @@ footer{
         transform: translateX(-50%);    
     }
 
+}
+
+/*mobile*/
+@media (max-width:767px) and (min-width:375px){
+    
 }
