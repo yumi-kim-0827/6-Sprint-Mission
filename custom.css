@@ -139,6 +139,7 @@ body{
 .btm_banner{
     width: 100%;
     background: var(--skyBlue);
+    overflow: hidden;
 }
 .btm_banner_inner{    
     position: relative;
@@ -180,4 +181,55 @@ footer{
 } 
 .footer_inner ul li a{
     color: #fff;
+}
+
+/*mobile*/
+@media (max-width:1199px){
+
+    .head_area{padding: 8px 24px}
+    .main_banner{
+        height: 770px
+    }
+    .main_banner .banner_text{
+        position: static;
+        text-align: center;
+        transform: translateY(0);
+        padding-top: 10%;
+    }
+    .main_banner .banner_text h2 br{display: none;}
+    .main_banner .banner_img img{
+        right: auto;
+        width: auto;
+        height: auto;
+    }
+
+    .main_con{
+        padding: 31px 0;
+    }
+    .main_con .container{
+        grid-template-columns: none;
+        padding: 0 24px;
+    }
+    .main_con2 .main_con_text{
+        grid-row: 2;
+    }
+    .main_con2 img{
+        grid-row: 1;
+    }
+
+    .btm_banner_inner{
+        height: 927px;
+    }
+    .btm_banner_inner h3{
+        left: 50%;
+        top: 200px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    .btm_banner_inner img{
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);    
+    }
+
 }
