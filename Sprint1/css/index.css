@@ -9,6 +9,7 @@ body {
 }
 
 header {
+    top: 0px;
     position: fixed;
     background-color: #ffffff;
     width: 100%;
@@ -20,6 +21,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+    height: 70px;
 }
 
 .login_btn {
@@ -35,38 +37,51 @@ header {
     font-weight: 600;
 }
 
-.container {
-    background-color: #CFE5FF;
-    height: 540px;
+#top_banner {
+    background-image: url('../imgs/img_home_top.png');
+
 }
 
-.container.space {
+.top_container {
+    margin-top: 55px;
+    background-color: #CFE5FF;
+    height: 540px;
+    background-repeat: no-repeat;
+    background-position: left 80% bottom;  
+    display: flex;
+    align-items: center;
+}
+
+#bottom_banner {
+    background-image: url('../imgs/img_home_bottom.png');
+}
+
+.bottom_container{
     margin-top: 138px;
+    background-color: #CFE5FF;
+    height: 540px;
+    background-repeat: no-repeat;
+    background-position: left 80% bottom;  
+    display: flex;
+    align-items: center;
 }
 
 .main_section1 {
     max-width: 1200px;
-    height: 540px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    position: relative;
+    width: 100%;
+    margin: 0 auto ;
 }
 
-.section_box1 {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
 
-.section_title1 {
+.main_section1 h1{
     font-family: "pretendard";
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
 }
 
-.section1_btn {
+.main_section1 button {
+    margin-top: 32px;
     font-family: "pretendard";
     font-size: 20px;
     font-weight: 600;
@@ -172,6 +187,12 @@ footer {
     .header_container {
         padding: 0 24px;
     }
+
+    .section_box1 {
+        display: flex;
+        text-align: center;
+    }
+
 }
 
 @media (min-width : 1200px) {
