@@ -100,11 +100,6 @@ input:focus {
   flex-direction: row-reverse;
   gap: 16px;
 }
-/* .kakao-login,
-.google-login {
-  text-decoration: none;
-} */
-
 .go-Signup,
 .go-Login {
   display: flex;

@@ -62,7 +62,7 @@ img {
 
 .wrap-contents {
   max-width: 1200px;
-  margin-left: 70px;
+  padding-left: 70px;
   width: 100%;
 }
 
@@ -161,6 +161,9 @@ img {
   text-align: center;
   color: #ffffff;
 }
+.break-on-desktop {
+  display: none;
+}
 
 /* PC 사이즈 */
 @media (min-width: 1200px) {
@@ -170,9 +173,8 @@ img {
 }
 
 /* Tablet 사이즈 */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
   header {
-    justify-content: space-between;
     padding: 0 24px;
   }
 
@@ -183,10 +185,59 @@ img {
   #signinLink {
     margin-right: 24px;
   }
-}
 
+  .main-visual {
+    text-align: center;
+    height: 90vh;
+    display: flex;
+    align-items: start;
+    background-size: 100%;
+  }
+  .wrap-contents {
+    padding-left: 0px;
+  }
+  .main-visual h1 {
+    font-size: 40px;
+    line-height: 56px;
+    padding-top: 84px;
+    padding-bottom: 24px;
+  }
+  #hero h1 br {
+    display: none;
+  }
+  .button.go {
+    margin-top: 5px;
+  }
+
+  .feature {
+    display: block;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+  }
+  .feature img {
+    width: 99%;
+  }
+
+  .feature-content {
+    padding-right: 20px;
+    padding-top: 24px;
+  }
+  .footer-visual-wrap {
+    height: 90vh;
+    display: flex;
+    background-size: 100%;
+    text-align: center;
+  }
+  .footer-visual-wrap h1 {
+    font-weight: 700;
+    padding-bottom: 500px;
+    font-size: 40px;
+  }
+}
 /* Mobile 사이즈 */
-@media (min-width: 375px) and (max-width: 767px) {
+@media (max-width: 767px) {
   header {
     padding: 0 16px;
     justify-content: space-between;
@@ -195,7 +246,9 @@ img {
   header img {
     margin-left: 16px;
   }
-
+  #footer {
+    padding: 32px 104px 108px 104px;
+  }
   #signinLink {
     margin-right: 16px;
   }
