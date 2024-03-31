@@ -169,14 +169,51 @@ button:hover {
 
 /*Tablet: 768px 이상 ~ 1199px 이하*/
 @media (max-width: 1199px) {
+    .login-logo {
+        top: 48px;
+    }
 
+    main {
+        top : 220px;
+    }
 }
 
 
 
 /*Mobile: 375px 이상 ~ 767px 이하*/
 @media (max-width: 767px) {
+    body {
+        padding: 0 16px;
+    }
 
+    .join-form {
+        max-width: 400px;
+        padding: 0;
+    }
+    
+    .join-logo {
+        position: relative;
+        width: 198px;
+        height: 66px;
+        top: 24px;
+        left: calc(50% - 99px);
+    }
+    
+    main {
+        max-width: 400px;
+        height : 585px;
+        top : 114px;
+        padding: 0 16px;
+    }
+
+    .input-text {
+        font-size: 14px;
+        line-height: 16.71px;
+    }
+
+    .join-password img {
+        top: 48px;
+    }
 }
 
 
