@@ -20,7 +20,6 @@ label {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 16px;
-  display: block;
 }
 
 input {
@@ -56,13 +55,47 @@ input {
   display: flex;
 }
 
-.sign-ㅡmember {
+.sign-member {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
 }
 
-.sign-ㅡmember a {
+.sign-member a {
   color: #3182f6;
   text-decoration: underline;
+}
+
+@media (min-width: 375px) {
+  .sign-conrainer {
+    max-width: 400;
+    padding: 0 16px;
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sign-conrainer {max-width: 640;}
+
+  .logo-home {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    width: 396px;
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .logo-home {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
 }
