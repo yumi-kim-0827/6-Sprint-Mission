@@ -219,7 +219,6 @@ img {
   .feature img {
     width: 99%;
   }
-
   .feature-content {
     padding-right: 20px;
     padding-top: 24px;
@@ -240,16 +239,53 @@ img {
 @media (max-width: 767px) {
   header {
     padding: 0 16px;
-    justify-content: space-between;
   }
 
   header img {
     margin-left: 16px;
   }
-  #footer {
-    padding: 32px 104px 108px 104px;
-  }
   #signinLink {
     margin-right: 16px;
+  }
+  .main-visual {
+    height: 60vh;
+  }
+  .main-visual h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .button.go {
+    font-size: 16px;
+    width: 10px;
+    height: 50px;
+  }
+  #hero h1 br {
+    display: inline;
+  }
+  .feature-content h1 {
+    font-size: 24px;
+  }
+  .feature-description {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  .footer-visual-wrap {
+    height: 60vh;
+  }
+  .footer-visual-wrap h1 {
+    padding-bottom: 350px;
+  }
+
+  .footer {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .codeit-2024 {
+    order: 3;
+    flex-basis: 50%;
   }
 }
