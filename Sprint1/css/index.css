@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+:root {
+    --blue: #3692ff;
+    --white: #ffffff;
+    --banner_color : #CFE5FF;
+}
+
 body {
     margin: 0;
 }
@@ -29,8 +35,8 @@ main {
 .login_btn {
     width: 128px;
     height: 48px;
-    color: #ffffff;
-    background-color: #3692FF;
+    color: var(--white);
+    background-color: var(--blue);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -45,7 +51,7 @@ main {
 }
 
 .container {
-    background-color: #CFE5FF;
+    background-color: var(--banner_color);
     height: 60vh;
     background-repeat: no-repeat;
     background-size: 130%;
@@ -77,8 +83,8 @@ main {
     font-family: "pretendard";
     font-size: 16px;
     font-weight: 600;
-    background-color: #3692FF;
-    color: #ffffff;
+    background-color: var(--blue);
+    color: var(--white);
     width: 154px;
     height: 48px;
     border: none;
@@ -115,7 +121,7 @@ main {
     font-size: 16px;
     font-weight: 700;
     line-height: 25px;
-    color: #3692FF;
+    color: var(--blue);
 }
 
 
