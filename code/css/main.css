@@ -21,9 +21,27 @@
     --btn3: #1251aa;
     --btn4: #9ca3af;
     --bannerbg: #cfe5ff;
+    /* font-size */
+    --font-15: 1.5rem;
+    --font-16: 1.6rem;
+    --font-18: 1.8rem;
+    --font-24: 2.4rem;
+    --font-20: 2rem;
+    --font-32: 3.2rem;
+    --font-26: 2.6rem;
+    --font-66: 6.6rem;
+    --font-40: 4rem;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+html{
+    font-size:62.5%;
+
 }
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    overflow-x:hidden;
     
 }
 
@@ -44,8 +62,8 @@ button {
 /* 헤더 */
 header{
     display:grid;
-    height: 70px;
-    grid-template-columns: 353px 1fr 328px;
+    height: 7rem;
+    grid-template-columns: 35.3rem 1fr 32.8rem;
     position: sticky;
     top:0;
     background-color: white;
@@ -54,23 +72,24 @@ header{
 }
 
 header a:first-child{
-    margin: auto 0 auto 200px;
+    margin: auto 0 auto 20rem;
     grid-column: 1/2;
 }
 header a:last-child{
-    margin: auto 200px auto 0;
+    margin: auto 20rem auto 0;
     grid-column: -1/-2;
 }
 .logo{
-    width: 153px;
-    height: 51px;
+    width: 15.3rem;
+    height: 5.1rem;
 }
 .login-btn{
-    font-size: 16px;
+    width: 12.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    border-radius: 8px;
-    padding: 14.5px 43px;
-    line-height: 19.09px;
+    border-radius: 0.8rem;
+    padding: 1.45rem 4.3rem;
+    line-height: 1.9rem;
     background-color: var(--btn1);
     color: #ffffff;
     display: flex;
@@ -85,7 +104,7 @@ header a:last-child{
 /* 메인 */
 main{
     display:grid;
-    grid-template: 540px 1fr 540px / 1fr 1200px 1fr;
+    grid-template: 54rem 1fr 54rem / 1fr 120rem 1fr;
 }
 .banner.top{
     grid-column: 1/4;
@@ -101,7 +120,7 @@ main{
 .banner{
     background-color: var(--bannerbg);
     display: grid;
-    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-columns: 1fr 120rem 1fr;
 
 }
 
@@ -115,23 +134,23 @@ main{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    gap:32px
+    gap:3.2rem
 }
 .banner-txt p{
-    font-size: 40px;
+    font-size: 4rem;
     font-weight: 700;
-    line-height: 56px;
+    line-height: 5.6rem;
     width: max-content; /* 텍스트 박스의 너비를 텍스트 크기에 맞게 조절 */
     white-space: nowrap; /* 텍스트가 한 줄에만 표시되도록 줄바꿈을 막음 */
 }
 
 .action-btn{
     background-color: var(--btn1);
-    padding: 16px 124px;
-    font-size: 20px;
+    padding: 1.6rem 12.4rem;
+    font-size: 2rem;
     font-weight: 600;
-    border-radius: 40px;
-    line-height: 24px;
+    border-radius: 4rem;
+    line-height: 2.4rem;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -139,17 +158,17 @@ main{
     white-space: nowrap;
 }
 .top .banner-img{
-    width: 996px;
-    height: 447px;
+    width: 99.6rem;
+    height: 44.7rem;
     position: relative;
-    right:14px;
-    top:93px;
+    right:1.4rem;
+    top:9.3rem;
 }
 .bottom .banner-img{
-    width: 996px;
-    height: 540px;
+    width: 99.6rem;
+    height: 54rem;
     position: relative;
-    left:55px;
+    left:5.5rem;
 
 }
 
@@ -160,13 +179,13 @@ main{
     grid-column: 2/3;
     grid-row:2/-2;
     display: grid;
-    grid-template-rows: repeat(3, 138px 1fr 138px);
+    grid-template-rows: repeat(3, 13.8rem 1fr 13.8rem);
 
 }
 .info-card{
     display: flex;
-    gap:64px;
-    flex-wrap: wrap;
+    gap:6.4rem;
+    
 }
 .search{
     justify-content: end;
@@ -198,46 +217,49 @@ main{
 }
 .info-title {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.8rem;
     color: var(--main);
-    line-height: 25.2px;
-    margin-bottom: 12px;
+    line-height: 2.52rem;
+    margin-bottom: 1.2rem;
 
 }
 .big-info{
-    font-size: 40px;
+    font-size: 4rem;
     font-weight: 700;
-    line-height: 56px;
-    margin-bottom: 24px;
+    line-height: 5.6rem;
+    margin-bottom: 2.4rem;
     letter-spacing: 2%;
 }
 .small-info{
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 500;
-    line-height: 28.8px;
+    line-height: 2.8rem;
 }
 
 
 /* footer */
 footer{
     background-color: var(--gray900);
-    height: 160px;
-    padding-top: 32px;
+    height: 16rem;
+    padding-top: 3.2rem;
 }
 
 .footer-content{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 0 200px;
+    margin: 0 20rem;
 }
 .footer-company{
     color:var(--gray400);
+    font-size: 1.6rem;
+    font-weight: 40;
+    line-height: 1.9rem;
 }
 .footer-policy-faq a{
     color:var(--gray200);
 }
 .footer-policy-faq a:first-child{
-    margin-right: 30px;
+    margin-right: 3rem;
 }
 .flex-row-center{
     display: flex;
@@ -247,50 +269,5 @@ footer{
 
 .footer-sns{
     display: flex;
-    gap: 12px;
-}
-
-@media(max-width: 1200px) {
-    .banner{
-      
-        grid-template-columns:  100px 1fr 100px;
-    
-    }
-    main{
-    grid-template: 540px 1fr 540px / 100px 1fr 100px;
-}
-
-
-    .banner-content {
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .banner-txt p {
-        text-align: center;
-    }
-
-    .top .banner-img {
-        position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-    }
-
-    .bottom .banner-img {
-        position: static;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-    }
-    .info-card{
-        flex-direction: column;
-        align-items: center;
-    }
-    .info-card-txt{
-        align-items: center;
-    }
-
-
+    gap: 1.2rem;
 }
