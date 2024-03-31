@@ -141,21 +141,26 @@ main {
 
 footer {
     background-color: #111827;
-    padding: 32px 200px ;
     color: var(--white);
     font-family: "pretendard";
     display: flex;
     justify-content: space-between;
-    height: 160px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 32px;    
+    gap: 60px;
 }
 
 #footer_year {
     color: #9CA3AF;
+    flex-basis: 100%;
+    order: 3;
 }
 
 #footer_menu {
     display: flex;
     gap: 30px;
+    color: #CFCFCF;
 }
 
 #social_media {
@@ -163,8 +168,6 @@ footer {
     gap: 12px;
     cursor: pointer;
 }
-
-
 
 
 @media (min-width : 768px ) {
@@ -209,6 +212,15 @@ footer {
 
     .section2_content {
         font-size: 18px;
+    }
+
+    footer {
+        padding: 32px 104px 108px 104px
+    }
+
+    #footer_year {
+        flex-basis: auto;
+        order: 0;
     }
 
 }
@@ -269,4 +281,14 @@ footer {
     #bottom_banner {
         margin-top: 276px;
     }
+
+    footer {
+        padding: 32px 200px 108px 200px;
+    }
+
+    #footer_year {
+        flex-basis: auto;
+        order: 0;
+    }
+
 }
