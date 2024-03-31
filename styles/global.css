@@ -45,16 +45,17 @@ main {
 
 footer {
   background-color: #111827;
+  padding: 32px;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px;
-  font-size: 16px;
   flex-wrap: wrap;
   gap: 60px;
 }
 
 #copyright {
+  order: 3;
   flex-basis: 100%;
   color: #9ca3af;
 }
@@ -83,13 +84,7 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 90px;
-  padding-top: 20px;
-}
-
-.wrapper h1 {
-  line-height: 44.8px;
-  padding-bottom: 18px;
+  padding: 0 16px;
 }
 
 button {
@@ -133,20 +128,24 @@ button {
   font-size: 16px;
   font-weight: 600;
   border-radius: 999px;
-  padding: 14px 33px 
+  padding: 14.5px 33.5px;
 }
 
 .full-width {
   width: 100%;
 }
 
-@media(min-width: 768px) {
+.break-on-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
   header {
     padding: 0 24px;
   }
 
   .wrapper {
-    padding: 0 154px;
+    padding: 0 24px;
   }
 
   .pill-button {
@@ -155,22 +154,26 @@ button {
     padding: 16px 126px;
   }
 
-
   footer {
-    padding: 32px 100px 104px 104px;
+    padding: 32px 104px 108px 104px;
   }
 
   #copyright {
     flex-basis: auto;
+    order: 0;
   }
 }
 
-@media(min-width: 1280px) {
+@media (min-width: 1280px) {
   header {
     padding: 0 200px;
   }
 
+  .break-on-desktop {
+    display: inline;
+  }
+
   footer {
-    padding: 32px 200px 104px 200px;
+    padding: 32px 200px 108px 200px;
   }
 }
