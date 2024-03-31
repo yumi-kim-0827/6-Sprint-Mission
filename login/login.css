@@ -100,3 +100,32 @@ input:focus {
   font-weight: 500;
   color: #3182f6;
 }
+
+/*tablet*/
+@media (max-width: 1199px) {
+  form {
+    width: 640px;
+  }
+  .logo,
+  .logo-image {
+    width: 396px;
+    height: 132px;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  form {
+    width: 344px;
+  }
+  .logo {
+    width: 198px;
+    height: 66px;
+  }
+  .logo-image {
+    width: 198px;
+    height: 66px;
+  }
+  label {
+    font-size: 14px;
+  }
+}
