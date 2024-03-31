@@ -8,20 +8,22 @@ body {
     margin: 0;
 }
 
-header {
-    top: 0px;
-    position: fixed;
-    background-color: #ffffff;
-    width: 100%;
-    z-index: 99;
+
+main {
+    margin-top: 70px;
 }
 
 .header_container {
+    position: fixed;
+    top: 0px;
+    background-color: #ffffff;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
     height: 70px;
+    border: 0px, 0px, 1px, 0px;
 }
 
 .login_btn {
@@ -42,28 +44,17 @@ header {
 
 }
 
-.top_container {
-    margin-top: 55px;
+.container {
     background-color: #CFE5FF;
-    height: 540px;
+    height: 60vh;
     background-repeat: no-repeat;
-    background-position: left 80% bottom;  
-    display: flex;
-    align-items: center;
+    background-size: 130%;
+    background-position: bottom;  
+    text-align: center;
 }
 
 #bottom_banner {
     background-image: url('../imgs/img_home_bottom.png');
-}
-
-.bottom_container{
-    margin-top: 138px;
-    background-color: #CFE5FF;
-    height: 540px;
-    background-repeat: no-repeat;
-    background-position: left 80% bottom;  
-    display: flex;
-    align-items: center;
 }
 
 .main_section1 {
@@ -75,20 +66,21 @@ header {
 
 .main_section1 h1{
     font-family: "pretendard";
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
-    line-height: 56px;
+    line-height: 44.8px;
+    padding-top: 48px;
+    padding-bottom: 18px;
 }
 
 .main_section1 button {
-    margin-top: 32px;
     font-family: "pretendard";
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     background-color: #3692FF;
     color: #ffffff;
-    width: 355px;
-    height: 56px;
+    width: 154px;
+    height: 48px;
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -188,15 +180,53 @@ footer {
         padding: 0 24px;
     }
 
-    .section_box1 {
-        display: flex;
-        text-align: center;
+    .container {
+        height: 90vh;
+    }
+
+    .container h1 {
+        font-size: 40px;
+        line-height: 56px;
+        padding-top: 84px;
+        padding-bottom: 24px;
+    }
+
+    .top_title br {
+        display: none;
+    }
+
+    .container button {
+        font-size: 20px;
+        font-weight: 700;
+        width: 355px;
+        height: 60px;
+        border-radius: 45.5px;
     }
 
 }
+
 
 @media (min-width : 1200px) {
     .header_container {
         padding: 0 200px;
     }
+
+    .container {
+        height: 540px;
+        background-size: 50%;
+        background-position: left 80% bottom;  
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+
+    .container h1 {
+        padding-top: 0px;
+    }
+
+    .top_title br {
+        display: inline;
+    }
+
+
 }
