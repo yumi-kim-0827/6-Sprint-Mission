@@ -1,6 +1,7 @@
 .main-container {
   position: relative;
   height: 540px;
+  overflow: hidden;
   background-color: var(--skyblue);
 }
 
@@ -40,7 +41,11 @@
   cursor: pointer;
 }
 
-.main-panda {
+.main-btn:hover {
+  background-color: var(--darkblue);
+}
+
+.main-panda-img {
   position: absolute;
   bottom: 0;
   left: 355px;

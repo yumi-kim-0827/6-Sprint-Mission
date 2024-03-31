@@ -21,3 +21,7 @@
   color: white;
   cursor: pointer;
 }
+
+.login-btn:hover {
+  background-color: var(--darkblue);
+}
