@@ -29,12 +29,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-}
+} */
 label {
   display: block;
   margin-bottom: 16px;
@@ -117,10 +117,7 @@ input:focus {
   padding-left: 5px;
   color: #3182f6;
 }
-.go-Login > a {
-  padding-left: 5px;
-  color: #3182f6;
-}
+
 .error-text {
   font-family: Pretendard;
   font-size: 12px;
