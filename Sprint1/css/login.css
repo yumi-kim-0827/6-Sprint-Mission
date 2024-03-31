@@ -5,6 +5,12 @@
     font-family: "pretendard";
 }
 
+:root {
+    --blue: #3692ff;
+    --white: #ffffff;
+    --banner_color : #CFE5FF;
+}
+
 
 .All_section {
     max-width: 400px;
@@ -84,6 +90,10 @@ input:focus {
 
 .form_section.p_span {
     text-align: center;
+}
+
+.form_section.p_span a {
+    color: var(--blue);
 }
 
 .easy_login {
