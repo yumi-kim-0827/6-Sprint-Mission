@@ -294,7 +294,7 @@ footer .footer-content {
 @media (max-width: 1199px) {
   /* Header */
   .gnb {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
   .banner {
@@ -332,9 +332,11 @@ footer .footer-content {
   }
 
   .img-item img {
-    position: static;
+    width: 100%;
+    left: 0;
     height: 447px;
   }
+  
   /* Main */
   main {
     width: 100%;
@@ -402,20 +404,19 @@ footer .footer-content {
   }
   /* Banner */
   .banner {
-    width: 100%;
     height: 540px;
     padding-top: 64px;
   }
 
   .banner-content {
-    width: 375px;
-    height: 100%;
-  }
-
-  .banner-content .text-item {
     width: 100%;
     height: 100%;
 
+    align-items: space-between;
+  }
+
+  .banner-content .text-item {
+    height: 50%;
     margin-bottom: 48px;
   }
 
@@ -440,13 +441,13 @@ footer .footer-content {
   }
 
   .banner-content .img-item {
-    width: 626.12px;
-    height: 281px;
+    height: 50%;
   }
 
   .img-item img {
-    width: 100%;
-    height: 100%;
+    height: inherit;
+    bottom: 0;
+    left: 0;
   }
 
   /* Main */
