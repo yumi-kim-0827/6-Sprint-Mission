@@ -8,19 +8,7 @@
   <link rel="stylesheet" href="/style/signin.css">
   <!-- Favicon -->
   <link rel="icon" href="/img/panda-face.png">
-  <script>
-    function show() {
-        document.getElementById('user-password').setAttribute('type', 'text');
-        document.querySelector('.on').style.display = 'inline-block';
-        document.querySelector('.off').style.display = 'none';
-      };
-
-    function hide() {
-      document.getElementById('user-password').setAttribute('type', 'password');
-      document.querySelector('.on').style.display = 'none';
-      document.querySelector('.off').style.display = 'inline-block';
-    };
-  </script>
+  <script defer src="/js/signin.js"></script>
 </head>
 <body>
   <main class="signin-container">
@@ -58,17 +46,17 @@
           <button 
             type="button"
             id="signin-hide-btn"
-            onmouseup="hide()"
-            onmousedown="show()"
           >
             <img 
-            class="off" 
-            src="/img/btn_visibility_off_24px.png" 
-            alt="비밀번호 숨기기 아이콘">
+              class="off" 
+              src="/img/btn_visibility_off_24px.png" 
+              alt="비밀번호 숨기기 아이콘"
+            >
             <img 
-            class="on" 
-            src="/img/btn_visibility_on_24px.png" 
-            alt="비밀번호 보기 아이콘">
+              class="on" 
+              src="/img/btn_visibility_on_24px.png" 
+              alt="비밀번호 보기 아이콘"
+            >
           </button>
         </div>
       </div>
