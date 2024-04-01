@@ -1,6 +1,11 @@
 const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordValidation = /^.{8,}$/;
 
+const visibilityOffIcon = document.querySelector(
+  ".password-visibility-off-icon"
+);
+const passwordConfirmVisibilityIcon = document.querySelector('.password-confirm-visibility-off-icon')
+
 const emailInput = document.getElementById("email");
 const nicknameInput = document.getElementById("nickname");
 const passwordInput = document.getElementById("password");
@@ -30,6 +35,29 @@ emailInput.addEventListener("input", updateLoginButtonState);
 nicknameInput.addEventListener("input", updateLoginButtonState);
 passwordInput.addEventListener("input", updateLoginButtonState);
 passwordConfirm.addEventListener("input", updateLoginButtonState);
+
+const toggleVisibilityIcon = () => {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    visibilityOffIcon.src = "../img/icon_visibility_on.png";
+  } else {
+    passwordInput.type = "password";
+    visibilityOffIcon.src = "../img/icon_visibility_off.png";
+  }
+};
+
+const toggleVisibilityIconConfirm = () => {
+  if (passwordConfirm.type === "password") {
+    passwordConfirm.type = "text";
+    passwordConfirmVisibilityIcon.src = "../img/icon_visibility_on.png";
+  } else {
+    passwordConfirm.type = "password";
+    passwordConfirmVisibilityIcon.src = "../img/icon_visibility_off.png";
+  }
+};
+
+visibilityOffIcon.addEventListener("click", toggleVisibilityIcon);
+passwordConfirmVisibilityIcon.addEventListener("click", toggleVisibilityIconConfirm)
 
 emailInput.addEventListener("focusout", () => {
   const fieldWrapper = emailInput.parentNode;

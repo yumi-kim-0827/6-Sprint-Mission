@@ -1,6 +1,8 @@
 const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordValidation = /^.{8,}$/;
 
+const visibilityOffIcon = document.querySelector('.password-visibility-off-icon')
+
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
@@ -23,6 +25,18 @@ const updateLoginButtonState = () => {
 // input 태그에 값을 입력할 때 실시간으로 값 반영
 emailInput.addEventListener("input", updateLoginButtonState);
 passwordInput.addEventListener("input", updateLoginButtonState);
+
+const toggleVisibilityIcon = () => {
+  if(passwordInput.type === 'password') {
+    passwordInput.type = 'text'
+    visibilityOffIcon.src = '../img/icon_visibility_on.png'
+  } else {
+    passwordInput.type = 'password'
+    visibilityOffIcon.src = '../img/icon_visibility_off.png'
+  }
+}
+
+visibilityOffIcon.addEventListener('click', toggleVisibilityIcon)
 
 emailInput.addEventListener("focusout", () => {
   const fieldWrapper = emailInput.parentNode;

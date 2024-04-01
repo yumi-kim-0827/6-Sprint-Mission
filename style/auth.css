@@ -60,6 +60,15 @@ input:focus {
   cursor: pointer;
 }
 
+.password-confirm-visibility-off-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 43px;
+  left: 32rem;
+  cursor: pointer;
+}
+
 .easylogin {
   display: flex;
   flex-direction: row;
@@ -134,6 +143,9 @@ input:focus {
     width: 25rem;
   }
   .password-visibility-off-icon {
+    left: 22rem;
+  }
+  .password-confirm-visibility-off-icon {
     left: 22rem;
   }
 }
