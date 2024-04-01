@@ -8,31 +8,7 @@
   <link rel="stylesheet" href="/style/signup.css">
   <!-- Favicon -->
   <link rel="icon" href="/img/panda-face.png">
-  <script>
-    function show() {
-      document.getElementById('user-password').setAttribute('type', 'text');
-      document.querySelector('.off').style.display = 'none';
-      document.querySelector('.on').style.display = 'inline-block';
-    };
-
-    function reConFirmShow() {
-      document.getElementById('user-password-reconfirm').setAttribute('type', 'text');
-      document.querySelector('.reconfi-off').style.display = 'none';
-      document.querySelector('.reconfi-on').style.display = 'inline-block';
-    };
-
-    function hide() {
-      document.getElementById('user-password').setAttribute('type', 'password');
-      document.querySelector('.off').style.display = 'inline-block';
-      document.querySelector('.on').style.display = 'none';
-    };
-
-    function reConFirmHide() {
-      document.getElementById('user-password-reconfirm').setAttribute('type', 'password');
-      document.querySelector('.reconfi-off').style.display = 'inline-block';
-      document.querySelector('.reconfi-on').style.display = 'none';
-    };
-  </script>
+  <script defer src="/js/signup.js"></script>
 </head>
 <body>
   <main class="signup-container">
@@ -81,8 +57,6 @@
           <button 
             type="button"
             id="signup-hide-btn"
-            onmouseup="hide()"
-            onmousedown="show()"
           >
             <img 
               class="off" 
@@ -109,10 +83,8 @@
             required
           >
             <button 
-              type="button"
               id="signup-reconfirm-btn"
-              onmouseup="reConFirmHide()"
-              onmousedown="reConFirmShow()"
+              type="button"
             >
             <img 
               class="off reconfi-off" 
