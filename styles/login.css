@@ -1,3 +1,11 @@
+@import url('/styles/reset.css');
+@import url('/styles/common.css');
+@import url('/assets/fonts/index.css');
+
+html {
+    font-size: 10px;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -12,11 +20,17 @@ header {
     align-items: center;
 }
 
+header > span > svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 header > h1 > a {
     font-family: "ROKAF Bold";
     font-weight: 700;
-    font-size: 4.1463rem;
-    line-height: 5.5975rem;
+    font-size: 6.634rem;
+    line-height: 8.956rem;
     text-decoration: none;
     color: var(--header-logo-color);
 }
@@ -24,8 +38,8 @@ header > h1 > a {
 footer {
     font-family: Pretendard;
     font-weight: 500;
-    font-size: 0.9375rem;
-    line-height: 1.1187rem;
+    font-size: 1.5rem;
+    line-height: 1.79rem;
 }
 
 footer > h3 > a {
@@ -36,15 +50,15 @@ footer > h3 > a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40rem;
+    width: 64rem;
     gap: 16px;
 }
 
 .pandamarket-login > form > label {
     font-family: "Pretendard";
     font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.3425rem;
+    font-size: 1.8rem;
+    line-height: 2.148rem;
     color: var(--cool-gray-800);
 }
 
@@ -55,10 +69,10 @@ footer > h3 > a {
     padding-inline: 20px 50px;
     border-radius: 12px;
     width: 100%;
-    height: 3.5rem;
+    height: 5.6rem;
     font-family: Pretendard;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.6rem;
     line-height: 24px;
     border: none;
     outline: none;
@@ -101,9 +115,9 @@ footer > h3 > a {
     color: var(--button-font-color);
     background-color: var(--panda-gray-color);
     font-family: Pretendard;
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 600;
-    line-height: 1.5rem ;
+    line-height: 2.4rem ;
     padding: 16px 124px;
     border-radius: 40px;
     border: none;
@@ -119,7 +133,7 @@ footer > h3 > a {
     justify-content: space-between;
     align-items: center;
     padding: 16px 23px;
-    width: 40rem;
+    width: 64rem;
     margin-block: 24px;
     background-color: var(--brand-sky);
     border-radius: 8px;
@@ -128,8 +142,8 @@ footer > h3 > a {
 .simple-login > h2 {
     font-family: Pretendard;
     font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     color:var(--cool-gray-800);
 }
 .simple-login > div {
@@ -146,9 +160,66 @@ footer > h3 > a {
 }
 
 .simple-login > div > .google {
-    background-image: url('/assets/images/signupPage/google-logo.svg');
+    background-image: url('/assets/images/logos/google-logo.svg');
 }
 
 .simple-login > div > .kakao {
-    background-image: url('/assets/images/signupPage/kakaotalk-logo.svg');
+    background-image: url('/assets/images/logos/kakaotalk-logo.svg');
+}
+
+/** Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    body {
+        padding-inline: 1.6rem;
+    }
+    body > * {
+        max-width: 64rem;
+    }
+
+}
+
+/** Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    body {
+        padding-inline: 1.6rem;
+        padding-block-end: 20rem;
+    }
+
+    body > * {
+        max-width: 40rem;
+    }
+
+    header {
+        padding-block-start: 3rem;
+    }
+
+    header > span {
+        width: 25%;
+    }
+
+    header > h1 > a {
+        width: 100%;
+        font-size: 5dvh;
+        line-height: 4.478rem;
+    }
+
+    .pandamarket-login {
+        width: 100%;
+    }
+
+    .pandamarket-login > form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .simple-login {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: var(--brand-sky);
+        border-radius: 8px;
+    }
 }
