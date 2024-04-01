@@ -25,3 +25,9 @@
 .login-btn:hover {
   background-color: var(--darkblue);
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header-container {
+    margin: 0 24px;
+  }
+}
