@@ -1,7 +1,11 @@
+html {
+  font-size: 10px;
+}
 .description-head {
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 5.6rem;
+  margin-bottom: 1.2rem;
   &--text-align-left {
     text-align: left;
   }
@@ -11,12 +15,17 @@
   &--color-374151 {
     color: #374151;
   }
+  &--white-spacing {
+    white-space: initial;
+    word-break: keep-all;
+    width: 34rem;
+  }
 }
 .description-detail {
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 500;
-  line-height: 28.8px;
-  letter-spacing: 0.08em;
+  line-height: 2.88rem;
+  letter-spacing: 0.08rem;
   text-align: left;
   &--color-374151 {
     color: #374151;
@@ -24,15 +33,21 @@
   &--text-align-right {
     text-align: right;
   }
+  &--white-spacing {
+    white-space: initial;
+    word-break: keep-all;
+    width: 38rem;
+  }
 }
 .description-tip {
-  font-size: 18px;
+  font-size: 2.2rem;
   font-weight: 700;
+  margin-bottom: 2.2rem;
   &--line-height-21-48px {
-    line-height: 21.48px;
+    line-height: 2.148rem;
   }
   &--line-height-25-2px {
-    line-height: 25.2px;
+    line-height: 2.52rem;
   }
   &--text-align-left {
     text-align: left;
@@ -44,13 +59,25 @@
     color: #3692ff;
   }
 }
+
+.description-header{
+  &__description {
+    width: 40rem;
+    word-break: keep-all;
+  }
+}
+
 .description-footer {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 19.09px;
+  line-height: 1.909rem;
   text-align: center;
   &--color-e5e7eb {
     color: #e5e7eb;
+  }
+  &__description {
+    width: 36rem;
+    word-break: keep-all;
   }
   &--color-9ca3af {
     color: #9ca3af;
@@ -58,21 +85,22 @@
 }
 
 .description-button {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 2.4rem;
   text-align: center;
+  vertical-align: middle;
 }
 
 .description-login {
-  font-size: 16px;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 19.09px;
+  line-height: 1.909rem;
 }
 
 .description-input {
-  font-size: 16px;
+  font-size: 2rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
   text-align: left;
 }
