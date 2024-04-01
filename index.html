@@ -52,7 +52,10 @@
                         <button class="main_banner_btn" onclick='location.href="/items/"'>구경하러 가기</button>
                     </div>
                     <div class="main_banner_img">
-                        <img src="/assets/img/home_imgs/Img_home_top.webp" alt="구경가는 판다 이미지" />
+                        <picture>
+                            <source srcset="/assets/img/home_imgs/Img_home_top.webp" type="image/webp" />
+                            <img src="/assets/img/home_imgs/Img_home_top.png" alt="구경가는 판다 이미지" />
+                        </picture>
                     </div>
                 </div>
             </section>
@@ -61,9 +64,10 @@
             <section class="main_info_container">
                 <div class="main_info_background">
                     <div class="main_info">
-                        <div class="img_wrap">
-                            <img src="/assets/img/home_imgs/Img_home_hot_item.webp" alt="핫 아이템 이미지" />
-                        </div>
+                        <picture class="img_wrap">
+                            <source srcset="/assets/img/home_imgs/Img_home_hot_item.webp" type="image/webp" />
+                            <img src="/assets/img/home_imgs/Img_home_hot_item.png" alt="핫 아이템 이미지" />
+                        </picture>
                         <div class="text_wrap">
                             <h4 class="blue-title">Hot item</h4>
                             <h2 class="title">인기 상품을 확인해 보세요</h2>
@@ -72,9 +76,10 @@
                     </div>
 
                     <div class="main_info_second">
-                        <div class="img_wrap">
-                            <img src="/assets/img/home_imgs/Img_home_search.webp" alt="검색 이미지" />
-                        </div>
+                        <picture class="img_wrap">
+                            <source srcset="/assets/img/home_imgs/Img_home_search.webp" type="image/webp" />
+                            <img src="/assets/img/home_imgs/Img_home_search.png" alt="검색 이미지" />
+                        </picture>
                         <div class="text_wrap">
                             <h4 class="blue-title">Search</h4>
                             <h2 class="title">구매를 원하는 상품을 검색하세요</h2>
@@ -83,9 +88,10 @@
                     </div>
 
                     <div class="main_info">
-                        <div class="img_wrap">
-                            <img src="/assets/img/home_imgs/Img_home_register.webp" alt="등록 이미지" />
-                        </div>
+                        <picture class="img_wrap">
+                            <source srcset="/assets/img/home_imgs/Img_home_register.webp" type="image/webp" />
+                            <img src="/assets/img/home_imgs/Img_home_register.png" alt="등록 이미지" />
+                        </picture>
                         <div class="text_wrap">
                             <h4 class="blue-title">Register</h4>
                             <h2 class="title">판매를 원하는 상품을 등록하세요</h2>
@@ -101,9 +107,10 @@
                     <div class="bottom_banner_text">
                         <h3 class="title">믿을 수 있는<br />판다마켓 중고거래</h3>
                     </div>
-                    <div class="bottom_banner_img">
-                        <img src="/assets/img/home_imgs/Img_home_bottom.webp" alt="믿을 수 있는 판다마켓" />
-                    </div>
+                    <picture class="bottom_banner_img">
+                        <source srcset="/assets/img/home_imgs/Img_home_bottom.webp" type="image/webp" />
+                        <img src="/assets/img/home_imgs/Img_home_bottom.png" alt="믿을 수 있는 판다마켓" />
+                    </picture>
                 </div>
             </section>
         </main>
@@ -118,18 +125,30 @@
                 </div>
             </div>
             <div class="codeit_footer_link">
-                <a href="http://facebook.com" target="_blank"
-                    ><img src="/assets/img/icon/ic_facebook.webp" alt="facebook"
-                /></a>
-                <a href="http://twitter.com" target="_blank"
-                    ><img src="/assets/img/icon/ic_twitter.webp" alt="twitter"
-                /></a>
-                <a href="http://youtube.com" target="_blank"
-                    ><img src="/assets/img/icon/ic_youtube.webp" alt="youtube"
-                /></a>
-                <a href="http://instagram.com" target="_blank"
-                    ><img src="/assets/img/icon/ic_instagram.webp" alt="instagram"
-                /></a>
+                <a href="http://facebook.com" target="_blank">
+                    <picture>
+                        <source srcset="/assets/img/icon/ic_facebook.webp" type="image/webp" />
+                        <img src="/assets/img/icon/ic_facebook.png" alt="facebook" />
+                    </picture>
+                </a>
+                <a href="http://twitter.com" target="_blank">
+                    <picture>
+                        <source srcset="/assets/img/icon/ic_twitter.webp" type="image/webp" />
+                        <img src="/assets/img/icon/ic_twitter.png" alt="twitter" />
+                    </picture>
+                </a>
+                <a href="http://youtube.com" target="_blank">
+                    <picture>
+                        <source srcset="/assets/img/icon/ic_youtube.webp" type="image/webp" />
+                        <img src="/assets/img/icon/ic_youtube.png" alt="youtube" />
+                    </picture>
+                </a>
+                <a href="http://instagram.com" target="_blank">
+                    <picture>
+                        <source srcset="/assets/img/icon/ic_instagram.webp" type="image/webp" />
+                        <img src="/assets/img/icon/ic_instagram.png" alt="instagram" />
+                    </picture>
+                </a>
             </div>
         </footer>
     </body>
