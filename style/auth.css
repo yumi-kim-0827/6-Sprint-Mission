@@ -42,7 +42,6 @@ input {
 input:focus {
   outline-color: var(--main);
 }
-
 .login {
   width: 100% !important;
   background-color: var(--btn4);
