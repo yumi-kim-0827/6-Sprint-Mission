@@ -3,15 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>로그인</title>
+        <title>판다마켓 : 로그인</title>
         <link rel="stylesheet" href="./signin.css" />
-        <script defer src="./main.js"></script>
+        <script defer src="./passwordToggle.js"></script>
     </head>
     <body>
         <div class="container">
             <!-- Header logo -->
             <header>
-                <a href="/"><img src="/assets/img/logo/img_logo.svg" alt="판다마켓 로고" /></a>
+                <a href="/">
+                    <picture>
+                        <source srcset="/assets/img/logo/img_logo_big.webp" type="image/webp" />
+                        <img src="/assets/img/logo/img_logo_big.png" alt="판다마켓 로고" />
+                    </picture>
+                </a>
             </header>
 
             <!-- Main -->
@@ -25,8 +30,9 @@
                     <li class="input_wrap">
                         <label for="password">비밀번호</label>
                         <input id="password" type="password" autocomplete="off" placeholder="비밀번호를 입력해주세요" />
-                        <div class="eye">
-                            <img src="/assets/img/icon/pw_Property=Variant2.svg" alt="" />
+                        <div class="password_eye_wrap">
+                            <input type="checkbox" id="password_eye_toggle" />
+                            <label for="password_eye_toggle" class="eye_btn"></label>
                         </div>
                     </li>
                     <button>로그인</button>
@@ -34,10 +40,18 @@
                 <div class="easy_login">
                     <h4>간편 로그인하기</h4>
                     <div class="easy_login_link">
-                        <a href="http://www.google.com"><img src="/assets/img/icon/google_icon.svg" alt="구글" /></a>
-                        <a href="http://kakaocorp.com/page/"
-                            ><img src="/assets/img/icon/kakao_icon.svg" alt="카카오톡"
-                        /></a>
+                        <a href="http://www.google.com">
+                            <picture>
+                                <source srcset="/assets/img/icon/google.webp" type="image/webp" />
+                                <img src="/assets/img/icon/google.png" alt="구글" />
+                            </picture>
+                        </a>
+                        <a href="http://kakaocorp.com/page/">
+                            <picture>
+                                <source srcset="/assets/img/icon/kakao.webp" type="image/webp" />
+                                <img src="/assets/img/icon/kakao.png" alt="카카오톡" />
+                            </picture>
+                        </a>
                     </div>
                 </div>
             </main>

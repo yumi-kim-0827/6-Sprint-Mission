@@ -43,6 +43,8 @@ form {
 
 label {
     font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-cool-gray800);
 }
 
 input {
@@ -53,6 +55,7 @@ input {
     border-radius: 12px;
     padding: 16px 24px;
     font-size: 1.6rem;
+    font-weight: 400;
     color: var(--color-cool-gray800);
 }
 
@@ -79,13 +82,47 @@ button:hover {
     background-color: var(--color-brand-blue);
 }
 
-.eye {
-    width: 24px;
-    height: 24px;
+/* Password Toggle Btn */
+.password_eye_wrap {
+    display: inline;
+    width: 2.4rem;
+    height: 2.4rem;
     position: absolute;
-    bottom: 1.45rem;
-    right: 2.4rem;
-    cursor: pointer;
+    top: 4.5rem;
+    right: 2rem;
+}
+
+.password_eye_wrap input[type='checkbox'] {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.password_eye_wrap label::after {
+    background-image: url(/assets/img/icon/closed-eye.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    content: '';
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.password_eye_wrap::before {
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    content: '';
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.password_eye_wrap input[type='checkbox']:checked + label::after {
+    background-image: url(/assets/img/icon/open-eye.webp);
+}
+.password_eye_wrap input[type='checkbox']:checked + label::before {
+    display: none;
 }
 
 /* Main - easy_login */
@@ -129,4 +166,40 @@ footer a {
     color: var(--color-alink-blue);
     text-decoration: underline;
     text-underline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 400px;
+        padding: 16px;
+        margin: 0 auto;
+    }
+
+    header {
+        margin: 0 auto;
+        max-width: 198px;
+        max-height: 66px;
+    }
+
+    form {
+        gap: 16px;
+    }
+
+    label {
+        font-size: 1.4rem;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        font-size: 1.6rem;
+        width: 100%;
+    }
+
+    .password_eye_wrap,
+    .pw_check_eye_wrap {
+        top: 4rem;
+    }
 }

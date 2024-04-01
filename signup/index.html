@@ -3,14 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>회원가입</title>
+        <title>판다마켓 : 회원가입</title>
         <link rel="stylesheet" href="./signup.css" />
     </head>
     <body>
         <div class="container">
             <!-- Header logo -->
             <header>
-                <a href="/"><img src="/assets/img/logo/img_logo.svg" alt="판다마켓 로고" /></a>
+                <a href="/">
+                    <picture>
+                        <source srcset="/assets/img/logo/img_logo_big.webp" type="image/webp" />
+                        <img src="/assets/img/logo/img_logo_big.png" alt="판다마켓 로고" />
+                    </picture>
+                </a>
             </header>
 
             <!-- Main -->
@@ -27,16 +32,23 @@
 
                     <li class="input_wrap">
                         <label for="password">비밀번호</label>
-                        <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
-                        <div class="eye">
-                            <img src="/assets/img/icon/pw_Property=Variant2.svg" alt="눈 아이콘" />
+                        <input id="password" type="password" autocomplete="off" placeholder="비밀번호를 입력해주세요" />
+                        <div class="password_eye_wrap">
+                            <input type="checkbox" id="password_eye_toggle" />
+                            <label for="password_eye_toggle" class="eye_btn"></label>
                         </div>
                     </li>
+
                     <li class="input_wrap">
-                        <label for="check-password">비밀번호 확인</label>
-                        <input id="check-password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
-                        <div class="eye">
-                            <img src="/assets/img/icon/pw_Property=Variant2.svg" alt="눈 아이콘" />
+                        <label for="password-check">비밀번호 확인</label>
+                        <input
+                            id="password-check"
+                            type="password"
+                            autocomplete="off"
+                            placeholder="비밀번호를 다시 한 번 입력해주세요" />
+                        <div class="pw_check_eye_wrap">
+                            <input type="checkbox" id="pw_eye_toggle" />
+                            <label for="pw_eye_toggle" class="eye_btn"></label>
                         </div>
                     </li>
                     <button>회원가입</button>
@@ -44,10 +56,18 @@
                 <div class="easy_login">
                     <h4>간편 로그인하기</h4>
                     <div class="easy_login_link">
-                        <a href="http://www.google.com"><img src="/assets/img/icon/google_icon.svg" alt="구글" /></a>
-                        <a href="http://kakaocorp.com/page/"
-                            ><img src="/assets/img/icon/kakao_icon.svg" alt="카카오톡"
-                        /></a>
+                        <a href="http://www.google.com">
+                            <picture>
+                                <source srcset="/assets/img/icon/google.webp" type="image/webp" />
+                                <img src="/assets/img/icon/google.png" alt="구글" />
+                            </picture>
+                        </a>
+                        <a href="http://kakaocorp.com/page/">
+                            <picture>
+                                <source srcset="/assets/img/icon/kakao.webp" type="image/webp" />
+                                <img src="/assets/img/icon/kakao.png" alt="카카오톡" />
+                            </picture>
+                        </a>
                     </div>
                 </div>
             </main>
