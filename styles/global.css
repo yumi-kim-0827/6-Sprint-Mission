@@ -1,122 +1,394 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  /* Gray scale */
+  --gray-900: #1b1d1f;
+  --gray-800: #26282b;
+  --gray-600: #454c53;
+  --gray-500: #72787f;
+  --gray-400: #9ea4a8;
+  --gray-200: #e5e7eb;
+  --gray-100: #e8ebed;
+  --gray-50: #f7f7f8;
+
+  /* Primary color */
+  --blue: #3692ff;
 }
 
-body {
-  color: #374151;
-  word-break: keep-all;
-  font-family: "Pretendard", sans-serif;
+/* PC */
+@media (min-width : 1200px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    color: #374151;
+    word-break: keep-all;
+    font-family: "Pretendard", sans-serif;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  main {
+    margin-top: 70px;
+  }
+
+  footer {
+    background-color: #111827;
+    color: #9ca3af;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 200px 108px 200px;
+    font-size: 16px;
+  }
+
+  #footerMenu {
+    display: flex;
+    gap: 30px;
+    color: var(--gray-200);
+  }
+
+  #socialMedia {
+    display: flex;
+    gap: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    vertical-align: bottom;
+  }
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+  }
+
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .button {
+    background-color: var(--blue);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button:hover {
+    background-color: #1967d6;
+  }
+
+  .button:focus {
+    background-color: #1251aa;
+  }
+
+  .button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .pill-button {
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 16px 126px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
 }
 
-header {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 200px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dfdfdf;
-  position: fixed;
+/* Tablet */
+@media (min-width : 768px) and (max-width : 1199px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  section#hero div.wrapper br {
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+
+  body {
+    color: #374151;
+    word-break: keep-all;
+    font-family: "Pretendard", sans-serif;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  main {
+    margin-top: 70px;
+  }
+
+  footer {
+    background-color: #111827;
+    color: #9ca3af;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 200px 108px 200px;
+    font-size: 16px;
+  }
+
+  #footerMenu {
+    display: flex;
+    gap: 30px;
+    color: var(--gray-200);
+  }
+
+  #socialMedia {
+    display: flex;
+    gap: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    vertical-align: bottom;
+  }
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+  }
+
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .button {
+    background-color: var(--blue);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button:hover {
+    background-color: #1967d6;
+  }
+
+  .button:focus {
+    background-color: #1251aa;
+  }
+
+  .button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .pill-button {
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 16px 126px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
 }
 
-footer {
-  background-color: #111827;
-  color: #9ca3af;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 200px 108px 200px;
-  font-size: 16px;
-}
+/* Mobile */
+@media (min-width : 375px) and (max-width : 767px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-#footerMenu {
-  display: flex;
-  gap: 30px;
-  color: #e5e7eb;
-}
+  body {
+    color: #374151;
+    word-break: keep-all;
+    font-family: "Pretendard", sans-serif;
+  }
 
-#socialMedia {
-  display: flex;
-  gap: 12px;
-}
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dfdfdf;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  main {
+    margin-top: 70px;
+  }
 
-img {
-  vertical-align: bottom;
-}
+  footer {
+    background-color: #111827;
+    color: #9ca3af;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 200px 108px 200px;
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
 
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
+  #footerMenu {
+    display: flex;
+    gap: 30px;
+    color: var(--gray-200);
+  }
 
-h1 {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 56px;
-  letter-spacing: 0.02em;
-}
+  #socialMedia {
+    display: flex;
+    gap: 12px;
+  }
 
-button {
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  cursor: pointer;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-.button {
-  background-color: #3692ff;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+  img {
+    vertical-align: bottom;
+  }
 
-.button:hover {
-  background-color: #1967d6;
-}
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
 
-.button:focus {
-  background-color: #1251aa;
-}
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+  }
 
-.button:disabled {
-  background-color: #9ca3af;
-  cursor: default;
-  pointer-events: none;
-}
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 
-.pill-button {
-  font-size: 20px;
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 16px 126px;
-}
+  .button {
+    background-color: var(--blue);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.email-p, .pwd-p {
-  font-weight: 700;
-  margin-bottom: 16px;
-}
+  .button:hover {
+    background-color: #1967d6;
+  }
 
-.sign-button {
-  width: 100%;
-  height: 56px;
-  background-color: #9CA3AF;
-  color: #FFFFFF;
-  font-size: 24px;
-  font-weight: 400;
-  border-radius: 40px; 
-}
-.sign-button:hover {
-  background-color: #3691FF;
-}
+  .button:focus {
+    background-color: #1251aa;
+  }
 
+  .button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .pill-button {
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 16px 126px;
+    white-space: nowrap;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+}

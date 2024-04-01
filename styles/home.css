@@ -1,63 +1,306 @@
-.banner {
-  background-color: #cfe5ff;
-  height: 540px;
-  display: flex;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-position: 80% bottom;
-  background-size: 55%;
+/* PC */
+@media (min-width : 1200px) {
+  #hero.banner {
+    background-color: #cfe5ff;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 55%;
+  }
+
+  #hero {
+    background-image: url("../images/home/hero-image.png");
+  }
+
+  #features {
+    padding-bottom: 138px;
+  }
+
+  #bottomBanner {
+    background-image: url("../images/home/bottom-banner-image.png");
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 996px 540px;
+    overflow: hidden;
+  }
+  #bottomBanner.banner {
+    background-color: #cfe5ff;
+    height: 540px;
+    display: flex;
+    align-items: center;
+  }
+
+  #signinLinkButton {
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14.5px 43px;
+  }
+
+  .banner .pill-button {
+    margin-top: 32px;
+  }
+
+  div.feature img {
+    width: 50%;
+  }
+
+  .feature {
+    padding: 138px 0;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    justify-content: space-evenly;
+  }
+
+  .feature:nth-child(2) {
+    text-align: right;
+    
+  }
+
+  div.feature:nth-child(2) div.feature-content-img {
+    order: 2;
+    object-fit: cover;
+  }
+  
+  div.feature-content-img img {
+    width: 600px;
+    height: 453px;
+  }
+
+  div.feature:nth-child(2) div.feature-content {
+    order: 1;
+    text-align: right;
+  }
+
+  .feature-content {
+    flex: 1;
+    
+  }
+
+  .feature-tag {
+    color: var(--blue);
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .feature-description {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+  }
+
 }
 
-#hero {
-  background-image: url("../images/home/hero-image.png");
+/* Tablet */
+@media (min-width : 768px) and (max-width : 1199px) {
+  #hero.banner {
+    background-color: #cfe5ff;
+    height: 772px;
+    width: 100%;
+    display: flex;
+    padding: 84px 0;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+  }
+
+  #hero {
+    background-image: url("../images/home/hero-image.png");
+  }
+
+  #features {
+    padding-bottom: 138px;
+  }
+
+  #bottomBanner {
+    background-image: url("../images/home/bottom-banner-image.png");
+    background-repeat: no-repeat;
+    background-position: bottom, center;
+    background-size: 996px 540px;
+    overflow: hidden;
+  }
+
+  #bottomBanner.banner {
+    background-color: #cfe5ff;
+    height: 927px;
+    width: 100%;
+    display: flex;
+    padding: 201px 0;
+    text-align: center;
+  }
+
+  #signinLinkButton {
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14.5px 43px;
+  }
+
+  .banner .pill-button {
+    margin-top: 32px;
+  }
+
+  div.feature img {
+    width: 696px;
+    height: 524px;
+  }
+
+  section#features {
+    width: 90%;
+  }
+
+  .feature {
+    padding: 24px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: auto;
+    gap: 5%;
+  }
+
+  .feature:nth-child(2) {
+    text-align: right;
+
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-tag {
+    color: var(--blue);
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .feature-size {
+    font-size: 32px;
+  }
+
+  .feature-size br{
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+
+  .feature-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+  }
+
 }
 
-#features {
-  padding-bottom: 138px;
-}
+/* Mobile */
+@media (min-width : 375px) and (max-width : 767px) {
+  #hero.banner {
+    background-color: #cfe5ff;
+    height: 540px;
+    display: flex;
+    padding: 48px 20%;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 80% bottom;
+    background-size: 100%;
+  }
 
-#bottomBanner {
-  background-image: url("../images/home/bottom-banner-image.png");
-}
+  #hero {
+    background-image: url("../images/home/hero-image.png");
+  }
 
-#signinLinkButton {
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 14.5px 43px;
-}
+  #features {
+    padding-bottom: 138px;
+  }
 
-.banner .pill-button {
-  margin-top: 32px;
-}
+  #bottomBanner {
+    background-image: url("../images/home/bottom-banner-image.png");
+    background-repeat: no-repeat;
+    background-position: bottom, center;
+    background-size: 500px 270px;
+    overflow: hidden;
+  }
 
-.feature {
-  padding: 138px 0;
-  display: flex;
-  align-items: center;
-  gap: 5%;
-}
+  #bottomBanner.banner {
+    background-color: #cfe5ff;
+    height: 540px;
+    width: 100%;
+    display: flex;
+    padding: 121px 0;
+    text-align: center;
 
-.feature:nth-child(2) {
-  text-align: right;
-}
+  }
 
-.feature-content {
-  flex: 1;
-}
+  #signinLinkButton {
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14.5px 43px;
+  }
 
-.feature-tag {
-  color: #3692ff;
-  font-size: 18px;
-  line-height: 25px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
+  .banner .pill-button {
+    margin-top: 32px;
+    font-size: 16px;
+  }
 
-.feature-description {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 120%;
-  letter-spacing: 0.08em;
-  margin-top: 24px;
+  div.feature img {
+    width: 344px;
+    height: 259px;
+  }
+
+  section#features {
+    width: 90%;
+  }
+
+  .feature {
+    padding: 51px 0 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: auto;
+    gap: 5%;
+  }
+
+  .feature:nth-child(2) {
+    text-align: right;
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-tag {
+    color: var(--blue);
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .feature-size {
+    font-size: 24px;
+  }
+
+  .feature-size br{
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+  
+  .feature-description {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.08em;
+    margin-top: 20px;
+  }
 }
