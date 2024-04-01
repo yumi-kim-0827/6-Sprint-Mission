@@ -63,11 +63,8 @@
 }
 
 .main-section2.middle {
-  justify-content: flex-end;
-}
-
-.main-sec2-info.middle {
-  text-align: end;
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
 .main-sec2-category {
