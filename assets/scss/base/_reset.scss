@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    min-width: 320px;
+    min-width: 375px;
     line-height: normal;
     font-size: 100%;
     color: rgba(0, 0, 0, 0);
@@ -96,24 +96,24 @@ textarea {
     }
     &::placeholder {
         /* Chrome, Safari, Firefox */
-        color: $cool-gray-800;
+        color: $cool-gray-400;
         opacity: 1;
     }
     &:-ms-input-placeholder {
         /* IE, Edge */
-        color: $cool-gray-800;
+        color: $cool-gray-400;
         opacity: 1;
     }
     &[readonly],
     &:disabled {
         &::placeholder {
             /* Chrome, Safari, Firefox */
-            color: $cool-gray-800;
+            color: $cool-gray-400;
             opacity: 1;
         }
         &:-ms-input-placeholder {
             /* IE, Edge */
-            color: $cool-gray-800;
+            color: $cool-gray-400;
             opacity: 1;
         }
     }

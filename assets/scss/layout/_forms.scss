@@ -16,6 +16,9 @@ textarea {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 1.6rem;
+    @include res--mobile {
+        gap: 0.8rem;
+    }
 }
 
 .inp-title {
@@ -24,6 +27,9 @@ textarea {
     line-height: 2.2rem;
     text-align: left;
     color: $cool-gray-800;
+    @include res--mobile {
+        font-size: 1.4rem;
+    }
 }
 
 .inp-item {
