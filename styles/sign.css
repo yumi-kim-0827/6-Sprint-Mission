@@ -137,3 +137,30 @@ input::placeholder {
   color: var(--link-typography);
   text-decoration: underline;
 }
+
+/* 테블릿 사이즈 */
+
+@media (max-width: 767px) {
+  .header-logo {
+    width: 12.375rem;
+  }
+  .form-container,
+  .form-button,
+  .social-login-container {
+    max-width: 25rem;
+    width: calc(100vw - 1rem);
+  }
+
+  .form-container {
+    gap: 1rem;
+  }
+
+  .input-container {
+    gap: 0.5rem;
+  }
+
+  .input-container > label {
+    font-size: 0.875rem;
+    line-height: 1.0444rem;
+  }
+}

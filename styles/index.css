@@ -43,6 +43,7 @@ header {
 /* 배너 */
 
 .banner {
+  padding-top: 4.375rem;
   background-color: var(--banner-bg);
 }
 
@@ -60,6 +61,7 @@ header {
   flex-direction: column;
   gap: 2rem;
   margin: auto 0;
+  align-items: center;
 }
 
 .banner-title {
@@ -103,18 +105,9 @@ section {
 }
 
 section:nth-child(even) {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 5rem;
-  padding-block: 8.75rem;
   > div {
     order: -1;
   }
-}
-
-.section-image {
-  max-width: 45%;
 }
 
 .seciton-content {
@@ -160,8 +153,7 @@ footer {
   color: var(--blue-disabled);
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.1931rem;
-  text-align: center;
+  line-height: 1.2744rem;
 }
 
 .footer-document {
@@ -171,7 +163,7 @@ footer {
     color: var(--gray-200);
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.1931rem;
+    line-height: 1.2744rem;
     text-align: center;
   }
 }
@@ -179,4 +171,141 @@ footer {
 .footer-sns {
   display: flex;
   gap: 0.75rem;
+}
+
+/* 테블릿 사이즈 */
+
+@media (max-width: 1199px) {
+  /* 헤더 */
+  header {
+    padding-inline: 1.5rem;
+  }
+
+  /* 배너 */
+  .banner-container {
+    height: 48.1875rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-content {
+    gap: 1.5rem;
+  }
+
+  .banner-title {
+    width: 100%;
+    > br {
+      display: none;
+    }
+  }
+
+  .banner-image {
+    height: 27.9375rem;
+  }
+
+  /* 메인 */
+  section {
+    flex-direction: column;
+    padding: 2rem 1.5rem 2rem 2.3rem;
+    gap: 1.25rem;
+  }
+
+  section:nth-child(even) {
+    .seciton-content {
+      order: 0;
+      align-items: flex-end;
+      text-align: end;
+    }
+  }
+
+  .section-image {
+    width: 100%;
+  }
+
+  .seciton-content {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin: 0;
+    > br {
+      display: none;
+    }
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    line-height: 1.35rem;
+  }
+}
+
+/* 모바일 사이즈 */
+
+@media (max-width: 767px) {
+  /* 헤더 */
+  header {
+    padding-inline: 1rem;
+  }
+
+  /* 배너 */
+  .banner-container {
+    height: 33.75rem;
+  }
+
+  .banner-content {
+    gap: 1.125rem;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin-bottom: 0;
+    text-align: center;
+    > br {
+      display: block;
+    }
+  }
+
+  .large-button {
+    width: 9.625rem;
+  }
+
+  .banner-image {
+    height: 17.5625rem;
+  }
+
+  /* 메인 */
+  .section-badge {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+    line-height: 19.2px;
+  }
+
+  /* 푸터 */
+  footer {
+    position: relative;
+  }
+
+  .footer-copyright {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    line-height: 1.15rem;
+  }
+
+  .footer-document > a {
+    line-height: 1.15rem;
+  }
 }
