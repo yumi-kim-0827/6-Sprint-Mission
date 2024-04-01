@@ -1,0 +1,86 @@
+.sub-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: 0em;
+  color: $primary;
+}
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.desc {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 2.9rem;
+  letter-spacing: 0.08em;
+  word-break: break-word;
+}
+.banner {
+  display: flex;
+  height: 54rem;
+  background-color: $bg-blue-100;
+  background-repeat: no-repeat;
+  align-items: center;
+  background-position: 80% bottom;
+}
+.tit-wrap {
+  @include common-inner;
+}
+
+/* 상단배너영역 */
+.main-area {
+  color: $cool-gray-700;
+}
+.main-area .main-banner-top {
+  background-image: url("/assets/images/home/Img_home_top.png");
+}
+.main-area .main-banner-top .btn-gosite {
+  display: flex;
+  margin-top: 3.2rem;
+  width: 35.5rem;
+  height: 5.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50em;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
+
+/* 특징영역 */
+.main-area .main-feature {
+  @include common-inner;
+  margin-bottom: 13.8rem;
+}
+.main-area .feature-item {
+  display: flex;
+  height: 72rem;
+  gap: 6.4rem;
+  align-items: center;
+}
+.main-area .feature-item .sub-title {
+  margin-bottom: 1.2rem;
+}
+.main-area .feature-item .title {
+  margin-bottom: 2.4rem;
+}
+
+.main-area .feature-list li:nth-child(2n) {
+  justify-content: flex-end;
+}
+.main-area .feature-list li:nth-child(2n) .image-wrap {
+  order: 2;
+}
+.main-area .feature-list li:nth-child(2n) .content-wrap {
+  order: 1;
+  text-align: right;
+}
+
+/* 하단배너영역 */
+.main-area .main-banner-btm {
+  background-image: url("/assets/images/home/Img_home_bottom.png");
+}

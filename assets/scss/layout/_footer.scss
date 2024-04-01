@@ -1,0 +1,30 @@
+/* 고정푸터영역 */
+.footer-area {
+  @include gnb-inner;
+  display: flex;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+  height: 16rem;
+  justify-content: space-between;
+  gap: 1rem;
+  background: $cool-gray-900;
+  font-size: 1.6rem;
+}
+.footer-area .copy {
+  color: $bg-white;
+}
+.footer-area .btn-links {
+  display: flex;
+  gap: 3rem;
+}
+.footer-area .btn-links a {
+  color: $bg-white;
+}
+.footer-area .btn-socials {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.footer-area .btn-socials a {
+  color: $bg-white;
+}
