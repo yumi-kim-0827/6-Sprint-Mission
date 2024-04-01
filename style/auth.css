@@ -40,7 +40,7 @@ input {
 }
 
 input:focus {
-  outline-color: var(--btn1);
+  outline-color: var(--main);
 }
 
 .login {
@@ -99,6 +99,15 @@ input:focus {
 .signup p {
   display: inline-block;
   width: max-content;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.errorMessage {
+  color: red;
+  margin-left: 1rem;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
