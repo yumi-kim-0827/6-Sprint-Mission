@@ -1,4 +1,3 @@
-
 header {
   display: flex;
   justify-content: center;
@@ -6,11 +5,11 @@ header {
 
 main {
   max-width: 640px;
-  margin-top: 40px;
+  /* margin-top: 40px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
+  margin: 40px auto 0;
 }
-
 
 .logo__image {
   width: 396px;
@@ -53,18 +52,18 @@ form label {
   outline: 2.5px solid var(--blue);
 }
 
-.form__passwordContainer {
+.form__password-container {
   position: relative;
 }
 
-.form__invisibleButton {
+.form__invisible-button {
   position: absolute;
   top: 16px;
   right: 24px;
   cursor: pointer;
 }
 
-.form__invisibleButton img {
+.form__invisible-button img {
   width: 24px;
   height: 24px;
 }
@@ -75,11 +74,12 @@ form label {
 }
 
 .form__button {
-  /* height: 56px; *//*필요없었음*/
+  /* height: 56px; */ /*필요없었음*/
   border: none;
   border-radius: 40px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  /* padding-top: 16px;
+  padding-bottom: 16px; */
+  padding: 16px 0;
   background-color: var(--gray400);
   font-size: 20px;
   font-weight: 600;
@@ -94,8 +94,9 @@ form label {
   justify-content: space-between;
   align-items: center;
   padding: 16px 23px;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  /* margin-top: 24px;
+  margin-bottom: 24px; */
+  margin: 24px 0;
   border-radius: 8px;
 }
 
@@ -132,7 +133,9 @@ form label {
 }
 
 @media (max-width: 1199px) {
-  .logo__image { margin-top: 48px; }
+  .logo__image {
+    margin-top: 48px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -145,10 +148,13 @@ form label {
     max-width: 432px;
     width: 100%;
     margin-top: 24px;
-    padding-left: 16px; /*margin을 줘버리면 가운데 정렬이 덮어씌워짐, body에 패딩을 주는 것(그러면 min-width를 깔끔하게 400px로 설정가능)보다 main에 padding을 줘도 같은 효과(432px감수) */
-    padding-right: 16px;
+    /* padding-left: 16px; /*margin을 줘버리면 가운데 정렬이 덮어씌워짐, body에 패딩을 주는 것(그러면 min-width를 깔끔하게 400px로 설정가능)보다 main에 padding을 줘도 같은 효과(432px감수) */
+    /* padding-right: 16px; */
+    padding: 0 16px;
   }
-  form { gap: 8px; }
+  form {
+    gap: 8px;
+  }
   form label {
     font-size: 14px;
     line-height: 16.71px;

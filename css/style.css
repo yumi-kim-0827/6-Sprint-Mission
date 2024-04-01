@@ -1,4 +1,3 @@
-
 img {
   display: inline-block;
 }
@@ -31,7 +30,8 @@ a {
   height: 51px;
 }
 
-.logo__link, .logo__image {
+.logo__link,
+.logo__image {
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -58,8 +58,9 @@ a {
   align-items: center;
 }
 
-.login__link:hover, .section__visitLinkButton:hover {
-  background-color: #1251AA;
+.login__link:hover,
+.section__visitLinkButton:hover {
+  background-color: #1251aa;
 }
 
 .section__topBackground {
@@ -72,7 +73,7 @@ a {
 
 .section {
   height: 540px;
-  background-color: #CFE5FF;
+  background-color: #cfe5ff;
   background-repeat: no-repeat;
   background-size: 55%;
   background-position: 80% bottom;
@@ -137,7 +138,6 @@ a {
 }
 
 .figure__label {
-
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
@@ -204,8 +204,9 @@ a {
 
 @media (max-width: 1199px) {
   .header__inner {
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px;
+    padding-right: 24px; */
+    padding: 9.5px 24px;
   }
   .section {
     background-size: 130%;
@@ -224,7 +225,10 @@ a {
   .section__description {
     margin-bottom: 24px;
   }
-  .section__description--brNone > br, .figure__phrase > br { display: none; }
+  .section__description--brNone > br,
+  .figure__phrase > br {
+    display: none;
+  }
   .figure__container {
     flex-direction: column;
     padding: 24px 24px 40px;
@@ -245,18 +249,25 @@ a {
     margin-bottom: 20px;
   }
   .footer__container {
-    padding-left: 104px;
-    padding-right: 104px;
+    /* padding-left: 104px;
+    padding-right: 104px;*/
+    padding: 32px 104px 108px;
   }
 }
 
 @media (max-width: 767px) {
   .header__inner {
-    padding-left: 16px;
-    padding-right: 16px;
+    /* padding-left: 16px;
+    padding-right: 16px; */
+    padding: 9.5px 16px;
   }
-  .section, .section__bottomBackground { height: 620px; }
-  .section__bottomBackground { margin-top: 0; }
+  .section,
+  .section__bottomBackground {
+    height: 620px;
+  }
+  .section__bottomBackground {
+    margin-top: 0;
+  }
   .section__content {
     text-align: center;
     margin-top: 60px;
@@ -266,7 +277,9 @@ a {
     line-height: 44.8px;
     margin-bottom: 18px;
   }
-  .section__description > br {display: inline;}
+  .section__description > br {
+    display: inline;
+  }
   .section__visitLinkButton {
     font-size: 16px;
     font-weight: 600;
@@ -283,7 +296,7 @@ a {
   }
 }
 
-@media (max-width: 509px) and (min-width:375px) {
+@media (min-width: 375px) and (max-width: 509px) {
   .footer__info {
     order: 1;
   }
