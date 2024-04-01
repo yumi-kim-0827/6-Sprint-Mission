@@ -132,6 +132,10 @@
     align-items: flex-end;
   }
 
+  .main-text.middle br {
+    display: none;
+  }
+
   .main-container.bottom {
     height: 927px;
   }
