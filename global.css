@@ -11,3 +11,15 @@
   font-weight: normal;
   font-style: normal;
 }
+
+:root {
+  --blue: #3692FF;
+  --gray900: #1b1d1f;
+  --gray800: #26282b;
+  --gray600: #454c53;
+  --gray500: #72787f;
+  --gray400: #9ea4a8;
+  --gray200: #e5e7eb;
+  --gray100: #e8ebed;
+  --gray50: #f7f7f8;
+}
