@@ -6,9 +6,30 @@ const nicknameInput = document.getElementById("nickname");
 const passwordInput = document.getElementById("password");
 const passwordConfirm = document.getElementById("confirm_password");
 
-const loginBtn = document.querySelector('button .login')
+const loginBtn = document.querySelector("button.login");
+loginBtn.disabled = true;
 
+const updateLoginButtonState = () => {
+  if (
+    emailInput.value &&
+    nicknameInput.value &&
+    passwordInput.value &&
+    passwordConfirm.value &&
+    emailValidation.test(emailInput.value.trim()) &&
+    passwordValidation.test(passwordInput.value.trim()) &&
+    passwordInput.value === passwordConfirm.value
+  ) {
+    loginBtn.disabled = false;
+  } else {
+    loginBtn.disabled = true;
+  }
+};
 
+// input 태그에 값을 입력할 때 실시간으로 값 반영
+emailInput.addEventListener("input", updateLoginButtonState);
+nicknameInput.addEventListener("input", updateLoginButtonState);
+passwordInput.addEventListener("input", updateLoginButtonState);
+passwordConfirm.addEventListener("input", updateLoginButtonState);
 
 emailInput.addEventListener("focusout", () => {
   const fieldWrapper = emailInput.parentNode;
@@ -27,7 +48,7 @@ emailInput.addEventListener("focusout", () => {
     if (errorMessage) {
       errorMessage.remove();
     }
-    emailInput.style.border = '2px solid var(--main)'
+    emailInput.style.border = "2px solid var(--main)";
   } else {
     if (errorMessage) {
       errorMessage.remove();
@@ -56,7 +77,7 @@ nicknameInput.addEventListener("focusout", () => {
     if (errorMessage) {
       errorMessage.remove();
     }
-    nicknameInput.style.border = '2px solid var(--main)'
+    nicknameInput.style.border = "2px solid var(--main)";
   }
 });
 
@@ -77,7 +98,7 @@ passwordInput.addEventListener("focusout", () => {
     if (errorMessage) {
       errorMessage.remove();
     }
-    passwordInput.style.border = '2px solid var(--main)'
+    passwordInput.style.border = "2px solid var(--main)";
   } else {
     if (errorMessage) {
       errorMessage.remove();
@@ -107,7 +128,7 @@ passwordConfirm.addEventListener("focusout", () => {
     if (errorMessage) {
       errorMessage.remove();
     }
-    passwordConfirm.style.border = '2px solid var(--main)'
+    passwordConfirm.style.border = "2px solid var(--main)";
   } else {
     if (errorMessage) {
       errorMessage.remove();
@@ -119,4 +140,3 @@ passwordConfirm.addEventListener("focusout", () => {
     fieldWrapper.append(p);
   }
 });
-
