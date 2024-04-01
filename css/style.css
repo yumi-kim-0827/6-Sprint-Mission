@@ -20,7 +20,7 @@
 /* 기본 셋팅 */
 #wrap {
   width: 100%;
-  min-width: 320px;
+  min-width: 375px;
   position: relative;
   margin: 0 auto;
 }
@@ -41,6 +41,9 @@ header {
   top: 0;
   z-index: 9;
   background: var(--color-white);
+}
+.logo .mobile_ver {
+  display: none;
 }
 .login_btn {
   background: var(--color-blue);
@@ -72,8 +75,8 @@ header {
 }
 .mv_txt button {
   width: 355px;
-  height: 56px;
-  font-size: 24px;
+  height: 60px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--color-white);
   background: var(--color-blue);
@@ -111,7 +114,7 @@ header {
 .panda_content li .sub {
   font-size: 24px;
   font-weight: 500;
-  line-height: 1.2em;
+  line-height: 1.3em;
 }
 .main_visual.main_banner {
   background: #CFE5FF url('../image/Img_home_bottom.png') no-repeat bottom right 15%;
@@ -207,7 +210,7 @@ footer .sns {
   margin: 24px 0;
   background: #E6F2FF;
   border-radius: 8px;
-  padding: 16px 23px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -229,4 +232,187 @@ footer .sns {
   display: inline-block;
   text-decoration: underline;
   color: var(--color-blue);
+}
+
+
+/******* 반응형 *******/
+/* 태블릿 */
+@media all and (max-width: 1199px) {
+  
+  .inner {
+    max-width: 100%;
+    margin: 0 24px; 
+  }
+
+  /* header */
+  header {
+    padding: 0 24px;
+  }
+
+  /* main */
+  .main_visual {
+    background-position: bottom center !important;
+    height: 770px;
+  }
+  .mv_txt {
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 84px;
+    text-align: center;
+  }
+  .mv_txt .tit br {
+    display: none;
+  }
+  .panda_content {
+    padding-bottom: 48px;
+  }
+  .panda_content li {
+    flex-direction: column;
+    padding: 32px 0;
+    align-items: flex-start;
+  }
+  .panda_content li:first-child {
+    padding: 24px 0 32px;
+  }
+  .panda_content li > div {
+    flex-basis: auto;
+    width: 100%;
+  }
+  .panda_content li .img img {
+    width: 100%;
+  }
+  .panda_content li .txt {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .panda_content li:nth-child(2) .img {
+    order: 1;
+  }
+  .panda_content li:nth-child(2) .txt {
+    order: 2;
+    margin-right: 0;
+  }
+  .panda_content li .tit {
+    font-size: 32px;
+    line-height: 1.45em;
+    margin: 12px 0 20px;
+  }
+  .panda_content li .tit br {
+    display: none;
+  }
+  .panda_content li .sub {
+    font-size: 18px;
+  }
+  .main_banner .mv_txt .tit br {
+    display: block;
+  }
+  .main_visual.main_banner {
+    height: 927px;
+  }
+  .main_visual.main_banner .mv_txt {
+    padding-top: 200px;
+  }
+
+  /* footer */
+  footer {
+    padding: 32px 104px 0;
+  }
+
+  /* login */
+  .login_wrap {
+    padding: 48px 0;
+  }
+
+}
+
+/* 모바일 */
+@media all and (max-width: 767px) {
+  
+  .inner {
+    margin: 0 16px; 
+  }
+
+  /* header */
+  .logo .mobile_ver {
+    display: block;
+  }
+  .logo .pc_ver {
+    display: none;
+  }
+  
+  /* main */
+  .main_visual,
+  .main_visual.main_banner {
+    height: 540px;
+    background-size: auto 280px;
+  }
+  .mv_txt {
+    padding-top: 48px;
+  }
+  .mv_txt .tit {
+    font-size: 32px;
+    line-height: 1.45em;
+  }
+  .mv_txt .tit br {
+    display: block;
+  }
+  .mv_txt button {
+    width: 154px;
+    height: 48px;
+    font-size: 16px;
+  }
+  .panda_content {
+    padding-bottom: 0;
+  }
+  .panda_content li {
+    padding: 32px 0;
+  }
+  .panda_content li:first-child {
+    padding: 51px 0 32px;
+  }
+  .panda_content li .blue_txt {
+    font-size: 16px;
+  }
+  .panda_content li .tit {
+    font-size: 24px;
+    margin: 8px 0 20px;
+  }
+  .panda_content li .sub {
+    font-size: 16px;
+  }
+  .main_visual.main_banner .mv_txt {
+    padding-top: 120px;
+  }
+
+  /* footer */
+  footer {
+    padding: 32px;
+    position: relative;
+  }
+  footer .year {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+  }
+
+  /* login */
+  .login_wrap {
+    max-width: 100%;
+    padding: 24px 16px;
+  }
+  .login_logo {
+    margin-bottom: 24px;
+  }
+  .login_logo img {
+    height: 66px;
+  }
+  .login_box li {
+    margin-bottom: 16px;
+  }
+  .login_box li .tit {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
 }
