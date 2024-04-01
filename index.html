@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <title>판다마켓</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>판다마켓</title>
+  <meta name="description" content="일상의 모든 물건을 거래해 보세요">
+  <meta property="og:image" content="./assets/images/meta-image.jpg" />
+  <meta property="og:title" content="판다마켓 | 믿을 수 있는 중고거래" /> 
+  <meta property="og:url" content="pandamarket.kr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="일상의 모든 물건을 거래해 보세요" /> 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="판다마켓 | 믿을 수 있는 판다마켓 중고거래">
+  <meta name="twitter:description" content="일상의 모든 물건을 거래해 보세요">
+  <meta name="twitter:image" content="./assets/images/meta-image.jpg"> 
   <link rel="icon" href="./assets/icons/ic_pandamarket.png">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/global.css">
@@ -11,68 +21,74 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 </head>
 <body>
-  <header>
-    <div class="logo-login">
-      <a class="logo" href="/">
-        <img class="logo-image" src="./assets/images/logo-image.png" alt="판다마켓 로고">
-      </a>
-      <a class="login" href="./html/login.html">로그인</a>
+  <header class="header">
+    <div class="header__inner">
+      <div class="logo">
+        <a class="logo__link" href="/">
+          <img class="logo__image" src="./assets/images/logo-image.png" alt="판다마켓 로고">
+        </a>
+      </div>
+      <div class="login">
+        <a class="login__link" href="./html/login.html">로그인</a>
+      </div>  
     </div>  
   </header>
   <main>
-    <div class="container">
-      <section id="main-top">
-        <div>
-          <h1 class="head description">일상의 모든 물건을<br>거래해 보세요</h1>
-          <a class="visit-button" href="/items">
-            구경하러 가기
-          </a>
-        </div>
-      </section>
-    
-      <figure>
-        <img class="home-img" src="./assets/images/home_01.png" alt="home_img_01">
-        <div>
-          <div class="hot-item small-sticker">Hot Item</div>
-          <h2 class="main-introductions">인기 상품을<br>확인해 보세요</h2>
-          <p class="main-descriptions">가장 HOT한 중고거래 물품을<br>
+    <section class="section section__topBackground">
+      <div class="section__content">
+        <h1 class="section__description section__description--brNone">일상의 모든 물건을 <br>거래해 보세요</h1>
+        <a class="section__visitLinkButton" href="/items">
+          구경하러 가기
+        </a>
+      </div>
+    </section>
+    <figure class="figure">
+      <div class="figure__container">
+        <img class="figure__homeImg" src="./assets/images/home_01.png" alt="home_img_01">
+        <div class="figure__alignHelperBox">
+          <div class="figure__label">Hot Item</div>
+          <h2 class="figure__phrase">인기 상품을 <br>확인해 보세요</h2>
+          <p class="figure__description">가장 HOT한 중고거래 물품을<br>
             판다 마켓에서 확인해 보세요</p>
         </div>
-      </figure>
-      <figure class="figure-right">
-        <div class="box-right">
-          <div class="search small-sticker">Search</div>
-          <h2 class="main-introductions">구매를 원하는<br>상품을 검색하세요</h2>
-          <p class="main-descriptions">구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요</p>
+      </div>
+    </figure>
+    <figure class="figure">
+      <div class="figure__container figure--right">
+        <div class="figure__alignHelperBox figure__alignHelperBox--right">
+          <div class="figure__label">Search</div>
+          <h2 class="figure__phrase">구매를 원하는 <br>상품을 검색하세요</h2>
+          <p class="figure__description">구매하고 싶은 물품은 검색해서<br>쉽게 찾아보세요</p>
         </div>
-        <img class="home-img" src="./assets/images/home_02.png" alt="home_img_02">
-      </figure>
-      <figure>
-        <img class="home-img" src="./assets/images/home_03.png" alt="home_img_03">
-        <div>
-          <div class="register small-sticker">Register</div>
-          <h2 class="main-introductions">판매를 원하는<br>상품을 등록하세요</h2>
-          <p class="main-descriptions">어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요</p>
+        <img class="figure__homeImg" src="./assets/images/home_02.png" alt="home_img_02">
+      </div>  
+    </figure>
+    <figure class="figure">
+      <div class="figure__container">
+        <img class="figure__homeImg" src="./assets/images/home_03.png" alt="home_img_03">
+        <div class="figure__alignHelperBox">
+          <div class="figure__label">Register</div>
+          <h2 class="figure__phrase">판매를 원하는 <br>상품을 등록하세요</h2>
+          <p class="figure__description">어떤 물건이든 판매하고 싶은 상품을<br>쉽게 등록하세요</p>
         </div>
-      </figure>
-
-      <section id="main-bottom">
-        <div>
-          <h1 class="end description">믿을 수 있는<br>판다마켓 중고거래</h1>  
-        </div>
-      </section>
-    </div>
+      </div>
+    </figure>
+    <section class="section section__bottomBackground">
+      <div class="section__content">
+        <h1 class="section__description">믿을 수 있는 <br>판다마켓 중고거래</h1>  
+      </div>
+    </section>
   </main>
-  <footer>
-    <div class="footer-container">  
-      <div class="footer-info">
+  <footer class="footer">
+    <div class="footer__container">  
+      <div class="footer__info">
         @codeit - 2024
       </div>
-      <div class="footer-buttons">
-        <a class="footer-button" href="/privacy">Privacy Policy</a>
-        <a class="footer-button" href="/faq">FAQ</a>
+      <div class="footer__links">
+        <a class="footer__link" href="/privacy">Privacy Policy</a>
+        <a class="footer__link" href="/faq">FAQ</a>
       </div>
-      <div class="footer-links">
+      <div class="footer__sns">
         <a href="https://www.facebook.com/" target="_blank"><img src="./assets/icons/ic_facebook.png" alt="facebook-icon"></a>
         <a href="https://www.twitter.com/" target="_blank"><img src="./assets/icons/ic_twitter.png" alt="twitter-icon"></a>
         <a href="https://www.youtube.com/" target="_blank"><img src="./assets/icons/ic_youtube.png" alt="youtube-icon"></a>
