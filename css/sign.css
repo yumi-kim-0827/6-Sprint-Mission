@@ -1,12 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
 
-body{
-    background-color: #ffffff;
+
+body {
+    background: #fff;
     margin:0;
 }
 
@@ -39,19 +34,17 @@ body{
 }
 
 .sign-form input {
-    background-color: #F3F4F6;
+    background: var(--cool-gray100);
     color: #9CA3AF;
     font-size: 16px;
     width: 640px;
     height: 56px;
-    padding: 16px;
-    padding-left: 24px;
+    padding: 16px 16px 16px 24px;
     border-radius: 12px;
-    border: none;
 }
 
 .sign-form input:focus {
-    border: 2px solid #3692FF;
+    border: 2px solid var(--primary-color);
     outline: none;
 }
 
@@ -60,11 +53,10 @@ body{
 }
 
 button {
-    background-color: #9CA3AF;
+    background: var(--cool-gray400);
     width: 100%;
     height: 56px;
     border-radius: 40px;
-    border: none;
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 600;
@@ -74,7 +66,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e6f2ff;
+    background: #e6f2ff;
     border-radius: 8px;
     width: 100%;
     height: 74px;
@@ -98,7 +90,7 @@ button {
 
 .sign-footer a {
     text-decoration: underline;
-    color: #3182F6;
+    color: var(--brand-blue);
 }
 
 
