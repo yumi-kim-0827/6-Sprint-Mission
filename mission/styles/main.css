@@ -55,17 +55,15 @@
   }
 
   .top_banner_container {
-    position: relative;
     width: 1200px;
-    height: 540px;
+    height: 100%;
   }
 
   .top_banner_container_look {
-    position: absolute;
-    top: 170px;
     display: flex;
     flex-direction: column;
-    gap: 32px 0;
+    align-items: center;
+    gap: 24px 0;
   }
 
   .top_banner_container_look h1 {
@@ -76,6 +74,7 @@
     line-height: 56px;
     letter-spacing: 0em;
     text-align: left;
+    white-space: normal;
   }
 
   .top_banner_container button {
@@ -86,9 +85,8 @@
   }
 
   .top_banner_container img {
-    position: absolute;
-    top: 93px;
-    left: 341px;
+    margin: auto;
+    display: block;
   }
 
   main {
@@ -108,8 +106,7 @@
 
   section {
     display: flex;
-    gap: 64px;
-    margin: 138px auto;
+    flex-direction: column;
   }
 
   .section_container {
@@ -128,7 +125,6 @@
   }
 
   .section_container h1 {
-    margin: 6px 0;
     color: #374151;
     font-family: Pretendard;
     font-size: 40px;
@@ -152,26 +148,24 @@
   }
 
   .bottom_banner_container {
-    position: relative;
     width: 1200px;
-    height: 540px;
+    height: 100%;
   }
 
   .bottom_banner_container h1 {
-    position: absolute;
-    top: 214px;
     color: #374151;
     font-family: Pretendard;
     font-size: 40px;
     font-weight: 700;
     line-height: 56px;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: center;
+    padding-top: 201px;
   }
 
   .bottom_banner_container img {
-    position: absolute;
-    left: 341px;
+    margin: auto;
+    display: block;
   }
 
   footer {
@@ -186,14 +180,11 @@
   }
 
   .footer_container {
-    width: 100%;
-    max-width: 1520px;
     height: 20px;
     padding-top: 32px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
+    justify-content: space-around;
   }
 
   .footer_year {
@@ -224,7 +215,7 @@
 }
 
 
-@media(min-width: 1200px) {
+/* @media(min-width: 1200px) {
   header {
     background-color: #ffffff;
     position: sticky;
@@ -447,4 +438,4 @@
     justify-content: space-between;
     gap: 13px;
   }
-}
+} */
