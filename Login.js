@@ -8,7 +8,6 @@ passwordInput.addEventListener("focusout", validatePassword);
 function validateEmail() {
   const errorText = document.querySelector(".email-error");
   const emailRegex = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.com$/;
-  removePreviousError(emailInput);
 
   if (!emailInput.value) {
     errorText.textContent = "이메일을 입력해주세요.";
@@ -25,7 +24,6 @@ function validateEmail() {
 
 function validatePassword() {
   const errorText = document.querySelector(".pass-error");
-  removePreviousError(passwordInput);
 
   if (!passwordInput.value) {
     errorText.textContent = "비밀번호를 입력해주세요.";
@@ -41,8 +39,12 @@ function validatePassword() {
 }
 
 function toggleButtonState() {
-  const errors = document.querySelectorAll('div[style="color: red;"]');
-  if (emailInput.value && passwordInput.value && errors.length === 0) {
+  const emailErrorText = document.querySelector(".email-error").textContent;
+  const passErrorText = document.querySelector(".pass-error").textContent;
+  const isEmailValid = emailInput.value && emailErrorText === "";
+  const isPasswordValid = passwordInput.value && passErrorText === "";
+
+  if (isEmailValid && isPasswordValid) {
     loginButton.disabled = false;
     loginButton.style.backgroundColor = "";
     loginButton.addEventListener("click", function (event) {
@@ -51,17 +53,7 @@ function toggleButtonState() {
     });
   } else {
     loginButton.disabled = true;
-    loginButton.style.backgroundColor = "grey";
-  }
-}
-
-function removePreviousError(inputElement) {
-  if (
-    inputElement.nextSibling &&
-    inputElement.nextSibling.style &&
-    inputElement.nextSibling.style.color === "red"
-  ) {
-    inputElement.parentNode.removeChild(inputElement.nextSibling);
+    loginButton.style.backgroundColor = "#9ca3af";
   }
 }
 

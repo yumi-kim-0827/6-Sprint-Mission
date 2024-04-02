@@ -81,7 +81,7 @@ function toggleButtonState() {
     });
   } else {
     loginButton.disabled = true;
-    loginButton.style.backgroundColor = "grey";
+    loginButton.style.backgroundColor = "#9ca3af";
   }
 }
 
