@@ -148,3 +148,41 @@
     text-align: center;
   }
 }
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-section {
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 48px;
+    height: 100%;
+  }
+
+  .main-box {
+    align-items: center;
+    gap: 18px;
+  }
+
+  .main-text {
+    margin-top: 0;
+    text-align: center;
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .main-btn {
+    width: 154px;
+    height: 48px;
+  }
+
+  .main-panda-img {
+    position: static;
+    height: 281px;
+  }
+}
