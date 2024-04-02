@@ -38,26 +38,26 @@
 }
 
 /* 입력 폼 */
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
-form label {
+.form label {
   color: var(--gray800);
   font-size: 1.8rem;
   font-weight: 600;
   margin: 24px 0 16px;
 }
-form input {
+.form input {
   width: 640px;
   background-color: var(--gray100);
   color: var(--gray400);
   font-size: 1.6rem;
   padding: 16px 24px;
 }
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
   border-radius: 12px;
   color: var(--gray800);
   font-family: var(--font-main);
@@ -65,9 +65,9 @@ form input[type="password"] {
 }
 
 /* input validation */
-form input[type="text"].warning,
-form input[type="email"].warning,
-form input[type="password"].warning {
+.form input[type="text"].warning,
+.form input[type="email"].warning,
+.form input[type="password"].warning {
   outline: 1px solid var(--warning);
 }
 .warn {
@@ -75,16 +75,16 @@ form input[type="password"].warning {
   margin: 10px 0 0 10px;
 }
 
-form input::placeholder {
+.form input::placeholder {
   color: var(--gray400);
   font-weight: 400;
   font-family: var(--font-main);
 }
-form input:focus {
+.form input:focus {
   outline: 2px solid var(--main);
 }
-form button {
-  cursor: pointer;
+.form button {
+  cursor: default;
   margin-top: 24px;
   color: var(--white);
   font-weight: 600;
@@ -93,6 +93,10 @@ form button {
   text-align: center;
   padding: 16px;
   border-radius: 40px;
+}
+.form button.active {
+  cursor: pointer;
+  background-color: var(--main);
 }
 /* 눈 아이콘 */
 .ico_hide {
@@ -159,13 +163,13 @@ a.kakao {
 @media (max-width: 768px) {
   body {
   }
-  form {
+  .form {
     width: 80%;
   }
-  form label {
+  .form label {
     margin: 12px 0 8px;
   }
-  form input {
+  .form input {
     width: 100%;
   }
   .social-login {
@@ -181,7 +185,7 @@ a.kakao {
     width: max-content;
     margin: 0 60px;
   }
-  form {
+  .form {
     min-width: 480px;
   }
   .social-login {

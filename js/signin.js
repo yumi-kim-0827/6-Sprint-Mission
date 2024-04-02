@@ -1,6 +1,7 @@
 const email = document.querySelector("input#email");
 const pwd = document.querySelector("input#pwd");
 const ico_hide = document.querySelector(".ico_hide");
+const submitBtn = document.querySelector(".form button");
 
 //  warning 클래스 및 메세지 추가 함수
 function warningMessage(input, message) {
@@ -16,7 +17,7 @@ function removeWarning(input) {
 function focusOutEmail(el) {
   if (!el.target.value) {
     warningMessage(email, "이메일을 입력해 주세요");
-  } else if (el.target.value.indexOf("@") == -1) {
+  } else if (!el.target.value.includes("@")) {
     warningMessage(email, "잘못된 이메일 형식입니다.");
   } else {
     removeWarning(email);
@@ -39,11 +40,26 @@ function focusOutPwd(el) {
   }
 }
 pwd.addEventListener("focusout", focusOutPwd);
-/** 
-input 에 빈 값이 있거나 에러 메세지가 있으면  ‘로그인’ 버튼은 비활성화 됩니다.
-Input 에 유효한 값을 입력하면  ‘로그인' 버튼이 활성화 됩니다.
-활성화된 ‘로그인’ 버튼을 누르면  “/items” 로 이동합니다
-*/
+
+// 로그인 버튼 활성화
+
+function activateLogin() {
+  if (
+    email.value &&
+    pwd.value &&
+    !email.classList.contains("warning") &&
+    !pwd.classList.contains("warning")
+  ) {
+    submitBtn.classList.add("active");
+    submitBtn.setAttribute("onclick", "location.href='./items.html'");
+  } else {
+    submitBtn.classList.remove("active");
+    submitBtn.removeAttribute("onclick");
+  }
+}
+
+email.addEventListener("focusout", activateLogin);
+pwd.addEventListener("focusout", activateLogin);
 
 /** 
 눈 모양 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
