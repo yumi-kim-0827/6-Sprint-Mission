@@ -118,14 +118,18 @@ input:focus {
   color: #3182f6;
 }
 
-.error-text {
+.nick-error,
+.pass-error,
+.pass-check-error,
+.email-error {
   font-family: Pretendard;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
-  text-align: left;
   padding-top: 5px;
+  padding-left: 15px;
+  color: red;
 }
 
 /* PC */

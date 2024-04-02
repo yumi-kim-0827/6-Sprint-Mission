@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateEmail() {
     const emailErrorElement = document.createElement("div");
     emailErrorElement.style.color = "red";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.com$/;
     removePreviousError(emailInput);
 
     if (!emailInput.value) {
