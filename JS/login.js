@@ -4,6 +4,7 @@ const loginBtn = document.querySelector(".login-btn");
 const emailInput = document.querySelector(".email input");
 const pwInput = document.querySelector(".pw input");
 const pwIcon = document.querySelector(".con .pw-icon");
+const allInput = document.querySelectorAll("form input");
 
 let isShow = false;
 
@@ -32,7 +33,7 @@ const handleInput = (test, element) => {
         : (wrongEmail.textContent = "잘못된 이메일 형식입니다");
       emailContainer.append(wrongEmail);
     } else if (element.type === "password") {
-      if (pwContainer.children.length > 2) {
+      if (pwContainer.children.length > 3) {
         pwContainer.removeChild(pwContainer.lastChild);
       }
       const wrongPw = document.createElement("p");
@@ -46,7 +47,7 @@ const handleInput = (test, element) => {
     element.classList.remove("wrong");
     if (emailContainer.children.length > 2) {
       emailContainer.removeChild(emailContainer.lastChild);
-    } else if (pwContainer.children.length > 2) {
+    } else if (pwContainer.children.length > 3) {
       pwContainer.removeChild(pwContainer.lastChild);
     }
   }
