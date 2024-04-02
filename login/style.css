@@ -46,6 +46,18 @@ form input:focus {
   font-size: 16px;
   padding: 0 0 0 24px;
 }
+.con .wrong {
+  border: solid 2px var(--error-red);
+}
+.wrong-email,
+.wrong-pw {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error-red);
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
 .pw {
   position: relative;
 }
