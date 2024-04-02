@@ -7,6 +7,7 @@ const pwIcon = document.querySelector(".con .pw-icon");
 const allInput = document.querySelectorAll("form input");
 
 let isShow = false;
+loginBtn.disabled = true;
 
 pwIcon.addEventListener("click", () => {
   isShow = !isShow;
@@ -50,6 +51,10 @@ const handleInput = (test, element) => {
     } else if (pwContainer.children.length > 3) {
       pwContainer.removeChild(pwContainer.lastChild);
     }
+    const allInputArr = Array.from(allInput);
+    if (!allInputArr.every((el) => el.value === "") && !allInputArr.some((el) => el.classList.contains("wrong"))) {
+      loginBtn.disabled = false;
+    }
   }
 };
 
@@ -65,5 +70,5 @@ const isValidPw = () => {
   handleInput(test, pwInput);
 };
 
-emailInput.addEventListener("focusout", isValidEmail);
-pwInput.addEventListener("focusout", isValidPw);
+emailInput.addEventListener("input", isValidEmail);
+pwInput.addEventListener("input", isValidPw);
