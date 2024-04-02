@@ -1,20 +1,37 @@
-for (const element of document.querySelectorAll(`form > .field > .wrapper:has(input[type="password"])`))
-{
-	const [input, img] = [element.querySelector(`input`), element.querySelector(`img`)];
+import "/common/index.js";
 
-	img.addEventListener(`click`, (event) => {
+const icons = Object.freeze({
+	["text"]: "/assets/icons/visible.svg",
+	["password"]: "/assets/icons/invisible.svg",
+});
+
+for (const element of document.querySelectorAll("form .field:has(input[type=\"password\"])"))
+{
+	const [img, input] = [document.createElement("img"), element.querySelector("input")];
+	// apply src
+	img.src = icons[input.type];
+
+	img.addEventListener("click", (event) => {
 		switch (input.type)
 		{
-			case `password`:
+			case "password":
 			{
-				input.type = `text`; img.src = `/assets/icons/visible.svg`;
+				input.type = "text";
+				break;
+			}
+			case "text":
+			{
+				input.type = "password";
 				break;
 			}
 			default:
 			{
-				input.type = `password`; img.src = `/assets/icons/invisible.svg`;
-				break;
+				throw new Error();
 			}
 		}
+		// apply src
+		img.src = icons[input.type];
 	});
+	// create
+	element.querySelector(".wrapper").append(img);
 }
