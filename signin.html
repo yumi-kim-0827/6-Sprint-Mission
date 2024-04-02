@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판다마켓 로그인</title>
+    <meta
+        name="description"
+        content="일상의 모든 물건을 거래해보세요"
+    />
+    <meta property="og:image" content="./img/img_meta.png"/>
+    <meta property="og:title" content="판다마켓 로그인"/>
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta 
+        property="og:url" 
+        content="https://codeit-sprint3-ohchaeyeon.netlify.app/signin"
+    />
     <link rel="stylesheet" href="./css/signin.css" />
     <link
       rel="stylesheet"
@@ -20,19 +31,19 @@
             </a>
         </header>
 
-        <main>
+        <main class="main-login">
             <form>
                 <div class="login-email">
-                    <p class="input-text">이메일<br/></p>
-                    <input type="email" id="loginid" name="id" placeholder="이메일을 입력하세요">
+                    <label class="input-text" for="loginid">이메일<br/></label>
+                    <input type="email" class="loginid" name="id" placeholder="이메일을 입력하세요">
                 </div>
                 <div class="login-password">
-                    <p class="input-text">비밀번호<br/></p>
-                    <input type="password" id="loginpw" name="pw" placeholder="비밀번호를 입력하세요">
-                    <img src="./img/ic-eye.png" alt="비밀번호 안보이게">
+                    <label class="input-text" for="loginpw">비밀번호<br/></label>
+                    <input type="password" class="loginpw" name="pw" placeholder="비밀번호를 입력하세요">
+                    <img class="password-eye" src="./img/ic-eye.png" alt="비밀번호 안보이게">
                 </div>
+                <button type="submit" class="login-btn">로그인</button>
             </form>
-            <button type="submit" class="login-btn">로그인</button>
             <section>
                 <div class="login-simple">
                     <p class="simple-text">간편 로그인하기</p>

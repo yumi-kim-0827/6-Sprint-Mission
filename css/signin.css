@@ -44,23 +44,22 @@ body {
     left: 122px;
 }
 
-main {
+.main-login {
     position: absolute;
     width : 640px;
     height : 430px;
-    top : 232px;
-    text-align: center;
+    top : 208px;
+    text-align: left;
 }
 
-.input-text {
+.main-login label {
     color: var(--cool-gray800);
     font-weight: 700;
     font-size: 18px;
     line-height: 28.8px;
-    text-align: left;
 }
 
-#loginid {
+.loginid {
     width: 100%;
     height: 56px;
     background-color: var(--cool-gray100);
@@ -68,14 +67,15 @@ main {
     border-radius: 12px;
     border: 0;
     gap: 10px;
+    margin-top: 16px;
     padding-left: 16px;
 }
 
-#loginid:focus {
+.loginid:focus {
     outline: solid var(--brand-blue);
 }
 
-#loginpw {
+.loginpw {
     width: 100%;
     height: 56px;
     background-color: var(--cool-gray100);
@@ -84,17 +84,19 @@ main {
     border-radius: 12px;
     border: 0;
     gap: 10px;
+    margin-top: 16px;
 }
 
-#loginpw:focus {
+.loginpw:focus {
     outline: solid var(--brand-blue);
 }
 
 .login-password {
     position: relative;
+    margin-top: 24px;
 }
 
-.login-password img {
+.password-eye {
     position: absolute;
     width: 24px;
     right: 20px;
@@ -106,7 +108,7 @@ main {
     width: 100%;
     background-color: var(--cool-gray400);
     color: var(--color-white);
-    padding: 16px 124px 16px 124px;
+    padding: 16px 124px;
     margin: 24px 0;
     border: 0;
     border-radius: 40px;
@@ -126,7 +128,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding : 25px 23px 25px 23px;
+    padding : 25px 23px;
     border: 0;
     border-radius: 8px;
     align-items: center;
@@ -153,11 +155,11 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    margin: 24px auto 0; 
+    margin: auto;
+    padding-top: 24px;
     font-size: 15px;
     font-weight: 500;
     line-height: 17.9px;
-
 }
 
 #join-page {
@@ -167,6 +169,64 @@ button:hover {
 
 
 
+/*Tablet: 768px 이상 ~ 1199px 이하*/
+@media (max-width: 1199px) {
+    .login-logo {
+        top: 48px;
+    }
+
+    .main-login {
+        top : 220px;
+    }
+}
+
+
+
+/*Mobile: 375px 이상 ~ 767px 이하*/
+@media (max-width: 767px) {
+    .login-form {
+        max-width: 400px;
+        padding: 0;
+    }
+    
+    .login-logo {
+        position: relative;
+        width: 198px;
+        height: 66px;
+        top: 24px;
+        left: calc(50% - 99px);
+    }
+    
+    .main-login {
+        position: relative;
+        max-width: 400px;
+        width: 100%;
+        height : 391px;
+        top : 24px;
+        padding: 0 16px;
+    }
+
+    .main-login label {
+        font-size: 14px;
+        line-height: 16.71px;
+    }
+
+    .loginid {
+        margin-top: 8px;
+    }
+
+    .login-password {
+        margin-top: 16px;
+    }
+
+    .loginpw {
+        margin-top: 8px;
+    }
+
+    .password-eye {
+        top: 46px;
+    }
+}
 
 
 

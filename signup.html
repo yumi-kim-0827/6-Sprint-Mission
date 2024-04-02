@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판다마켓 회원가입</title>
+    <meta
+        name="description"
+        content="일상의 모든 물건을 거래해보세요"
+    />
+    <meta property="og:image" content="./img/img_meta.png"/>
+    <meta property="og:title" content="판다마켓 회원가입"/>
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta 
+        property="og:url" 
+        content="https://codeit-sprint3-ohchaeyeon.netlify.app/signup"
+    />
     <link rel="stylesheet" href="./css/signup.css" />
     <link
       rel="stylesheet"
@@ -20,28 +31,28 @@
             </a>
         </header>
 
-        <main>
+        <main class="main-join">
             <form>
                 <div class="join-email">
-                    <p class="input-text">이메일<br/></p>
+                    <label class="input-text" for="joinid">이메일<br/></label>
                     <input type="email" class="joinid" name="id" placeholder="이메일을 입력하세요">
                 </div>
                 <div class="join-email">
-                    <p class="input-text">닉네임<br/></p>
+                    <label class="input-text" for="joinid">닉네임<br/></label>
                     <input type="text" class="joinid" name="name" placeholder="닉네임을 입력하세요">
                 </div>
                 <div class="join-password">
-                    <p class="input-text">비밀번호<br/></p>
+                    <label class="input-text" for="joinpw">비밀번호<br/></label>
                     <input type="password" class="joinpw" name="pw" placeholder="비밀번호를 입력하세요">
-                    <img src="./img/ic-eye.png" alt="비밀번호 안보이게">
+                    <img class="password-eye" src="./img/ic-eye.png" alt="비밀번호 안보이게">
                 </div>
                 <div class="join-password">
-                    <p class="input-text">비밀번호<br/></p>
+                    <label class="input-text" for="joinpw">비밀번호<br/></label>
                     <input type="password" class="joinpw" name="pw-check" placeholder="비밀번호를 다시 한 번 입력하세요">
-                    <img src="./img/ic-eye.png" alt="비밀번호 안보이게">
+                    <img class="password-eye" src="./img/ic-eye.png" alt="비밀번호 안보이게">
                 </div>
+                <button type="submit" class="join-btn">회원가입</button>
             </form>
-            <button type="submit" class="join-btn">회원가입</button>
             <section>
                 <div class="join-simple">
                     <p class="simple-text">간편 로그인하기</p>
