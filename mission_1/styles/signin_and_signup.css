@@ -132,3 +132,22 @@ button {
   text-decoration: underline;
   cursor: pointer;
 }
+
+@media screen and (max-width: 767px) {
+  header {
+    margin-top: 30px;
+  }
+  main {
+    margin-top: 30px;
+  }
+
+  header .logo_img {
+    width: 198px;
+    height: 66px;
+  }
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 16px;
+  }
+}
