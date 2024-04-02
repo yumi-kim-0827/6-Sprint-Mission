@@ -29,3 +29,9 @@ footer {
   height: 20px;
   gap: 12px;
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .footer {
+    margin: 0 104px;
+  }
+}
