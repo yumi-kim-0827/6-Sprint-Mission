@@ -1,8 +1,3 @@
-const emailContainer = document.querySelector(".email");
-const nickContainer = document.querySelector(".nick");
-const pwContainer = document.querySelector(".pw");
-const rePwContainer = document.querySelector(".re-pw");
-
 const emailInput = document.querySelector(".email input");
 const nickInput = document.querySelector(".nick input");
 const pwInput = document.querySelector(".pw #pw");
@@ -12,8 +7,12 @@ const pwIcon = document.querySelector(".con .pw-icon");
 const rePwIcon = document.querySelector(".con .re-pw-icon");
 const signUpBtn = document.querySelector("form .signup-btn");
 
+const allInput = document.querySelectorAll("form input");
+console.log(allInput);
+
 let isShow = false;
 let reIsShow = false;
+signUpBtn.disabled = true;
 
 pwIcon.addEventListener("click", () => {
   isShow = !isShow;
@@ -37,6 +36,66 @@ rePwIcon.addEventListener("click", () => {
   }
 });
 
+const handleInput = (test, element) => {
+  let parentEl = element.parentElement;
+  if (!test) {
+    element.classList.add("wrong");
+
+    if (element.type === "email") {
+      if (parentEl.children.length > 2) {
+        parentEl.removeChild(parentEl.lastChild);
+      }
+      const wrongEmail = document.createElement("p");
+      wrongEmail.classList.add("wrong-email");
+      element.value === ""
+        ? (wrongEmail.textContent = "이메일을 입력해주세요")
+        : (wrongEmail.textContent = "잘못된 이메일 형식입니다");
+      parentEl.append(wrongEmail);
+    } else if (element.id === "nickname") {
+      if (parentEl.children.length > 2) {
+        parentEl.removeChild(parentEl.lastChild);
+      }
+      const wrongNick = document.createElement("p");
+      wrongNick.classList.add("wrong-re-pw");
+      wrongNick.textContent = "닉네임을 입력해주세요";
+      parentEl.append(wrongNick);
+    } else if (element.id === "pw") {
+      if (parentEl.children.length > 3) {
+        parentEl.removeChild(parentEl.lastChild);
+      }
+      const wrongPw = document.createElement("p");
+      wrongPw.classList.add("wrong-pw");
+      element.value === ""
+        ? (wrongPw.textContent = "비밀번호를 입력해주세요")
+        : (wrongPw.textContent = "비밀번호를 8자 이상 입력해주세요");
+      parentEl.append(wrongPw);
+    } else if (element.id === "re-pw") {
+      if (parentEl.children.length > 3) {
+        parentEl.removeChild(parentEl.lastChild);
+      }
+      const wrongRePw = document.createElement("p");
+      wrongRePw.classList.add("wrong-re-pw");
+      wrongRePw.textContent = "비밀번호가 일치하지 않습니다.";
+      parentEl.append(wrongRePw);
+    }
+  } else {
+    element.classList.remove("wrong");
+
+    if (parentEl.children.length > 2) {
+      parentEl.removeChild(parentEl.lastChild);
+    } else if (parentEl.children.length > 3) {
+      parentEl.removeChild(parentEl.lastChild);
+    }
+
+    const allInputArr = Array.from(allInput);
+    if (!allInputArr.some((el) => el.value === "") && !allInputArr.some((el) => el.classList.contains("wrong"))) {
+      signUpBtn.disabled = false;
+    } else {
+      signUpBtn.disabled = true;
+    }
+  }
+};
+
 const isValidEmail = () => {
   const isValid = /[a-z0-9]+@[a-z]+.[a-z]{2,3}/;
   const test = isValid.test(emailInput.value);
@@ -44,11 +103,9 @@ const isValidEmail = () => {
 };
 
 const isValidNick = () => {
-  const isFilled = false;
-  if (!nickInput.value === "") {
+  let isFilled = false;
+  if (!(nickInput.value === "")) {
     isFilled = true;
-  } else {
-    isFilled = false;
   }
   handleInput(isFilled, nickInput);
 };
@@ -60,9 +117,11 @@ const isValidPw = () => {
 };
 
 const isValidRePw = () => {
-  const isValid = pwInput.value;
-  const test = isValid.test(rePwInput.value);
-  handleInput(test, rePwInput);
+  let isValid = false;
+  if (rePwInput.value == pwInput.value) {
+    isValid = true;
+  }
+  handleInput(isValid, rePwInput);
 };
 
 emailInput.addEventListener("input", isValidEmail);
