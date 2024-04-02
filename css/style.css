@@ -47,7 +47,7 @@ main {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    font-size: 40px;
+    font-size: 32px;
     color: var(--cool_gray700);
     font-weight: 700;
 }
@@ -339,6 +339,10 @@ footer>.FAQ>a {
     .break-on-desktop {
         display: none;
     }
+
+    .banner-top h1 br {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -387,6 +391,10 @@ footer>.FAQ>a {
         margin-top: 24px;
         margin-bottom: 24px;
         width: 198px
+    }
+
+    .banner-top h1 br {
+        display: inline;
     }
 }
 
