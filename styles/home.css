@@ -61,3 +61,55 @@
   letter-spacing: 0.08em;
   margin-top: 24px;
 }
+
+
+@media (min-width: 768px) {
+  .banner {
+    height: 840px;
+  }
+
+  #top h1 br {display: none;}
+
+  .banner h1 {
+    padding-top: 84;
+    padding-bottom: 24px
+    line-height: 56px;
+    font-size: 40px;
+  }
+
+  #features {padding: 138px 0;}
+
+
+  .feature-explanation {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner {
+    height: 540px;
+  }
+
+  #top h1 br {display: inline;}
+
+  .banner h1 {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  #features {padding: 138px 0;}
+
+  .feature {
+    margin-bottom: 138px;
+    gap: 5%;
+    display: flex;
+    align-items: center;
+  }
+
+  .feature-explanation {
+    font-size: 24px;
+    margin-top: 24px;
+    line-height: 28px;
+  }
+}
