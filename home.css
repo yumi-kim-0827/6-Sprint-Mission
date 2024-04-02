@@ -331,3 +331,134 @@ header {
     padding: 32px 104px 64px;
   }
 }
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .button.move_page {
+    margin-top: 20px;
+    width: 154px;
+    height: 48px;
+    border-radius: 24px;
+  }
+
+  /* font */
+  .font_banner {
+    font-size: 32px;
+    line-height: 44.8px;
+    text-align: center;
+  }
+
+  .font_highlight {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+
+  .font_title {
+    font-size: 22px;
+    line-height: 33.6px;
+    margin: 10px 0 15px 0;
+  }
+
+  .font_content {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .font_footer1 {
+    line-height: 18.4px;
+  }
+
+  .font_footer2 {
+    line-height: 18.4px;
+  }
+
+  /* header */
+  .header_nav {
+    padding: 0 16px;
+  }
+
+  /* banner_section */
+  .banner_section {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .banner_content {
+    align-items: center;
+    flex: 1;
+    width: 280px;
+    text-align: center;
+  }
+
+  .banner_img_box {
+    bottom: 0;
+    height: 281px;
+  }
+
+  .banner_img {
+    object-fit: cover;
+  }
+
+  /* content_section */
+  .container {
+    flex-direction: column;
+    padding: 40px 0;
+    width: 375px;
+    height: 100%;
+  }
+
+  .container:nth-of-type(even) {
+    flex-direction: column-reverse;
+  }
+
+  .content_item_img {
+    width: 344px;
+    height: 259px;
+  }
+
+  .content_box {
+    width: 100%;
+    margin: 25px;
+    padding: 0 15px;
+  }
+
+  /* bottom_section */
+  .bottom_container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bottom_content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .bottom_img_box {
+    height: 270px;
+  }
+
+  .bottom_img {
+    object-fit: contain;
+  }
+
+  /* footer */
+  .footer_container {
+    justify-content: space-between;
+    padding: 32px 32px 64px;
+    flex-wrap: wrap;
+  }
+
+  .footer_box:nth-of-type(1) {
+    order: 3;
+  }
+
+  .footer_box:nth-of-type(2) {
+    order: 1;
+  }
+
+  .footer_box:nth-of-type(3) {
+    order: 2;
+  }
+}
