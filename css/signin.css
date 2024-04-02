@@ -11,6 +11,7 @@
   --gray800: #1f2937;
   --gray900: #111827;
   --quick-bg: #e6f2ff;
+  --warning: #ff5959;
 }
 
 .wrap {
@@ -62,6 +63,18 @@ form input[type="password"] {
   font-family: var(--font-main);
   font-weight: 500;
 }
+
+/* input validation */
+form input[type="text"].warning,
+form input[type="email"].warning,
+form input[type="password"].warning {
+  outline: 1px solid var(--warning);
+}
+.warn {
+  color: var(--warning);
+  margin: 10px 0 0 10px;
+}
+
 form input::placeholder {
   color: var(--gray400);
   font-weight: 400;
@@ -85,17 +98,20 @@ form button {
 .ico_hide {
   width: 10%;
   height: 51px;
-  margin: -51px 0 0 auto;
+  margin: -61px 0 0 auto;
   text-align: center;
   line-height: 51px;
   cursor: pointer;
+}
+.ico_hide.warned {
+  margin: -81px 0 30px auto;
 }
 .ico_hide > img {
   width: 24px;
   height: 24px;
 }
 /* 간편 로그인 */
-.quick_signin {
+.social-login {
   background-color: var(--quick-bg);
   width: 640px;
   text-align: center;
@@ -105,7 +121,7 @@ form button {
   align-items: center;
   padding: 16px 23px;
 }
-.quick_signin span {
+.social-login span {
   flex-grow: 1;
   text-align: left;
   color: var(--gray800);
@@ -152,7 +168,7 @@ a.kakao {
   form input {
     width: 100%;
   }
-  .quick_signin {
+  .social-login {
     width: 80%;
   }
 }
@@ -168,7 +184,7 @@ a.kakao {
   form {
     min-width: 480px;
   }
-  .quick_signin {
+  .social-login {
     min-width: 480px;
   }
 }
