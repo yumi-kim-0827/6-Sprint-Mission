@@ -7,6 +7,7 @@ let isShow = false;
 let reIsShow = false;
 
 pwIcon.addEventListener("click", () => {
+  isShow = !isShow;
   if (isShow) {
     pwIcon.src = "../login/assets/show-pw.png";
     pwInput.setAttribute("type", "text");
@@ -14,10 +15,10 @@ pwIcon.addEventListener("click", () => {
     pwIcon.src = "../login/assets/non-show-pw.png";
     pwInput.setAttribute("type", "password");
   }
-  isShow = !isShow;
 });
 
 rePwIcon.addEventListener("click", () => {
+  reIsShow = !reIsShow;
   if (reIsShow) {
     rePwIcon.src = "../login/assets/show-pw.png";
     rePwInput.setAttribute("type", "text");
@@ -25,5 +26,4 @@ rePwIcon.addEventListener("click", () => {
     rePwIcon.src = "../login/assets/non-show-pw.png";
     rePwInput.setAttribute("type", "password");
   }
-  reIsShow = !reIsShow;
 });

@@ -8,6 +8,7 @@ const pwIcon = document.querySelector(".con .pw-icon");
 let isShow = false;
 
 pwIcon.addEventListener("click", () => {
+  isShow = !isShow;
   if (isShow) {
     pwIcon.src = "../login/assets/show-pw.png";
     pwInput.setAttribute("type", "text");
@@ -15,7 +16,6 @@ pwIcon.addEventListener("click", () => {
     pwIcon.src = "../login/assets/non-show-pw.png";
     pwInput.setAttribute("type", "password");
   }
-  isShow = !isShow;
 });
 
 const handleInput = (test, element) => {
