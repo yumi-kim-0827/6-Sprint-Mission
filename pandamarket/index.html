@@ -4,37 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
-  <title>판다마켓</title>
+
+    <meta property="og:imgge" content="./images/Img_home_top.png">
+    <meta property="og:title" content="판다마켓">
+    <meta property="og:description"
+          content="일상의 모든 물건을 거래해보세요"
+    >
+    <meta property="og:url" content="https://pandamarket-sprint-jinjo.netlify.app/">
+    <title>판다마켓</title>
   </head>
 
   <body>
     <header>
-      <div class="container">
-        <div class="header-container">
-          <div class="header">
-            <a href="./"><img class="logo" src="images/logo.png" alt="logo"></a>
-            <a href="./signin.html"><button class="login-button">로그인</button></a>
-            
+          <div class="header-container">
+            <a id="logo" href="./"></a>
+            <a href="./signin.html" class="login-button">로그인</a> 
           </div>
-        </div>
-      </div>
-    </header>
+        </header>
 
     <main>
-      <div class="container">
-        <div class="banner">
-          <div class="banner-content">
+        <div id="topBanner-img" class="topBanner">
+          <div class="topBanner-content">
             <h1>일상의 모든 물건을<br>
                 거래해 보세요</h1>
-            <a href="/items"><button class="go-to-store-button">구경하러 가기</button></a>
+            <a href="/items" class="go-to-store-button">구경하러 가기</a>
           </div>
-          <img class="top-panda" src="images/Img_home_top.png" alt="top_panda">
         </div>
 
         <div class="main-container">
           <div class="main1">
-            <img src="./images/Img_home_01.png" alt="">
-            <div>
+            <img src="./images/Img_home_01.png" alt="home_01">
+            <div class="hot-item">
               <div class="tag">HOT item</div>
               <h1>
                 인기 상품을<br>
@@ -64,7 +64,7 @@
 
           <div class="main3">
             <img src="./images/Img_home_03.png" alt="home_03">
-            <div>
+            <div class="register">
               <div class="tag">Register</div>
               <h1>
                 판매를 원하는<br>
@@ -77,39 +77,32 @@
             </div>
           </div>
         </div>
-        <div class="banner">
-          <img class="panda-bottom" src="./images/Img_home_bottom.png" alt="bottom_panda">
-          <div class="banner-content-bottom">
+
+        <div id="bottomBanner-img" class="bottomBanner">
+          <div class="bottomBanner-content">
             <h1>
               믿을 수 있는<br>
               판다마켓 중고거래
             </h1>
           </div>
-
         </div>
-      </div>
     </main>
 
     <footer>
-      <div class="container">
-        <div class="footer-container">
-          <div class="footer">
+          <div class="footer-container">
             <div class="footer-codeit">©codeit - 2024</div>
             <div class="privacy">
-              <a href="/privacy"><div>Privacy</div></a>
+              <a href="/privacy"><div>Privacy Privacy</div></a>
               <a href="/faq"><div>FAQ</div></a>
             </div>
             
-            <div>
+            <div class="sns-container">
               <a href="https://www.facebook.com/" target="_blank"><img src="./images/ic_facebook.png" alt="ic_facebook"></a>
               <a href="https://twitter.com/" target="_blank"><img src="./images/ic_twitter.png" alt="ic_twitter"></a>
               <a href="https://www.youtube.com/" target="_blank"><img src="./images/ic_youtube.png" alt="ic_youtube"></a>
               <a href="https://www.instagram.com/" target="_blank"><img src="./images/ic_instagram.png" alt="ic_instagram"></a> 
             </div>
-
           </div>
-        </div>
-      </div>
     </footer>
   </body>
 </html>

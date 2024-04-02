@@ -4,12 +4,12 @@
 
 body {
   margin: 0;
-  background-color: skyblue;
+  font-family: 'Pretendard';
 }
 
 h1 {
+  white-space: nowrap;
   margin: 0;
-  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 40px;
   color: #374151;
@@ -18,27 +18,31 @@ h1 {
 
 p {
   margin: 24px 0;
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 24px;
   line-height: 28.8px;
 }
 
-.container {
-  max-width: 1920px;
-  width: auto;
-  background-color: #ffffff;
-  margin: 0 auto;
+header { 
+  padding: 7.5px 200px;
 }
 
-.header-container {
-  padding-top: 0;
-  margin: 0 200px;
+footer {
+  height: 160px;
+  background-color: #111827;
+  width: 100%;
 }
+
+  #logo {
+    width: 153px;
+    height: 51px;
+    background-image: url("../images/login_logo.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
 
 .main-container {
   display: grid;
-  width: 1920px;
   grid-template: repeat(3, 720px) / 1fr 1200px 1fr;
   grid-template-areas:
   ". m1 ."
@@ -47,33 +51,18 @@ p {
   ;
 }
 
-.footer-container {
-  height: 160px;
-  background-color: #111827;
-  width: 1920px;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 32px 200px;
-  color: #e5e7eb;
-}
-.header {
+.header-container {
   width: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header-content {
-  width: 153px;
-  height: 51px;
-}
-
-.logo {
-  cursor: pointer;
-  flex-shrink: 0;
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 200px;
+  color: #e5e7eb;
 }
 
 .login-button {
@@ -82,14 +71,13 @@ p {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
   padding: 12px 20px;
   gap: 10px;
 
   width: 128px;
   height: 48px;
   right: 20px;
-  top: calc(50% - 48px/2 - 102px);
+  font-weight: 600;
 
   /* brand/blue */
   background: #3692FF;
@@ -98,13 +86,6 @@ p {
   color: #ffffff;
   cursor: pointer;
   text-decoration: none;
-}
-
-.banner {
-  position: relative;
-  background-color: #cfe5ff;
-  height: 540px;
-  width: 1920px;
 }
 
 .go-to-store-button {
@@ -118,43 +99,64 @@ p {
   border: none;
   color: #FFFFFF;
 
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
   cursor: pointer;
-}
-
-.banner-content,
-.banner-content-bottom{
+  text-decoration: none;
   display: flex;
-  flex-direction: column;
-  gap:32px;
-  position: absolute;
-  left: 360px;
-  top: 170px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
 }
 
-.banner-content-bottom {
-  top: 214px;
+.topBanner,
+.bottomBanner {
+  width: 100%;
+  height: 540px;
+  background-repeat: no-repeat;
+  background-color: #cfe5ff;
+  display: flex;
+  align-items: center;
 }
 
+.topBanner {
+  justify-content:left;
+  background-position:  80% bottom;
+  background-size: 45%;
+}
 
-.top-panda {
-  position: absolute;
-  top:93px;
-  right: 223px;
+.bottomBanner {
+  background-position: 80% bottom;
+}
+
+.bottomBanner-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#topBanner-img {
+  background-image: url("../images/Img_home_top.png");
+}
+
+#bottomBanner-img {
+  background-image: url("../images/Img_home_bottom.png");
+}
+
+.topBanner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .main1,
 .main2,
 .main3 {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap:191px
+  gap: 64px;
 }
 .main1 {
   grid-area: m1;
@@ -162,6 +164,7 @@ p {
 
 .main2 {
   grid-area: m2;
+  justify-content: right;
 }
 
 .main3 {
@@ -174,15 +177,11 @@ p {
   line-height: 25.2px;
   font-size: 18px;
   color: #3692FF;
+  font-weight: 700;
 }
 
 .search {
   text-align: right;
-}
-
-.panda-bottom {
-  position: absolute;
-  right: 223px;
 }
 
 .privacy {
@@ -197,4 +196,163 @@ p {
 .privacy a {
   color: #e5e7eb;
   text-decoration: none;
+}
+
+#login {
+  text-decoration: none;
+}
+
+.sns-container {
+  display: flex;
+  gap: 13px;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  header {
+    padding: 1.5px 24px;
+  }
+
+  
+  .topBanner {
+    align-items: first baseline;
+    height: 771px;
+    background-position: 50% bottom;
+    background-size: 100%;
+  }
+
+  .topBanner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 84px auto;
+  }
+  
+  h1 br {
+    display: none;
+  }
+
+  .bottomBanner {
+    align-items: first baseline;
+    justify-content: center;
+    height: 927px;
+    background-position: 50% bottom;
+  }
+  .bottomBanner-content h1 {
+    text-align: center;
+  }
+  
+  .bottomBanner-content h1 br {
+    display: block;
+  }
+  .bottomBanner-content {
+    margin: 201px auto;
+  }
+
+  .main1,
+  .main2,
+  .main3 {
+    display: block;
+  }
+
+  .main2 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items:end;
+    gap: 0;
+  }
+
+  .search {
+    justify-content: end;
+  }
+
+  .main-container {
+    display: block;
+    
+  }
+
+  .main-container img {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+  }
+
+  .hot-item,
+  .search,
+  .register {
+    margin: 0 24px 60px;
+  }
+  
+
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  #logo {
+    width: 103px;
+    height: 51px;
+    background-image: url("../images/logo-mobile.png");
+    background-repeat: no-repeat;
+  }
+
+  header {
+    padding: 1.5px 16px;
+  }
+
+  .bottomBanner,
+  .topBanner {
+    height: 540px;
+  }
+
+  .bottomBanner {
+    background-size: 100%;
+  }
+
+  .topBanner-content {
+    margin: 48px auto;
+    text-align: center;
+  }
+
+  .topBanner-content h1 > br {
+    display: block;
+  }
+
+  .bottomBanner-content {
+    margin: 121px auto;
+  }
+
+  /* font-size 조절 */
+  
+  .main1 h1,
+  .main2 h1,
+  .main3 h1 {
+    font-size: 24px;
+  }
+
+  .bottomBanner-content h1,
+  .topBanner-content h1 {
+    font-size: 32px;
+  }
+
+  .tag {
+    font-size: 16px;
+  }
+
+  .hot-item p,
+  .search p,
+  .register p {
+    font-size: 16px;
+  }
+
+  .footer-codeit {
+    width: 100%;
+  }
+
+  .footer-container {
+    padding: 32px;
+    row-gap: 60px;
+    gap: 30px;
+    flex-wrap: wrap-reverse;
+  }
 }
