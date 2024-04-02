@@ -37,7 +37,7 @@ img {
   padding: 14.5px 43px;
 }
 #hero {
-  background-image: url("./images/image1.png");
+  background-image: url("/images/image1.png");
 }
 
 .button {
@@ -116,7 +116,7 @@ img {
   margin-top: 24px;
 }
 #bottomBanner {
-  background-image: url("./images/image2.png");
+  background-image: url("/images/image2.png");
 }
 .codeit-2024 {
   width: 113px;
