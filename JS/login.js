@@ -17,3 +17,18 @@ pwIcon.addEventListener("click", () => {
   }
   isShow = !isShow;
 });
+
+const isValidEmail = () => {
+  const isValid = /[a-z0-9]+@[a-z]+.[a-z]{2,3}/;
+  const test = isValid.test(emailInput.value);
+  handleInput(test, emailInput);
+};
+
+const isValidPw = () => {
+  const isValid = /.{8,}/;
+  const test = isValid.test(pwInput.value);
+  handleInput(test, pwInput);
+};
+
+emailInput.addEventListener("focusout", isValidEmail);
+pwInput.addEventListener("focusout", isValidPw);
