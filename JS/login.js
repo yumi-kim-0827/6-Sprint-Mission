@@ -52,8 +52,10 @@ const handleInput = (test, element) => {
       pwContainer.removeChild(pwContainer.lastChild);
     }
     const allInputArr = Array.from(allInput);
-    if (!allInputArr.every((el) => el.value === "") && !allInputArr.some((el) => el.classList.contains("wrong"))) {
+    if (!allInputArr.some((el) => el.value === "") && !allInputArr.some((el) => el.classList.contains("wrong"))) {
       loginBtn.disabled = false;
+    } else {
+      loginBtn.disabled = true;
     }
   }
 };
