@@ -111,6 +111,7 @@ input:focus {
 .Oauth_img {
   display: flex;
   gap: 30px;
+  width: ;
 }
 
 .OAuth > div {
