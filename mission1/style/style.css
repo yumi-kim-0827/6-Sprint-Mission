@@ -199,7 +199,7 @@ footer .tag .mark{
   justify-content: space-between;
 }
 
-footer .tag .mark .priv{
+footer .tag .mark .privacy-container{
   margin-right: 50px;
   display: flex;
 }
@@ -218,7 +218,7 @@ footer .tag .mark .priv{
   text-align: center;
   color: #e5e7eb;
 }
-.tag .privacy2 {
+.tag .faq {
   margin-left: 30px;
   font-weight: 400;
   font-size: 14px;
@@ -494,7 +494,7 @@ footer .tag .mark .priv{
     justify-content: space-around;
     align-items:flex-start;
   }
-  .tag .priv{
+  .tag .privacy-container{
     margin-top: 20%;
   }
   .tag .mark .codeit{
