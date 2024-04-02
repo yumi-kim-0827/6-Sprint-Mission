@@ -21,63 +21,62 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="sign.css" />
+    <link rel="stylesheet" href="style/global.css" />
+    <link rel="stylesheet" href="style/sign.css" />
   </head>
   <body>
     <header>
       <a href="/">
-        <img src="img/img_pandalogo_1@3x.png" alt="판다마켓 로고" />
+        <picture>
+          <source srcset="img/img_pandalogo_1.png" media="(max-width: 767px)" />
+          <img src="img/img_pandalogo_1@3x.png" alt="판다마켓 로고" />
+        </picture>
       </a>
     </header>
     <form method="post">
       <section>
         <label>이메일</label>
-        <div>
-          <input
-            type="email"
-            name="userName"
-            placeholder="이메일을 입력해주세요"
-            class="input-email"
-            required
-            autofocus
-          />
-        </div>
+        <input
+          type="email"
+          name="userName"
+          placeholder="이메일을 입력해주세요"
+          class="input-email"
+          required
+          autofocus
+        />
       </section>
       <section class="password-section">
         <label class="login-form__label">비밀번호</label>
-        <div>
-          <input
-            type="password"
-            name="userPassword"
-            placeholder="비밀번호를 입력해주세요"
-            required
-            class="input-password"
-          />
-        </div>
+        <input
+          type="password"
+          name="userPassword"
+          placeholder="비밀번호를 입력해주세요"
+          required
+          class="input-password"
+        />
         <img src="/img/Property 1=Default.png" alt="" class="password-img" />
       </section>
       <button type="submit">로그인</button>
-      <div class="social">
-        <span>간편 로그인하기</span>
-        <div>
-          <a target="_blank" href="https://www.google.com/">
-            <img
-              src="/img/social/color/ic_google.png"
-              alt="구글 로그인"
-              class="social-google"
-            />
-          </a>
-          <a target="_blank" href="https://www.kakaocorp.com/page/">
-            <img
-              src="/img/social/color/ic_kakaotalk.png"
-              alt="카카오 로그인"
-              class="social-kakao"
-            />
-          </a>
-        </div>
-      </div>
     </form>
+    <div class="social">
+      <span>간편 로그인하기</span>
+      <div>
+        <a target="_blank" href="https://www.google.com/">
+          <img
+            src="/img/social/color/ic_google.png"
+            alt="구글 로그인"
+            class="social-google"
+          />
+        </a>
+        <a target="_blank" href="https://www.kakaocorp.com/page/">
+          <img
+            src="/img/social/color/ic_kakaotalk.png"
+            alt="카카오 로그인"
+            class="social-kakao"
+          />
+        </a>
+      </div>
+    </div>
     <div class="link-join">
       판다마켓이 처음이신가요?
       <a href="/signup.html">회원가입</a>
