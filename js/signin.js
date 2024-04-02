@@ -1,6 +1,6 @@
 const email = document.querySelector("input#email");
 const pwd = document.querySelector("input#pwd");
-const ico_hide = document.querySelector(".ico_hide");
+const ico_hide = document.querySelector(".ico_hide img");
 const submitBtn = document.querySelector(".form button");
 
 //  warning 클래스 및 메세지 추가 함수
@@ -30,13 +30,13 @@ email.addEventListener("focusout", focusOutEmail);
 function focusOutPwd(el) {
   if (!el.target.value) {
     warningMessage(pwd, "비밀번호를 입력해주세요");
-    ico_hide.classList.add("warned");
+    ico_hide.parentElement.classList.add("warned");
   } else if (el.target.value.length < 8) {
     warningMessage(pwd, "비밀번호를 8자 이상 입력해주세요");
-    ico_hide.classList.add("warned");
+    ico_hide.parentElement.classList.add("warned");
   } else {
     removeWarning(pwd);
-    ico_hide.classList.remove("warned");
+    ico_hide.parentElement.classList.remove("warned");
   }
 }
 pwd.addEventListener("focusout", focusOutPwd);
@@ -61,8 +61,24 @@ function activateLogin() {
 email.addEventListener("focusout", activateLogin);
 pwd.addEventListener("focusout", activateLogin);
 
-/** 
-눈 모양 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
-비밀번호의 문자열이 가려질 때는 눈 모양 아이콘에는 사선이 그어져있고, 
-비밀번호의 문자열이 보일 때는 사선이 없는 눈 모양 아이콘이 보이도록 합니다.
-*/
+// 눈 모양 아이콘 클릭 시 pwd 창 변화
+
+function convert(el) {
+  if (el.target.attributes.src.value == "../images/ico_hide_pwd.svg") {
+    el.target.parentElement.previousElementSibling.previousElementSibling.setAttribute(
+      "type",
+      "text"
+    );
+    el.target.attributes.src.value = "../images/ico_hide_open.svg";
+  } else {
+    el.target.parentElement.previousElementSibling.previousElementSibling.setAttribute(
+      "type",
+      "password"
+    );
+    el.target.attributes.src.value = "../images/ico_hide_pwd.svg";
+  }
+}
+
+ico_hide.addEventListener("click", convert);
+// .previousElementSibling
+// ico_hide.parentElement
