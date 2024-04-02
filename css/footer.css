@@ -9,6 +9,7 @@ footer {
   padding-top: 32px;
   height: 160px;
   font-size: 16px;
+  font-family: Abel;
   font-weight: 400;
   color: white;
 }
@@ -20,6 +21,7 @@ footer {
 #cc {
   display: flex;
   gap: 30px;
+  color: #cfcfcf;
 }
 
 .icons {
