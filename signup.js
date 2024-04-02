@@ -72,5 +72,5 @@ rePwInput.addEventListener("input", isValidRePw);
 
 signUpBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  location.href = "../login.html";
+  location.href = "./login.html";
 });
