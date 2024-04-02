@@ -12,7 +12,6 @@ nicknameInput.addEventListener("focusout", validateNickname);
 function validateEmail() {
   const emailRegex = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.com$/;
   const errorText = document.querySelector(".email-error");
-  removePreviousError(emailInput);
 
   if (!emailInput.value) {
     errorText.textContent = "이메일을 입력해주세요.";
@@ -28,7 +27,6 @@ function validateEmail() {
 }
 
 function validatePassword() {
-  removePreviousError(passwordInput);
   const errorText = document.querySelector(".pass-error");
   if (!passwordInput.value) {
     errorText.textContent = "비밀번호를 입력해주세요.";
@@ -43,7 +41,6 @@ function validatePassword() {
   toggleButtonState();
 }
 function validateNickname() {
-  removePreviousError(nicknameInput);
   const errorText = document.querySelector(".nick-error");
   if (!nicknameInput.value) {
     errorText.textContent = "닉네임을 입력해주세요";
@@ -55,7 +52,6 @@ function validateNickname() {
   toggleButtonState();
 }
 function validateCheckPassword() {
-  removePreviousError(checkPasswordInput);
   const errorText = document.querySelector(".pass-check-error");
   if (passwordInput.value !== checkPasswordInput.value) {
     errorText.textContent = "비밀번호가 일치하지 않습니다.";
@@ -74,6 +70,7 @@ function toggleButtonState() {
     passwordInput.value &&
     checkPasswordInput.value &&
     nicknameInput.value &&
+    checkPasswordInput.value === passwordInput.value &&
     errors.length === 0
   ) {
     loginButton.disabled = false;
@@ -85,16 +82,6 @@ function toggleButtonState() {
   } else {
     loginButton.disabled = true;
     loginButton.style.backgroundColor = "grey";
-  }
-}
-
-function removePreviousError(inputElement) {
-  if (
-    inputElement.nextSibling &&
-    inputElement.nextSibling.style &&
-    inputElement.nextSibling.style.color === "red"
-  ) {
-    inputElement.parentNode.removeChild(inputElement.nextSibling);
   }
 }
 
