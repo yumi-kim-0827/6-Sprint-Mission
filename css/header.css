@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.logo_text {
+  display: none;
+}
+
 .login-btn {
   width: 128px;
   height: 48px;
@@ -29,5 +33,28 @@
 @media (min-width: 768px) and (max-width: 1199px) {
   .header-container {
     margin: 0 24px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .header-container {
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px;
+  }
+
+  .header-container2 {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo_text {
+    display: block;
+    height: 50px;
   }
 }
