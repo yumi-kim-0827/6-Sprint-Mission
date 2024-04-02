@@ -74,3 +74,7 @@ const isValidPw = () => {
 
 emailInput.addEventListener("input", isValidEmail);
 pwInput.addEventListener("input", isValidPw);
+loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  location.href = "../items.html";
+});
