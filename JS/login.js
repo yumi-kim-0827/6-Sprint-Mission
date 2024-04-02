@@ -27,11 +27,9 @@ const handleInput = (test, element) => {
       }
       const wrongEmail = document.createElement("p");
       wrongEmail.classList.add("wrong-email");
-      if (element.value === "") {
-        wrongEmail.textContent = "이메일을 입력해주세요";
-      } else {
-        wrongEmail.textContent = "잘못된 이메일 형식입니다";
-      }
+      element.value === ""
+        ? (wrongEmail.textContent = "이메일을 입력해주세요")
+        : (wrongEmail.textContent = "잘못된 이메일 형식입니다");
       emailContainer.append(wrongEmail);
     } else if (element.type === "password") {
       if (pwContainer.children.length > 2) {
@@ -39,11 +37,9 @@ const handleInput = (test, element) => {
       }
       const wrongPw = document.createElement("p");
       wrongPw.classList.add("wrong-pw");
-      if (element.value === "") {
-        wrongPw.textContent = "비밀번호를 입력해주세요";
-      } else {
-        wrongPw.textContent = "비밀번호를 8자 이상 입력해주세요";
-      }
+      element.value === ""
+        ? (wrongPw.textContent = "비밀번호를 입력해주세요")
+        : (wrongPw.textContent = "비밀번호를 8자 이상 입력해주세요");
       pwContainer.append(wrongPw);
     }
   } else {
