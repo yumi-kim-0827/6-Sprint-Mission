@@ -70,3 +70,11 @@
 .submit_btn:hover{
     background: var(--blue);
 }
+
+/*mobile*/
+@media (max-width:767px) and (min-width:375px){
+    #login section, #join section{
+        padding: 0 16px;
+        max-width: 400px;
+    }
+}
