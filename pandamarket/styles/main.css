@@ -41,7 +41,7 @@ footer {
     background-size: 100%;
   }
 
-.main-container {
+.main-inner{
   display: grid;
   grid-template: repeat(3, 720px) / 1fr 1200px 1fr;
   grid-template-areas:
@@ -51,14 +51,14 @@ footer {
   ;
 }
 
-.header-container {
+.header-inner {
   width: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.footer-container {
+.footer-inner {
   display: flex;
   justify-content: space-between;
   padding: 32px 200px;
@@ -137,11 +137,11 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
-#topBanner-img {
+#topBanner-panda {
   background-image: url("../images/Img_home_top.png");
 }
 
-#bottomBanner-img {
+#bottomBanner-panda {
   background-image: url("../images/Img_home_bottom.png");
 }
 
@@ -267,12 +267,12 @@ footer {
     justify-content: end;
   }
 
-  .main-container {
+  .main-inner {
     display: block;
     
   }
 
-  .main-container img {
+  .main-inner img {
     width: 100%;
     height: 100%;
     padding: 24px;
@@ -349,7 +349,7 @@ footer {
     width: 100%;
   }
 
-  .footer-container {
+  .footer-inner{
     padding: 32px;
     row-gap: 60px;
     gap: 30px;
