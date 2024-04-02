@@ -18,6 +18,7 @@ function validateEmail() {
     emailInput.style.border = "1px solid red";
   } else {
     emailInput.style.border = "";
+    errorText.textContent = "";
   }
   toggleButtonState();
 }
@@ -34,6 +35,7 @@ function validatePassword() {
     passwordInput.style.border = "1px solid red";
   } else {
     passwordInput.style.border = "";
+    errorText.textContent = "";
   }
   toggleButtonState();
 }

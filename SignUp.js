@@ -21,6 +21,7 @@ function validateEmail() {
     errorText.textContent = "잘못된 이메일 형식입니다";
     emailInput.style.border = "1px solid red";
   } else {
+    errorText.textContent = "";
     emailInput.style.border = "";
   }
   toggleButtonState();
@@ -37,6 +38,7 @@ function validatePassword() {
     passwordInput.style.border = "1px solid red";
   } else {
     passwordInput.style.border = "";
+    errorText.textContent = "";
   }
   toggleButtonState();
 }
@@ -48,6 +50,7 @@ function validateNickname() {
     nicknameInput.style.border = "1px solid red";
   } else {
     nicknameInput.style.border = "";
+    errorText.textContent = "";
   }
   toggleButtonState();
 }
@@ -59,6 +62,7 @@ function validateCheckPassword() {
     checkPasswordInput.style.border = "1px solid red";
   } else {
     checkPasswordInput.style.border = "";
+    errorText.textContent = "";
   }
   toggleButtonState();
 }
