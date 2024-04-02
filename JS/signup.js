@@ -10,6 +10,7 @@ const rePwInput = document.querySelector(".re-pw #re-pw");
 
 const pwIcon = document.querySelector(".con .pw-icon");
 const rePwIcon = document.querySelector(".con .re-pw-icon");
+const signUpBtn = document.querySelector("form .signup-btn");
 
 let isShow = false;
 let reIsShow = false;
@@ -69,7 +70,7 @@ nickInput.addEventListener("input", isValidNick);
 pwInput.addEventListener("input", isValidPw);
 rePwInput.addEventListener("input", isValidRePw);
 
-loginBtn.addEventListener("click", (e) => {
+signUpBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  location.href = "../items.html";
+  location.href = "../login.html";
 });
