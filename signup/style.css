@@ -83,6 +83,20 @@ form input:focus {
   font-weight: 550;
   color: var(--gray800);
 }
+.con .wrong {
+  border: solid 2px var(--error-red);
+}
+.wrong-email,
+.wrong-nick,
+.wrong-pw,
+.wrong-re-pw {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error-red);
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
 
 .social-login-logo img {
   width: 42px;
