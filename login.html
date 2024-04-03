@@ -30,23 +30,25 @@
       </a>
 
       <!-- 로그인 폼 -->
-      <form action="" class="auth-form">
+      <form action="" class="auth-form" onsubmit="return false;">
         <div class="input-wrapper">
           <label for="email">이메일</label>
           <input type="text" id="email" name="email" placeholder="이메일을 입력해주세요" />
+          <span class="error-message"></span>
         </div>
 
         <div class="input-wrapper">
           <label for="password">비밀번호</label>
-          <div class="password-group relative">
+          <div class="password-group off relative">
             <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" />
             <div class="input-icon absolute cursor-pointer">
               <img src="img/visibility_off.svg" alt="비밀번호 가리기 아이콘" />
             </div>
           </div>
+          <span class="error-message"></span>
         </div>
 
-        <button class="off">로그인</button>
+        <button class="off"><a href="items.html">로그인</a></button>
       </form>
 
       <!-- 간편 로그인하기 -->
@@ -65,5 +67,7 @@
         <a href="/signup.html">회원가입</a>
       </div>
     </div>
+
+    <script src="js/userValidation.js"></script>
   </body>
 </html>
