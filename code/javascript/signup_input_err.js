@@ -1,6 +1,3 @@
-import { emailCheck, passwordCheck } from "./signin_input_err.js";
-
-
 
 const Input = document.querySelector('form');
 const login_btn =  document.querySelector('.login-form button');
@@ -12,8 +9,52 @@ let nickNameValid=false;
 let password1;
 
 login_btn.setAttribute('disabled', true);
-login_btn.addEventListener('click', ()=>{console.log('login!')});
 
+
+
+const emailCheck = (userInput)=>{ 
+    
+    const email = userInput.value;
+    const exp_text = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    const err_m = userInput.nextElementSibling;
+   
+    if(email === ''){
+        userInput.classList.add('err-input');
+        err_m.textContent = '이메일을 입력해주세요'
+        return false;
+    }else if(!exp_text.test(email)){
+        userInput.classList.add('err-input');
+        err_m.textContent = '잘못된 이메일 형식입니다'
+        return false;
+    }else{
+        userInput.classList.remove('err-input');
+        err_m.textContent = ''
+        return true;
+    }
+
+}
+
+const passwordCheck = (userInput)=>{
+    const password = userInput.value;
+    const err_m = userInput.nextElementSibling;
+    if(password === ''){
+        userInput.classList.add('err-input');
+        err_m.textContent = '비밀번호를 입력해주세요'
+        password_visible_btn[0].style.top = '45%';
+        return false;
+    }else if(password.length < 8){
+        userInput.classList.add('err-input');
+        err_m.textContent = '비밀번호를 8자 이상 입력해주세요';
+        password_visible_btn[0].style.top = '45%';
+        return false;
+    }else{
+        userInput.classList.remove('err-input');
+        err_m.textContent = ''
+        password_visible_btn[0].style.top = '55%';
+        return true;
+    }
+
+}
 
 const nickNameCheck = (userInput)=>{
     const nickName = userInput.value;
@@ -63,6 +104,7 @@ Input.addEventListener('input',(event)=>{
         case 'userNickName': nickNameValid = nickNameCheck(userInput);
     }
 
+    
     if(emailValid&&passwordValid&&passwordDoubleCheckValid&&nickNameValid){
         login_btn.removeAttribute('disabled');
     }else{
@@ -70,3 +112,10 @@ Input.addEventListener('input',(event)=>{
     }
     
 });
+
+login_btn.addEventListener('click', (event)=> {
+    event.preventDefault();
+    window.location.href = "./signin.html";
+});
+
+export{Input,login_btn,passwordValid,emailValid}
