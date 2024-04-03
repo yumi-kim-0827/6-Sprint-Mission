@@ -118,6 +118,9 @@
 }
 /*Mobile*/
 @media (max-width: 767px) {
+  .login{
+    padding: 0 12px;
+  }
   .logo {
     width: 198px;
     height: 66px;
@@ -129,7 +132,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: calc(100% - 24px);
+    width: 100%;
   }
   .email,
   .password {
@@ -142,14 +145,14 @@
   }
 
   .login-button {
-    width: calc(100% - 24px);
+    width: 100%;
   }
 
   .easy-login {
     position: relative;
     display: flex;
     box-sizing: border-box;
-    width: calc(100% - 24px);
+    width: 100%;
     align-items: center;
     display: grid;
     grid-template-columns: 3fr  1fr;
