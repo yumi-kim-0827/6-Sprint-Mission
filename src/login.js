@@ -1,15 +1,18 @@
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const pwdContainer = document.querySelector("#pwdContainer");
+const loginBtn = document.querySelector("#loginBtn");
+loginBtn.disabled = true;
 const emailUnderMessage = document.createElement("p");
 const pwdUnderMessage = document.createElement("p");
 emailUnderMessage.className = "inputUnderMessage";
 pwdUnderMessage.className = "inputUnderMessage";
+
 const passwordLength = 8;
 
 // 이메일 형식 유효성 체크
 function emailCheck(email_address) {
-  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+  const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   if (!email_regex.test(email_address)) {
     return false;
   } else {
@@ -27,8 +30,9 @@ function checkEmail(event) {
     inputTarget.after(emailUnderMessage);
   } else {
     // 이메일 형식을 지킨 경우
-    emailUnderMessage.remove();
-    inputTarget.style.marginBottom = "24px";
+    // emailUnderMessage.remove();
+    // inputTarget.style.marginBottom = "24px";
+    emailUnderMessage.textContent = "";
     inputTarget.style.outline = "2px solid #3182f6";
   }
 }
@@ -59,8 +63,9 @@ function checkPassword(event) {
     inputTarget.style.outline = "2px solid #f74747";
     pwdContainer.after(pwdUnderMessage);
   } else {
-    pwdUnderMessage.remove();
-    inputTarget.style.marginBottom = "24px";
+    // pwdUnderMessage.remove();
+    // inputTarget.style.marginBottom = "24px";
+    pwdUnderMessage.textContent = "";
     inputTarget.style.outline = "2px solid #3182f6";
   }
 }
@@ -79,3 +84,39 @@ function updatePwdOutLine(event) {
 
 password.addEventListener("input", checkPassword);
 password.addEventListener("focusout", updatePwdOutLine);
+
+// 에러 메세지가 없고, input이 빈값이 아니면 로그인 버튼 활성화
+function ableLoginBtn() {
+  const isEmailEmpty = email.value !== "";
+  const isPasswordEmpty = password.value !== "";
+  const isEmailError = emailUnderMessage.textContent === "";
+  const isPasswordError = pwdUnderMessage.textContent === "";
+
+  if (isEmailEmpty && isPasswordEmpty && isEmailError && isPasswordError) {
+    loginBtn.disabled = false;
+    loginBtn.style.backgroundColor = "#3692FF";
+  } else {
+    loginBtn.disabled = true;
+  }
+}
+email.addEventListener("input", ableLoginBtn);
+password.addEventListener("input", ableLoginBtn);
+
+loginBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  location.href = "items.html";
+});
+
+export {
+  email,
+  password,
+  pwdContainer,
+  loginBtn,
+  emailUnderMessage,
+  pwdUnderMessage,
+  emailCheck,
+  checkEmail,
+  updateEmailOutLine,
+  checkPassword,
+  updatePwdOutLine,
+};
