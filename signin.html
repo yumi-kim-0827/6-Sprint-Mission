@@ -27,7 +27,7 @@
         </a>
       </div>
 
-      <form method="post">
+      <form id="signInForm" method="post">
         <div class="input-item">
           <label for="email">이메일</label>
           <input
@@ -36,6 +36,12 @@
             type="email"
             placeholder="이메일을 입력해주세요"
           />
+          <span id="emailEmptyError" class="error-message"
+            >이메일을 입력해주세요.</span
+          >
+          <span id="emailInvalidError" class="error-message"
+            >잘못된 이메일 형식입니다</span
+          >
         </div>
 
         <div class="input-item">
@@ -53,6 +59,12 @@
               class="toggle-password"
             />
           </div>
+          <span id="passwordEmptyError" class="error-message"
+            >비밀번호를 입력해주세요.</span
+          >
+          <span id="passwordInvalidError" class="error-message"
+            >비밀번호를 8자 이상 입력해주세요.</span
+          >
         </div>
 
         <button type="submit" class="btn-primary submit-form-btn">
@@ -82,5 +94,6 @@
         판다마켓이 처음인가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
+    <script type="module" src="scripts/auth.js"></script>
   </body>
 </html>
