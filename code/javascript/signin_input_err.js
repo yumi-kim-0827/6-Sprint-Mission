@@ -1,19 +1,31 @@
-import { Input,login_btn,passwordValid,emailValid } from "./signup_input_err.js";
+import { emailCheck, passwordCheck } from "./input_check.js";
 
+const Input = document.querySelector("form");
+const login_btn = document.querySelector(".login-form button");
+login_btn.setAttribute("disabled", true);
+let passwordValid = false;
+let emailValid = false;
 
+Input.addEventListener("input", (event) => {
+  const userInput = event.target;
 
-Input.addEventListener('input',(event)=>{
+  switch (userInput.id) {
+    case "userEmail":
+      emailValid = emailCheck(userInput);
+      break;
+    case "userPassword":
+      passwordValid = passwordCheck(userInput);
+      break;
+  }
 
-    if(emailValid&&passwordValid){
-        login_btn.removeAttribute('disabled');
-    }else{
-        login_btn.setAttribute('disabled', true);
-    }
+  if (emailValid && passwordValid) {
+    login_btn.removeAttribute("disabled");
+  } else {
+    login_btn.setAttribute("disabled", true);
+  }
 });
 
-
-login_btn.addEventListener('click', (event)=> {
-    event.preventDefault();
-    window.location.href = "./items.html";
+login_btn.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.href = "./items.html";
 });
-
