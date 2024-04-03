@@ -1,7 +1,11 @@
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
-const inputUnderMessage = document.createElement("p");
-inputUnderMessage.className = "inputUnderMessage";
+const pwdContainer = document.querySelector("#pwdContainer");
+const emailUnderMessage = document.createElement("p");
+const pwdUnderMessage = document.createElement("p");
+emailUnderMessage.className = "inputUnderMessage";
+pwdUnderMessage.className = "inputUnderMessage";
+const passwordLength = 8;
 
 // 이메일 형식 유효성 체크
 function emailCheck(email_address) {
@@ -17,35 +21,61 @@ function checkEmail(event) {
   const inputTarget = event.target;
   if (!emailCheck(inputTarget.value)) {
     // 이메일 형식에 맞지 않는 경우
-    inputUnderMessage.textContent = "잘못된 이메일 형식입니다";
+    emailUnderMessage.textContent = "잘못된 이메일 형식입니다";
     inputTarget.style.margin = 0;
     inputTarget.style.outline = "2px solid #f74747";
-    inputTarget.after(inputUnderMessage);
+    inputTarget.after(emailUnderMessage);
   } else {
     // 이메일 형식을 지킨 경우
-    inputUnderMessage.remove();
+    emailUnderMessage.remove();
     inputTarget.style.marginBottom = "24px";
     inputTarget.style.outline = "2px solid #3182f6";
   }
 }
 
-function deleteOutLine(event) {
+function updateEmailOutLine(event) {
   const inputTarget = event.target;
   if (!inputTarget.value) {
-    inputUnderMessage.textContent = "이메일을 입력해주세요.";
+    // 아무 값도 작성하지 않았을 경우
+    emailUnderMessage.textContent = "이메일을 입력해주세요.";
     inputTarget.style.margin = 0;
     inputTarget.style.outline = "2px solid #f74747";
-    inputTarget.after(inputUnderMessage);
+    inputTarget.after(emailUnderMessage);
   } else if (emailCheck(inputTarget.value)) {
+    // 올바른 이메일을 작성했을 경우
     inputTarget.style.outline = "none";
   }
 }
 
 email.addEventListener("input", checkEmail);
-email.addEventListener("focusout", deleteOutLine);
+email.addEventListener("focusout", updateEmailOutLine);
 
 function checkPassword(event) {
   const inputTarget = event.target;
+
+  if (inputTarget.value.length < passwordLength) {
+    pwdUnderMessage.textContent = "비밀번호를 8자 이상 입력해주세요";
+    inputTarget.style.margin = 0;
+    inputTarget.style.outline = "2px solid #f74747";
+    pwdContainer.after(pwdUnderMessage);
+  } else {
+    pwdUnderMessage.remove();
+    inputTarget.style.marginBottom = "24px";
+    inputTarget.style.outline = "2px solid #3182f6";
+  }
+}
+
+function updatePwdOutLine(event) {
+  const inputTarget = event.target;
+  if (inputTarget.value.length === 0) {
+    pwdUnderMessage.textContent = "비밀번호를 입력해주세요";
+    inputTarget.style.margin = 0;
+    inputTarget.style.outline = "2px solid #f74747";
+    pwdContainer.after(pwdUnderMessage);
+  } else if (inputTarget.value.length >= passwordLength) {
+    inputTarget.style.outline = "none";
+  }
 }
 
 password.addEventListener("input", checkPassword);
+password.addEventListener("focusout", updatePwdOutLine);
