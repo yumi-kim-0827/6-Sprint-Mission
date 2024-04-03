@@ -128,3 +128,26 @@ function manageSignUpButton() {
 signUpButton.addEventListener('click', function() {
   window.location.href = '../signin.html';
 });
+
+
+const passwordVisibility = document.getElementById('passwordVisibility');
+passwordVisibility.addEventListener('click',function(){
+  if (passwordInput.type === 'password'){
+    passwordInput.type = 'text';
+    passwordVisibility.src = '../images/eyeon.svg';
+  } else {
+      passwordInput.type = 'password';
+      passwordVisibility.src = '../images/eyeoff.svg';
+  }
+});
+
+const passwordCheckVisibility = document.getElementById('passwordCheckVisibility');
+passwordCheckVisibility.addEventListener('click',function(){
+  if (passwordCheckInput.type === 'password'){
+    passwordCheckInput.type = 'text';
+    passwordCheckVisibility.src = '../images/eyeon.svg';
+  } else {
+      passwordCheckInput.type = 'password';
+      passwordCheckVisibility.src = '../images/eyeoff.svg';
+  }
+});

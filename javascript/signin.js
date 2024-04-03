@@ -78,3 +78,14 @@ function manageLoginButton() {
 loginButton.addEventListener('click', function() {
   window.location.href = '../index.html';
 });
+
+const passwordVisibility = document.getElementById('passwordVisibility');
+passwordVisibility.addEventListener('click',function(){
+  if (passwordInput.type === 'password'){
+    passwordInput.type = 'text';
+    passwordVisibility.src = '../images/eyeon.svg';
+  } else {
+      passwordInput.type = 'password';
+      passwordVisibility.src = '../images/eyeoff.svg';
+  }
+});
