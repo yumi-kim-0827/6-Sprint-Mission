@@ -72,116 +72,127 @@
   }
 }
 
-/* 상단배너영역 */
+// 메인페이지
 .main-area {
   color: $cool-gray-700;
-}
-.main-area .main-banner-top {
-  background-image: url("/assets/images/home/Img_home_top.png");
-  @include res--tablet {
-    padding: 8.4rem 0;
-    height: 84vh;
-  }
-  @include res--mobile {
-    padding: 4.8rem 0;
-    height: 60vh;
-    & .title br {
-      display: block;
+
+  //상단배너
+  & .main-banner-top {
+    background-image: url("/assets/images/home/Img_home_top.png");
+    @include res--tablet {
+      padding: 8.4rem 0;
+      height: 84vh;
+    }
+    @include res--mobile {
+      padding: 4.8rem 0;
+      height: 60vh;
+      & .title br {
+        display: block;
+      }
+    }
+
+    .btn-gosite {
+      display: flex;
+      width: 35.5rem;
+      height: 5.6rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50em;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      text-align: center;
+      @include res--mobile {
+        width: 15.4rem;
+      }
     }
   }
-}
-.main-area .main-banner-top .btn-gosite {
-  display: flex;
-  width: 35.5rem;
-  height: 5.6rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50em;
-  font-size: 2rem;
-  line-height: 2.4rem;
-  text-align: center;
-  @include res--mobile {
-    width: 15.4rem;
-  }
-}
 
-/* 특징영역 */
-.main-area .main-feature {
-  @include common-inner;
-  margin-bottom: 13.8rem;
-  @include res--tablet {
-    margin-bottom: 0;
-  }
-}
-.main-area .feature-list {
-  margin: 2.4rem 0;
-  @include res--mobile {
-    margin: 5rem 0;
-  }
-}
-.main-area .feature-item {
-  display: flex;
-  flex-wrap: wrap;
-  height: 72rem;
-  gap: 6.4rem;
-  align-items: center;
-  @include res--tablet {
-    padding: 0 2.4rem;
-    height: auto;
-    gap: 2rem;
-    margin-bottom: 6.4rem;
-  }
-  @include res--mobile {
-    padding: 0 1.6rem;
-  }
-}
-.main-area .feature-item .image-wrap {
-  max-width: 58.8rem;
-  width: 100%;
-  @include res--tablet {
-    max-width: 100%;
-  }
-}
-.main-area .feature-item .image-wrap img {
-  width: 100%;
-  object-fit: cover;
-}
-.main-area .feature-item .title {
-  margin-bottom: 2.4rem;
-  @include res--tablet {
-    margin-bottom: 2rem;
-    font-size: 3.2rem;
-  }
-  @include res--mobile {
-    font-size: 2.4rem;
-  }
-}
-.main-area .feature-list li:nth-child(2n) {
-  justify-content: flex-end;
-}
-.main-area .feature-list li:nth-child(2n) .image-wrap {
-  order: 2;
-  @include res--tablet {
-    order: unset;
-  }
-}
-.main-area .feature-list li:nth-child(2n) .content-wrap {
-  order: 1;
-  text-align: right;
-}
-
-/* 하단배너영역 */
-.main-area .main-banner-btm {
-  background-image: url("/assets/images/home/Img_home_bottom.png");
-  @include res--tablet {
-    padding: 20rem 0;
-    height: 100vh;
-    & .title br {
-      display: block;
+  // 특징영역
+  .main-feature {
+    @include common-inner;
+    margin-bottom: 13.8rem;
+    @include res--tablet {
+      margin-bottom: 0;
     }
   }
-  @include res--mobile {
-    padding: 12rem 0;
-    height: 60vh;
+  .feature-list {
+    margin: 2.4rem 0;
+    @include res--mobile {
+      margin: 5rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-wrap: wrap;
+      height: 72rem;
+      gap: 6.4rem;
+      align-items: center;
+      @include res--tablet {
+        padding: 0 2.4rem;
+        height: auto;
+        gap: 2rem;
+        margin-bottom: 6.4rem;
+      }
+      @include res--mobile {
+        padding: 0 1.6rem;
+      }
+
+      .image-wrap {
+        max-width: 58.8rem;
+        width: 100%;
+        @include res--tablet {
+          max-width: 100%;
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .title {
+        margin-bottom: 2.4rem;
+        @include res--tablet {
+          margin-bottom: 2rem;
+          font-size: 3.2rem;
+        }
+        @include res--mobile {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    // 짝수 리스트 적용
+    li:nth-child(2n) {
+      justify-content: flex-end;
+
+      .image-wrap {
+        order: 2;
+        @include res--tablet {
+          order: unset;
+        }
+      }
+
+      .content-wrap {
+        order: 1;
+        text-align: right;
+      }
+    }
+  }
+
+  // 하단 배너영역
+  .main-banner-btm {
+    background-image: url("/assets/images/home/Img_home_bottom.png");
+    @include res--tablet {
+      padding: 20rem 0;
+      height: 100vh;
+      & .title br {
+        display: block;
+      }
+    }
+    @include res--mobile {
+      padding: 12rem 0;
+      height: 60vh;
+    }
   }
 }
