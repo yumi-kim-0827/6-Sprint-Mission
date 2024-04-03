@@ -1,61 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
-  <link rel="stylesheet" href="login_style.css">
-  <link rel="stylesheet" href="color.css">
+  <link rel="stylesheet" href="../css/singin_style.css">
+  <link rel="stylesheet" href="../css/color.css">
   
   <meta property="og:title" content="로그인">
   <meta property="og:description" content="로그인 창">
-  <meta property="og:image" content="./logo/panda-logo">
+  <meta property="og:image" content="../img/logo/panda-logo">
   <meta property="og:url" content="/">
-
 </head>
 <body>
-  <div class="container">
-    <header class="gnb">
-      <div class="gnb-inner">
-        <div class="gnb-inner_Frame">
-          <a href="/" class="logo"><img src="./logo/panda-logo_login.svg" alt="판다마켓"></a>
-        </div>
-      </div>
+  <div>
+    <header class="logo logo-mobile">
+      <a href="/" class="logo"><img src="../img/logo/panda-logo_login.svg" alt="판다마켓"></a>
     </header>
-    <main class="main">
-      <form>
-        <div class="input_group">
-          <label for="email">이메일</label>
-          <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요"/>
+    <main class="main ">
+      <form class="form">
+        <div class="form-items">
+          <label for="email" class="form-items__label">이메일</label>
+          <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요" class="form-items__email"/>
         </div>
-        <div class="input">
-          <label for="password">비밀번호</label>
+        <div class="form-items">
+          <label for="password" class="form-items__label">비밀번호</label>
           <div class="input-wrapper">
-            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요"/>
-            <img src="./icons/eye-invisible.svg" alt="비밀번호 숨김" class="toggle-password">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요" class="form-items__password"/>
+            <img src="../img/icons/eye-invisible.svg" alt="비밀번호 숨김" class="password-toggle">
           </div>
         </div>
-        <div>
-          <button type="submit" class="button"><a href="./new_sprint_mission.html" >로그인</a></button>
-        </div>
+        <button type="submit" class="button form_button"><a href="./main.html">로그인</a></button>
       </form>
-      <div>
-        <div class="Easy_login"> 
-          <div class="footer_left">
-            <p>간편로그인하기</p>
-          </div>
-          <div class="footer_right">
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-              <img src="./icons/google.svg" alt="구글"></a>
-            <a href="https://kakao.com/" target="_blank" rel="noopener noreferrer">
-              <img src="./icons/kakao.svg" alt="카카오"></a>
-          </div>
+      <div class="easy-login">
+        <p>간편 로그인하기</p>
+        <div class="icons">
+          <a class="icon" href="https://www.google.com/">
+            <img class="size" src="../img/icons/google.svg" alt="구글"/></a>
+          <a class="icon" href="https://www.kakao.com/">
+            <img class="size" src="../img/icons/kakao.svg" alt="카카오톡"/></a>
         </div>
-      </div>
-        <footer class="signup">
-          <p>판다마켓이 처음이신가요?<span><a href="./signup.html">회원가입</a></span></p>    
-        </footer>
     </main>
+    <footer class="signup">
+      <p>판다마켓이 처음이신가요?</p><a href="./signup.html" class="signup-href">회원가입</a>    
+    </footer>
   </div>
 </body>
 </html>
