@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
       showError();
     } else {
       removeError();
+      emailInput.style.border = '1px solid #3692ff'; // 이메일 형식이 올바른 경우 테두리 색상 변경
     }
   });
 
@@ -62,13 +63,15 @@ document.addEventListener('DOMContentLoaded', function () {
       emailInput.parentNode.insertBefore(errorMessage, emailInput.nextSibling);
     }
   }
-});
-// 에러 메시지를 삭제하는 함수
-function removeError() {
-  emailInput.classList.remove('error');
 
-  const errorContainer = document.getElementById('email-error');
-  if (errorContainer) {
-    errorContainer.remove();
+  // 에러 메시지를 삭제하는 함수
+  function removeError() {
+    emailInput.classList.remove('error');
+    emailInput.style.border = '1px solid #3692ff'; // 이메일 형식이 올바른 경우 테두리 색상 변경
+
+    const errorContainer = document.getElementById('email-error');
+    if (errorContainer) {
+      errorContainer.remove();
+    }
   }
-}
+});
