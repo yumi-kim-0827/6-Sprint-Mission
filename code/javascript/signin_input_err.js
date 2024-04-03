@@ -1,7 +1,8 @@
-import { emailCheck, passwordCheck } from "./input_check.js";
+import { emailCheck, passwordCheck,visible } from "./input_check.js";
 
 const Input = document.querySelector("form");
 const login_btn = document.querySelector(".login-form button");
+const eye = document.querySelector(".password-visible-btn");
 login_btn.setAttribute("disabled", true);
 let passwordValid = false;
 let emailValid = false;
@@ -29,3 +30,8 @@ login_btn.addEventListener("click", (event) => {
   event.preventDefault();
   window.location.href = "./items.html";
 });
+
+
+eye.addEventListener("click",(event)=>{
+    visible(event.target);
+})

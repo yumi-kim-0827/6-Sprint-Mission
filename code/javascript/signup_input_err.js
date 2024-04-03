@@ -1,10 +1,11 @@
 
-import { emailCheck,passwordCheck,passwordDoubleCheck,nickNameCheck} from "./input_check.js";
+import { emailCheck,passwordCheck,passwordDoubleCheck,nickNameCheck,visible} from "./input_check.js";
 
 
 const Input = document.querySelector('form');
 const login_btn =  document.querySelector('.login-form button');
 login_btn.setAttribute('disabled', true);
+const eyes = document.querySelectorAll(".password-visible-btn")
 let passwordValid = false;
 let emailValid = false;
 let nickNameValid = false;
@@ -45,4 +46,10 @@ Input.addEventListener("input", (event) => {
 login_btn.addEventListener('click', (event)=> {
     event.preventDefault();
     window.location.href = "./signin.html";
+});
+
+eyes.forEach((eye) => {
+    eye.addEventListener("click",(event)=>{
+        visible(event.target);
+    });
 });

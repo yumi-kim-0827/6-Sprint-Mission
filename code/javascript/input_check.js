@@ -1,3 +1,6 @@
+
+
+
 const emailCheck = (userInput)=>{ 
     
     const email = userInput.value;
@@ -79,4 +82,17 @@ const passwordDoubleCheck = (userInput,password1)=>{
 
 }
 
-export{emailCheck,passwordCheck,passwordDoubleCheck,nickNameCheck}
+const visible =(eye)=>{
+    const err_m=eye.previousElementSibling;
+    const userInput = err_m.previousElementSibling;
+    console.log("ss")
+    if(userInput.type === 'password'){
+        userInput.type ='text';
+        eye.src="../image/signin_image/visibility_visible.png";
+    }else{
+        userInput.type ='password';
+        eye.src="../image/signin_image/visibility_hidden.png";   
+    }
+}
+
+export{emailCheck,passwordCheck,passwordDoubleCheck,nickNameCheck,visible}
