@@ -40,16 +40,17 @@
     </header>
     <main class="main-container">
       <form class="user-form" action="#" method="post">
-        <div>
+        <div id="email-input__wrap">
           <label class="user-form__label" for="email"> 이메일 </label>
           <input
-            class="user-form__input"
             id="email"
+            class="user-form__input"
             type="email"
             placeholder="이메일을 입력해주세요"
           />
+          <p id="email-input-message" class="input-message"></p>
         </div>
-        <div>
+        <div id="pwd-input__wrap">
           <label class="user-form__label" for="password"> 비밀번호 </label>
           <div class="user-form__password-input">
             <input
@@ -59,7 +60,7 @@
               placeholder="비밀번호를 입력해주세요"
             />
             <button
-              id="passwordBtn"
+              id="password-btn"
               class="password__visibility-button"
               type="button"
             >
