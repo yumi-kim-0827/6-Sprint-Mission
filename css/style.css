@@ -257,12 +257,9 @@ footer .footer_wrap .sns_link ul{
   background-color:#9CA3AF;
   font-size:20px;
   color:#fff;
-  transition:all 0.5s;
+  transition:all 0.3s;
 }
-.user_form_wrap .form_wrap button:hover{
-  background-color:var(--brand_blue);
-  color:#fff;
-}
+
 .sns_login_wrap{
   display:flex;
   justify-content:space-between;
