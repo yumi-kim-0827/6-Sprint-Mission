@@ -9,10 +9,7 @@
 /* tablet: 768px 이상 ~ 1199px 이하 */
 @media (max-width: 1199px) {
   /** tablet **/
-  /* 전체 공통 */
-  .tablet-hide {
-    display: none;
-  }
+  /* 전체 공통 */		
   .container {
     width: 92%;
   }
@@ -27,6 +24,9 @@
     align-items: center;
     text-align: center;
   }
+	#main-banner .banner-text h2 {
+		white-space: normal;
+	}
 
   /* section 공통 */
   .flex-container {
@@ -41,6 +41,7 @@
   .flex-container .text-box h2 {
     font-size: 2rem;
     margin: 12px 0 20px;
+		white-space: normal;
   }
   .flex-container .text-box p {
     font-size: 1.125rem;
@@ -69,9 +70,6 @@
   .btn-primary {
     font-size: 1rem;
   }
-  .mobile-show {
-    display: block;
-  }
   .container {
     width: 94%;
   }
@@ -92,6 +90,9 @@
   #main-banner .btn-md {
     width: 156px;
   }
+	#main-banner .banner-text h2 {
+		white-space: pre-line;
+	}
 
   /* section 공통 */
   .container h2 {
