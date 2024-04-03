@@ -276,7 +276,6 @@ footer .footer_wrap .sns_link ul{
 .user_form_wrap .form_wrap .input_wrap{
   padding:20px;
   display:flex;
-  flex-direction:space-between;
   align-items:center;
   border-radius:12px;
   background-color:var(--cool_tray_lignt);
@@ -287,6 +286,12 @@ footer .footer_wrap .sns_link ul{
 }
 .user_form_wrap .form_wrap .input_wrap input:focus{
   border-bottom:1px solid var(--brand_blue);
+}
+.email_notice{
+  color:#dd1919;
+}
+.psw_notice{
+  color:#dd1919;
 }
 .sns_login_wrap p{
   font-weight:500;

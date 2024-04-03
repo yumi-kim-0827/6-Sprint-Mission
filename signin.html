@@ -11,10 +11,6 @@
   <!-- css -->
   <link rel="stylesheet" href="./css/basic.css">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- script -->
-  <script src="js/script.js"></script>
-  <!-- font -->
-  
 </head>
 <body> 
   <div class="form_header">
@@ -24,8 +20,9 @@
     <div class="form_wrap">
       <label>이메일</label>
       <div class="input_wrap">
-        <input type="email" placeholder="이메일을 입력해주세요" />
+        <input id="email_insertId" class="email_insert" type="email" placeholder="이메일을 입력해주세요" required/>
       </div>
+      <span class="email_notice"></span>
     </div>
     <div class="form_wrap psw_input">
       <label>비밀번호</label>
@@ -33,6 +30,7 @@
         <input class="psw_insert" type="password" placeholder="비밀번호를 입력해주세요" />
         <span class="psw_view"><img src="./images/btn_visibility_off_24px.png" alt="비밀번호보기아이콘"> </span>
       </div>
+      <span class="psw_notice"></span>
     </div>
     <div class="form_wrap">
       <button>로그인</button>
@@ -49,4 +47,6 @@
     <span>판다마켓이 처음이신가요? <a href="./signup.html">회원가입</a></span>
   </div>
 </body>
+<!-- script -->
+<script type="text/javascript" src="js/script.js" defer></script>
 </html>
