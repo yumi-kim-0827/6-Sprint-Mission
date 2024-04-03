@@ -78,9 +78,6 @@ input:focus {
   margin-top: 15px;
 }
 
-.login-button:hover {
-  background: #3692ff;
-}
 .social-login-container {
   background-color: #e6f2ff;
   border-radius: 8px;

@@ -4,6 +4,8 @@ const loginButton = document.querySelector(".login-button");
 
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
+emailInput.addEventListener("input", validateEmail);
+passwordInput.addEventListener("input", validatePassword);
 
 function validateEmail() {
   const errorText = document.querySelector(".email-error");
@@ -46,7 +48,7 @@ function toggleButtonState() {
 
   if (isEmailValid && isPasswordValid) {
     loginButton.disabled = false;
-    loginButton.style.backgroundColor = "";
+    loginButton.style.backgroundColor = "#3692ff";
     loginButton.addEventListener("click", function (event) {
       event.preventDefault();
       window.location.href = "/items";

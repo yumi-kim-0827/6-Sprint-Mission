@@ -6,7 +6,9 @@ const loginButton = document.querySelector(".login-button");
 
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
+passwordInput.addEventListener("input", validateCheckPassword);
 checkPasswordInput.addEventListener("focusout", validateCheckPassword);
+checkPasswordInput.addEventListener("input", validateCheckPassword);
 nicknameInput.addEventListener("focusout", validateNickname);
 
 function validateEmail() {
@@ -74,7 +76,7 @@ function toggleButtonState() {
     errors.length === 0
   ) {
     loginButton.disabled = false;
-    loginButton.style.backgroundColor = "";
+    loginButton.style.backgroundColor = "#3692ff";
     loginButton.addEventListener("click", function (event) {
       event.preventDefault();
       window.location.href = "/signin";
