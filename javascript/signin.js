@@ -63,3 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+// 에러 메시지를 삭제하는 함수
+function removeError() {
+  emailInput.classList.remove('error');
+
+  const errorContainer = document.getElementById('email-error');
+  if (errorContainer) {
+    errorContainer.remove();
+  }
+}
