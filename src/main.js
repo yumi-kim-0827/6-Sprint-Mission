@@ -14,6 +14,7 @@ function emailChecker() {
         emailInput.classList.add('border-error');
     } else if (checkEmailValidity.test(emailValue) === false) {
         failureMsgInvalid.classList.remove('hide');
+        emailInput.classList.add('border-error');
     } else {
         failureMsgNull.classList.add('hide');
         emailInput.classList.remove('border-error');
@@ -41,6 +42,7 @@ function passwordChecker() {
         passwordInput.classList.add('border-error');
     } else if (passwordValue.length < 8) {
         failureMsgPasswordInvalid.classList.remove('hide');
+        passwordInput.classList.add('border-error');
     } else {
         passwordInput.classList.remove('border-error');
         failureMsgPasswordNull.classList.add('hide');
@@ -56,7 +58,7 @@ passwordInput.addEventListener('focusout', passwordChecker);
 passwordInput.addEventListener('focusin', removePasswordError);
 
 // Activate LoginBtn
-const loginBtn = document.querySelector('.loginBtn');
+const loginBtn = document.querySelector('.login-btn');
 const form = document.querySelector('form');
 loginBtn.classList.remove('activated');
 const isActiveLogin = () => {
