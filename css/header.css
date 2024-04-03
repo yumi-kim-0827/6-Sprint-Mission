@@ -1,3 +1,11 @@
+.header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #dfdfdf;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
