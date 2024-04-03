@@ -95,7 +95,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
     return false;
   }
 
-  window.location.href = "/";
+  window.location.href = "./signup.html";
 });
 
 email.addEventListener("focusout", chk_email);

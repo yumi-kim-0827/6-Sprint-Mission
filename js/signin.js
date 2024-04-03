@@ -44,15 +44,17 @@ function chk_pwd() {
   }
 }
 
-document.querySelector(".signin-form").addEventListener("submit", function (e) {
+document.getElementById("signinForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
   if (!chk_email()) {
-    e.preventDefault();
     return false;
   }
   if (!chk_pwd()) {
-    e.preventDefault();
     return false;
   }
+
+  window.location.href = "./items.html";
 });
 
 email.addEventListener("focusout", chk_email);
