@@ -21,7 +21,7 @@
 
             <!-- Main -->
             <main>
-                <form action="">
+                <form action="/index.html">
                     <li class="input_wrap">
                         <label for="email">이메일</label>
                         <input
@@ -30,8 +30,8 @@
                             type="email"
                             placeholder="이메일을 입력해주세요"
                             autocomplete="off" />
-                        <span class="failure-message hide">이메일을 입력해주세요</span>
-                        <span class="failure-message2 hide">잘못된 이메일 형식입니다</span>
+                        <span class="failure-message-null hide">이메일을 입력해주세요</span>
+                        <span class="failure-message-invalid hide">잘못된 이메일 형식입니다</span>
                     </li>
 
                     <li class="input_wrap">
@@ -42,12 +42,14 @@
                             autocomplete="off"
                             placeholder="비밀번호를 입력해주세요"
                             required />
+                        <div class="failure-message-password-null hide">비밀번호를 입력해주세요</div>
+                        <div class="failure-message-password-invalid hide">비밀번호를 8자 이상 입력해주세요</div>
                         <div class="password_eye_wrap">
                             <input type="checkbox" id="password_eye_toggle" />
                             <label for="password_eye_toggle" class="eye_btn"></label>
                         </div>
                     </li>
-                    <button type="submit">로그인</button>
+                    <button class="loginBtn activated" type="submit">로그인</button>
                 </form>
                 <div class="easy_login">
                     <h4>간편 로그인하기</h4>

@@ -72,15 +72,10 @@ input:focus {
     border: 1px solid var(--color-brand-blue);
 }
 
-.failure-message {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-error-red);
-    padding-left: 16px;
-    line-height: 17.9px;
-}
-
-.failure-message2 {
+.failure-message-password-invalid,
+.failure-message-password-null,
+.failure-message-invalid,
+.failure-message-null {
     font-size: 15px;
     font-weight: 600;
     color: var(--color-error-red);
@@ -102,7 +97,7 @@ button {
     font-size: 2rem;
 }
 
-button:hover {
+.activated {
     background-color: var(--color-brand-blue);
 }
 
