@@ -1,12 +1,14 @@
-@import "./reset.css";
-* {
-  box-sizing: border-box;
-}
+@import "./global.css";
 .logo {
   width: 396px;
   height: 132px;
   margin-top: 60px;
   justify-content: center;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .login {
   margin-top: 30px;
@@ -14,6 +16,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  width: 640px;
 }
 .input-section {
   display: flex;
@@ -31,7 +34,7 @@
 }
 .email,
 .password {
-  width: 640px;
+  width: 100%;
   height: 56px;
   background-color: #f3f4f6;
   border-radius: 12px;
@@ -40,7 +43,7 @@
 }
 .email:focus,
 .password:focus {
-  border-color: #3692ff;
+  border-color: var(--blue);
 }
 .password-input {
   position: relative;
@@ -92,6 +95,11 @@
 .easy-login > p {
   width: 120px;
   height: 24px;
+}
+.image-group{
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 .google-logo {
   width: 42px;

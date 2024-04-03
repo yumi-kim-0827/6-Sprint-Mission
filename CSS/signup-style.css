@@ -1,7 +1,4 @@
-@import "./reset.css";
-* {
-  box-sizing: border-box;
-}
+@import "./global.css";
 .logo {
   width: 396px;
   height: 132px;
@@ -9,7 +6,7 @@
 }
 .signup {
   margin-top: 32px;
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 10px;
 }
@@ -33,7 +30,7 @@
 }
 .email:focus,
 .password:focus .nickname:focus {
-  outline-color: #3692ff;
+  outline-color: var(--blue);
 }
 .eyeoff {
   position: absolute;
@@ -108,18 +105,18 @@
     margin-top: 20px;
     justify-content: center;
   }
-  .content {
-    display: flex;
-    flex-direction: column;
+  .content{
+    display: flex; 
+    flex-direction: column; 
     align-items: center;
     padding: 0 12px;
   }
   .signup {
     margin-top: 32px;
-    display: flex;
+    display:flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 100%
   }
   .signup > label {
     font-family: "Pretendard";
@@ -150,7 +147,7 @@
     height: 24px;
   }
 
-  .blue-button {
+  .login-button {
     width: 100%;
   }
   .easy-login {
@@ -160,10 +157,10 @@
     width: 100%;
     align-items: center;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr  1fr;
   }
 
-  .image-group {
+  .image-group{
     position: relative;
     display: flex;
     align-items: center;
@@ -172,6 +169,7 @@
     width: 42px;
     height: 42px;
     margin: 0 8px 0 100px;
+    
   }
   .kakao-logo {
     width: 42px;

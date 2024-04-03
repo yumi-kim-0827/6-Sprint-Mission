@@ -1,7 +1,5 @@
-@import "./reset.css";
-* {
-  box-sizing: border-box;
-}
+
+@import "./global.css";
 html,
 body {
   margin: 0;
@@ -35,7 +33,7 @@ header {
   width: 128px;
   height: 48px;
   border: none;
-  background: #3692ff;
+  background: var(--blue);
   border-radius: 8px;
   color: #ffffff;
   font-family: "Pretendard";
@@ -61,14 +59,14 @@ header {
   line-height: 140%;
   display: flex;
   align-items: center;
-  color: #374151;
+  color: var(--text-black);
   padding-top: 170px;
 }
 .banner-text-enter {
   display: block;
 }
 .looking-button {
-  background: #3692ff;
+  background: var(--blue);
   border-radius: 40px;
   width: 357px;
   height: 56px;
@@ -131,7 +129,7 @@ main {
   font-size: 18px;
   display: flex;
   align-items: center;
-  color: #3692ff;
+  color: var(--blue);
   margin: 5vw 3vw 0vw 3vw;
 }
 .main-text1 {
@@ -143,7 +141,7 @@ main {
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: #374151;
+  color: var(--text-black);
   margin: 0vw 3vw 0vw 3vw;
 }
 .main-text2 {
@@ -155,7 +153,7 @@ main {
   display: flex;
   align-items: center;
   letter-spacing: 0.08em;
-  color: #374151;
+  color: var(--text-black);
   margin: -3vw 3vw 0vw 3vw;
 }
 .banner-img2 {
@@ -171,7 +169,7 @@ main {
   line-height: 140%;
   display: flex;
   align-items: center;
-  color: #374151;
+  color: var(--text-black);
   padding-top: 214px;
 }
 footer {
