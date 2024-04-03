@@ -32,7 +32,7 @@ main{
     flex-direction: column;
 }
 .login-form input {
-    margin: 1.6rem 0 2.4rem 0;
+    margin: 1.6rem 0 0 0;
     background-color: var(--coolGray100);
     width: 64rem;
     height: 5.6rem;
@@ -56,31 +56,44 @@ main{
 }
 .user-input{
     position: relative;
+    margin-bottom: 2.4rem;
 }
 .password-visible-btn{
     width: 2.4rem;
     height: 2.4rem;
     position: absolute;
-    top: 46%;
+    top: 55%;
     right: 2.4rem;
     cursor: pointer;
     
 }
 
+.login-form .err-input{
+    border: 1.5px solid var(--error);
+    margin-bottom: 0.8rem;
+
+}
+
+.input-err-message {
+    margin-left: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--error);
+}
 .login-form button {
     padding: 1.6rem 0 1.6rem 0;
     border-radius: 4rem;
     font-size: 2rem;
     font-weight: 600;
     line-height: 2.4rem;
-    background-color: var(--btn4);
+    background-color: var(--btn1);
     border: none;
     color: white;
     cursor: pointer;
 }
-.login-form button:hover{
-    background-color: var(--btn1);
-
+.login-form button:disabled{
+    background-color: var(--btn4);
+    cursor: not-allowed;
 }
 /* 간편 로그인 */
 .login-easy{
@@ -166,3 +179,4 @@ main{
     }
 
 }
+
