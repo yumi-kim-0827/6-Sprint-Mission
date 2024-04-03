@@ -59,13 +59,37 @@ input {
     color: var(--color-cool-gray800);
 }
 
+.border-error {
+    border: 1px solid var(--color-error-red);
+}
+
 input::placeholder {
     color: var(color-cool-gray400);
     line-height: 2.4rem;
 }
 
 input:focus {
-    border: 1.5px solid #3692ff;
+    border: 1px solid var(--color-brand-blue);
+}
+
+.failure-message {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-error-red);
+    padding-left: 16px;
+    line-height: 17.9px;
+}
+
+.failure-message2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-error-red);
+    padding-left: 16px;
+    line-height: 17.9px;
+}
+
+.hide {
+    display: none;
 }
 
 button {
