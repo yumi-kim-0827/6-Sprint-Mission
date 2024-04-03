@@ -284,15 +284,8 @@ footer .footer_wrap .sns_link ul{
 .user_form_wrap .form_wrap .input_wrap input:focus{
   border-bottom:1px solid var(--brand_blue);
 }
-.email_notice{
+.email_notice, .psw_notice, .nickname_notice, .psw_confim_notice{
   color:#dd1919;
-}
-.psw_notice{
-  color:#dd1919;
-}
-.sns_login_wrap p{
-  font-weight:500;
-  color:#1F2937;
 }
 .sns_login_wrap ul{
   display:flex;

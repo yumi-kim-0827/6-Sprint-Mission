@@ -22,28 +22,32 @@
     <div class="form_wrap">
       <label>이메일</label>
       <div class="input_wrap">
-        <input type="email" placeholder="이메일을 입력해주세요" />
+        <input id="email_insertId" class="email_insert" type="email" placeholder="이메일을 입력해주세요" required/>
       </div>
+      <span class="email_notice"></span>
     </div>
     <div class="form_wrap">
       <label>닉네임</label>
       <div class="input_wrap">
-        <input type="text" placeholder="닉네임을 입력해주세요" />
+        <input id="nickname_insertId" type="text" placeholder="닉네임을 입력해주세요" />
       </div>
+      <span class="nickname_notice"></span>
     </div>
     <div class="form_wrap psw_input">
       <label>비밀번호</label>
       <div class="input_wrap">
-        <input class="psw_insert" type="password" placeholder="비밀번호를 입력해주세요" />
-        <span class="psw_view"><img src="./images/btn_visibility_off_24px.png" alt="비밀번호보기아이콘"> </span>
+        <input id="psw_insertId" class="psw_insert" type="password" placeholder="비밀번호를 입력해주세요" />
+        <span class="psw_view"><img src="./images/psw_nonvisible.png" alt="비밀번호보기아이콘"> </span>
       </div>
+      <span class="psw_notice"></span>
     </div>
     <div class="form_wrap psw_confirm_input">
       <label>비밀번호 확인</label>
       <div class="input_wrap">
-        <input class="psw_confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
-        <span class="psw_view"><img src="./images/btn_visibility_off_24px.png" alt="비밀번호보기아이콘"> </span>
+        <input id="psw_confirmId" class="psw_insert" type="password" placeholder="비밀번호를 입력해주세요" />
+        <span class="psw_view"><img src="./images/psw_nonvisible.png" alt="비밀번호보기아이콘"> </span>
       </div>
+      <span class="psw_confim_notice"></span>
     </div>
     <div class="form_wrap">
       <button>회원가입</button>

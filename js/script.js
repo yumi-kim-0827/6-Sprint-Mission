@@ -22,8 +22,6 @@ window.onload = function(){ // js start !!
     })
 
 
-
-
     // ** psw BLUR 에러 표시 **
     const pswInsertId = document.getElementById('psw_insertId'); //비밀번호 입력폼
     let pswValid = false; //비번 유효성
@@ -50,6 +48,46 @@ window.onload = function(){ // js start !!
         document.querySelector('.login_btn').style.color = '#ffffff';
       }
     })
+
+    // ** psw 보기, 아이콘 토글 **
+    const pswView = document.querySelector('.psw_view');//패쓰워드 입력폼 아이콘
+   
+    pswView.addEventListener('click', function(){
+      if( pswInsertId.type == 'password'){ //패스워드 표시면, 텍스트로 변경
+        pswInsertId.type = 'text';
+        pswView.firstElementChild.src = './images/psw_visible.png';
+      }else{ //텍스트 표시면, 패스워드로 변경
+        pswInsertId.type = 'password';
+        pswView.firstElementChild.src = './images/psw_nonvisible.png';
+      }
+    })
+
+    // ** 닉네임 BLUR 에러 표시 **
+    const nicknameInsertId = document.getElementById('nickname_insertId'); //비밀번호 입력폼
+    nicknameInsertId.addEventListener('blur', function(event){
+      const email = event.target.value;
+      //이메일 형식이 맞지 않는 경우 ... 에러메세지
+      if( email.length < 1 ){
+        document.querySelector('.nickname_notice').textContent='닉네임을 입력해주세요.';
+      }else{
+      //올바른 이메일 형식 ... 에러메세지 제거, 유효성 true
+        document.querySelector('.nickname_notice').textContent='';
+        emailValid = true;
+      }
+    })
+
+    // ** psw 확인 일치 **
+    const psw_confirmId = document.getElementById('psw_confirmId'); //비밀번호 입력폼
+      
+    psw_confirmId.addEventListener('blur', function(event){
+      if( pswInsertId.value !== event.target.value){
+        document.querySelector('.psw_confim_notice').textContent='비밀번호가 일치하지 않습니다.';
+      }else{
+        document.querySelector('.psw_confim_notice').textContent='';
+      }
+      console.log(psw_confim_notice)
+    })
+    
 
 
 } // js end !!
