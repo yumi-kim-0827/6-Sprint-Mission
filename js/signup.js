@@ -102,3 +102,16 @@ email.addEventListener("focusout", chk_email);
 nickname.addEventListener("focusout", chk_nickname);
 pwd.addEventListener("focusout", chk_pwd);
 pwd_same.addEventListener("focusout", chk_pwd_same);
+
+function togglebtn(id) {
+  const input = document.getElementById(id);
+  const img = document.getElementById(id + "-toggle");
+
+  if (input.type === "password") {
+    input.type = "text";
+    img.src = "img/eye-visible.svg";
+  } else {
+    input.type = "password";
+    img.src = "img/eye-invisible.svg";
+  }
+}

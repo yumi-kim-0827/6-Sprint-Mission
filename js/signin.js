@@ -59,3 +59,16 @@ document.getElementById("signinForm").addEventListener("submit", function (e) {
 
 email.addEventListener("focusout", chk_email);
 pwd.addEventListener("focusout", chk_pwd);
+
+function togglebtn(id) {
+  const input = document.getElementById(id);
+  const img = document.getElementById(id + "-toggle");
+
+  if (input.type === "password") {
+    input.type = "text";
+    img.src = "img/eye-visible.svg";
+  } else {
+    input.type = "password";
+    img.src = "img/eye-invisible.svg";
+  }
+}

@@ -34,14 +34,16 @@
             <div class="signin-pwd">
                 <label for="pwd" class="signin-label">비밀번호</label>
                 <input id="pwd" name="pwd" type="password" placeholder="비밀번호를 입력해 주세요." class="signin-input">
-                <img src="img/eye.svg" class="pwd-toggle">
+                <img id="pwd-toggle" src="img/eye-invisible.svg" class="pwd-toggle" alt="비밀번호 토글"
+                    onclick="togglebtn('pwd');">
                 <span id="pwd-Error" class="Error-message"></span>
             </div>
             <div class="signin-pwd">
                 <label for="pwd-same" class="signin-label">비밀번호 확인</label>
                 <input id="pwd-same" name="pwd-same" type="password" placeholder="비밀번호를 다시 한 번 입력해 주세요."
                     class="signin-input">
-                <img src="img/eye.svg" class="pwd-toggle">
+                <img id="pwd-same-toggle" src="img/eye-invisible.svg" class="pwd-toggle" alt="비밀번호 토글"
+                    onclick="togglebtn('pwd-same');">
                 <span id="pwd-same-Error" class="Error-message"></span>
             </div>
             <button class="signin-btn btn">회원가입</button>
