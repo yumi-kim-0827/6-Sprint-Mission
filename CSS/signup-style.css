@@ -4,14 +4,14 @@
   height: 132px;
   margin-top: 60px;
 }
-.content{
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .signup {
   margin-top: 32px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
@@ -39,8 +39,19 @@
 }
 .eyeoff {
   position: absolute;
-  left: 600px;
-  top: 15px;
+  left: 69vw;
+  margin-top: 15px;
+}
+.error-message {
+  display: none;
+  margin-left: 15px;
+  color: var(--error);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
+.error {
+  border: 1px solid var(--error);
 }
 .blue-button {
   display: flex;
@@ -52,7 +63,7 @@
   margin: 20px 0 20px 0;
   width: 640px;
   height: 56px;
-  background: #9ca3af;
+  background: var(--blue);
   border-radius: 40px;
   font-family: "Pretendard";
   font-style: normal;
@@ -63,6 +74,11 @@
   color: #ffffff;
   text-decoration: none;
   border: none;
+}
+.blue-button.disabled {
+  background: #9ca3af;
+  color: #ffffff;
+  cursor: not-allowed;
 }
 
 .easy-login {
@@ -80,7 +96,7 @@
   width: 120px;
   height: 24px;
 }
-.image-group{
+.image-group {
   position: relative;
   display: flex;
   align-items: center;
@@ -115,18 +131,18 @@
     margin-top: 20px;
     justify-content: center;
   }
-  .content{
-    display: flex; 
-    flex-direction: column; 
+  .content {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 0 12px;
   }
   .signup {
     margin-top: 32px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%
+    width: 100%;
   }
   .signup > label {
     font-family: "Pretendard";
@@ -167,10 +183,10 @@
     width: 100%;
     align-items: center;
     display: grid;
-    grid-template-columns: 3fr  1fr;
+    grid-template-columns: 3fr 1fr;
   }
 
-  .image-group{
+  .image-group {
     position: relative;
     display: flex;
     align-items: center;
@@ -179,7 +195,6 @@
     width: 42px;
     height: 42px;
     margin: 0 8px 0 100px;
-    
   }
   .kakao-logo {
     width: 42px;

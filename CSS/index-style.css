@@ -62,7 +62,7 @@ header {
   color: var(--text-black);
   padding-top: 170px;
 }
-.banner-text-enter {
+.promo-text > br{
   display: block;
 }
 .looking-button {
@@ -156,6 +156,12 @@ main {
   color: var(--text-black);
   margin: -3vw 3vw 0vw 3vw;
 }
+.main-text1 >br{
+  display: block;
+}
+.main-text2 >br{
+  display: block;
+}
 .banner-img2 {
   position: absolute;
   bottom: 0px;
@@ -245,6 +251,15 @@ footer {
     position: absolute;
     left: calc(50% - 512px / 2);
   }
+  .promo-text >br{
+    display: none;
+  }
+  .main-text1 >br{
+    display: none;
+  }
+  .main-text2 >br{
+    display: none;
+  }
   .banner-text-enter {
     display: none;
   }
@@ -288,9 +303,9 @@ footer {
     order: 1;
   }
   .right-align {
-    position: relative;
     order: 2;
     left: 0px;
+
     margin: 10px 0 0 0;
   }
   .right-align .blue-text,
@@ -320,6 +335,7 @@ footer {
   .promo-text2 {
     position: absolute;
     left: calc(50% - 295px / 2);
+    top: 0px;
     text-align: center;
   }
   footer {
