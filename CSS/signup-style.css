@@ -51,7 +51,7 @@
   line-height: 18px;
 }
 .error {
-  border: 1px solid var(--error);
+  border: 1.5px solid var(--error);
 }
 .blue-button {
   display: flex;
