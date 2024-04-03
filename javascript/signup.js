@@ -1,132 +1,130 @@
-/*입력필드, 에러메세지 가져옴*/
-const emailInput = document.getElementById("emailInput");
-const emailError = document.getElementById("emailError");
-const nicknameInput = document.getElementById("nickname");
-const nicknameError = document.getElementById("nicknameError");
-const passwordInput = document.getElementById("password");
-const passwordError = document.getElementById("passwordError");
-const passwordCheckInput = document.getElementById("passwordCheck");
-const passwordCheckError = document.getElementById("passwordCheckError");
-const signUpButton = document.getElementById('signupButton');
+let isEmailValid = false;
+let isNicknameValid = false;
+let isPasswordValid = false;
+let isPasswordCheckValid = false;
 
-//포커스 아웃 됐을때 이벤트가 발생하도록 처리
-emailInput.addEventListener("blur", validateEmail);
-nicknameInput.addEventListener("blur", validateNickname);
-passwordInput.addEventListener("blur", validatePassword);
-passwordCheckInput.addEventListener("blur", validatePasswordCheck);
 
 /*이메일 설정 */
-function validateEmail() {
+const emailInput = document.getElementById('emailInput');
+const emailError = document.getElementById('emailError');
+
+emailInput.addEventListener('blur',function(){
   const email = emailInput.value.trim();
 
-  if (!email) {
-    displayEmailError("이메일을 입력해주세요.");
-    return false;
-  } else if (!email.includes("@") || !email.includes(".")) {
-    displayEmailError("잘못된 이메일 형식입니다.");
-    return false;
+  if(!email) {
+    displayEmailError('이메일을 입력해주세요.');
+    isEmailValid = false;
+  } else if (!email.includes('@') || !email.includes('.')) {
+      displayEmailError('잘못된 이메일 형식입니다.');
+      isEmailValid = false;
   } else {
-    clearEmailError();
-    return true;
+      clearEmailError();
+      isEmailValid = true;
   }
-}
+  manageSignUpButton();
+});
 
 function displayEmailError(message) {
-  emailInput.classList.add("error");
+  emailInput.classList.add('error');
   emailError.textContent = message;
-  emailError.style.display = "block";
+  emailError.style.display = 'block';
 }
 
 function clearEmailError() {
-  emailInput.classList.remove("error");
-  emailError.textContent = "";
-  emailError.style.display = "none";
+  emailInput.classList.remove('error');
+  emailError.textContent = '';
+  emailError.style.display = 'none';
 }
-/*닉네임 설정*/
-function validateNickname() {
+/*닉네임 설정 */
+const nicknameInput = document.getElementById('nickname');
+const nicknameError = document.getElementById('nicknameError');
+nicknameInput.addEventListener('blur',function(){
   const nickname = nicknameInput.value.trim();
 
-  if (!nickname) {
-    nicknameInput.classList.add("error");
-    nicknameError.textContent = "닉네임을 입력해주세요.";
-    nicknameError.style.display = "block";
-    return false;
+  if(!nickname){
+    nicknameInput.classList.add('error');
+    nicknameError.textContent='닉네임을 입력해주세요.';
+    nicknameError.style.display='block';
+    isNicknameValid = false;
   } else {
-    nicknameInput.classList.remove("error");
-    nicknameError.textContent = "";
-    nicknameError.style.display = "none";
-    return true;
+    nicknameInput.classList.remove('error');
+    nicknameError.textContent='';
+    nicknameError.style.display='none';
+    isNicknameValid = true;
   }
-}
+  manageSignUpButton();
+})
 /*비밀번호 설정 */
+const passwordInput = document.getElementById('password');
+const passwordError = document.getElementById('passwordError');
 
-function validatePassword() {
+passwordInput.addEventListener('blur',function(){
   const password = passwordInput.value.trim();
 
-  if (!password) {
-    displayPasswordError("비밀번호를 입력해주세요.");
-    return false;
-  } else if (password.length < 8) {
-    displayPasswordError("비밀번호를 8자 이상 입력해주세요.");
-    return false;
+  if(!password) {
+    displayPasswordError('비밀번호를 입력해주세요.');
+    isPasswordValid = false;
+  } else if (password.length <8) {
+      displayPasswordError('비밀번호를 8자 이상 입력해주세요.');
+      isPasswordValid = false;
   } else {
-    clearPasswordError();
-    return true;
+      clearPasswordError();
+      isPasswordValid = true;
   }
-}
+  manageSignUpButton();
+});
 
 function displayPasswordError(message) {
-  passwordInput.classList.add("error");
+  passwordInput.classList.add('error');
   passwordError.textContent = message;
-  passwordError.style.display = "block";
+  passwordError.style.display = 'block';
 }
 
 function clearPasswordError() {
-  passwordInput.classList.remove("error");
-  passwordError.textContent = "";
-  passwordError.style.display = "none";
+  passwordInput.classList.remove('error');
+  passwordError.textContent = '';
+  passwordError.style.display = 'none';
 }
 /*비밀번호 확인 설정 */
+const passwordCheckInput = document.getElementById('passwordCheck');
+const passwordCheckError = document.getElementById('passwordCheckError');
 
-function validatePasswordCheck() {
+passwordCheckInput.addEventListener('blur',function(){
   const passwordCheck = passwordCheckInput.value.trim();
   const password = passwordInput.value.trim();
 
-  if (passwordCheck !== password) {
-    passwordCheckInput.classList.add("error");
-    passwordCheckError.textContent = "비밀번호가 일치하지 않습니다.";
-    passwordCheckError.style.display = "block";
-    return false;
+  if(passwordCheck!== password){
+    passwordCheckInput.classList.add('error');
+    passwordCheckError.textContent='비밀번호가 일치하지 않습니다.';
+    passwordCheckError.style.display='block';
+    isPasswordCheckValid = false;
   } else {
-    passwordCheckInput.classList.remove("error");
-    passwordCheckError.textContent = "";
-    passwordCheckError.style.display = "none";
-    return true;
+    passwordCheckInput.classList.remove('error');
+    passwordCheckError.textContent='';
+    passwordCheckError.style.display='none';
+    isPasswordCheckValid = true;
   }
+  manageSignUpButton();
+});
+function increaseCounter() {
+  validationCounter++;
+  checkValidationCounter();
 }
 
+function decreaseCounter() {
+  validationCounter--;
+  checkValidationCounter();
+}
 
-function manageButtonState() {
-    if (isSignUpButtonEnabled()) {
-        signUpButton.classList.remove('disabled');
+const signUpButton = document.getElementById('signupButton');
+signUpButton.disabled = true;
+function manageSignUpButton() {
+    if (isEmailValid && isNicknameValid && isPasswordValid && isPasswordCheckValid) {
+        signUpButton.disabled = false;
     } else {
-        signUpButton.classList.add('disabled');
+        signUpButton.disabled = true;
     }
 }
-
-// 회원가입 버튼의 활성화 상태를 확인하는 함수
-function isSignUpButtonEnabled() {
-    // 여기에 버튼의 활성화 상태를 확인하는 로직을 추가하세요.
-    // 예를 들어, 모든 필드에 유효한 값이 입력되었는지 여부를 확인할 수 있습니다.
-    // 위에서 구현한 validateEmail(), validateNickname(), validatePassword(), validatePasswordCheck() 함수 등을 사용하세요.
-    const isEmailValid = validateEmail();
-    const isNicknameValid = validateNickname();
-    const isPasswordValid = validatePassword();
-    const isPasswordCheckValid = validatePasswordCheck();
-
-    return isEmailValid && isNicknameValid && isPasswordValid && isPasswordCheckValid;
-}
-
-// 회원가입 버튼의 활성화 상태를 관리하는 함수를 실행합니다.
-manageButtonState();
-
+signUpButton.addEventListener('click', function() {
+  window.location.href = '../signin.html';
+});

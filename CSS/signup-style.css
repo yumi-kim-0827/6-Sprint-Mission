@@ -74,8 +74,9 @@
   color: #ffffff;
   text-decoration: none;
   border: none;
+  cursor: pointer;
 }
-.blue-button.disabled {
+.blue-button:disabled {
   background: #9ca3af;
   color: #ffffff;
   cursor: not-allowed;
