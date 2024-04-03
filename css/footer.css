@@ -30,12 +30,14 @@ footer {
   gap: 12px;
 }
 
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .footer {
     margin: 0 104px;
   }
 }
 
+/* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .footer {
     position: relative;

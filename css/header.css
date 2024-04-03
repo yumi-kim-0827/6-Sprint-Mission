@@ -30,12 +30,14 @@
   background-color: var(--darkblue);
 }
 
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .header-container {
     margin: 0 24px;
   }
 }
 
+/* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .header-container {
     justify-content: center;
