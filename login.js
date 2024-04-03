@@ -1,5 +1,3 @@
-const emailContainer = document.querySelector(".email");
-const pwContainer = document.querySelector(".pw");
 const loginBtn = document.querySelector(".login-btn");
 const emailInput = document.querySelector(".email input");
 const pwInput = document.querySelector(".pw input");
@@ -21,35 +19,36 @@ pwIcon.addEventListener("click", () => {
 });
 
 const handleInput = (test, element) => {
+  let parentEl = element.parentElement;
   if (!test) {
     element.classList.add("wrong");
     if (element.type === "email") {
-      if (emailContainer.children.length > 2) {
-        emailContainer.removeChild(emailContainer.lastChild);
+      if (parentEl.children.length > 2) {
+        parentEl.removeChild(parentEl.lastChild);
       }
       const wrongEmail = document.createElement("p");
       wrongEmail.classList.add("wrong-email");
       element.value === ""
         ? (wrongEmail.textContent = "이메일을 입력해주세요")
         : (wrongEmail.textContent = "잘못된 이메일 형식입니다");
-      emailContainer.append(wrongEmail);
+      parentEl.append(wrongEmail);
     } else if (element.type === "password") {
-      if (pwContainer.children.length > 3) {
-        pwContainer.removeChild(pwContainer.lastChild);
+      if (parentEl.children.length > 3) {
+        parentEl.removeChild(parentEl.lastChild);
       }
       const wrongPw = document.createElement("p");
       wrongPw.classList.add("wrong-pw");
       element.value === ""
         ? (wrongPw.textContent = "비밀번호를 입력해주세요")
         : (wrongPw.textContent = "비밀번호를 8자 이상 입력해주세요");
-      pwContainer.append(wrongPw);
+      parentEl.append(wrongPw);
     }
   } else {
     element.classList.remove("wrong");
-    if (emailContainer.children.length > 2) {
-      emailContainer.removeChild(emailContainer.lastChild);
-    } else if (pwContainer.children.length > 3) {
-      pwContainer.removeChild(pwContainer.lastChild);
+    if (parentEl.children.length > 2) {
+      parentEl.removeChild(parentEl.lastChild);
+    } else if (parentEl.children.length > 3) {
+      parentEl.removeChild(parentEl.lastChild);
     }
     const allInputArr = Array.from(allInput);
     if (!allInputArr.some((el) => el.value === "") && !allInputArr.some((el) => el.classList.contains("wrong"))) {
