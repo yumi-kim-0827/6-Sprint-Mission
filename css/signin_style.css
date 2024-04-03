@@ -1,5 +1,5 @@
 :root {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 img {
@@ -46,10 +46,10 @@ a {
     position: relative;
   }
 
-  .form-item__label{
+  .form-items__label{
     display: block;
     color: var(--gray800);
-    font-size: 1.125rem;
+    font-size: 1.8rem;
     font-weight: 700;
   }
       /*input */
@@ -64,7 +64,7 @@ a {
       height: 56px;
       background-color: var(--gray100);
       color: var(--gray800);
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 400;
     }
 
@@ -95,7 +95,7 @@ a {
       border-radius: 40px;
       padding: 16px 24px;
       height: 56px;
-      font-size: 1.25rem;
+      font-size: 2rem;
       font-weight: 600;
     }
 
@@ -133,7 +133,7 @@ a {
       padding: 16px 24px;
       background-color: var(--primary200);
       color: var(--gray800);
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 500;
     }
 
@@ -155,7 +155,7 @@ a {
 
     .signup{
       color: var(--gray800);
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 500;
       text-align: center;
     }
