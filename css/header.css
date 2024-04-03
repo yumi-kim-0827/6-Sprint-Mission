@@ -40,8 +40,6 @@
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .header-container {
-    justify-content: center;
-    align-items: center;
     margin: 0 16px;
   }
 
