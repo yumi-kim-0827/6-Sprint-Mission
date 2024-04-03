@@ -101,3 +101,18 @@
   font-weight: 500;
   border-bottom: 1px solid;
 }
+
+/* mobile: 767px 이하 */
+@media (max-width: 767px) {
+  /** mobile **/
+  .home-logo img {
+    width: 198px;
+  }
+  .join-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .input-group label {
+    font-size: 0.875rem;
+  }
+}
