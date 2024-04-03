@@ -1,10 +1,59 @@
 window.onload = function(){ // js start !!
 
-    // ** email BLUR 에러 표시 **
-    const emailinsertId = document.getElementById('email_insertId'); //이메일 입력폼
-    const emailPattern = /^[A-Za-z0-9]+@[A-Za-z0-9]+.com$/; //이메일 유효성 패턴
-    let emailValid = false; //이메일 유효성
+  const emailPattern = /^[A-Za-z0-9]+@[A-Za-z0-9]+.com$/; //이메일 유효성 패턴
 
+// ******** PAGE 로그인 ********
+  // ** email BLUR 에러 표시 ** 
+  const emailLogininsertId = document.getElementById('email_login_insertId'); //이메일 입력폼
+  let emailLoginValid = false; //이메일 유효성
+
+  //이메일 포커스아웃할 때, 이벤트 리스너
+  emailLogininsertId.addEventListener('blur', function(event){
+    const email = event.target.value;
+    //이메일 형식이 맞지 않는 경우 ... 에러메세지
+    if( email.length > 0 && !emailPattern.test(email)){
+      document.querySelector('.email_login_notice').textContent='잘못된 이메일 형식입니다.';
+      emailLoginValid = false;
+    }else if( email.length < 1 ){
+    //아무것도 안적힌 경우 ... 에러메세지
+      document.querySelector('.email_login_notice').textContent='이메일을 입력해주세요';
+      emailLoginValid = false;
+    }else{
+    //올바른 이메일 형식 ... 에러메세지 제거, 유효성 true
+      document.querySelector('.email_login_notice').textContent='';
+      emailLoginValid = true;
+    }
+    check_valid_logIn(); //로그인 버튼 활성화 함수 실행
+  });
+  // ** email BLUR 에러 표시 ** 
+  const pswLogininsertId = document.getElementById('psw_login_insertId'); //비밀번호 입력폼
+  let pswLoginValid = false; //이메일 유효성
+
+  //이메일 포커스아웃할 때, 이벤트 리스너
+  pswLogininsertId.addEventListener('blur', function(event){
+    const password = event.target.value;
+    //비밀번호에 아무것도 안적혀있을 때 ... 에러메세지
+    if( password.length > 0 && password.length < 8 ){
+      document.querySelector('.psw_login_notice').textContent='비밀번호를 8자 이상 입력해주세요.';
+      pswLoginValid = false;
+    }else if( password.length <1 ){
+    //비밀번호가 적혔는데 8자 미만일 때 ... 에러메세지
+      document.querySelector('.psw_login_notice').textContent='비밀번호를 입력해주세요.';
+      pswLoginValid = false;
+    } else {
+    //잘 적혀있을 때 ... 에러메세지 제거, 유효성 true
+      document.querySelector('.psw_login_notice').textContent='';
+      pswLoginValid = true;
+    }
+    check_valid_logIn(); //로그인 버튼 활성화 함수 실행
+  });
+
+
+
+// ******** PAGE 회원가입 ********
+    // ** email BLUR 에러 표시 ** 
+    const emailinsertId = document.getElementById('email_insertId'); //이메일 입력폼
+    let emailValid = false; //이메일 유효성
     //이메일 포커스아웃할 때, 이벤트 리스너
     emailinsertId.addEventListener('blur', function(event){
       const email = event.target.value;
@@ -21,7 +70,7 @@ window.onload = function(){ // js start !!
         document.querySelector('.email_notice').textContent='';
         emailValid = true;
       }
-      console.log(pswValid)
+      check_valid_singIn(); //회원가입 버튼 활성화 함수 실행
     });
 
 
@@ -44,12 +93,7 @@ window.onload = function(){ // js start !!
         document.querySelector('.psw_notice').textContent='';
         pswValid = true;
       }
-      //이메일, 비밀번호 전부 return true일 때, 로그인 버튼 활성화
-      if( emailValid && pswValid){
-        document.querySelector('.login_btn').disabled = false;
-        document.querySelector('.login_btn').style.backgroundColor = '#3692FF';
-        document.querySelector('.login_btn').style.color = '#ffffff';
-      }
+      check_valid_singIn(); //회원가입 버튼 활성화 함수 실행
     });
 
     // ** psw 보기, 아이콘 토글 **
@@ -59,7 +103,7 @@ window.onload = function(){ // js start !!
       if( pswInsertId.type == 'password'){ //패스워드 표시면, 텍스트로 변경
         pswInsertId.type = 'text';
         pswView.firstElementChild.src = './images/psw_visible.png';
-      }else{ //텍스트 표시면, 패스워드로 변경
+      } else { //텍스트 표시면, 패스워드로 변경
         pswInsertId.type = 'password';
         pswView.firstElementChild.src = './images/psw_nonvisible.png';
       }
@@ -75,11 +119,12 @@ window.onload = function(){ // js start !!
       if( email.length < 1 ){
         document.querySelector('.nickname_notice').textContent='닉네임을 입력해주세요.';
         nickNameValid = false;
-      }else{
+      } else {
       //올바른 이메일 형식 ... 에러메세지 제거, 유효성 true
         document.querySelector('.nickname_notice').textContent='';
         nickNameValid = true;
       }
+      check_valid_singIn(); //회원가입 버튼 활성화 함수 실행
     });
 
     // ** psw 확인 일치 **
@@ -89,19 +134,37 @@ window.onload = function(){ // js start !!
     psw_confirmId.addEventListener('blur', function(event){
       if( pswInsertId.value !== event.target.value){
         document.querySelector('.psw_confim_notice').textContent='비밀번호가 일치하지 않습니다.';
-        pswConfirmValid = trfalseue;
+        pswConfirmValid = false;
       }else{
         document.querySelector('.psw_confim_notice').textContent='';
         pswConfirmValid = true;
       }
       //이메일, 닉네임, 비밀번호 전부 return true일 때, 로그인 버튼 활성화
+      check_valid_singIn(); //회원가입 버튼 활성화 함수 실행
+    });
+
+    // ** 로그인 버튼 활성화 함수 **
+    function check_valid_logIn()
+    {
+      if( emailLoginValid && pswLoginValid ){
+        document.querySelector('.login_btn').disabled = false;
+        document.querySelector('.login_btn').style.backgroundColor = '#3692FF';
+      } else {
+        document.querySelector('.login_btn').disabled = true;
+        document.querySelector('.login_btn').style.backgroundColor = '#9CA3AF';
+      }
+    };
+    // ** 회원가입 버튼 활성화 함수 **
+    function check_valid_singIn()
+    {
       if( emailValid && pswValid && pswConfirmValid && nickNameValid){
         document.querySelector('.signIn_btn').disabled = false;
         document.querySelector('.signIn_btn').style.backgroundColor = '#3692FF';
-        document.querySelector('.signIn_btn').style.color = '#ffffff';
+      } else {
+        document.querySelector('.signIn_btn').disabled = true;
+        document.querySelector('.signIn_btn').style.backgroundColor = '#9CA3AF';
       }
-    });
-    
+    };
 
 
 } // js end !!

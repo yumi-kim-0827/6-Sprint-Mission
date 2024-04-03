@@ -284,7 +284,7 @@ footer .footer_wrap .sns_link ul{
 .user_form_wrap .form_wrap .input_wrap input:focus{
   border-bottom:1px solid var(--brand_blue);
 }
-.email_notice, .psw_notice, .nickname_notice, .psw_confim_notice{
+.email_notice, .psw_notice, .nickname_notice, .psw_confim_notice, .email_login_notice, .psw_login_notice{
   color:#dd1919;
 }
 .sns_login_wrap ul{
