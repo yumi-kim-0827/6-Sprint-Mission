@@ -75,3 +75,48 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const passwordInput = document.getElementById('password');
+
+  passwordInput.addEventListener('focusout', function () {
+    const password = passwordInput.value.trim();
+    const errorContainer = document.getElementById('password-error');
+
+    if (password === '') {
+      showError();
+    } else {
+      removeError();
+    }
+  });
+
+  // 비밀번호 에러 메시지를 표시하는 함수
+  function showError() {
+    passwordInput.classList.add('error');
+    passwordInput.style.border = '1px solid red';
+
+    const errorContainer = document.getElementById('password-error');
+    if (!errorContainer) {
+      const errorMessage = document.createElement('div');
+      errorMessage.id = 'password-error';
+      errorMessage.classList.add('error-message');
+      errorMessage.textContent = '비밀번호를 입력해주세요.';
+      errorMessage.style.color = 'red';
+      passwordInput.parentNode.insertBefore(
+        errorMessage,
+        passwordInput.nextSibling
+      );
+    }
+  }
+
+  // 비밀번호 에러 메시지를 삭제하는 함수
+  function removeError() {
+    passwordInput.classList.remove('error');
+    passwordInput.style.border = '1px solid #3692ff';
+
+    const errorContainer = document.getElementById('password-error');
+    if (errorContainer) {
+      errorContainer.remove();
+    }
+  }
+});
