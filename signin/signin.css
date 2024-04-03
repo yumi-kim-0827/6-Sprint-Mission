@@ -53,6 +53,8 @@ input {
     height: var(--desktop-input-height);
     background-color: var(--color-cool-gray100);
     border-radius: 12px;
+    border-color: var(--color-brand-blue);
+
     padding: 16px 24px;
     font-size: 1.6rem;
     font-weight: 400;
