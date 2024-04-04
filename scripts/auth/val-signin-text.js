@@ -45,7 +45,7 @@ const pwdValText = () => {
   let valText = document.getElementById("pwdValMessage");
 
   pwd.addEventListener("focusout", () => {
-    if (pwd.value === "") {
+    if (pwd.value.length < 8) {
       pwd.style.outline = "2px solid var(--error-red)";
       valText.style.display = "block";
       pwdVal = false;
