@@ -89,6 +89,8 @@ footer > h3 > a {
     position: relative;
     justify-content: flex-end;
 }
+
+
 .toggle-switch {
     width: 24px;
     height: 24px;
@@ -113,7 +115,7 @@ footer > h3 > a {
 
 .pandamarket-login > form > button {
     color: var(--button-font-color);
-    background-color: var(--panda-gray-color);
+    background-color: var(--brand-blue);
     font-family: Pretendard;
     font-size: 2rem;
     font-weight: 600;
@@ -124,8 +126,8 @@ footer > h3 > a {
     cursor: pointer;
 }
 
-.pandamarket-login > form > button:hover {
-    background-color: var(--brand-blue);
+.pandamarket-login > form > button:disabled {
+    background-color: var(--panda-gray-color);
 }
 
 .simple-login {
@@ -166,6 +168,20 @@ footer > h3 > a {
 .simple-login > div > .kakao {
     background-image: url('/assets/images/logos/kakaotalk-logo.svg');
 }
+
+.invalid {
+    border: 3px solid var(--invalid-color);
+}
+
+.invalid-message {
+    color: var(--invalid-color);
+    display: block;
+}
+
+.invalid-message.hide {
+    display: none;
+}
+
 
 /** Tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
