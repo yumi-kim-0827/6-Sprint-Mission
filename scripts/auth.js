@@ -1,6 +1,7 @@
 const emailInput = document.querySelector("#email");
 const nicknameInput = document.querySelector("#nickname");
 const passwordInput = document.querySelector("#password");
+const passwordInputConfirm = document.querySelector("#passwordConfirm");
 
 // 에러 요소 아이디 수집 & 에러 스타일 설정
 function setError(input, errorMessageId, isError) {
@@ -46,6 +47,24 @@ function validatePassword() {
   }
 }
 
+// Password 일치 검증 (event handler)
+function validatePasswordConfrim() {
+  setError(passwordInputConfirm, "passwordConfirmError", false);
+
+  if (passwordInput.value.trim() !== passwordInputConfirm.value.trim()) {
+    setError(passwordInputConfirm, "passwordConfirmError", true);
+  }
+}
+
+// Nickname 값 검증 (event handler)
+function validateNickname() {
+  setError(nicknameInput, "nicknameEmptyError", false);
+
+  if (!nicknameInput.value.trim()) {
+    setError(nicknameInput, "nicknameEmptyError", true);
+  }
+}
+
 // Form 전송 핸들러
 function submitForm(formId, redirectUrl) {
   const form = document.querySelector(`#${formId}`);
@@ -57,12 +76,12 @@ function submitForm(formId, redirectUrl) {
     e.preventDefault();
     validateEmail();
     validatePassword();
+    if (formId === "signUpForm") {
+      validateNickname();
+      validatePasswordConfrim();
+    }
 
-    const isError = document.querySelector(
-      '.error-message[style="display: block;"]'
-    );
-
-    if (!isError) {
+    if (!document.querySelector('.error-message[style="display: block;"]')) {
       submitButton.style.backgroundColor = "#3692ff";
       window.location.href = redirectUrl;
     }
@@ -72,5 +91,12 @@ function submitForm(formId, redirectUrl) {
 // Event Handlers 등록
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
+if (passwordInputConfirm) {
+  passwordInputConfirm.addEventListener("focusout", validatePasswordConfrim);
+}
+if (nicknameInput) {
+  nicknameInput.addEventListener("focusout", validateNickname);
+}
 
 submitForm("signInForm", "/items");
+submitForm("signUpForm", "/signin");
