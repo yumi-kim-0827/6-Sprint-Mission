@@ -108,3 +108,52 @@ passVarifyEL.addEventListener('focusin', varifyFocusIn);
 
 
 
+
+const button = document.querySelector('.form__button');
+
+function activateButton(e) {
+  console.log('a');
+  console.log(passwordEL.classList.contains('form__input--error'));
+  if (
+    !emailEl.classList.contains('form__input--error') &&
+    !passwordEL.classList.contains('form__input--error') &&
+    !nicknameEL.classList.contains('form__input--error') &&
+    !passVarifyEL.classList.contains('form__input--error') &&
+    emailEl.value && passwordEL.value && nicknameEL.value && passVarifyEL.value
+  ) {
+    console.log('true');
+    button.disabled = false;
+    button.classList.add('form__button--activated');
+  } else {
+    console.log('false');
+    button.disabled = true;
+    button.classList.remove('form__button--activated');
+  }
+}
+
+
+
+
+
+emailEl.addEventListener('focusout', activateButton);
+passwordEL.addEventListener('focusout', activateButton);
+nicknameEL.addEventListener('focusout', activateButton);
+passVarifyEL.addEventListener('focusout', activateButton);
+
+
+
+const invisibleButton = document.querySelectorAll('.form__invisible-button');
+
+function buttonVisibleOrNot(e) {
+  const input = e.target.parentElement.nextElementSibling;
+  if (input.type === 'password') {
+    input.setAttribute('type', 'text'); //input.type = 'text' const라 안됨
+    e.target.setAttribute('src', '../assets/icons/ic_visible.png');
+  } else if (input.type === 'text') {
+    input.setAttribute('type', 'password');
+    e.target.setAttribute('src', '../assets/icons/ic_invisible.png');
+  }
+}
+
+invisibleButton[0].addEventListener('click', buttonVisibleOrNot);
+invisibleButton[1].addEventListener('click', buttonVisibleOrNot);

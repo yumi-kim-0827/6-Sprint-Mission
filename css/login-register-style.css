@@ -97,7 +97,12 @@ form label {
   font-weight: 600;
   line-height: 24px;
   color: var(--white);
+  
+}
+
+.form__button--activated {
   cursor: pointer;
+  background-color: var(--blue);
 }
 
 .simpleLogin {
