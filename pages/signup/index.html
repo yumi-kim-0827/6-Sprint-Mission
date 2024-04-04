@@ -22,6 +22,9 @@
             placeholder="이메일을 입력해주세요"
             required
           />
+          <p id="emailValMessage" class="error_message" style="display: none">
+            잘못된 이메일입니다
+          </p>
           <label for="nickname">닉네임</label>
           <input
             type="text"
@@ -30,6 +33,13 @@
             placeholder="닉네임을 입력해주세요"
             required
           />
+          <p
+            id="nicknameValMessage"
+            class="error_message"
+            style="display: none"
+          >
+            닉네임을 입력해주세요
+          </p>
           <div class="pwd_container">
             <label for="pwd">비밀번호</label>
             <input
@@ -41,6 +51,9 @@
             />
             <img src="/images/btn_visibility.png" alt="controlpwd" />
           </div>
+          <p id="pwdValMessage" class="error_message" style="display: none">
+            비밀번호를 8자 이상 입력해주세요
+          </p>
           <div class="pwd_container">
             <label for="pwdchk">비밀번호 확인</label>
             <input
@@ -52,6 +65,9 @@
             />
             <img src="/images/btn_visibility.png" alt="controlpwd" />
           </div>
+          <p id="pwdchkValMessage" class="error_message" style="display: none">
+            비밀번호가 일치하지 않습니다.
+          </p>
           <button type="submit">회원가입</button>
         </form>
         <div id="sns_container">
@@ -71,5 +87,6 @@
         </div>
       </div>
     </div>
+    <script src="/scripts/auth/val-signup-text.js"></script>
   </body>
 </html>
