@@ -2,6 +2,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const pwdContainer = document.querySelector("#pwdContainer");
 const loginBtn = document.querySelector("#loginBtn");
+
 const emailUnderMessage = document.createElement("p");
 const pwdUnderMessage = document.createElement("p");
 emailUnderMessage.className = "inputUnderMessage";
@@ -84,18 +85,23 @@ password.addEventListener("focusout", updatePwdOutLine);
 
 // 에러 메세지가 없고, input이 빈값이 아니면 로그인 버튼 활성화
 function ableLoginBtn() {
-  const isEmailEmpty = email.value !== "";
-  const isPasswordEmpty = password.value !== "";
-  const isEmailError = emailUnderMessage.textContent === "";
-  const isPasswordError = pwdUnderMessage.textContent === "";
+  // input 요소들 유사 배열
+  const inputs = document.getElementsByTagName("input");
+  // 하나라도 빈 문자열이 있으면 true를 반환
+  const isInputEmpty = Array.from(inputs).some((input) => input.value === "");
+  // 오류 메세지 유사 배열
+  const errorMessages = document.getElementsByClassName("inputUnderMessage");
+  // 모두 빈 문자열인지 확인
+  const isErrorMessage = Array.from(errorMessages).every(
+    (errorMessage) => errorMessage.textContent === ""
+  );
 
-  console.log("dd");
-  if (isEmailEmpty && isPasswordEmpty && isEmailError && isPasswordError) {
-    console.log(loginBtn);
+  if (!isInputEmpty && isErrorMessage) {
     loginBtn.disabled = false;
     loginBtn.style.backgroundColor = "#3692FF";
   } else {
     loginBtn.disabled = true;
+    loginBtn.style.backgroundColor = "#9ca3af";
   }
 }
 
@@ -106,11 +112,3 @@ loginBtn.addEventListener("click", (event) => {
   event.preventDefault();
   location.href = "items.html";
 });
-
-export {
-  emailCheck,
-  checkEmail,
-  updateEmailOutLine,
-  checkPassword,
-  updatePwdOutLine,
-};
