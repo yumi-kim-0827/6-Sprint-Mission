@@ -92,6 +92,10 @@ main,
 .container {
   width: 100%;
 }
+#header,
+#footer {
+	padding: 0 24px;
+}
 #header .container,
 #footer .container {
   max-width: 1520px;
@@ -114,7 +118,6 @@ nav {
   justify-content: space-between;
 }
 .container {
-  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
@@ -191,18 +194,14 @@ nav {
 /* 미디어 쿼리 */
 @media (max-width: 1199px) {
   /** tablet **/
-  /* 전체 공통 */		
-  .container {
-    width: 92%;
-  }
 }
 /* mobile: 767px 이하 */
 @media (max-width: 767px) {
   /** mobile **/
-  /* 전체 공통 */
-  .container {
-    width: 94%;
-  }
+	#header,
+	#footer {
+		padding: 0 16px;
+	}
 	/* 버튼 공통 */
   .btn-primary {
     font-size: 1rem;

@@ -98,7 +98,7 @@
   /* section 공통 */
   .flex-container {
     flex-wrap: wrap;
-    padding: 64px 0 0;
+    padding: 64px 24px 0;
     gap: 20px;
   }
   .flex-container div {
@@ -161,7 +161,7 @@
     font-size: 1.5rem;
   }
   .flex-container {
-    padding: 58px 0 0;
+    padding: 58px 16px 0;
   }
   .flex-container .text-box p,
   .flex-container .text-box .blue-text {
