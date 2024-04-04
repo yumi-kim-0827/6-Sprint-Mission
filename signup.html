@@ -64,11 +64,13 @@
               type="password"
               placeholder="비밀번호를 입력해주세요"
             />
-            <img
-              src="images/icon/eye-invisible.svg"
-              alt="비밀번호 숨기기"
+            <button
+              type="button"
               class="toggle-password"
-            />
+              onclick="togglePassword('password')"
+            >
+              <img src="images/icon/eye-invisible.svg" alt="비밀번호 숨기기" />
+            </button>
           </div>
           <span id="passwordEmptyError" class="error-message"
             >비밀번호를 입력해주세요.</span
@@ -86,11 +88,13 @@
               type="password"
               placeholder="비밀번호를 다시 한 번 입력해 주세요"
             />
-            <img
-              src="images/icon/eye-invisible.svg"
-              alt="비밀번호 숨기기"
+            <button
+              type="button"
               class="toggle-password"
-            />
+              onclick="togglePassword('passwordConfirm')"
+            >
+              <img src="images/icon/eye-invisible.svg" alt="비밀번호 숨기기" />
+            </button>
           </div>
           <span id="passwordConfirmError" class="error-message"
             >비밀번호가 일치하지 않습니다.</span
@@ -124,6 +128,6 @@
         이미 회원이신가요? <a href="signin.html">로그인</a>
       </div>
     </div>
-    <script type="module" src="scripts/auth.js"></script>
+    <script src="scripts/auth.js"></script>
   </body>
 </html>

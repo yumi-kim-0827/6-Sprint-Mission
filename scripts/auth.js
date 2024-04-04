@@ -65,6 +65,22 @@ function validateNickname() {
   }
 }
 
+// Password Visible 토글 버튼 (event handler)
+function togglePassword(input) {
+  const passwordInput = document.getElementById(input);
+  const isPassword = passwordInput.getAttribute("type") === "password";
+  passwordInput.setAttribute("type", isPassword ? "text" : "password");
+
+  const icon = passwordInput.nextElementSibling.querySelector("img");
+
+  if (icon) {
+    icon.src = isPassword
+      ? "images/icon/eye-visible.svg"
+      : "images/icon/eye-invisible.svg";
+    icon.alt = isPassword ? "비밀번호 표시" : "비밀번호 숨김";
+  }
+}
+
 // Form 전송 핸들러
 function submitForm(formId, redirectUrl) {
   const form = document.querySelector(`#${formId}`);
