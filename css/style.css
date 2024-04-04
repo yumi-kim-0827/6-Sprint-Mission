@@ -1,8 +1,13 @@
 :root {
-  font-size: 16px;
+  font-size: 10px;
 }
-/* 메인페이지 */
-.main-body {
+
+* {
+  box-sizing: border-box;
+}
+
+    /* 공통부 */
+.body {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -18,175 +23,189 @@
   margin-top: 70px;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-}
-
-.text_large{
+.logo{
   margin-bottom: 0.5em;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 4rem;
   line-height: 56px;
-  color: var(--color-gray-700);
+  color: var(--gray-700);
 }
 
-.text_small{
+.logo-mobile{
   font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.75em;
-  color: var(--color-gray-700);
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: var(--gray-700);
 }
 
-
-
-
-
-.gnb {
-  top: 0;
-  width: 100vw;
-  height: 70px;
-  padding: 0 200px;
-  background-color: #fff;
-  z-index: 9999;
+.button-small {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-}
-
-.gnb-inner {
-  max-width: 1920px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.gnb-inner_logo {
-  display: block;
-  width: 150px;
-  height: 41px;
-}
-
-.gnb-inner_login {
   width: 128px;
   height: 48px;
   padding: 12px 20px;
-  background-color: var(--color-blue);
+  background-color: var(--blue-400);
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
+}
+
+.button-large{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-
-
-.banner {
-  width: 100vw;
-  height: 540px;
-  background-color: #cfe5ff;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.banner-inner {
-  width: 1920px;
-  height: 540px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.banner-inner_img {
-  right: 10vw;
-  bottom: 0;
-  position: absolute;
-}
-
-.banner-inner_text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 32px;
-  width: 1200px;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 56px;
-  z-index: 1;
-}
-
-.banner-inner_btn{ 
-  width: 128px;
-  height: 48px;
-  padding: 12px 20px;
+  width: 355px;
+  height: 56px;
   background-color: var(--color-blue);
-  border-radius: 8px;
+  border-radius: 40px;
   font-weight: 600;
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 20px;
+  color: var(--white);
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+    /* nav bar */
+
+  .gnb {
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    padding: 0 200px 0 200px;
+    background-color: var(--white);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+
+  .gnb-inner {
+    max-width: 1920px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .gnb-inner__logo {
+    display: block;
+    width: 150px;
+    height: 41px;
+  }
+
+    /* main */
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
+      /* banner부분 */
+
+    .banner {
+      width: 100vw;
+      height: 540px;
+      background-color: #cfe5ff;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .banner-inner {
+      width: 1920px;
+      height: 540px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .banner-inner__img {
+      right: 10vw;
+      bottom: 0;
+      position: absolute;
+    }
+
+    .banner-inner__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      width: 1200px;
+      font-size: 4.8rem;
+      font-weight: 700;
+      line-height: 56px;
+      z-index: 1;
+    }
+
+    .banner-inner__text .text {
+      margin: 0;
+    }
+
+    .banner-inner__login{ 
+      width: 128px;
+      height: 48px;
+      padding: 12px 20px;
+      background-color: var(--color-blue);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+      /* 섹션부분 */
+
+  .section {
+    width: 1200px;
+  }
+
+  .section-inner {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    height: 720px;
+  }
+
+  .section-inner:nth-child(2) {
+    justify-content: end;
+    text-align: right;
+  }
+
+  .section-inner__text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .badge {
+    font-weight: 700;
+    font-size: 2.0rem;
+    color: var(--color-blue);
+  }
 
 
-
-
-.section {
-  width: 1200px;
-}
-
-.section-inner {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  height: 720px;
-}
-
-.section-inner:nth-child(2) {
-  justify-content: end;
-  text-align: right;
-}
-
-.section-inner_text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.badge {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: var(--color-blue);
-}
-
-
-.title {
+.section-inner__text .title.text {
   margin-bottom: 0.5em;
   font-weight: 700;
-  font-size: 3em;
+  font-size: 4.8rem;
   line-height: 56px;
   letter-spacing: 0.2;
   color: var(--color-gray-700);
 }
 
-.text {
+.section-inner__text .text{
   font-weight: 500;
-  font-size: 1.5em;
-  line-height: 1.75em;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
   letter-spacing: 0.8;
   color: var(--color-gray-700);
 }
@@ -197,7 +216,7 @@
   height: 160px;
   background-color: var(--color-gray-900);
   font-weight: 400;
-  font-size: 1em;
+  font-size: 1.6rem;
   line-height: 19.09px;
   color: #fff;
   display: flex;
@@ -223,8 +242,8 @@
 }
 
 /* PC  */
-.logo-typo,
-.text-small,
-.section-inner_img.mobile {
+.logo-mobile,
+.text-mobile,
+.section-inner__img.mobile {
   display: none;
 }
