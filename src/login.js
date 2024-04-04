@@ -2,6 +2,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const pwdContainer = document.querySelector("#pwdContainer");
 const loginBtn = document.querySelector("#loginBtn");
+const passwordEye = document.querySelector("#passwordEye");
 
 const emailUnderMessage = document.createElement("p");
 const pwdUnderMessage = document.createElement("p");
@@ -112,3 +113,14 @@ loginBtn.addEventListener("click", (event) => {
   event.preventDefault();
   location.href = "items.html";
 });
+
+function showPassword(event) {
+  if (password.type === "password") {
+    password.type = "text";
+    event.target.src = "images/password-eye-on.svg";
+  } else {
+    password.type = "password";
+    event.target.src = "images/password-eye-off.svg";
+  }
+}
+passwordEye.addEventListener("click", showPassword);

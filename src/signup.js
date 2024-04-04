@@ -1,7 +1,9 @@
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
-const passwordCheck = document.querySelector("#password-check");
+const passwordCheck = document.querySelector("#passwordCheck");
 const nickname = document.querySelector("#nickname");
+const passwordEye = document.querySelector("#passwordEye");
+const passwordCheckEye = document.querySelector("#passwordCheckEye");
 
 const pwdContainer = document.querySelector("#pwdContainer");
 const pwdCheckContainer = document.querySelector("#pwdCheckContainer");
@@ -153,4 +155,22 @@ nickname.addEventListener("input", ableSigninBtn);
 signupBtn.addEventListener("click", (event) => {
   event.preventDefault();
   location.href = "signin.html";
+});
+
+function showPassword(event, input) {
+  if (input.type === "password") {
+    input.type = "text";
+    event.target.src = "images/password-eye-on.svg";
+  } else {
+    input.type = "password";
+    event.target.src = "images/password-eye-off.svg";
+  }
+}
+
+passwordEye.addEventListener("click", (event) => {
+  showPassword(event, password);
+});
+
+passwordCheckEye.addEventListener("click", (event) => {
+  showPassword(event, passwordCheck);
 });
