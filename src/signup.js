@@ -15,7 +15,7 @@ const emailUnderMessage = document.createElement("p");
 const pwdUnderMessage = document.createElement("p");
 emailUnderMessage.className = "inputUnderMessage";
 pwdUnderMessage.className = "inputUnderMessage";
-
+debugger;
 email.addEventListener("input", checkEmail);
 email.addEventListener("focusout", updateEmailOutLine);
 

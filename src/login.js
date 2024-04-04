@@ -2,7 +2,6 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const pwdContainer = document.querySelector("#pwdContainer");
 const loginBtn = document.querySelector("#loginBtn");
-loginBtn.disabled = true;
 const emailUnderMessage = document.createElement("p");
 const pwdUnderMessage = document.createElement("p");
 emailUnderMessage.className = "inputUnderMessage";
@@ -30,8 +29,6 @@ function checkEmail(event) {
     inputTarget.after(emailUnderMessage);
   } else {
     // 이메일 형식을 지킨 경우
-    // emailUnderMessage.remove();
-    // inputTarget.style.marginBottom = "24px";
     emailUnderMessage.textContent = "";
     inputTarget.style.outline = "2px solid #3182f6";
   }
@@ -92,13 +89,16 @@ function ableLoginBtn() {
   const isEmailError = emailUnderMessage.textContent === "";
   const isPasswordError = pwdUnderMessage.textContent === "";
 
+  console.log("dd");
   if (isEmailEmpty && isPasswordEmpty && isEmailError && isPasswordError) {
+    console.log(loginBtn);
     loginBtn.disabled = false;
     loginBtn.style.backgroundColor = "#3692FF";
   } else {
     loginBtn.disabled = true;
   }
 }
+
 email.addEventListener("input", ableLoginBtn);
 password.addEventListener("input", ableLoginBtn);
 
@@ -108,12 +108,6 @@ loginBtn.addEventListener("click", (event) => {
 });
 
 export {
-  email,
-  password,
-  pwdContainer,
-  loginBtn,
-  emailUnderMessage,
-  pwdUnderMessage,
   emailCheck,
   checkEmail,
   updateEmailOutLine,
