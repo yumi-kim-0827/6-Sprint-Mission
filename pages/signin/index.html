@@ -34,7 +34,13 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <img src="/images/btn_visibility.png" alt="controlpwd" />
+            <button class="controlpwd" type="button" onclick="showPwd()">
+              <img
+                id="pwdimg"
+                src="/images/btn_visibility.png"
+                alt="controlpwd"
+              />
+            </button>
           </div>
           <p id="pwdValMessage" class="error_message" style="display: none">
             비밀번호를 8자 이상 입력해주세요

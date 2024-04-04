@@ -1,6 +1,19 @@
 let emailVal = false;
 let pwdVal = false;
 
+const showPwd = () => {
+  const pwd = document.getElementById("pwd");
+  const showPwd = document.getElementById("pwdimg");
+
+  if (pwd.type === "password") {
+    pwd.type = "text";
+    showPwd.src = "/images/btn_visibility_on.png";
+  } else {
+    pwd.type = "password";
+    showPwd.src = "/images/btn_visibility.png";
+  }
+};
+
 const validateForm = () => {
   const submitBtn = document.getElementById("submitBtn");
 

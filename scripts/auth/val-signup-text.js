@@ -3,10 +3,34 @@ let nicknameVal = false;
 let pwdVal = false;
 let pwdchkVal = false;
 
+const showPwd = () => {
+  const pwd = document.getElementById("pwd");
+  const showPwd = document.getElementById("pwdimg");
+
+  if (pwd.type === "password") {
+    pwd.type = "text";
+    showPwd.src = "/images/btn_visibility_on.png";
+  } else {
+    pwd.type = "password";
+    showPwd.src = "/images/btn_visibility.png";
+  }
+};
+
+const showPwdchk = () => {
+  const pwdchk = document.getElementById("pwdchk");
+  const showPwdchk = document.getElementById("pwdchkimg");
+
+  if (pwdchk.type === "password") {
+    pwdchk.type = "text";
+    showPwdchk.src = "/images/btn_visibility_on.png";
+  } else {
+    pwdchk.type = "password";
+    showPwdchk.src = "/images/btn_visibility.png";
+  }
+};
+
 const validateForm = () => {
   const submitBtn = document.getElementById("submitBtn");
-
-  console.log(emailVal, nicknameVal, pwdVal, pwdchkVal);
 
   if (emailVal && nicknameVal && pwdVal && pwdchkVal) {
     submitBtn.style.backgroundColor = "var(--btn-blue1)";
