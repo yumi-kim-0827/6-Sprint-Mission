@@ -109,7 +109,7 @@ form label {
   background-color: #1251aa;
 }
 
-.simpleLogin {
+.simple-login {
   background-color: #e6f2ff;
   display: flex;
   justify-content: space-between;
@@ -121,25 +121,25 @@ form label {
   border-radius: 8px;
 }
 
-.simpleLogin__text {
+.simple-login__text {
   font-weight: 500;
   font-size: 16px;
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.simpleLogin__snsIcons {
+.simple-login__sns-icons {
   display: flex;
   align-items: center;
   gap: 16px;
   /* line-height: 0; */
 }
 
-.simpleLogin__item {
+.simple-login__item {
   width: 42px;
   height: 42px;
 }
 
-.askWhetherUser {
+.whether-user {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
@@ -149,7 +149,7 @@ form label {
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.askWhetherUser__link {
+.whether-user__link {
   color: #3182f6;
 }
 
