@@ -1,60 +1,78 @@
+const inputs = document.querySelectorAll('.input-wrapper input');
+const icons = document.querySelectorAll('.password-group .input-icon');
+
+/**
+ * 유효성 체크 결과 다루는 함수
+ * sucessValidation : 유효성 검사 통과시 실행 함수
+ * failedValidation : 유효성 검사 실패시 실행 함수
+ */
+
+const sucessValidation = (inputWrapper, errorEl) => {
+  inputWrapper.classList.remove('error');
+  errorEl.textContent = '';
+}
+
+const failedValidation = (inputWrapper, errorEl, text) => {
+  inputWrapper.classList.add('error');
+  errorEl.textContent = text;
+}
+
 // 이메일 유효성 검사
-const emailValidationCheck = (value, wrapper, errorMessage) => {
+const emailValidationCheck = (value, wrapper, errorMessageEl) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+  let message = '';
 
   if (value === '') {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '이메일을 입력해주세요';
+    message = '이메일을 입력해주세요';
+    failedValidation(wrapper, errorMessageEl, message);
   } else if (!emailRegex.test(value)) {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '잘못된 이메일 형식입니다';
+    message = '잘못된 이메일 형식입니다';
+    failedValidation(wrapper, errorMessageEl, message);
   } else {
-    wrapper.classList.remove('error');
-    errorMessage.textContent = '';
+    sucessValidation(wrapper, errorMessageEl);
   }
 }
 
 // 비밀번호 유효성 검사
-const passwordValidationCheck = (value, wrapper, errorMessage) => {
+const passwordValidationCheck = (value, wrapper, errorMessageEl) => {
   const MIN_LENGTH = 8;
   const { length } = value;
+  let message = '';
 
   if (value === '') {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '비밀번호를 입력해주세요';
+    message = '비밀번호를 입력해주세요';
+    failedValidation(wrapper, errorMessageEl, message);
   } else if (length < MIN_LENGTH) {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '비밀번호를 8자 이상 입력해주세요';
+    message = '비밀번호를 8자 이상 입력해주세요'
+    failedValidation(wrapper, errorMessageEl, message);
   } else {
-    wrapper.classList.remove('error');
-    errorMessage.textContent = '';
+    sucessValidation(wrapper, errorMessageEl);
   }
 }
 
 // 비밀번호 확인 유효성 검사
-const passwordCheck = (target, wrapper, errorMessage) => {
+const passwordCheck = (target, wrapper, errorMessageEl) => {
   const { value:passwordCheckValue } = target;
 
   const password = document.querySelector('#password');
   const { value:passwordValue } = password;
 
+  let message = '비밀번호가 일치하지 않습니다';
+
   if(passwordCheckValue !== passwordValue) {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '비밀번호가 일치하지 않습니다';
+    failedValidation(wrapper, errorMessageEl, message);
   } else {
-    wrapper.classList.remove('error');
-    errorMessage.textContent = '';
+    sucessValidation(wrapper, errorMessageEl);
   }
 }
 
 // 닉네임 유효성 검사
-const nameValidationCheck = (value, wrapper, errorMessage) => {
+const nameValidationCheck = (value, wrapper, errorMessageEl) => {
+  let message = '닉네임을 입력해주세요';
   if(value === '') {
-    wrapper.classList.add('error');
-    errorMessage.textContent = '닉네임을 입력해주세요';
+    failedValidation(wrapper, errorMessageEl, message);
   } else {
-    wrapper.classList.remove('error');
-    errorMessage.textContent = '';
+    sucessValidation(wrapper, errorMessageEl);
   }
 }
 
@@ -80,7 +98,6 @@ const passwordIconToggle = (event) => {
 const buttonActiveCheck = () => {
   const button = document.querySelector('form button');
   const error = document.querySelector('.error');
-  const inputs = document.querySelectorAll('.input-wrapper input');
 
   inputs.forEach((input) => {
     const { value } = input;
@@ -92,10 +109,10 @@ const buttonActiveCheck = () => {
   })
 }
 
+// input 구분 후 유효성 체크
 const validationCheck = (event) => {
   const { target } = event;
-  const { id } = target;
-  const { value } = target;
+  const { id, value } = target;
   const wrapper = target.closest('.input-wrapper');
   const errorMessage = wrapper.querySelector('.error-message');
 
@@ -121,17 +138,12 @@ const validationCheck = (event) => {
 }
 
 // 유효성 체크
-const inputs = document.querySelectorAll('.input-wrapper input');
-
 inputs.forEach((input) => {
   input.addEventListener('focusout', validationCheck);
-  input.addEventListener('change', buttonActiveCheck);
+  input.addEventListener('input', buttonActiveCheck);
 })
 
-
-// 비밀번호 아이콘 클릭
-const icons = document.querySelectorAll('.password-group .input-icon');
-
+// 비밀번호 아이콘 클릭 이벤트
 icons.forEach((icon) => {
   icon.addEventListener('click', passwordIconToggle)
 })
