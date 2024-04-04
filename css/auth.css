@@ -105,6 +105,10 @@ form label {
   background-color: var(--blue);
 }
 
+.form__button--activated:hover {
+  background-color: #1251aa;
+}
+
 .simpleLogin {
   background-color: #e6f2ff;
   display: flex;
