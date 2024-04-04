@@ -1,6 +1,7 @@
 const emailMessageElement = document.getElementById('email-input-message');
 const emailInputElement = document.getElementById('email');
-
+const pwdBtnElement = document.getElementById('password-btn');
+const checkPwdBtnElement = document.getElementById('check-password-btn');
 
 /**
  * email 유효성 검사에 실패한 경우 실행되는 함수
@@ -25,4 +26,25 @@ function checkEmailInput(event) {
   }
 }
 
+/**
+ * input 태그에 focusin 된 경우 원상태로 돌리는 함수
+ * 
+ * @param {Object} event 
+ */
+function resetInputMessage(event) {
+  event.target.style.border = 'initial';
+  emailMessageElement.classList.remove('message-on');
+}
+
+/**
+ * 비밀번호를 보여주는 버튼에 아이콘 변경 클래스 추가
+ *
+ * @param {Object} event
+ */
+function toggleBtnClassName(event) {
+  event.target.classList.toggle('visibility');
+}
+
 emailInputElement.addEventListener('focusout', checkEmailInput);
+emailInputElement.addEventListener('focusin', resetInputMessage);
+pwdBtnElement.addEventListener('click', toggleBtnClassName);
