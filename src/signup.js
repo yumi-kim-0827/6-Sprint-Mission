@@ -103,11 +103,12 @@ function checkPasswordSame(event) {
     pwdCheckContainer.after(pwdCheckUnderMessage);
   } else {
     pwdCheckUnderMessage.textContent = "";
-    inputTarget.style.outline = "2px solid #3182f6";
+    inputTarget.style.outline = event.type === "focusout" ? "none" : "2px solid #3182f6";
   }
 }
 
 passwordCheck.addEventListener("input", checkPasswordSame);
+passwordCheck.addEventListener("focusout", checkPasswordSame);
 
 function checkNickname(event) {
   const inputTarget = event.target;
