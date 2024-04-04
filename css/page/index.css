@@ -1,34 +1,4 @@
-/* 헤더 */
-#header {
-  padding: 11px 0;
-  display: flex;
-  position: sticky;
-  top: 0;
-  background-color: var(--white);
-  z-index: 10;
-}
-
-#header .inner {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#header .logo {
-  gap: 0 8px;
-}
-
-#header .logo-img {
-  width: 40px;
-  height: 40px;
-}
-
-#header .button {
-  width: 128px;
-  height: 48px;
-}
+/* 메인페이지 style - index.html */
 
 /* 배너 공통 */
 .banner {
@@ -127,77 +97,6 @@ main.introduce-section .text-area .detail {
   max-height: 540px;
 }
 
-/* 푸터 */
-footer {
-  padding: 32px 0 108px;
-  background-color: #111827;
-}
-
-footer .inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-footer .inner .left {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-footer .copyright {
-  color: #9ca3af;
-  font-size: var(--font-16);
-  font-weight: 400;
-  flex: 1;
-}
-
-footer .page-link {
-  font-size: var(--font-16);
-  font-weight: 400;
-  text-align: center;
-}
-
-footer .page-link a {
-  color: var(--gray-200);
-}
-
-footer .page-link a:not(:last-of-type) {
-  margin-right: 3rem;
-}
-
-footer .sns-link {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 12px;
-  flex: 1;
-}
-
-footer .sns-link > a {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-footer .sns-link a.facebook {
-  background-image: url(../img/ic_facebook.svg);
-}
-
-footer .sns-link a.twitter {
-  background-image: url(../img/ic_twitter.svg);
-}
-
-footer .sns-link a.youtube {
-  background-image: url(../img/ic_youtube.svg);
-}
-
-footer .sns-link a.instagram {
-  background-image: url(../img/ic_instagram.svg);
-}
-/* 메인페이지 완성 */
-
-
 /* Tablet */
 @media (max-width: 1199px) {
   /* 메인 페이지 */
@@ -264,10 +163,6 @@ footer .sns-link a.instagram {
   .bottom-banner .main-text {
     padding: 200px 0 75px;
   }
-
-  footer .inner {
-    padding: 0 104px;
-  }
 }
 
 
@@ -312,21 +207,5 @@ footer .sns-link a.instagram {
 
   .bottom-banner .banner-img {
     width: calc(100% + 120px);
-  }
-
-  footer {
-    padding: 32px 0;
-  }
-
-  footer .inner {
-    padding: 0 32px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  footer .inner .left {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 60px;
   }
 }
