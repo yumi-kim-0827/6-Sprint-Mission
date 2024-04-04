@@ -21,13 +21,19 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+}
+
+.form__container {
+  position: relative;
 }
 
 form label {
   font-weight: 700;
   font-size: 18px;
   line-height: 21.48px;
+  margin-bottom: 16px;
+  display: block;
 }
 
 .form__input {
@@ -38,7 +44,7 @@ form label {
   background-color: var(--gray100);
   padding: 16px 24px;
   box-shadow: none;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   line-height: 24px;
   font-weight: 400;
   font-size: 16px;
@@ -52,13 +58,19 @@ form label {
   outline: 2.5px solid var(--blue);
 }
 
-.form__password-container {
-  position: relative;
+.form__input--error {
+  outline: 2.5px solid var(--red);
+}
+
+.form__input--error-message {
+  color: var(--red);
+  display: block;
+  margin: 8px 0 0 16px;
 }
 
 .form__invisible-button {
   position: absolute;
-  top: 16px;
+  top: 53px;
   right: 24px;
   cursor: pointer;
 }
