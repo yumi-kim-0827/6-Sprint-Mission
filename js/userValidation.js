@@ -1,149 +1,146 @@
-const inputs = document.querySelectorAll('.input-wrapper input');
-const icons = document.querySelectorAll('.password-group .input-icon');
+const inputs = document.querySelectorAll(".input-wrapper input");
+const icons = document.querySelectorAll(".password-group .input-icon");
 
-/**
- * 유효성 체크 결과 다루는 함수
- * sucessValidation : 유효성 검사 통과시 실행 함수
- * failedValidation : 유효성 검사 실패시 실행 함수
- */
+// 유효성 체크 결과 다루는 함수
+const validationCheck = (inputWrapper, errorEl, text) => {
+  text
+    ? inputWrapper.classList.add("error")
+    : inputWrapper.classList.remove("error");
 
-const sucessValidation = (inputWrapper, errorEl) => {
-  inputWrapper.classList.remove('error');
-  errorEl.textContent = '';
-}
-
-const failedValidation = (inputWrapper, errorEl, text) => {
-  inputWrapper.classList.add('error');
-  errorEl.textContent = text;
-}
+  errorEl.textContent = text || "";
+};
 
 // 이메일 유효성 검사
-const emailValidationCheck = (value, wrapper, errorMessageEl) => {
+const emailValidation = (value, wrapper, errorMessageEl) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-  let message = '';
 
-  if (value === '') {
-    message = '이메일을 입력해주세요';
-    failedValidation(wrapper, errorMessageEl, message);
+  const errorMessage = {
+    emptyInput: "이메일을 입력해주세요",
+    incorrectFormat: "잘못된 이메일 형식입니다",
+  };
+
+  if (value === "") {
+    validationCheck(wrapper, errorMessageEl, errorMessage.emptyInput);
   } else if (!emailRegex.test(value)) {
-    message = '잘못된 이메일 형식입니다';
-    failedValidation(wrapper, errorMessageEl, message);
+    validationCheck(wrapper, errorMessageEl, errorMessage.incorrectFormat);
   } else {
-    sucessValidation(wrapper, errorMessageEl);
+    validationCheck(wrapper, errorMessageEl);
   }
-}
+};
 
 // 비밀번호 유효성 검사
-const passwordValidationCheck = (value, wrapper, errorMessageEl) => {
+const passwordValidation = (value, wrapper, errorMessageEl) => {
   const MIN_LENGTH = 8;
   const { length } = value;
-  let message = '';
 
-  if (value === '') {
-    message = '비밀번호를 입력해주세요';
-    failedValidation(wrapper, errorMessageEl, message);
+  const errorMessage = {
+    emptyInput: "비밀번호를 입력해주세요",
+    minCharacter: "비밀번호를 8자 이상 입력해주세요",
+  };
+
+  if (value === "") {
+    validationCheck(wrapper, errorMessageEl, errorMessage.emptyInput);
   } else if (length < MIN_LENGTH) {
-    message = '비밀번호를 8자 이상 입력해주세요'
-    failedValidation(wrapper, errorMessageEl, message);
+    validationCheck(wrapper, errorMessageEl, errorMessage.minCharacter);
   } else {
-    sucessValidation(wrapper, errorMessageEl);
+    validationCheck(wrapper, errorMessageEl);
   }
-}
+};
 
 // 비밀번호 확인 유효성 검사
-const passwordCheck = (target, wrapper, errorMessageEl) => {
-  const { value:passwordCheckValue } = target;
+const passwordCheckValidation = (target, wrapper, errorMessageEl) => {
+  const errorMessage = "비밀번호가 일치하지 않습니다";
 
-  const password = document.querySelector('#password');
-  const { value:passwordValue } = password;
+  const { value: passwordCheckValue } = target;
+  const password = document.querySelector("#password");
+  const { value: passwordValue } = password;
 
-  let message = '비밀번호가 일치하지 않습니다';
-
-  if(passwordCheckValue !== passwordValue) {
-    failedValidation(wrapper, errorMessageEl, message);
-  } else {
-    sucessValidation(wrapper, errorMessageEl);
-  }
-}
+  passwordCheckValue !== passwordValue
+    ? validationCheck(wrapper, errorMessageEl, errorMessage)
+    : validationCheck(wrapper, errorMessageEl);
+};
 
 // 닉네임 유효성 검사
-const nameValidationCheck = (value, wrapper, errorMessageEl) => {
-  let message = '닉네임을 입력해주세요';
-  if(value === '') {
-    failedValidation(wrapper, errorMessageEl, message);
-  } else {
-    sucessValidation(wrapper, errorMessageEl);
-  }
-}
+const nicknameValidation = (value, wrapper, errorMessageEl) => {
+  const errorMessage = "닉네임을 입력해주세요";
+
+  value === ""
+    ? validationCheck(wrapper, errorMessageEl, errorMessage)
+    : validationCheck(wrapper, errorMessageEl);
+};
 
 // 비밀번호 아이콘 토글 기능
 const passwordIconToggle = (event) => {
+  const on = {
+    type: "text",
+    src: "img/visibility_on.svg",
+  };
+
+  const off = {
+    type: "password",
+    src: "img/visibility_off.svg",
+  };
+
   const { target } = event;
-  const parent = target.closest('.password-group');
-  parent.classList.toggle('off');
+  const parent = target.closest(".password-group");
+  parent.classList.toggle("off");
 
-  const input = parent.querySelector('input');
-  const img = parent.querySelector('.input-icon img');
+  const input = parent.querySelector("input");
+  const img = parent.querySelector(".input-icon img");
 
-  if(parent.classList.contains('off')) {
-    input.type = 'password';
-    img.src = 'img/visibility_off.svg';
-  } else {
-    input.type = 'text';
-    img.src = 'img/visibility_on.svg';
-  }
-}
+  input.type = parent.classList.contains("off") ? off.type : on.type;
+  img.src = parent.classList.contains("off") ? off.src : on.src;
+};
 
 // 버튼 활성화
 const buttonActiveCheck = () => {
-  const button = document.querySelector('form button');
-  const error = document.querySelector('.error');
+  const button = document.querySelector("form button");
+  const error = document.querySelector(".error");
 
   inputs.forEach((input) => {
     const { value } = input;
-    if(value !== '' && !error) {
-      button.classList.remove('off')
-    } else {
-      button.classList.add('off')
-    }
-  })
-}
+
+    value !== "" && !error
+      ? button.classList.remove("off")
+      : button.classList.add("off");
+  });
+};
 
 // input 구분 후 유효성 체크
-const validationCheck = (event) => {
+const checkInputType = (event) => {
   const { target } = event;
   const { id, value } = target;
-  const wrapper = target.closest('.input-wrapper');
-  const errorMessage = wrapper.querySelector('.error-message');
+  const wrapper = target.closest(".input-wrapper");
+  const errorMessage = wrapper.querySelector(".error-message");
 
   switch (id) {
-    case 'email':
-      emailValidationCheck(value, wrapper, errorMessage);
-      break;
-    
-    case 'name':
-      nameValidationCheck(value, wrapper, errorMessage);
+    case "email":
+      emailValidation(value, wrapper, errorMessage);
       break;
 
-    case 'password':
-      passwordValidationCheck(value, wrapper, errorMessage);
+    case "name":
+      nicknameValidation(value, wrapper, errorMessage);
       break;
 
-    case 'password-check':
-      passwordCheck(target, wrapper, errorMessage);
+    case "password":
+      passwordValidation(value, wrapper, errorMessage);
+      break;
+
+    case "password-check":
+      passwordCheckValidation(target, wrapper, errorMessage);
       break;
   }
 
   buttonActiveCheck();
-}
+};
 
 // 유효성 체크
 inputs.forEach((input) => {
-  input.addEventListener('focusout', validationCheck);
-  input.addEventListener('input', buttonActiveCheck);
-})
+  input.addEventListener("focusout", checkInputType);
+  input.addEventListener("input", buttonActiveCheck);
+});
 
 // 비밀번호 아이콘 클릭 이벤트
 icons.forEach((icon) => {
-  icon.addEventListener('click', passwordIconToggle)
-})
+  icon.addEventListener("click", passwordIconToggle);
+});
