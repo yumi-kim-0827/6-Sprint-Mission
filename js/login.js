@@ -3,6 +3,10 @@ const emailMessageElement = document.getElementById('email-input-message');
 const pwdInputElement = document.getElementById('password');
 const pwdMessageElement = document.getElementById('pwd-input-message');
 const pwdBtnElement = document.getElementById('password-btn');
+const submitBtnElement = document.getElementById('submit-btn');
+
+const EMAIL_REGEXP =
+  /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/i;
 
 /**
  * email 유효성 검사에 실패한 경우 실행되는 함수
@@ -12,15 +16,13 @@ const pwdBtnElement = document.getElementById('password-btn');
 function checkEmailInput(event) {
   const NULL_MESSAGE = '이메일을 입력해주세요.';
   const WRONG_MESSAGE = '잘못된 이메일 형식입니다.';
-  const REGEXP =
-    /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/i;
   const email = emailInputElement.value;
 
   if (!email) {
     event.target.style.border = '1px solid red';
     emailMessageElement.innerText = NULL_MESSAGE;
     emailMessageElement.classList.add('message-on');
-  } else if (!REGEXP.test(email)) {
+  } else if (!EMAIL_REGEXP.test(email)) {
     event.target.style.border = '1px solid red';
     emailMessageElement.innerText = WRONG_MESSAGE;
     emailMessageElement.classList.add('message-on');
@@ -29,8 +31,8 @@ function checkEmailInput(event) {
 
 /**
  * password 유효성 검사에 실패한 경우 실행되는 함수
- * 
- * @param {Object} event 
+ *
+ * @param {Object} event
  */
 function checkPwdInput(event) {
   const NULL_MESSAGE = '비밀번호를 입력해주세요.';
@@ -40,7 +42,7 @@ function checkPwdInput(event) {
     event.target.style.border = '1px solid red';
     pwdMessageElement.innerText = NULL_MESSAGE;
     pwdMessageElement.classList.add('message-on');
-  } else if (pwdInputElement.value.length < 9) {
+  } else if (pwdInputElement.value.length < 8) {
     event.target.style.border = '1px solid red';
     pwdMessageElement.innerText = WRONG_MESSAGE;
     pwdMessageElement.classList.add('message-on');
@@ -49,8 +51,8 @@ function checkPwdInput(event) {
 
 /**
  * email Input에 focusin 된 경우 원상태로 돌리는 함수
- * 
- * @param {Object} event 
+ *
+ * @param {Object} event
  */
 function resetEmailEvent(event) {
   event.target.style.border = 'initial';
@@ -59,8 +61,8 @@ function resetEmailEvent(event) {
 
 /**
  * password Input에 focusin 된 경우 원상태로 돌리는 함수
- * 
- * @param {Object} event 
+ *
+ * @param {Object} event
  */
 function resetPwdEvent(event) {
   event.target.style.border = 'initial';
@@ -76,8 +78,27 @@ function toggleBtnClassName(event) {
   event.target.classList.toggle('visibility');
 }
 
+/**
+ * 유효성 검사 후 로그인 버튼 활성화/비활성화 함수
+ * 
+ * @param {Object} event 
+ */
+function checkValid(event) {
+  submitBtnElement.classList.remove('submit-on');
+  if (!EMAIL_REGEXP.test(email) && pwdInputElement.value.length < 8) {
+    if (!(emailInputElement.value && pwdInputElement.value)) {
+      submitBtnElement.disabled = true;
+    }
+  } else {
+    submitBtnElement.disabled = false;
+    submitBtnElement.classList.add('submit-on');
+  }
+}
+
 emailInputElement.addEventListener('focusout', checkEmailInput);
 emailInputElement.addEventListener('focusin', resetEmailEvent);
 pwdInputElement.addEventListener('focusout', checkPwdInput);
 pwdInputElement.addEventListener('focusin', resetPwdEvent);
 pwdBtnElement.addEventListener('click', toggleBtnClassName);
+emailInputElement.addEventListener('keyup', checkValid);
+pwdInputElement.addEventListener('keyup', checkValid);
