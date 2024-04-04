@@ -105,9 +105,6 @@ nav {
   border: 0px;
   width: 128px;
 }
-.btn-primary:hover {
-  background-color: var(--sub-light-blue-color);
-}
 .btn-sm {
   width: 154px;
 }
