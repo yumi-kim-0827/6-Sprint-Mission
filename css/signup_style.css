@@ -165,3 +165,31 @@ a {
       text-decoration: underline;
       word-break: keep-all;
     }
+
+@media (max-width: 767px) {
+  .body {
+    padding: 24px 16px 80px;
+  }
+
+  .logo {
+    width: 198px;
+    height: 66px;
+  }
+
+  .main {
+    margin-top: 24px;
+    max-width: 400px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .form-items__label {
+    font-size: 1.4rem;
+  }
+
+  .form-input {
+    margin-top: 8px;
+  }
+}

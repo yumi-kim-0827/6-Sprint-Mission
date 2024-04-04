@@ -166,12 +166,6 @@ a {
       word-break: keep-all;
     }
 
-    @media (max-width: 1199px) {
-  .body {
-    padding: 48px 48px 96px;
-  }
-}
-
 @media (max-width: 767px) {
   .body {
     padding: 24px 16px 80px;
