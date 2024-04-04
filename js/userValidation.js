@@ -2,12 +2,12 @@ const inputs = document.querySelectorAll(".input-wrapper input");
 const icons = document.querySelectorAll(".password-group .input-icon");
 
 // 유효성 체크 결과 다루는 함수
-const validationCheck = (inputWrapper, errorEl, text) => {
-  text
+const validationCheck = (inputWrapper, errorEl, errorMessage) => {
+  errorMessage
     ? inputWrapper.classList.add("error")
     : inputWrapper.classList.remove("error");
 
-  errorEl.textContent = text || "";
+  errorEl.textContent = errorMessage || "";
 };
 
 // 이메일 유효성 검사
@@ -92,7 +92,7 @@ const passwordIconToggle = (event) => {
   img.src = parent.classList.contains("off") ? off.src : on.src;
 };
 
-// 버튼 활성화
+// 버튼 활성화 (빈값이 있거나 에러 메시지가 있다면 활성화 X)
 const buttonActiveCheck = () => {
   const button = document.querySelector("form button");
   const error = document.querySelector(".error");
