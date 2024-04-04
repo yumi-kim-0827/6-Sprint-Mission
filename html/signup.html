@@ -7,7 +7,7 @@
   <link rel="icon" href="../assets/icons/ic_pandamarket.png">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/login-register-style.css">
+  <link rel="stylesheet" href="../css/auth.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 </head>
 <body>
@@ -36,7 +36,7 @@
         <a class="form__invisible-button"><img src="../assets/icons/ic_invisible.png" alt="invisible-icon"></a>
         <input class="form__input" id="password-verify" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
       </div>
-      <button class="form__button" type="button" onclick="location.href='./login.html'" disabled>회원가입</button>
+      <button class="form__button" type="button" onclick="location.href='../html/login.html'" disabled>회원가입</button>
     </form>
     <div class="simpleLogin">
       <div class="simpleLogin__text">간편 로그인하기</div>
@@ -50,6 +50,7 @@
       <a class="askWhetherUser__link" href="../html/login.html">로그인</a>
     </div>
   </main>
-  <script src="../js/auth.js"></script>
+  <!-- <script type="module" src="../js/auth.js"></script> -->
+  <script type="module" src="../js/signup.js"></script>
 </body>
 </html>
