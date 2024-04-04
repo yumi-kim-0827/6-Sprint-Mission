@@ -42,6 +42,7 @@
       <form class="user-form" action="#" method="post">
         <div id="email-input__wrap">
           <label class="user-form__label" for="email"> 이메일 </label>
+          <!-- TODO: input 값 글자색 -->
           <input
             id="email"
             class="user-form__input"
@@ -58,7 +59,9 @@
               class="user-form__input"
               type="password"
               placeholder="비밀번호를 입력해주세요"
+              minlength="8"
             />
+            <p id="pwd-input-message" class="input-message"></p>
             <button
               id="password-btn"
               class="password__visibility-button"
