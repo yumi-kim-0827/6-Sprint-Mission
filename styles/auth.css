@@ -47,6 +47,7 @@ input:focus {
   position: absolute;
   right: 24px;
   cursor: pointer;
+  background-color: inherit;
 }
 
 /* Form Submit Button */
