@@ -47,17 +47,23 @@ function validatePassword() {
 }
 
 // Form 전송 핸들러
-function submitFormHandler(formId, redirectUrl) {
+function submitForm(formId, redirectUrl) {
   const form = document.querySelector(`#${formId}`);
+  const submitButton = document.querySelector(".submit-form-btn");
 
   if (!form) return;
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     validateEmail();
     validatePassword();
 
-    if (!document.querySelector('.error-message[style="display: block;"]')) {
+    const isError = document.querySelector(
+      '.error-message[style="display: block;"]'
+    );
+
+    if (!isError) {
+      submitButton.style.backgroundColor = "#3692ff";
       window.location.href = redirectUrl;
     }
   });
@@ -67,4 +73,4 @@ function submitFormHandler(formId, redirectUrl) {
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
 
-submitFormHandler("signInForm", "/items");
+submitForm("signInForm", "/items");
