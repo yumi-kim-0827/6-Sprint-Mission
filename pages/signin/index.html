@@ -22,8 +22,11 @@
             placeholder="이메일을 입력해주세요"
             required
           />
+          <p id="isEmailValMessage" class="error_message" style="display: none">
+            이메일을 입력해주세요
+          </p>
           <p id="emailValMessage" class="error_message" style="display: none">
-            잘못된 이메일입니다
+            잘못된 이메일 형식입니다
           </p>
           <div class="pwd_container">
             <label for="pwd">비밀번호</label>
@@ -42,10 +45,13 @@
               />
             </button>
           </div>
+          <p id="isPwdValMessage" class="error_message" style="display: none">
+            비밀번호를 입력해주세요
+          </p>
           <p id="pwdValMessage" class="error_message" style="display: none">
             비밀번호를 8자 이상 입력해주세요
           </p>
-          <button id="submitBtn" type="submit">로그인</button>
+          <button id="submitBtn" type="submit" disabled>로그인</button>
         </form>
         <div id="sns_container">
           간편 로그인하기
