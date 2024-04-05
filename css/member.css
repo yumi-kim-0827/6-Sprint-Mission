@@ -72,7 +72,7 @@
 }
 
 /*mobile*/
-@media (max-width:767px) and (min-width:375px){
+@media (min-width:375px) and (max-width:767px){
     #login section, #join section{
         padding: 0 16px;
         max-width: 400px;
