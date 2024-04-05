@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 - 로그인</title>
     <link rel="stylesheet" href="../styles/reset.css" />
-    <link rel="stylesheet" href="../styles/signinAndSignup.css" />
+    <link rel="stylesheet" href="../styles/signin_and_signup.css" />
   </head>
   <body>
     <header>
@@ -24,23 +24,26 @@
               id="emailInput"
             />
           </div>
+          <p class="error" id="emailError">error message</p>
           <div class="input_wrapper">
             <label for="passwordInput">비밀번호</label>
-
             <div class="password_wrapper">
               <input
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
                 id="passwordInput"
+                autocomplete
               />
               <img
+                id="showPassword"
                 class="show_password"
                 src="../assets/lens_x.png"
                 alt="비밀번호 보기 아이콘"
               />
             </div>
           </div>
-          <button>로그인</button>
+          <p class="error" id="pwdError">error message</p>
+          <a id="loginButton" class="disable" href="items.html">로그인</a>
         </form>
         <div class="social_login_wrapper">
           <span>간편 로그인하기</span>
@@ -59,4 +62,5 @@
       </div>
     </main>
   </body>
+  <script type="module" src="../js/signIn.js"></script>
 </html>

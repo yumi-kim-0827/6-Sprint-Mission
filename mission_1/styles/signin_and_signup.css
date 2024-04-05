@@ -58,14 +58,20 @@ input {
   border-radius: 12px;
   border: none;
   background-color: var(--gray-100);
-  color: var(--gray-400);
+  color: black;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   padding: 10px;
 }
+input::placeholder {
+  color: var(--gray-400);
+}
 input:focus {
   outline: 2px solid var(--brand-color);
+}
+input.error {
+  outline: 1px solid var(--error-color);
 }
 .password_wrapper {
   position: relative;
@@ -77,15 +83,44 @@ input:focus {
   top: 15px;
   cursor: pointer;
 }
-button {
+.showLens {
+  top: 19px;
+  right: 12px;
+  width: 21px;
+}
+a#loginButton {
+  display: block;
   width: 100%;
   height: 56px;
   border-radius: 40px;
   border: none;
-  background-color: var(--gray-400);
   font-size: 20px;
   font-weight: 600;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+a#loginButton.disable {
+  pointer-events: none;
+  background-color: var(--gray-400);
+}
+a#loginButton.enable {
+  pointer-events: all;
+  background-color: var(--brand-color);
+  cursor: pointer;
+}
+
+p.error {
+  display: none;
+  color: var(--error-color);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+p.error.show {
+  display: block;
 }
 
 /* ************ */
@@ -96,7 +131,7 @@ button {
   height: 74px;
   border-radius: 8px;
   padding: 25px;
-  background-color: #e6f2ff;
+  background-color: var(--social_login_background);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,7 +163,26 @@ button {
   color: var(--gray-800);
 }
 .link_wrapper a {
-  color: #3182f6;
+  color: var(--link-color);
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    margin-top: 30px;
+  }
+  main {
+    margin-top: 30px;
+  }
+
+  header .logo_img {
+    width: 198px;
+    height: 66px;
+  }
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 16px;
+  }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 - 회원가입</title>
     <link rel="stylesheet" href="../styles/reset.css" />
-    <link rel="stylesheet" href="../styles/signinAndSignup.css" />
+    <link rel="stylesheet" href="../styles/signin_and_signup.css" />
   </head>
   <body>
     <header>
@@ -24,6 +24,7 @@
               id="emailInput"
             />
           </div>
+          <p class="error" id="emailError"></p>
           <div class="input_wrapper">
             <label for="nicknameInput">닉네임</label>
             <input
@@ -32,6 +33,7 @@
               id="nicknameInput"
             />
           </div>
+          <p class="error" id="nicknameError"></p>
           <div class="input_wrapper">
             <label for="passwordInput">비밀번호</label>
             <div class="password_wrapper">
@@ -39,30 +41,36 @@
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
                 id="passwordInput"
+                autocomplete
               />
               <img
+                id="showPassword"
                 class="show_password"
                 src="../assets/lens_x.png"
                 alt="비밀번호 보기 아이콘"
               />
             </div>
           </div>
+          <p class="error" id="pwdError"></p>
           <div class="input_wrapper">
-            <label for="passwordInput">비밀번호 확인</label>
+            <label for="passwordCheckInput">비밀번호 확인</label>
             <div class="password_wrapper">
               <input
                 type="password"
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
-                id="passwordInput"
+                id="passwordCheckInput"
+                autocomplete
               />
               <img
+                id="showPasswordCheck"
                 class="show_password"
                 src="../assets/lens_x.png"
                 alt="비밀번호 보기 아이콘"
               />
             </div>
           </div>
-          <button>회원가입</button>
+          <p class="error" id="pwdCheckError"></p>
+          <a class="disable" id="loginButton" href="signin.html">회원가입</a>
         </form>
         <div class="social_login_wrapper">
           <span>간편 로그인하기</span>
@@ -81,4 +89,5 @@
       </div>
     </main>
   </body>
+  <script type="module" src="../js/signUp.js"></script>
 </html>

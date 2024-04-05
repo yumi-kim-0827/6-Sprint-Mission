@@ -10,8 +10,17 @@
   <body>
     <header>
       <div class="header_wrapper">
-        <a href="/">
-          <img src="./assets/logo.png" alt="판다마켓 로고" />
+        <a href="/" class="logo_wrapper_anchor">
+          <img
+            src="./assets/logo_only.png"
+            alt="판다마켓 로고"
+            id="logo_only"
+          />
+          <img
+            src="./assets/text_only.png"
+            alt="판다마켓 로고"
+            id="text_only"
+          />
         </a>
         <a href="./pages/signin.html">
           <button class="login-button">로그인</button>
@@ -20,15 +29,11 @@
     </header>
     <div class="main_banner">
       <div class="container">
-        <div class="text_wrapper">
-          <h1 class="banner_title">일상의 모든 물건을 거래해 보세요</h1>
-          <a href="./pages/items.html"><button>구경하러 가기</button></a>
-        </div>
-        <img
-          class="banner-img"
-          src="./assets/banner-img.png"
-          alt="배너 이미지"
-        />
+        <h1 class="banner_title">
+          일상의 모든 물건을<br />
+          거래해 보세요
+        </h1>
+        <a href="./pages/items.html"><button>구경하러 가기</button></a>
       </div>
     </div>
     <main>
@@ -37,24 +42,15 @@
           <img src="./assets/section-img-1.png" alt="섹션 1 이미지" />
           <div class="text_wrapper">
             <span>Hot item</span>
-            <h1>인기 상품을 <br />확인해 보세요</h1>
-            <p>
-              가장 HOT한 중고거래 물품을<br />
-              판다 마켓에서 확인해 보세요
-            </p>
+            <h1>인기 상품을 확인해 보세요</h1>
+            <p>가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요</p>
           </div>
         </section>
         <section>
           <div class="text_wrapper">
             <span>Search</span>
-            <h1>
-              구매를 원하는<br />
-              상품을 검색하세요
-            </h1>
-            <p>
-              구매하고 싶은 물품을 검색해서<br />
-              쉽게 찾아보세요
-            </p>
+            <h1>구매를 원하는 상품을 검색하세요</h1>
+            <p>구매하고 싶은 물품을 검색해서 쉽게 찾아보세요</p>
           </div>
           <img src="./assets/section-img-2.png" alt="섹션 2 이미지" />
         </section>
@@ -62,28 +58,18 @@
           <img src="./assets/section-img-3.png" alt="섹션 3 이미지" />
           <div class="text_wrapper">
             <span>Register</span>
-            <h1>
-              판매를 원하는<br />
-              상품을 등록하세요
-            </h1>
-            <p>
-              어떤 물건이든 판매하고 싶은 상품을<br />
-              쉽게 등록하세요
-            </p>
+            <h1>판매를 원하는 상품을 등록하세요</h1>
+            <p>어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요</p>
           </div>
         </section>
       </div>
     </main>
     <div class="footer_banner">
       <div class="container">
-        <div class="text_wrapper">
-          <h1 class="banner_title">믿을 수 있는 판다마켓 중고거래</h1>
-        </div>
-        <img
-          class="footer-banner-img"
-          src="./assets/footer-banner-img.png"
-          alt="배너 이미지"
-        />
+        <h1 class="banner_title">
+          믿을 수 있는<br />
+          판다마켓 중고거래
+        </h1>
       </div>
     </div>
     <footer>
@@ -93,6 +79,7 @@
           <li><a href="./pages/privacy.html">Privacy Policy</a></li>
           <li><a href="./pages/faq.html">FAQ</a></li>
         </ul>
+
         <ul class="sns">
           <li>
             <a href="http://www.facebook.com" target="_blank"
