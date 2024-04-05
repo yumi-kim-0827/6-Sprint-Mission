@@ -49,23 +49,27 @@ const passwordValidation = (value, wrapper, errorMessageEl) => {
 
 // 비밀번호 확인 유효성 검사
 const passwordCheckValidation = (target, wrapper, errorMessageEl) => {
-  const errorMessage = "비밀번호가 일치하지 않습니다";
+  const errorMessage = {
+    mismatch: "비밀번호가 일치하지 않습니다",
+  };
 
   const { value: passwordCheckValue } = target;
   const password = document.querySelector("#password");
   const { value: passwordValue } = password;
 
   passwordCheckValue !== passwordValue
-    ? validationCheck(wrapper, errorMessageEl, errorMessage)
+    ? validationCheck(wrapper, errorMessageEl, errorMessage.mismatch)
     : validationCheck(wrapper, errorMessageEl);
 };
 
 // 닉네임 유효성 검사
 const nicknameValidation = (value, wrapper, errorMessageEl) => {
-  const errorMessage = "닉네임을 입력해주세요";
+  const errorMessage = {
+    emptyInput: "닉네임을 입력해주세요",
+  };
 
   value === ""
-    ? validationCheck(wrapper, errorMessageEl, errorMessage)
+    ? validationCheck(wrapper, errorMessageEl, errorMessage.emptyInput)
     : validationCheck(wrapper, errorMessageEl);
 };
 
