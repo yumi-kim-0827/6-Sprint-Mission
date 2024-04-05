@@ -4,11 +4,17 @@ const emailError = document.querySelector('#email-error');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#password-error');
 
-const handleInputValid = (inputEl, errorEl, errMsg) => {
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+const handlePasswordValid = (inputEl, errorEl) => {
   if (inputEl.value === '') {
     inputEl.classList.add('error-input');
     errorEl.style.display = 'block';
-    errorEl.textContent = errMsg;
+    errorEl.textContent = '비밀번호를 입력해주세요.';
+  } else if (inputEl.value.length < 8) {
+    inputEl.classList.add('error-input');
+    errorEl.style.display = 'block';
+    errorEl.textContent = '비밀번호를 8자 이상 입력해주세요.';
   } else {
     inputEl.classList.remove('error-input');
     errorEl.style.display = 'none';
@@ -17,8 +23,6 @@ const handleInputValid = (inputEl, errorEl, errMsg) => {
 };
 
 const handleEmailValid = (inputEl, errorEl) => {
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
   if (inputEl.value === '') {
     inputEl.classList.add('error-input');
     errorEl.style.display = 'block';
@@ -39,5 +43,5 @@ emailInput.addEventListener('focusout', () => {
 });
 
 passwordInput.addEventListener('focusout', () => {
-  handleInputValid(passwordInput, passwordError, '비밀번호를 입력해주세요.');
+  handlePasswordValid(passwordInput, passwordError);
 });
