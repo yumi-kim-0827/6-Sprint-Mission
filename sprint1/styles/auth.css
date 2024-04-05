@@ -89,6 +89,10 @@ input::placeholder {
   text-underline-offset: 2px;
 }
 
+.color {
+  color: red;
+}
+
 @media (min-width: 768px) {
   .auth-container {
     max-width: 640px;
