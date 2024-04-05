@@ -30,6 +30,28 @@ form {
     font-size: 18px;
     font-weight: 700;
     color: #1F2937;
+    position: relative;
+}
+
+.toggle-password-1 {
+    position: absolute;
+    top: 212px;
+    right: 24px;
+    cursor: pointer;
+}
+
+.toggle-password-2 {
+    position: absolute;
+    top: 358px;
+    right: 24px;
+    cursor: pointer;
+}
+
+.toggle-password-3 {
+    position: absolute;
+    top: 510px;
+    right: 24px;
+    cursor: pointer;
 }
 
 .check_error {
