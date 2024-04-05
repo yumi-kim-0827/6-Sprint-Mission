@@ -20,35 +20,41 @@
     <main class="main-login">
       <div class="main-login__wrap">
         <form action="server" method="get" class="content-form">
-          <fieldset class="content-form__fieldset">
-            <div class="container--gap-16px">
-              <label for="email" class="content-form__label">이메일</label>
-              <input
-                class="content-form__input description-input constent-form__input--email"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="이메일을 입력해주세요"
-                required
-              />
-              <label for="password" class="content-form__label"
-                >비밀번호
-              </label>
-              <div class="container--position-relative">
-                <input
-                  class="content-form__input description-input content-form__input--password"
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="비밀번호를 입력해주세요"
-                  autocomplete="current-password"
-                  required
-                />
-                <img
-                  src="image/signin-page/btn_visibility_on_24px.png"
-                  alt=""
-                  class="content-form__icon"
-                />
+          <fieldset class="content-form__fieldset container--gap-50px">
+            <div class="container--gap-50px container--flex-column">
+              <div class="container--flex-column container--gap-16px">
+                <label for="email" class="content-form__label">이메일</label>
+                <div class="container--position-relative">
+                  <input
+                    class="content-form__input description-input content-form__input--email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="이메일을 입력해주세요"
+                    autocomplete="username"
+                  />
+                </div>
+              </div>
+              <div class="container--flex-column container--gap-16px">
+                <label for="password" class="content-form__label"
+                  >비밀번호
+                </label>
+                <div class="container--position-relative">
+                  <input
+                    class="content-form__input description-input content-form__input--password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    autocomplete="current-password"
+                    minlength="8"
+                  />
+                  <img
+                    src="image/signin-page/btn_visibility_on_24px.png"
+                    alt=""
+                    class="content-form__icon"
+                  />
+                </div>
               </div>
             </div>
 

@@ -37,15 +37,13 @@ html {
   font-size: 10px;
 }
 
-.description-invaild {
+.description-invalid {
   color: #f74747;
-  font-family: Pretendard;
   font-size: 15px;
   font-weight: 600;
   line-height: 17.9px;
   text-align: left;
   position: absolute;
-  width: 202px;
   height: 18px;
   top: 64px;
   left: 16px;
@@ -166,16 +164,21 @@ html {
   width: 640px;
   height: 74px;
   border-radius: 8px;
-  background: #E6F2FF;
+  background: #e6f2ff;
 }
 
 .container--position-relative {
   position: relative;
 }
 .container--gap-16px {
+  gap: 16px;
+}
+.container--gap-50px {
+  gap: 50px;
+}
+.container--flex-column {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .header-main {
@@ -378,7 +381,6 @@ html {
 .content-form__fieldset {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .content-form__icon {
   position: absolute;
@@ -400,10 +402,10 @@ html {
   background: #f3f4f6;
   border: none;
 }
-.content-form__input--invalid {
+.content-form__input:invalid {
   border: 1px solid #f74747;
 }
-.content-form__input--valid {
+.content-form__input:valid {
   border: 1px solid #3692ff;
 }
 .content-form__label {

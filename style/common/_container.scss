@@ -2,15 +2,21 @@
   width: 640px;
   height: 74px;
   border-radius: 8px;
-  background: #E6F2FF;
+  background: #e6f2ff;
 }
 
-.container{
-  &--position-relative{
+.container {
+  &--position-relative {
     position: relative;
   }
-  &--gap-16px{
-  display:flex;
-  flex-direction: column;
-  gap:16px;
-}}
+  &--gap-16px {
+    gap: 16px;
+  }
+  &--gap-50px {
+    gap: 50px;
+  }
+  &--flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+}
