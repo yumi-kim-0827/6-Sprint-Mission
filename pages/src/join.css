@@ -37,31 +37,32 @@
 .input-group input::placeholder {
   color: var(--gray400);
 }
-.input-group input:focus-visible {
+.input-group input:focus-visible,
+.input-group input.on {
   outline: 1px solid var(--main-blue-color);
 }
 .input-group input.error {
   outline: 1px solid var(--red-color);
 }
 .input-group .error-msg {
-	color: var(--red-color);
-	font-size: 0.9375rem;
-	margin: 8px 16px;
+  color: var(--red-color);
+  font-size: 0.9375rem;
+  margin: 8px 16px;
 }
 .visible-icon {
   content: '';
   width: 24px;
   height: 56px;
   background-image: url('/images/btn-visibility-off.svg');
-	background-repeat: no-repeat;
-	background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
   position: absolute;
   right: 20px;
   top: 15px;
   cursor: pointer;
 }
 .visible-icon.on {
-	background-image: url('/images/btn-visibility-on.svg');
+  background-image: url('/images/btn-visibility-on.svg');
 }
 .join-form > div {
   margin: 24px 0;

@@ -21,30 +21,39 @@
           <a href="/index.html" class="home-logo"><img src="/images/logo-big.svg" alt="판다마켓 로고" /></a>
           <form class="join-form signup-form">
             <div class="input-group">
-              <label for="signup-email">이메일</label>
-              <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요." />
+              <label for="email">이메일</label>
+              <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요." />
             </div>
             <div class="input-group">
-              <label for="nick-name">닉네임</label>
-              <input id="nick-name" name="nick-name" type="text" placeholder="닉네임을 입력해주세요." />
+              <label for="nickname">닉네임</label>
+              <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요." />
             </div>
             <div class="input-group">
-              <label for="signup-password">비밀번호</label>
-              <input id="signup-password" name="password" type="password" placeholder="비밀번호를 입력해주세요." />
+              <label for="password">비밀번호</label>
               <span class="visible-icon"></span>
+              <input
+                id="password"
+                class="password"
+                name="password"
+                type="password"
+                placeholder="비밀번호를 입력해주세요."
+              />
             </div>
             <div class="input-group">
-              <label for="signup-password-check">비밀번호 확인</label>
+              <label for="password-check">비밀번호 확인</label>
+              <span class="visible-icon"></span>
               <input
-                id="signup-password-check"
+                id="password-check"
+                class="password"
                 name="password"
                 type="password"
                 placeholder="비밀번호를 다시 한 번 입력해주세요."
               />
-              <span class="visible-icon"></span>
             </div>
 
-            <button type="submit" class="btn-primary btn-md btn-lg rounded-lg bg-color-gray400">회원가입</button>
+            <button type="button" id="signup-btn" class="btn-primary btn-md btn-lg rounded-lg bg-color-gray400">
+              회원가입
+            </button>
 
             <div class="sns-join-wrap">
               <p>간편 로그인하기</p>
@@ -66,5 +75,8 @@
         </div>
       </div>
     </main>
+
+    <!-- 회원가입 폼 js 불러오기 -->
+    <script type="module" src="/js/singupForm.js"></script>
   </body>
 </html>
