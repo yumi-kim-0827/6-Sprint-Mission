@@ -21,25 +21,48 @@
         ><img src="./images/logo/panda-market-logo.png" alt="title-logo"
       /></a>
       <section class="sign-box">
-        <div class="ip-section">
+        <form class="ip-section">
           <div class="ip-area">
             <h3 class="title">이메일</h3>
-            <input
-              class="ip-box"
-              type="email"
-              placeholder="이메일을 입력해주세요"
-            />
+            <div id="input-em-area">
+              <input
+                id="input-email"
+                class="ip-box"
+                type="email"
+                placeholder="이메일을 입력해주세요"
+                autocomplete="email"
+              />
+            </div>
           </div>
           <div class="ip-area">
             <h3 class="title">비밀번호</h3>
-            <input
-              class="ip-box password"
-              type="password"
-              placeholder="비밀번호를 입력해주세요"
-            />
+            <div id="input-pw-area">
+              <input
+                id="input-password"
+                class="ip-box"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                autocomplete="password"
+              />
+            </div>
+            <label for="input-password">
+              <img
+                id="visibility-icon"
+                class="visibility"
+                src="./images/logo/visibility_off.svg"
+                alt="visibility-off-button"
+              />
+            </label>
           </div>
-          <button class="login-bt">로그인</button>
-        </div>
+          <input
+            id="login-button"
+            class="abled-bt"
+            value="로그인"
+            type="button"
+            onclick="window.location.href='/items'"
+            disabled="disabled"
+          />
+        </form>
         <div class="easy">
           <h4>간편 로그인하기</h4>
           <div class="sns">
@@ -63,5 +86,6 @@
         </span>
       </section>
     </main>
+    <script src="./JS/signin.js"></script>
   </body>
 </html>
