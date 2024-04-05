@@ -19,9 +19,6 @@ let isValidNickname = false;
 let isValidPassword = false;
 let isValidPasswordConfirmation = false;
 
-const emailRegex = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
-
-
 const hideErrorMessage = (elem) => {
     if(!elem.classList.contains('disabled')) {
         elem.classList.add('disabled');
