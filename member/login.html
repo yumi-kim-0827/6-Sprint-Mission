@@ -17,17 +17,19 @@
                     <div class="input_area">
                         <label for="login_ID">
                             이메일
-                            <input type="email" name="userID" id="login_ID" placeholder="이메일을 입력해주세요.">
+                            <input type="email" name="userID" id="login_ID" data-check='' placeholder="이메일을 입력해주세요.">
+                            <p class="wrongText"></p>
                         </label>
                     </div>
                     <div class="input_area">
                         <label for="login_PWD">
                             비밀번호
-                            <input type="password" name="userPWD" id="login_PWD" placeholder="비밀번호를 입력해주세요.">
+                            <input type="password" name="userPWD" id="login_PWD" data-check='' placeholder="비밀번호를 입력해주세요.">
+                            <p class="wrongText"></p>
                         </label>
                         <img class="pwd_icon" src="../image/login/eye.png" alt="비밀번호 표시 여부 아이콘"/>
                     </div>
-                    <button type="submit" class="submit_btn">로그인</button>
+                    <button type="button" class="submit_btn" id="auth_btn" onclick="location.href='../product/item.html' ">로그인</button>
                 </form>
                 <!--
                     간편로그인은 form안에 작성하나요?
@@ -52,5 +54,6 @@
             </section>
         </article>
     </main>
+    <script src="../js/index.js"></script>
 </body>
 </html>
