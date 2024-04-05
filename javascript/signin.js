@@ -6,6 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
   emailInput.addEventListener('focusout', validateInputs);
   passwordInput.addEventListener('focusout', validateInputs);
 
+  loginButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const validEmail = isValidEmail(email);
+    const validPassword = password.length >= 8;
+
+    if (validEmail && validPassword) {
+      window.location.href = '/items.html'; // 유효한 경우 '/items'로 이동
+    }
+  });
+
   // 입력값이 유효한 경우에만 로그인 버튼을 활성화
   function validateInputs() {
     const email = emailInput.value.trim();
