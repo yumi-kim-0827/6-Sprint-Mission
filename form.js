@@ -50,6 +50,9 @@ function checkName() {
     if (myNickname.value.length === 0) {
         document.querySelector("#nickname-error").innerHTML = NICKNAME_ERROR.noValue;
         this.style.border='1px solid red';
+    } else {
+        document.querySelector("#nickname-error").innerHTML = '';
+        this.style.border = '';   
     }
 };
 
