@@ -114,9 +114,7 @@ function resetCheckPwdEvent(event) {
 }
 
 /**
- * 비밀번호를 보여주는 버튼에 아이콘 변경 클래스 추가
- *
- * @param {Object} event
+ * 비밀번호 보여주기 이벤트
  */
 function toggleBtnClassName(event) {
   event.target.classList.toggle('visibility');
@@ -161,5 +159,6 @@ nickInputElement.addEventListener('focusout', checkNickInput);
 nickInputElement.addEventListener('focusin', resetNickEvent);
 checkPwdInputElement.addEventListener('focusout', checkPwdInput2);
 checkPwdInputElement.addEventListener('focusin', resetCheckPwdEvent);
+// TODO: 비밀번호 보이기 기능
 pwdBtnElement.addEventListener('click', toggleBtnClassName);
 checkPwdBtnElement.addEventListener('click', toggleBtnClassName);
