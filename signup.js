@@ -8,7 +8,6 @@ const rePwIcon = document.querySelector(".con .re-pw-icon");
 const signUpBtn = document.querySelector("form .signup-btn");
 
 const allInput = document.querySelectorAll("form input");
-console.log(allInput);
 
 let isShow = false;
 let reIsShow = false;
