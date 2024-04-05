@@ -5,6 +5,7 @@ import {
   handlePasswordValid,
   handlePwdCheckValid,
 } from '/utils/formValid.js';
+import togglePasswordVisible from '/utils/passwordVisible.js';
 
 const emailInput = document.querySelector('#email');
 const emailError = document.querySelector('#email-error');
@@ -19,6 +20,9 @@ const pwdCheckInput = document.querySelector('#password-check');
 const pwdCheckError = document.querySelector('#password-check-error');
 
 const signupButton = document.querySelector('.form-button');
+
+const visibleIcon1 = document.querySelector('#password-visible');
+const visibleIcon2 = document.querySelector('#password-check-visible');
 
 const handleInputValid = (input, error, validFunction) => {
   input.addEventListener('focusout', () => {
@@ -53,3 +57,11 @@ handleInputValid(emailInput, emailError, handleEmailValid);
 handleInputValid(nicknameInput, nicknameError, handleNicknameValid);
 handleInputValid(passwordInput, passwordError, handlePasswordValid);
 handleInputValid(pwdCheckInput, pwdCheckError, handlePwdCheckValid);
+
+visibleIcon1.addEventListener('click', () => {
+  togglePasswordVisible(passwordInput, visibleIcon1);
+});
+
+visibleIcon2.addEventListener('click', () => {
+  togglePasswordVisible(pwdCheckInput, visibleIcon2);
+});
