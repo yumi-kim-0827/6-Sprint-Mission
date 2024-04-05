@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,7 @@
           id="email" name="email"
           type="email" placeholder="이메일을 입력해 주세요"
           class="form-input"/>
+          <div id="email-error" class="text"></div>
         </div>
         <div class="form-items">
           <label for="nickName" class="form-items__label">닉네임</label>
@@ -33,6 +34,7 @@
           id="nickName" name="nickName"
           type="text" placeholder="닉네임을 입력해 주세요"
           class="form-input"/>
+          <div id="nick-error" class="text"></div>
         </div>
         <div class="form-items">
           <label for="password" class="form-items__label">비밀번호</label>
@@ -41,16 +43,18 @@
             type="password" placeholder="비밀번호를 입력해 주세요"
             class="form-input"/>
             <img src="../img/icons/eye-invisible.svg" alt="비밀번호 숨김" class="password-toggle">
+            <div id="password-error" class="text"></div>
         </div>
         <div class="form-items">
           <label for="password" class="form-items__label">비밀번호 확인</label>
             <input
-            id="password" name="password"
+            id="PwCheck" name="password"
             type="password" placeholder="비밀번호를 다시 한 번 입력해 주세요"
             class="form-input"/>
             <img src="../img/icons/eye-invisible.svg" alt="비밀번호 숨김" class="password-toggle">
+            <div id="pw-check-error" class="text"></div>
         </div>
-        <button type="submit" class="button form-button"><a href="./signin.html">회원가입</a></button>
+        <button type="submit" class="button form-button" id="button" href="./signin.html">회원가입</button>
       </form>
       <div class="easy-login">
         <p>간편 로그인하기</p>
@@ -66,5 +70,6 @@
       <span>이미 회원이신가요?</span><a href="./signin.html" class="signin-href">로그인</a>    
     </footer>
   </div>
+  <script src="../JS/signup.js"></script>
 </body>
 </html>

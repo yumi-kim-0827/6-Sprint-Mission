@@ -166,6 +166,9 @@ a {
       word-break: keep-all;
     }
 
+    .form_email{
+      display: none;
+    }
 @media (max-width: 767px) {
   .body {
     padding: 24px 16px 80px;
