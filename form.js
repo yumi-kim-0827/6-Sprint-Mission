@@ -1,7 +1,13 @@
 const myEmail = document.getElementById('email');
+const emailError= document.querySelector('#email-error');
 const myNickname = document.getElementById('nickname');
+const nicknameError = document.querySelector("#nickname-error");
 const myPassword = document.getElementById('password');
+const pwError = document.querySelector("#password-error");
 const passwordCheck = document.getElementById('password-repeat');
+const pwCheckError = document.querySelector("#password-repeat-error");
+const pwImage = document.querySelector('.password-image');
+const loginButton = document.querySelector('.login-pill-button');
 
 //에러메세지
 const EMAIL_ERROR = {
@@ -30,13 +36,13 @@ passwordCheck.addEventListener("focusout", recheckPw);
 //이메일 유효성
 function checkId() {
     if (myEmail.value.length === 0) {
-        document.querySelector("#email-error").innerHTML = EMAIL_ERROR.noValue;
+        emailError.innerHTML = EMAIL_ERROR.noValue;
         this.style.border=errorBorder;
     } else if (!isValidEmail(myEmail.value)) {
-        document.querySelector("#email-error").innerHTML = EMAIL_ERROR.failValue;
+        emailError.innerHTML = EMAIL_ERROR.failValue;
         this.style.border=errorBorder;
     } else {
-        document.querySelector("#email-error").innerHTML = '';
+        emailError.innerHTML = '';
         this.style.border = '';         
     }
 };
@@ -50,10 +56,10 @@ function isValidEmail(email) {
 //닉네임 유효성
 function checkName() {
     if (myNickname.value.length === 0) {
-        document.querySelector("#nickname-error").innerHTML = NICKNAME_ERROR.noValue;
+        nicknameError.innerHTML = NICKNAME_ERROR.noValue;
         this.style.border=errorBorder;
     } else {
-        document.querySelector("#nickname-error").innerHTML = '';
+        nicknameError.innerHTML = '';
         this.style.border = '';   
     }
 };
@@ -61,13 +67,13 @@ function checkName() {
 //비밀번호 유효성
 function checkPw() {
     if (myPassword.value.length === 0) {
-        document.querySelector("#password-error").innerHTML = PASSWORD_ERROR.noValue;
+        pwError.innerHTML = PASSWORD_ERROR.noValue;
         this.style.border=errorBorder;
     } else if (myPassword.value.length < 8) {
-        document.querySelector("#password-error").innerHTML = PASSWORD_ERROR.failValue;
+        pwError.innerHTML = PASSWORD_ERROR.failValue;
         this.style.border=errorBorder;
     } else {
-        document.querySelector("#password-error").innerHTML = '';
+        pwError.innerHTML = '';
         this.style.border = '';         
     }
 };
@@ -75,13 +81,43 @@ function checkPw() {
 //비밀번호확인 유효성
 function recheckPw() {
     if (passwordCheck.value.length === 0) {
-        document.querySelector("#password-repeat-error").innerHTML = PASSWORD_ERROR.noValue;
+        pwCheckError.innerHTML = PASSWORD_ERROR.noValue;
         this.style.border=errorBorder;
     } else if (passwordCheck.value !== myPassword.value) {
-        document.querySelector("#password-repeat-error").innerHTML = PASSWORD_ERROR.checkValue;
+        pwCheckError.innerHTML = PASSWORD_ERROR.checkValue;
         this.style.border=errorBorder;
     } else {
-        document.querySelector("#password-repeat-error").innerHTML = '';
+        pwCheckError.innerHTML = '';
         this.style.border = '';         
     }
 };
+
+//버튼 활성화
+myEmail.addEventListener("keyup", activeEvent);
+myNickname.addEventListener("keyup", activeEvent);
+myPassword.addEventListener("keyup", activeEvent);
+passwordCheck.addEventListener("keyup", activeEvent);
+
+function activeEvent() {
+    const emailValid = isValidEmail(myEmail.value);
+    const nicknameValid = myNickname.value !== '';
+    const pwValid = myPassword.value !== '' && myPassword.value.length >= 8;
+    const recheckPwValid = myPassword.value === passwordCheck.value;
+
+    if (emailValid && nicknameValid && pwValid && recheckPwValid) {
+        loginButton.disabled = false;
+    } else {
+        loginButton.disabled = true;
+    }
+};
+
+//비밀번호 눈 아이콘 표시
+pwImage.addEventListener('click', function() {
+    if (myPassword.type === 'password') {
+        myPassword.type = 'text';
+        pwImage.src = '/images/logo/password-visible.png';
+    } else {
+        myPassword.type = 'password';
+        pwImage.src = '/images/logo/password.png';
+    }
+});
