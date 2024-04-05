@@ -1,5 +1,4 @@
 .header-main {
-  height: 70px;
   background-color: #ffffff;
   &--fixed-top {
     position: fixed;
@@ -14,7 +13,7 @@
     gap: 8px;
   }
   &__content {
-    margin: 10px 200px 9px;
+    margin: 10px 200px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;

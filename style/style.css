@@ -8,7 +8,7 @@
   padding: 16px 124px;
 }
 .button__login {
-  padding: 12px 20px;
+  padding: 12px 12px;
   width: 128px;
 }
 .button--border-radius-40px {
@@ -160,7 +160,6 @@ html {
 }
 
 .header-main {
-  height: 70px;
   background-color: #ffffff;
 }
 .header-main--fixed-top {
@@ -176,7 +175,7 @@ html {
   gap: 8px;
 }
 .header-main__content {
-  margin: 10px 200px 9px;
+  margin: 10px 200px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,7 +196,7 @@ html {
 }
 
 .main--margin-top {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .main-signup {
