@@ -119,7 +119,12 @@ input {
     }
 }
 
-#error {
+#email-error {
     color: red;
     padding: 3px 16px;
+}
+
+#nickname-error {
+    color: red;
+    padding: 3px 16px;  
 }
