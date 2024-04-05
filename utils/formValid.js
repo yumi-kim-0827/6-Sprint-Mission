@@ -4,12 +4,41 @@ import emailPattern from './emailValidPattern.js';
 /**
  * 로그인 버튼 비활성화 / 활성화
  */
-export const handleButtonState = (buttonEl, emailEl, passwordEl) => {
+export const handleLoginButtonState = (buttonEl, emailEl, passwordEl) => {
   if (
     emailEl.classList.contains('error-input') ||
     passwordEl.classList.contains('error-input') ||
     emailEl.value === '' ||
     passwordEl.value.length < 8
+  ) {
+    buttonEl.disabled = true;
+    buttonEl.classList.remove('active');
+  } else {
+    buttonEl.disabled = false;
+    buttonEl.classList.add('active');
+  }
+};
+
+/**
+ * 회원가입 버튼 비활성화 / 활성화
+ */
+export const handleSignupButtonState = (
+  buttonEl,
+  emailEl,
+  nicknameEl,
+  passwordEl,
+  pwdCheckEl
+) => {
+  console.log('hello');
+  if (
+    emailEl.classList.contains('error-input') ||
+    nicknameEl.classList.contains('error-input') ||
+    passwordEl.classList.contains('error-input') ||
+    pwdCheckEl.classList.contains('error-input') ||
+    emailEl.value === '' ||
+    nicknameEl.value === '' ||
+    passwordEl.value.length < 8 ||
+    passwordEl.value !== pwdCheckEl.value
   ) {
     buttonEl.disabled = true;
     buttonEl.classList.remove('active');

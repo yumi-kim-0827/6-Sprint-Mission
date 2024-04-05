@@ -1,7 +1,7 @@
 import {
   handleEmailValid,
   handlePasswordValid,
-  handleButtonState,
+  handleLoginButtonState,
 } from '/utils/formValid.js';
 
 const emailInput = document.querySelector('#email');
@@ -10,22 +10,22 @@ const emailError = document.querySelector('#email-error');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#password-error');
 
-const inputButton = document.querySelector('.form-button');
+const loginButton = document.querySelector('.form-button');
 
 emailInput.addEventListener('focusout', () => {
   handleEmailValid(emailInput, emailError);
-  handleButtonState(inputButton, emailInput, passwordInput);
+  handleLoginButtonState(loginButton, emailInput, passwordInput);
 });
 
 passwordInput.addEventListener('focusout', () => {
   handlePasswordValid(passwordInput, passwordError);
-  handleButtonState(inputButton, emailInput, passwordInput);
+  handleLoginButtonState(loginButton, emailInput, passwordInput);
 });
 
 emailInput.addEventListener('input', () => {
-  handleButtonState(inputButton, emailInput, passwordInput);
+  handleLoginButtonState(loginButton, emailInput, passwordInput);
 });
 
 passwordInput.addEventListener('input', () => {
-  handleButtonState(inputButton, emailInput, passwordInput);
+  handleLoginButtonState(loginButton, emailInput, passwordInput);
 });
