@@ -65,7 +65,7 @@ body {
 /* Form */
 .form-content {
   width: 640px;
-  height: 664px;
+  height: calc(664px + 72px);
 
   display: flex;
   flex-direction: column;
@@ -75,7 +75,8 @@ body {
 
 .form-content .input-items {
   width: 100%;
-  height: 93px;
+  /* height: 93px; */
+  height: 119px;
 
   display: flex;
   flex-direction: column;
@@ -98,7 +99,7 @@ body {
   display: flex;
   align-items: center;
 
-  padding-left: 24px;
+  padding: 16px 24px;
   
   background-color: var(--cool-gray-100);
   border-radius: 12px;
@@ -115,6 +116,26 @@ body {
 
 .input-items input:focus {
   border: 2px solid var(--brand-blue);
+}
+
+/* 이메일 인풋 검사 */
+.null-message {
+  margin-left: 16px;
+
+  font-family: var(--pretendard);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.9px;
+  
+  color: var(--error-red);
+}
+
+#user-email.message-border {
+  border: 1px solid var(--error-red);
+}
+
+#user-name.message-border {
+  border: 1px solid var(--error-red);
 }
 
 /* Form > Password */
@@ -151,6 +172,15 @@ body {
   position: absolute;
   display: none;
 } 
+
+/* 비밀번호 인풋 검사 */
+#user-password.message-border {
+  border: 1px solid var(--error-red);
+}
+
+#user-password-reconfirm.message-border{
+  border: 1px solid var(--error-red);
+}
 
 /* Login button */
 .signup-btn {
@@ -190,7 +220,7 @@ body {
   width: 640px;
   height: 74px;
 
-  padding: 0 24px;
+  padding: 16px 24px;
 
   display: flex;
   justify-content: space-between;
@@ -297,11 +327,11 @@ body {
   /* From */
   .form-content {
     width: 100%;
-    height: 100%;
+    height: calc(100% + 72px);
   }
 
   .form-content .input-items {
-    height: 81px;
+    height: 107px;
   
     gap: 8px;
   }
@@ -311,9 +341,9 @@ body {
     line-height: 16.71px;
   } 
 
-  .form-content .input-items:nth-child(3) button {
+  /* .form-content .input-items:nth-child(3) button {
     display: none;
-  }
+  } */
 
   .signup-btn {
     width: 100%;
