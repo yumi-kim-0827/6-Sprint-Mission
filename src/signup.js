@@ -1,11 +1,59 @@
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
+  const passwordConfirmationInput = document.getElementById(
+    'passwordConfirmation'
+  );
   const loginButton = document.querySelector('button[type="submit"]');
 
   // 입력창이 변경될 때마다 유효성을 검사하여 로그인 버튼을 활성화 또는 비활성화되도록 설정
   emailInput.addEventListener('focusout', validateInputs);
   passwordInput.addEventListener('focusout', validateInputs);
+
+  // 비밀번호 확인 input이 focus를 잃을 때마다 비밀번호 확인 체크
+  passwordConfirmationInput.addEventListener('focusout', function () {
+    checkPasswordConfirmation();
+  });
+
+  // 비밀번호 input이 focus를 잃을 때마다 비밀번호 확인 체크
+  passwordInput.addEventListener('focusout', function () {
+    checkPasswordConfirmation();
+  });
+
+  // 비밀번호와 비밀번호 확인이 일치하는지 확인하는 함수
+  function checkPasswordConfirmation() {
+    const password = passwordInput.value.trim();
+    const passwordConfirmation = passwordConfirmationInput.value.trim();
+
+    // 비밀번호와 비밀번호 확인이 다른 경우 에러 메시지 표시
+    if (password !== passwordConfirmation) {
+      showError('비밀번호가 일치하지 않습니다.');
+    } else {
+      removeError();
+    }
+  }
+
+  // 에러 메시지를 표시하는 함수
+  function showError(message) {
+    const errorContainer = document.getElementById('password-confirm-error');
+    if (!errorContainer) {
+      const errorMessage = document.createElement('div');
+      errorMessage.id = 'password-confirm-error';
+      errorMessage.classList.add('error-message');
+      errorMessage.textContent = message;
+      errorMessage.style.color = 'red';
+      errorMessage.style.marginTop = '8px'; // 에러 메시지의 위쪽 여백 추가
+      passwordConfirmationInput.parentNode.appendChild(errorMessage);
+    }
+  }
+
+  // 에러 메시지를 삭제하는 함수
+  function removeError() {
+    const errorContainer = document.getElementById('password-confirm-error');
+    if (errorContainer) {
+      errorContainer.remove();
+    }
+  }
 
   // 로그인 버튼 클릭 시 '/items'로 이동
   loginButton.addEventListener('click', function (event) {
