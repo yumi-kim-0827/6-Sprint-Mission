@@ -90,7 +90,7 @@ h3 {
     margin-top: 32px;
 }
 
-.top-bottom-img {
+.main-top-img {
     position: absolute;
     bottom: 0px;
     right: -137px;
@@ -125,6 +125,19 @@ h3 {
 .disc-txt-right {
     text-align: right;
     margin-right: 60px;
+}
+
+.hero-banner__botton {
+    width: 100%;
+    background-color: #CFE5FF;
+    height: 540px;
+    position: relative;
+}
+
+.main-bottom-img {
+    position: absolute;
+    bottom: 0px;
+    right: -137px;
 }
 
 
@@ -193,9 +206,13 @@ footer .sns-link {
         margin: 0;
     }
     
-    .top-bottom-img {
+    .main-top-img {
         position: absolute;
         bottom: 0;
+    }
+
+    .hero-banner__botton {
+        height: 927px;
     }
 
 
