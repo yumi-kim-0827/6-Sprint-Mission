@@ -54,15 +54,15 @@ export const handleSignupButtonState = (
 export const handleEmailValid = (emailEl, errorEl) => {
   if (emailEl.value === '') {
     emailEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.emailEmpty;
   } else if (!emailPattern.test(emailEl.value)) {
     emailEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.emailFormat;
   } else {
     emailEl.classList.remove('error-input');
-    errorEl.style.display = 'none';
+    errorEl.classList.add('hidden');
     errorEl.textContent = '';
   }
 };
@@ -73,15 +73,15 @@ export const handleEmailValid = (emailEl, errorEl) => {
 export const handlePasswordValid = (passwordEl, errorEl) => {
   if (passwordEl.value === '') {
     passwordEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.passwordEmpty;
   } else if (passwordEl.value.length < 8) {
     passwordEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.passwordLength;
   } else {
     passwordEl.classList.remove('error-input');
-    errorEl.style.display = 'none';
+    errorEl.classList.add('hidden');
     errorEl.textContent = '';
   }
 };
@@ -92,11 +92,11 @@ export const handlePasswordValid = (passwordEl, errorEl) => {
 export const handleNicknameValid = (nicknameEl, errorEl) => {
   if (nicknameEl.value === '') {
     nicknameEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.nicknameEmpty;
   } else {
     nicknameEl.classList.remove('error-input');
-    errorEl.style.display = 'none';
+    errorEl.classList.add('hidden');
     errorEl.textContent = '';
   }
 };
@@ -107,11 +107,11 @@ export const handleNicknameValid = (nicknameEl, errorEl) => {
 export const handlePwdCheckValid = (passwordEl, pwdCheckEl, errorEl) => {
   if (passwordEl.value !== pwdCheckEl.value) {
     pwdCheckEl.classList.add('error-input');
-    errorEl.style.display = 'block';
+    errorEl.classList.remove('hidden');
     errorEl.textContent = ERROR_MSG.pwdMismatch;
   } else {
     pwdCheckEl.classList.remove('error-input');
-    errorEl.style.display = 'none';
+    errorEl.classList.add('hidden');
     errorEl.textContent = '';
   }
 };

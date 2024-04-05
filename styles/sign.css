@@ -102,12 +102,15 @@ input::placeholder {
 /* 입력 폼 - 에러 */
 
 .error-message {
-  display: none;
   color: var(--red-primary);
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 1.1187rem;
   padding-left: 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .error-input {

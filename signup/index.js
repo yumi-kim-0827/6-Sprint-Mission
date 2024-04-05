@@ -20,86 +20,36 @@ const pwdCheckError = document.querySelector('#password-check-error');
 
 const signupButton = document.querySelector('.form-button');
 
-emailInput.addEventListener('focusout', () => {
-  handleEmailValid(emailInput, emailError);
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
+const handleInputValidation = (input, error, validFunction) => {
+  input.addEventListener('focusout', () => {
+    const functionArgs =
+      validFunction === handlePwdCheckValid
+        ? [passwordInput, input, error]
+        : [input, error];
 
-nicknameInput.addEventListener('focusout', () => {
-  handleNicknameValid(nicknameInput, nicknameError);
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
+    validFunction(...functionArgs);
 
-passwordInput.addEventListener('focusout', () => {
-  handlePasswordValid(passwordInput, passwordError);
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
+    handleSignupButtonState(
+      signupButton,
+      emailInput,
+      nicknameInput,
+      passwordInput,
+      pwdCheckInput
+    );
+  });
 
-pwdCheckInput.addEventListener('focusout', () => {
-  handlePwdCheckValid(passwordInput, pwdCheckInput, pwdCheckError);
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
+  input.addEventListener('input', () => {
+    handleSignupButtonState(
+      signupButton,
+      emailInput,
+      nicknameInput,
+      passwordInput,
+      pwdCheckInput
+    );
+  });
+};
 
-emailInput.addEventListener('input', () => {
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
-
-nicknameInput.addEventListener('input', () => {
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
-
-passwordInput.addEventListener('input', () => {
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
-
-pwdCheckInput.addEventListener('input', () => {
-  handleSignupButtonState(
-    signupButton,
-    emailInput,
-    nicknameInput,
-    passwordInput,
-    pwdCheckInput
-  );
-});
+handleInputValidation(emailInput, emailError, handleEmailValid);
+handleInputValidation(nicknameInput, nicknameError, handleNicknameValid);
+handleInputValidation(passwordInput, passwordError, handlePasswordValid);
+handleInputValidation(pwdCheckInput, pwdCheckError, handlePwdCheckValid);
