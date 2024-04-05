@@ -1,4 +1,4 @@
-@import 'https://meyerweb.com/eric/tools/css/reset/reset.css';
+@import "https://meyerweb.com/eric/tools/css/reset/reset.css";
 .button {
   border-radius: 8px;
   border: none;
@@ -26,8 +26,11 @@
   background-color: #1251aa;
   border-color: #3692FF;
 }
-.button--theme-blue:disabled {
+.button--theme-blue-disabled {
   background-color: #9ca3af;
+}
+.button--theme-blue-active {
+  background-color: #3692ff;
 }
 
 html {
