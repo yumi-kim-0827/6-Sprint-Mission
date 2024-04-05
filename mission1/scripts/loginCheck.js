@@ -9,21 +9,20 @@ export function emailError(input,errorMessage) {
 }
 
 export function pwError(input,errorMessage2) {
-  if (input.value.length <= 8) {
+  if (input.value.length < 8) {
     showError("비밀번호를 8자 이상 입력해주세요", errorMessage2, input);
   }
    else {
-    showError("", errorMessage2, input);
     clearError(errorMessage2, input);
   }
 }
 
-function showError(message, div, input) {
+export function showError(message, div, input) {
   input.classList.add("error-border");
   div.textContent = message;
 }
 
-function clearError(div, input) {
+export function clearError(div, input) {
   input.classList.remove("error-border");
   div.textContent = "";
 }

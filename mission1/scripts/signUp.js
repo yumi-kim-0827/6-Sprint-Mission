@@ -1,5 +1,11 @@
 import { toggleSwitchSignup } from "./switch.js";
-import { isValidEmail, emailError, pwError } from "./loginCheck.js";
+import {
+  isValidEmail,
+  emailError,
+  pwError,
+  showError,
+  clearError,
+} from "./loginCheck.js";
 const eyeIcon = document.getElementById("eyeIcon");
 const passIcon = document.getElementById("passIcon");
 eyeIcon.addEventListener("click", () =>
@@ -22,12 +28,23 @@ passwordInput.addEventListener("focusout", () =>
 const passwordRepeatInput = document.querySelector(".passwordInput2");
 const passwordRepeatError = document.querySelector(".pwRepeatError");
 passwordRepeatInput.addEventListener("focusout", () =>
-  pwError(passwordRepeatInput, passwordRepeatError)
+  isPassword(
+    passwordInput.value,
+    passwordRepeatInput.value,
+    passwordRepeatError
+  )
 );
-
+function isPassword(inputValue, repeatInputValue, error) {
+  if (inputValue !== repeatInputValue) {
+    showError("비밀번호가 일치하지 않습니다.", error, passwordRepeatInput);
+  } else {
+    clearError(error, passwordRepeatInput);
+  }
+}
 const btn = document.querySelector(".signUpButton");
-btn.addEventListener("click", btnClick);
-function btnClick() {
+btn.addEventListener("click", (e) => btnClick(e));
+
+function btnClick(e) {
   if (
     passwordInput.value.length > 8 &&
     passwordRepeatInput.value.length > 8 &&
@@ -35,7 +52,8 @@ function btnClick() {
   ) {
     location.href = "../signin/signin.html";
   } else {
-    window.location.reload();
+    e.preventDefault();
+    e.event.stopPropagation();
   }
 }
 

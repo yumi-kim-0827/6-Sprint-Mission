@@ -13,12 +13,13 @@ const errorMessage2 = document.querySelector(".pw-error-message");
 pwInput.addEventListener("focusout",()=>pwError(pwInput,errorMessage2))
 
 const btn = document.querySelector(".loginButton");
-btn.addEventListener("click",btnClick);
-function btnClick() {
+btn.addEventListener("click",(e)=> btnClick(e));
+function btnClick(e) {
     if (pwInput.value.length >8 && isValidEmail(input.value.trim())) {
         location.href = "../item/item.html";
     }
     else{
-        window.location.reload();
+        e.preventDefault();
+        e.stopPropagation();
     }
 }

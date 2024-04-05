@@ -28,18 +28,15 @@ body {
   border-radius: 12px;
   width: 640px;
   border: none;
-  
 }
-.email-error-message{
+.email-error-message {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
-
+  color: #f74747;
 }
 .section .error-border {
-  
   border: 2px solid red;
 }
 .section input:focus {
@@ -49,13 +46,12 @@ body {
 .section input::placeholder {
   padding: 16px 24px;
 }
-.email-error-message{
+.email-error-message {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
-
+  color: #f74747;
 }
 .passwordLabel {
   display: flex;
@@ -68,13 +64,12 @@ body {
   position: absolute;
   right: 30px;
 }
-.pw-error-message{
+.pw-error-message {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
-
+  color: #f74747;
 }
 .loginButton {
   cursor: pointer;
@@ -134,3 +129,4 @@ body {
     width: 344px;
   }
 }
+
