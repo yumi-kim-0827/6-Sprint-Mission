@@ -112,8 +112,8 @@ a {
     overflow: hidden;
 }
 
-.main-container__banner--title > h2 {
-    /*display: block;*/
+.main-container__banner--title > h2 > span {
+    display: block;
     word-break: keep-all;
 }
 
