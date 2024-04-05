@@ -2,10 +2,7 @@ import ERROR_MSG from '/constants/errorMessage.js';
 import emailPattern from './emailValidPattern.js';
 
 /**
- * 버튼 비활성화 / 활성화
- * @param {Element} buttonEl
- * @param {Element} emailEl
- * @param {Element} passwordEl
+ * 로그인 버튼 비활성화 / 활성화
  */
 export const handleButtonState = (buttonEl, emailEl, passwordEl) => {
   if (
@@ -24,8 +21,6 @@ export const handleButtonState = (buttonEl, emailEl, passwordEl) => {
 
 /**
  * 이메일 유효성 검사
- * @param {Element} emailEl
- * @param {Element} errorEl
  */
 export const handleEmailValid = (emailEl, errorEl) => {
   if (emailEl.value === '') {
@@ -45,8 +40,6 @@ export const handleEmailValid = (emailEl, errorEl) => {
 
 /**
  * 비밀번호 유효성 검사
- * @param {Element} passwordEl
- * @param {Element} errorEl
  */
 export const handlePasswordValid = (passwordEl, errorEl) => {
   if (passwordEl.value === '') {
@@ -59,6 +52,36 @@ export const handlePasswordValid = (passwordEl, errorEl) => {
     errorEl.textContent = ERROR_MSG.passwordLength;
   } else {
     passwordEl.classList.remove('error-input');
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+  }
+};
+
+/**
+ * 닉네임 유효성 검사
+ */
+export const handleNicknameValid = (nicknameEl, errorEl) => {
+  if (nicknameEl.value === '') {
+    nicknameEl.classList.add('error-input');
+    errorEl.style.display = 'block';
+    errorEl.textContent = ERROR_MSG.nicknameEmpty;
+  } else {
+    nicknameEl.classList.remove('error-input');
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+  }
+};
+
+/**
+ * 비밀번호 확인 유효성 검사
+ */
+export const handlePwdCheckValid = (passwordEl, pwdCheckEl, errorEl) => {
+  if (passwordEl.value !== pwdCheckEl.value) {
+    pwdCheckEl.classList.add('error-input');
+    errorEl.style.display = 'block';
+    errorEl.textContent = ERROR_MSG.pwdMismatch;
+  } else {
+    pwdCheckEl.classList.remove('error-input');
     errorEl.style.display = 'none';
     errorEl.textContent = '';
   }
