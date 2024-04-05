@@ -29,7 +29,6 @@ export const handleSignupButtonState = (
   passwordEl,
   pwdCheckEl
 ) => {
-  console.log('hello');
   if (
     emailEl.classList.contains('error-input') ||
     nicknameEl.classList.contains('error-input') ||
@@ -52,66 +51,56 @@ export const handleSignupButtonState = (
  * 이메일 유효성 검사
  */
 export const handleEmailValid = (emailEl, errorEl) => {
-  if (emailEl.value === '') {
-    emailEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.emailEmpty;
-  } else if (!emailPattern.test(emailEl.value)) {
-    emailEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.emailFormat;
-  } else {
-    emailEl.classList.remove('error-input');
-    errorEl.classList.add('hidden');
-    errorEl.textContent = '';
-  }
+  const isEmpty = emailEl.value === '';
+  const isInvalidFormat = !emailPattern.test(emailEl.value);
+
+  emailEl.classList.toggle('error-input', isEmpty || isInvalidFormat);
+  errorEl.classList.toggle('hidden', !(isEmpty || isInvalidFormat));
+
+  errorEl.textContent = isEmpty
+    ? ERROR_MSG.emailEmpty
+    : isInvalidFormat
+    ? ERROR_MSG.emailFormat
+    : '';
 };
 
 /**
  * 비밀번호 유효성 검사
  */
 export const handlePasswordValid = (passwordEl, errorEl) => {
-  if (passwordEl.value === '') {
-    passwordEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.passwordEmpty;
-  } else if (passwordEl.value.length < 8) {
-    passwordEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.passwordLength;
-  } else {
-    passwordEl.classList.remove('error-input');
-    errorEl.classList.add('hidden');
-    errorEl.textContent = '';
-  }
+  const isEmpty = passwordEl.value === '';
+  const isShort = passwordEl.value.length < 8;
+
+  passwordEl.classList.toggle('error-input', isEmpty || isShort);
+  errorEl.classList.toggle('hidden', !(isEmpty || isShort));
+
+  errorEl.textContent = isEmpty
+    ? ERROR_MSG.passwordEmpty
+    : isShort
+    ? ERROR_MSG.passwordLength
+    : '';
 };
 
 /**
  * 닉네임 유효성 검사
  */
 export const handleNicknameValid = (nicknameEl, errorEl) => {
-  if (nicknameEl.value === '') {
-    nicknameEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.nicknameEmpty;
-  } else {
-    nicknameEl.classList.remove('error-input');
-    errorEl.classList.add('hidden');
-    errorEl.textContent = '';
-  }
+  const isEmpty = nicknameEl.value === '';
+
+  nicknameEl.classList.toggle('error-input', isEmpty);
+  errorEl.classList.toggle('hidden', !isEmpty);
+
+  errorEl.textContent = isEmpty ? ERROR_MSG.nicknameEmpty : '';
 };
 
 /**
  * 비밀번호 확인 유효성 검사
  */
 export const handlePwdCheckValid = (passwordEl, pwdCheckEl, errorEl) => {
-  if (passwordEl.value !== pwdCheckEl.value) {
-    pwdCheckEl.classList.add('error-input');
-    errorEl.classList.remove('hidden');
-    errorEl.textContent = ERROR_MSG.pwdMismatch;
-  } else {
-    pwdCheckEl.classList.remove('error-input');
-    errorEl.classList.add('hidden');
-    errorEl.textContent = '';
-  }
+  const isMismatch = passwordEl.value !== pwdCheckEl.value;
+
+  pwdCheckEl.classList.toggle('error-input', isMismatch);
+  errorEl.classList.toggle('hidden', !isMismatch);
+
+  errorEl.textContent = isMismatch ? ERROR_MSG.pwdMismatch : '';
 };
