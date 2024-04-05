@@ -1,306 +1,164 @@
-/* PC */
-@media (min-width : 1200px) {
-  #hero.banner {
-    background-color: #cfe5ff;
+.banner {
+  background-color: #cfe5ff;
+  height: 60vh;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 130%;
+}
+
+#hero {
+  background-image: url("../images/home/hero-image.png");
+}
+
+.banner h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44.8px;
+  padding-top: 48px;
+  padding-bottom: 18px;
+}
+
+#bottomBanner {
+  background-image: url("../images/home/bottom-banner-image.png");
+}
+
+#signinLinkButton {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14.5px 43px;
+}
+
+#features {
+  padding-top: 51px;
+}
+
+.feature {
+  margin-bottom: 64px;
+}
+
+.feature img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.feature:nth-child(2) {
+  text-align: right;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h2 {
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-content h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33.6px;
+}
+
+.feature-description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: 0.08em;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .banner {
+    height: 90vh;
+    background-size: 120%;
+  }
+
+  .banner h1 {
+    font-size: 40px;
+    line-height: 56px;
+    padding-top: 84px;
+    padding-bottom: 24px;
+  }
+
+  #hero h1 br {
+    display: none;
+  }
+
+  #features {
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  .feature-content h2 {
+    font-size: 18px;
+    line-height: 25.2px;
+    margin-bottom: 12px;
+  }
+
+  .feature-content h1 {
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+
+  .feature-description {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner {
+    text-align: left;
     height: 540px;
     display: flex;
     align-items: center;
-    background-repeat: no-repeat;
     background-position: 80% bottom;
     background-size: 55%;
   }
 
-  #hero {
-    background-image: url("../images/home/hero-image.png");
+  .banner h1 {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  #hero h1 br {
+    display: inline;
   }
 
   #features {
-    padding-bottom: 138px;
-  }
-
-  #bottomBanner {
-    background-image: url("../images/home/bottom-banner-image.png");
-    background-repeat: no-repeat;
-    background-position: 80% bottom;
-    background-size: 996px 540px;
-    overflow: hidden;
-  }
-  #bottomBanner.banner {
-    background-color: #cfe5ff;
-    height: 540px;
-    display: flex;
-    align-items: center;
-  }
-
-  #signinLinkButton {
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14.5px 43px;
-  }
-
-  .banner .pill-button {
-    margin-top: 32px;
-  }
-
-  div.feature img {
-    width: 50%;
-  }
-
-  .feature {
     padding: 138px 0;
+  }
+
+  .feature {
+    margin-bottom: 138px;
     display: flex;
     align-items: center;
     gap: 5%;
-    justify-content: space-evenly;
   }
 
   .feature:nth-child(2) {
-    text-align: right;
-    
+    flex-direction: row-reverse;
   }
 
-  div.feature:nth-child(2) div.feature-content-img {
-    order: 2;
-    object-fit: cover;
-  }
-  
-  div.feature-content-img img {
-    width: 600px;
-    height: 453px;
+  .feature img {
+    width: 50%;
+    margin-bottom: 0;
   }
 
-  div.feature:nth-child(2) div.feature-content {
-    order: 1;
-    text-align: right;
-  }
-
-  .feature-content {
-    flex: 1;
-    
-  }
-
-  .feature-tag {
-    color: var(--blue);
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: 700;
-    margin-bottom: 12px;
+  .feature-content h1 {
+    font-size: 40px;
+    line-height: 56px;
   }
 
   .feature-description {
     font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
-    letter-spacing: 0.08em;
+    line-height: 28.8px;
     margin-top: 24px;
-  }
-
-}
-
-/* Tablet */
-@media (min-width : 768px) and (max-width : 1199px) {
-  #hero.banner {
-    background-color: #cfe5ff;
-    height: 772px;
-    width: 100%;
-    display: flex;
-    padding: 84px 0;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 100%;
-  }
-
-  #hero {
-    background-image: url("../images/home/hero-image.png");
-  }
-
-  #features {
-    padding-bottom: 138px;
-  }
-
-  #bottomBanner {
-    background-image: url("../images/home/bottom-banner-image.png");
-    background-repeat: no-repeat;
-    background-position: bottom, center;
-    background-size: 996px 540px;
-    overflow: hidden;
-  }
-
-  #bottomBanner.banner {
-    background-color: #cfe5ff;
-    height: 927px;
-    width: 100%;
-    display: flex;
-    padding: 201px 0;
-    text-align: center;
-  }
-
-  #signinLinkButton {
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14.5px 43px;
-  }
-
-  .banner .pill-button {
-    margin-top: 32px;
-  }
-
-  div.feature img {
-    width: 696px;
-    height: 524px;
-  }
-
-  section#features {
-    width: 90%;
-  }
-
-  .feature {
-    padding: 24px 0 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: auto;
-    gap: 5%;
-  }
-
-  .feature:nth-child(2) {
-    text-align: right;
-
-  }
-
-  .feature-content {
-    flex: 1;
-  }
-
-  .feature-tag {
-    color: var(--blue);
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .feature-size {
-    font-size: 32px;
-  }
-
-  .feature-size br{
-    display: inline-block;
-    content: " ";
-    padding: 0 2px;
-  }
-
-  .feature-description {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 120%;
-    letter-spacing: 0.08em;
-    margin-top: 24px;
-  }
-
-}
-
-/* Mobile */
-@media (min-width : 375px) and (max-width : 767px) {
-  #hero.banner {
-    background-color: #cfe5ff;
-    height: 540px;
-    display: flex;
-    padding: 48px 20%;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: 80% bottom;
-    background-size: 100%;
-  }
-
-  #hero {
-    background-image: url("../images/home/hero-image.png");
-  }
-
-  #features {
-    padding-bottom: 138px;
-  }
-
-  #bottomBanner {
-    background-image: url("../images/home/bottom-banner-image.png");
-    background-repeat: no-repeat;
-    background-position: bottom, center;
-    background-size: 500px 270px;
-    overflow: hidden;
-  }
-
-  #bottomBanner.banner {
-    background-color: #cfe5ff;
-    height: 540px;
-    width: 100%;
-    display: flex;
-    padding: 121px 0;
-    text-align: center;
-
-  }
-
-  #signinLinkButton {
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14.5px 43px;
-  }
-
-  .banner .pill-button {
-    margin-top: 32px;
-    font-size: 16px;
-  }
-
-  div.feature img {
-    width: 344px;
-    height: 259px;
-  }
-
-  section#features {
-    width: 90%;
-  }
-
-  .feature {
-    padding: 51px 0 64px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: auto;
-    gap: 5%;
-  }
-
-  .feature:nth-child(2) {
-    text-align: right;
-  }
-
-  .feature-content {
-    flex: 1;
-  }
-
-  .feature-tag {
-    color: var(--blue);
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .feature-size {
-    font-size: 24px;
-  }
-
-  .feature-size br{
-    display: inline-block;
-    content: " ";
-    padding: 0 2px;
-  }
-  
-  .feature-description {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 120%;
-    letter-spacing: 0.08em;
-    margin-top: 20px;
   }
 }
