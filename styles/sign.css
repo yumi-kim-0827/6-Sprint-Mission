@@ -61,10 +61,6 @@ input {
   line-height: 24px;
 }
 
-input:focus {
-  border-color: var(--blue-primary);
-}
-
 input::placeholder {
   color: var(--gray-400);
   font-weight: 400;
@@ -96,6 +92,20 @@ input::placeholder {
   line-height: 1.5rem;
   color: var(--white-primary);
   cursor: pointer;
+}
+
+/* 입력 폼 - 에러 */
+.error-message {
+  display: none;
+  color: var(--red-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.1187rem;
+  padding-left: 1rem;
+}
+
+.error-input {
+  border: 1px solid var(--red-primary);
 }
 
 /* 소셜 로그인 */
