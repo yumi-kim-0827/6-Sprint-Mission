@@ -11,6 +11,8 @@
 //auth input 태그들
 const loginId = document.getElementById('login_ID');
 const pwdId = document.getElementById('login_PWD');
+const pwdIdCheck = document.getElementById('login_PWD2');
+const nickName = document.getElementById('login_Name');
 
 //wrong class 삽입, 삭제 코드가 중복으로 들어가 따로 변수에 담았음
 const addWrong = (el) => {
@@ -34,7 +36,7 @@ inputFocus 함수 활용도를 높이고 inputFocus 함수안에 코드를 클�
 그리고 return할 때 inputfocus if문 사용으로 true, false 값을 반대로 작성했는데 이런식으로 작성해도 괜찮나요?
 */
 
-//auth 이메일 input 값이 잘못되어있는 경우
+//auth 이메일 input 값이 제대로 되어있는지 확인
 function wrongAuth(el){
     const input = document.getElementById(el);
 
@@ -59,6 +61,15 @@ function wrongAuth(el){
             removeWrong(input);
             return false;
         }
+    }else if(input === pwdIdCheck){
+        //비밀번호 확인
+        if(pwdId.value != pwdIdCheck.value){
+            addWrong(input);
+            return true;
+        }else{
+            removeWrong(input);
+            return false;
+        } 
     }
 
 }
@@ -70,6 +81,7 @@ function checkAuth() {
     const valueToCheck = 'check';
     let allInputsContainValue = true;
 
+    //모든 input에 data-check 값이 check인지 확인 
     checkInputs.forEach(input => {
         const dataCheckValue = input.dataset.check;
         if (!dataCheckValue || !dataCheckValue.includes(valueToCheck)) {
@@ -78,6 +90,7 @@ function checkAuth() {
         }
     });
 
+    //버튼에 디스에이블 속성값 변경
     if (allInputsContainValue) {
         button.disabled = false;
     } else {
@@ -98,6 +111,8 @@ function inputFocus(inputId, inputEmpty, inputWrong){
     }else if(wrongAuth(inputId)){
         //잘못된 값을 넣었을때
         inputSpan.textContent = inputWrong;
+    }else{
+        removeWrong(input);
     }
 
     checkAuth();
@@ -108,3 +123,5 @@ function inputFocus(inputId, inputEmpty, inputWrong){
 checkAuth();
 loginId.addEventListener('focusout', () => {inputFocus('login_ID', '이메일을 입력해주세요.', '잘못된 이메일 형식입니다.')});
 pwdId.addEventListener('focusout', () =>  {inputFocus('login_PWD', '비밀번호를 입력해주세요.', '비밀번호를 8자 이상 입력해주세요.')});
+nickName.addEventListener('focusout', () =>  {inputFocus('login_Name', '닉네임을 입력해주세요.')});
+pwdIdCheck.addEventListener('focusout', () =>  {inputFocus('login_PWD2','', '비밀번호가 일치하지 않습니다.')});
