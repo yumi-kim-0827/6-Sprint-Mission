@@ -3,4 +3,3 @@
     "normalize.css": "^8.0.1"
   }
 }
-import 'normalize.css';
