@@ -11,7 +11,7 @@ a {
 }
 
 /** PC */
-header {
+.header-container {
     display: flex;
     justify-content: space-between;
     height: 7rem;
@@ -23,7 +23,7 @@ header {
     z-index: 1;
 }
 
-header > .login {
+.header-container__login-button {
     font-family: "Pretendard";
     width: 128px;
     height: 48px;
@@ -38,14 +38,14 @@ header > .login {
     flex-shrink: 0;
 }
 
-header > .title {
+.header-container__logo {
     display: flex;
     gap: 10px;
     align-items: center;
     flex-shrink: 0;
 }
 
-header > .title > .name > a {
+.header-container__logo--title > a {
     font-family: "ROKAF Bold";
     font-size: 2.56rem;
     font-weight: 700;
@@ -54,14 +54,14 @@ header > .title > .name > a {
     text-decoration: none;
 }
 
-main {
+.main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-footer {
+.footer-container {
     width: inherit;
     height: 16rem;
     display: grid;
@@ -71,29 +71,29 @@ footer {
     padding: 32px 200px;
 }
 
-footer > .codeit-footer {
+.footer-container__grid {
     font-family: "Pretendard";
     font-size: 1.6rem;
     line-height: 1.909rem;
 }
 
-footer > .codeit-footer.codeit-copyright {
+.footer-container__grid--copyright {
     color: var(--panda-gray-color);
 }
 
-footer > .codeit-footer.codeit-faqs {
+.footer-container__grid--faqs {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 30px;
     justify-content: center;
 }
 
-footer > .codeit-footer.codeit-faqs > a {
+.footer-container__grid--faqs > a {
     color: var(--faq-font-color);
     text-decoration: none;
 }
 
-footer > .codeit-footer.codeit-sns {
+.footer-container__grid--sns {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-auto-columns: 20px;
@@ -101,7 +101,7 @@ footer > .codeit-footer.codeit-sns {
     gap: 9px;
 }
 
-.panda-banner {
+.main-container__banner {
     background-color: var(--banner-bg-color);
     display: flex;
     position: relative;
@@ -112,12 +112,13 @@ footer > .codeit-footer.codeit-sns {
     overflow: hidden;
 }
 
-.panda-banner > div > h2 > span {
-    display: block;
+.main-container__banner--title > h2 {
+    /*display: block;*/
+    word-break: keep-all;
 }
 
-.panda-banner.top-banner > span,
-.panda-banner.bottom-banner > span {
+.main-container__banner--top-banner-img,
+.main-container__banner--bottom-banner-img {
     width: 99.6rem;
     position: absolute;
     bottom: 0;
@@ -125,16 +126,15 @@ footer > .codeit-footer.codeit-sns {
     overflow: hidden;
 }
 
-.panda-banner.top-banner > span > img,
-.panda-banner.bottom-banner > span > img
+.main-container__banner--top-banner-img > img,
+.main-container__banner--bottom-banner-img > img
 {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.panda-banner.top-banner > div,
-.panda-banner.bottom-banner > div
+.main-container__banner--title
 {
     font-family: "pretendard";
     display: flex;
@@ -144,25 +144,24 @@ footer > .codeit-footer.codeit-sns {
     top: 15rem;
 }
 
-.panda-banner.top-banner > div {
+.main-container__banner--top-banner.main-container__banner--title {
     margin-inline-start: 30rem;
 }
 
-.panda-banner.bottom-banner > div {
+.main-container__banner--bottom-banner.main-container__banner--title {
     margin-inline-start: 15rem;
     padding: 0;
 }
 
 
-.panda-banner.top-banner > div > h2,
-.panda-banner.bottom-banner > div > h2 {
+.main-container__banner--title > h2 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 56px;
     padding-bottom: 20px;
 }
 
-.panda-banner.top-banner > div > a {
+.main-container__banner--top-banner.main-container__banner--title > a {
     width: 356px;
     height: 56px;
     border-radius: 40px;
@@ -175,7 +174,7 @@ footer > .codeit-footer.codeit-sns {
     font-weight: 600;
 }
 
-.panda-section {
+.main-container__section {
     display: flex;
     max-width: 1200px;
     justify-content: center;
@@ -183,12 +182,12 @@ footer > .codeit-footer.codeit-sns {
     gap: 0px 64px;
 }
 
-.panda-section > span > img {
+.main-container__section--svg > img {
     width: 100%;
     object-fit: contain;
 }
 
-.panda-section > div {
+.main-container__section--content {
     display: flex;
     font-family: "pretendard";
     flex-direction: column;
@@ -196,24 +195,24 @@ footer > .codeit-footer.codeit-sns {
     row-gap: 12px;
 }
 
-.panda-section > div > h2,
-.panda-section > div > h3 {
+.main-container__section--content > h2,
+.main-container__section--content > h3 {
     font-weight: 700;
 }
 
-.panda-section > div > h2 {
+.main-container__section--content > h2 {
     font-size: 1.8rem;
     line-height: 25.2px;
     color: var(--header-logo-color);
     letter-spacing: 1px;
 }
 
-.panda-section > div > h3 {
+.main-container__section--content > h3 {
     font-size: 4rem;
     line-height: 56px;
 }
 
-.panda-section > div > p {
+.main-container__section--content > p {
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 28.8px;
@@ -221,28 +220,28 @@ footer > .codeit-footer.codeit-sns {
     padding-block-start: 12px;
 }
 
-.panda-section > div > h2 > span,
-.panda-section > div > h3 > span {
+.main-container__section--content > h2 > span,
+.main-container__section--content > h3 > span {
     display: block;
 }
 
 
-.panda-section.right-start {
+.main-container__section--right-start {
     flex-flow: row-reverse;
     text-align: right;
 }
 
 /** Tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-    header {
+    .header-container {
         padding: 11px 24px;
     }
 
-    header > .login {
+    .header-container__login-button {
         flex-shrink: 1;
     }
 
-    .panda-banner {
+    .main-container__banner {
         display: flex;
         position: relative;
         flex-direction: column;
@@ -252,22 +251,24 @@ footer > .codeit-footer.codeit-sns {
         overflow: hidden;
     }
 
-    .panda-banner > div {
+    .main-container__banner--top-banner.main-container__banner--title,
+    .main-container__banner--bottom-banner.main-container__banner--title
+    {
         margin-block-end: 10%;
     }
 
-    .panda-banner.top-banner > div > h2 > span
+    .main-container__banner--top-banner.main-container__banner--title > h2 > span
     {
         display: inline-block;
     }
 
-    .panda-banner.bottom-banner > div > h2 > span
+    .main-container__banner--bottom-banner.main-container__banner--title > h2 > span
     {
         display: block;
     }
 
-    .panda-banner.top-banner > div,
-    .panda-banner.bottom-banner > div {
+    .main-container__banner--top-banner.main-container__banner--title,
+    .main-container__banner--bottom-banner.main-container__banner--title {
         display: flex;
         position: absolute;
         text-align: center;
@@ -276,20 +277,20 @@ footer > .codeit-footer.codeit-sns {
         top: 10%;
     }
 
-    .panda-banner.top-banner > div > h2,
-    .panda-banner.bottom-banner > div > h2 {
+    .main-container__banner--top-banner.main-container__banner--title > h2,
+    .main-container__banner--bottom-banner.main-container__banner--title > h2 {
         padding-block-start: 1rem;
         padding-inline: 0;
         width: 52.1rem;
     }
 
-    .panda-banner.top-banner > div > a {
+    .main-container__banner--top-banner.main-container__banner--title > a {
         width: 35.5rem;
         height: 6rem;
     }
 
-    .panda-banner.top-banner > span,
-    .panda-banner.bottom-banner > span {
+    .main-container__banner--top-banner-img,
+    .main-container__banner--bottom-banner-img {
         width: 100%;
         position: absolute;
         overflow: hidden;
@@ -300,11 +301,11 @@ footer > .codeit-footer.codeit-sns {
         overflow: hidden;
     }
 
-    .panda-banner.bottom-banner > span {
+    .main-container__banner--bottom-banner-img {
         bottom: -0.1rem;
     }
 
-    .panda-section {
+    .main-container__section {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -312,26 +313,26 @@ footer > .codeit-footer.codeit-sns {
         padding-inline: 2.4rem;
     }
 
-    .panda-section.right-start {
+    .main-container__section--right-start {
         flex-flow: column;
     }
-    .panda-section > div > h2 {
+    .main-container__section--content > h2 {
         font-size: 1.8rem;
         line-height: 2.52rem;
         padding-block-start: 1.2rem;
     }
 
-    .panda-section > div > h3 > span
+    .main-container__section--content > h3 > span
     {
         display: inline-block;
     }
 
-    footer {
+    .footer-container {
         gap: 2.4rem;
         padding-inline: 10.4rem;
     }
 
-    footer > .codeit-footer.codeit-faqs {
+    .footer-container__grid--faqs {
        font-size: 1.6rem;
        font-family: 'Abel';
        line-height: 2.039rem;
@@ -341,19 +342,19 @@ footer > .codeit-footer.codeit-sns {
 
 /** Mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
-    header {
+    .header-container {
         padding: 11px 16px;
     }
 
-    header > .title > span > svg {
+    .header-container__logo--svg > svg {
         display: none;
     }
 
-    header > .login {
+    .header-container__login-button {
         flex-shrink: 1;
     }
 
-    .panda-banner {
+    .main-container__banner {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -364,13 +365,14 @@ footer > .codeit-footer.codeit-sns {
         overflow: hidden;
     }
 
-    .panda-banner > div > h2 > span
+    .main-container__banner--top-banner.main-container__banner--title > h2 > span,
+    .main-container__banner--bottom-banner.main-container__banner--title > h2 > span
     {
-        display: block;
+        /*display: block;*/
     }
 
-    .panda-banner.top-banner > div,
-    .panda-banner.bottom-banner > div {
+    .main-container__banner--top-banner.main-container__banner--title,
+    .main-container__banner--bottom-banner.main-container__banner--title {
         display: flex;
         text-align: center;
         align-items: center;
@@ -378,16 +380,16 @@ footer > .codeit-footer.codeit-sns {
         position: absolute;
     }
 
-    .panda-banner.top-banner > div {
+    .main-container__banner--top-banner.main-container__banner--title {
         top: 10dvh;
     }
 
-    .panda-banner.bottom-banner > div {
+    .main-container__banner--bottom-banner.main-container__banner--title {
         top: 20dvh;
     }
 
-    .panda-banner.top-banner > div > h2,
-    .panda-banner.bottom-banner > div > h2 {
+    .main-container__banner--top-banner.main-container__banner--title > h2,
+    .main-container__banner--bottom-banner.main-container__banner--title > h2 {
         font-size: 3rem;
         line-height: 4.48rem;
         padding-block-start: 1rem;
@@ -395,7 +397,7 @@ footer > .codeit-footer.codeit-sns {
         width: 23.6rem;
     }
 
-    .panda-banner.top-banner > div > a {
+    .main-container__banner--top-banner.main-container__banner--title > a {
         font-size: 1.6rem;
         font-weight: 600;
         width: 15.4rem;
@@ -403,8 +405,8 @@ footer > .codeit-footer.codeit-sns {
         padding: 16px 20px;
     }
 
-    .panda-banner.top-banner > span,
-    .panda-banner.bottom-banner > span {
+    .main-container__banner--top-banner-img,
+    .main-container__banner--bottom-banner-img {
         width: 62.6rem;
         position: absolute;
         padding: 0;
@@ -414,12 +416,12 @@ footer > .codeit-footer.codeit-sns {
         overflow: hidden;
     }
 
-    .panda-banner.bottom-banner > span {
+    .main-container__banner--bottom-banner-img {
         width: 52.6rem;
         bottom: -0.1rem;
     }
 
-    .panda-section {
+    .main-container__section {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -427,31 +429,31 @@ footer > .codeit-footer.codeit-sns {
         padding-inline: 2.4rem;
     }
 
-    .panda-section.right-start {
+    .main-container__section.main-container__section--right-start {
         flex-flow: column;
     }
 
-    .panda-section > div {
+    .main-container__section--content {
         column-gap: 1.2rem
     }
 
-    .panda-section > div > h2 {
+    .main-container__section--content > h2 {
         font-size: 1.8rem;
         line-height: 2.52rem;
         padding-block-start: 1.2rem;
     }
 
-    .panda-section > div > h3 {
+    .main-container__section--content > h3 {
         font-size: 2.3rem;
         line-height: 3.36rem;
     }
 
-    .panda-section > div > h3 > span
+    .main-container__section--content > h3 > span
     {
         display: inline-block;
     }
 
-    .panda-section > div > p {
+    .main-container__section--content > p {
         font-size: 1.8rem;
         font-weight: 500;
         line-height: 25.2px;
@@ -459,7 +461,7 @@ footer > .codeit-footer.codeit-sns {
         padding: 0;
     }
 
-    footer {
+    .footer-container {
         width: inherit;
         height: 16rem;
         display: grid;
@@ -470,14 +472,15 @@ footer > .codeit-footer.codeit-sns {
         padding-inline: 3.2rem;
     }
 
-    footer > .codeit-footer {
+    .footer-container__grid
+    {
         font-family: "Arial";
         font-size: 1.4rem;
         font-weight: 400;
         line-height: 1.84rem;
     }
 
-    footer > .codeit-footer.codeit-copyright {
+    .footer-container__grid--copyright {
         color: var(--panda-gray-color);
         display: flex;
         grid-column: 1 / span 1;
@@ -486,12 +489,12 @@ footer > .codeit-footer.codeit-sns {
         padding-inline-end: 6rem;
     }
 
-    footer > .codeit-footer.codeit-faqs {
+    .footer-container__grid--faqs {
         grid-column: 1 / span 1;
         grid-row: 1 / span 1;
     }
 
-    footer > .codeit-footer.codeit-sns {
+    .footer-container__grid--sns {
         grid-column: 2 / span 1;
         grid-row: 1 / span 1;
     }

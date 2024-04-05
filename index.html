@@ -24,9 +24,9 @@
     <link rel="icon" href="/assets/images/logos/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="title">
-           <span>
+    <header class="header-container">
+        <div class="header-container__logo">
+           <span class="header-container__logo--svg">
                <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect y="0.0168457" width="40" height="40.1354" rx="11.1782" fill="#3692FF"/>
                     <path d="M19.3143 11.1911C19.8136 12.9166 18.4934 14.8179 16.9801 15.2588C15.4668 15.6996 13.3993 14.7852 12.9 13.0598C12.4007 11.3343 13.4489 8.94351 14.9622 8.50264C16.9801 7.91476 18.815 9.4656 19.3143 11.1911Z" fill="#222327"/>
@@ -42,28 +42,28 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M19.69 31.9995C27.51 31.9995 33.2429 29.7956 33.2429 23.8663C33.2429 16.4488 27.51 10.8531 19.69 10.8531C11.87 10.8531 6.26678 16.9693 6.26678 23.8663C6.26678 29.7956 11.87 31.9995 19.69 31.9995ZM19.3825 29.7225C25.1347 29.7225 29.3517 28.1085 29.3517 23.7664C29.3517 18.3345 25.1347 14.2368 19.3825 14.2368C13.6303 14.2368 9.50872 18.7157 9.50872 23.7664C9.50872 28.1085 13.6303 29.7225 19.3825 29.7225Z" fill="white"/>
                 </svg>
            </span>
-           <h1 class="name"><a href="/">판다마켓</a></h1>
+           <h1 class="header-container__logo--title"><a href="/">판다마켓</a></h1>
         </div>
-        <a class="login" href="/signin">로그인</a>
+        <a class="header-container__login-button" href="/signin">로그인</a>
     </header>
-    <main>
-        <section class="panda-banner top-banner">
-            <div>
+    <main class="main-container">
+        <section class="main-container__banner main-container__banner--top-banner">
+            <div class="main-container__banner--top-banner main-container__banner--title">
                 <h2>
                     <span>일상의 모든 물건을</span>
                     <span>거래해 보세요</span>
                 </h2>
                 <a href="/items">구경하러 가기</a>
             </div>
-            <span>
+            <span class="main-container__banner--top-banner-img">
                 <img src="/assets/images/mainPage/pandamarket-banner-header-image.svg" alt="판다마켓에서 일상의 모든 물건을 거래하세요"/>
             </span>
         </section>
-        <section class="panda-section left-start">
-            <span>
+        <section class="main-container__section main-container__section--left-start">
+            <span class="main-container__section--svg">
                 <img src="/assets/images/mainPage/pandamarket-first-section-image.svg" alt="판다마켓에서 인기 상품을 확인해보세요"/>
             </span>
-            <div>
+            <div class="main-container__section--content">
                 <h2>Hot Item</h2>
                 <h3>
                     <span>인기 상품을</span>
@@ -75,11 +75,11 @@
                 </p>
             </div>
         </section>
-        <section class="panda-section right-start">
-            <span>
+        <section class="main-container__section main-container__section--right-start">
+            <span class="main-container__section--svg">
                 <img src="/assets/images/mainPage/pandamarket-second-section-image.svg" alt="판다마켓에서 구매를 원하는 상품을 구매하세요"/>
             </span>
-            <div>
+            <div class="main-container__section--content">
                 <h2>Search</h2>
                 <h3>
                     <span>구매를 원하는</span>
@@ -91,11 +91,11 @@
                 </p>
             </div>
         </section>
-        <section class="panda-section left-start">
-            <span>
+        <section class="main-container__section main-container__section--left-start">
+            <span class="main-container__section--svg">
                 <img src="/assets/images/mainPage/pandamarket-third-section-image.svg" alt="판다마켓에서 원하는 상품을 등록하세요" />
             </span>
-            <div>
+            <div class="main-container__section--content">
                 <h2>Register</h2>
                 <h3>
                     <span>판매를 원하는</span>
@@ -107,27 +107,27 @@
                 </p>
             </div>
         </section>
-        <section class="panda-banner bottom-banner">
-            <div>
+        <section class="main-container__banner main-container__banner--bottom-banner">
+            <div class="main-container__banner--bottom-banner main-container__banner--title">
                 <h2>
                     <span>믿을 수 있는</span>
                     <span>판다마켓 중고거래</span>
                 </h2>
             </div>
-            <span>
+            <span class="main-container__banner--bottom-banner-img">
               <img src="/assets/images/mainPage/panda-banner-footer-image.svg" alt="판다마켓에서 믿고 거래하세요" />
             </span>
         </section>
     </main>
-    <footer>
-        <div class="codeit-footer codeit-copyright">
-            <span>©codeit-2024</span>
+    <footer class="footer-container">
+        <div class="footer-container__grid footer-container__grid--copyright">
+            <span class="footer-container__copyright--title">©codeit-2024</span>
         </div>
-        <div class="codeit-footer codeit-faqs">
+        <div class="footer-container__grid footer-container__grid--faqs">
             <a href="/privacy">Privacy Policy</a>
             <a href="/faq">FAQ</a>
         </div>
-        <div class="codeit-footer codeit-sns">
+        <div class="footer-container__grid footer-container__grid--sns">
             <a href="http://facebook.com" target="_blank"><img src="/assets/images/logos/facebook-logo.svg" alt="Facebook"/></a>
             <a href="http://x.com" target="_blank"><img src="/assets/images/logos/twitter-logo.svg" alt="twitter"/></a>
             <a href="http://youtube.com" target="_blank"><img src="/assets/images/logos/youtube-logo.svg" alt="Youtube"/></a>

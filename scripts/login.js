@@ -1,13 +1,16 @@
 'use strict';
 
-const form = document.querySelector('form');
 const email = document.querySelector('#panda-market-email');
 const nickname = document.querySelector('#panda-market-nickname');
 const password = document.querySelector('#panda-market-password');
 const password_confirm = document.querySelector('#panda-market-password-confirm');
 const form_button = document.querySelector('#panda-market-signup-button');
 const invalidSpanList = document.querySelectorAll('.invalid-message');
-const emailValidityChar =  /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9]+\.[A-Za-z]{2,3}/;
+const toggleSwitch = document.querySelectorAll('.toggle-switch');
+const passwordShowSwitch = document.querySelector('#password-toggle');
+const passwordConfirmShowSwitch = document.querySelector('#password-toggle-confirm');
+const emailValidityChar =  /^[A-Za-z0-9]+[\.\-]*[A-Za-z0-9]*@[A-Za-z0-9]+[\.\-]*[A-Za-z0-9]*\.(com|net|(co\.)*(kr|jp|cn|uk))/;
+
 
 const checkValidity = () => {
     const _valid = [...invalidSpanList].every((v) => [...v['classList']].includes('valid'));
@@ -64,7 +67,7 @@ const passwordCheck = (e) => {
     } else if(password.value !== "" && password.value.length >= 8) {
         password.classList.remove('invalid');
         passwordSpan.classList.add('hide', 'valid');
-        passwordCompare();
+        if(password_confirm) passwordCompare();
     }
 
     if (password_confirm && e.target === password_confirm) {
@@ -93,8 +96,21 @@ const nicknameConfirm = (e) => {
     checkValidity();
 }
 
-
-
+const showPassword = (e) => {
+    if(e.target === toggleSwitch[0]) {
+        if(passwordShowSwitch.checked) {
+            password.type = "password";
+        } else {
+            password.type = "text";
+        }
+    } else if(e.target === toggleSwitch[1]) {
+        if(passwordConfirmShowSwitch.checked) {
+            password_confirm.type = "password";
+        } else {
+            password_confirm.type = "text";
+        }
+    }
+}
 
 if(email) {
     email.addEventListener('focusout', emailConfirm);
@@ -109,5 +125,20 @@ if(password_confirm) {
     password_confirm.addEventListener('focusout', passwordCheck);
     password.addEventListener('input', passwordCompare);
     password_confirm.addEventListener('input', passwordCompare);
+}
+
+if(form_button) {
+    form_button.addEventListener('click', () => {
+        if(location.pathname === "/signin/") {
+            location.href="/items";
+        } else if (location.pathname === "/signup/") {
+            location.href="/signin";
+        }
+    });
+}
+
+if(toggleSwitch) {
+     toggleSwitch[0].addEventListener('click', showPassword);
+     if(toggleSwitch[1]) toggleSwitch[1].addEventListener('click', showPassword);
 }
 

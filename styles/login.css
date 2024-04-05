@@ -169,12 +169,18 @@ body {
     background-image: url('/assets/images/logos/kakaotalk-logo.svg');
 }
 
-.login-container__form > .invalid {
+.login-container__form > .invalid,
+.login-container__form--password-input > .invalid
+{
     border: 3px solid var(--invalid-color);
 }
 
 .login-container__form > .invalid-message {
     color: var(--invalid-color);
+    font-family: Pretendard;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.79rem;
     display: block;
 }
 
