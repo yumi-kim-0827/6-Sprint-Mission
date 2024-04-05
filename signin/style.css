@@ -151,4 +151,12 @@ img {
   position: absolute;
   top: 50px;
   right: 10px;
+  /* border: 0px solid #000; */
+}
+
+#email:focus, 
+#user-name:focus, 
+#password:focus,
+#password-check:focus {
+  outline: 2px solid var(--blue);
 }
