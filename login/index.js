@@ -13,7 +13,7 @@ const passwordError = document.querySelector('#password-error');
 
 const loginButton = document.querySelector('.form-button');
 
-const visibleIcon = document.querySelector('visible-icon');
+const visibleIcon = document.querySelector('.visible-icon');
 
 const handleInputValid = (input, error, validFunction) => {
   input.addEventListener('focusout', () => {
