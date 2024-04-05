@@ -116,12 +116,10 @@
   }
 }
 
-body {
-  font-family: 'Pretendard-Regular';
+.body {
   background-color: #cfe5ff;
   font-size: 16px;
   font-weight: 400;
-  margin: 0;
 }
 
 .img {
@@ -202,14 +200,14 @@ body {
 }
 
 .banner {
-  background-image: url('/6-Sprint-Mission/img/png/Img_home_top.png');
+  background-image: url('/img/png/Img_home_top.png');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 90%;
 }
 
 .down {
-  background-image: url('/6-Sprint-Mission/img/png/Img_home_bottom.png');
+  background-image: url('/img/png/Img_home_bottom.png');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 90%;

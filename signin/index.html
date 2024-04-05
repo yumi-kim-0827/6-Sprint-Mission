@@ -3,53 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../img/icon/판다 얼굴.svg">
+  <link rel="icon" href="../img/icon/ic_brand_logo.svg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" type="text/css" href="../global.css">
   <meta property="og:title" content="판다마켓 로그인">
   <title>sign-in</title>
 </head>
-<body>
+<body class="body">
   <div class="logo">
     <a href="../">
-      <img class="img" src="/6-Sprint-Mission/img/icon/logo.svg">
+      <img class="img" src="../img/icon/ic_brand_logoname.svg">
     </a>
   </div>
   <main class="main">
     <form>
-      <div>
-        <label class="input-name">이메일</label>
-        <input class="input" type="email" name="email" placeholder="이메일을 입력해 주세요"><br>
+      <div class="input-name">
+        <label for="email">이메일</label>
+        <input id="email" class="input" type="email" name="email" placeholder="이메일을 입력해 주세요"><br/>
       </div>
-      <div>
-        <label class="input-name">비밀번호</label>
-        <input class="input" type="password" name="password" placeholder="비밀번호를 입력해 주세요"><br>
-        <!-- <img src="/6-Sprint-Mission/img/icon/Property 1=Variant2.svg" alt="비밀번호 숨기기 아이콘"> -->
+      <div class="input-name">
+        <label for="password">비밀번호</label>
+        <input id="password" class="input" type="password" name="password" placeholder="비밀번호를 입력해 주세요"><br/>
+        <button type="button" class="password-toggle-button">
+          <img src="../img/icon/ic_Property 1=Variant2.svg" alt="비밀번호 숨기기 아이콘">
+        </button>
       </div>
       <button class="login-btn">
         <a class="login" type="submit">로그인</a>
-      </button><br>
+      </button><br/>
     </form>
     <div class="box">
       <div class="simple login">
         <div>간편 로그인하기</div>
         <div class="membership">
           <a class="login" href="https://www.google.com/" target="_blank">
-            <img src="/6-Sprint-Mission/img/icon/google logo.svg" alt="구글 로그인 아이콘">
+            <img src="../img/icon/ic_google.svg" alt="구글 로그인 아이콘">
           </a>
           <a class="login" href="https://www.kakaocorp.com/" target="_blank" alt="카카오 로그인 아이콘">
-            <img src="/6-Sprint-Mission/img/icon/kakao logo.svg">
+            <img src="../img/icon/ic_kakao.svg">
           </a>
         </div>
       </div>
       <div class="box">
         <span class="style">
           판다마켓이 처음이신가요?
-        <a class="join" href="/6-Sprint-Mission/signin/signup.html">회원가입</a>
+        <a class="join" href="../signin/signup.html">회원가입</a>
         </span>
       </div>
     </div>
   </main>
-  <script src="/6-Sprint-Mission/signin/main.js"></script>
+  <script src="../signin/main.js"></script>
 </body>
 </html>
