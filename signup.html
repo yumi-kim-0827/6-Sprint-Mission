@@ -39,7 +39,7 @@
       </a>
     </header>
     <main class="main-container">
-      <form class="user-form" action="#" method="post">
+      <form class="user-form" action="/login" method="post">
         <div id="email-input__wrap">
           <label class="user-form__label" for="email"> 이메일 </label>
           <input
@@ -59,6 +59,7 @@
             type="text"
             placeholder="닉네임을 입력해주세요"
           />
+          <p id="nick-input-message" class="input-message"></p>
         </div>
         <div id="pwd-input__wrap">
           <label class="user-form__label" for="password"> 비밀번호 </label>
@@ -99,7 +100,12 @@
             </button>
           </div>
         </div>
-        <button id="submit-btn" class="user-form__button" type="submit" disabled>
+        <button
+          id="submit-btn"
+          class="user-form__button"
+          type="submit"
+          disabled
+        >
           회원가입
         </button>
       </form>
