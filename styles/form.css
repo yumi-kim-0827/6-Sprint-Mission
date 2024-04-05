@@ -128,3 +128,13 @@ input {
     color: red;
     padding: 3px 16px;  
 }
+
+#password-error {
+    color: red;
+    padding: 3px 16px;
+}
+
+#password-repeat-error {
+    color: red;
+    padding: 3px 16px;
+}
