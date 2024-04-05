@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 입력값이 유효한 경우에만 로그인 버튼을 활성화
+  // 입력값이 유효한 경우에만 회원가입 버튼을 활성화
   function validateInputs() {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
@@ -79,18 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const validEmail = isValidEmail(email);
     const validPassword = password.length >= 8;
     const passwordsMatch = password === passwordConfirmation;
-    const errorMessages = document.querySelectorAll('.error-message');
 
-    // 에러 메시지가 있는 경우 회원가입 버튼 비활성화
-    if (
-      errorMessages.length > 0 ||
-      email === '' ||
-      password === '' ||
-      passwordConfirmation === ''
-    ) {
-      signupButton.disabled = true;
-    } else {
+    // 모든 입력값이 유효한 경우에만 회원가입 버튼 활성화
+    if (validEmail && validPassword && passwordsMatch) {
       signupButton.disabled = false;
+    } else {
+      signupButton.disabled = true;
     }
   }
 
