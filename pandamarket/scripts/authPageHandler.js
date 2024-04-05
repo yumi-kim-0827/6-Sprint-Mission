@@ -47,25 +47,27 @@ function removeErrorMessage(targetParentElement) {
 }
 
 function validateAuthForm(event, path) {
-  //focusout발생
   event.preventDefault();
-  const submitButton = document.querySelector('.submit-button');
+  // focusout 발생
+  // const submitButton = document.querySelector('.submit-button');
   const focusout = new Event('focusout');
-  const inputs = document.getElementsByTagName('input');
+  const inputs = document.querySelectorAll('input');
   [...inputs].forEach((input) => input.dispatchEvent(focusout));
   // form 제출 전 확인
-  const errorInput = document.querySelectorAll('input');
-  if (errorInput.length === 0) {
+  const errorInputs = document.querySelectorAll('.error');
+  if (errorInputs.length === 0) {
     window.location.href = `./${path}`;
     // const form = submitButton.closest('form');
     // form.submit();
+  } else {
+    console.log(errorInputs);
+    errorInputs[0].focus();
   }
 }
 // 요구사항 충족 시 버튼 활성화
 function formCheck() {
   const errorInputs = document.querySelectorAll('.error');
   const submitBtn = document.querySelector('.submit-button');
-  console.log(errorInputs.length);
   if (errorInputs.length === 0) {
     submitBtn.style.backgroundColor = "#3691ff";
   } else {
