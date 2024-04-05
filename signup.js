@@ -8,6 +8,7 @@ const errorPwdWrong = document.querySelector(".error_pwd_wrong");
 const errorPwdUndefined = document.querySelector(".error_pwd_undefined");
 const errorPwdCheck = document.querySelector(".error_pwd_check");
 const errorNickname = document.querySelector(".error_nickname");
+const signupSubmitButton = document.querySelector(".signup_submit_button");
 
 function emailCheck(email_address) {
   const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -71,3 +72,22 @@ pwdCheckInput.addEventListener("focusout", (event) => {
     event.target.classList.add("error_border");
   }
 });
+
+function handlerActive() {
+  if (
+    emailCheck(emailInput.value) &&
+    nicknameInput.value &&
+    pwdInput.value &&
+    pwdInput.value.length >= 8 &&
+    pwdInput.value === pwdCheckInput.value
+  ) {
+    signupSubmitButton.disabled = false;
+  } else {
+    signupSubmitButton.disabled = true;
+  }
+}
+signupSubmitButton.disabled = true;
+emailInput.addEventListener("keyup", handlerActive);
+nicknameInput.addEventListener("keyup", handlerActive);
+pwdInput.addEventListener("keyup", handlerActive);
+pwdCheckInput.addEventListener("keyup", handlerActive);

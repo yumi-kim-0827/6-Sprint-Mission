@@ -4,6 +4,7 @@ const errorEmailWrong = document.querySelector(".error_email_wrong");
 const errorEmailUndefined = document.querySelector(".error_email_undefined");
 const errorPwdWrong = document.querySelector(".error_pwd_wrong");
 const errorPwdUndefined = document.querySelector(".error_pwd_undefined");
+const loginSubmitButton = document.querySelector(".login_submit_button");
 
 function emailCheck(email_address) {
   const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -47,3 +48,18 @@ pwdInput.addEventListener("focusout", (event) => {
     }
   }
 });
+
+function handlerActive() {
+  if (
+    emailCheck(emailInput.value) &&
+    pwdInput.value &&
+    pwdInput.value.length >= 8
+  ) {
+    loginSubmitButton.disabled = false;
+  } else {
+    loginSubmitButton.disabled = true;
+  }
+}
+loginSubmitButton.disabled = true;
+emailInput.addEventListener("keyup", handlerActive);
+pwdInput.addEventListener("keyup", handlerActive);
