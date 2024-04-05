@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
   nicknameInput.addEventListener('focusout', function () {
     const nickname = nicknameInput.value.trim();
     const errorContainer = document.getElementById('nickname-error');
+    nicknameInput.style.borderColor = '#3692FF';
 
     // 값이 없는 경우 에러 메시지 출력
     if (nickname === '') {
