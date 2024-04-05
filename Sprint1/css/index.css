@@ -4,29 +4,39 @@
     padding: 0;
 }
 
+:root {
+    --blue: #3692ff;
+    --white: #ffffff;
+    --banner_color : #CFE5FF;
+}
+
 body {
     margin: 0;
 }
 
-header {
-    position: fixed;
-    background-color: #ffffff;
-    width: 100%;
-    z-index: 99;
+
+main {
+    margin-top: 70px;
 }
 
 .header_container {
+    position: fixed;
+    top: 0px;
+    background-color: #ffffff;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 200px;
+    padding: 0 16px;
+    height: 70px;
+    border: 0px, 0px, 1px, 0px;
 }
 
 .login_btn {
     width: 128px;
     height: 48px;
-    color: #ffffff;
-    background-color: #3692FF;
+    color: var(--white);
+    background-color: var(--blue);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -35,67 +45,67 @@ header {
     font-weight: 600;
 }
 
-.container {
-    background-color: #CFE5FF;
-    height: 540px;
+#top_banner {
+    background-image: url('../imgs/img_home_top.png');
+
 }
 
-.container.space {
-    margin-top: 138px;
+.container {
+    background-color: var(--banner_color);
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position: bottom;  
+    text-align: center;
+}
+
+#bottom_banner {
+    background-image: url('../imgs/img_home_bottom.png');
 }
 
 .main_section1 {
     max-width: 1200px;
-    height: 540px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    position: relative;
+    width: 100%;
+    margin: 0 auto ;
 }
 
-.section_box1 {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
 
-.section_title1 {
+.main_section1 h1{
     font-family: "pretendard";
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
-    line-height: 56px;
+    line-height: 44.8px;
+    padding-top: 48px;
+    padding-bottom: 18px;
 }
 
-.section1_btn {
+.main_section1 button {
     font-family: "pretendard";
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
-    background-color: #3692FF;
-    color: #ffffff;
-    width: 355px;
-    height: 56px;
+    background-color: var(--blue);
+    color: var(--white);
+    width: 154px;
+    height: 48px;
     border: none;
     border-radius: 40px;
     cursor: pointer;
 }
 
-.section_img1 {
-    position: absolute;
-    bottom: 0;
-    left: 350px;
+#first_section {
+    padding-top: 50px;
 }
 
 .main_section2{
     max-width: 1200px;
-    padding: 138px 0;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 64px;
+    padding: 0 20px
+}
+
+.main_section2 img {
+    width: 100%;
 }
 
 .main_section2.mirror {
-    justify-content: end;
     text-align: right;
 }
 
@@ -103,66 +113,187 @@ header {
     font-family: "pretendard";
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    margin: 20px 0px 70px;
 }
 
 .section2_title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 25px;
-    color: #3692FF;
+    color: var(--blue);
 }
 
+
 .section2_subtitle {
-    margin-top: 12px;
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 56px;
-    
+}
+
+.section2_subtitle br {
+    display: none;
 }
 
 .section2_content {
-    margin-top: 24px;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 29px;
 }
 
 footer {
-    color: #ffffff;
-    font-family: "pretendard";
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.footer_container {
     background-color: #111827;
-    width: 100%;
-    height: 160px;
-    padding: 32px 200px;
-    gap: 10px;
-}
-
-.footer_nav {
+    color: var(--white);
+    font-family: "pretendard";
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 32px;    
+    gap: 60px;
 }
 
-.footer_nav_logo1 {
+#footer_year {
     color: #9CA3AF;
+    flex-basis: 100%;
+    order: 3;
 }
 
-.footer_nav_logo2 {
+#footer_menu {
     display: flex;
     gap: 30px;
+    
 }
 
-.footer_nav_logo2 > a {
-    color: #ffffff;
+#footer_menu a {
     text-decoration: none;
+    color: #CFCFCF;
 }
 
-.footer_nav_logo3 {
+#social_media {
     display: flex;
     gap: 12px;
+    cursor: pointer;
+}
+
+
+@media (min-width : 768px ) {
+    .header_container {
+        padding: 0 24px;
+    }
+
+    .container {
+        height: 90vh;
+    }
+
+    .container h1 {
+        font-size: 40px;
+        line-height: 56px;
+        padding-top: 84px;
+        padding-bottom: 24px;
+    }
+
+    .top_title br {
+        display: none;
+    }
+
+    .container button {
+        font-size: 20px;
+        font-weight: 700;
+        width: 355px;
+        height: 60px;
+        border-radius: 45.5px;
+    }
+
+    #first_section {
+        padding-top: 20px;
+    }
+
+    .section2_title {
+        font-size: 18px;
+    }
+
+    .section2_subtitle {
+        font-size: 32px;
+    }
+
+    .section2_content {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 32px 104px 108px 104px
+    }
+
+    #footer_year {
+        flex-basis: auto;
+        order: 0;
+    }
+
+}
+
+
+@media (min-width : 1200px) {
+    .header_container {
+        padding: 0 200px;
+    }
+
+    .container {
+        height: 540px;
+        background-size: 50%;
+        background-position: left 80% bottom;  
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+
+    .container h1 {
+        padding-top: 0px;
+    }
+
+    .top_title br {
+        display: inline;
+    }
+
+
+    .main_section2{
+        margin: 138px auto;
+        display: flex;
+        align-items: center;
+        gap: 64px;
+    }
+
+    .main_section2 img {
+        width: 50%;
+    }
+
+    .section2_subtitle {
+        font-size: 40px;
+        line-height: 56px;
+    }
+
+    .section2_subtitle br {
+        display: inline;
+    }
+
+    .section2_content {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .main_section2.mirror {
+        flex-direction: row-reverse;
+    }
+
+    #bottom_banner {
+        margin-top: 276px;
+    }
+
+    footer {
+        padding: 32px 200px 108px 200px;
+    }
+
+    #footer_year {
+        flex-basis: auto;
+        order: 0;
+    }
+
 }
