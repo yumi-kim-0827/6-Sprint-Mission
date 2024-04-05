@@ -18,20 +18,26 @@
             <div class="input-block">
                 <label for="email">이메일</label>
                 <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요"/>
+                <p id="email-no-value" class="disabled error">이메일을 입력해주세요</p>
+                <p id="email-invalid" class="disabled error">잘못된 이메일 형식입니다.</p>
             </div>
             <div class="input-block">
                 <label for="nickname">닉네임</label>
                 <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요"/>
+                <p id="nickname-no-value" class="disabled error">닉네임을 입력해주세요</p>
             </div>
             <div class="input-block">
                 <label for="password">비밀번호</label>
                 <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요"/>
+                <p id="password-no-value" class="disabled error">비밀번호를 입력해주세요</p>
+                <p id="password-invalid" class="disabled error">비밀번호를 8자 이상 입력해주세요</p>
             </div>
             <div class="input-block">
                 <label for="password-confirmation">비밀번호 확인</label>
                 <input id="password-confirmation" name="password-confirmation" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요"/>
+                <p id="password-mismatch" class="disabled error">비밀번호가 일치하지 않습니다.</p>
             </div>
-            <button type="submit">회원가입</button>
+            <button id="submit-button" type="submit" class="disabled">회원가입</button>
         </div>
     </form>
     <div id="special-login">
@@ -44,5 +50,6 @@
     <div id="link">
         이미 회원이신가요? <a href="/login">로그인</a>
     </div>
+    <script src="/scripts/signup.js"></script>
 </body>
 </html>
