@@ -102,14 +102,13 @@
 .ico_hide {
   width: 10%;
   height: 51px;
-  margin: -61px 0 0 auto;
+  margin: 0 0 -51px auto;
   text-align: center;
   line-height: 51px;
   cursor: pointer;
+  z-index: 2;
 }
-.ico_hide.warned {
-  margin: -81px 0 30px auto;
-}
+
 .ico_hide > img {
   width: 24px;
   height: 24px;
