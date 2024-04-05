@@ -1,6 +1,5 @@
 
 
-
 const emailCheck = (userInput)=>{ 
     
     const email = userInput.value;
@@ -26,21 +25,17 @@ const emailCheck = (userInput)=>{
 const passwordCheck = (userInput)=>{
     const password = userInput.value;
     const err_m = userInput.nextElementSibling;
-    const password_visible_btn = err_m.nextElementSibling;
     if(password === ''){
         userInput.classList.add('err-input');
         err_m.textContent = '비밀번호를 입력해주세요'
-        password_visible_btn.style.top = '45%';
         return false;
     }else if(password.length < 8){
         userInput.classList.add('err-input');
         err_m.textContent = '비밀번호를 8자 이상 입력해주세요';
-        password_visible_btn.style.top = '45%';
         return false;
     }else{
         userInput.classList.remove('err-input');
         err_m.textContent = ''
-        password_visible_btn.style.top = '55%';
         return true;
     }
 
@@ -61,20 +56,20 @@ const nickNameCheck = (userInput)=>{
 
 }
 
+
+
 const passwordDoubleCheck = (userInput,password1)=>{
     
     const password2 = userInput.value;
     const err_m = userInput.nextElementSibling;
-    const password_visible_btn = err_m.nextElementSibling;
+  
     if(password1 !== password2){
         userInput.classList.add('err-input');
         err_m.textContent = '비밀번호가 일치하지 않습니다'
-        password_visible_btn.style.top = '45%';
         return false;
     }else{
         userInput.classList.remove('err-input');
         err_m.textContent = ''
-        password_visible_btn.style.top = '55%';
         return true;
     }
 
