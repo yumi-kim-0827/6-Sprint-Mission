@@ -14,11 +14,12 @@
   --color-gray700: #374151; 
   --color-gray800: #26282B;
   --color-gray900: #1B1D1F;
+  --color-red: #F74747;
 
 }
 
 /* 기본 셋팅 */
-#wrap {
+.wrap {
   width: 100%;
   min-width: 375px;
   position: relative;
@@ -114,7 +115,7 @@ header {
 .panda_content li .sub {
   font-size: 24px;
   font-weight: 500;
-  line-height: 1.3em;
+  line-height: 1.8rem;
 }
 .main_visual.main_banner {
   background: #CFE5FF url('../image/Img_home_bottom.png') no-repeat bottom right 15%;
@@ -176,6 +177,9 @@ footer .sns {
   background: #F3F4F6;
   padding: 0 24px;
 }
+.login_box li .input input.error {
+  border: 1px solid var(--color-red);
+}
 .login_box li .input input::placeholder {
   color: #9CA3AF;
 }
@@ -192,9 +196,13 @@ footer .sns {
   position: absolute;
   right: 24px;
   top: 17px;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
 }
 .sign_btn {
-  background: #9CA3AF;
+  background: var(--color-blue);
   color: var(--color-white);
   height: 56px;
   width: 100%;
@@ -203,8 +211,8 @@ footer .sns {
   font-size: 20px;
   font-weight: 600;
 }
-.sign_btn:hover {
-  background: var(--color-blue);
+.sign_btn:disabled {
+  background: var(--color-gray400);
 }
 .sns_login {
   margin: 24px 0;
@@ -232,6 +240,14 @@ footer .sns {
   display: inline-block;
   text-decoration: underline;
   color: var(--color-blue);
+}
+
+/* error massage */
+.error_msg {
+  font-weight: 600;
+  color: var(--color-red);
+  display: none;
+  margin: 8px 16px 0;
 }
 
 
@@ -295,7 +311,7 @@ footer .sns {
   }
   .panda_content li .tit {
     font-size: 32px;
-    line-height: 1.45em;
+    line-height: 2.1rem;
     margin: 12px 0 20px;
   }
   .panda_content li .tit br {
@@ -352,7 +368,7 @@ footer .sns {
   }
   .mv_txt .tit {
     font-size: 32px;
-    line-height: 1.45em;
+    line-height: 3rem;
   }
   .mv_txt .tit br {
     display: block;

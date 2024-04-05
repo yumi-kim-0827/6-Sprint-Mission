@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <div id="wrap">
+  <div class="wrap">
 
     <main>
       <section class="login_wrap">
@@ -25,18 +25,20 @@
           <li>
             <div class="tit">이메일</div>
             <div class="input">
-              <input type="email" name="user_email" placeholder="이메일을 입력해주세요">
+              <input type="email" id="email" name="email" class="login_input" placeholder="이메일을 입력해주세요">
             </div>
+            <div class="error_msg email_error"></div>
           </li>
           <li>
             <div class="tit">비밀번호</div>
             <div class="input pw_input">
-              <input type="password" name="user_password" placeholder="비밀번호를 입력해주세요">
-              <a href="#none"><img src="../image/pw_icon.png" alt=""></a>
+              <input type="password" id="password" name="password" class="login_input" placeholder="비밀번호를 입력해주세요">
+              <a href="javascript:" class="password_icon"><img src="../image/pw_icon.png" alt=""></a>
             </div>
+            <div class="error_msg password_error"></div>
           </li>
         </ul>
-        <button type="button" class="sign_btn">로그인</button>
+        <button type="button" class="sign_btn" id="login_btn" onclick="location.href='/items.html';" disabled>로그인</button>
         <div class="sns_login">
           <div class="txt">간편 로그인하기</div>
           <div class="sns_logo">
@@ -52,5 +54,6 @@
 
   </div>
 
+  <script src="../js/member.js"></script>
 </body>
 </html>
