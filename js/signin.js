@@ -69,9 +69,13 @@ re_pwd ? re_pwd.addEventListener("focusout", focusOutPwdCheck) : undefined;
 // 로그인 버튼 활성화 - 활성화 함수
 
 function activateLogin(state) {
+  let location = "location.href=";
+  window.location.href.includes("signin")
+    ? (location += "'./items.html'")
+    : (location += "'./signin.html'");
   if (state) {
     submitBtn.classList.add("active");
-    submitBtn.setAttribute("onclick", "location.href='./items.html'");
+    submitBtn.setAttribute("onclick", location);
   } else {
     submitBtn.classList.remove("active");
     submitBtn.removeAttribute("onclick");
