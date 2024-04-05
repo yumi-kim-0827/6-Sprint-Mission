@@ -81,39 +81,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   passwordInput.addEventListener('focusout', function () {
     const password = passwordInput.value.trim();
-    const errorContainer = document.getElementById('password-error');
 
     if (password === '') {
-      showError();
+      showError('비밀번호를 입력해주세요.'); // 값이 없는 경우 에러 메시지 표시
+    } else if (password.length < 8) {
+      showError('비밀번호를 8자 이상 입력해주세요.'); // 값이 8자 미만인 경우 에러 메시지 표시
     } else {
-      removeError();
+      removeError(); // 값이 있는 경우 에러 메시지 삭제
     }
   });
 
-  // 비밀번호 에러 메시지를 표시하는 함수
-  function showError() {
-    passwordInput.classList.add('error');
-    passwordInput.style.border = '1px solid red';
-
+  // 에러 메시지를 표시하는 함수
+  function showError(message) {
     const errorContainer = document.getElementById('password-error');
     if (!errorContainer) {
       const errorMessage = document.createElement('div');
       errorMessage.id = 'password-error';
       errorMessage.classList.add('error-message');
-      errorMessage.textContent = '비밀번호를 입력해주세요.';
+      errorMessage.textContent = message;
       errorMessage.style.color = 'red';
-      passwordInput.parentNode.insertBefore(
-        errorMessage,
-        passwordInput.nextSibling
-      );
+      errorMessage.style.marginTop = '8px'; // 에러 메시지의 위쪽 여백 추가
+      passwordInput.parentNode.appendChild(errorMessage);
     }
   }
 
-  // 비밀번호 에러 메시지를 삭제하는 함수
+  // 에러 메시지를 삭제하는 함수
   function removeError() {
-    passwordInput.classList.remove('error');
-    passwordInput.style.border = '1px solid #3692ff';
-
     const errorContainer = document.getElementById('password-error');
     if (errorContainer) {
       errorContainer.remove();
