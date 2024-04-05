@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordConfirmationInput = document.getElementById(
     'passwordConfirmation'
   );
-  const loginButton = document.querySelector('button[type="submit"]');
+  const signupButton = document.querySelector('button[type="submit"]');
 
   // 입력창이 변경될 때마다 유효성을 검사하여 로그인 버튼을 활성화 또는 비활성화되도록 설정
   emailInput.addEventListener('focusout', validateInputs);
   passwordInput.addEventListener('focusout', validateInputs);
+  passwordConfirmationInput.addEventListener('focusout', validateInputs);
 
   // 비밀번호 확인 input이 focus를 잃을 때마다 비밀번호 확인 체크
   passwordConfirmationInput.addEventListener('focusout', function () {
@@ -55,16 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 로그인 버튼 클릭 시 '/items'로 이동
-  loginButton.addEventListener('click', function (event) {
-    event.preventDefault(); // 기본 동작인 폼 제출을 방지
+  // 회원가입 버튼 클릭 시 '/items'로 이동
+  signupButton.addEventListener('click', function (event) {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
+    const passwordConfirmation = passwordConfirmationInput.value.trim();
     const validEmail = isValidEmail(email);
     const validPassword = password.length >= 8;
+    const passwordsMatch = password === passwordConfirmation;
 
-    if (validEmail && validPassword) {
-      window.location.href = '/items.html'; // 유효한 경우 '/items'로 이동
+    // 입력 값이 유효한 경우에만 회원가입 진행
+    if (validEmail && validPassword && passwordsMatch) {
+      window.location.href = '/items.html'; // 유효한 경우 '/items.html'로 이동
     }
   });
 
@@ -72,13 +75,22 @@ document.addEventListener('DOMContentLoaded', function () {
   function validateInputs() {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
+    const passwordConfirmation = passwordConfirmationInput.value.trim();
     const validEmail = isValidEmail(email);
     const validPassword = password.length >= 8;
+    const passwordsMatch = password === passwordConfirmation;
+    const errorMessages = document.querySelectorAll('.error-message');
 
-    if (validEmail && validPassword) {
-      loginButton.disabled = false; // 유효한 경우 버튼을 활성화
+    // 에러 메시지가 있는 경우 회원가입 버튼 비활성화
+    if (
+      errorMessages.length > 0 ||
+      email === '' ||
+      password === '' ||
+      passwordConfirmation === ''
+    ) {
+      signupButton.disabled = true;
     } else {
-      loginButton.disabled = true; // 유효하지 않은 경우 버튼을 비활성화
+      signupButton.disabled = false;
     }
   }
 
