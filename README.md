@@ -16,10 +16,10 @@
 
 ### 페이지 스크린샷
 
-![메인 이미지](images/thumbnail2.jpg)
+![메인 이미지](images/thumbnail3.jpg)
 
-- 코드잇 스프린트에서 진행한 두 번째 스프린트 미션
-  - 로그인 및 회원가입 페이지 제작
+- 코드잇 스프린트에서 진행한 네 번째 스프린트 미션
+  - 로그인 및 회원가입 페이지 - 유효성 검사
 
 ### 링크
 
@@ -30,13 +30,17 @@
 
 ### 사용한것
 
-- Semantic HTML5 markup
-- css 변수
-- css : input
+- javaScript
+  - if 문
+  - for 문
+  - querySelector
+  - 삼항연산자
+  - spread 문법
 
 ### 배운점
 
-- input[type=password] 태그에는 after 및 before 등 가상 선택자가 적용이 되지 않는다!!
+- querySelectorAll을 통해 반환한 NodeList를 다루는 방법
+- 로그인 버튼 활성화 알고리즘에서 힘들었었는데, 현재 작성한 코드가 마음에 들지 않으니 다른 방법을 더 찾아봐야겠다.
 
 ## 작성자
 
