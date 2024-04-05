@@ -12,20 +12,16 @@ const passwordError = document.querySelector('#password-error');
 
 const loginButton = document.querySelector('.form-button');
 
-emailInput.addEventListener('focusout', () => {
-  handleEmailValid(emailInput, emailError);
-  handleLoginButtonState(loginButton, emailInput, passwordInput);
-});
+const handleInputValid = (input, error, validFunction) => {
+  input.addEventListener('focusout', () => {
+    validFunction(input, error);
+    handleLoginButtonState(loginButton, emailInput, passwordInput);
+  });
 
-passwordInput.addEventListener('focusout', () => {
-  handlePasswordValid(passwordInput, passwordError);
-  handleLoginButtonState(loginButton, emailInput, passwordInput);
-});
+  input.addEventListener('input', () => {
+    handleLoginButtonState(loginButton, emailInput, passwordInput);
+  });
+};
 
-emailInput.addEventListener('input', () => {
-  handleLoginButtonState(loginButton, emailInput, passwordInput);
-});
-
-passwordInput.addEventListener('input', () => {
-  handleLoginButtonState(loginButton, emailInput, passwordInput);
-});
+handleInputValid(emailInput, emailError, handleEmailValid);
+handleInputValid(passwordInput, passwordError, handlePasswordValid);

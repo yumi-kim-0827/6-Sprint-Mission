@@ -20,7 +20,7 @@ const pwdCheckError = document.querySelector('#password-check-error');
 
 const signupButton = document.querySelector('.form-button');
 
-const handleInputValidation = (input, error, validFunction) => {
+const handleInputValid = (input, error, validFunction) => {
   input.addEventListener('focusout', () => {
     const functionArgs =
       validFunction === handlePwdCheckValid
@@ -49,7 +49,7 @@ const handleInputValidation = (input, error, validFunction) => {
   });
 };
 
-handleInputValidation(emailInput, emailError, handleEmailValid);
-handleInputValidation(nicknameInput, nicknameError, handleNicknameValid);
-handleInputValidation(passwordInput, passwordError, handlePasswordValid);
-handleInputValidation(pwdCheckInput, pwdCheckError, handlePwdCheckValid);
+handleInputValid(emailInput, emailError, handleEmailValid);
+handleInputValid(nicknameInput, nicknameError, handleNicknameValid);
+handleInputValid(passwordInput, passwordError, handlePasswordValid);
+handleInputValid(pwdCheckInput, pwdCheckError, handlePwdCheckValid);
