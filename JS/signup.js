@@ -11,9 +11,6 @@ const PWCErr = document.querySelector("#pw-check-error");
 const emailErr = document.querySelector("#email-error");
 const nickErr = document.querySelector("#nick-error");
 
-//input 값
-
-
 // Email
     function ema() {
     let em = email.value.trim();
