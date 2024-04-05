@@ -193,6 +193,18 @@ footer {
         width: 100%;
     }
 
+    .container > article:nth-child(2n) {
+        justify-content: center;
+    }
+
+    .container > article:nth-child(2n) > div {
+        flex-direction: row-reverse;
+    }
+
+    .container > article:nth-child(2n) > div > .desc > * {
+        text-align: left;
+    }
+
     #landing {
         flex-wrap: wrap;
     }
@@ -203,10 +215,6 @@ footer {
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-    body {
-        padding: 0 16px;
-        width: max(100%, 400px);
-    }
 
     nav {
         padding: 0 16px;
@@ -214,6 +222,18 @@ footer {
 
     .banner {
         width: 100%;
+    }
+
+    .container > article:nth-child(2n) {
+        justify-content: center;
+    }
+
+    .container > article:nth-child(2n) > div {
+        flex-direction: row-reverse;
+    }
+
+    .container > article:nth-child(2n) > div > .desc > * {
+        text-align: left;
     }
 
     #landing {
