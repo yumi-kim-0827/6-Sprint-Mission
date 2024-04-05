@@ -91,10 +91,16 @@ input::placeholder {
   font-size: 1.25rem;
   line-height: 1.5rem;
   color: var(--white-primary);
+  cursor: not-allowed;
+}
+
+.active {
+  background-color: var(--blue-primary);
   cursor: pointer;
 }
 
 /* 입력 폼 - 에러 */
+
 .error-message {
   display: none;
   color: var(--red-primary);

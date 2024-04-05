@@ -4,7 +4,24 @@ const emailError = document.querySelector('#email-error');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#password-error');
 
+const inputButton = document.querySelector('.form-button');
+
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+const handleButtonState = () => {
+  if (
+    emailInput.classList.contains('error-input') ||
+    passwordInput.classList.contains('error-input') ||
+    emailInput.value === '' ||
+    passwordInput.value.length < 8
+  ) {
+    inputButton.disabled = true;
+    inputButton.classList.remove('active');
+  } else {
+    inputButton.disabled = false;
+    inputButton.classList.add('active');
+  }
+};
 
 const handlePasswordValid = (inputEl, errorEl) => {
   if (inputEl.value === '') {
@@ -19,6 +36,7 @@ const handlePasswordValid = (inputEl, errorEl) => {
     inputEl.classList.remove('error-input');
     errorEl.style.display = 'none';
     errorEl.textContent = '';
+    handleButtonState();
   }
 };
 
@@ -35,6 +53,7 @@ const handleEmailValid = (inputEl, errorEl) => {
     inputEl.classList.remove('error-input');
     errorEl.style.display = 'none';
     errorEl.textContent = '';
+    handleButtonState();
   }
 };
 
@@ -44,4 +63,12 @@ emailInput.addEventListener('focusout', () => {
 
 passwordInput.addEventListener('focusout', () => {
   handlePasswordValid(passwordInput, passwordError);
+});
+
+emailInput.addEventListener('input', () => {
+  handleButtonState();
+});
+
+passwordInput.addEventListener('input', () => {
+  handleButtonState();
 });
