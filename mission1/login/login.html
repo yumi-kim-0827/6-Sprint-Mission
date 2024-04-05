@@ -18,9 +18,13 @@
         이메일
 
         <label class="emailLabel">
-          <input title="이메일" placeholder="이메일을 입력해주세요" />
+          <input
+            class="emailInput"
+            title="이메일"
+            placeholder="이메일을 입력해주세요"
+          />
         </label>
-
+        <div class="email-error-message"></div>
         비밀번호
         <label class="passwordLabel">
           <input
@@ -29,8 +33,10 @@
             type="password"
             placeholder="비밀번호를 입력해주세요"
           />
+
           <img id="eyeIcon" src="/icon/hidePassword.png" alt="closeEyes" />
         </label>
+        <div class="pw-error-message"></div>
       </div>
 
       <button class="loginButton">로그인</button>
