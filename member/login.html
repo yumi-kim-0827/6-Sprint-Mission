@@ -27,7 +27,7 @@
                             <input type="password" name="userPWD" id="login_PWD" data-check='' placeholder="비밀번호를 입력해주세요.">
                             <p class="wrongText"></p>
                         </label>
-                        <img class="pwd_icon" src="../image/login/eye.png" alt="비밀번호 표시 여부 아이콘"/>
+                        <img class="pwd_icon" src="../image/login/eye.png" onclick="pwdShow(this)" alt="비밀번호 표시 여부 아이콘"/>
                     </div>
                     <button type="button" class="submit_btn" id="auth_btn" onclick="location.href='../product/item.html' ">로그인</button>
                 </form>
@@ -55,5 +55,9 @@
         </article>
     </main>
     <script src="../js/index.js"></script>
+    <script>
+        loginId.addEventListener('focusout', () => {inputFocus('login_ID', '이메일을 입력해주세요.', '잘못된 이메일 형식입니다.')});
+        pwdId.addEventListener('focusout', () =>  {inputFocus('login_PWD', '비밀번호를 입력해주세요.', '비밀번호를 8자 이상 입력해주세요.')});
+    </script>
 </body>
 </html>

@@ -32,8 +32,16 @@ const removeWrong = (el) => {
 
 /*
 ******멘토님께******
-inputFocus 함수 활용도를 높이고 inputFocus 함수안에 코드를 클린하게 작성하기 위해 해당 함수에 중첩if문을 사용했는데 어떤가요...? inputFocus 함수에 작성하는게 나을까요? 아님 코드를 나눌까요?
-그리고 return할 때 inputfocus if문 사용으로 true, false 값을 반대로 작성했는데 이런식으로 작성해도 괜찮나요?
+inputFocus 함수 활용도를 높이고 inputFocus 함수안에 코드를 클린하게 작성하기 위해 wrongAuth 함수에 중첩if문을 사용했는데 나쁜 방법인가요...? (if(input === loginId) 부분) 
+inputFocus 함수에 작성하는게 나을까요? 
+아님 코드를 각각 이메일일때 비밀번호일떄 등등으로 나누는게 나을까요?
+그리고 return할 때 inputfocus 함수에서 if문 사용으로 인해 true, false 값을 반대로 작성했는데 이런식으로 작성해도 괜찮나요?
+
+addEventListener 유효성 때문에 2가지 방법을 생각해 봤는데 (login화면에서 닉네임 태그가 없어서 에러남)
+1. 모듈화 2. 각 페이지에 script 추가
+둘 중에 어떤게 더 좋은 선택일까요?
+저는 쉬운길인 2번을 선택하긴 했습니다....ㅎ 
+그런데 이렇게 하면 각 페이지에 동일한 addlistener가 추가되서 중복된 코드들이 있어서 어떡하면 좋을지 질문합니다!
 */
 
 //auth 이메일 input 값이 제대로 되어있는지 확인
@@ -119,9 +127,20 @@ function inputFocus(inputId, inputEmpty, inputWrong){
     
 }
 
+//비밀번호 보이기
+function pwdShow(el){
+    const pwdLabel = el.previousElementSibling;
+    
+    //password type 바꾸기
+    const input = pwdLabel.querySelector('input');
+    const currentType = input.getAttribute('type');
+    const newType = currentType === 'password' ? 'text' : 'password';
+    input.setAttribute('type', newType);
+
+    //눈모양 바꾸기
+    const currentSrc = el.getAttribute('src');
+    const newSrc = currentSrc === '../image/login/eye.png' ? '../image/login/eye2.png' : '../image/login/eye.png';
+    el.setAttribute('src', newSrc);
+}
 
 checkAuth();
-loginId.addEventListener('focusout', () => {inputFocus('login_ID', '이메일을 입력해주세요.', '잘못된 이메일 형식입니다.')});
-pwdId.addEventListener('focusout', () =>  {inputFocus('login_PWD', '비밀번호를 입력해주세요.', '비밀번호를 8자 이상 입력해주세요.')});
-nickName.addEventListener('focusout', () =>  {inputFocus('login_Name', '닉네임을 입력해주세요.')});
-pwdIdCheck.addEventListener('focusout', () =>  {inputFocus('login_PWD2','', '비밀번호가 일치하지 않습니다.')});
