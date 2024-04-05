@@ -5,6 +5,25 @@ const $passwordInput = document.getElementById("passwordInput");
 const $emailError = document.getElementById("emailError");
 const $pwdError = document.getElementById("pwdError");
 const $loginButton = document.getElementById("loginButton");
+const $showPassword = document.getElementById("showPassword");
+let showPwdBool = false;
+
+const noShowPwdImg = "../assets/lens_x.png";
+const showPwdImg = "../assets/lens_show.png";
+
+$showPassword.addEventListener("click", (e) => {
+  if (!showPwdBool) {
+    showPwdBool = true;
+    e.target.src = showPwdImg;
+    e.target.classList.add("showLens");
+    $passwordInput.type = "text";
+  } else {
+    showPwdBool = false;
+    e.target.src = noShowPwdImg;
+    e.target.classList.remove("showLens");
+    $passwordInput.type = "password";
+  }
+});
 
 const inputValidObj = {
   email: false,

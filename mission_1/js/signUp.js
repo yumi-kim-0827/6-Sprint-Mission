@@ -10,6 +10,45 @@ const $nicknameError = document.getElementById("nicknameError");
 const $pwdError = document.getElementById("pwdError");
 const $pwdCheckError = document.getElementById("pwdCheckError");
 
+const noShowPwdImg = "../assets/lens_x.png";
+const showPwdImg = "../assets/lens_show.png";
+
+const $showPassword = document.getElementById("showPassword");
+const $showPasswordCheck = document.getElementById("showPasswordCheck");
+
+const showPwdBoolObj = {
+  showPassword: false,
+  showPasswordCheck: false,
+};
+
+$showPassword.addEventListener("click", (e) => {
+  if (!showPwdBoolObj.showPassword) {
+    showPwdBoolObj.showPassword = true;
+    e.target.src = showPwdImg;
+    e.target.classList.add("showLens");
+    $passwordInput.type = "text";
+  } else {
+    showPwdBoolObj.showPassword = false;
+    e.target.src = noShowPwdImg;
+    e.target.classList.remove("showLens");
+    $passwordInput.type = "password";
+  }
+});
+
+$showPasswordCheck.addEventListener("click", (e) => {
+  if (!showPwdBoolObj.showPasswordCheck) {
+    showPwdBoolObj.showPasswordCheck = true;
+    e.target.src = showPwdImg;
+    e.target.classList.add("showLens");
+    $pwdCheckInput.type = "text";
+  } else {
+    showPwdBoolObj.showPasswordCheck = false;
+    e.target.src = noShowPwdImg;
+    e.target.classList.remove("showLens");
+    $pwdCheckInput.type = "password";
+  }
+});
+
 const $loginButton = document.getElementById("loginButton");
 
 const inputValidObj = {

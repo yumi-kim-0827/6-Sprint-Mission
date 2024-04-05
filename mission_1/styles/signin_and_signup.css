@@ -83,6 +83,11 @@ input.error {
   top: 15px;
   cursor: pointer;
 }
+.showLens {
+  top: 19px;
+  right: 12px;
+  width: 21px;
+}
 a#loginButton {
   display: block;
   width: 100%;
