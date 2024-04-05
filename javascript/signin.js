@@ -1,5 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const loginButton = document.querySelector('button[type="submit"]');
+
+  emailInput.addEventListener('focusout', validateInputs);
+  passwordInput.addEventListener('focusout', validateInputs);
+
+  // 입력값이 비어있거나 비밀번호가 8자 미만인 경우에는 '로그인' 버튼을 비활성화하는 함수
+  function validateInputs() {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const errorEmail = email === '';
+    const errorPassword = password === '' || password.length < 8;
+
+    if (errorEmail || errorPassword) {
+      loginButton.disabled = true;
+    } else {
+      loginButton.disabled = false;
+    }
+  }
 
   emailInput.addEventListener('focusout', function () {
     const email = emailInput.value.trim();
