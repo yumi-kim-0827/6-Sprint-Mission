@@ -47,7 +47,12 @@
             />
           </div>
         </div>
-        <button type="submit" class="button pill-button full-width">
+        <button
+          type="button"
+          class="button pill-button full-width"
+          onclick="location.href='items.html'"
+          disabled
+        >
           로그인
         </button>
       </form>
@@ -80,6 +85,7 @@
         판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
     </div>
-    <script src="signin.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="signin.js"></script>
   </body>
 </html>

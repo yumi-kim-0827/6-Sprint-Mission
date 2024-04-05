@@ -89,7 +89,7 @@ input::placeholder {
   text-underline-offset: 2px;
 }
 
-.err-color {
+.error-color {
   color: var(--red);
 }
 
