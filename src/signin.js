@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordInput = document.getElementById('password');
   const loginButton = document.querySelector('button[type="submit"]');
 
+  // 입력창이 변경될 때마다 유효성을 검사하여 로그인 버튼을 활성화 또는 비활성화되도록 설정
   emailInput.addEventListener('focusout', validateInputs);
   passwordInput.addEventListener('focusout', validateInputs);
 
+  // 로그인 버튼 클릭 시 '/items'로 이동
   loginButton.addEventListener('click', function (event) {
-    event.preventDefault();
+    event.preventDefault(); // 기본 동작인 폼 제출을 방지
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const validEmail = isValidEmail(email);
@@ -26,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const validPassword = password.length >= 8;
 
     if (validEmail && validPassword) {
-      loginButton.disabled = false;
+      loginButton.disabled = false; // 유효한 경우 버튼을 활성화
     } else {
-      loginButton.disabled = true;
+      loginButton.disabled = true; // 유효하지 않은 경우 버튼을 비활성화
     }
   }
 
+  // 이메일 유효성을 검사
   function isValidEmail(email) {
-    // 이메일 형식을 정규표현식으로 검사
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
