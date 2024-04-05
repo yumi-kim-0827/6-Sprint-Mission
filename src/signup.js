@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 회원가입 버튼 클릭 시 '/items'로 이동
+  // 회원가입 버튼 클릭 시 '/signup'로 이동
   signupButton.addEventListener('click', function (event) {
+    event.preventDefault(); // 기본 동작인 폼 제출을 방지
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const passwordConfirmation = passwordConfirmationInput.value.trim();
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 입력 값이 유효한 경우에만 회원가입 진행
     if (validEmail && validPassword && passwordsMatch) {
-      window.location.href = '/items.html'; // 유효한 경우 '/items.html'로 이동
+      window.location.href = '/signup.html'; // 유효한 경우 '/items.html'로 이동
     }
   });
 
