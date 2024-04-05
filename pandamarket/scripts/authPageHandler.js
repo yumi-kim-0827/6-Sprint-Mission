@@ -22,22 +22,26 @@ function validatePasswordLength(password) {
   return true;
 }
 
-function generateErrorMessage(errorMessage, targetParentElement) {
+function addErrorMessage(errorMessage, targetParentElement) {
   const hasClassName = targetParentElement.querySelector('.errorMessage') != null;
+  const errorInput = targetParentElement.querySelector('input');
   if (!hasClassName) {
+    errorInput.classList.add('error');
     const newDiv = document.createElement('div');
     newDiv.classList.add('errorMessage');
     newDiv.textContent = `${errorMessage}`;
     targetParentElement.appendChild(newDiv);
   } else {
     removeErrorMessage(targetParentElement);
-    generateErrorMessage(errorMessage, targetParentElement);
+    addErrorMessage(errorMessage, targetParentElement);
   }
 }
 
 function removeErrorMessage(targetParentElement) {
+  const errorInput = targetParentElement.querySelector('input');
   const hasClassName = targetParentElement.querySelector('.errorMessage');
   if (hasClassName) {
+    errorInput.classList.remove('error');
     hasClassName.remove();
   }
 }
@@ -50,11 +54,22 @@ function validateAuthForm(event, path) {
   const inputs = document.getElementsByTagName('input');
   [...inputs].forEach((input) => input.dispatchEvent(focusout));
   // form 제출 전 확인
-  const errorMessage = document.querySelectorAll('.errorMessage');
-  if (errorMessage.length === 0) {
-    const form = submitButton.closest('form');
+  const errorInput = document.querySelectorAll('input');
+  if (errorInput.length === 0) {
     window.location.href = `./${path}`;
+    // const form = submitButton.closest('form');
     // form.submit();
+  }
+}
+// 요구사항 충족 시 버튼 활성화
+function formCheck() {
+  const errorInputs = document.querySelectorAll('.error');
+  const submitBtn = document.querySelector('.submit-button');
+  console.log(errorInputs.length);
+  if (errorInputs.length === 0) {
+    submitBtn.style.backgroundColor = "#3691ff";
+  } else {
+    submitBtn.style.backgroundColor = "#9ca3af";
   }
 }
 
@@ -71,4 +86,4 @@ function inputFocusInStyle(event) {
   event.target.style.outline = "2px solid #3692ff";
 }
 
-export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail,generateErrorMessage, removeErrorMessage, validatePasswordLength, validateAuthForm}
+export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail, addErrorMessage, removeErrorMessage, validatePasswordLength, validateAuthForm, formCheck}

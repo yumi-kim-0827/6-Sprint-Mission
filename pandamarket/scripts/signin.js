@@ -1,46 +1,48 @@
-import * as authPageHandler from "./authPageHandler.js";
+import * as authHandler from "./authPageHandler.js";
 
 const eyeIcon = document.getElementById('eyeIcon');
-eyeIcon.addEventListener('click', authPageHandler.togglePasswordVisibility);
+eyeIcon.addEventListener('click', authHandler.togglePasswordVisibility);
 // email
-const emailInputFocus = document.getElementById('email-focus');
-emailInputFocus.addEventListener('focusin', authPageHandler.inputFocusInStyle);
-emailInputFocus.addEventListener('focusout', (event) => {
-  const inputEmail = emailInputFocus.value;
+const emailInput = document.getElementById('email');
+emailInput.addEventListener('focusin', authHandler.inputFocusInStyle);
+emailInput.addEventListener('focusout', (event) => {
+  const inputEmail = emailInput.value;
   const targetElement = event.target.parentElement;
   if (inputEmail.length === 0) {
-    authPageHandler.inputErrorStyle(event);
-    authPageHandler.generateErrorMessage("이메일을 입력해 주세요", targetElement);
-  } else if(!authPageHandler.validateEmail(inputEmail)) {
-    authPageHandler.inputErrorStyle(event);
-    authPageHandler.generateErrorMessage("잘못된 이메일 형식입니다", targetElement);
+    authHandler.inputErrorStyle(event);
+    authHandler.addErrorMessage("이메일을 입력해 주세요", targetElement);
+  } else if(!authHandler.validateEmail(inputEmail)) {
+    authHandler.inputErrorStyle(event);
+    authHandler.addErrorMessage("잘못된 이메일 형식입니다", targetElement);
   } else {
-    authPageHandler.inputSuccessStyle(event);
-    authPageHandler.removeErrorMessage(targetElement);
+    authHandler.inputSuccessStyle(event);
+    authHandler.removeErrorMessage(targetElement);
   }
+  authHandler.formCheck();
 });
 // password
-const passwordInputFocus = document.getElementById('password-focus');
-passwordInputFocus.addEventListener('focusin', authPageHandler.inputFocusInStyle);
-passwordInputFocus.addEventListener('focusout', (event) => {
-  const inputPassword = passwordInputFocus.value;
+const paswordInput = document.getElementById('password');
+paswordInput.addEventListener('focusin', authHandler.inputFocusInStyle);
+paswordInput.addEventListener('focusout', (event) => {
+  const inputPassword = paswordInput.value;
   const targetElement = event.target.parentElement;
   if (inputPassword.length === 0) {
-    authPageHandler.inputErrorStyle(event);
-    authPageHandler.generateErrorMessage("비밀번호를 입력해 주세요", targetElement);
-  } else if (!authPageHandler.validatePasswordLength(inputPassword)) {
-    authPageHandler.inputErrorStyle(event);
-    authPageHandler.generateErrorMessage("비밀번호를 8자 이상 입력해 주세요", targetElement);
+    authHandler.inputErrorStyle(event);
+    authHandler.addErrorMessage("비밀번호를 입력해 주세요", targetElement);
+  } else if (!authHandler.validatePasswordLength(inputPassword)) {
+    authHandler.inputErrorStyle(event);
+    authHandler.addErrorMessage("비밀번호를 8자 이상 입력해 주세요", targetElement);
   } else {
-    authPageHandler.inputSuccessStyle(event);
-    authPageHandler.removeErrorMessage(targetElement);
+    authHandler.inputSuccessStyle(event);
+    authHandler.removeErrorMessage(targetElement);
   }
+  authHandler.formCheck();
 });
 
 // focus 발생, errorMessage체크, submit
 const submitButton = document.querySelector('.submit-button');
 submitButton.addEventListener('click', (event) => {
-  authPageHandler.validateAuthForm(event , "item.html");
+  authHandler.validateAuthForm(event , "item.html");
 });
 
 
