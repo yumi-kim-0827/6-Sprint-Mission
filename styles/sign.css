@@ -53,6 +53,7 @@
   color: var(--gray800);
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1.5;
 }
 
 .form-input::placeholder {
@@ -110,24 +111,28 @@
   font-weight: 600;
 }
 
-.easy-login {
+.social-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
   padding: 16px 24px;
   background-color: var(--primary200);
+}
+
+.social-login-text {
   color: var(--gray800);
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.5;
 }
 
-.easy-login-socials {
+.social-login-icons {
   display: flex;
   gap: 16px;
 }
 
-.easy-login-social {
+.social-login-icon {
   width: 42px;
   height: 42px;
 }

@@ -73,6 +73,7 @@
   color: var(--gray700);
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .container {
@@ -109,18 +110,22 @@
   color: var(--primary400);
   font-size: 1.125rem;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .topic-title {
   margin-top: 12px;
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
 }
 
 .topic-description {
   margin-top: 24px;
   font-size: 1.5rem;
   font-weight: 500;
+  letter-spacing: 0.08rem;
 }
 
 .footer {
