@@ -16,8 +16,26 @@ const handleInputValid = (inputEl, errorEl, errMsg) => {
   }
 };
 
+const handleEmailValid = (inputEl, errorEl) => {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (inputEl.value === '') {
+    inputEl.classList.add('error-input');
+    errorEl.style.display = 'block';
+    errorEl.textContent = '이메일을 입력해주세요.';
+  } else if (!emailPattern.test(inputEl.value)) {
+    inputEl.classList.add('error-input');
+    errorEl.style.display = 'block';
+    errorEl.textContent = '잘못된 이메일 형식입니다.';
+  } else {
+    inputEl.classList.remove('error-input');
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+  }
+};
+
 emailInput.addEventListener('focusout', () => {
-  handleInputValid(emailInput, emailError, '이메일을 입력해주세요.');
+  handleEmailValid(emailInput, emailError);
 });
 
 passwordInput.addEventListener('focusout', () => {
