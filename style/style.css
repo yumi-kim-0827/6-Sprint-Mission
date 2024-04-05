@@ -14,6 +14,12 @@
 .button--border-radius-40px {
   border-radius: 40px;
 }
+.button--disabled {
+  background-color: #9ca3af !important;
+}
+.button--active {
+  background-color: #3692ff !important;
+}
 .button--theme-blue {
   background-color: #3692ff;
   color: #ffffff;
@@ -24,13 +30,7 @@
 }
 .button--theme-blue:focus {
   background-color: #1251aa;
-  border-color: #3692FF;
-}
-.button--theme-blue-disabled {
-  background-color: #9ca3af;
-}
-.button--theme-blue-active {
-  background-color: #3692ff;
+  border-color: #3692ff;
 }
 
 html {
@@ -227,6 +227,7 @@ html {
 .main-signup {
   display: flex;
   justify-content: center;
+  padding-bottom: 200px;
 }
 .main-signup__wrap {
   width: 640px;

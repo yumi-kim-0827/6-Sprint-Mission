@@ -1,5 +1,22 @@
 import { createDescriptionContent } from "../common/common.js";
 
+// input에서 벗어날때마다 Button을 처리하는 함수
+const checkInputsForButton = () => {
+  const input = document.querySelectorAll("input");
+  const button = document.querySelector("button");
+  Array.from(input).every((v) =>
+    Array.from(v.classList).includes("content-form__input--valid")
+  )
+    ? (() => {
+        button.classList.add("button--active");
+        button.classList.remove("button--disabled");
+      })()
+    : (() => {
+        button.classList.add("button--disabled");
+        button.classList.remove("button--active");
+      })();
+};
+
 /**
  * description을 가진 invalid처리된 p태그 생성
  * @param {string} description
@@ -35,16 +52,25 @@ const invalidInputEventHandler = (
     })();
   });
   node.addEventListener("focusout", (event) => {
-    (criteria() && node.checkValidity()) || node.value === ""
+    criteria() && node.checkValidity()
       ? (() => {
           description && newContent.remove();
           node.classList.remove("content-form__input--invalid");
           node.classList.add("content-form__input--valid");
+          checkInputsForButton();
+        })()
+      : node.value === ""
+      ? (() => {
+          description && newContent.remove();
+          node.classList.remove("content-form__input--invalid");
+          node.classList.remove("content-form__input--valid");
+          checkInputsForButton();
         })()
       : (() => {
           description && node.after(newContent);
           node.classList.remove("content-form__input--valid");
           node.classList.add("content-form__input--invalid");
+          checkInputsForButton();
         })();
   });
 };
@@ -56,7 +82,7 @@ export const invalidEmailHandler = () => {
 
 export const invalidPasswordHandler = () => {
   const passwordNode = document.querySelector(".content-form__input--password");
-  invalidInputEventHandler(passwordNode, "비밀번호를 8자 이상 입력해주세요");
+  invalidInputEventHandler(passwordNode, "비밀번호를 8자 이상 입력해주세요",()=>passwordNode.value!=="");
 };
 
 export const invalidPasswordAgainHandler = () => {
