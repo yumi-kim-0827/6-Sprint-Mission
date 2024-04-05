@@ -68,7 +68,8 @@
     outline: 2px solid #3182f6;
   }
 
-  .show-error-email, .show-error-pw{
+  .show-error-email, .show-error-pw,
+  .show-error-name, .show-error-check-pw{
     font-family: Pretendard;
     font-weight: 600;
     font-size: 15px;
@@ -97,7 +98,10 @@
     font-weight: 600;
     line-height: 24px;
     text-align: center;
+    pointer-events: none;
   }
+
+  
 
   /* button:hover {
     background-color: #3692ff;

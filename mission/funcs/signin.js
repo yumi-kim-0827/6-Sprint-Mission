@@ -62,17 +62,21 @@ pwInput.addEventListener('focusout', function () {
     }
 
     if (emailCheck && pwCheck) { 
-        console.log('이메일&패스워드 정상입력');
         loginBtn.style.backgroundColor = "#3692ff";
-        loginBtn.style.cursor = "pointer"
+        loginBtn.style.cursor = "pointer";
+        loginBtn.style.pointerEvents = "all";
     }
     else {
         loginBtn.style.backgroundColor = "#9ca3af";
-        loginBtn.style.cursor = "default"
+        loginBtn.style.cursor = "default";
     }
 });
 
 pwInput.addEventListener('focus', function () {
     pwInput.style.outline = "2px solid #3182f6";
     showErrorPw.style.display = 'none';
+});
+
+loginBtn.addEventListener('click', function () {
+    window.location.href = "/pages/items.html";
 });
