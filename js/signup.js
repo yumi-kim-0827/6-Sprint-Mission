@@ -7,6 +7,10 @@ const pwdBtnElement = document.getElementById('password-btn');
 const submitBtnElement = document.getElementById('submit-btn');
 const nickInputElement = document.getElementById('nickname');
 const nickMessageElement = document.getElementById('nick-input-message');
+const checkPwdInputElement = document.getElementById('check-password');
+const checkPwdMessageElement = document.getElementById(
+  'check-pwd-input-message',
+);
 
 const EMAIL_REGEXP =
   /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/i;
@@ -79,11 +83,34 @@ function checkNickInput(event) {
 }
 
 /**
- * 비밀번호에 focusin 된 경우 원상태로 돌리는 함수
+ * 닉네임에 focusin 된 경우 원상태로 돌리는 함수
  */
 function resetNickEvent(event) {
   event.target.style.border = 'initial';
   nickMessageElement.classList.remove('message-on');
+}
+
+/**
+ * 비밀번호 확인 유효성 검사 실패 함수
+ */
+function checkPwdInput2(event) {
+  const WRONG_MESSAGE = '비밀번호가 일치하지 않습니다.';
+  const pwd = pwdInputElement.value;
+  const checkPwd = checkPwdInputElement.value;
+
+  if (pwd !== checkPwd) {
+    event.target.style.border = '1px solid red';
+    checkPwdMessageElement.innerText = WRONG_MESSAGE;
+    checkPwdMessageElement.classList.add('message-on');
+  }
+}
+
+/**
+ * 비밀번호 확인에 focusin 된 경우 원상태로 돌리는 함수
+ */
+function resetCheckPwdEvent(event) {
+  event.target.style.border = 'initial';
+  checkPwdMessageElement.classList.remove('message-on');
 }
 
 /**
@@ -103,15 +130,18 @@ function toggleBtnClassName(event) {
  */
 function checkValid(event) {
   submitBtnElement.classList.remove('submit-on');
-  if (!EMAIL_REGEXP.test(email) && pwdInputElement.value.length < 8) {
-    submitBtnElement.disabled = true;
-  } else if (
+  if (
     !(
       emailInputElement.value &&
       pwdInputElement.value &&
-      nickInputElement.value
+      nickInputElement.value &&
+      checkPwdInputElement.value
     )
   ) {
+    submitBtnElement.disabled = true;
+  } else if (!EMAIL_REGEXP.test(email) && pwdInputElement.value.length < 8) {
+    submitBtnElement.disabled = true;
+  } else if (pwdInputElement.value !== checkPwdInputElement.value) {
     submitBtnElement.disabled = true;
   } else {
     submitBtnElement.disabled = false;
@@ -122,11 +152,14 @@ function checkValid(event) {
 emailInputElement.addEventListener('keyup', checkValid);
 pwdInputElement.addEventListener('keyup', checkValid);
 nickInputElement.addEventListener('keyup', checkValid);
+checkPwdInputElement.addEventListener('keyup', checkValid);
 emailInputElement.addEventListener('focusout', checkEmailInput);
 emailInputElement.addEventListener('focusin', resetEmailEvent);
 pwdInputElement.addEventListener('focusout', checkPwdInput);
 pwdInputElement.addEventListener('focusin', resetPwdEvent);
 nickInputElement.addEventListener('focusout', checkNickInput);
 nickInputElement.addEventListener('focusin', resetNickEvent);
+checkPwdInputElement.addEventListener('focusout', checkPwdInput2);
+checkPwdInputElement.addEventListener('focusin', resetCheckPwdEvent);
 pwdBtnElement.addEventListener('click', toggleBtnClassName);
 checkPwdBtnElement.addEventListener('click', toggleBtnClassName);
