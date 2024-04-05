@@ -38,9 +38,11 @@
   outline-color: var(--blue);
 }
 .eyeoff {
-  position: absolute;
-  left: 69vw;
-  margin-top: 15px;
+  position: relative;
+  top:10px;
+  margin-left: -40px;
+  width: 24px;
+  height: 24px;
 }
 .error-message {
   display: none;
@@ -169,12 +171,10 @@
     flex-direction: row;
   }
   .eyeoff {
-    left: 87vw;
-    width: 24px;
-    height: 24px;
+    top:15px;
   }
 
-  .login-button {
+  .blue-button {
     width: 100%;
   }
   .easy-login {
