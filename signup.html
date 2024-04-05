@@ -24,13 +24,21 @@
             <form>
                 <label for="email">이메일</label>
                 <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
+                <span class="email_result"></span>
+
                 <label for="nickname">닉네임</label>
                 <input id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
+                <span class="nickname_result"></span>
+
                 <label for="password">비밀번호</label>
                 <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
-                <label for="password-check">비밀번호 확인</label>
-                <input id="password-check" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
-                <button class="signup-button">회원가입</button>
+                <span class="password_result"></span>
+
+                <label for="password-repeat">비밀번호 확인</label>
+                <input id="password_repeat" name="password_repeat" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+                <span class="password_repeat_result"></span>
+
+                <button type="button" id="signup-button" disabled onclick="location.href='/signin.html'">회원가입</button>
             </form>
             <div class="simple-login">
                 <p>간편 로그인하기</p>
@@ -49,6 +57,6 @@
             </div>
         </main>
          
-
+    <script src="/scripts/signin.js"></script>
     </body>
 </html>

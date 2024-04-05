@@ -32,6 +32,16 @@ form {
     color: #1F2937;
 }
 
+.check_error {
+    border-style: solid;
+    border-color: #F74747;
+}
+
+.check_success {
+    border-style: solid;
+    border-color: #3692FF;
+}
+
 input {
     height: 56px;
     background-color: #F3F4F6;
@@ -52,8 +62,8 @@ input::placeholder {
     font-weight: 400;
 }
 
-.signup-button {
-    background-color: #9CA3AF;
+#signin-button {
+    background-color: #3692FF;
     width: 640px;
     height: 56px;
     border-radius: 40px;
@@ -66,6 +76,34 @@ input::placeholder {
     font-weight: 600;
     color: #FFFFFF;
 }
+
+#signin-button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+}
+
+#signup-button {
+    background-color: #3692FF;
+    width: 640px;
+    height: 56px;
+    border-radius: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+#signup-button:disabled {
+    background-color: #9ca3af;
+    cursor: default;
+    pointer-events: none;
+}
+
 
 .simple-login {
     padding: 0 23px;
