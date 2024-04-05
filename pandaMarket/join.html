@@ -17,40 +17,43 @@
       </a>
     </header>
     <div class="section-form__content">
-      <form action="">
+      <form action="/signin.html">
       <fieldset class="section-form__form">  
         <legend class="blind">회원가입 폼</legend>
         <div class="section-form__box">
           <label for="login-email" class="section-form__label">이메일</label>
           <span class="section-form__input-box">
-            <input type="email" id="login-email" class="input-theme section-form__input" placeholder="이메일을 입력해주세요">
-            <strong class="alert" aria-live="assertive">잘못된 주소입니다.</strong>
+            <input type="email" id="join-email" class="input-theme section-form__input" data-form="email" placeholder="이메일을 입력해주세요" required>
           </span>
         </div>
         <div class="section-form__box">
           <label for="login-name" class="section-form__label">닉네임</label>
           <span class="section-form__input-box">
-            <input type="text" id="login-name" class="input-theme section-form__input" placeholder="닉네임을 입력해주세요">
+            <input type="text" id="join-name" class="input-theme section-form__input" data-form="nickname" placeholder="닉네임을 입력해주세요" minlength="1" required>
           </span>
         </div>
         <div class="section-form__box">
           <label for="login-pw" class="section-form__label">비밀번호</label>
           <span class="section-form__input-box">
-            <input type="password" id="login-pw" class="input-theme section-form__input" placeholder="비밀번호를 입력해주세요">
-            <input type="checkbox" id="login-pw-show" class="blind chk-visibility">
-            <label for="login-pw-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
+            <span class="section-form__pw-box">
+              <input type="password" id="join-pw" class="input-theme section-form__input" data-form="password" placeholder="비밀번호를 입력해주세요" minlength="8" required>
+              <input type="checkbox" id="join-pw-show" class="blind chk-visibility">
+              <label for="join-pw-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
+            </span>
           </span>
         </div>
         <div class="section-form__box">
           <label for="login-pw-re" class="section-form__label">비밀번호 확인</label>
           <span class="section-form__input-box">
-            <input type="password" id="login-pw-re" class="input-theme section-form__input" placeholder="비밀번호를 다시 한 번 입력해주세요">
-            <input type="checkbox" id="login-pw-re-show" class="blind chk-visibility">
-            <label for="login-pw-re-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
+            <span class="section-form__pw-box">
+              <input type="password" id="join-pw-re" class="input-theme section-form__input" data-form="password-re" placeholder="비밀번호를 다시 한 번 입력해주세요" minlength="8" required>
+              <input type="checkbox" id="join-pw-re-show" class="blind chk-visibility">
+              <label for="join-pw-re-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
+            </span>
           </span>
         </div>
         <div class="section-form__box">
-          <button type="submit" class="section-form__btn btn-large" disabled>회원가입</button>
+          <button type="submit" id="btn-submit" class="section-form__btn btn-large" disabled>회원가입</button>
         </div>
       </fieldset>
       </form>
@@ -75,5 +78,6 @@
     </section>
   </section>
 </div>
+<script src="/js/form.js"></script>
 </body>
 </html>
