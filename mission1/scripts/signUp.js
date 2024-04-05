@@ -24,18 +24,14 @@ const passwordError = document.querySelector(".pwError");
 passwordInput.addEventListener("focusout", () =>
   pwError(passwordInput, passwordError)
 );
-
+console.log(passwordInput);
 const passwordRepeatInput = document.querySelector(".passwordInput2");
 const passwordRepeatError = document.querySelector(".pwRepeatError");
 passwordRepeatInput.addEventListener("focusout", () =>
-  isPassword(
-    passwordInput.value,
-    passwordRepeatInput.value,
-    passwordRepeatError
-  )
+  isPassword(passwordInput, passwordRepeatInput, passwordRepeatError)
 );
 function isPassword(inputValue, repeatInputValue, error) {
-  if (inputValue !== repeatInputValue) {
+  if (inputValue.value !== repeatInputValue.value) {
     showError("비밀번호가 일치하지 않습니다.", error, passwordRepeatInput);
   } else {
     clearError(error, passwordRepeatInput);
