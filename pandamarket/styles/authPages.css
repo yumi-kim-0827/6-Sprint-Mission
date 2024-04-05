@@ -121,6 +121,13 @@ input:focus {
   white-space:nowrap;
 }
 
+.errorMessage {
+  margin: 0 16px 24px;
+  color: #f74747;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 /*mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .login-container {

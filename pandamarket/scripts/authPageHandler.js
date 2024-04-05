@@ -22,26 +22,21 @@ function validatePasswordLength(password) {
   return true;
 }
 
-function generateErrorMessage(errorMessage, targetElement) {
-  const hasClassName = targetElement.querySelector('.errorMessage') != null;
-
+function generateErrorMessage(errorMessage, targetParentElement) {
+  const hasClassName = targetParentElement.querySelector('.errorMessage') != null;
   if (!hasClassName) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('errorMessage');
     newDiv.textContent = `${errorMessage}`;
-    newDiv.style.margin = "0px 16px 24px";
-    newDiv.style.color = "#f74747";
-    newDiv.style.fontSize = "15px";
-    newDiv.style.fontWeight = "600";
-    targetElement.appendChild(newDiv);
+    targetParentElement.appendChild(newDiv);
   } else {
-    removeErrorMessage(targetElement);
-    generateErrorMessage(errorMessage, targetElement);
+    removeErrorMessage(targetParentElement);
+    generateErrorMessage(errorMessage, targetParentElement);
   }
 }
 
-function removeErrorMessage(targetElement) {
-  const hasClassName = targetElement.querySelector('.errorMessage');
+function removeErrorMessage(targetParentElement) {
+  const hasClassName = targetParentElement.querySelector('.errorMessage');
   if (hasClassName) {
     hasClassName.remove();
   }
@@ -63,16 +58,17 @@ function validateAuthForm(event, path) {
   }
 }
 
+
 function inputErrorStyle(event) {
   event.target.style.outline = "2px solid #f74747";
-};
+}
 
 function inputSuccessStyle(event) {
   event.target.style.outline = 0;
-};
+}
 
 function inputFocusInStyle(event) {
   event.target.style.outline = "2px solid #3692ff";
 }
 
-export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail,generateErrorMessage, removeErrorMessage, validatePasswordLength, validateAuthForm};
+export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail,generateErrorMessage, removeErrorMessage, validatePasswordLength, validateAuthForm}
