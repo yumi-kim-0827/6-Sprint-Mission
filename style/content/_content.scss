@@ -21,7 +21,7 @@
   &__description {
     @include flex-direction-center(column);
     margin: auto;
-    &--reverse{
+    &--reverse {
       align-items: flex-end;
     }
   }
@@ -98,6 +98,12 @@
     opacity: 0px;
     background: #f3f4f6;
     border: none;
+    &--invalid {
+      border: 1px solid #f74747;
+    }
+    &--valid {
+      border: 1px solid #3692ff;
+    }
   }
   &__label {
     font-size: 18px;

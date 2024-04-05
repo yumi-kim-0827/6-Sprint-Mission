@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="wonderful panda market signup page">
+    <meta name="description" content="wonderful panda market signup page" />
     <title>판다마켓 회원가입</title>
     <link rel="stylesheet" href="./style/style.css" />
   </head>
@@ -23,11 +23,12 @@
             <div class="container--gap-16px container--position-relative">
               <label for="email" class="content-form__label">이메일</label>
               <input
-                class="content-form__input description-input"
+                class="content-form__input description-input constent-form__input--email"
                 type="email"
                 name="email"
                 id="email"
                 placeholder="이메일을 입력해주세요"
+                required
               /><label for="nickname" class="content-form__label">닉네임</label>
               <input
                 class="content-form__input description-input"
@@ -35,16 +36,18 @@
                 name="nickname"
                 id="nickname"
                 placeholder="닉네임을 입력해주세요"
+                required
               /><label for="password" class="content-form__label"
                 >비밀번호</label
               >
               <div class="container--position-relative">
                 <input
-                  class="content-form__input description-input"
+                  class="content-form__input description-input content-form__input--password"
                   type="password"
                   name="password"
                   id="password"
                   placeholder="비밀번호를 입력해주세요"
+                  required
                 />
                 <img
                   src="image/signin-page/btn_visibility_off_24px.png"
@@ -62,6 +65,7 @@
                   name="password2"
                   id="password2"
                   placeholder="비밀번호를 다시 입력해주세요"
+                  required
                 />
                 <img
                   src="image/signin-page/btn_visibility_on_24px.png"

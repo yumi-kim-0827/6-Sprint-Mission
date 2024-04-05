@@ -1,6 +1,23 @@
 html {
   font-size: 10px;
 }
+
+.description-invaild {
+  color: #f74747;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.9px;
+  text-align: left;
+  position:absolute;
+  width: 202px;
+  height: 18px;
+  top: 64px;
+  left: 16px;
+  gap: 0px;
+  opacity: 0px;
+}
+
 .description-head {
   font-size: 4rem;
   font-weight: 700;
@@ -60,7 +77,7 @@ html {
   }
 }
 
-.description-header{
+.description-header {
   &__description {
     width: 40rem;
     word-break: keep-all;
