@@ -11,6 +11,7 @@
 
   /* Primary color */
   --blue: #3692ff;
+  --red: #ff0000;
 }
 
 * {
@@ -135,6 +136,10 @@ input {
 
 input:focus {
   outline-color: var(--blue);
+}
+
+.error {
+  outline-color: var(--red);
 }
 
 @media (min-width: 768px) {

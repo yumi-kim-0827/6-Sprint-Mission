@@ -1,55 +1,47 @@
-const email = document.querySelector('#email');
-const nickname = document.querySelector('#nickname');
-const password = document.querySelector('#password');
-const passwordConfirmation = document.querySelector('#passwordConfirmation');
-
-function emailCheck(e) {
-  if (email.value.length == 0) {
-    const p = document.createElement('p');
-    p.classList.add('color');
-    p.textContent = '이메일을 입력해주세요.';
-    e.target.after(p);
-  }
-}
+const nicknameElement = document.getElementById('nickname');
+const passwordConfirmationElement = document.getElementById(
+  'passwordConfirmation',
+);
+const message = document.createElement('p');
+message.classList.add('err-color');
 
 function nicknameCheck(e) {
-  if (nickname.value.length == 0) {
-    const p = document.createElement('p');
-    p.classList.add('color');
-    p.textContent = '닉네임을 입력해주세요.';
-    e.target.after(p);
+  if (!e.target.value) {
+    e.target.classList.add('error');
+    message.textContent = '닉네임을 입력해주세요';
+    e.target.after(message);
   }
 }
 
-function passwordCheck(e) {
-  const p = document.createElement('p');
-  p.classList.add('color');
-  if (password.value.length == 0) {
-    p.textContent = '비밀번호를 입력해주세요.';
-  } else if (password.value.length < 8) {
-    p.textContent = '비밀번호를 8자 이상 입력해주세요.';
+function nicknameReset(e) {
+  if (e.target.classList.contains('error') && e.target.nextElementSibling) {
+    e.target.classList.remove('error');
+    e.target.nextElementSibling.remove();
   }
-  e.currentTarget.after(p);
 }
 
 function passwordConfirmationCheck(e) {
-  if (password.value != passwordConfirmation.value) {
-    const p = document.createElement('p');
-    p.classList.add('color');
-    p.textContent = '비밀번호가 일치하지 않습니다..';
-    e.currentTarget.after(p);
+  if (e.target.value !== passwordConfirmationElement.value) {
+    e.target.classList.add('error');
+    message.textContent = '비밀번호가 일치하지 않습니다';
+    e.target.after(message);
   }
 }
 
-function remove(e) {
-  const deleteTarget = document.getElementById('.color');
-  deleteTarget.remove();
+function passwordConfirmationReset(e) {
+  if (e.target.classList.contains('error') && e.target.nextElementSibling) {
+    e.target.classList.remove('error');
+    e.target.nextElementSibling.remove();
+  }
 }
 
-email.addEventListener('focusout', emailCheck);
-//email.addEventListener('focusin', remove);
-nickname.addEventListener('focusout', nicknameCheck);
-const passwordWrapper = document.querySelector('.input-wrapper');
-passwordWrapper.addEventListener('focusout', passwordCheck);
-passwordWrapper.addEventListener('focusout', passwordConfirmationCheck);
-//password.addEventListener('focusin', remove);
+nicknameElement.addEventListener('focusout', nicknameCheck);
+nicknameElement.addEventListener('focusin', nicknameReset);
+passwordConfirmationElement.addEventListener(
+  'focusout',
+  passwordConfirmationCheck,
+);
+passwordConfirmationElement.addEventListener(
+  'focusin',
+  passwordConfirmationReset,
+);

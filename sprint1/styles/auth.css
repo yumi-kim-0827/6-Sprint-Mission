@@ -89,8 +89,8 @@ input::placeholder {
   text-underline-offset: 2px;
 }
 
-.color {
-  color: red;
+.err-color {
+  color: var(--red);
 }
 
 @media (min-width: 768px) {
