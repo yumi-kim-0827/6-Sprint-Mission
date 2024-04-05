@@ -6,18 +6,24 @@ document.addEventListener('DOMContentLoaded', function () {
   emailInput.addEventListener('focusout', validateInputs);
   passwordInput.addEventListener('focusout', validateInputs);
 
-  // 입력값이 비어있거나 비밀번호가 8자 미만인 경우에는 '로그인' 버튼을 비활성화하는 함수
+  // 입력값이 유효한 경우에만 로그인 버튼을 활성화
   function validateInputs() {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
-    const errorEmail = email === '';
-    const errorPassword = password === '' || password.length < 8;
+    const validEmail = isValidEmail(email);
+    const validPassword = password.length >= 8;
 
-    if (errorEmail || errorPassword) {
-      loginButton.disabled = true;
-    } else {
+    if (validEmail && validPassword) {
       loginButton.disabled = false;
+    } else {
+      loginButton.disabled = true;
     }
+  }
+
+  function isValidEmail(email) {
+    // 이메일 형식을 정규표현식으로 검사
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
   emailInput.addEventListener('focusout', function () {
