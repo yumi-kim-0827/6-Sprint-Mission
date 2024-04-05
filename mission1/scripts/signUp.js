@@ -6,6 +6,7 @@ import {
   showError,
   clearError,
 } from "./loginCheck.js";
+
 const eyeIcon = document.getElementById("eyeIcon");
 const passIcon = document.getElementById("passIcon");
 eyeIcon.addEventListener("click", () =>

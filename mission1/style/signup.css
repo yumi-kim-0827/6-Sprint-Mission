@@ -19,15 +19,14 @@ body {
 }
 
 .section .error-border {
-  
   border: 2px solid red;
 }
-.emailError{
+.emailError {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
+  color: #f74747;
 }
 .signUpTable label {
   display: flex;
@@ -35,20 +34,20 @@ body {
   width: 100%;
   height: 56px;
 }
-.pwError{
+.pwError {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
+  color: #f74747;
 }
 
-.pwRepeatError{
+.pwRepeatError {
   position: relative;
   left: 10px;
   bottom: 10px;
   font-size: 15px;
-  color: #F74747;
+  color: #f74747;
 }
 
 label input {

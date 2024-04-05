@@ -1,4 +1,4 @@
-export function emailError(input,errorMessage) {
+export function emailError(input, errorMessage) {
   let email = input.value.trim();
   if (!isValidEmail(email)) {
     showError("잘못된 이메일입니다", errorMessage, input);
@@ -7,12 +7,10 @@ export function emailError(input,errorMessage) {
     clearError(errorMessage, input);
   }
 }
-
-export function pwError(input,errorMessage2) {
+export function pwError(input, errorMessage2) {
   if (input.value.length < 8) {
     showError("비밀번호를 8자 이상 입력해주세요", errorMessage2, input);
-  }
-   else {
+  } else {
     clearError(errorMessage2, input);
   }
 }
