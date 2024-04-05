@@ -118,3 +118,8 @@ input {
         margin-bottom: 48px;
     }
 }
+
+#error {
+    color: red;
+    padding: 3px 16px;
+}
