@@ -1,6 +1,6 @@
-button {
+/* button {
   cursor: pointer;
-}
+} */
 
 body {
   padding-bottom: 420px;
@@ -90,10 +90,6 @@ input:focus {
   text-align: center;
 }
 
-.signin-signup-form button:hover {
-  background-color: #3692ff;
-}
-
 .simple-login {
   display: flex;
   align-items: center;
@@ -117,7 +113,7 @@ input:focus {
   font-weight: 500;
   line-height: 24px;
   text-align: left;
-  color: #1F2937;
+  color: #1f2937;
 }
 
 .logos {
@@ -149,10 +145,10 @@ input:focus {
   font-weight: 500;
   line-height: 17.9px;
   text-align: center;
-  color: #1F2937;
+  color: #1f2937;
 }
-.signup-span a{
-  color: #3182F6;
+.signup-span a {
+  color: #3182f6;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
@@ -162,5 +158,29 @@ input:focus {
     width: calc(100% - 32px);
     max-width: 400px;
   }
+}
 
+.error {
+  border: 2px solid #f74747;
+}
+
+.success {
+  border: 2px solid #3182F6;
+}
+
+.error-message {
+  display: block;
+
+  color: #f74747;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.9px;
+
+  margin-top: 8px;
+  margin-left: 16px;
+}
+
+.able-button {
+  background-color: #3692ff !important;
+  cursor: pointer;
 }
