@@ -97,11 +97,14 @@
     opacity: 0px;
     background: #f3f4f6;
     border: none;
-    &:invalid {
-      border: 1px solid #f74747;
+    &:placeholder-shown {
+      border: none;
     }
-    &:valid {
+    &--valid {
       border: 1px solid #3692ff;
+    }
+    &--invalid {
+      border: 1px solid #f74747;
     }
   }
   &__label {

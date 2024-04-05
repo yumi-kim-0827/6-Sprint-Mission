@@ -173,6 +173,9 @@ html {
 .container--gap-16px {
   gap: 16px;
 }
+.container--gap-24px {
+  gap: 24px;
+}
 .container--gap-50px {
   gap: 50px;
 }
@@ -248,7 +251,6 @@ html {
 }
 .main-login__wrap {
   width: 640px;
-  height: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -402,11 +404,17 @@ html {
   background: #f3f4f6;
   border: none;
 }
-.content-form__input:invalid {
-  border: 1px solid #f74747;
+.content-form__input:-moz-placeholder-shown {
+  border: none;
 }
-.content-form__input:valid {
+.content-form__input:placeholder-shown {
+  border: none;
+}
+.content-form__input--valid {
   border: 1px solid #3692ff;
+}
+.content-form__input--invalid {
+  border: 1px solid #f74747;
 }
 .content-form__label {
   font-size: 18px;
