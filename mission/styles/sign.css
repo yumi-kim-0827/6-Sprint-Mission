@@ -63,8 +63,19 @@
     padding-left: 24px;
   }
 
+
   input:focus {
     outline: 2px solid #3182f6;
+  }
+
+  .show-error-email, .show-error-pw{
+    font-family: Pretendard;
+    font-weight: 600;
+    font-size: 15px;
+    display: none;
+    padding-left: 16px;
+    padding-top: 8px;
+    color: #F74747;
   }
 
   .pw_eye {
@@ -88,10 +99,10 @@
     text-align: center;
   }
 
-  button:hover {
+  /* button:hover {
     background-color: #3692ff;
     cursor: pointer;
-  }
+  } */
 
   .sso_container {
     background-color: #e6f2ff;

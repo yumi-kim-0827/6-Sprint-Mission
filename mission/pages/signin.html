@@ -23,6 +23,7 @@
       <div>
         <label for="signin-email">이메일</label>
         <input id="signin-email" type="email" placeholder="이메일을 입력해주세요" required />
+        <p class="show-error-email"></p>
       </div>
 
       <div>
@@ -30,9 +31,11 @@
         <div class="input_pw">
           <input id="signin-pw" type="password" placeholder="비밀번호를 입력해주세요" required />
           <img class="pw_eye" src="/assets/see_pw.png" alt="비밀번화_표시_활성화" />
+          <p class="show-error-pw"></p>
         </div>
+        
 
-        <button type="submit">로그인</button>
+        <button class="login-Btn" type="submit">로그인</button>
       </div>
 
       <div></div>
@@ -51,6 +54,8 @@
   <div class="go_signup">
     판다 마켓은 처음이신가요? <a href="signup.html">회원가입</a>
   </div>
+
+  <script src="/funcs/index.js"></script>
 </body>
 
 </html>
