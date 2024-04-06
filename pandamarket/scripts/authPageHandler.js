@@ -15,18 +15,23 @@ function validateEmail(email) {
   return regex.test(email);
 }
 
-function validatePasswordLength(password) {
+function validatePassword(password) {
   if (password.length < 8) {
     return false;
   }
   return true;
 }
 
+function validatePasswordVerify(password, passwordVerify) {
+  if (password === passwordVerify && password !== '') {
+    return true;
+  }
+  return false;
+}
+
 function addErrorMessage(errorMessage, targetParentElement) {
   const hasClassName = targetParentElement.querySelector('.errorMessage') != null;
-  const errorInput = targetParentElement.querySelector('input');
   if (!hasClassName) {
-    errorInput.classList.add('error');
     const newDiv = document.createElement('div');
     newDiv.classList.add('errorMessage');
     newDiv.textContent = `${errorMessage}`;
@@ -38,43 +43,50 @@ function addErrorMessage(errorMessage, targetParentElement) {
 }
 
 function removeErrorMessage(targetParentElement) {
-  const errorInput = targetParentElement.querySelector('input');
   const hasClassName = targetParentElement.querySelector('.errorMessage');
   if (hasClassName) {
-    errorInput.classList.remove('error');
     hasClassName.remove();
   }
 }
 
-function validateAuthForm(event, path) {
-  event.preventDefault();
-  // focusout 발생
-  // const submitButton = document.querySelector('.submit-button');
-  const focusout = new Event('focusout');
-  const inputs = document.querySelectorAll('input');
-  [...inputs].forEach((input) => input.dispatchEvent(focusout));
-  // form 제출 전 확인
-  const errorInputs = document.querySelectorAll('.error');
-  if (errorInputs.length === 0) {
-    window.location.href = `./${path}`;
-    // const form = submitButton.closest('form');
-    // form.submit();
-  } else {
-    console.log(errorInputs);
-    errorInputs[0].focus();
-  }
-}
-// 요구사항 충족 시 버튼 활성화
+// focusout 발생후 모든 input조사,확인 후 버튼 색상 변경, 제출가능 불가능 리턴
 function formCheck() {
-  const errorInputs = document.querySelectorAll('.error');
-  const submitBtn = document.querySelector('.submit-button');
-  if (errorInputs.length === 0) {
-    submitBtn.style.backgroundColor = "#3691ff";
-  } else {
-    submitBtn.style.backgroundColor = "#9ca3af";
-  }
+    let isFormValid = true;
+    const submitBtn = document.querySelector('.submit-button');
+    const inputs = document.querySelectorAll('input');
+    const password = document.getElementById('password');
+    for(const input of inputs) {
+      switch(input.id) {
+        case 'email':
+          isFormValid = validateEmail(input.value);
+          break;
+        case 'password':
+          isFormValid = validatePassword(input.value);
+          break;
+        case 'nickname':
+          if (input.value === '') {
+            isFormValid = false;
+          } else {
+            isFormValid = true;
+          }
+          break;
+        case 'password-verify':
+          isFormValid = validatePasswordVerify(password.value, input.value);
+          break;
+      }
+      if (isFormValid === false) {
+        break;
+      }
+    };
+    if (isFormValid) {
+      console.log('활성');
+      submitBtn.style.backgroundColor = "#3691ff";
+      return true;
+    } else {
+      submitBtn.style.backgroundColor = "#9ca3af";
+      return false;
+    }
 }
-
 
 function inputErrorStyle(event) {
   event.target.style.outline = "2px solid #f74747";
@@ -88,4 +100,4 @@ function inputFocusInStyle(event) {
   event.target.style.outline = "2px solid #3692ff";
 }
 
-export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail, addErrorMessage, removeErrorMessage, validatePasswordLength, validateAuthForm, formCheck}
+export { togglePasswordVisibility, inputErrorStyle, inputSuccessStyle, inputFocusInStyle, validateEmail, addErrorMessage, removeErrorMessage, validatePassword, formCheck, validatePasswordVerify}
