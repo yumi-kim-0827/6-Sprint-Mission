@@ -54,6 +54,7 @@ form {
     cursor: pointer;
 }
 
+/* 유효성 체크 */
 .check_error {
     border-style: solid;
     border-color: #F74747;

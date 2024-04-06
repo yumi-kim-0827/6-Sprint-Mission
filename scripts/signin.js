@@ -114,7 +114,6 @@ function signinButtonActive() {
     // 하나라도 에러가 있으면 버튼 비활성화
     if (email.classList.contains('check_success') && password.classList.contains('check_success')) {
         signinButton.disabled = false;
-        // signinButton.location.href='/signin.html';
     } else {
         signinButton.disabled = true;       
     }
