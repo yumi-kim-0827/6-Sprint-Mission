@@ -40,7 +40,7 @@
           placeholder="닉네임을 입력해주세요"
         />
         <label for="password">비밀번호</label>
-        <div class="container password-container">
+        <div class="container password-container" id="pwdContainer">
           <input
             type="password"
             id="password"
@@ -51,13 +51,14 @@
             src="images/password-eye-off.svg"
             alt="비밀번호 눈 아이콘"
             class="pwd-eye-icon"
+            id="passwordEye"
           />
         </div>
         <label for="password-check">비밀번호 확인</label>
-        <div class="container password-container">
+        <div class="container password-container" id="pwdCheckContainer">
           <input
             type="password"
-            id="password-check"
+            id="passwordCheck"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             name="password-check"
           />
@@ -65,9 +66,12 @@
             src="images/password-eye-off.svg"
             alt="비밀번호 확인 눈 아이콘"
             class="pwd-eye-icon"
+            id="passwordCheckEye"
           />
         </div>
-        <button type="submit" class="signup-btn">회원가입</button>
+        <button type="submit" class="signup-btn" id="signupBtn" disabled>
+          회원가입
+        </button>
       </form>
       <div class="easy-login">
         <p>간편 로그인하기</p>
@@ -90,5 +94,6 @@
         </p>
       </div>
     </div>
+    <script src="src/signup.js"></script>
   </body>
 </html>

@@ -28,6 +28,13 @@ input {
   border: none;
 }
 
+.inputUnderMessage {
+  margin: 8px 16px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error-red);
+}
+
 input:focus {
   outline-color: #3182f6;
 }
