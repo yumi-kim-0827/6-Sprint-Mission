@@ -4,10 +4,8 @@
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-}
-
-body {
-  padding: 60px;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -15,7 +13,21 @@ body {
   flex-direction: column;
   max-width: 640px;
   margin: 40px auto;
+  width: 100%;
   gap: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
 }
 
 .logo {
@@ -23,15 +35,15 @@ body {
   justify-content: center;
   width: 396px;
   height: 132px;
-  margin: 0 auto;
+  margin: 60px auto 0;
 }
 
-.label {
+label {
   font-size: 18px;
   font-weight: 700;
 }
 
-.input {
+input {
   width: 100%;
   height: 56px;
   padding: 16px 24px;
@@ -41,27 +53,16 @@ body {
   background-color: #f3f4f6;
   border-radius: 12px;
   border: none;
-  margin: 20px auto;
 }
 
-.password {
-  position: relative;
-}
-
-.password_check {
-  position: relative;
+.input:focus {
+  outline-color: #3692ff;
 }
 
 .password_icon {
   position: absolute;
   right: 24px;
-  top: 56px;
-}
-
-.password_icon2 {
-  position: absolute;
-  right: 24px;
-  top: 56px;
+  bottom: 16px;
 }
 
 button {
@@ -73,6 +74,7 @@ button {
   width: 100%;
   height: 56px;
   background-color: #3692ff;
+  cursor: pointer;
 }
 
 .social_login {
@@ -106,4 +108,31 @@ button {
 .login_link {
   color: #3182f6;
   text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 0 auto;
+    padding: 16px;
+    max-width: 400px;
+    gap: 16px;
+  }
+
+  form {
+    gap: 16px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 198px;
+    height: 66px;
+    margin-top: 24px;
+  }
+
+  .section {
+    gap: 8px;
+  }
 }
