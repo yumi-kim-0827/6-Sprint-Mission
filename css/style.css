@@ -31,7 +31,7 @@ main {
     width: 100%;
 }
 
-.section-1 {
+.banner-top {
     background-color: var(--bgcolor);
     width: 100%;
     height: 540px;
@@ -43,11 +43,11 @@ main {
     background-size: 55%;
 }
 
-.section-1>div {
+.banner-top>div {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    font-size: 40px;
+    font-size: 32px;
     color: var(--cool_gray700);
     font-weight: 700;
 }
@@ -66,59 +66,59 @@ main {
     align-items: center;
 }
 
-.section-2 {
+.banner-middle {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.main-index img {
+.item img {
     width: 50%;
     margin-bottom: 0;
 }
 
-.main-index {
+.item {
     padding: 100px 0;
     display: flex;
     justify-content: space-between;
 }
 
-.main-index:nth-child(2) {
+.item:nth-child(2) {
     flex-direction: row-reverse;
 }
 
-.main-text {
+.item-text {
     flex-basis: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.main-text.right {
+.item-text.right {
     text-align: right;
 }
 
-.text1 {
+.title {
     font-weight: 700;
     font-size: 18px;
     color: var(--blue1);
     margin-bottom: 12px;
 }
 
-.text2 {
+.subtitle {
     font-weight: 700;
     font-size: 40px;
     color: var(--cool_gray700);
 }
 
-.text3 {
+.description {
     font-weight: 500;
     font-size: 24px;
     color: var(--cool_gray700);
     margin-top: 24px;
 }
 
-.section-3 {
+.banner-bottom {
     background-color: var(--bgcolor);
     height: 540px;
     width: 100%;
@@ -130,7 +130,7 @@ main {
     background-size: 55%;
 }
 
-.section-3>div {
+.banner-bottom>div {
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
@@ -244,6 +244,24 @@ footer>.FAQ>a {
     color: white;
 }
 
+.signin-form div {
+    margin-bottom: 12px;
+}
+
+.signin-form input {
+    margin-bottom: 6px;
+}
+
+.Error-message {
+    color: #f74747;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 8px;
+    padding-left: 16px;
+    margin-top: 0;
+}
+
 .pwd-toggle {
     position: absolute;
     right: 15px;
@@ -290,7 +308,7 @@ footer>.FAQ>a {
         padding: 0 24px;
     }
 
-    .section-1 {
+    .banner-top {
         height: 771px;
         background-size: 120%;
         text-align: center;
@@ -298,20 +316,20 @@ footer>.FAQ>a {
         padding-top: 84px;
     }
 
-    .section-2 {
+    .banner-middle {
         padding: 24px 24px 16px 24px;
     }
 
-    .main-index {
+    .item {
         display: block;
     }
 
-    .main-index img {
+    .item img {
         width: 100%;
         margin-bottom: 20px;
     }
 
-    .section-3 {
+    .banner-bottom {
         height: 927px;
         display: block;
         text-align: center;
@@ -319,24 +337,28 @@ footer>.FAQ>a {
         padding-top: 84px;
     }
 
-    .text1 {
+    .title {
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 12px;
     }
 
-    .text2 {
+    .subtitle {
         font-size: 32px;
         font-weight: 700;
     }
 
-    .text3 {
+    .description {
         font-size: 18px;
         font-weight: 500;
         margin-top: 20px;
     }
 
     .break-on-desktop {
+        display: none;
+    }
+
+    .banner-top h1 br {
         display: none;
     }
 }
@@ -346,7 +368,7 @@ footer>.FAQ>a {
         padding: 0 16px;
     }
 
-    .section-1 {
+    .banner-top {
         height: 540px;
         background-position: bottom;
         background-size: 130%;
@@ -357,20 +379,20 @@ footer>.FAQ>a {
         width: auto;
     }
 
-    .text1 {
+    .title {
         font-size: 16px;
         margin-bottom: 8px;
     }
 
-    .text2 {
+    .subtitle {
         font-size: 24px;
     }
 
-    .text3 {
+    .description {
         font-size: 16px;
     }
 
-    .section-3 {
+    .banner-bottom {
         height: 540px;
         display: block;
         text-align: center;
@@ -388,9 +410,13 @@ footer>.FAQ>a {
         margin-bottom: 24px;
         width: 198px
     }
+
+    .banner-top h1 br {
+        display: inline;
+    }
 }
 
-/* .section-1 {
+/* .banner-top {
     background-color: var(--bgcolor);
     width: 100%;
     height: 540px;

@@ -13,23 +13,26 @@
 </head>
 
 <body>
-    <div class="signin-container">
+    <div id="signin-form" class="signin-container">
         <a href="/" class="signin-logo">
             <img src="img/panda_logo.svg" alt="판다마켓" width="396px">
         </a>
 
-        <div class="signin-form">
+        <form id="signinForm" class="signin-form" method="post">
             <div>
                 <label for="email" class="signin-label">이메일</label>
                 <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요." class="signin-input">
+                <span id="email-Error" class="Error-message"></span>
             </div>
             <div class="signin-pwd">
                 <label for="pwd" class="signin-label">비밀번호</label>
                 <input id="pwd" name="pwd" type="password" placeholder="비밀번호를 입력해 주세요." class="signin-input">
-                <img src="img/eye.svg" class="pwd-toggle">
+                <img id="pwd-toggle" src="img/eye-invisible.svg" class="pwd-toggle" alt="비밀번호 토글"
+                    onclick="togglebtn('pwd');">
+                <span id="pwd-Error" class="Error-message"></span>
             </div>
-            <button class="signin-btn btn">로그인</button>
-        </div>
+            <button type="submit" class="signin-btn btn">로그인</button>
+        </form>
 
         <div class="social-login">
             <div>
@@ -53,6 +56,7 @@
             판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
         </div>
     </div>
+    <script src="js/signin.js"></script>
 </body>
 
 </html>
