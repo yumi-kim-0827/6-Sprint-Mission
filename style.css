@@ -39,6 +39,7 @@ p {
   background-color: #ffffff;
   position: sticky;
   z-index: 1;
+  border-bottom: 1px solid #dfdfdf;
   top: 0;
   width: 100%;
 }
@@ -68,7 +69,6 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* overflow: hidden; */ // 큰 화면에서도 적용되나 확인
 }
 
 #top_banner {
@@ -91,15 +91,14 @@ p {
 } */
 
 #bottom_banner {
-  background-image: url(./image/하단배너이미지.png);
+  background-image: url("./image/하단배너이미지.png");
   margin-top: 138px;
 }
 
 .top_banner_button {
   font-size: 20px;
   font-weight: 600;
-  width: 357px;
-  height: 56px;
+  width: fit-content;
   padding: 16px 124px;
   border-radius: 40px;
   text-decoration: none;
@@ -176,7 +175,6 @@ h4 {
 
   .banner {
     background-position: bottom;
-    background-size: 100%;
   }
 
   .br {
@@ -225,6 +223,10 @@ h4 {
   #bottom_banner .banner_frame {
     padding-top: 201px;
   }
+
+  .footer_content {
+    padding: 32px 104px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -232,12 +234,49 @@ h4 {
     padding: 0 16px;
   }
 
+  .banner h1 {
+    font-size: 32px;
+  }
+
+  #top_banner {
+    height: 540px;
+    background-size: 627px;
+  }
+
+  .top_banner_button {
+    padding: 16px 48px;
+    font-size: 16px;
+  }
+
   #top_banner br {
     display: block;
   }
 
   #top_banner h1 {
+    line-height: 44.8px;
     text-align: center;
+  }
+
+  #top_banner .banner_frame {
+    padding-top: 48px;
+  }
+
+  .content h1 {
+    font-size: 1.5em;
+  }
+
+  .content p {
+    font-size: 1em;
+  }
+
+  #bottom_banner {
+    height: 540px;
+    background-size: 498px;
+  }
+
+  #bottom_banner .banner_frame {
+    padding-top: 121px;
+    padding-bottom: 59px;
   }
 
   .footer_content {
