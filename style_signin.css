@@ -101,13 +101,6 @@ input{
     height : 42px;
     width: 594px;
 }
-.{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height : 42px;
-    width: 594px;
-}
 .easylogin{ 
     color :#1F2937;
     font-size: 16px;

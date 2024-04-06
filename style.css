@@ -186,7 +186,7 @@ h1{
     line-height: 19px;
 }
 
-@media (min-width: 768px){
+@media (min-width:768px) {
     .header-frame{
       height: 70px;
       padding : 0 24px;
@@ -279,9 +279,13 @@ h1{
     }
     .section-box{
         flex-direction: column;
+        width:100%;
     }
     #section2.section-box{
-        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+    #section3{
+        margin-left:0;
     }
     .section-box img{
         max-width:344px;
@@ -290,24 +294,38 @@ h1{
         width:100%;
         display:inline;
     }
-    .section-description{
-        width:100%;
-        font-size: 18px;
-        line-height: 21.6px; 
-        br {
+    .section h1{
+        font-size: 24px;
+        line-height: 33.6px;
+        br{
             display:none;
         }
-        display:inline;
+    }
+    .section p{
+        line-height:19.2px;
+        font-size:16px;
+        font-weight: 500;
+
+    }
+    .section-description{
+        width:100%;
     }
     .section4{
-        overflow:hidden;
-        flex-direction: column;
         flex-wrap:wrap;
-    }
-    .section4 img{
-        max-width: 640px;
-        left:-61px;
+        height: 540px;
+        justify-content: center;
 
+    }
+    #home_bottom{
+        max-width: 500px;
+        
+    }
+    .section4-description{
+        text-align:center;
+        justify-content: center;
+    }
+    .footerFrame{
+        padding:0%;
     }
 }
     
