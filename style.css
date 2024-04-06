@@ -104,12 +104,6 @@ h1{
 
 
 }
-#section2 {
-    margin-right:360px;
-}
-#section3 {
-    margin-left:360px;
-}
 #home-02{
     width: 588px ;
     height: 444px;
@@ -159,15 +153,18 @@ h1{
     font-weight: 700;
     letter-spacing: 0em;
 }
-.footer{
-    height: 160px;
+footer{
     background-color :#111827;
-}
-.footerFrame{
     display : flex;
     justify-content: space-between; 
-    padding: 32px 200px 108px;
+    padding: 32px 200px 108px 200px;
     align-items: center;
+    gap:60px;
+
+}
+.icons{
+    display: flex;
+    gap:12px;
 }
 .codeit{
     color : #9CA3AF;
@@ -186,7 +183,7 @@ h1{
     line-height: 19px;
 }
 
-@media (min-width: 768px){
+@media (min-width:768px) {
     .header-frame{
       height: 70px;
       padding : 0 24px;
@@ -237,7 +234,6 @@ h1{
     }
     #section3.section-box{
         width: 100%;
-        margin-left:0px;
     }
     img{
         width:100%;
@@ -249,9 +245,6 @@ h1{
         height : 927px;
     }
     .footer{
-        padding: 32px 104px 108px 104px;
-    }
-    .footerFrame{
         width: 536px;
         height: 20px;
         padding:0;
@@ -279,9 +272,13 @@ h1{
     }
     .section-box{
         flex-direction: column;
+        width:100%;
     }
     #section2.section-box{
-        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+    #section3{
+        margin-left:0;
     }
     .section-box img{
         max-width:344px;
@@ -290,24 +287,48 @@ h1{
         width:100%;
         display:inline;
     }
-    .section-description{
-        width:100%;
-        font-size: 18px;
-        line-height: 21.6px; 
-        br {
+    .section h1{
+        font-size: 24px;
+        line-height: 33.6px;
+        br{
             display:none;
         }
-        display:inline;
     }
-    .section4{
-        overflow:hidden;
-        flex-direction: column;
-        flex-wrap:wrap;
-    }
-    .section4 img{
-        max-width: 640px;
-        left:-61px;
+    .section p{
+        line-height:19.2px;
+        font-size:16px;
+        font-weight: 500;
 
     }
-}
+    .section-description{
+        width:100%;
+    }
+    .section4{
+        flex-wrap:wrap;
+        height: 540px;
+        justify-content: center;
+
+    }
+    #home_bottom{
+        max-width: 500px;
+        
+    }
+    .section4-description{
+        text-align:center;
+        justify-content: center;
+    }
+    #home_bottom{
+        overflow: hidden;
+    }
+    footer{
+        gap: 22px;
+        padding-left: 10%;
+        padding: 25px 25px 108px 25px;
+    }
+    .codeit{
+        font-size:10px;
+    }
+    .faq{
+        font-size: 10px;
+    }
     

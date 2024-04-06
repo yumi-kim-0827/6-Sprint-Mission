@@ -1,5 +1,5 @@
 
-@import "normalize.css/normalize.css"
+@import "node_modules/normalize.css/normalize.css"
 
 
 body{
@@ -63,7 +63,7 @@ input{
     width: 640px;
 }
 
-.pw_input{
+#pw_input{
     background-color : #F3F4F6;
     gap: 10px;
     border-radius: 12px;
