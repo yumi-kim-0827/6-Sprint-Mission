@@ -18,14 +18,17 @@
     </a>
 
     <form class="form_tag">
-      <div class="form_section">
+      <div class="form_section" id="email_input">
         <label for="email">이메일</label>
         <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+        <p style="display: block;">이메일을 입력해주세요.</p>
+        <p style="display: block;">잘못된 이메일 형식입니다.</p>
       </div>
 
       <div class="form_section">
         <label for="nickname">닉네임</label>
         <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" />
+        <p>닉네임을 입력해주세요.</p>
       </div>
 
       <div class="form_section">
@@ -34,6 +37,9 @@
           <input id="pwd" type="password" placeholder="비밀번호를 입력해주세요" />
           <img id="eyelogo" src="imgs/eyes.png" />
         </div>
+        <p>비밀번호를 입력해주세요</p>
+        <p>비밀번호를 8자 이상 입력해주세요.</p>
+        <p></p>
       </div>
 
       <div class="form_section">
@@ -42,6 +48,7 @@
           <input id="pwd_check" type="password" placeholder="비밀번호를 입력해주세요">
           <img id="eyelogo" src="imgs/eyes.png" />
         </div>
+        <p>비밀번호가 일치하지 않습니다.</p>
       </div>
 
       <div class="form_section">
@@ -50,18 +57,18 @@
 
       <div class="form_section">
         <div class="easy_login">
-          <p>간편로그인하기</p>
+          <div>간편로그인하기</div>
           <a href="https://www.google.co.kr/" target="_blank"><img src="imgs/googlelogo.png"></a>
           <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk" target="_blank"><img src="imgs/kakaologo.png" /></a>
         </div>
       </div>
 
-      <div class="form_section p_span">
-        <p> 이미 회원이신가요? <span><a href="./login.html">로그인</a></span></p>
+      <div class="form_section div_span">
+        <div> 이미 회원이신가요? <span><a href="./login.html">로그인</a></span></div>
       </div>
     </form>
-
   </div>
+<script src="signin.js"></script>
 </body>
 
 </html>

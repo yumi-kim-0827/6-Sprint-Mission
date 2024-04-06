@@ -7,6 +7,7 @@
 
 :root {
   --blue: #3692FF;
+  --red: #FF0000;
   --white: #FFFFFF;
   --banner_color: #CFE5FF;
 }
@@ -38,11 +39,17 @@
   height: 56px;
   border-radius: 12px;
   border: none;
-  margin-top: 10px;
+  margin: 10px 0 10px;
   background-color: #F3F4F6;
   font-size: 16px;
   font-weight: 400;
   padding-left: 24px;
+}
+
+.form_tag p{
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--red);
 }
 
 input:focus {
@@ -95,19 +102,19 @@ button:hover {
   align-items: center;
 }
 
-.easy_login p {
+.easy_login div {
   flex-grow: 1;
   font-size: 16px;
   font-weight: 500;
 }
 
-.form_section.p_span {
+.form_section.div_span {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
 }
 
-.form_section.p_span a {
+.form_section.div_span a {
   color: var(--blue);
 }
 
