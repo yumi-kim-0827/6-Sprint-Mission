@@ -15,14 +15,16 @@
 
   /* Primary color */
   --white: #ffffff;
+  --red: #f74747;
 }
 
 * {
   box-sizing: border-box;
+  border: none;
 }
 
 body {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   margin: 0 auto;
 }
 
@@ -118,8 +120,8 @@ footer {
   .footer-wrap {
     display: grid;
     grid-template-areas:
-      'menu sns'
-      'copy .';
+      "menu sns"
+      "copy .";
     row-gap: 60px;
   }
 
