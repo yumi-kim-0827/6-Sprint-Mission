@@ -65,6 +65,7 @@ input {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .password-image {
@@ -116,4 +117,24 @@ input {
         margin-top: 48px;
         margin-bottom: 48px;
     }
+}
+
+#email-error {
+    color: red;
+    padding: 3px 16px;
+}
+
+#nickname-error {
+    color: red;
+    padding: 3px 16px;  
+}
+
+#password-error {
+    color: red;
+    padding: 3px 16px;
+}
+
+#password-repeat-error {
+    color: red;
+    padding: 3px 16px;
 }

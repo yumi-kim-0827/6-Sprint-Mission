@@ -40,13 +40,25 @@ footer {
   font-size: 16px;
 }
 
-#footerMenu {
+.copyright {
+  flex-basis: 100%;
+  order: 3;
+}
+
+.footerMenu-section {
+  display: flex;
+  flex: 2;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerMenu {
   display: flex;
   color: #e5e7eb;
   gap: 30px;
 }
 
-#socialMedia {
+.socialMedia {
   display: flex;
   gap: 12px;
 }
@@ -125,6 +137,11 @@ button {
 
   footer {
     padding: 32px 104px 108px 104px;
+  }
+
+  .copyright {
+    order: 0;
+    flex: 1;
   }
 }
 
