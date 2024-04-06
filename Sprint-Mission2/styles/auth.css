@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+.auth-container {
+  max-width: 640px;
+  margin-left: 640px;
+}
+
+.logo-home-button-wrapper {
+  display: block;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.input-item {
+  margin-bottom: 24px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #1F2937;
+  font-weight: 700;
+}
+
+input {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  background-color: #F3F4F6;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  width: 100%
+}
+
+.input-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+}
+
+.pill-button {
+  padding: 16px 124px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  border: none;
+  border-radius: 40px;
+  background-color: #9CA3AF;
+  width: 100%;
+}
+
+.input:focus {
+  border:1px solid #3692FF;
+}
+
+.social-login-container {
+  background-color: #E6F2FF;
+  border-radius: 8px;
+  padding: 16px 23px;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+
+.social-logo {
+  display: inline-block;
+  height: 42px;
+}
+
+.social-login-buttons-container {
+  display: flex;
+  height: 42px;
+  gap: 16px;
+}
+
+.auth-switch {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F2937;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #3182F6;
+  text-decoration: underline;
+}
