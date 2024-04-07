@@ -1,19 +1,31 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
+:root {
+  --white: #ffffff;
+  --gray-light: #dfdfdf;
+  --blue-light: #cfe5ff;
+  --blue-primary: #3692ff;
+  --blue-hover: #1967d6;
+  --gray-dark: #374151;
+  --black: #111827;
+  --gray-medium: #9ca3af;
+  --gray-dark-hover: #e5e7eb;
 }
 
 header {
   width: 100%;
   height: 70px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dfdfdf;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-light);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .logo-banner {
+  height: 70px;
   padding: 0 200px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .panda-market-logo {
@@ -28,12 +40,12 @@ header {
 }
 
 .signin:hover {
-  background-color: #1967d6;
+  background-color: var(--blue-hover);
 }
 
 .button {
-  background-color: #3692ff;
-  color: #ffffff;
+  background-color: var(--blue-primary);
+  color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +53,7 @@ header {
 }
 
 .banner-top {
-  background-color: #cfe5ff;
+  background-color: var(--blue-light);
   height: 540px;
   display: flex;
   align-items: center;
@@ -51,10 +63,14 @@ header {
   background-image: url("images/top-panda-image.png");
 }
 
+main {
+  margin-top: 70px;
+}
+
 h1 {
   font-size: 40px;
   font-weight: 700;
-  color: #374151;
+  color: var(--gray-dark);
 }
 
 .more {
@@ -66,7 +82,7 @@ h1 {
 }
 
 .more:hover {
-  background-color: #1967d6;
+  background-color: var(--blue-hover);
 }
 
 .wrapper {
@@ -85,7 +101,7 @@ h1 {
   grid-template-columns: 50% 50%;
   gap: 5%;
   align-items: center;
-  color: #374151;
+  color: var(--gray-dark);
 }
 
 .mainpage img {
@@ -106,7 +122,7 @@ h1 {
 }
 
 .mainpage-tag {
-  color: #3692ff;
+  color: var(--blue-primary);
   font-size: 18px;
   line-height: 25px;
   font-weight: 700;
@@ -121,7 +137,7 @@ h1 {
 }
 
 .banner-bottom {
-  background-color: #cfe5ff;
+  background-color: var(--blue-light);
   height: 540px;
   display: flex;
   align-items: center;
@@ -133,7 +149,7 @@ h1 {
 .bottom-wrapper-text {
   font-size: 40px;
   font-weight: 700;
-  color: #374151;
+  color: var(--gray-dark);
 }
 
 #bottom-img {
@@ -141,26 +157,26 @@ h1 {
 }
 
 footer {
-  background-color: #111827;
-  color: #9ca3af;
+  background-color: var(--black);
+  color: var(--gray-medium);
   display: grid;
   justify-content: space-between;
-  padding:32px 52px;
+  padding: 32px 52px;
   width: 100%;
   height: 160px;
   font-size: 16px;
   grid-template:
-      repeat(1, 1fr) /
-      repeat(4, 1fr);
+    repeat(1, 1fr) /
+    repeat(4, 1fr);
 }
 
 .footer-menu {
   text-decoration: none;
-  color: #e5e7eb;
+  color: var(--gray-medium);
   padding: 0 15px;
 }
 
-.Privacy{
+.Privacy {
   text-align: right;
 }
 
@@ -292,7 +308,7 @@ footer {
   }
 
   .bottom-wrapper-text {
-    color: #374151;
+    color: var(--gray-dark);
     margin-top: 121px;
   }
 
@@ -306,27 +322,27 @@ footer {
       repeat(3, 1fr);
     text-align: center;
   }
-  .footer-menu{
+  .footer-menu {
     font-size: 18px;
     display: inline;
     padding: 0;
     text-align: center;
   }
 
-  .menu1{
+  .menu1 {
     grid-column: 1;
     display: block;
   }
-  .menu2{
+  .menu2 {
     grid-column: 2;
     display: block;
   }
 
-  .footer-text{
+  .footer-text {
     grid-row: 3;
   }
 
-  .footer-icons{
+  .footer-icons {
     grid-column: 3;
   }
 }
