@@ -71,14 +71,27 @@
   #top h1 br {display: none;}
 
   .banner h1 {
-    padding-top: 84;
+    padding-top: 84px;
     padding-bottom: 24px
     line-height: 56px;
     font-size: 40px;
   }
 
-  #features {padding: 138px 0;}
+  #features {
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
 
+  .feature-content h1 {
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  .feature-content h2 {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 12px;
+  }
 
   .feature-explanation {
     font-size: 18px;
@@ -89,6 +102,9 @@
 @media (min-width: 1280px) {
   .banner {
     height: 540px;
+    text-align: left;
+    display: flex;
+    align-items: center;
   }
 
   #top h1 br {display: inline;}
@@ -98,6 +114,8 @@
     padding-bottom: 32px;
   }
 
+  #top h1 br {display: inline;}
+
   #features {padding: 138px 0;}
 
   .feature {
@@ -105,6 +123,11 @@
     gap: 5%;
     display: flex;
     align-items: center;
+  }
+
+  .feature-content h1 {
+    font-size: 40px;
+    line-height: 56px;
   }
 
   .feature-explanation {
