@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Pretendard';
+}
+* {
+  --blue: #3692ff;
+  --text-black: #374151;
+  --error:#F74747;
+}

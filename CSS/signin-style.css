@@ -1,11 +1,14 @@
-* {
-  box-sizing: border-box;
-}
+@import "./global.css";
 .logo {
   width: 396px;
   height: 132px;
   margin-top: 60px;
   justify-content: center;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .login {
   margin-top: 30px;
@@ -13,6 +16,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  width: 640px;
 }
 .input-section {
   display: flex;
@@ -30,7 +34,7 @@
 }
 .email,
 .password {
-  width: 640px;
+  width: 100%;
   height: 56px;
   background-color: #f3f4f6;
   border-radius: 12px;
@@ -39,7 +43,7 @@
 }
 .email:focus,
 .password:focus {
-  border-color: #3692ff;
+  border-color: var(--blue);
 }
 .password-input {
   position: relative;
@@ -50,9 +54,19 @@
   position: relative;
   margin-top: 15px;
   margin-left: -40px;
-
   width: 24px;
   height: 24px;
+}
+.error-message {
+  display: none;
+  margin-left: 15px;
+  color: var(--error);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
+.error {
+  border: 1.5px solid var(--error);
 }
 .login-button {
   display: flex;
@@ -64,7 +78,7 @@
   margin: 20px 0 20px 0;
   width: 640px;
   height: 56px;
-  background: #9ca3af;
+  background: var(--blue);
   border-radius: 40px;
   font-family: "Pretendard";
   font-style: normal;
@@ -76,7 +90,11 @@
   text-decoration: none;
   border: none;
 }
-
+.login-button:disabled {
+  background: #9ca3af;
+  color: #ffffff;
+  cursor: not-allowed;
+}
 .easy-login {
   display: flex;
   box-sizing: border-box;
@@ -91,6 +109,11 @@
 .easy-login > p {
   width: 120px;
   height: 24px;
+}
+.image-group{
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 .google-logo {
   width: 42px;
@@ -118,6 +141,9 @@
 }
 /*Mobile*/
 @media (max-width: 767px) {
+  .login{
+    padding: 0 12px;
+  }
   .logo {
     width: 198px;
     height: 66px;
@@ -129,7 +155,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: calc(100% - 24px);
+    width: 100%;
   }
   .email,
   .password {
@@ -142,14 +168,14 @@
   }
 
   .login-button {
-    width: calc(100% - 24px);
+    width: 100%;
   }
 
   .easy-login {
     position: relative;
     display: flex;
     box-sizing: border-box;
-    width: calc(100% - 24px);
+    width: 100%;
     align-items: center;
     display: grid;
     grid-template-columns: 3fr  1fr;

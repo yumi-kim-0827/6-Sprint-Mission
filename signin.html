@@ -11,6 +11,7 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
+    
   </head>
   <header>
     <div style="display: flex; justify-content: center">
@@ -31,6 +32,7 @@
             placeholder="이메일을 입력해주세요"
           />
         </div>
+        <div id="emailError" class="error-message"></div>
       </div>
       <div class="input-section">
         <label for="password">비밀번호</label>
@@ -41,8 +43,9 @@
             id="password"
             placeholder="비밀번호를 입력해주세요"
           />
-          <img class="eyeoff" src="./images/eyeoff.svg" />
+          <img class="eyeoff" src="./images/eyeoff.svg" id="passwordVisibility"/>
         </div>
+        <div id="passwordError" class="error-message"></div>
       </div>
 
       <button type="submit" class="login-button" id="loginButton">
@@ -73,5 +76,6 @@
         <a href="./signup.html" class="signup">회원가입</a>
       </div>
     </div>
+    <script src="./javascript/signin.js"></script>
   </body>
 </html>
