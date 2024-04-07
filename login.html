@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" >
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="icon" href="images/logo/favicon.ico">
 
     <link rel="stylesheet" href="./css/login.css">
@@ -21,17 +21,21 @@
             <form action="" id="login_form">
                 <div class="input">
                     <label for="email">이메일</label>
-                    <input type="email" name="email" placeholder="이메일을 입력해주세요">
+                    <input type="email" id="email" class="" placeholder="이메일을 입력해주세요">
+                    <p class="error error_email_wrong hide">잘못된 이메일입니다.</p>
+                    <p class="error error_email_undefined hide">이메일을 입력해주세요.</p>
                 </div>
                 <div class="input">
                     <label for="pwd">비밀번호</label>
                     <div class="pwd">
-                        <input type="password" name="pwd" placeholder="비밀번호를 입력해주세요">
+                        <input type="password" id="pwd" class="" placeholder="비밀번호를 입력해주세요">
                         <img class="mark_unvisible" src="./images/mark_unvisible.svg" alt="비밀번호 보이기">
-                    </div>    
+                    </div>
+                    <p class="error error_pwd_wrong hide">비밀번호를 8자 이상 입력해주세요.</p>
+                    <p class="error error_pwd_undefined hide">비밀번호를 입력해주세요.</p>
                 </div>
                 <div>
-                    <button type="submit">로그인</button>
+                    <button class="login_submit_button" type="submit">로그인</button>
                 </div>
             </form>
             <div class="easy_login">
@@ -47,6 +51,7 @@
             </div>
         </div>
     </main>
+    <script src="./login.js"></script>
 </body>
 
 </html>
