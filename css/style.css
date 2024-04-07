@@ -141,9 +141,12 @@ button{
   background-position:74% bottom;
 }
 .bottom_banner .bt_container{
+  margin:0 auto;
   display:flex;
   flex-direction:column;
   justify-content:center;
+  width:100%;
+  max-width:1200px;
   height:100%;
 }
 .bottom_banner .bt_container p{
@@ -221,14 +224,6 @@ footer .footer_wrap .sns_link ul{
       padding:16px;
     }
   }
-  @media screen and (max-width: 768px) {
-    footer .footer_wrap {
-      flex-direction:column;
-    }
-    footer .footer_wrap .page_link{
-      margin:16px 0;
-    }
-  }
 /****************** signin *********************/
 .form_header{
   padding:60px 0 0 0;
@@ -262,12 +257,9 @@ footer .footer_wrap .sns_link ul{
   background-color:#9CA3AF;
   font-size:20px;
   color:#fff;
-  transition:all 0.5s;
+  transition:all 0.3s;
 }
-.user_form_wrap .form_wrap button:hover{
-  background-color:var(--brand_blue);
-  color:#fff;
-}
+
 .sns_login_wrap{
   display:flex;
   justify-content:space-between;
@@ -281,7 +273,6 @@ footer .footer_wrap .sns_link ul{
 .user_form_wrap .form_wrap .input_wrap{
   padding:20px;
   display:flex;
-  flex-direction:space-between;
   align-items:center;
   border-radius:12px;
   background-color:var(--cool_tray_lignt);
@@ -293,9 +284,8 @@ footer .footer_wrap .sns_link ul{
 .user_form_wrap .form_wrap .input_wrap input:focus{
   border-bottom:1px solid var(--brand_blue);
 }
-.sns_login_wrap p{
-  font-weight:500;
-  color:#1F2937;
+.email_notice, .psw_notice, .nickname_notice, .psw_confim_notice, .email_login_notice, .psw_login_notice{
+  color:#dd1919;
 }
 .sns_login_wrap ul{
   display:flex;
