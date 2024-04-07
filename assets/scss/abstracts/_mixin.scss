@@ -26,3 +26,17 @@
     padding-right: $d-padding;
     width: 100%;
 }
+
+// Tablet
+@mixin res--tablet {
+    @media screen and (max-width: #{$tablet}) {
+      @content;
+    }
+  }
+   
+  // Mobile
+  @mixin res--mobile {
+    @media screen and (max-width: #{$mobile}) {
+      @content;
+    }
+  }

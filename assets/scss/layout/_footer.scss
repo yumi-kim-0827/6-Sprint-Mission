@@ -9,16 +9,29 @@
   gap: 1rem;
   background: $cool-gray-900;
   font-size: 1.6rem;
+  flex-wrap: wrap;
+  @include res--tablet {
+    padding-left: 10.4rem;
+    padding-right: 10.4rem;
+  }
+  @include res--mobile {
+    padding: 3.2rem;
+    align-content: space-between;
+  }
 }
 .footer-area .copy {
-  color: $bg-white;
+  color: $gray-600;
+  @include res--mobile {
+    order: 999;
+    width: 100%;
+  }
 }
 .footer-area .btn-links {
   display: flex;
   gap: 3rem;
 }
 .footer-area .btn-links a {
-  color: $bg-white;
+  color: $gray-200;
 }
 .footer-area .btn-socials {
   display: flex;

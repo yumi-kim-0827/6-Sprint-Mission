@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 페이스북 -->
+  <meta property="og:image" content="./assets/images/common/og_tag.png">
+  <meta property="og:title" content="판다 마켓">
+  <meta
+      property="og:description"
+      content="일상의 모든 물건을 거래해보세요"
+  >
+  <meta property="og:url" content="https://sprint-mission-lsj.netlify.app">
+
+  
+  <!-- 트위터 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="./assets/images/common/og_tag.png">
+  <meta
+      name="twitter:title"
+      content="판다 마켓"
+  >
+  <meta
+      name="twitter:description"
+      content="일상의 모든 물건을 거래해보세요"
+  >
+  
   <title>판다마켓</title>
-  <link rel="icon" href="images/common/favicon.ico" />
+  <link rel="icon" href="./assets/images/common/favicon.ico" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
@@ -14,7 +36,10 @@
     <header class="header-area">
         <h1 class="logo">
             <a href="/">
+              <picture>
+                <source srcset="./assets/images/common/logo-typo.svg" media="(max-width: 767px)">
                 <img src="./assets/images/common/logo.svg" alt="판다마켓">
+              </picture>
             </a>
         </h1>
         <a href="./login.html" class="btn-login btn rounded">로그인</a>
@@ -26,7 +51,7 @@
       <!-- 상단배너영역 -->
       <section class="main-banner-top banner">
         <div class="tit-wrap">
-            <h3 class="title">일상의 모든 물건을<br/>거래해 보세요</h3>
+            <h3 class="title">일상의 모든 물건을 <br/>거래해 보세요</h3>
             <a href="./items.html" class="btn-gosite btn pill">구경하러 가기</a>
         </div>
       </section>
@@ -41,7 +66,7 @@
             </div>
             <div class="content-wrap">
               <p class="sub-title">Hot item</p>
-              <h3 class="title">인기 상품을<br/>확인해 보세요</h3>
+              <h3 class="title">인기 상품을 <br/>확인해 보세요</h3>
               <p class="desc">가장 HOT한 중고거래 물품을<br/>판다 마켓에서 확인해 보세요</p>
             </div>
           </li>
@@ -51,7 +76,7 @@
             </div>
             <div class="content-wrap">
               <p class="sub-title">Search</p>
-              <h3 class="title">구매를 원하는<br/>상품을 검색하세요</h3>
+              <h3 class="title">구매를 원하는 <br/>상품을 검색하세요</h3>
               <p class="desc">구매하고 싶은 물품은 검색해서<br/>쉽게 찾아보세요</p>
             </div>
           </li>
@@ -61,7 +86,7 @@
             </div>
             <div class="content-wrap">
               <p class="sub-title">Register</p>
-              <h3 class="title">판매를 원하는<br/>상품을 등록하세요</h3>
+              <h3 class="title">판매를 원하는 <br/>상품을 등록하세요</h3>
               <p class="desc">어떤 물건이든 판매하고 싶은 상품을<br/>쉽게 등록하세요</p>
             </div>
           </li>
@@ -72,7 +97,7 @@
       <!-- 하단배너영역 -->
       <section class="main-banner-btm banner">
         <div class="tit-wrap">
-          <h3 class="title">믿을 수 있는<br/>판다마켓 중고거래</h3>
+          <h3 class="title">믿을 수 있는 <br/>판다마켓 중고거래</h3>
         </div>
       </section>
       <!-- // 하단배너영역 -->
