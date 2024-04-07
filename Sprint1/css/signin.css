@@ -47,9 +47,11 @@
 }
 
 .form_tag p{
+  margin-left: 10px;
   font-size: 15px;
   font-weight: 600;
   color: var(--red);
+  display: none;
 }
 
 input:focus {
@@ -153,4 +155,8 @@ button:hover {
     font-size: 20px;
   }
 
+}
+
+.form_tag .hidden_event {
+  display: block;
 }
