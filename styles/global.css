@@ -1,66 +1,7 @@
-/* 프리텐다드 폰트 */
-@font-face {
-  font-family: 'Pretendard Variable';
-  font-weight: 45 920;
-  font-style: normal;
-  font-display: swap;
-  src: local('Pretendard Variable'), url('./images/PretendardVariable.woff2') format('woff2-variations');
-}
+@import url("./reset.css");
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Thin.woff') format('woff');
-  font-weight: 100;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-ExtraLight.woff') format('woff');
-  font-weight: 200;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Light.woff') format('woff');
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Regular.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Medium.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-SemiBold.woff') format('woff');
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-ExtraBold.woff') format('woff');
-  font-weight: 800;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./images/Pretendard-Black.woff') format('woff');
-  font-weight: 900;
-  font-display: swap;
-}
+/* 프리텐다드 폰트 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 :root {
   --main-blue-color: #3692ff; /* Main Blue Color */
@@ -84,6 +25,98 @@
   color: #374151;
 }
 
+#header,
+#footer,
+main,
+.container {
+  width: 100%;
+}
+#header,
+#footer {
+	padding: 0 24px;
+}
+#header .container,
+#footer .container {
+  max-width: 1520px;
+  padding: 15px 0;
+}
+#header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+#logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+#footer {
+  background: var(--gray900);
+}
+#footer .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 160px;
+  padding: 2rem 0;
+}
+#footer .copy {
+  color: var(--sub-gray-color);
+}
+#footer .foot-menu {
+  justify-content: center;
+  display: flex;
+  gap: 2rem;
+}
+#footer .foot-menu a {
+  color: var(--gray200);
+}
+#footer .foot-menu a:hover {
+  color: var(--gray400);
+}
+#footer .sns-links {
+  justify-content: flex-end;
+  display: flex;
+  gap: 10px;
+}
+
+/* 버튼 공통 */
+.btn-primary {
+  background-color: var(--main-blue-color);
+  color: #fff;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 0px;
+  width: 128px;
+}
+.btn-sm {
+  width: 154px;
+}
+.btn-md {
+  width: 355px;
+  height: 56px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.btn-lg {
+  width: 100%;
+}
 .rounded-sm {
   border-radius: 8px;
 }
@@ -92,4 +125,32 @@
 }
 .bg-color-gray400 {
   background-color: var(--gray400);
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 1199px) {
+  /** tablet **/
+}
+/* mobile: 767px 이하 */
+@media (max-width: 767px) {
+  /** mobile **/
+	#header,
+	#footer {
+		padding: 0 16px;
+	}
+	/* 버튼 공통 */
+  .btn-primary {
+    font-size: 1rem;
+  }
+  /* 푸터 */
+  #footer .foot-menu {
+    justify-content: flex-start;
+    grid-column: 1/3;
+  }
+  #footer .copy {
+    grid-row: 2/3;
+  }
+  #footer .sns-links {
+    grid-column: 3/4;
+  }
 }
