@@ -5,7 +5,7 @@ const inputPasswordConfirm = document.getElementById('password-verify');
 const formButton = document.querySelector('.form__button');
 const invisibleButton = document.querySelectorAll('.form__invisible-button');
 
-const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+const emailPattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 const emailMsg = document.createElement('span');
 const pwMsg = document.createElement('span');
 const nicMsg = document.createElement('span');
@@ -24,22 +24,22 @@ function addMessage(el, msgEl, msg) {
 }
 
 
-function emailErrorMessage(e) {
+function showEmailErrorMessage(e) {
   if (!e.target.value) {
     addMessage(e.target, emailMsg, '이메일을 입력해주세요');
   } 
-  else if (!pattern.test(e.target.value)) {
+  else if (!emailPattern.test(e.target.value)) {
     addMessage(e.target, emailMsg, '잘못된 이메일 형식입니다');
   }
 }
 
-function nicknameErrorMessage(e) {
+function showNicknameErrorMessage(e) {
   if (!e.target.value) {
     addMessage(e.target, nicMsg, '닉네임을 입력해주세요');
   } 
 }
 
-function passwordErrorMessage(e) {
+function showPasswordErrorMessage(e) {
   if (!e.target.value) {
     addMessage(e.target, pwMsg, '비밀번호를 입력해주세요');
   } 
@@ -48,14 +48,14 @@ function passwordErrorMessage(e) {
   }
 }
 
-function confirmPwErrorMessage(e) {
+function showConfirmPwErrorMessage(e) {
   if (e.target.value !== inputPassword.value) {
     addMessage(e.target, cfmPwMsg, '비밀번호가 일치하지 않습니다');
   } 
 }
 
 
-function whenFocusIn(e) {
+function removeErrorMessage(e) {
   if (e.target.classList.contains('form__input--error') && e.target.nextElementSibling) {
     e.target.classList.remove('form__input--error');
     e.target.nextElementSibling.remove();
@@ -95,13 +95,15 @@ function activateSignUpButton(e) {
 }
 
 
-function buttonVisibleOrNot(e) {
+function togglePasswordVisibility(e) {
   const input = e.target.parentElement.nextElementSibling;
   if (input.type === 'password') {
-    input.setAttribute('type', 'text'); //input.type = 'text' const라 안됨
+    // input.setAttribute('type', 'text');
+    input.type = 'text';
     e.target.setAttribute('src', '../assets/icons/ic_visible.png');
   } else if (input.type === 'text') {
-    input.setAttribute('type', 'password');
+    // input.setAttribute('type', 'password');
+    input.type = 'password';
     e.target.setAttribute('src', '../assets/icons/ic_invisible.png');
   }
 }
@@ -113,12 +115,12 @@ export {
   inputNickname, 
   inputPasswordConfirm, 
   invisibleButton,
-  emailErrorMessage,
-  nicknameErrorMessage,
-  passwordErrorMessage,
-  confirmPwErrorMessage,
-  whenFocusIn,
+  showEmailErrorMessage,
+  showNicknameErrorMessage,
+  showPasswordErrorMessage,
+  showConfirmPwErrorMessage,
+  removeErrorMessage,
   activateLogInButton,
   activateSignUpButton,
-  buttonVisibleOrNot
+  togglePasswordVisibility
 };
