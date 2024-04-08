@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/signin_style.css">
+    <link rel="stylesheet" href="../css/color.css">
+    
+    <meta property="og:title" content="로그인">
+    <meta property="og:description" content="로그인 창">
+    <meta property="og:image" content="../img/logo/panda-logo">
+    <meta property="og:url" content="/">
+  </head>
+  <body class="body">
+    <header class="logo">
+      <a href="/" class="logo"><img class="size" src="../img/logo/panda-logo_login.svg" alt="판다마켓"></a>
+    </header>
+    <main class="main ">
+      <form class="form">
+        <div class="form-items">
+          <label for="email" class="form-items__label">이메일</label>
+          <input
+           id="email" name="email" type="email" 
+           placeholder="이메일을 입력해 주세요" 
+           class="form-input"/>
+           <div id="email-error" class="text"></div>
+        </div>
+        <div class="form-items">
+          <label for="password" class="form-items__label">비밀번호</label>
+          <input
+           id="password" name="password" type="password"
+           placeholder="비밀번호를 입력해 주세요"
+           class="form-input"/>
+          <img src="../img/icons/eye-invisible.svg"alt="비밀번호 숨김" class="password-toggle">
+          <div id="password-error" class="text"></div>
+        </div>
+        <button type="submit" class="button form-button" id="button" href="./main.html">로그인</button>
+      </form>
+      <div class="easy-login">
+        <p>간편 로그인하기</p>
+        <div class="icons">
+          <a class="icon" href="https://www.google.com/">
+            <img class="size" src="../img/icons/google.svg" alt="구글"/></a>
+          <a class="icon" href="https://www.kakao.com/">
+            <img class="size" src="../img/icons/kakao.svg" alt="카카오톡"/></a>
+        </div>
+      </div>
+      <footer class="signup">
+        <span>판다마켓이 처음이신가요?</span><a href="./signup.html" class="signup-href">회원가입</a>    
+      </footer>
+    </main>
+    <script src="../JS/signin.js"></script>
+  </body>
+</html>
