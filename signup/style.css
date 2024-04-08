@@ -83,6 +83,20 @@ form input:focus {
   font-weight: 550;
   color: var(--gray800);
 }
+.con .wrong {
+  border: solid 2px var(--error-red);
+}
+.wrong-email,
+.wrong-nick,
+.wrong-pw,
+.wrong-re-pw {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error-red);
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
 
 .social-login-logo img {
   width: 42px;
@@ -102,28 +116,7 @@ form input:focus {
   color: var(--go-login-signup-color);
 }
 
-@media screen and (min-width: 400px) and (max-width: 767px) {
-  .main-contaienr {
-    padding: 0 16px;
-  }
-  .img-container .logo {
-    width: 198px;
-    height: 66px;
-  }
-  form {
-    width: 400px;
-  }
-  .con label {
-    font-size: 16px;
-  }
-  .pw img,
-  .re-pw img {
-    position: absolute;
-    right: 18px;
-    top: 53px;
-    cursor: pointer;
-  }
-}
+/**********미디어 쿼리**********/
 
 @media screen and (min-width: 375px) and (max-width: 399px) {
   .main-contaienr {
@@ -153,9 +146,27 @@ form input:focus {
     top: 48px;
     cursor: pointer;
   }
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 400px) and (max-width: 767px) {
+  .main-contaienr {
+    padding: 0 16px;
+  }
+  .img-container .logo {
+    width: 198px;
+    height: 66px;
+  }
   form {
-    width: 500px;
+    width: 400px;
+  }
+  .con label {
+    font-size: 16px;
+  }
+  .pw img,
+  .re-pw img {
+    position: absolute;
+    right: 18px;
+    top: 53px;
+    cursor: pointer;
   }
 }

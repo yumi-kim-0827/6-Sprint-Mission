@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓 로그인</title>
-    <link rel="stylesheet" href="./login/style.css" />
     <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="./login/style.css" />
   </head>
 
   <body>
@@ -22,7 +22,7 @@
         <div class="pw con">
           <label for="pw">비밀번호</label>
           <input type="password" id="pw" placeholder="비밀번호를 입력해주세요" />
-          <img src="./login/assets/show-pw.png" alt="비밀번호 보이기" />
+          <img class="pw-icon" src="./login/assets/non-show-pw.png" alt="비밀번호 보이기" />
         </div>
         <button class="login-btn">로그인</button>
         <div class="social-login">
@@ -46,5 +46,6 @@
         </div>
       </form>
     </div>
+    <script src="./login.js"></script>
   </body>
 </html>
