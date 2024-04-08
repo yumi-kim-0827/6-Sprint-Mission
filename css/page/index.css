@@ -1,0 +1,211 @@
+/* 메인페이지 style - index.html */
+
+/* 배너 공통 */
+.banner {
+  background-color: #CFE5FF;
+  overflow: hidden;
+}
+
+.banner .container {
+  position: relative;
+  padding: 170px 0;
+  max-width: calc(1920px - 442px);
+}
+
+.banner .main-text p.description {
+  font-size: var(--font-40);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--gray-700);
+  margin: 0;
+}
+
+.banner .banner-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.banner .main-text {
+  z-index: 1;
+  width: 1200px;
+}
+
+/* 구경하러 가기 배너 */
+.item-banner .main-text a.button {
+  width: 355px;
+  margin: var(--spacing-32) 0 0;
+  font-size: var(--font-20);
+  font-weight: 600;
+  padding: 16px 0;
+  border-radius: 30px;
+}
+
+/* 메인 영역 */
+main.introduce-section {
+  padding: 138px 0;
+  display: grid;
+  gap: 138px;
+}
+
+main.introduce-section > article {
+  display: flex;
+  gap: 0 64px;
+  align-items: center;
+}
+
+main.introduce-section > article.reverse {
+  flex-direction: row-reverse;
+}
+
+main.introduce-section > article .img-area {
+  max-width: 588px;
+  flex: 1;
+}
+
+main.introduce-section .text-area .keyword {
+  color: var(--blue);
+  font-size: var(--font-18);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+main.introduce-section .text-area .title {
+  color: var(--gray-700);
+  font-size: var(--font-40);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin: var(--spacing-12) 0 var(--spacing-24);
+}
+
+main.introduce-section .text-area .detail {
+  color: var(--gray-700);
+  font-size: var(--font-24);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
+/* 하단 배너 */
+.bottom-banner .container {
+  padding: 214px 0;
+}
+
+.bottom-banner .container .banner-img,
+.bottom-banner .container .banner-img img {
+  max-height: 540px;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  /* 메인 페이지 */
+  .banner .container {
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .banner .main-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 85px 0 100px;
+  }
+
+  .banner .main-text p.description {
+    text-align: center;
+  }
+
+  .item-banner .main-text a.button {
+    padding: 18px 0;
+    margin: var(--spacing-24) 0 0;
+  }
+
+  .banner .banner-img {
+    position: unset;
+    max-width: 996px;
+    width: calc(100% + 250px);
+  }
+
+  main.introduce-section {
+    padding: 24px 0 80px;
+    gap: 64px;
+  }
+
+  main.introduce-section > article,
+  main.introduce-section > article.reverse {
+    flex-direction: column;
+  }
+
+  main.introduce-section > article .img-area {
+    max-width: 100%;
+  }
+
+  main.introduce-section > article .text-area {
+    width: 100%;
+    padding: 20px 0 0;
+  }
+
+  main.introduce-section > article.reverse .text-area p {
+    text-align: right;
+  }
+
+  main.introduce-section .text-area .title {
+    font-size: var(--font-32);
+    margin: var(--spacing-12) 0 var(--spacing-20);
+  }
+
+  main.introduce-section .text-area .detail {
+    font-size: var(--font-18);
+  }
+
+  .bottom-banner .main-text {
+    padding: 200px 0 75px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+  .banner .main-text {
+    width: 100%;
+    padding: 55px 0 48px;
+  }
+
+  .banner .main-text p.description {
+    font-size: var(--font-32);
+  }
+
+  .item-banner .main-text a.button {
+    margin: 1.8rem 0 0;
+    padding: var(--spacing-12) 0;
+    width: 154px;
+    font-size: var(--font-16);
+  }
+
+  main.introduce-section {
+    padding: 50px 0 65px;
+  }
+
+  main.introduce-section .text-area .keyword {
+    font-size: var(--font-16);
+  }
+
+  main.introduce-section .text-area .title {
+    margin-top: 0.8rem;
+    font-size: var(--font-24);
+  }
+
+  main.introduce-section .text-area .detail {
+    font-size: var(--font-16);
+  }
+
+  .bottom-banner .main-text {
+    padding: 120px 0 60px;
+  }
+
+  .bottom-banner .banner-img {
+    width: calc(100% + 120px);
+  }
+}
