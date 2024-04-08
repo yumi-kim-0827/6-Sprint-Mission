@@ -11,7 +11,7 @@
 .pwd_icon{
     position: absolute;
     right: 24px;
-    bottom: 17px;
+    top: 58px;
     cursor: pointer;
 }
 .login_sns{
@@ -51,6 +51,7 @@
     background: var(--coolGray);
     border: none;
     margin-top: 16px;
+    border:2px solid transparent
 }
 .input_area input:focus{
     border:1px solid var(--blue);
@@ -58,7 +59,6 @@
 .submit_btn{
     display: block;
     width: 100%;
-    background: var(--gray);
     font-size: 20px;
     font-weight: 600;
     border-radius: 40px;
@@ -66,13 +66,28 @@
     color: #fff;
     border: none;
     cursor: pointer;
-}
-.submit_btn:hover{
     background: var(--blue);
+}
+.submit_btn:disabled{
+    background: var(--gray);
+    cursor:not-allowed;
+}
+
+.input_area input.wrong{
+    border-color: red;
+}
+.wrongText{
+    display: none;
+}
+.wrongText.wrong{
+    display: block;
+    color: red;
+    font-weight: bold;
+    padding: 10px 20px 0;
 }
 
 /*mobile*/
-@media (max-width:767px) and (min-width:375px){
+@media (min-width:375px) and (max-width:767px){
     #login section, #join section{
         padding: 0 16px;
         max-width: 400px;

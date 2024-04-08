@@ -253,7 +253,7 @@ footer{
 }
 
 /*mobile*/
-@media (max-width:767px) and (min-width:375px){
+@media (min-width:375px) and (max-width:767px){
     .main_banner .banner_text h2 br{
         display: block;
     }
