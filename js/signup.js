@@ -5,13 +5,11 @@ const signupRepw = document.getElementById("re-password");
 const signupBtn = document.getElementById("signup-btn");
 
 function color() {
-  if (
-    signupEmail.value.length > 0 &&
-    signupEmail.value.indexOf("@") !== -1 &&
-    signupName.value.length > 0 &&
-    signupPw.value.length >= 8 &&
-    signupPw.value == signupRepw.value
-  ) {
+  const isEmailValid = signupEmail.value.length > 0 && signupEmail.value.indexOf("@") !== -1;
+  const isNameValid = signupName.value.length > 0;
+  const isPwValid = signupPw.value.length >= 8;
+  const isPwMatching = signupPw.value === signupRepw.value;
+  if (isEmailValid && isNameValid && isPwValid && isPwMatching) {
     signupBtn.style.backgroundColor = "#3692ff";
     signupBtn.style.cursor = "pointer";
     signupBtn.disabled = false;
