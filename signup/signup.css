@@ -53,10 +53,15 @@ input {
     height: var(--desktop-input-height);
     background-color: var(--color-cool-gray100);
     border-radius: 12px;
+    border-color: var(--color-brand-blue);
     padding: 16px 24px;
     font-size: 1.6rem;
     font-weight: 400;
     color: var(--color-cool-gray800);
+}
+
+.border-error {
+    border: 1px solid var(--color-error-red);
 }
 
 input::placeholder {
@@ -65,7 +70,24 @@ input::placeholder {
 }
 
 input:focus {
-    border: 1.5px solid #3692ff;
+    border: 1px solid var(--color-brand-blue);
+}
+
+.failure-message-nickname,
+.failure-message-passwordcheck,
+.failure-message-password-invalid,
+.failure-message-password-null,
+.failure-message-invalid,
+.failure-message-null {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-error-red);
+    padding-left: 16px;
+    line-height: 17.9px;
+}
+
+.hide {
+    display: none;
 }
 
 button {
@@ -78,11 +100,7 @@ button {
     font-size: 2rem;
 }
 
-button:hover {
-    background-color: var(--color-brand-blue);
-}
-
-.on {
+.activated {
     background-color: var(--color-brand-blue);
 }
 

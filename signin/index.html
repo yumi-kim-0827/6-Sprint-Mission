@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>판다마켓 : 로그인</title>
         <link rel="stylesheet" href="./signin.css" />
-        <script defer src="./passwordToggle.js"></script>
+        <script defer src="/src/main.js"></script>
     </head>
     <body>
         <div class="container">
@@ -21,21 +21,35 @@
 
             <!-- Main -->
             <main>
-                <form action="">
+                <form action="/index.html">
                     <li class="input_wrap">
                         <label for="email">이메일</label>
-                        <input id="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="off" />
+                        <input
+                            id="email"
+                            class="check-msg border-error"
+                            type="email"
+                            placeholder="이메일을 입력해주세요"
+                            autocomplete="off" />
+                        <span class="failure-message-null hide">이메일을 입력해주세요</span>
+                        <span class="failure-message-invalid hide">잘못된 이메일 형식입니다</span>
                     </li>
 
                     <li class="input_wrap">
                         <label for="password">비밀번호</label>
-                        <input id="password" type="password" autocomplete="off" placeholder="비밀번호를 입력해주세요" />
+                        <input
+                            id="password"
+                            type="password"
+                            autocomplete="off"
+                            placeholder="비밀번호를 입력해주세요"
+                            required />
+                        <span class="failure-message-password-null hide">비밀번호를 입력해주세요</span>
+                        <span class="failure-message-password-invalid hide">비밀번호를 8자 이상 입력해주세요</span>
                         <div class="password_eye_wrap">
                             <input type="checkbox" id="password_eye_toggle" />
                             <label for="password_eye_toggle" class="eye_btn"></label>
                         </div>
                     </li>
-                    <button>로그인</button>
+                    <button class="login-btn activated" type="submit">로그인</button>
                 </form>
                 <div class="easy_login">
                     <h4>간편 로그인하기</h4>

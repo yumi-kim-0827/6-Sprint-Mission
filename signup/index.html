@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>판다마켓 : 회원가입</title>
         <link rel="stylesheet" href="./signup.css" />
+        <script src="/src/main.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -20,19 +21,24 @@
 
             <!-- Main -->
             <main>
-                <form action="">
+                <form action="/index.html">
                     <li class="input_wrap">
                         <label for="email">이메일</label>
-                        <input id="email" type="email" placeholder="이메일을 입력해주세요" autofocus />
+                        <input id="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="off" />
+                        <span class="failure-message-null hide">이메일을 입력해주세요</span>
+                        <span class="failure-message-invalid hide">잘못된 이메일 형식입니다</span>
                     </li>
                     <li class="input_wrap">
                         <label for="nickname">닉네임</label>
-                        <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" autofocus />
+                        <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" autocomplete="off" />
+                        <span class="failure-message-nickname hide">닉네임을 입력해주세요</span>
                     </li>
 
                     <li class="input_wrap">
                         <label for="password">비밀번호</label>
                         <input id="password" type="password" autocomplete="off" placeholder="비밀번호를 입력해주세요" />
+                        <span class="failure-message-password-null hide">비밀번호를 입력해주세요</span>
+                        <span class="failure-message-password-invalid hide">비밀번호를 8자 이상 입력해주세요</span>
                         <div class="password_eye_wrap">
                             <input type="checkbox" id="password_eye_toggle" />
                             <label for="password_eye_toggle" class="eye_btn"></label>
@@ -46,12 +52,13 @@
                             type="password"
                             autocomplete="off"
                             placeholder="비밀번호를 다시 한 번 입력해주세요" />
+                        <span class="failure-message-passwordcheck hide">비밀번호가 일치하지 않습니다</span>
                         <div class="pw_check_eye_wrap">
                             <input type="checkbox" id="pw_eye_toggle" />
-                            <label for="pw_eye_toggle" class="eye_btn"></label>
+                            <label for="pw_eye_toggle" class="eye_btn2"></label>
                         </div>
                     </li>
-                    <button>회원가입</button>
+                    <button class="signup-btn activated" type="submit">회원가입</button>
                 </form>
                 <div class="easy_login">
                     <h4>간편 로그인하기</h4>
