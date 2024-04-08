@@ -69,14 +69,14 @@ nav {
   line-height: 56px;
 }
 
-#buypanda {
+.top-img {
   background-image: url("../img/img_header_1.png");
   background-repeat: no-repeat;
   background-size: 55%;
   background-position: 80% bottom;
 }
 
-#hellopanda {
+.bottom-img {
   background-image: url("../img/img_footer_1.png");
   background-repeat: no-repeat;
   background-size: 55%;
@@ -198,8 +198,8 @@ footer {
     line-height: 56px;
   }
 
-  #buypanda,
-  #hellopanda {
+  .top-img,
+  .bottom-img {
     background-size: 100%;
     background-position: 50% bottom;
   }
@@ -209,7 +209,7 @@ footer {
     margin: 24px;
   }
 
-  .pander-main:nth-child(3) div {
+  .center div {
     order: 2;
     text-align: left;
   }

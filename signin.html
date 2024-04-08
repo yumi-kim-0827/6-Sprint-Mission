@@ -37,26 +37,27 @@
       <section>
         <label>이메일</label>
         <input
-          type="email"
+          type="text"
           name="userName"
           placeholder="이메일을 입력해주세요"
           class="input-email"
-          required
           autofocus
         />
       </section>
+      <div class="email-error"></div>
       <section class="password-section">
         <label class="login-form__label">비밀번호</label>
         <input
           type="password"
           name="userPassword"
           placeholder="비밀번호를 입력해주세요"
-          required
           class="input-password"
         />
-        <img src="/img/Property 1=Default.png" alt="" class="password-img" />
+        <img src="/img/Property 1=Default.png" alt="" class="password-img1" />
+        <div class="password-error">
+        </div>
       </section>
-      <button type="submit">로그인</button>
+        <button disabled data-href="/items.html">로그인</button>
     </form>
     <div class="social">
       <span>간편 로그인하기</span>
@@ -81,6 +82,6 @@
       판다마켓이 처음이신가요?
       <a href="/signup.html">회원가입</a>
     </div>
-    <script src="login.js"></script>
+    <script type="module" src="js/signin.js"></script>
   </body>
 </html>

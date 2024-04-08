@@ -41,10 +41,10 @@
           name="userName"
           placeholder="이메일을 입력해주세요"
           class="input-email"
-          required
           autofocus
         />
       </section>
+      <div class="email-error"></div>
       <section>
         <label>닉네임</label>
         <input
@@ -55,6 +55,7 @@
           required
         />
       </section>
+      <div class="name-error"></div>
       <section class="password-section">
         <label>비밀번호</label>
         <input
@@ -64,20 +65,22 @@
           class="input-password"
           required
         />
-        <img src="/img/Property 1=Default.png" alt="" class="password-img" />
+        <img src="/img/Property 1=Default.png" alt="" class="password-img1" />
       </section>
+      <div class="password-error"></div>
       <section class="password-section">
         <label>비밀번호 확인</label>
         <input
           type="password"
           name="userPassword"
           placeholder="비밀번호를 다시 한 번 입력해주세요"
-          class="input-password"
+          id="password-check"
           required
         />
-        <img src="/img/Property 1=Default.png" alt="" class="password-img" />
+        <img src="/img/Property 1=Default.png" alt="" class="password-img2" />
       </section>
-      <button class="button-join" type="submit">회원가입</button>
+      <div class="samepassword-error"></div>
+      <button class="button-join" data-href="/signin.html">회원가입</button>
     </form>
     <div class="social">
       <span>간편 로그인하기</span>
@@ -103,5 +106,6 @@
       이미 회원이신가요?
       <a href="/signin.html">로그인</a>
     </div>
+    <script type="module" src="../js/signup.js"></script>
   </body>
 </html>
