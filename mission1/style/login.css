@@ -24,11 +24,20 @@ body {
 }
 .section input {
   background: #f3f4f6;
-
   height: 56px;
-  border: none;
   border-radius: 12px;
   width: 640px;
+  border: none;
+}
+.email-error-message {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
+}
+.section .error-border {
+  border: 2px solid red;
 }
 .section input:focus {
   background-color: #ffffff;
@@ -36,6 +45,13 @@ body {
 }
 .section input::placeholder {
   padding: 16px 24px;
+}
+.email-error-message {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
 }
 .passwordLabel {
   display: flex;
@@ -47,6 +63,13 @@ body {
   cursor: pointer;
   position: absolute;
   right: 30px;
+}
+.pw-error-message {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
 }
 .loginButton {
   cursor: pointer;
@@ -106,3 +129,4 @@ body {
     width: 344px;
   }
 }
+

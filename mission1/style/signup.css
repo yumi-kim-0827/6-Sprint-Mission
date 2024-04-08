@@ -18,11 +18,36 @@ body {
   gap: 24px;
 }
 
+.section .error-border {
+  border: 2px solid red;
+}
+.emailError {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
+}
 .signUpTable label {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 56px;
+}
+.pwError {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
+}
+
+.pwRepeatError {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  font-size: 15px;
+  color: #f74747;
 }
 
 label input {

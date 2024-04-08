@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signup.css" />
-    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../style/signup.css" />
+    <link rel="stylesheet" href="../style/reset.css" />
 
     <title>회원가입</title>
   </head>
@@ -18,11 +18,13 @@
         이메일
         <label class="emailLabel">
           <input
+            class="emailInput"
             title="이메일"
             placeholder="이메일을 입력해주세요"
             type="email"
           />
         </label>
+        <div class="emailError"></div>
         닉네임
         <label>
           <input id="shown" type="text" placeholder="닉네임을 입력해주세요" />
@@ -30,21 +32,23 @@
         비밀번호
         <label class="passwordLabel">
           <input
-            class="passwordBar"
+            class="passwordInput"
             type="password"
             placeholder="비밀번호를 입력해주세요"
           />
           <img id="eyeIcon" src="/icon/hidePassword.png" alt="" />
         </label>
+        <div class="pwError"></div>
         비밀번호 확인
         <label class="passwordLabel">
           <input
-            class="passwordBar2"
+            class="passwordInput2"
             type="password"
             placeholder="비밀번호를 입력해주세요"
           />
           <img id="passIcon" src="/icon/hidePassword.png" alt="" />
         </label>
+        <div class="pwRepeatError"></div>
         <button class="signUpButton">회원가입</button>
       </div>
       <div class="simpleLoginBox">
