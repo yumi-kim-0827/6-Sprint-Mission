@@ -12,7 +12,7 @@ body {
     align-items: center;
 }
 
-header {
+.header-container {
     display: flex;
     gap: 10px;
     padding-block: 60px 40px;
@@ -20,13 +20,13 @@ header {
     align-items: center;
 }
 
-header > span > svg {
+.header-container__logo > svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-header > h1 > a {
+.header-container__title > a {
     font-family: "ROKAF Bold";
     font-weight: 700;
     font-size: 6.634rem;
@@ -35,18 +35,18 @@ header > h1 > a {
     color: var(--header-logo-color);
 }
 
-footer {
+.footer-container {
     font-family: Pretendard;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 1.79rem;
 }
 
-footer > h3 > a {
+.footer-container__content > a {
     color:var(--brand-blue-100);
 }
 
-.pandamarket-login > form {
+.login-container__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +54,7 @@ footer > h3 > a {
     gap: 16px;
 }
 
-.pandamarket-login > form > label {
+.login-container__form > label {
     font-family: "Pretendard";
     font-weight: 700;
     font-size: 1.8rem;
@@ -62,8 +62,8 @@ footer > h3 > a {
     color: var(--cool-gray-800);
 }
 
-.pandamarket-login > form > input,
-.pandamarket-login > form > div > input
+.login-container__form > input,
+.login-container__form--password-input > input
 {
     display: flex;
     padding-inline: 20px 50px;
@@ -79,16 +79,18 @@ footer > h3 > a {
     background-color: var(--cool-gray-100);
 }
 
-.pandamarket-login > form > input:focus,
-.pandamarket-login > form > div > input:focus {
+.login-container__form > input:focus,
+.login-container__form--password-input > input:focus {
     border: 3px solid var(--brand-blue);
 }
 
-.pandamarket-login > form > div {
+.login-container__form--password-input {
     display: flex;
     position: relative;
     justify-content: flex-end;
 }
+
+
 .toggle-switch {
     width: 24px;
     height: 24px;
@@ -111,9 +113,9 @@ footer > h3 > a {
     display: none;
 }
 
-.pandamarket-login > form > button {
+.login-container__form > button {
     color: var(--button-font-color);
-    background-color: var(--panda-gray-color);
+    background-color: var(--brand-blue);
     font-family: Pretendard;
     font-size: 2rem;
     font-weight: 600;
@@ -124,11 +126,11 @@ footer > h3 > a {
     cursor: pointer;
 }
 
-.pandamarket-login > form > button:hover {
-    background-color: var(--brand-blue);
+.login-container__form > button:disabled {
+    background-color: var(--panda-gray-color);
 }
 
-.simple-login {
+.simple-login-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,33 +141,53 @@ footer > h3 > a {
     border-radius: 8px;
 }
 
-.simple-login > h2 {
+.simple-login-container__title {
     font-family: Pretendard;
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 2.4rem;
     color:var(--cool-gray-800);
 }
-.simple-login > div {
+.simple-login-container__links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px
 }
 
-.simple-login > div > a {
+.simple-login-container__links > a {
     display: inline-block;
     width: 42px;
     height: 42px;
     background-size: cover;
 }
 
-.simple-login > div > .google {
+.simple-login-container__links > .google {
     background-image: url('/assets/images/logos/google-logo.svg');
 }
 
-.simple-login > div > .kakao {
+.simple-login-container__links > .kakao {
     background-image: url('/assets/images/logos/kakaotalk-logo.svg');
 }
+
+.login-container__form > .invalid,
+.login-container__form--password-input > .invalid
+{
+    border: 3px solid var(--invalid-color);
+}
+
+.login-container__form > .invalid-message {
+    color: var(--invalid-color);
+    font-family: Pretendard;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.79rem;
+    display: block;
+}
+
+.login-container__form > .invalid-message.hide {
+    display: none;
+}
+
 
 /** Tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -189,32 +211,32 @@ footer > h3 > a {
         max-width: 40rem;
     }
 
-    header {
+    .header-container {
         padding-block-start: 3rem;
     }
 
-    header > span {
+    .header-container__logo {
         width: 25%;
     }
 
-    header > h1 > a {
+    .header-container__title > a {
         width: 100%;
         font-size: 5dvh;
         line-height: 4.478rem;
     }
 
-    .pandamarket-login {
+    .login-container {
         width: 100%;
     }
 
-    .pandamarket-login > form {
+    .login-container__form {
         width: 100%;
         display: flex;
         justify-content: center;
         padding: 0;
     }
 
-    .simple-login {
+    .simple-login-container {
         display: flex;
         justify-content: space-between;
         align-items: center;

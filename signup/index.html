@@ -10,9 +10,10 @@
     <link href="/styles/login.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="/assets/images/logos/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-<header>
-    <span>
+<header class="header-container">
+    <span class="header-container__logo">
         <svg width="104" height="105" viewBox="0 0 104 105" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="0.984375" width="103.529" height="103.88" rx="28.9317" fill="#3692FF"/>
             <path d="M49.9902 29.9056C51.2825 34.3715 47.8655 39.2926 43.9487 40.4337C40.0319 41.5748 34.6808 39.2081 33.3885 34.7422C32.0962 30.2762 34.8091 24.0883 38.7259 22.9473C43.9487 21.4257 48.6978 25.4396 49.9902 29.9056Z" fill="#222327"/>
@@ -28,38 +29,43 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50.9616 83.7631C71.2016 83.7631 86.0397 78.0587 86.0397 62.7124C86.0397 43.5141 71.2016 29.0312 50.9616 29.0312C30.7216 29.0312 16.2192 44.8614 16.2192 62.7124C16.2192 78.0587 30.7216 83.7631 50.9616 83.7631ZM50.1654 77.8699C65.0535 77.8699 75.968 73.6926 75.968 62.4544C75.968 48.3953 65.0535 37.7894 50.1654 37.7894C35.2773 37.7894 24.6097 49.3819 24.6097 62.4544C24.6097 73.6926 35.2773 77.8699 50.1654 77.8699Z" fill="white"/>
         </svg>
     </span>
-    <h1><a href="/">판다마켓</a></h1>
+    <h1 class="header-container__title"><a href="/">판다마켓</a></h1>
 </header>
-<section class="pandamarket-login">
-    <form>
+<section class="login-container">
+    <form class="login-container__form">
         <label for="panda-market-email">이메일</label>
         <input type="email" id="panda-market-email" placeholder="이메일을 입력해주세요" />
+        <span class="invalid-message hide"></span>
         <label for="panda-market-nickname">닉네임</label>
         <input type="email" id="panda-market-nickname" placeholder="닉네임을 입력해주세요" />
+        <span class="invalid-message hide"></span>
         <label for="panda-market-password">패스워드</label>
-        <div>
+        <div class="login-container__form--password-input">
             <input type="password" id="panda-market-password" placeholder="비밀번호를 입력해주세요" />
             <input type="checkbox" id="password-toggle" hidden>
             <label for="password-toggle" class="toggle-switch"></label>
         </div>
+        <span class="invalid-message hide"></span>
         <label for="panda-market-password-confirm">패스워드 확인</label>
-        <div>
-        <input type="password" id="panda-market-password-confirm" placeholder="비밀번호를 다시 한 번 입력해주세요" />
+        <div class="login-container__form--password-input">
+            <input type="password" id="panda-market-password-confirm" placeholder="비밀번호를 다시 한 번 입력해주세요" />
             <input type="checkbox" id="password-toggle-confirm" hidden>
             <label for="password-toggle-confirm" class="toggle-switch"></label>
         </div>
-        <button id="panda-market-signup-button" type="submit">회원가입</button>
+        <span class="invalid-message hide"></span>
+        <button id="panda-market-signup-button" type="button" disabled>회원가입</button>
     </form>
 </section>
-<section class="simple-login">
-    <h2>간편 로그인하기</h2>
-    <div>
+<section class="simple-login-container">
+    <h2 class="simple-login-container__title">간편 로그인하기</h2>
+    <div class="simple-login-container__links">
         <a href="https://www.google.com/" class="google"></a>
         <a href="https://www.kakaocorp.com/page/" class="kakao"></a>
     </div>
 </section>
-<footer>
-    <h3>이미 회원이신가요? <a href="/signin">로그인</a></h3>
+<footer class="footer-container">
+    <h3 class="footer-container__content">이미 회원이신가요? <a href="/signin">로그인</a></h3>
 </footer>
+<script src="/scripts/login.js" />
 </body>
 </html>
