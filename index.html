@@ -4,27 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://pandamarket3-songari.netlify.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://pandamarket3-songari.netlify.app/img/og.png"
+    />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="og:site_name" content="판다마켓" />
     <link
       rel="stylesheet"
       as="style"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="header-container">
         <a href="/"><img src="img/logo.svg" alt="logo" class="logo" /></a>
-        <a href="login.html"><button class="login-btn">로그인</button></a>
+        <div class="header-container2">
+          <a href="/"
+            ><img src="img/logo_text.svg" alt="logo" class="logo_text"
+          /></a>
+          <a href="login.html"><button class="login-btn">로그인</button></a>
+        </div>
       </div>
     </header>
 
-    <main>
+    <main class="main">
       <div class="main-container">
         <div class="main-section">
           <div class="main-box">
-            <h1 class="main-text">
+            <h1 class="main-text top">
               일상의 모든 물건을<br />
               거래해 보세요
             </h1>
@@ -40,7 +63,7 @@
         <img src="img/Img_home_01.svg" alt="hot-item" />
         <div class="main-sec2-info">
           <span class="main-sec2-category">Hot item</span>
-          <h1 class="main-text">
+          <h1 class="main-text middle">
             인기 상품을<br />
             확인해 보세요
           </h1>
@@ -52,9 +75,10 @@
       </div>
 
       <div class="main-section2 middle">
-        <div class="main-sec2-info middle">
+        <img src="img/Img_home_02.svg" alt="search" />
+        <div class="main-sec2-info">
           <span class="main-sec2-category">Search</span>
-          <h1 class="main-text">
+          <h1 class="main-text middle">
             구매를 원하는<br />
             상품을 검색하세요
           </h1>
@@ -63,14 +87,13 @@
             쉽게 찾아보세요
           </p>
         </div>
-        <img src="img/Img_home_02.svg" alt="search" />
       </div>
 
       <div class="main-section2">
         <img src="img/Img_home_03.svg" alt="register" />
         <div class="main-sec2-info">
           <span class="main-sec2-category">Register</span>
-          <h1 class="main-text">
+          <h1 class="main-text middle">
             판매를 원하는<br />
             상품을 등록하세요
           </h1>
@@ -81,9 +104,9 @@
         </div>
       </div>
 
-      <div class="main-container">
-        <div class="main-section">
-          <h1 class="main-text">
+      <div class="main-container bottom">
+        <div class="main-section bottom">
+          <h1 class="main-text bottom">
             믿을 수 있는<br />
             판다마켓 중고거래
           </h1>
@@ -95,6 +118,7 @@
         </div>
       </div>
     </main>
+
     <footer>
       <div class="footer">
         <p id="source">©codeit - 2024</p>

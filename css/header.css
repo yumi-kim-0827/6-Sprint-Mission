@@ -1,3 +1,11 @@
+.header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #dfdfdf;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -9,6 +17,10 @@
 .logo {
   height: 50px;
   cursor: pointer;
+}
+
+.logo_text {
+  display: none;
 }
 
 .login-btn {
@@ -24,4 +36,33 @@
 
 .login-btn:hover {
   background-color: var(--darkblue);
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header-container {
+    margin: 0 24px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .header-container {
+    margin: 0 16px;
+  }
+
+  .header-container2 {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo_text {
+    display: block;
+    height: 50px;
+  }
 }
