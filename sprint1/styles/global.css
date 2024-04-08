@@ -11,6 +11,7 @@
 
   /* Primary color */
   --blue: #3692ff;
+  --red: #ff0000;
 }
 
 * {
@@ -22,7 +23,7 @@
 body {
   color: #374151;
   word-break: keep-all;
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 header {
@@ -129,6 +130,18 @@ button {
   width: 100%;
 }
 
+input {
+  border: none;
+}
+
+input:focus {
+  outline-color: var(--blue);
+}
+
+.error {
+  outline-color: var(--red);
+}
+
 @media (min-width: 768px) {
   header {
     padding: 0 24px;
@@ -145,7 +158,7 @@ button {
   }
 
   footer {
-    padding: 32px 104px 108px 104px;
+    padding: 32px 104px 108px;
   }
 }
 
@@ -155,6 +168,6 @@ button {
   }
 
   footer {
-    padding: 32px 200px 108px 200px;
+    padding: 32px 200px 108px;
   }
 }

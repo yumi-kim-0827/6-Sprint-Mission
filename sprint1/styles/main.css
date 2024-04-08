@@ -9,15 +9,19 @@
 }
 
 #hero {
-  background-image: url("../images/home/hero-image.png");
+  background-image: url('../images/home/hero-image.png');
 }
 
-#features {
-  padding-top: 51px;
+.banner h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44.8px;
+  padding-top: 48px;
+  padding-bottom: 18px;
 }
 
 #bottomBanner {
-  background-image: url("../images/home/bottom-banner-image.png");
+  background-image: url('../images/home/bottom-banner-image.png');
 }
 
 #signinButton {
@@ -27,8 +31,8 @@
   padding: 14.5px 43px;
 }
 
-.banner .pill-button {
-  margin-top: 32px;
+#features {
+  padding-top: 51px;
 }
 
 .feature {
@@ -42,10 +46,6 @@
 
 .feature:nth-child(2) {
   text-align: right;
-}
-
-.feature-content {
-  flex: 1;
 }
 
 .feature-content h2 {
