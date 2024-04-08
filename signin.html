@@ -42,35 +42,37 @@
             id="email"
             placeholder="이메일을 입력해주세요"
           />
+          <div class="form-error-text" id="email-error-text"></div>
         </div>
         <div class="form-item">
           <label class="form-label" for="password">비밀번호</label>
-          <input
-            class="form-input password"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="비밀번호를 입력해주세요"
-          />
-          <img
-            class="form-input-icon"
-            src="assets/ic_invisible.png"
-            alt="눈 아이콘"
-          />
+          <div class="form-icon-input-wrapper">
+            <input
+              class="form-input password"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <button type="button" class="form-input-icon"></button>
+          </div>
+          <div class="form-error-text" id="password-error-text"></div>
         </div>
-        <button class="button form-button">로그인</button>
+        <button class="button form-button" data-href="/items" disabled>
+          로그인
+        </button>
       </form>
-      <div class="easy-login">
-        <p>간편 로그인하기</p>
-        <div class="easy-login-socials">
-          <a class="easy-login-social" href="https://www.google.com/">
+      <div class="social-login">
+        <p class="social-login-text">간편 로그인하기</p>
+        <div class="social-login-icons">
+          <a class="social-login-icon" href="https://www.google.com/">
             <img
               class="full-height"
               src="assets/ic_google.png"
               alt="구글 아이콘"
             />
           </a>
-          <a class="easy-login-social" href="https://www.kakaocorp.com/page/">
+          <a class="social-login-icon" href="https://www.kakaocorp.com/page/">
             <img
               class="full-height"
               src="assets/ic_kakaotalk.png"
@@ -84,5 +86,7 @@
         <a class="form-helper-link" href="/signup.html">회원가입</a>
       </div>
     </div>
+    <script src="scripts/formValidator.js"></script>
+    <script src="scripts/formInputVisible.js"></script>
   </body>
 </html>

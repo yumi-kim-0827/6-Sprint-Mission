@@ -27,7 +27,8 @@
 }
 
 .form-item {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
@@ -35,6 +36,10 @@
   color: var(--gray800);
   font-size: 1.125rem;
   font-weight: 700;
+}
+
+.form-icon-input-wrapper {
+  position: relative;
 }
 
 .form-input {
@@ -48,6 +53,7 @@
   color: var(--gray800);
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1.5;
 }
 
 .form-input::placeholder {
@@ -55,20 +61,45 @@
 }
 
 .form-input:focus {
-  outline-color: var(--primary400);
+  outline: 2px solid var(--primary400);
 }
 
 .form-input.password {
   padding-right: 60px;
 }
 
+.form-error-text {
+  display: none;
+  margin: 8px 16px;
+  color: var(--error);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form-item.error .form-input {
+  outline: 2px solid var(--error);
+}
+
+.form-item.error .form-error-text {
+  display: block;
+}
+
 .form-input-icon {
   position: absolute;
   right: 24px;
   bottom: 16px;
+  border: none;
   width: 24px;
   height: 24px;
+  background-image: url("/assets/ic_invisible.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.form-input-icon.show {
+  background-image: url("/assets/ic_visible.svg");
 }
 
 .form-button {
@@ -80,24 +111,28 @@
   font-weight: 600;
 }
 
-.easy-login {
+.social-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
   padding: 16px 24px;
   background-color: var(--primary200);
+}
+
+.social-login-text {
   color: var(--gray800);
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.5;
 }
 
-.easy-login-socials {
+.social-login-icons {
   display: flex;
   gap: 16px;
 }
 
-.easy-login-social {
+.social-login-icon {
   width: 42px;
   height: 42px;
 }
