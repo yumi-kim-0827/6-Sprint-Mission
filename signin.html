@@ -7,6 +7,7 @@
   <link rel="icon" href="./img/favicon.ico">
   <link rel="stylesheet" href="./global.css">
   <link rel="stylesheet" href="./signin.css">
+  <script defer src="./sign.js"></script>
 </head>
 <body>
   <div id="wrap">
@@ -19,9 +20,11 @@
       <div class="main_container">
         <form class="login_form" action="/" method="post">
           <label for="email">이메일</label>
-          <input type="email" id="email" placeholder="이메일을 입력해주세요">
+          <input type="email" id="email" placeholder="이메일을 입력해주세요" required>
+          <span class="email_alertInfo"></span>
           <label for="password">비밀번호</label>
-          <input class="add_icon" id="password" type="password" placeholder="비밀번호를 입력해주세요">
+          <input class="add_icon" id="password" type="password" placeholder="비밀번호를 입력해주세요" required>
+          <span class="password_alertInfo"></span>
           <button type="submit">로그인</button>
         </form>
         <div class="login_menu">
