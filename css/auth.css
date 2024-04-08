@@ -21,13 +21,19 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+}
+
+.form__container {
+  position: relative;
 }
 
 form label {
   font-weight: 700;
   font-size: 18px;
   line-height: 21.48px;
+  margin-bottom: 16px;
+  display: block;
 }
 
 .form__input {
@@ -38,7 +44,7 @@ form label {
   background-color: var(--gray100);
   padding: 16px 24px;
   box-shadow: none;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   line-height: 24px;
   font-weight: 400;
   font-size: 16px;
@@ -52,13 +58,19 @@ form label {
   outline: 2.5px solid var(--blue);
 }
 
-.form__password-container {
-  position: relative;
+.form__input--error {
+  outline: 2.5px solid var(--red);
+}
+
+.form__input--error-message {
+  color: var(--red);
+  display: block;
+  margin: 8px 0 0 16px;
 }
 
 .form__invisible-button {
   position: absolute;
-  top: 16px;
+  top: 53px;
   right: 24px;
   cursor: pointer;
 }
@@ -85,10 +97,19 @@ form label {
   font-weight: 600;
   line-height: 24px;
   color: var(--white);
-  cursor: pointer;
+  
 }
 
-.simpleLogin {
+.form__button--activated {
+  cursor: pointer;
+  background-color: var(--blue);
+}
+
+.form__button--activated:hover {
+  background-color: #1251aa;
+}
+
+.simple-login {
   background-color: #e6f2ff;
   display: flex;
   justify-content: space-between;
@@ -100,25 +121,25 @@ form label {
   border-radius: 8px;
 }
 
-.simpleLogin__text {
+.simple-login__text {
   font-weight: 500;
   font-size: 16px;
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.simpleLogin__snsIcons {
+.simple-login__sns-icons {
   display: flex;
   align-items: center;
   gap: 16px;
   /* line-height: 0; */
 }
 
-.simpleLogin__item {
+.simple-login__item {
   width: 42px;
   height: 42px;
 }
 
-.askWhetherUser {
+.whether-user {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
@@ -128,7 +149,7 @@ form label {
   word-break: keep-all; /*글자가 단어단위로 잘림*/
 }
 
-.askWhetherUser__link {
+.whether-user__link {
   color: #3182f6;
 }
 

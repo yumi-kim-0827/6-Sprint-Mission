@@ -23,11 +23,20 @@
         <input class="form__input" id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
       </div>
       <div class="form__container">
+        <label for="nickname">닉네임</label>
+        <input class="form__input" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
+      </div>
+      <div class="form__container">
         <label for="password">비밀번호</label>
         <a class="form__invisible-button"><img src="../assets/icons/ic_invisible.png" alt="invisible-icon"></a>
         <input class="form__input" id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
       </div>
-      <button class="form__button" type="button" onclick="location.href='./items.html'" disabled>로그인</button>
+      <div class="form__container">
+        <label for="password-verify">비밀번호 확인</label>
+        <a class="form__invisible-button"><img src="../assets/icons/ic_invisible.png" alt="invisible-icon"></a>
+        <input class="form__input" id="password-verify" name="password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+      </div>
+      <button class="form__button" type="button" onclick="location.href='./login.html'" disabled>회원가입</button>
     </form>
     <div class="simple-login">
       <div class="simple-login__text">간편 로그인하기</div>
@@ -37,11 +46,11 @@
       </div>
     </div>
     <div class="whether-user">
-      판다마켓이 처음이신가요?
-      <a class="whether-user__link" href="./signup.html">회원가입</a>
+      이미 회원이신가요?
+      <a class="whether-user__link" href="./login.html">로그인</a>
     </div>
   </main>
-  <script type="module" src="../js/auth.js"></script>
-  <script type="module" src="../js/login.js"></script>
+  <!-- <script type="module" src="../js/auth.js"></script> -->
+  <script type="module" src="../js/signup.js"></script>
 </body>
 </html>

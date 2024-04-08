@@ -59,15 +59,15 @@ a {
 }
 
 .login__link:hover,
-.section__visitLinkButton:hover {
+.section__items-button:hover {
   background-color: #1251aa;
 }
 
-.section__topBackground {
+.section__top-background {
   background-image: url(../assets/images/home_top.png);
 }
 
-.section__bottomBackground {
+.section__bottom-background {
   background-image: url(../assets/images/home_bottom.png);
 }
 
@@ -97,7 +97,7 @@ a {
   margin-bottom: 32px;
 }
 
-.section__visitLinkButton {
+.section__items-button {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
@@ -129,11 +129,11 @@ a {
   justify-content: flex-end;
 }
 
-.figure__homeImg {
+.figure__home-img {
   width: 50%;
 }
 
-.figure__alignHelperBox--right {
+.figure__align-helper--right {
   text-align: right;
 }
 
@@ -214,7 +214,7 @@ a {
     align-items: flex-start;
     height: 800px;
   }
-  .section__bottomBackground {
+  .section__bottom-background {
     height: 960px;
     margin-top: 16px;
   }
@@ -240,7 +240,7 @@ a {
     flex-direction: column-reverse;
     align-items: flex-end;
   }
-  .figure__homeImg {
+  .figure__home-img {
     width: 100%;
   }
   .figure__phrase {
@@ -262,10 +262,10 @@ a {
     padding: 9.5px 16px;
   }
   .section,
-  .section__bottomBackground {
+  .section__bottom-background {
     height: 620px;
   }
-  .section__bottomBackground {
+  .section__bottom-background {
     margin-top: 0;
   }
   .section__content {
@@ -280,7 +280,7 @@ a {
   .section__description > br {
     display: inline;
   }
-  .section__visitLinkButton {
+  .section__items-button {
     font-size: 16px;
     font-weight: 600;
     line-height: 19.09px;
