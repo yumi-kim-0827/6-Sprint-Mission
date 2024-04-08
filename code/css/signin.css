@@ -1,39 +1,4 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-:root {
-    --main: #3692ff;
-    --error: #f74747;
-    --gray50: #f7f7f8;
-    --gray100: #e8ebed;
-    --gray200: #e5e7eb;
-    --gray400: #9ea4a8;
-    --gray500: #72787f;
-    --gray600: #454c53;
-    --gray700: #374151;
-    --gray800: #26282b;
-    --gray900: #1b1d1f;
-    --btn1: #3692ff;
-    --btn2: #1967d6;
-    --btn3: #1251aa;
-    --btn4: #9ca3af;
-    --bannerbg: #cfe5ff;
-    --coolGray800: #1F2937;
-    --coolGray100: #F3F4F6;
-
-}
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
-
-html{
-    font-size:62.5%;
-}
-body {
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    overflow-x:hidden;
-}
 
 /* 판다마켓 로고 */
 header{
@@ -52,6 +17,7 @@ header{
 main{
     display: flex;
     justify-content: center;
+    padding-bottom: 1.5rem;
 }
 .login-content{
     width: 64rem;
@@ -66,7 +32,7 @@ main{
     flex-direction: column;
 }
 .login-form input {
-    margin: 1.6rem 0 2.4rem 0;
+    margin: 1.6rem 0 0 0;
     background-color: var(--coolGray100);
     width: 64rem;
     height: 5.6rem;
@@ -90,31 +56,44 @@ main{
 }
 .user-input{
     position: relative;
+    margin-bottom: 2.4rem;
 }
 .password-visible-btn{
     width: 2.4rem;
     height: 2.4rem;
     position: absolute;
-    top: 46%;
+    top: 55%;
     right: 2.4rem;
     cursor: pointer;
     
 }
 
+.login-form .err-input{
+    border: 1.5px solid var(--error);
+    margin-bottom: 0.8rem;
+
+}
+
+.input-err-message {
+    margin-left: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--error);
+}
 .login-form button {
     padding: 1.6rem 0 1.6rem 0;
     border-radius: 4rem;
     font-size: 2rem;
     font-weight: 600;
     line-height: 2.4rem;
-    background-color: var(--btn4);
+    background-color: var(--btn1);
     border: none;
     color: white;
     cursor: pointer;
 }
-.login-form button:hover{
-    background-color: var(--btn1);
-
+.login-form button:disabled{
+    background-color: var(--btn4);
+    cursor: not-allowed;
 }
 /* 간편 로그인 */
 .login-easy{
@@ -198,5 +177,9 @@ main{
         padding: 1.6rem 12.4rem;
         
     }
+    .password-visible-btn{
+        top: 40%;
+    }
 
 }
+
