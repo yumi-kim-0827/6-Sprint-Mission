@@ -21,41 +21,80 @@
         ><img src="./images/logo/panda-market-logo.png" alt="title-logo"
       /></a>
       <section class="sign-box">
-        <div class="ip-section">
+        <form class="ip-section">
           <div class="ip-area">
             <h3 class="title">이메일</h3>
-            <input
-              class="ip-box"
-              type="email"
-              placeholder="이메일을 입력해주세요"
-            />
+            <div id="input-em-area">
+              <input
+                id="input-email"
+                class="ip-box"
+                type="email"
+                placeholder="이메일을 입력해주세요"
+                autocomplete="email"
+              />
+            </div>
           </div>
           <div class="ip-area">
             <h3 class="title">닉네임</h3>
-            <input
-              class="ip-box"
-              type="email"
-              placeholder="닉네임을 입력해주세요"
-            />
+            <div id="input-nickname-area">
+              <input
+                id="input-nickname"
+                class="ip-box"
+                type="text"
+                placeholder="닉네임을 입력해주세요"
+                autocomplete="name"
+              />
+            </div>
           </div>
           <div class="ip-area">
             <h3 class="title">비밀번호</h3>
-            <input
-              class="ip-box password"
-              type="password"
-              placeholder="비밀번호를 입력해주세요"
-            />
+            <div id="input-pw-area">
+              <input
+                id="input-password"
+                class="ip-box"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                autocomplete="password"
+                data-index="0"
+              />
+            </div>
+            <label for="input-password">
+              <img
+                class="visibility"
+                src="./images/logo/visibility_off.svg"
+                alt="visibility-off-button"
+              />
+            </label>
           </div>
           <div class="ip-area">
             <h3 class="title">비밀번호 확인</h3>
-            <input
-              class="ip-box password"
-              type="password"
-              placeholder="비밀번호를 다시 한 번 입력해주세요"
-            />
+            <div id="input-re-pw-area">
+              <input
+                id="input-re-password"
+                class="ip-box"
+                type="password"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+                autocomplete="password"
+                data-index="1"
+              />
+            </div>
+            <label for="input-repassword">
+              <img
+                class="visibility"
+                src="./images/logo/visibility_off.svg"
+                alt="visibility-off-button"
+              />
+            </label>
           </div>
-          <button class="login-bt">회원가입</button>
-        </div>
+          <input
+            id="login-button"
+            class="abled-bt"
+            value="회원가입"
+            type="button"
+            onclick="window.location.href='./signin.html'"
+            disabled="disabled"
+          />
+        </form>
         <div class="easy">
           <h4>간편 로그인하기</h4>
           <div class="sns">
@@ -79,5 +118,6 @@
         </span>
       </section>
     </main>
+    <script src="/JS/signup.js"></script>
   </body>
 </html>
