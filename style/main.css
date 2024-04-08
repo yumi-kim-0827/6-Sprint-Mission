@@ -115,7 +115,7 @@ h1 {
   font-size: 18px;
 }
 
-.des {
+.description {
   color: var(--gray700);
   font-size: 24px;
   letter-spacing: 2px;
@@ -345,7 +345,7 @@ h2 {
     display: none !important;
   }
   .badge,
-  .des {
+  .description {
     font-size: 16px;
   }
   footer .nav .nav2 .sub_nav .p a {

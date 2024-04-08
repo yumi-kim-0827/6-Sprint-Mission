@@ -40,9 +40,8 @@ input {
 }
 
 input:focus {
-  outline-color: var(--btn1);
+  outline-color: var(--main);
 }
-
 .login {
   width: 100% !important;
   background-color: var(--btn4);
@@ -53,6 +52,15 @@ input:focus {
 }
 
 .password-visibility-off-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 43px;
+  left: 32rem;
+  cursor: pointer;
+}
+
+.password-confirm-visibility-off-icon {
   width: 24px;
   height: 24px;
   position: absolute;
@@ -101,6 +109,15 @@ input:focus {
   width: max-content;
 }
 
+.error {
+  border: 2px solid red;
+}
+
+.errorMessage {
+  color: red;
+  margin-left: 1rem;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .container {
     padding: 10rem auto;
@@ -126,6 +143,9 @@ input:focus {
     width: 25rem;
   }
   .password-visibility-off-icon {
+    left: 22rem;
+  }
+  .password-confirm-visibility-off-icon {
     left: 22rem;
   }
 }
