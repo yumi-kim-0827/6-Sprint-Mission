@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="./image/판다마켓공유이미지.png" />
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta
+      property="og:url"
+      content="https://pandamarket-sprint3.netlify.app/"
+    />
+
+    <meta
+      property="og:url"
+      content="https://pandamarket-sprint3.netlify.app/"
+    />
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:image" content="./image/판다마켓공유이미지.png" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+
     <title>판다마켓</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -13,92 +29,94 @@
     />
   </head>
   <body>
-    <header>
-      <img class="logo" src="Property 1=Variant3.png" alt="판다마켓 로고" />
-      <button class="login"><a href="/login.html">로그인</a></button>
+    <header class="header">
+      <a href="/">
+        <img class="logo" src="./image/판다마켓로고.png" alt="판다마켓로고" />
+      </a>
+      <a href="login.html" class="login_button">로그인</a>
     </header>
-    <div class="top_banner">
-      <div class="banner_part1">
+    <div id="top_banner" class="banner">
+      <div class="banner_frame">
         <h1>
-          일상의 모든 물건을<br />
+          일상의 모든 물건을<br class="br" />
           거래해 보세요
         </h1>
-        <button class="banner_button">
-          <a href="/items">구경하러 가기</a>
-        </button>
+        <a href="/items" class="top_banner_button">구경하러 가기</a>
       </div>
-      <img class="banner_img" src="Img_home_top.png" alt="배너 이미지" />
     </div>
     <div class="container">
-      <div class="content">
-        <img src="Img_home_01.png" alt="컨테이너 이미지1" />
-        <div class="content_text">
-          <p>Hot item</p>
+      <div class="article">
+        <img class="article_img" src="./image/아티클1.png" />
+        <div class="content">
+          <h6>Hot item</h6>
           <h1>
-            인기 상품을<br />
+            인기 상품을<br class="br" />
             확인해 보세요
           </h1>
-          <h2>
+
+          <p>
             가장 HOT한 중고거래 물품을<br />
             판다 마켓에서 확인해 보세요
-          </h2>
+          </p>
         </div>
       </div>
-      <div class="content content2">
-        <div class="content_text">
-          <p>Search</p>
+      <div class="article article_2">
+        <img class="article_img" src="./image/아티클2.png" />
+        <div class="content">
+          <h6>Search</h6>
           <h1>
-            구매를 원하는<br />
+            구매를 원하는<br class="br" />
             상품을 검색하세요
           </h1>
-          <h2>
+          <p>
             구매하고 싶은 물품은 검색해서<br />
             쉽게 찾아보세요
-          </h2>
+          </p>
         </div>
-        <img src="Img_home_02-1.png" alt="컨테이너 이미지2" />
       </div>
-      <div class="content">
-        <img src="Img_home_03.png" alt="컨테이너 이미지3" />
-        <div class="content_text">
-          <p>Register</p>
+      <div class="article">
+        <img class="article_img" src="./image/아티클3.png" />
+        <div class="content">
+          <h6>Register</h6>
           <h1>
-            판매를 원하는<br />
+            판매를 원하는<br class="br" />
             상품을 등록하세요
           </h1>
-          <h2>
+          <p>
             어떤 물건이든 판매하고 싶은 상품을<br />
             쉽게 등록하세요
-          </h2>
+          </p>
         </div>
       </div>
     </div>
-    <div class="bottom_banner">
-      <h1>
+    <div id="bottom_banner" class="banner">
+      <h1 class="banner_frame">
         믿을 수 있는<br />
         판다마켓 중고거래
       </h1>
-      <img src="Img_home_bottom.png" alt="하단배너이미지" />
     </div>
-    <footer>
-      <div class="codeit_2024">©codeit - 2024</div>
-      <div>
-        <a class="privacy" href="/privacy">Privacy Policy</a
-        ><a href="/faq">FAQ</a>
-      </div>
-      <div class="social_media">
-        <a href="https://www.facebook.com/" target="_blank"
-          ><img class="social" src="ic_facebook.png" alt="페이스북"
-        /></a>
-        <a href="https://twitter.com/" target="_blank"
-          ><img class="social" src="ic_twitter.png" alt="트위터"
-        /></a>
-        <a href="https://www.youtube.com/" target="_blank"
-          ><img class="social" src="ic_youtube.png" alt="유튜브"
-        /></a>
-        <a href="https://www.instagram.com/" target="_blank"
-          ><img class="social" src="ic_instagram.png" alt="인스타그램"
-        /></a>
+    <footer class="footer">
+      <div class="footer_content">
+        <h4>©codeit - 2024</h4>
+
+        <div class="footer_link">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/faq">FAQ</a>
+        </div>
+        <div class="social_image">
+          <a href="https://www.facebook.com/" target="_blank"
+            ><img src="./image/facebook.png" alt="페이스북"
+          /></a>
+          <a href="https://twitter.com" target="_blank"
+            ><img src="./image/twitter.png" alt="트위터"
+          /></a>
+          <a href="https://www.youtube.com/" target="_blank"
+            ><img src="./image/youtube.png" alt="유튜브"
+          /></a>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><img src="./image/instagram.png" alt="인스타그램"
+          /></a>
+        </div>
       </div>
     </footer>
   </body>
