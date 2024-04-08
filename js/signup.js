@@ -17,5 +17,6 @@ authJS.inputPasswordConfirm.addEventListener('focusout', authJS.showConfirmPwErr
 authJS.inputPasswordConfirm.addEventListener('focusin', authJS.removeErrorMessage);
 authJS.inputPasswordConfirm.addEventListener('focusout', authJS.activateSignUpButton);
 
-authJS.invisibleButton[0].addEventListener('click', authJS.togglePasswordVisibility);
-authJS.invisibleButton[1].addEventListener('click', authJS.togglePasswordVisibility);
+// authJS.invisibleButton[0].addEventListener('click', authJS.togglePasswordVisibility);
+// authJS.invisibleButton[1].addEventListener('click', authJS.togglePasswordVisibility);
+authJS.invisibleButton.forEach((el) => {el.addEventListener('click', authJS.togglePasswordVisibility);});

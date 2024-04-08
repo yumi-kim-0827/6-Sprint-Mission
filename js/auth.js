@@ -64,34 +64,26 @@ function removeErrorMessage(e) {
 
 
 function activateLogInButton(e) {
-  if (
-    !inputEmail.classList.contains('form__input--error') &&
-    !inputPassword.classList.contains('form__input--error') &&
-    inputEmail.value && inputPassword.value
-  ) {
-    formButton.disabled = false;
-    formButton.classList.add('form__button--activated');
-  } else {
-    formButton.disabled = true;
-    formButton.classList.remove('form__button--activated');
-  }
+  const condition = 
+  !inputEmail.classList.contains('form__input--error') &&
+  !inputPassword.classList.contains('form__input--error') &&
+  inputEmail.value && inputPassword.value;
+
+  formButton.classList.toggle('form__button--activated', condition);
+  condition ? formButton.disabled = false : formButton.disabled = true;
 }
 
 function activateSignUpButton(e) {
-  if (
-    !inputEmail.classList.contains('form__input--error') &&
-    !inputNickname.classList.contains('form__input--error') &&
-    !inputPassword.classList.contains('form__input--error') &&
-    !inputPasswordConfirm.classList.contains('form__input--error') &&
-    inputEmail.value && inputNickname.value && 
-    inputPassword.value && inputPasswordConfirm.value
-  ) {
-    formButton.disabled = false;
-    formButton.classList.add('form__button--activated');
-  } else {
-    formButton.disabled = true;
-    formButton.classList.remove('form__button--activated');
-  }
+  const condition = 
+  !inputEmail.classList.contains('form__input--error') &&
+  !inputNickname.classList.contains('form__input--error') &&
+  !inputPassword.classList.contains('form__input--error') &&
+  !inputPasswordConfirm.classList.contains('form__input--error') &&
+  inputEmail.value && inputNickname.value && 
+  inputPassword.value && inputPasswordConfirm.value;
+
+  formButton.classList.toggle('form__button--activated', condition);
+  condition ? formButton.disabled = false : formButton.disabled = true;
 }
 
 
