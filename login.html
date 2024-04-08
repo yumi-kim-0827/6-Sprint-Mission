@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="wonderful panda market login page">
+    <meta name="description" content="wonderful panda market login page" />
     <title>판다마켓 로그인</title>
     <link rel="stylesheet" href="./style/style.css" />
+    <script type="module" src="./page/login.js" defer></script>
   </head>
   <body>
     <header class="header-big">
@@ -19,36 +20,47 @@
     <main class="main-login">
       <div class="main-login__wrap">
         <form action="server" method="get" class="content-form">
-          <fieldset class="content-form__fieldset">
-            <div class="container--gap-16px">
-              <label for="email" class="content-form__label">이메일</label>
-              <input
-                class="content-form__input description-input"
-                type="text"
-                name="email"
-                id="email"
-                placeholder="이메일을 입력해주세요"
-              />
-              <label for="password" class="content-form__label"
-                >비밀번호
-              </label>
-              <div class="container--position-relative">
-              <input
-                class="content-form__input description-input"
-                type="password"
-                name="password"
-                id="password"
-                placeholder="비밀번호를 입력해주세요"
-              />
-              <img
-              src="image/signin-page/btn_visibility_on_24px.png"
-              alt=""
-              class="content-form__icon"
-            /></div>
+          <fieldset class="content-form__fieldset container--gap-50px">
+            <div class="container--gap-50px container--flex-column">
+              <div class="container--flex-column container--gap-16px">
+                <label for="email" class="content-form__label">이메일</label>
+                <div class="container--position-relative">
+                  <input
+                    class="content-form__input description-input content-form__input--email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="이메일을 입력해주세요"
+                    autocomplete="username"
+                  />
+                </div>
+              </div>
+              <div class="container--flex-column container--gap-16px">
+                <label for="password" class="content-form__label"
+                  >비밀번호
+                </label>
+                <div class="container--position-relative">
+                  <input
+                    class="content-form__input description-input content-form__input--password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    autocomplete="current-password"
+                    minlength="8"
+                  />
+                  <img
+                    src="image/signin-page/btn_visibility_on_24px.png"
+                    alt=""
+                    class="content-form__icon"
+                  />
+                </div>
+              </div>
             </div>
 
             <button
-              class="button button--theme-blue button__wide button--border-radius-40px"
+              class="button button--theme-blue button__wide button--border-radius-40px button--disabled"
+              disabled
             >
               로그인
             </button>

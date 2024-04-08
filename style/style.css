@@ -1,4 +1,4 @@
-@import 'https://meyerweb.com/eric/tools/css/reset/reset.css';
+@import "https://meyerweb.com/eric/tools/css/reset/reset.css";
 .button {
   border-radius: 8px;
   border: none;
@@ -8,11 +8,17 @@
   padding: 16px 124px;
 }
 .button__login {
-  padding: 12px 20px;
+  padding: 12px 12px;
   width: 128px;
 }
 .button--border-radius-40px {
   border-radius: 40px;
+}
+.button--disabled {
+  background-color: #9ca3af !important;
+}
+.button--active {
+  background-color: #3692ff !important;
 }
 .button--theme-blue {
   background-color: #3692ff;
@@ -24,14 +30,25 @@
 }
 .button--theme-blue:focus {
   background-color: #1251aa;
-  border-color: #3692FF;
-}
-.button--theme-blue:disabled {
-  background-color: #9ca3af;
+  border-color: #3692ff;
 }
 
 html {
   font-size: 10px;
+}
+
+.description-invalid {
+  color: #f74747;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.9px;
+  text-align: left;
+  position: absolute;
+  height: 18px;
+  top: 64px;
+  left: 16px;
+  gap: 0px;
+  opacity: 0px;
 }
 
 .description-head {
@@ -147,20 +164,27 @@ html {
   width: 640px;
   height: 74px;
   border-radius: 8px;
-  background: #E6F2FF;
+  background: #e6f2ff;
 }
 
 .container--position-relative {
   position: relative;
 }
 .container--gap-16px {
+  gap: 16px;
+}
+.container--gap-24px {
+  gap: 24px;
+}
+.container--gap-50px {
+  gap: 50px;
+}
+.container--flex-column {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .header-main {
-  height: 70px;
   background-color: #ffffff;
 }
 .header-main--fixed-top {
@@ -176,7 +200,7 @@ html {
   gap: 8px;
 }
 .header-main__content {
-  margin: 10px 200px 9px;
+  margin: 10px 200px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,12 +221,13 @@ html {
 }
 
 .main--margin-top {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .main-signup {
   display: flex;
   justify-content: center;
+  padding-bottom: 200px;
 }
 .main-signup__wrap {
   width: 640px;
@@ -227,7 +252,6 @@ html {
 }
 .main-login__wrap {
   width: 640px;
-  height: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -360,7 +384,6 @@ html {
 .content-form__fieldset {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .content-form__icon {
   position: absolute;
@@ -381,6 +404,18 @@ html {
   opacity: 0px;
   background: #f3f4f6;
   border: none;
+}
+.content-form__input:-moz-placeholder-shown {
+  border: none;
+}
+.content-form__input:placeholder-shown {
+  border: none;
+}
+.content-form__input--valid {
+  border: 1px solid #3692ff;
+}
+.content-form__input--invalid {
+  border: 1px solid #f74747;
 }
 .content-form__label {
   font-size: 18px;

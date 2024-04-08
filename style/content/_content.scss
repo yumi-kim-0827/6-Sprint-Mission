@@ -21,7 +21,7 @@
   &__description {
     @include flex-direction-center(column);
     margin: auto;
-    &--reverse{
+    &--reverse {
       align-items: flex-end;
     }
   }
@@ -77,7 +77,6 @@
   &__fieldset {
     display: flex;
     flex-direction: column;
-    gap: 24px;
   }
   &__icon {
     position: absolute;
@@ -98,6 +97,15 @@
     opacity: 0px;
     background: #f3f4f6;
     border: none;
+    &:placeholder-shown {
+      border: none;
+    }
+    &--valid {
+      border: 1px solid #3692ff;
+    }
+    &--invalid {
+      border: 1px solid #f74747;
+    }
   }
   &__label {
     font-size: 18px;
