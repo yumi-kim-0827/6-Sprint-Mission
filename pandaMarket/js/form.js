@@ -24,7 +24,7 @@ function checkForm(e) {
   let isInvalid = false;
   let isPasswordInvalid = false;
 
-  const isEmpty = e.target.value === "";
+  const isEmpty = e.target.value === "" ? true : false;
   const isPasswordSame =
     rePassword !== null ? password.value === rePassword.value : null;
 
@@ -43,42 +43,34 @@ function checkForm(e) {
       }
       break;
     case "password":
-      if (isEmpty) {
-        alertContent = "비밀번호를 입력해주세요.";
+      if (e.target.value.length < 8) {
+        isInvalid = true;
+        isPasswordInvalid = true;
+        alertContent = "비밀번호를 8자 이상 입력해주세요.";
       } else {
-        if (e.target.value.length < 8) {
+        isPasswordInvalid = false;
+        if (!isPasswordSame) {
+          alertContent = "비밀번호가 일치하지 않습니다.";
           isInvalid = true;
-          isPasswordInvalid = true;
-          alertContent = "비밀번호를 8자 이상 입력해주세요.";
         } else {
-          isPasswordInvalid = false;
-          if (!isPasswordSame) {
-            alertContent = "비밀번호가 일치하지 않습니다.";
-            isInvalid = true;
-          } else {
-            alertContent = "";
-            isInvalid = false;
-          }
+          alertContent = "";
+          isInvalid = false;
         }
       }
       break;
     case "password-re":
-      if (isEmpty) {
-        alertContent = "비밀번호를 입력해주세요.";
+      if (e.target.value.length < 8) {
+        isInvalid = true;
+        isPasswordInvalid = true;
+        alertContent = "비밀번호를 8자 이상 입력해주세요.";
       } else {
-        if (e.target.value.length < 8) {
+        isPasswordInvalid = false;
+        if (!isPasswordSame) {
+          alertContent = "비밀번호가 일치하지 않습니다.";
           isInvalid = true;
-          isPasswordInvalid = true;
-          alertContent = "비밀번호를 8자 이상 입력해주세요.";
         } else {
-          isPasswordInvalid = false;
-          if (!isPasswordSame) {
-            alertContent = "비밀번호가 일치하지 않습니다.";
-            isInvalid = true;
-          } else {
-            alertContent = "";
-            isInvalid = false;
-          }
+          alertContent = "";
+          isInvalid = false;
         }
       }
       break;
