@@ -1,23 +1,25 @@
 import * as authHandler from "./authPageHandler.js";
 
 const eyeIcon = document.getElementById('eyeIcon');
+const eyeIconVerify = document.getElementById('eyeIcon-verify');
 eyeIcon.addEventListener('click', authHandler.togglePasswordVisibility);
+eyeIconVerify.addEventListener('click', authHandler.togglePasswordVisibility);
 
-// dom파싱, 로드된 이후 실행하며 이벤트 위임을 구현해 보자
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('form');
+  const password = document.getElementById('password');
   form.addEventListener('focusin', authHandler.inputFocusInStyle);
   form.addEventListener('focusout', handleValidation);
   // form제출 로직
   form.addEventListener('submit', function (e) {
-  const focusout = new Event('focusout',{ bubbles:true});
-  const inputs = document.querySelectorAll('input');
+    const focusout = new Event('focusout', {bubbles: true});
+    const inputs = document.querySelectorAll('input');
     e.preventDefault();
     const isFormValid = authHandler.formCheck();
     if (isFormValid) {
-      window.location.href = './item.html';
+      window.location.href = './signin.html';
     } else {
-      for(const input of inputs) {
+      for (const input of inputs) {
         input.dispatchEvent(focusout);
       }
     }
@@ -41,6 +43,19 @@ document.addEventListener('DOMContentLoaded', function () {
         valid = authHandler.validatePassword(target.value);
         if (target.value !== '') {
           message = '비밀번호를 8자 이상 입력해주세요';
+        }
+        break;
+      case 'nickname':
+        message = '닉네임을 입력해주세요';
+        if (target.value === '') {
+          valid = false;
+        }
+        break;
+      case 'password-verify':
+        message = '비밀번호를 다시 한번 입력해주세요';
+        valid = authHandler.validatePasswordVerify(password.value, target.value);
+        if (target.value !== '') {
+          message = '비밀번호가 일치하지 않습니다';
         }
         break;
     }
