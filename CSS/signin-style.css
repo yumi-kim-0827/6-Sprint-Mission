@@ -39,6 +39,20 @@ input:focus {
   outline:2px solid var(--blue);
 }
 
+.markInput {
+  outline:1px solid var(--red);
+}
+
+.email-error, .empty-email, .empty-password, .password-error, .empty-nickname, .passwordcheck-error {
+  position: relative;
+  font-weight: 600;
+  font-size: 15px;
+  top: -15px;
+  left: 16px;
+  color: var(--red);
+  display: none;
+}
+
 input::placeholder {
   color: var(--gray400)
 }
@@ -50,10 +64,15 @@ input::placeholder {
   background-color: var(--gray400);
   color: var(--white);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 20px;s
+  pointer-events: none;
 }
 
-.signin-button:hover {
+.signin-button:disabled {
+  background-color: var(--gray400);
+}
+
+.active {
   background-color: var(--blue);
 }
 

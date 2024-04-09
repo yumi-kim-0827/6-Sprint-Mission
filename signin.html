@@ -20,30 +20,34 @@
         <img alt="logo" src="/assets/logo-signin.png">        
       </a>
     </header>
-    <form>
+    <form class="input-items">
       <label for="email-input">로그인</label>
-      <input 
+      <input class="input-item email"
         name="email"
         type="text"
         placeholder="이메일을 입력해주세요"
         id="email-input"
         autofocus
       />
+      <p class="empty-email">이메일을 입력해주세요</p>
+      <p class="email-error">잘못된 이메일 입니다</p>
       <label for="password">비밀번호</label>
       <div class="password-box">
         <input 
-        class="password-input"
+        id="password"
+        class="password-input input-item"
         name="password"
         type="password"
         placeholder="비밀번호를 입력해주세요"
-        id="password"
         />
+        <p class="empty-password">비밀번호를 입력해주세요</p>
+        <p class="password-error">비밀번호를 8자 이상 입력해주세요</p>
       <button type="button" class="visibility">
-          <img alt="visibility" src="/assets/btn_visibility.png">
+          <img class="eye-icon" alt="visibility" src="/assets/btn_unvisibility.png">
       </button>
       </div>
 
-      <button class="signin-button">로그인</button>
+      <button class="signin-button" type="submit" onclick="window.location.href ='/items.html'" disabled>로그인</button>
       <div class="sns-signin">
         <div>간편 로그인하기</div>
         <div class="sns">
@@ -61,5 +65,6 @@
       </div>
     </form>
   </div>
+  <script src="JS/signin.js"></script>
 </body>
 </html>
