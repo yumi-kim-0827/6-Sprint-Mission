@@ -54,18 +54,18 @@ const validateEmailField = () => {
   emailInput.addEventListener("focusout", () => {
     if (emailInput.value === "") {
       emailInput.style.outline = "2px solid var(--error-red)";
-      emailInvalidMessage.style.display = "none";
-      emailEmptyMessage.style.display = "block";
+      emailInvalidMessage.classList.add("hidden");
+      emailEmptyMessage.classList.remove("hidden");
       isEmailValid = false;
     } else if (!emailInput.checkValidity()) {
       emailInput.style.outline = "2px solid var(--error-red)";
-      emailEmptyMessage.style.display = "none";
-      emailInvalidMessage.style.display = "block";
+      emailEmptyMessage.classList.add("hidden");
+      emailInvalidMessage.classList.remove("hidden");
       isEmailValid = false;
     } else {
       emailInput.style.outline = "none";
-      emailEmptyMessage.style.display = "none";
-      emailInvalidMessage.style.display = "none";
+      emailEmptyMessage.classList.add("hidden");
+      emailInvalidMessage.classList.add("hidden");
       isEmailValid = true;
     }
     validateForm();
@@ -79,11 +79,11 @@ const validateNicknameField = () => {
   nickname.addEventListener("focusout", () => {
     if (nickname.value === "") {
       nickname.style.outline = "2px solid var(--error-red)";
-      nicknameEmptyMessage.style.display = "block";
+      nicknameEmptyMessage.classList.remove("hidden");
       isNicknameValid = false;
     } else {
       nickname.style.outline = "none";
-      nicknameEmptyMessage.style.display = "none";
+      nicknameEmptyMessage.classList.add("hidden");
       isNicknameValid = true;
     }
     validateForm();
@@ -100,18 +100,18 @@ const validatePasswordField = () => {
   passwordInput.addEventListener("focusout", () => {
     if (passwordInput.value === "") {
       passwordInput.style.outline = "2px solid var(--error-red)";
-      passwordInvalidMessage.style.display = "none";
-      passwordEmptyMessage.style.display = "block";
+      passwordInvalidMessage.classList.add("hidden");
+      passwordEmptyMessage.classList.remove("hidden");
       isPasswordValid = false;
     } else if (passwordInput.value.length < 8) {
       passwordInput.style.outline = "2px solid var(--error-red)";
-      passwordEmptyMessage.style.display = "none";
-      passwordInvalidMessage.style.display = "block";
+      passwordEmptyMessage.classList.add("hidden");
+      passwordInvalidMessage.classList.remove("hidden");
       isPasswordValid = false;
     } else {
       passwordInput.style.outline = "none";
-      passwordEmptyMessage.style.display = "none";
-      passwordInvalidMessage.style.display = "none";
+      passwordEmptyMessage.classList.add("hidden");
+      passwordInvalidMessage.classList.add("hidden");
       isPasswordValid = true;
     }
     validateForm();
@@ -128,11 +128,11 @@ const validatePasswordCheckField = () => {
   passwordCheckInput.addEventListener("focusout", () => {
     if (passwordCheckInput.value !== passwordInput.value) {
       passwordCheckInput.style.outline = "2px solid var(--error-red)";
-      passwordCheckNotMatchMessage.style.display = "block";
+      passwordCheckNotMatchMessage.classList.remove("hidden");
       isPasswordCheckValid = false;
     } else {
       passwordCheckInput.style.outline = "none";
-      passwordCheckNotMatchMessage.style.display = "none";
+      passwordCheckNotMatchMessage.classList.add("hidden");
       isPasswordCheckValid = true;
     }
     validateForm();
