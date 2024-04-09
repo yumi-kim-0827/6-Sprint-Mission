@@ -1,4 +1,4 @@
-(function () {
+const signinFormValidation = (function () {
   let isEmailValid = false;
   let isPasswordValid = false;
 
@@ -83,4 +83,8 @@
 
   validateEmailField();
   validatePasswordField();
+
+  return {
+    togglePasswordVisibility: togglePasswordVisibility,
+  };
 })();

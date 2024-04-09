@@ -1,4 +1,4 @@
-(function () {
+const signupFormValidation = (function () {
   let isEmailValid = false;
   let isNicknameValid = false;
   let isPasswordValid = false;
@@ -144,4 +144,9 @@
   validateNicknameField();
   validatePasswordField();
   validatePasswordCheckField();
+
+  return {
+    togglePasswordVisibility: togglePasswordVisibility,
+    togglePasswordCheckVisibility: togglePasswordCheckVisibility,
+  };
 })();
