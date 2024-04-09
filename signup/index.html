@@ -17,24 +17,32 @@
   <main>
     <form id="signup-form">
       <label class="label" for="email">이메일</label>
-      <input class="input" type="email" id="email" placeholder="이메일을 입력해주세요" autocomplete="off" autofocus>
+      <div class="input-wrapper">
+        <input class="input" type="email" id="email" placeholder="이메일을 입력해주세요" autocomplete="off" autofocus>
+        <p class="input-description warning hidden"></p>
+      </div>
 
       <label class="label" for="nickname">닉네임</label>
-      <input class="input" type="text" id="nickname" placeholder="닉네임을 입력해주세요" autocomplete="off">
+      <div class="input-wrapper">
+        <input class="input" type="text" id="nickname" placeholder="닉네임을 입력해주세요" autocomplete="off">
+        <p class="input-description warning hidden"></p>
+      </div>
 
       <label class="label" for="password">비밀번호</label>
-      <div class="password-wrapper">
+      <div class="input-wrapper password-wrapper">
         <input class="input" type="password" id="password" placeholder="비밀번호를 입력해주세요" autocomplete="new-password">
-        <img class="see-or-not-icon" alt="비밀번호 보기" src="/images/icon/see-or-not.svg">
+        <p class="input-description warning hidden"></p>
+        <img class="see-or-not-icon invisible" alt="비밀번호 보기" src="/images/icon/eye-invisible.svg">
       </div>
 
       <label class="label" for="password-check">비밀번호 확인</label>
-      <div class="password-wrapper">
+      <div class="input-wrapper password-wrapper">
         <input class="input" type="password" id="password-check" placeholder="비밀번호를 다시 한 번 입력해주세요" autocomplete="new-password">
-        <img class="see-or-not-icon" alt="비밀번호 확인 보기" src="/images/icon/see-or-not.svg">
+        <p class="input-description warning hidden"></p>
+        <img class="see-or-not-icon invisible" alt="비밀번호 확인 보기" src="/images/icon/eye-invisible.svg">
       </div>
 
-      <button class="button button-large" type="submit">회원가입</button>
+      <button class="button button-large" type="button" disabled>회원가입</button>
     </form>
 
     <div class="quick-login">
@@ -54,5 +62,7 @@
       <a href="/login">로그인</a>
     </div>
   </main>
+
+  <script type="text/javascript" src="/scripts/auth.js"></script>
 </body>
 </html>
