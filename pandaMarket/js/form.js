@@ -25,7 +25,8 @@ function checkForm(e) {
   let isPasswordInvalid = false;
 
   const isEmpty = e.target.value === "";
-  const isSame = password.value === rePassword.value;
+  const isPasswordSame =
+    rePassword !== null ? password.value === rePassword.value : null;
 
   switch (e.target.dataset.form) {
     case "email":
@@ -51,7 +52,7 @@ function checkForm(e) {
           alertContent = "비밀번호를 8자 이상 입력해주세요.";
         } else {
           isPasswordInvalid = false;
-          if (!isSame) {
+          if (!isPasswordSame) {
             alertContent = "비밀번호가 일치하지 않습니다.";
             isInvalid = true;
           } else {
@@ -71,7 +72,7 @@ function checkForm(e) {
           alertContent = "비밀번호를 8자 이상 입력해주세요.";
         } else {
           isPasswordInvalid = false;
-          if (!isSame) {
+          if (!isPasswordSame) {
             alertContent = "비밀번호가 일치하지 않습니다.";
             isInvalid = true;
           } else {
@@ -105,7 +106,7 @@ function checkForm(e) {
     } else {
       if (
         isInvalid === true &&
-        isSame === false &&
+        isPasswordSame === false &&
         rePassword
           .closest(".section-form__input-box")
           .querySelectorAll(".alert").length === 0
@@ -113,7 +114,7 @@ function checkForm(e) {
         rePassword.classList.add("on");
         rePassword.closest(".section-form__input-box").append(alert);
       }
-      if (isSame === true) {
+      if (isPasswordSame === true) {
         password.classList.remove("on");
         rePassword.classList.remove("on");
         password
