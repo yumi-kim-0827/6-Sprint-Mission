@@ -6,6 +6,12 @@ a {
     text-decoration-line: none;
 }
 
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
 .login-logo {
     display: block;
     text-align: center;
@@ -22,7 +28,15 @@ a {
     margin: 0 auto;
 }
 
-.login-input{
+.error-message {
+    color: #F74747;
+}
+
+.error-border {
+    border: 1px solid #F74747;
+}
+
+.login-input,.signup-input{
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
@@ -63,7 +77,7 @@ input::placeholder {
 }
 
 .login-btn, .signup-btn{
-    background:#9CA3AF;
+    background: #3692ff;
     width:100%;
     color:#ffffff;
     font-weight: 600;
@@ -72,6 +86,10 @@ input::placeholder {
     border:none;
     padding: 16px;
     margin-bottom: 24px;
+}
+
+.login-btn:disabled {
+    background: #9CA3AF;
 }
 
 .social-login {
@@ -92,4 +110,15 @@ input::placeholder {
 .login-signup a{
     text-decoration-line: underline;
     color: #3182F6;
+}
+
+@media (max-width:1199px) {
+}
+
+@media (max-width:767px) {
+    .login-container {
+        width: 344px;
+        margin: 0 auto;
+    }
+
 }
