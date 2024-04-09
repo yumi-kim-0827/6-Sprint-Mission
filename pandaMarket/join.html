@@ -1,83 +1,147 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>판다마켓</title>
-  <link rel="stylesheet" href="/css/style.min.css">
-</head>
-<body>
-<div class="wrap wrap-form">
-  <section class="section-form">
-    <header class="section-form__header">
-      <h1 class="blind">회원가입 페이지</h1>
-      <a href="/index.html" class="link-home">
-        <img src="/img/logo-big.png" alt="판다마켓 로고 이미지" class="img-home">
-        <span class="blind">홈 바로가기</span>
-      </a>
-    </header>
-    <div class="section-form__content">
-      <form action="/signin.html">
-      <fieldset class="section-form__form">  
-        <legend class="blind">회원가입 폼</legend>
-        <div class="section-form__box">
-          <label for="login-email" class="section-form__label">이메일</label>
-          <span class="section-form__input-box">
-            <input type="email" id="join-email" class="input-theme section-form__input" data-form="email" placeholder="이메일을 입력해주세요" required>
-          </span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="/css/style.min.css" />
+  </head>
+  <body>
+    <div class="wrap wrap-form">
+      <section class="section-form">
+        <header class="section-form__header">
+          <h1 class="blind">회원가입 페이지</h1>
+          <a href="/index.html" class="link-home">
+            <img
+              src="/img/logo-big.png"
+              alt="판다마켓 로고 이미지"
+              class="img-home"
+            />
+            <span class="blind">홈 바로가기</span>
+          </a>
+        </header>
+        <div class="section-form__content">
+          <form action="/signin.html">
+            <fieldset class="section-form__form">
+              <legend class="blind">회원가입 폼</legend>
+              <div class="section-form__box">
+                <label for="login-email" class="section-form__label"
+                  >이메일</label
+                >
+                <span class="section-form__input-box">
+                  <input
+                    type="email"
+                    id="join-email"
+                    class="input-theme section-form__input"
+                    data-form="email"
+                    placeholder="이메일을 입력해주세요"
+                    required
+                  />
+                </span>
+              </div>
+              <div class="section-form__box">
+                <label for="login-name" class="section-form__label"
+                  >닉네임</label
+                >
+                <span class="section-form__input-box">
+                  <input
+                    type="text"
+                    id="join-name"
+                    class="input-theme section-form__input"
+                    data-form="nickname"
+                    placeholder="닉네임을 입력해주세요"
+                    minlength="1"
+                    required
+                  />
+                </span>
+              </div>
+              <div class="section-form__box">
+                <label for="login-pw" class="section-form__label"
+                  >비밀번호</label
+                >
+                <span class="section-form__input-box">
+                  <span class="section-form__pw-box">
+                    <input
+                      type="password"
+                      id="join-pw"
+                      class="input-theme section-form__input"
+                      data-form="password"
+                      placeholder="비밀번호를 입력해주세요"
+                      minlength="8"
+                      required
+                    />
+                    <input
+                      type="checkbox"
+                      id="join-pw-show"
+                      class="blind chk-visibility"
+                    />
+                    <label for="join-pw-show" class="spr visibility-off"
+                      ><span class="blind">비밀번호 보기/숨기기</span></label
+                    >
+                  </span>
+                </span>
+              </div>
+              <div class="section-form__box">
+                <label for="login-pw-re" class="section-form__label"
+                  >비밀번호 확인</label
+                >
+                <span class="section-form__input-box">
+                  <span class="section-form__pw-box">
+                    <input
+                      type="password"
+                      id="join-pw-re"
+                      class="input-theme section-form__input"
+                      data-form="password-re"
+                      placeholder="비밀번호를 다시 한 번 입력해주세요"
+                      minlength="8"
+                      required
+                    />
+                    <input
+                      type="checkbox"
+                      id="join-pw-re-show"
+                      class="blind chk-visibility"
+                    />
+                    <label for="join-pw-re-show" class="spr visibility-off"
+                      ><span class="blind">비밀번호 보기/숨기기</span></label
+                    >
+                  </span>
+                </span>
+              </div>
+              <div class="section-form__box">
+                <button
+                  type="submit"
+                  id="btn-submit"
+                  class="section-form__btn btn-large"
+                  disabled
+                >
+                  회원가입
+                </button>
+              </div>
+            </fieldset>
+          </form>
         </div>
-        <div class="section-form__box">
-          <label for="login-name" class="section-form__label">닉네임</label>
-          <span class="section-form__input-box">
-            <input type="text" id="join-name" class="input-theme section-form__input" data-form="nickname" placeholder="닉네임을 입력해주세요" minlength="1" required>
-          </span>
-        </div>
-        <div class="section-form__box">
-          <label for="login-pw" class="section-form__label">비밀번호</label>
-          <span class="section-form__input-box">
-            <span class="section-form__pw-box">
-              <input type="password" id="join-pw" class="input-theme section-form__input" data-form="password" placeholder="비밀번호를 입력해주세요" minlength="8" required>
-              <input type="checkbox" id="join-pw-show" class="blind chk-visibility">
-              <label for="join-pw-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
-            </span>
-          </span>
-        </div>
-        <div class="section-form__box">
-          <label for="login-pw-re" class="section-form__label">비밀번호 확인</label>
-          <span class="section-form__input-box">
-            <span class="section-form__pw-box">
-              <input type="password" id="join-pw-re" class="input-theme section-form__input" data-form="password-re" placeholder="비밀번호를 다시 한 번 입력해주세요" minlength="8" required>
-              <input type="checkbox" id="join-pw-re-show" class="blind chk-visibility">
-              <label for="join-pw-re-show" class="spr visibility-off"><span class="blind">비밀번호 보기/숨기기</span></label>
-            </span>
-          </span>
-        </div>
-        <div class="section-form__box">
-          <button type="submit" id="btn-submit" class="section-form__btn btn-large" disabled>회원가입</button>
-        </div>
-      </fieldset>
-      </form>
+        <section class="section-other">
+          <h2 class="section-other__tit">간편 로그인하기</h2>
+          <ul class="section-other__content">
+            <li class="section-other__list">
+              <a href="https://www.google.com" class="link">
+                <img src="/img/ic_google.svg" alt="구글 로그인 바로가기" />
+              </a>
+            </li>
+            <li class="section-other__list">
+              <a href="https://www.kakaocorp.com/page/" class="link">
+                <img src="/img/ic_kakao.svg" alt="카카오 로그인 바로가기" />
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="section-form__info">
+          <p class="content">
+            이미 회원이신가요? <a href="/signin.html" class="link">로그인</a>
+          </p>
+        </section>
+      </section>
     </div>
-    <section class="section-other">
-      <h2 class="section-other__tit">간편 로그인하기</h2>
-      <ul class="section-other__content">
-        <li class="section-other__list">
-          <a href="https://www.google.com" class="link">
-            <img src="/img/ic_google.svg" alt="구글 로그인 바로가기">
-          </a>
-        </li>
-        <li class="section-other__list">
-          <a href="https://www.kakaocorp.com/page/" class="link">
-            <img src="/img/ic_kakao.svg" alt="카카오 로그인 바로가기">
-          </a>
-        </li>
-      </ul>
-    </section>
-    <section class="section-form__info">
-      <p class="content">이미 회원이신가요? <a href="/signin.html" class="link">로그인</a></p>
-    </section>
-  </section>
-</div>
-<script src="/js/form.js"></script>
-</body>
+    <script src="/js/form.js"></script>
+  </body>
 </html>
