@@ -38,6 +38,7 @@
           placeholder="이메일을 입력해주세요"
           required
         />
+        <span id="email-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
@@ -49,6 +50,7 @@
           placeholder="닉네임을 입력해주세요"
           required
         />
+        <span id="username-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
@@ -62,6 +64,7 @@
             required
           />
           <img
+            id="password-eye"
             class="password-eye"
             src="assets/icon/password_eye.svg"
             alt="password-eye"
@@ -69,6 +72,7 @@
             height="24"
           />
         </div>
+        <span id="password-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
@@ -82,15 +86,19 @@
             required
           />
           <img
+            id="pw-confirm-eye"
             class="password-eye"
             src="assets/icon/password_eye.svg"
             alt="password-eye"
           />
         </div>
+        <span id="pw-confirm-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
-        <button type="submit" class="form__submit-btn">회원가입</button>
+        <button type="submit" class="form__submit-btn" disabled>
+          회원가입
+        </button>
       </div>
 
       <div class="form__block">
@@ -118,5 +126,7 @@
         <a href="/login.html">로그인</a>
       </div>
     </form>
+
+    <script type="module" src="/controllers/signup.js"></script>
   </body>
 </html>

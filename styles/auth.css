@@ -102,6 +102,7 @@
 
 .form__link {
   text-align: center;
+  margin-bottom: 20vh;
 }
 
 .form__link a {
@@ -129,4 +130,24 @@
     font-size: 14px;
     margin-bottom: 8px;
   }
+}
+
+/* error */
+
+.form__block input.error {
+  border: 2px solid var(--error);
+}
+
+.error-msg {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--error);
+  position: relative;
+  top: 8px;
+  left: 16px;
+}
+
+.form__submit-btn:hover:disabled,
+.form__submit-btn:focus:disabled {
+  background-color: var(--light-gray);
 }

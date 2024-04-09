@@ -38,6 +38,7 @@
           placeholder="이메일을 입력해주세요"
           required
         />
+        <span id="email-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
@@ -58,10 +59,11 @@
             height="24"
           />
         </div>
+        <span id="password-error" class="error-msg"></span>
       </div>
 
       <div class="form__block">
-        <button type="submit" class="form__submit-btn">로그인</button>
+        <button type="submit" class="form__submit-btn" disabled>로그인</button>
       </div>
 
       <div class="form__block">
@@ -89,5 +91,7 @@
         <a href="/signup.html">회원가입</a>
       </div>
     </form>
+
+    <script type="module" src="/controllers/login.js"></script>
   </body>
 </html>
