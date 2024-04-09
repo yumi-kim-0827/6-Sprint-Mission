@@ -1,67 +1,72 @@
-let emailVal = false;
-let nicknameVal = false;
-let pwdVal = false;
-let pwdchkVal = false;
+let isEmailValid = false;
+let isNicknameValid = false;
+let isPasswordValid = false;
+let isPasswordCheckValid = false;
 
 const showPwd = () => {
-  const pwd = document.getElementById("pwd");
-  const showPwd = document.getElementById("pwdimg");
+  const passwordInput = document.getElementById("pwd");
+  const passwordVisibilityButton = document.getElementById("pwdimg");
 
-  if (pwd.type === "password") {
-    pwd.type = "text";
-    showPwd.src = "/images/btn_visibility_on.png";
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    passwordVisibilityButton.src = "/images/btn_visibility_on.png";
   } else {
-    pwd.type = "password";
-    showPwd.src = "/images/btn_visibility.png";
+    passwordInput.type = "password";
+    passwordVisibilityButton.src = "/images/btn_visibility.png";
   }
 };
 
 const showPwdchk = () => {
-  const pwdchk = document.getElementById("pwdchk");
-  const showPwdchk = document.getElementById("pwdchkimg");
+  const passwordCheckInput = document.getElementById("pwdchk");
+  const passwordVisibilityButton = document.getElementById("pwdchkimg");
 
-  if (pwdchk.type === "password") {
-    pwdchk.type = "text";
-    showPwdchk.src = "/images/btn_visibility_on.png";
+  if (passwordCheckInput.type === "password") {
+    passwordCheckInput.type = "text";
+    passwordVisibilityButton.src = "/images/btn_visibility_on.png";
   } else {
-    pwdchk.type = "password";
-    showPwdchk.src = "/images/btn_visibility.png";
+    passwordCheckInput.type = "password";
+    passwordVisibilityButton.src = "/images/btn_visibility.png";
   }
 };
 
 const validateForm = () => {
-  const submitBtn = document.getElementById("submitBtn");
+  const submitButton = document.getElementById("submitBtn");
 
-  if (emailVal && nicknameVal && pwdVal && pwdchkVal) {
-    submitBtn.style.backgroundColor = "var(--btn-blue1)";
-    submitBtn.disabled = false;
+  if (
+    isEmailValid &&
+    isNicknameValid &&
+    isPasswordValid &&
+    isPasswordCheckValid
+  ) {
+    submitButton.style.backgroundColor = "var(--btn-blue1)";
+    submitButton.disabled = false;
   } else {
-    submitBtn.style.backgroundColor = "var(--cool-gray400)";
-    submitBtn.disabled = true;
+    submitButton.style.backgroundColor = "var(--cool-gray400)";
+    submitButton.disabled = true;
   }
 };
 
 const emailValText = () => {
-  const email = document.getElementById("email");
-  let isValText = document.getElementById("isEmailValMessage");
-  let valText = document.getElementById("emailValMessage");
+  const emailInput = document.getElementById("email");
+  let emailEmptyMessage = document.getElementById("emailEmptyMessage");
+  let emailInvalidMessage = document.getElementById("emailInvalidMessage");
 
-  email.addEventListener("focusout", () => {
-    if (email.value === "") {
-      email.style.outline = "2px solid var(--error-red)";
-      valText.style.display = "none";
-      isValText.style.display = "block";
-      emailVal = false;
-    } else if (!email.checkValidity()) {
-      email.style.outline = "2px solid var(--error-red)";
-      isValText.style.display = "none";
-      valText.style.display = "block";
-      emailVal = false;
+  emailInput.addEventListener("focusout", () => {
+    if (emailInput.value === "") {
+      emailInput.style.outline = "2px solid var(--error-red)";
+      emailInvalidMessage.style.display = "none";
+      emailEmptyMessage.style.display = "block";
+      isEmailValid = false;
+    } else if (!emailInput.checkValidity()) {
+      emailInput.style.outline = "2px solid var(--error-red)";
+      emailEmptyMessage.style.display = "none";
+      emailInvalidMessage.style.display = "block";
+      isEmailValid = false;
     } else {
-      email.style.outline = "none";
-      isValText.style.display = "none";
-      valText.style.display = "none";
-      emailVal = true;
+      emailInput.style.outline = "none";
+      emailEmptyMessage.style.display = "none";
+      emailInvalidMessage.style.display = "none";
+      isEmailValid = true;
     }
     validateForm();
   });
@@ -69,62 +74,66 @@ const emailValText = () => {
 
 const nicknameValText = () => {
   const nickname = document.getElementById("nickname");
-  let valText = document.getElementById("nicknameValMessage");
+  let nicknameEmptyMessage = document.getElementById("nicknameEmptyMessage");
 
   nickname.addEventListener("focusout", () => {
     if (nickname.value === "") {
       nickname.style.outline = "2px solid var(--error-red)";
-      valText.style.display = "block";
-      nicknameVal = false;
+      nicknameEmptyMessage.style.display = "block";
+      isNicknameValid = false;
     } else {
       nickname.style.outline = "none";
-      valText.style.display = "none";
-      nicknameVal = true;
+      nicknameEmptyMessage.style.display = "none";
+      isNicknameValid = true;
     }
     validateForm();
   });
 };
 
 const pwdValText = () => {
-  const pwd = document.getElementById("pwd");
-  let isValText = document.getElementById("isPwdValMessage");
-  let valText = document.getElementById("pwdValMessage");
+  const passwordInput = document.getElementById("pwd");
+  let passwordEmptyMessage = document.getElementById("passwordEmptyMessage");
+  let passwordInvalidMessage = document.getElementById(
+    "passwordInvalidMessage"
+  );
 
-  pwd.addEventListener("focusout", () => {
-    if (pwd.value === "") {
-      pwd.style.outline = "2px solid var(--error-red)";
-      valText.style.display = "none";
-      isValText.style.display = "block";
-      pwdVal = false;
-    } else if (pwd.value.length < 8) {
-      pwd.style.outline = "2px solid var(--error-red)";
-      isValText.style.display = "none";
-      valText.style.display = "block";
-      pwdVal = false;
+  passwordInput.addEventListener("focusout", () => {
+    if (passwordInput.value === "") {
+      passwordInput.style.outline = "2px solid var(--error-red)";
+      passwordInvalidMessage.style.display = "none";
+      passwordEmptyMessage.style.display = "block";
+      isPasswordValid = false;
+    } else if (passwordInput.value.length < 8) {
+      passwordInput.style.outline = "2px solid var(--error-red)";
+      passwordEmptyMessage.style.display = "none";
+      passwordInvalidMessage.style.display = "block";
+      isPasswordValid = false;
     } else {
-      pwd.style.outline = "none";
-      isValText.style.display = "none";
-      valText.style.display = "none";
-      pwdVal = true;
+      passwordInput.style.outline = "none";
+      passwordEmptyMessage.style.display = "none";
+      passwordInvalidMessage.style.display = "none";
+      isPasswordValid = true;
     }
     validateForm();
   });
 };
 
 const pwdchkValText = () => {
-  const pwd = document.getElementById("pwd");
-  const pwdchk = document.getElementById("pwdchk");
-  let valText = document.getElementById("pwdchkValMessage");
+  const passwordInput = document.getElementById("pwd");
+  const passwordCheckInput = document.getElementById("pwdchk");
+  let passwordCheckNotMatchMessage = document.getElementById(
+    "passwordCheckNotMatchMessage"
+  );
 
-  pwdchk.addEventListener("focusout", () => {
-    if (pwdchk.value !== pwd.value) {
-      pwdchk.style.outline = "2px solid var(--error-red)";
-      valText.style.display = "block";
-      pwdchkVal = false;
+  passwordCheckInput.addEventListener("focusout", () => {
+    if (passwordCheckInput.value !== passwordInput.value) {
+      passwordCheckInput.style.outline = "2px solid var(--error-red)";
+      passwordCheckNotMatchMessage.style.display = "block";
+      isPasswordCheckValid = false;
     } else {
-      pwdchk.style.outline = "none";
-      valText.style.display = "none";
-      pwdchkVal = true;
+      passwordCheckInput.style.outline = "none";
+      passwordCheckNotMatchMessage.style.display = "none";
+      isPasswordCheckValid = true;
     }
     validateForm();
   });

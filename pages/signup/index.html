@@ -22,10 +22,14 @@
             placeholder="이메일을 입력해주세요"
             required
           />
-          <p id="isEmailValMessage" class="error_message" style="display: none">
+          <p id="emailEmptyMessage" class="error_message" style="display: none">
             이메일을 입력해주세요
           </p>
-          <p id="emailValMessage" class="error_message" style="display: none">
+          <p
+            id="emailInvalidMessage"
+            class="error_message"
+            style="display: none"
+          >
             잘못된 이메일 형식입니다
           </p>
           <label for="nickname">닉네임</label>
@@ -37,7 +41,7 @@
             required
           />
           <p
-            id="nicknameValMessage"
+            id="nicknameEmptyMessage"
             class="error_message"
             style="display: none"
           >
@@ -60,10 +64,18 @@
               />
             </button>
           </div>
-          <p id="isPwdValMessage" class="error_message" style="display: none">
+          <p
+            id="passwordEmptyMessage"
+            class="error_message"
+            style="display: none"
+          >
             비밀번호를 입력해주세요
           </p>
-          <p id="pwdValMessage" class="error_message" style="display: none">
+          <p
+            id="passwordInvalidMessage"
+            class="error_message"
+            style="display: none"
+          >
             비밀번호를 8자 이상 입력해주세요
           </p>
           <div class="pwd_container">
@@ -83,7 +95,11 @@
               />
             </button>
           </div>
-          <p id="pwdchkValMessage" class="error_message" style="display: none">
+          <p
+            id="passwordCheckNotMatchMessage"
+            class="error_message"
+            style="display: none"
+          >
             비밀번호가 일치하지 않습니다.
           </p>
           <button id="submitBtn" type="submit" disabled>회원가입</button>
