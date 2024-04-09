@@ -3,7 +3,7 @@ let isNicknameValid = false;
 let isPasswordValid = false;
 let isPasswordCheckValid = false;
 
-const showPwd = () => {
+const togglePasswordVisibility = () => {
   const passwordInput = document.getElementById("pwd");
   const passwordVisibilityButton = document.getElementById("pwdimg");
 
@@ -16,7 +16,7 @@ const showPwd = () => {
   }
 };
 
-const showPwdchk = () => {
+const togglePasswordCheckVisibility = () => {
   const passwordCheckInput = document.getElementById("pwdchk");
   const passwordVisibilityButton = document.getElementById("pwdchkimg");
 
@@ -46,7 +46,7 @@ const validateForm = () => {
   }
 };
 
-const emailValText = () => {
+const validateEmailField = () => {
   const emailInput = document.getElementById("email");
   let emailEmptyMessage = document.getElementById("emailEmptyMessage");
   let emailInvalidMessage = document.getElementById("emailInvalidMessage");
@@ -72,7 +72,7 @@ const emailValText = () => {
   });
 };
 
-const nicknameValText = () => {
+const validateNicknameField = () => {
   const nickname = document.getElementById("nickname");
   let nicknameEmptyMessage = document.getElementById("nicknameEmptyMessage");
 
@@ -90,7 +90,7 @@ const nicknameValText = () => {
   });
 };
 
-const pwdValText = () => {
+const validatePasswordField = () => {
   const passwordInput = document.getElementById("pwd");
   let passwordEmptyMessage = document.getElementById("passwordEmptyMessage");
   let passwordInvalidMessage = document.getElementById(
@@ -118,7 +118,7 @@ const pwdValText = () => {
   });
 };
 
-const pwdchkValText = () => {
+const validatePasswordCheckField = () => {
   const passwordInput = document.getElementById("pwd");
   const passwordCheckInput = document.getElementById("pwdchk");
   let passwordCheckNotMatchMessage = document.getElementById(
@@ -139,7 +139,7 @@ const pwdchkValText = () => {
   });
 };
 
-emailValText();
-nicknameValText();
-pwdValText();
-pwdchkValText();
+validateEmailField();
+validateNicknameField();
+validatePasswordField();
+validatePasswordCheckField();

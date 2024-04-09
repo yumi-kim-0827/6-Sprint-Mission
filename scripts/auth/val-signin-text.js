@@ -1,7 +1,7 @@
 let isEmailValid = false;
 let isPasswordValid = false;
 
-const showPwd = () => {
+const togglePasswordVisibility = () => {
   const passwordInput = document.getElementById("pwd");
   const passwordVisibilityButton = document.getElementById("pwdimg");
 
@@ -26,7 +26,7 @@ const validateForm = () => {
   }
 };
 
-const emailValText = () => {
+const validateEmailField = () => {
   const emailInput = document.getElementById("email");
   let emailEmptyMessage = document.getElementById("emailEmptyMessage");
   let emailInvalidMessage = document.getElementById("emailInvalidMessage");
@@ -52,7 +52,7 @@ const emailValText = () => {
   });
 };
 
-const pwdValText = () => {
+const validatePasswordField = () => {
   const passwordInput = document.getElementById("pwd");
   let passwordEmptyMessage = document.getElementById("passwordEmptyMessage");
   let passwordInvalidMessage = document.getElementById(
@@ -80,5 +80,5 @@ const pwdValText = () => {
   });
 };
 
-emailValText();
-pwdValText();
+validateEmailField();
+validatePasswordField();
