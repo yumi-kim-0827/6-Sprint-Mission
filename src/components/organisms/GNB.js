@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../atoms/Button";
 import SmallMainLogo from "../../assets/icon/main_logo_small.svg";
 import MainLogo from "../../assets/icon/main_logo.svg";
-import styles from "../../styles/layout.module.scss";
+import styles from "./GNB.module.scss";
 import { useMobileDetector } from "../../hooks/useMobileDetect";
 import { useLocation } from "react-router-dom";
 import classNames from "classnames/bind";
@@ -16,7 +16,7 @@ export default function GNB() {
   return (
     <nav className={styles.navbar}>
       <img src={isMobileWidth ? SmallMainLogo : MainLogo} alt="main-logo" />
-      <div className={styles["navbar__menus"]}>
+      <div className={styles.menus}>
         <span className={cn({ [styles.focus]: pathname === "/free-board" })}>
           자유게시판
         </span>
