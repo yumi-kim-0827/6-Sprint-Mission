@@ -1,4 +1,4 @@
-import styles from "styles/Commons.module.scss";
+import styles from "styles/commons.module.scss";
 import React from "react";
 
 export default function Button({ text }) {
