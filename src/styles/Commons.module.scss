@@ -61,7 +61,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 200px;
   user-select: none;
 
   &:hover,
@@ -109,4 +108,35 @@
       }
     }
   }
+}
+
+/* Pagination */
+
+.pageBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--gray200);
+  color: var(--cool-gray500);
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--gray50);
+  }
+
+  &.focus {
+    color: white;
+    background-color: var(--blue600);
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
