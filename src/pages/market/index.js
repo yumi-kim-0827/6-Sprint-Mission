@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import GNB from "../../organisms/GNB";
-import BestProducts from "../../templates/BestProducts";
+import GNB from "components/layouts/GNB";
+import BestProducts from "components/items/BestProducts";
 
 export default function MarketMainPage() {
   // const getData = async () => {

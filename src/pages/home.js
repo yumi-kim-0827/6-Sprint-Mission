@@ -1,5 +1,5 @@
 import React from "react";
-import GNB from "../organisms/GNB";
+import GNB from "components/layouts/GNB";
 
 export default function Home() {
   return (

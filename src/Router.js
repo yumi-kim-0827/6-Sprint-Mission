@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/pages/home";
-import Login from "./components/pages/users/login";
-import Signup from "./components/pages/users/signup";
-import MarketMainPage from "./components/pages/market";
-import AddItem from "./components/pages/market/add_item";
-import FAQ from "./components/pages/supply/faq";
-import Privacy from "./components/pages/supply/privacy";
+import Home from "pages/home";
+import Login from "pages/users/login";
+import Signup from "pages/users/signup";
+import MarketMainPage from "pages/market";
+import AddItem from "pages/market/add_item";
+import FAQ from "pages/supply/faq";
+import Privacy from "pages/supply/privacy";
 
 export default function Router() {
   return (

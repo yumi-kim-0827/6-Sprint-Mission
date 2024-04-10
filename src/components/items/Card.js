@@ -1,8 +1,8 @@
 import React from "react";
-import iPad from "../../assets/img/mock/ipad.svg";
-import HeartIcon from "../../assets/icon/ic_heart.svg";
-import addCommas from "../../features/lib/addCommas";
-import styles from "./Card.module.scss";
+import iPad from "assets/img/mock/ipad.svg";
+import HeartIcon from "assets/icon/ic_heart.svg";
+import addCommas from "features/lib/addCommas";
+import styles from "styles/items.module.scss";
 
 export default function Card({ title, price, likeCount }) {
   return (

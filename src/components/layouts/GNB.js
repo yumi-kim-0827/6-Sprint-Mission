@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../atoms/Button";
-import SmallMainLogo from "../../assets/icon/main_logo_small.svg";
-import MainLogo from "../../assets/icon/main_logo.svg";
-import styles from "./GNB.module.scss";
-import { useMobileDetector } from "../../hooks/useMobileDetect";
+import Button from "components/commons/Button";
+import SmallMainLogo from "assets/icon/main_logo_small.svg";
+import MainLogo from "assets/icon/main_logo.svg";
+import styles from "styles/layout.module.scss";
+import { useMobileDetector } from "features/hooks/useMobileDetect";
 import { useLocation } from "react-router-dom";
 import classNames from "classnames/bind";
 

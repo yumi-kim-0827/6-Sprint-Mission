@@ -1,7 +1,6 @@
-import styled from "styled-components";
-import React from "react";
+/* button */
 
-const StyledButton = styled.button`
+.button {
   cursor: pointer;
   background-color: var(--blue);
   padding: 12px 23px;
@@ -14,9 +13,4 @@ const StyledButton = styled.button`
   height: 42px;
   font-size: 16px;
   font-weight: 600;
-  font-family: Pretendard;
-`;
-
-export default function Button({ text }) {
-  return <StyledButton>{text}</StyledButton>;
 }
