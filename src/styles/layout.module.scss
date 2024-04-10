@@ -37,3 +37,46 @@
     color: var(--blue);
   }
 }
+
+/* layout */
+
+.market__layout {
+  margin-top: 24px;
+  margin: 0 20px;
+
+  @media (min-width: $min-tablet-width) {
+    margin: 0 24px;
+  }
+
+  @media (min-width: $min-desktop-width) {
+    margin: 0 360px;
+  }
+}
+
+/* best products */
+
+.best__products {
+  margin-top: 24px;
+
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--dark-gray800);
+    margin-bottom: 16px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @media (min-width: $min-tablet-width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $min-desktop-width) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

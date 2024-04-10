@@ -2,7 +2,12 @@
 
 :root {
   --blue: #3692ff;
-  --error: #f74747;
+  --blue600: #2f80ed;
+
+  --light-blue-200: #cfe5ff;
+  --light-blue-100: #e6f2ff;
+
+  --dark-gray800: #111827;
 
   --gray900: #1b1d1f;
   --gray800: #26282b;
@@ -18,11 +23,8 @@
   --cool-gray600: #4b5563;
   --cool-gray500: #6b7280;
 
-  --blue600: #2f80ed;
+  --error: #f74747;
 
-  --light-blue-200: #cfe5ff;
-  --light-blue-100: #e6f2ff;
-  --footer-bg: #111827;
   --light-gray: #9ca3af;
   --input-bg: #f3f4f6;
 }

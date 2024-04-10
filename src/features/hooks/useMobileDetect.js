@@ -1,23 +1,13 @@
 import { useEffect, useState } from "react";
+import useDeviceState from "./useDeviceState";
 
-const MAX_MOBILE_WIDTH = 767;
-
-export const useMobileDetector = () => {
+export function useMobileDetector() {
   const [isMobileWidth, setIsMobileWidth] = useState(false);
+  const deviceState = useDeviceState();
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsMobileWidth(width <= MAX_MOBILE_WIDTH);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    setIsMobileWidth(deviceState === "mobile");
+  }, [deviceState]);
 
   return isMobileWidth;
-};
+}
