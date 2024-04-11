@@ -5,7 +5,6 @@ const ItemsPage = () => {
   return (
     <div>
       <TopNavigation />
-      items 페이지
     </div>
   );
 };
