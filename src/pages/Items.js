@@ -1,5 +1,3 @@
-import "./Items.css";
-
 import TopNavigation from "../components/TopNavigation";
 import Product from "../components/Product";
 

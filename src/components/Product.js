@@ -5,7 +5,7 @@ import ProductBest from "./ProductBest";
 
 const Product = () => {
   return (
-    <div className="product_best_container">
+    <div className="product_container">
       <ProductBest />
       <ProductAll />
     </div>
