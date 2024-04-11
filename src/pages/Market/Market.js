@@ -2,20 +2,49 @@ import React, { useEffect, useState } from "react";
 
 import { getProducts } from "../../api";
 import Button from "../../components/Button/Button";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
-import SearchBox from "../../components/SearchBox/SearchBox";
+import SelectBox from "../../components/SelectBox/SelectBox";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+  const [sortKeyword, setSortKeyword] = useState("최신순");
+
+  const sortOptions = [
+    {
+      text: "최신순",
+      sort: "recent",
+    },
+    {
+      text: "좋아요순",
+      sort: "favorite",
+    },
+  ];
 
   // 상품 검색 기능
   const searchProducts = async (event) => {
     const { value } = event.target;
     const items = await getProducts("recent", value);
+    const { list } = items;
+    setAllProducts(list);
+  };
+
+  // 상품 정렬 선택 기능
+  const handleSelectOptionClick = async (event) => {
+    let sortOption;
+    const { textContent } = event.target;
+    sortOptions.forEach((option) => {
+      const { text, sort } = option;
+      if (textContent === text) {
+        setSortKeyword(text);
+        sortOption = sort;
+      }
+    });
+    const items = await getProducts(sortOption);
     const { list } = items;
     setAllProducts(list);
   };
@@ -58,13 +87,11 @@ const Market = () => {
               placeholder="검색할 상품을 입력해주세요"
             />
             <Button href="additem.html">상품 등록하기</Button>
-            <div className="select-box">
-              <button className="label">최신순</button>
-              <ul className="option-list">
-                <li className="option-item">최신순</li>
-                <li className="option-item">좋아요순</li>
-              </ul>
-            </div>
+            <SelectBox
+              text={sortKeyword}
+              onOptionClick={handleSelectOptionClick}
+              options={sortOptions}
+            />
           </div>
         </div>
         <ul className="product-list">
