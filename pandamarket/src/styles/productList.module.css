@@ -1,0 +1,38 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-img {
+  width: 221px;
+  height: 221px;
+  border-radius: 1rem;
+}
+
+.favoritecount {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  justify-content: left;
+  align-items: center;
+}
+
+.favoritecount img {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 14px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.favoritecount-number {
+  font-size: 12px;
+}
