@@ -1,19 +1,32 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
   return (
-    <header>
-      <div class="header">
-        <div class="logo">
-          <img src="/assets/pandaFace.svg" class="logo_icon" alt="로고" />
-          <a href="/" class="logo_title">
-            판다마켓
-          </a>
+    <>
+      <header>
+        <div className="header-container">
+          <div className="logo">
+            <img
+              src="../assets/logo-panda.svg"
+              className="logo-icon"
+              alt="로고"
+            />
+            <Link to="/" className="logo-title">
+              판다마켓
+            </Link>
+          </div>
+          <Link to="/" className="board-btn">
+            자유게시판
+          </Link>
+          <Link to="/items" className="items-btn">
+            중고마켓
+          </Link>
+          <Link to="/login" className="login-btn">
+            로그인
+          </Link>
         </div>
-        <a class="login_btn" href="/login.html">
-          로그인
-        </a>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
