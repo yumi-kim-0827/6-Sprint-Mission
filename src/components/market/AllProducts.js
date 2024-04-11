@@ -16,7 +16,7 @@ export default function AllProducts({ data }) {
         </h1>
         {/* TODO: 클래스 네임 props로 변경 */}
         <div className={styles.button}>
-          <Button>상품 등록하기</Button>
+          <Button to="/additem">상품 등록하기</Button>
         </div>
         <div className={styles.searchInput}>
           <SearchInput />
