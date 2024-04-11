@@ -70,7 +70,7 @@ function ItemPage() {
     };
 
     fetchItems(); // UseEffect 내부에서 실행
-  }, [order, bestItemCount]);
+  }, [pageCount, order, bestItemCount]);
 
   const handleNewestClick = () => {
     setOrder("createdAt");
