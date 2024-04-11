@@ -158,6 +158,9 @@ h1 {
 /* Tablet styles */
 
 @media (min-width: 768px) {
+  .nav-box a:first-child {
+    margin-left: 670px; 
+  }
   header {
     padding: 0 24px;
   }
