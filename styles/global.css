@@ -206,3 +206,14 @@ h1 {
 #marketButton {
   color: #3692FF;
 }
+
+.nav-box a:first-child {
+  margin-right: 39px;
+}
+
+.nav-box {
+  font-size: 18px;
+  line-height: 21.48px;
+  font-weight: 700;
+  margin-left: -900px;
+}
