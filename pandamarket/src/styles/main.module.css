@@ -19,6 +19,21 @@ header {
   padding: 1rem 200px;
   background-color: #fff;
   z-index: 1000;
+  gap: 1rem;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-grow: 3;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.header-nav p:hover {
+  color: var(--main);
 }
 
 .s1 {
@@ -261,7 +276,10 @@ h2 {
 @media (min-width: 375px) and (max-width: 767px) {
   header {
     padding: 0 24px;
-    gap: 3rem;
+    gap: 1rem;
+  }
+  .header-nav {
+    gap: 0.5rem;
   }
   .s1 {
     height: auto;
