@@ -1,5 +1,3 @@
-/* Mobile styles */
-
 :root {
   /* Gray scale */
   --gray-900: #1b1d1f;
@@ -161,6 +159,7 @@ h1 {
   .nav-box a:first-child {
     margin-left: 670px; 
   }
+
   header {
     padding: 0 24px;
   }

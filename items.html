@@ -37,130 +37,133 @@
       <a href="login.html" id="loginLink" class="button">로그인</a>
     </header>
     <main>
-      <section>
-        <h1>베스트 상품</h1>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
-          </button>
-          <h2>아이패드 미니 팝니다</h2>
-          <strong>500,000원</strong>
-          <span>1000</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="책" />
-          </button>
-          <h2>책 팝니다</h2>
-          <strong>50,000원</strong>
-          <span>800</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="세탁기" />
-          </button>
-          <h2>세탁기 팝니다</h2>
-          <strong>500,000원</strong>
-          <span>700</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="오븐" />
-          </button>
-          <h2>오븐 팝니다</h2>
-          <strong>300,000원</strong>
-          <span>500</span>
-        </div>
-      </section>
-      <section>
-        <nav>
-          <h2>전체 상품</h2>
+      <div id="container">
+        <section>
+          <h1 class="product-name">베스트 상품</h1>
           <div>
-            <input type="text" placeholder="검색할 상품을 입력해주세요" />
-            <a href="additem.html">상품 등록하기</a>
-            <select name="products">
-              <option value="renew">최신순</option>
-              <option value="like">좋아요순</option>
-            </select>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
+            </button>
+            <h2>아이패드 미니 팝니다</h2>
+            <strong>500,000원</strong>
+            <span>1000</span>
           </div>
-        </nav>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="로봇 청소기" />
-          </button>
-          <h2>로봇 청소기</h2>
-          <strong>1,500,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="청소도구" />
-          </button>
-          <h2>청소 도구 팔아요</h2>
-          <strong>5,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="섀도우 팔레트" />
-          </button>
-          <h2>섀도우 팔레트</h2>
-          <strong>20,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img
-              src="images/icons/like-heart.svg"
-              alt="맥북 팝니다 m1 13인치"
-            />
-          </button>
-          <h2>아이패드 미니 팝니다</h2>
-          <strong>1,200,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="티셔츠" />
-          </button>
-          <h2>티셔츠 판매해요</h2>
-          <strong>5,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="행거" />
-          </button>
-          <h2>행거 10개 팔아요</h2>
-          <strong>5,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="곰돌이 인형" />
-          </button>
-          <h2>곰돌이 인형 팔아요</h2>
-          <strong>3,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="스탠바이미" />
-          </button>
-          <h2>스탠바이미</h2>
-          <strong>600,000원</strong>
-          <span>240</span>
-        </div>
-        <div>
-          <button type="button">
-            <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
-          </button>
-          <h2>아이패드 미니 팝니다</h2>
-          <strong>500,000원</strong>
-          <span>240</span>
-        </div>
-      </section>
-      <footer>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="책" />
+            </button>
+            <h2>책 팝니다</h2>
+            <strong>50,000원</strong>
+            <span>800</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="세탁기" />
+            </button>
+            <h2>세탁기 팝니다</h2>
+            <strong>500,000원</strong>
+            <span>700</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="오븐" />
+            </button>
+            <h2>오븐 팝니다</h2>
+            <strong>300,000원</strong>
+            <span>500</span>
+          </div>
+        </section>
+        <section>
+          <nav>
+            <h2>전체 상품</h2>
+            <div>
+              <input type="text" placeholder="검색할 상품을 입력해주세요" />
+              <a href="additem.html">상품 등록하기</a>
+              <select name="products">
+                <option value="renew">최신순</option>
+                <option value="like">좋아요순</option>
+              </select>
+            </div>
+          </nav>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="로봇 청소기" />
+            </button>
+            <h2>로봇 청소기</h2>
+            <strong>1,500,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="청소도구" />
+            </button>
+            <h2>청소 도구 팔아요</h2>
+            <strong>5,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="섀도우 팔레트" />
+            </button>
+            <h2>섀도우 팔레트</h2>
+            <strong>20,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img
+                src="images/icons/like-heart.svg"
+                alt="맥북 팝니다 m1 13인치"
+              />
+            </button>
+            <h2>아이패드 미니 팝니다</h2>
+            <strong>1,200,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="티셔츠" />
+            </button>
+            <h2>티셔츠 판매해요</h2>
+            <strong>5,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="행거" />
+            </button>
+            <h2>행거 10개 팔아요</h2>
+            <strong>5,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="곰돌이 인형" />
+            </button>
+            <h2>곰돌이 인형 팔아요</h2>
+            <strong>3,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="스탠바이미" />
+            </button>
+            <h2>스탠바이미</h2>
+            <strong>600,000원</strong>
+            <span>240</span>
+          </div>
+          <div>
+            <button type="button">
+              <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
+            </button>
+            <h2>아이패드 미니 팝니다</h2>
+            <strong>500,000원</strong>
+            <span>240</span>
+          </div>
+        </section>
+      </div>
+
+      <div>
         <ol>
           <li>
             <a href="#"></a>
@@ -184,7 +187,7 @@
             <a href="#"></a>
           </li>
         </ol>
-      </footer>
+      </div>
     </main>
   </body>
 </html>
