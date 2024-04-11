@@ -1,0 +1,69 @@
+/* --------------------     헤더     -------------------- */
+.header-container {
+  width: 100%;
+  background-color: #ffffff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.board-btn {
+  font-size: 16px;
+  font-family: Pretendard;
+  font-weight: 700;
+  line-height: 19px;
+  color: #4b5563;
+  margin-right: 8px;
+}
+
+.items-btn {
+  color: var(--blue);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.logo {
+  /* display: flex;
+  width: 153px;
+  height: 51px;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+.logo-icon {
+  display: none;
+}
+
+.logo-title {
+  font-family: ROKAF Sans;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--blue);
+  margin: 0 16px;
+}
+
+.btn {
+  /**/
+  display: flex;
+  width: 88px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  background-color: var(--blue);
+  /* text */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+.login-btn {
+  margin-left: 23px;
+  margin-right: 16px;
+}
+/* --------------------     //헤더     -------------------- */

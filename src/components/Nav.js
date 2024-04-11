@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "./Nav.css";
 
-export default function Header() {
+export default function Nav() {
   return (
     <>
       <header>
@@ -22,7 +22,7 @@ export default function Header() {
           <Link to="/items" className="items-btn">
             중고마켓
           </Link>
-          <Link to="/login" className="login-btn">
+          <Link to="/login" className="btn login-btn">
             로그인
           </Link>
         </div>

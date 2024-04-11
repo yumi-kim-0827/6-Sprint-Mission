@@ -139,3 +139,23 @@ button {
   overflow: visible;
   cursor: pointer;
 }
+
+/* --------------------     font     -------------------- */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("./font/ROKAF\ Sans.ttf") format("truetype");
+}
+
+/* --------------------     palette     -------------------- */
+:root {
+  --gray900: #1b1d1f;
+  --gray800: #26282b;
+  --gray700: #374151;
+  --gray600: #454c53;
+  --gray500: #72787f;
+  --gray400: #9ea4a8;
+  --gray200: #e5e7eb;
+  --gray100: #e8ebed;
+  --gray50: #f7f7f8;
+  --blue: #3692ff;
+}
