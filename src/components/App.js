@@ -7,6 +7,10 @@ function App() {
   const [items, setItems] = useState([]);
   const [order, setOrder] = useState("recent");
 
+  const handleSortedChange = (e) => {
+    setOrder(e.target.value);
+  };
+
   const handLoad = async (orderQuery) => {
     const { list } = await getItems({ orderQuery });
     setItems(list);
@@ -19,7 +23,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <AllItemList items={items} />
+      <AllItemList items={items} handleSortedChange={handleSortedChange} />
     </>
   );
 }

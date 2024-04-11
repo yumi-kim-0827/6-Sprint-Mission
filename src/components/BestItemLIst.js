@@ -11,9 +11,13 @@ function BestItem({ item }) {
   );
 }
 
-function AllItemList({ items }) {
+function AllItemList({ items, handleSortedChange }) {
   return (
-    <>
+    <div>
+      <select onChange={handleSortedChange}>
+        <option value="recent">최신순</option>
+        <option value="favorite">좋아요순</option>
+      </select>
       {items.map((item) => {
         return (
           <div key={item.id}>
@@ -21,7 +25,7 @@ function AllItemList({ items }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 export default AllItemList;
