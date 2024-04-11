@@ -3,12 +3,17 @@
     box-sizing: border-box;
 } 
 
+a{
+    text-decoration-line: none;
+}
+
 @import "normalize.css/normalize.css"
 
 body{
     color: #374151;
     width: 100%;
     font-family: "Pretendard", sans-serif;
+
 }
 
 .header{
@@ -36,11 +41,10 @@ body{
 }
 
 
-form{
-    display: block;
+.container{
+    max-width: 100%;
     margin : 0 auto;
-    max-width: 640px;
-    padding : 0;
+    padding : 0 16px;
     box-sizing: border-box;
 }
 label {
@@ -50,31 +54,34 @@ label {
     font-size: 18px;
     font-weight: 700;
 
-}
-
+} 
 input{
-    display:block;
-    background-color : #F3F4F6;
-    height: 56px;
+    background-color : #f3f4f6;
+    width: 100%;
+    line-height: 24px;
     gap: 10px;
     border-radius: 12px;
-    opacity: 0;
     margin-top: 16px;
     border : none;
     padding: 16px 24px;
-    width: 100%;
+    margin-bottom: 24px;
+    font-size: 16px;
+
 }
-.input{
-    width: 640px;
-    gap: 10px;
-    border-radius: 12px;
-    opacity: 0;
-    margin-top: 16px;
-    border : none;
+.error_email{
+    color:red;
+    display:none;
+}
+.error_pw{
+    color:red;
+    display:none;
+}
+.error_pw_verify{
+    color:red;
+    display:none;
 }
 .signinButton{
     background-color:#3692FF;
-    width:640px;
     height:56px;
     padding: 16px 124px;
     gap: 10px;
@@ -87,19 +94,12 @@ input{
 }
 .easyloginbox{
     background-color: #E6F2FF;
-    width:640px;
     height:74px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 24px;
-}
-.easylogin_wrapper{
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    height : 42px;
-    width: 594px;
+    margin-top: 24px;
+    padding: 16px 23px;
 }
 .easylogin{ 
     color :#1F2937;
@@ -121,4 +121,23 @@ img{
     display: flex;
     justify-content: center ;
     margin-top: 24px;
+}
+
+@media (min-width:768px){
+
+    label{
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    .container{
+        margin: 0 auto;
+        max-width: 640px;
+        
+    }
+    .signinButton{
+        font-size: 20px;
+        font-weight: 700;
+        padding: 16px 126px;
+    }
+
 }

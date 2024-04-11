@@ -15,10 +15,13 @@
         <img id="logo" src="Image/판다 얼굴@3x.png">
         <a href="/"><div class="name">판다마켓</div></a>
     </div>
-    <form>
+    <div class="container">
         <div class="input">
             <label for = "email_input">이메일</label>
             <input type="text" name="email_input" placeholder="이메일을 입력해 주세요" required>
+            <p class="error_email">
+                잘못된 이메일 형식입니다
+            </p>
         </div>
         <div class="input">
             <label for = "nickname_input">닉네임</label>
@@ -27,26 +30,29 @@
         <div class="input">
             <label for = "pw_input">비밀번호</label>
             <input type="text" name="pw_input" placeholder="비밀번호를 입력해 주세요" required>
+            <p class="error_pw">
+                비밀번호를 8자 이상 입력해주세요
+            </p>
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호 확인</label>
             <input type="text" name="pw_input" placeholder="비밀번호를 다시 한 번 입력해 주세요" required>
+            <p class="error_pw_verify">
+                비밀번호가 일치하지 않습니다
+            </p>
         </div>
         <div class="signinButton">회원가입</div>
         <div class="easyloginbox">
-            <div class="easylogin_wrapper">
                 <div class="easylogin">간편 로그인하기</div>
                 <div class="image">
                     <a href="https://www.google.com/"><img src="Image/google.png"></a>
                     <a href="https://www.kakaocorp.com/page/"><img src="Image/kakao.png"></a>
                 </div>               
-            </div>
-            
         </div>
         <div class="auth-switch">
             <span class="p">이미 회원이신가요?</span> 
             <a href="login.html">로그인</a></div>
-    </form>
+    </div>
     
 </body>
 </html>
