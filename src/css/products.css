@@ -1,0 +1,17 @@
+.products-section {
+  margin-bottom: 4rem;
+}
+.product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  text-align: left;
+  margin-bottom: 2.4rem;
+}
+
+.products-content {
+  display: grid;
+  grid-template: repeat(2,30rem)/repeat(5, 22rem);
+  row-gap: 4rem;
+  column-gap: 2.4rem;
+}

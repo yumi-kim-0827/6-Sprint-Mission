@@ -1,0 +1,16 @@
+.best-products-section {
+  margin-bottom: 4rem;
+}
+.best-product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  text-align: left;
+  margin-bottom: 1.6rem;
+}
+
+.best-products-content{
+    display: grid;
+    grid-template: 36.2rem/repeat(4,28.2rem);
+    column-gap: 2.4rem;
+}

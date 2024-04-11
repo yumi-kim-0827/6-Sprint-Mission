@@ -4,6 +4,7 @@ import { get_products } from "./api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
+import "../css/products.css"
 
 const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,9 +32,9 @@ const Products = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        전체상품
+    <div className="products-section">
+      <div className="product-title">전체상품</div>
+      <div className="products-content">
         {isLoading ? (
           <IsLoading />
         ) : loadingError ? (
@@ -44,7 +45,7 @@ const Products = () => {
           })
         )}
       </div>
-    </>
+    </div>
   );
 };
 

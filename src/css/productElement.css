@@ -1,0 +1,50 @@
+.product-element-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  height: 100%;
+}
+
+.product-element-image {
+    flex-grow: 1;
+    background-color: blueviolet;
+
+}
+.product-element-details {
+  display: flex;
+  flex-direction: column;
+  height: 6.4rem;
+  gap: 0.6rem;
+}
+.product-element-name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  text-align: left;
+  color: var(--coolGray800);
+}
+
+.product-element-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.9rem;
+  text-align: left;
+  color: var(--coolGray800);
+}
+.product-element-favoriteCount-section{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.product-element-favoriteCount-icon{
+    width: 1.6rem;
+    height: 1.6rem;
+
+}
+.product-element-favoriteCount {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-align: left;
+  color: #4B5563;
+}
