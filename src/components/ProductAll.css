@@ -72,14 +72,6 @@
   appearance: none;
 }
 
-.sort_option {
-  height: 100px;
-  width: 130px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  background-color: #fff;
-}
-
 .sort_arrow {
   position: absolute;
   right: 2px;

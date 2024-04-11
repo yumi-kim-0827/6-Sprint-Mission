@@ -1,5 +1,6 @@
 import TopNavigation from "../components/TopNavigation";
 import Product from "../components/Product";
+import ProductFooter from "../components/ProductFooter";
 
 const Items = () => {
   return (
@@ -8,6 +9,7 @@ const Items = () => {
       <main className="items_container">
         <Product />
       </main>
+      <ProductFooter />
     </>
   );
 };

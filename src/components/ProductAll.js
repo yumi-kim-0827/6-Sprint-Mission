@@ -95,9 +95,7 @@ const ProductAll = () => {
             </div>
           ))}
         </Desktop>
-      </div>
 
-      <div className="all_content">
         <Tablet>
           {sortedProducts.slice(0, 6).map((product) => (
             <div className="all_wrap">
@@ -119,9 +117,7 @@ const ProductAll = () => {
             </div>
           ))}
         </Tablet>
-      </div>
 
-      <div className="all_content">
         <Mobile>
           {sortedProducts.slice(0, 4).map((product) => (
             <div className="all_wrap">
