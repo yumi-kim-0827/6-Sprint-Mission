@@ -1,0 +1,27 @@
+.market-page {
+  padding: 2.4rem 11.3rem;
+  display: grid;
+  gap: 4rem;
+}
+
+.market-page section .title {
+  font-size: var(--font-20);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--gray-900);
+}
+
+.market-page section .product-list {
+  display: grid;
+  gap: 2.4rem;
+}
+
+/* 베스트 상품 */
+.market-page section.best-product .product-list {
+  margin: 1.6rem 0 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.market-page section.best-product .product-list .product-item:nth-child(n + 5) {
+  display: none;
+}

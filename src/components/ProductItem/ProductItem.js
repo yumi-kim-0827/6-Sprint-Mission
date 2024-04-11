@@ -7,7 +7,7 @@ const ProductItem = (props) => {
   const { name, price, images, favoriteCount } = item;
 
   return (
-    <div className="product-item">
+    <>
       <div className="img-area">
         <img src={images} alt={name} />
       </div>
@@ -21,7 +21,7 @@ const ProductItem = (props) => {
           <span className="count">{favoriteCount}</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
