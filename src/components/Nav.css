@@ -1,12 +1,19 @@
-/* --------------------     헤더     -------------------- */
-.header-container {
+header {
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
+}
+.nav-container {
   width: 100%;
   background-color: #ffffff;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dfdfdf;
+}
+
+.nav-pages {
+  flex: 1 1 auto;
+  justify-content: flex-start;
 }
 
 .board-btn {
@@ -26,14 +33,6 @@
   line-height: 19px;
 }
 
-.logo {
-  /* display: flex;
-  width: 153px;
-  height: 51px;
-  justify-content: space-between;
-  align-items: center; */
-}
-
 .logo-icon {
   display: none;
 }
@@ -48,16 +47,13 @@
 }
 
 .btn {
-  /**/
   display: flex;
   width: 88px;
   height: 42px;
   justify-content: center;
   align-items: center;
-
   border-radius: 8px;
   background-color: var(--blue);
-  /* text */
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;
@@ -66,4 +62,35 @@
   margin-left: 23px;
   margin-right: 16px;
 }
-/* --------------------     //헤더     -------------------- */
+
+@media (min-width: 744px) {
+  .logo-icon {
+    /*  */
+    display: block;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+  }
+  .logo-title {
+    margin-left: 8px;
+  }
+  .login-btn {
+    margin-right: 34px;
+    margin-left: 207px;
+  }
+  .nav-pages {
+    display: flex;
+    gap: 39px;
+    margin-left: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
