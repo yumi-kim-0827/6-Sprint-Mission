@@ -4,8 +4,10 @@ import { getProducts } from "../../api";
 import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
+import "../../components/SearchBox/SearchBox.css";
 // image
 import searchIcon from "../../assets/images/search_icon.svg";
+import Button from "../../components/Button/Button";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
@@ -44,15 +46,13 @@ const Market = () => {
         <div className="product-list-header">
           <h3 className="title">전체 상품</h3>
           <div className="product-header-nav">
-            <div className="search-box">
+            <div className="search-box absolute">
               <input placeholder="검색할 상품을 입력해주세요" />
-              <div className="search-icon">
+              <div className="search-icon relative">
                 <img src={searchIcon} alt="검색" />
               </div>
             </div>
-            <a className="button" href="additem.html">
-              상품 등록하기
-            </a>
+            <Button href="additem.html">상품 등록하기</Button>
             <div className="select-box">
               <button className="label">최신순</button>
               <ul className="option-list">

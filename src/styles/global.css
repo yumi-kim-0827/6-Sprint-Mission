@@ -161,17 +161,6 @@ a {
   margin: 0 auto;
 }
 
-.button {
-  border-radius: 8px;
-  background-color: var(--blue);
-  font-size: var(--font-16);
-  font-weight: 600;
-  color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;

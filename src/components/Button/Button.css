@@ -1,0 +1,11 @@
+.button {
+  padding: 1.2rem 2.3rem;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-size: var(--font-16);
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

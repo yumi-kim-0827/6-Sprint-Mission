@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import pandaLogo from "../../assets/images/panda_face.svg";
+import Button from "../Button/Button";
 
 const Header = () => {
   return (
@@ -28,11 +29,7 @@ const Header = () => {
           </ul>
         </div>
 
-        <div className="right">
-          <a className="button" href="login.html">
-            로그인
-          </a>
-        </div>
+        <Button href="login.html">로그인</Button>
       </div>
     </header>
   );
