@@ -1,0 +1,57 @@
+.Header {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header__wrapper {
+  width: 100%;
+  margin: 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header__logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Header__logo_mark {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.Header__logo_text {
+  width: 103px;
+}
+
+.Header__gnb {
+  flex: 1;
+  text-wrap: nowrap;
+}
+
+.Header__gnb button {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4b5563;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.Header__gnb button.selected {
+  color: #3692ff;
+}
+
+.Header__buttonWrapper {
+  width: 88px;
+  height: 42px;
+}
