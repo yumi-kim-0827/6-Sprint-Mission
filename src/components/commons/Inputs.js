@@ -14,9 +14,9 @@ export function SearchInput() {
   );
 }
 
-export function SelectInput() {
+export function SelectInput({ order, setOrder }) {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [sortBy, setSortBy] = useState("최신순");
+
   const isMobileWidth = useMobileDetector();
   const dropdownRef = useRef(null);
 
@@ -44,27 +44,15 @@ export function SelectInput() {
           <img src={SortIcon} alt="sort-icon" />
         ) : (
           <div className={styles.select}>
-            <span>{sortBy}</span>
+            <span>{order}</span>
             <img src={ArrowDownIcon} alt="arrow-down" />
           </div>
         )}
       </div>
       {isDropdownOpen && (
         <ul className={styles.dropdown__contents}>
-          <li
-            onClick={() => {
-              setSortBy("최신순");
-            }}
-          >
-            최신순
-          </li>
-          <li
-            onClick={() => {
-              setSortBy("좋아요순");
-            }}
-          >
-            좋아요순
-          </li>
+          <li onClick={() => setOrder("최신순")}>최신순</li>
+          <li onClick={() => setOrder("좋아요순")}>좋아요순</li>
         </ul>
       )}
     </div>

@@ -7,6 +7,9 @@
 
   .productImg {
     width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 19px;
+    object-fit: cover;
   }
 
   .title {
@@ -83,7 +86,7 @@
       margin-bottom: 16px;
 
       .title {
-        margin-bottom: 16px;
+        align-self: center;
       }
 
       .button {
@@ -117,7 +120,6 @@
       grid-template-columns: 1fr 1fr max-content max-content;
       grid-template-rows: 1fr;
       column-gap: 12px;
-      margin-bottom: 24px;
 
       .title {
         grid-column: 1;
@@ -132,6 +134,7 @@
       .searchInput {
         grid-column: 2;
         grid-row: 1;
+        margin-right: 0;
       }
 
       .selectInput {

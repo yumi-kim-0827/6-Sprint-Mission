@@ -7,6 +7,10 @@
   align-items: center;
   padding: 10px 16px;
   border: 1px solid #dfdfdf;
+  position: sticky;
+  top: 0;
+  z-index: var(--GNB);
+  background-color: white;
 
   @media (min-width: $min-tablet-width) {
     padding: 10px 34px;
