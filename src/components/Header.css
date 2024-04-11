@@ -19,6 +19,7 @@
 .Header__logoWrapper {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .Header__logo_mark {
@@ -34,6 +35,8 @@
 .Header__gnb {
   flex: 1;
   text-wrap: nowrap;
+  display: flex;
+  gap: 20px;
 }
 
 .Header__gnb button {
@@ -41,7 +44,6 @@
   font-size: 18px;
   font-weight: 700;
   color: #4b5563;
-  padding: 10px 20px;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -54,4 +56,23 @@
 .Header__buttonWrapper {
   width: 88px;
   height: 42px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .Header__wrapper {
+    margin: 0 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Header__wrapper {
+    margin: 0 16px;
+  }
+  .Header__logo_mark {
+    display: none;
+  }
+  .Header__gnb {
+    gap: 8px;
+    justify-content: center;
+  }
 }
