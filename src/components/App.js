@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Items from "../pages/Items";
 import NotFound from "../pages/NotFound";
 import Community from "../pages/Community";
+import AddItem from "../pages/AddItem";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Items" element={<Items />} />
         <Route path="/Community" element={<Community />} />
+        <Route path="/additem" element={<AddItem />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

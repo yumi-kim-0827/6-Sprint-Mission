@@ -1,12 +1,15 @@
 import "./Items.css";
 
 import TopNavigation from "../components/TopNavigation";
+import Product from "../components/Product";
 
 const Items = () => {
   return (
     <>
-      <TopNavigation site={"items"} />
-      <main className="items_container"></main>
+      <TopNavigation />
+      <main className="items_container">
+        <Product />
+      </main>
     </>
   );
 };
