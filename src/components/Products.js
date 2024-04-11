@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Img from "../assets/images/image.png";
+
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
@@ -19,8 +20,13 @@ const Product = () => {
         );
         const data = response.data;
         if (data && data.list) {
-          setProducts(data.list.slice(0, 12));
-          setBestProducts(data.list.slice(0, 4));
+          const originalProducts = data.list;
+          const sortedBestProducts = originalProducts
+            .slice()
+            .sort((a, b) => b.favoriteCount - a.favoriteCount)
+            .slice(0, 4);
+          setProducts(originalProducts.slice(0, 12));
+          setBestProducts(sortedBestProducts);
         } else {
           console.error("");
         }
@@ -37,7 +43,7 @@ const Product = () => {
       <BestProductContainer>
         {bestProducts.map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={Img} alt={product.name} />
+            <ProductImage src={product.images[0]} alt={product.name} />
             <ProductName>{product.name} 팝니다</ProductName>
             <ProductPrice>{product.price}원</ProductPrice>
             <ProductLikes>
@@ -51,7 +57,7 @@ const Product = () => {
       <TotalProductContainer>
         {products.map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={Img} alt={product.name} />
+            <ProductImage src={product.images[0]} alt={product.name} />
             <ProductName>{product.name}</ProductName>
             <ProductPrice>{product.price}원</ProductPrice>
           </ProductCard>
