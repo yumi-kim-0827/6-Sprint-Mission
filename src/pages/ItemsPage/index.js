@@ -1,11 +1,15 @@
 import React from 'react';
 import TopNavigation from '../../components/TopNavigation';
+import BestItemList from '../../components/BestItemList';
 
 const ItemsPage = () => {
   return (
-    <div>
+    <>
       <TopNavigation />
-    </div>
+      <main>
+        <BestItemList />
+      </main>
+    </>
   );
 };
 
