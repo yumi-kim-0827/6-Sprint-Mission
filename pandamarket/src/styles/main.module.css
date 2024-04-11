@@ -22,6 +22,10 @@ header {
   gap: 1rem;
 }
 
+header picture {
+  cursor: pointer;
+}
+
 .header-nav {
   display: flex;
   flex-direction: row;

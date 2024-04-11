@@ -1,8 +1,16 @@
 import React from "react";
 import "../styles/style.css";
 import styles from "../styles/main.module.css";
+import { useNavigate } from "react-router-dom";
+
 
 function Main() {
+  const navigate = useNavigate()
+
+  const goToItems = () => {
+    navigate("/items")
+  }
+
   return (
     <div>
       <section className={styles.s1}>
@@ -13,7 +21,7 @@ function Main() {
               <br />
               거래해보세요
             </h1>
-            <button id="btn_large" onclick="location.href='/items.html'">
+            <button id="btn_large" onClick={goToItems}>
               구경하러 가기
             </button>
           </div>
