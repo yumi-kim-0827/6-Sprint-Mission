@@ -1,5 +1,10 @@
-export async function getItems({ orderQuery = "recent" }) {
-  const query = `orderBy=${orderQuery}`;
+export async function getItems({
+  order = "recent",
+  page = 1,
+  pageSize = 10,
+  keyword = "",
+}) {
+  const query = `orderBy=${order}&page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`
   );

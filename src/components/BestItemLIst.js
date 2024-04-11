@@ -1,31 +1,19 @@
-function BestItem({ item }) {
-  const { description, price, favoriteCount, images, name } = item;
-  return (
-    <>
-      <img src={images[0]} alt={name} />
-      <div>
-        <h3>{description}</h3>
-        <p>{price}</p>
-      </div>
-    </>
-  );
-}
+import { AllItem } from "./AllItemList";
+import "../styles/BestItemList.css";
 
-function AllItemList({ items, handleSortedChange }) {
+export default function BestItemList({ items }) {
   return (
-    <div>
-      <select onChange={handleSortedChange}>
-        <option value="recent">최신순</option>
-        <option value="favorite">좋아요순</option>
-      </select>
-      {items.map((item) => {
-        return (
-          <div key={item.id}>
-            <BestItem item={item} />
-          </div>
-        );
-      })}
-    </div>
+    <section className="best-item-list">
+      <h2 className="category-title">베스트 상품</h2>
+      <div className="best-item-grid">
+        {items.map((item) => {
+          return (
+            <div key={item.id}>
+              <AllItem item={item} />
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
-export default AllItemList;
