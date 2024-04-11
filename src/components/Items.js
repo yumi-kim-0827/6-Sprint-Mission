@@ -1,3 +1,10 @@
+import Header from "./Header.js";
+
 export default function Items() {
-  return <div>items!!!!!!!!!!!!!!!!!!!!!!!!!!</div>;
+  return (
+    <>
+      <Header />
+      <div>여기는 본문</div>
+    </>
+  );
 }
