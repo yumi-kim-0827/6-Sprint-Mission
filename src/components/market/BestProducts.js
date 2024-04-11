@@ -77,7 +77,7 @@ export default function BestProducts() {
 
   return (
     <div className={styles.best__products}>
-      <h1 className={styles.title}>베스트 상품</h1>
+      <h1 className={styles.header__title}>베스트 상품</h1>
       <div className={styles.cards}>
         {datas.map((data, idx) => (
           <Card key={idx} data={data} />
