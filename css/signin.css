@@ -117,8 +117,23 @@ body {
     line-height: 24px;
 }
 
-button:hover {
+button.active {
     background-color: var(--brand-blue);
+}
+
+/*오류메시지*/
+.hide {
+    display: none;
+}
+
+.message{
+    position : relative;
+    left: 16px;
+    top: 8px;
+    color: var(--error-red);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 17.9px;
 }
 
 .login-simple {

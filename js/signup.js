@@ -1,38 +1,15 @@
-/*
-// 전체 오류메시지 : 입력값이 없을 때, 실패 메시지 정보 가져오기
-const elFailureMessageid = document.querySelector('.failure-message'); // div.failure-message.hide
-const elFailureMessagepw = document.querySelector('.failure-message');
-const elFailureMessagename = document.querySelector('.failure-message');
-
-// 아이디1 : 아이디 입력창 정보 가져오기
-const elInputUsername = document.querySelector('.joinid'); // input.loginid
-// 아이디2 : 이메일 형식이 아닐 때, 실패 메시지2 정보 가져오기 
-const elFailureMessageTwo = document.querySelector('.failure-message2'); // div.failure-message2.hide
-
-// 닉네임 : 닉네임 입력창 정보 가져오기
-const elname = document.querySelector('.name');
-
-// 비밀번호1 : 비밀번호 입력창 정보 가져오기
-const elInputPassword = document.querySelector('.password'); // input.loginpw
-// 비밀번호2 : 비밀번호 확인 입력창 정보 가져오기
-const elInputPasswordRetype = document.querySelector('.check'); // input#password-retype
-// 비밀번호3 : 비밀번호 불일치일 때, 실패 메시지 정보 가져오기 
-const elMismatchMessage = document.querySelector('.mismatch-message'); // div.mismatch-message.hide
-// 비밀번호4 : 8글자 미만일 때, 실패 메시지 정보 가져오기
-const elStrongPasswordMessage = document.querySelector('.strongPassword-message'); // div.strongPassword-message.hide
-*/
 document.addEventListener('DOMContentLoaded', function () {
-    const elInputUsername = document.querySelector('.joinid');
-    const elFailureMessageid = document.querySelector('.failure-messageid');
-    const elFailureMessageTwo = document.querySelector('.failure-message2');
-    const elname = document.querySelector('.joinid.name');
-    const elFailureMessagename = document.querySelector('.failure-messagename');
-    const elInputPassword = document.querySelector('.joinpw.password');
-    const elInputPasswordRetype = document.querySelector('.joinpw.check');
-    const elFailureMessagepw = document.querySelector('.failure-messagepw');
-    const elMismatchMessage = document.querySelector('.mismatch-message');
-    const elStrongPasswordMessage = document.querySelector('.strongPassword-message');
-    const elJoinBtn = document.querySelector('.join-btn');
+    const elInputUsername = document.querySelector('.joinid'); //아이디1 : 아이디 입력창 정보 가져오기
+    const elFailureMessageid = document.querySelector('.failure-messageid'); //아이디2 : 입력값이 없을 때, 실패 메시지 정보 가져오기
+    const elFailureMessageTwo = document.querySelector('.failure-message2'); //아이디3 : 이메일 형식이 아닐 때, 실패 메시지2 정보 가져오기 
+    const elname = document.querySelector('.joinid.name'); // 닉네임1 : 닉네임 입력창 정보 가져오기
+    const elFailureMessagename = document.querySelector('.failure-messagename'); //닉네임2 : 입력값이 없을 때, 실패 메시지 정보 가져오기
+    const elInputPassword = document.querySelector('.joinpw.password'); //비밀번호1 : 비밀번호 입력창 정보 가져오기
+    const elInputPasswordRetype = document.querySelector('.joinpw.check'); //비밀번호2 : 비밀번호 확인 입력창 정보 가져오기
+    const elFailureMessagepw = document.querySelector('.failure-messagepw'); //비밀번호3 : 입력값이 없을 때, 실패 메시지 정보 가져오기
+    const elMismatchMessage = document.querySelector('.mismatch-message'); // 비밀번호4 : 비밀번호 불일치일 때, 실패 메시지 정보 가져오기 
+    const elStrongPasswordMessage = document.querySelector('.strongPassword-message'); // 비밀번호5 : 8글자 미만일 때, 실패 메시지 정보 가져오기
+    const elJoinBtn = document.querySelector('.join-btn'); // 회원가입버튼 정보 가져오기
 
     // 이메일 유효성 검사 함수
     function validateEmail(email) {
