@@ -38,6 +38,40 @@ const Market = () => {
           })}
         </ul>
       </section>
+
+      {/* 전체 상품 */}
+      <section className="all-product">
+        <div className="product-list-header">
+          <h3 className="title">전체 상품</h3>
+          <div className="product-header-nav">
+            <div className="search-box">
+              <input placeholder="검색할 상품을 입력해주세요" />
+              <div className="search-icon">
+                <img src={searchIcon} alt="검색" />
+              </div>
+            </div>
+            <a className="button" href="additem.html">
+              상품 등록하기
+            </a>
+            <div className="select-box">
+              <button className="label">최신순</button>
+              <ul className="option-list">
+                <li className="option-item">최신순</li>
+                <li className="option-item">좋아요순</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul className="product-list">
+          {allProducts.map((product) => {
+            return (
+              <li className="product-item" key={product.id}>
+                <ProductItem item={product} />
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </div>
   );
 };
