@@ -1,6 +1,3 @@
-@import "../styles/reset.css";
-@import "../styles/common.css";
-
 .btn {
   display: flex;
   justify-content: center;

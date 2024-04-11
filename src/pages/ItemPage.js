@@ -19,6 +19,7 @@ function ItemPage() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
+    // 반응형에 따른 state
     const handleResize = () => {
       let newBestItemCount = 1;
       let newPageCount = 4;
@@ -63,7 +64,6 @@ function ItemPage() {
 
         const newTotalCount = Math.ceil(totalCount / pageCount);
         setTotalPageCount(newTotalCount);
-        console.log(totalCount, pageCount, newTotalCount, "총페이지수");
       } catch (error) {
         console.error("상품 목록을 불러오는 중 오류가 발생했습니다:", error);
       }
@@ -116,15 +116,10 @@ function ItemPage() {
             ></SortSelectBox>
           </div>
           <div className="ItemPage__item-list">
-            {/* 페이지네이션 - 일단 서버에서 전부 가져와서 짤라서 보여주는 식으로 구현 */}
+            {/* 페이지네이션 - 서버에서 전부 가져와서 짤라서 보여주는 식으로 구현 */}
             {items
               .map((item) => <Item key={item.id} item={item} />)
               .slice((currentPage - 1) * pageCount, currentPage * pageCount)}
-            {console.log(
-              (currentPage - 1) * pageCount,
-              currentPage * pageCount,
-              "페이지자르기"
-            )}
           </div>
         </div>
         <Pagination

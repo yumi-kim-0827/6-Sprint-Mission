@@ -1,6 +1,3 @@
-@import "../styles/reset.css";
-@import "../styles/common.css";
-
 input::placeholder {
   color: var(--color-cool-gray-400);
 }
