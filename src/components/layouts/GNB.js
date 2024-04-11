@@ -24,7 +24,7 @@ export default function GNB() {
           중고마켓
         </span>
       </div>
-      <Button text="로그인" />
+      <Button>로그인</Button>
     </nav>
   );
 }

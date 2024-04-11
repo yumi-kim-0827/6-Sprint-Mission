@@ -4,6 +4,7 @@ import BestProducts from "components/market/BestProducts";
 import { SearchInput, SelectInput } from "components/commons/Inputs";
 import Pagination from "components/commons/Pagination";
 import { MarketLayout } from "components/layouts/Layout";
+import AllProducts from "components/market/AllProducts";
 
 export default function MarketMainPage() {
   // const getData = async () => {
@@ -24,9 +25,8 @@ export default function MarketMainPage() {
       <GNB />
       <MarketLayout>
         <BestProducts />
-        {/* <SearchInput />
-        <SelectInput />
-        <Pagination /> */}
+        <AllProducts />
+        <Pagination />
       </MarketLayout>
     </>
   );

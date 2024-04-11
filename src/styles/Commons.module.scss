@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   min-width: 88px;
+  width: max-content;
   height: 42px;
   font-size: 16px;
   font-weight: 600;
@@ -28,15 +29,14 @@
     border: none;
     width: 100%;
     min-width: 242px;
-    max-width: 325px;
     height: 42px;
     background-color: var(--input-bg);
+    text-indent: 44px;
 
     &::placeholder {
       color: var(--light-gray);
       font-size: 16px;
       font-weight: 400;
-      text-indent: 44px;
     }
   }
 
@@ -138,5 +138,7 @@
 .pagination {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
+  margin-top: 40px;
 }

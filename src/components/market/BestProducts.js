@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Card from "components/market/Card";
-import styles from "styles/layout.module.scss";
+import styles from "styles/markets.module.scss";
 import useDeviceState from "features/hooks/useDeviceState";
 import iPad from "assets/img/mock/ipad.svg";
 
-const MOCK_DATA_MOBILE = [
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-];
+const MOCK_DATA = {
+  img: iPad,
+  title: "아이패드 미니 팝니다",
+  price: 500_000,
+  likeCount: 240,
+};
 
-const MOCK_DATA_TABLET = [
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-];
-
-const MOCK_DATA_DESKTOP = [
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-  { img: iPad, title: "아이패드 미니 팝니다", price: 500_000, likeCount: 240 },
-];
+const MOCK_DATA_MOBILE = new Array(1).fill(MOCK_DATA);
+const MOCK_DATA_TABLET = new Array(2).fill(MOCK_DATA);
+const MOCK_DATA_DESKTOP = new Array(4).fill(MOCK_DATA);
 
 export default function BestProducts() {
   const deviceState = useDeviceState();
