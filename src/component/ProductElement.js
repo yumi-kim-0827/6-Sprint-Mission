@@ -14,7 +14,6 @@ const ProductElement = ({product}) => {
                     <span className='product-element-price'>{product.price}</span>
                     <div className='product-element-favoriteCount-section'>
                         <img className='product-element-favoriteCount-icon' src={favoriteCountIcon} alt="좋아요 하트 이모티콘"></img>
-
                         <span className='product-element-favoriteCount'>{product.favoriteCount}</span>
                     </div>
                 </div>

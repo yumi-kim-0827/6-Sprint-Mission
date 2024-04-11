@@ -11,7 +11,7 @@ const BestProducts = () => {
   const [bestProducts, setBestProducts] = useState([]);
 
   const sortByLikes = (products) => {
-    return products.sort((a, b) => a["favoriteCount"] - a["favoriteCount"]);
+    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
   };
   const handleLoad = async () => {
     let result;
@@ -26,7 +26,7 @@ const BestProducts = () => {
       setIsLoading(false);
     }
     const { list, totalCount } = result;
-    setBestProducts(sortByLikes(list));
+    setBestProducts(sortByLikes(list).slice(0,4));
   };
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const BestProducts = () => {
         ) : loadingError ? (
           <FailLoading />
         ) : (
-          bestProducts.map((product) => {
+          bestProducts.map((product,index) => {
             return <ProductElement key={product.id} product={product} />;
           })
         )}

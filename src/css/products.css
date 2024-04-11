@@ -1,17 +1,106 @@
 .products-section {
   margin-bottom: 4rem;
 }
-.product-title {
+.products-header {
+  margin-bottom: 2.4rem;
+  height: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.products-title {
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.8rem;
   text-align: left;
-  margin-bottom: 2.4rem;
+}
+.products-sort-section {
+  display: flex;
+  height: 100%;
+  gap: 1.2rem;
+}
+.search-input {
+  width: 32.5rem;
+  height: 100%;
+  border-radius: 1.2rem;
+  background-color: var(--coolGray100);
+  border: none;
+  background-image: url("../image/search_icon.png");
+  background-position: 1.6rem 45%;
+  background-repeat: no-repeat;
+}
+.search-input::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: auto 0;
+  padding-left: 4rem;
 }
 
 .products-content {
   display: grid;
-  grid-template: repeat(2,30rem)/repeat(5, 22rem);
+  grid-template: repeat(2, 30rem) / repeat(5, 22rem);
   row-gap: 4rem;
   column-gap: 2.4rem;
+}
+
+.register-product-btn {
+  width: 13.3rem;
+  padding: 1.2rem 2.3rem 1.2rem 2.3rem;
+  background-color: var(--btn1);
+  border-radius: 0.8rem;
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.9rem;
+  text-align: center;
+  margin: auto 0;
+}
+.product-sort-select{
+  position: relative;
+}
+.product-sort-select-btn {
+  height: 100%;
+  width: 13rem;
+  padding-left: 2rem;
+  text-align: left;
+  background-image: url("../image/ic_arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position: 8.6rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  cursor: pointer;
+  border-radius: 1.2rem;
+  border: 1px solid var(--gray200);
+  background-color: white;
+}
+.product-sort-select-option-list {
+  list-style-type: none;
+  position: absolute;
+  top:4.6rem;
+
+}
+.product-sort-select-option-list li {
+  width: 13rem;
+  height: 4.2rem;
+  border: 1px solid var(--gray200);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+.product-sort-select-option-list li:first-child{
+  border-radius: 12px 12px 0 0;
+}
+.product-sort-select-option-list li:last-child{
+  border-radius: 0 0 12px 12px;
+}
+.product-sort-select-option-list li:hover{
+  background-color: var(--btn1);
 }
