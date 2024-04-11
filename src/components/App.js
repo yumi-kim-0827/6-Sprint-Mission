@@ -41,7 +41,11 @@ function App() {
       <Navbar />
       <main>
         <BestItemList items={bestItems} />
-        <AllItemList items={allItems} handleSortedChange={handleSortedChange} />
+        <AllItemList
+          items={allItems}
+          handleSortedChange={handleSortedChange}
+          className="-all"
+        />
       </main>
     </>
   );

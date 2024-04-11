@@ -1,8 +1,14 @@
 .best-item-list {
+  margin: 24px 0 40px;
+}
+
+.category-title {
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .best-item-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 282px);
+  gap: 24px;
 }
