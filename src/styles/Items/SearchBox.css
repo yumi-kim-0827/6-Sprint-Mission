@@ -1,0 +1,25 @@
+.SearchBox {
+  width: 325px;
+  height: 42px;
+  position: relative;
+}
+
+.SearchBox input {
+  box-sizing: border-box;
+  width: 325px;
+  height: 42px;
+  font-weight: 400;
+  padding: 9px 20px 9px 50px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.SearchBox__icon {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+}
+.SearchBox input::placeholder {
+  color: #9ca3af;
+}

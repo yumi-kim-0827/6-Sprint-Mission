@@ -1,0 +1,43 @@
+.Item {
+  width: 221px;
+  height: 301px;
+}
+.imgWrapper {
+  width: 221px;
+  height: 221px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nameText {
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 14px;
+}
+.priceText {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 16px;
+}
+.likes {
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .imgWrapper {
+    width: 168px;
+    height: 168px;
+  }
+}

@@ -1,0 +1,79 @@
+.Header {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+.Header__wrapper {
+  width: 100%;
+  margin: 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header__logoWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.Header__logo_mark {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.Header__logo_text {
+  width: 103px;
+}
+
+.Header__gnb {
+  flex: 1;
+  text-wrap: nowrap;
+  display: flex;
+  gap: 20px;
+}
+
+.Header__gnb button {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4b5563;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.Header__gnb button.selected {
+  color: #3692ff;
+}
+
+.Header__buttonWrapper {
+  width: 88px;
+  height: 42px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .Header__wrapper {
+    margin: 0 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Header__wrapper {
+    margin: 0 16px;
+  }
+  .Header__logo_mark {
+    display: none;
+  }
+  .Header__gnb {
+    gap: 8px;
+    justify-content: center;
+  }
+}
