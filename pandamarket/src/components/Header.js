@@ -1,9 +1,13 @@
 import React from "react";
 import "../styles/style.css";
 import styles from "../styles/main.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation()
+
+  const isItemsPage = location.pathname === "/items"
+
   const navigate = useNavigate()
 
   const goToItems = () => {
@@ -29,7 +33,7 @@ function Header() {
       </picture>
       <nav className={styles['header-nav']}>
         <p>자유게시판</p>
-        <p onClick={goToItems}>중고마켓</p>
+        <p onClick={goToItems} style={{color: isItemsPage ? '#3692FF': 'inherit'}}>중고마켓</p>
       </nav>
       <button id="btn_small" onClick={goToSignin}>
         로그인
