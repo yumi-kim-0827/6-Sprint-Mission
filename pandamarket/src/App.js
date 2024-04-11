@@ -1,10 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
+import { Header } from "./layout/Header";
+import { View } from "./layout/View";
 
 function App() {
+  const [page, setPage] = useState("ViewItemList")
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div className="pandamarket">
+      <Header/>
+      <View page={page}/>
     </div>
   );
 }
