@@ -1,0 +1,17 @@
+.container {
+  width: 343px;
+  height: 467px;
+  border: 1px solid red; /*임시*/
+  margin: 17px auto 24px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #111827;
+}

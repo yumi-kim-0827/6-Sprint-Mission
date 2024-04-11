@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>네비게이션의 중고마켓을 눌러 페이지로 이동하세요</p>
+        <p>네비게이션의 중고마켓을 눌러 /items 페이지로 이동하세요</p>
       </header>
     </div>
   );
