@@ -2,8 +2,18 @@
     box-sizing: border-box;
 } 
 
+<<<<<<< HEAD:style_login.css
 a{
     text-decoration-line : none;
+=======
+@import "node_modules/normalize.css/normalize.css"
+
+
+body{
+    color: #374151;
+    width: 100%;
+    font-family: "Pretendard", sans-serif;
+>>>>>>> 472ac20b31cef380c543a7e9ef5b7b2e11ba86c0:style2.css
 }
 
 .header{

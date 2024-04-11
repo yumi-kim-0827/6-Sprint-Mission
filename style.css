@@ -293,6 +293,7 @@ footer{
         br{
             display:none;
         }
+<<<<<<< HEAD
     }
     .section p{
         line-height:19.2px;
@@ -309,6 +310,24 @@ footer{
         justify-content: center;
 
     }
+=======
+    }
+    .section p{
+        line-height:19.2px;
+        font-size:16px;
+        font-weight: 500;
+
+    }
+    .section-description{
+        width:100%;
+    }
+    .section4{
+        flex-wrap:wrap;
+        height: 540px;
+        justify-content: center;
+
+    }
+>>>>>>> 472ac20b31cef380c543a7e9ef5b7b2e11ba86c0
     #home_bottom{
         max-width: 500px;
         
@@ -317,6 +336,7 @@ footer{
         text-align:center;
         justify-content: center;
     }
+<<<<<<< HEAD
     #home_bottom{
         overflow: hidden;
     }
@@ -331,4 +351,10 @@ footer{
     .faq{
         font-size: 10px;
     }
+=======
+    .footerFrame{
+        padding:0%;
+    }
+}
+>>>>>>> 472ac20b31cef380c543a7e9ef5b7b2e11ba86c0
     
