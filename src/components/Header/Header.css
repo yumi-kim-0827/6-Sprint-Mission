@@ -1,0 +1,30 @@
+header {
+  padding: 11px 0;
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  z-index: 10;
+}
+
+header .inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  gap: 0 8px;
+}
+
+header .logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+header .button {
+  width: 128px;
+  height: 48px;
+}
