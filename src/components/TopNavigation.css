@@ -1,0 +1,65 @@
+.top_navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+}
+.top_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top_navigation_wrap {
+  margin-left: 200px;
+}
+.top_navigation_main {
+  display: flex;
+  flex-grow: 9;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.top_navigation_login {
+  margin-right: 200px;
+}
+.login_btn {
+  width: 8rem;
+  height: 3rem;
+  border-radius: 8px;
+  gap: 10px;
+  padding: 14px 24px;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Tablet Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .top_navigation_wrap {
+    margin-left: 24px;
+  }
+
+  .top_navigation_login {
+    margin-right: 24px;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Mobile Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .top_navigation_wrap {
+    margin-left: 16px;
+  }
+
+  .top_navigation_login {
+    margin-right: 16px;
+  }
+}
