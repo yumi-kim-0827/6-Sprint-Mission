@@ -9,9 +9,6 @@ function Items() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleFavoriteClick = () => setOrder("favoriteCount");
-
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -19,13 +16,18 @@ function Items() {
         const fetchedProducts = await getProducts({ order });
         setProducts(fetchedProducts);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("상품 가져오는데 실패했습니다", error);
+        setIsLoading(false);
       }
     };
     fetch();
   }, [order]);
 
   const sortedProducts = products.sort((a, b) => b[order] - a[order]);
+
+  const handleOrderChange = (orderChange) => {
+    setOrder(orderChange)
+  }
 
   return (
     <div className={styles.container}>
@@ -34,11 +36,25 @@ function Items() {
         <div className=""></div>
       </div>
 
-      <div className={styles["all-products"]}>
-        <h3>전체 상품</h3>
-        <div className="">
-          <ProductList products={sortedProducts} />
+      <div>
+        <div className={styles["all-products-nav"]}>
+          <h3>전체 상품</h3>
+          <div className={styles.search}>
+            <input placeholder="검색할 상품을 입력해주세요"></input>
+          </div>
+          <button id="btn_small">상품 등록하기</button>
+          <div className={styles.dropdown}>
+            <select
+              value={order}
+              onChange={(e) => handleOrderChange(e.target.value)}
+            >
+              <option value="createdAt">최신순</option>
+              <option value="favoriteCount">좋아요순</option>
+            </select>
+          </div>
         </div>
+
+        <ProductList products={sortedProducts} />
       </div>
     </div>
   );

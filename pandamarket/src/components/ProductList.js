@@ -4,7 +4,7 @@ import styles from "../styles/productList.module.css";
 
 function ProductList({ products }) {
   return (
-    <div>
+    <div className={styles.products}>
       {/* products는 map을 통해 배열 내의 각 상품을 순회하면서 상품 정보 렌더링 */}
       {products.map((product) => (
         <div key={product.id} className={styles.product}>
