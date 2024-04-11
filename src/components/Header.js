@@ -15,7 +15,7 @@ const Header = () => {
     <HeaderContainer>
       <MenuContainer>
         <div onClick={() => navigate("/")}>
-          <img src={Logo} alt="판다마켓 홈" width="153" />
+          <PandaLogo src={Logo} alt="판다마켓 홈" width="135" />
         </div>
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
@@ -96,5 +96,7 @@ const UsedMarket = styled.div`
       color: #3692ff;
     `}
 `;
-
+const PandaLogo = styled.img`
+  cursor: pointer;
+`;
 export default Header;
