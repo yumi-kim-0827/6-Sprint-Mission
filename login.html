@@ -18,18 +18,18 @@
     <form>
         <label for = "email_input">이메일</label>
         <input type="email" id="email_input" class="email_input" placeholder="이메일을 입력하세요" required>
-        <p class="error_id_error">
-            잘못된 이메일입니다 
+        <p id ="emailErrorMessage" class="error_message">
+            잘못된 이메일 형식입니다
         </p>
         <label for = "pw_input">비밀번호</label>
         <div class="input-wrapper">
             <input type="text" id="pw_input" class="pw_input" placeholder="비밀번호를 입력하세요" required>
             <img src ="Image/btn_visibility_off.png" alt = "비밀번호 숨김" class = "toggle-password">
         </div>
-        <p class="error_pw_error">
+        <p id="passwordErrorMessage" class="error_message">
             비밀번호를 8자 이상 입력해주세요
         </p>
-        <div class="loginButton">로그인</div>
+        <div class="loginButton" id="loginButton" disabled>로그인</div>
         <div class="easyloginbox">
                 <div class="easylogin">간편 로그인하기</div>
                 <div class="image">
@@ -41,6 +41,6 @@
             <span class="p">판다마켓은 처음이신가요?</span> 
             <a href="signin.html">회원가입</a></div>
     </form>
-    <script src="./login.js"></script>
+    <script src="./auth.js"></script>
 </body>
 </html>

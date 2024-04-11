@@ -1,16 +1,11 @@
-
-@import "node_modules/normalize.css/normalize.css"
-
-
-body {
-    color: #374151;
-    width: 100%;
-    font-family: "Pretendard", sans-serif;
-}
+* {
+    box-sizing: border-box;
+} 
 
 a{
-    text-decoration-line: none;
+    text-decoration-line : none;
 }
+
 .header{
     display: flex;
     width: 100%;
@@ -34,10 +29,9 @@ a{
 
 
 form{
-    display: block;
-    margin : 0 auto;
-    max-width: 432px;
-    padding : 0 16px;
+    margin : 0 auto; 
+    max-width: 100%;
+
 
 }
 label {
@@ -74,16 +68,13 @@ input{
     padding: 16px 24px;
     width: 100%;
 }
-.error_id_error{
-    color: #d02743;
-    display:none;
+
+.error_message{
+    display: none;
+    color: red;
 }
-.invalid .error {
-    display: flex;
-}
-.error_pw_error{
-    color:#d02743;
-    display:none;
+.error{
+    border: 1px solid #f74747;
 }
 
 .loginButton{
@@ -136,7 +127,7 @@ img{
     }
     form{
         max-width: 100%;
-        padding: 30px 140px;
+        padding: 30px 200px;
     }
     label{
         font-size: 18px;

@@ -18,26 +18,26 @@
     <div class="container">
         <div class="input">
             <label for = "email_input">이메일</label>
-            <input type="text" name="email_input" placeholder="이메일을 입력해 주세요" required>
-            <p class="error_email">
+            <input type="text" id="email_input"name="email_input" placeholder="이메일을 입력해 주세요" required>
+            <p id ="emailErrorMessage" class="error_message">
                 잘못된 이메일 형식입니다
             </p>
         </div>
         <div class="input">
             <label for = "nickname_input">닉네임</label>
-            <input type="text" name="nickname_input" placeholder="닉네임을 입력해 주세요" required>
+            <input type="text" id="nickname"name="nickname_input" placeholder="닉네임을 입력해 주세요" required>
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호</label>
-            <input type="text" name="pw_input" placeholder="비밀번호를 입력해 주세요" required>
-            <p class="error_pw">
+            <input type="text" id="pw_input"name="pw_input" placeholder="비밀번호를 입력해 주세요" required>
+            <p id="passwordErrorMessage" class="error_message">
                 비밀번호를 8자 이상 입력해주세요
             </p>
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호 확인</label>
-            <input type="text" name="pw_input" placeholder="비밀번호를 다시 한 번 입력해 주세요" required>
-            <p class="error_pw_verify">
+            <input type="text" id="pw_input2" name="pw_input_verify" placeholder="비밀번호를 다시 한 번 입력해 주세요" required>
+            <p id="passwordMismatchError"class="error_message">
                 비밀번호가 일치하지 않습니다
             </p>
         </div>
@@ -53,6 +53,6 @@
             <span class="p">이미 회원이신가요?</span> 
             <a href="login.html">로그인</a></div>
     </div>
-    
+    <script src="./auth.js"></script>
 </body>
 </html>

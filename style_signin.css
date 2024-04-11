@@ -7,8 +7,6 @@ a{
     text-decoration-line: none;
 }
 
-@import "normalize.css/normalize.css"
-
 body{
     color: #374151;
     width: 100%;
@@ -68,17 +66,12 @@ input{
     font-size: 16px;
 
 }
-.error_email{
-    color:red;
-    display:none;
+.error_message{
+    display: none;
+    color: red;
 }
-.error_pw{
-    color:red;
-    display:none;
-}
-.error_pw_verify{
-    color:red;
-    display:none;
+.error{
+    border: 1px solid #f74747;
 }
 .signinButton{
     background-color:#3692FF;
