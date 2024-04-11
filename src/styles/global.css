@@ -1,6 +1,5 @@
 :root {
   /* color */
-  --gray-50: #f3f4f6;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-400: #9ca3af;
@@ -147,6 +146,12 @@ img {
 
 a {
   text-decoration: none;
+}
+
+input {
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
 }
 
 .inner {

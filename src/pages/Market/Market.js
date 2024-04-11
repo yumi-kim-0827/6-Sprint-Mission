@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 
 import { getProducts } from "../../api";
+import Button from "../../components/Button/Button";
 import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
-// image
-import searchIcon from "../../assets/images/search_icon.svg";
-import Button from "../../components/Button/Button";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+
+  // 상품 검색 기능
+  const searchProducts = async (event) => {
+    const { value } = event.target;
+    const items = await getProducts("recent", value);
+    const { list } = items;
+    setAllProducts(list);
+  };
 
   // 상품 리스트 불러오기
   const getItems = async (sort, setState) => {
@@ -45,13 +52,11 @@ const Market = () => {
       <section className="all-product">
         <div className="product-list-header">
           <h3 className="title">전체 상품</h3>
-          <div className="product-header-nav">
-            <div className="search-box absolute">
-              <input placeholder="검색할 상품을 입력해주세요" />
-              <div className="search-icon relative">
-                <img src={searchIcon} alt="검색" />
-              </div>
-            </div>
+          <div className="product-header-nav flex-center">
+            <SearchBox
+              onInput={searchProducts}
+              placeholder="검색할 상품을 입력해주세요"
+            />
             <Button href="additem.html">상품 등록하기</Button>
             <div className="select-box">
               <button className="label">최신순</button>
