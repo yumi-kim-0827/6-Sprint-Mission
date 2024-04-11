@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Card from "components/market/Card";
 import styles from "styles/markets.module.scss";
 import useDeviceState from "features/hooks/useDeviceState";
-import iPad from "assets/img/mock/ipad.svg";
-import Book from "assets/img/mock/book.svg";
-import WashingMachine from "assets/img/mock/washing-machine.svg";
-import Oven from "assets/img/mock/oven.svg";
+import iPad from "assets/img/mock/ipad.png";
+import Book from "assets/img/mock/book.png";
+import WashingMachine from "assets/img/mock/washing-machine.png";
+import Oven from "assets/img/mock/oven.png";
 
 const MOCK_DATA_MOBILE = [
   {
