@@ -20,14 +20,14 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/">
-              <span className="font-bold text-lg sm:text-base ml-4 sm:ml-9 lg:ml-12">
+              <span className="font-bold text-[#4B5563] text-lg sm:text-base ml-4 sm:ml-9 lg:ml-12">
                 자유게시판
               </span>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <span className="font-bold text-lg sm:text-base ml-2 sm:ml-10 lg:ml-10">
+              <span className="font-bold text-[color:var(--btn-blue1)] text-lg sm:text-base ml-2 sm:ml-10 lg:ml-10">
                 중고마켓
               </span>
             </Link>
