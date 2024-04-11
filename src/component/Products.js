@@ -28,9 +28,21 @@ const Products = () => {
     const { list, totalCount } = result;
     setProducts(list);
   };
-  const handleSelectButton = ()=>{
+
+  const handleSelectButton = () => {
     setShowSelectBox(!showSelectBox);
-  }
+  };
+  const handleSelectOption = (selectedOrder) => {
+    setOrder(selectedOrder);
+    setShowSelectBox(false);
+  };
+  const sortByOrder = () => {
+    return products.sort((a, b) => {
+      if (order === "createdAt") return new Date(b[order]) - new Date(a[order]);
+      else return b[order] - a[order];
+    });
+  };
+  const sortedProducts = sortByOrder(); // 왜 이 친구는 state가 아닌가
 
   useEffect(() => {
     handleLoad();
@@ -52,13 +64,28 @@ const Products = () => {
             상품 등록하기
           </a>
           <div className="product-sort-select">
-            <button className="product-sort-select-btn" onClick={handleSelectButton}>
+            <button
+              className="product-sort-select-btn"
+              onClick={handleSelectButton}
+            >
               {order === "createdAt" ? "최신순" : "좋아요순"}
             </button>
             {showSelectBox ? (
               <ul className="product-sort-select-option-list">
-                <li>최신순</li>
-                <li>좋아요순</li>
+                <li
+                  onClick={() => {
+                    handleSelectOption("createdAt");
+                  }}
+                >
+                  최신순
+                </li>
+                <li
+                  onClick={() => {
+                    handleSelectOption("favoriteCount");
+                  }}
+                >
+                  좋아요순
+                </li>
               </ul>
             ) : (
               <></>
@@ -72,7 +99,7 @@ const Products = () => {
         ) : loadingError ? (
           <FailLoading />
         ) : (
-          products.map((product) => {
+          sortedProducts.map((product) => {
             return <ProductElement key={product.id} product={product} />;
           })
         )}

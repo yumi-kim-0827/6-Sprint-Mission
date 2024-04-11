@@ -13,6 +13,7 @@ const BestProducts = () => {
   const sortByLikes = (products) => {
     return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
   };
+  
   const handleLoad = async () => {
     let result;
     try {

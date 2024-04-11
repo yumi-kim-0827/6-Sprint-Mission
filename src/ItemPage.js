@@ -5,6 +5,7 @@ import Products from './component/Products';
 import "./css/itemPage.css"
 
 const ItemPage = () => {
+
     return (
         <>
          <Header pageName="중고마켓"/>
