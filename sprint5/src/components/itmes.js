@@ -6,26 +6,34 @@ import { getProducts } from "./Api";
 
 function Items() {
   const [items, setItems] = useState([]);
+  const [order, setOrder] = useState("createdAt");
+  const sortedItems = items.sort((a, b) => b[order] - a[order]);
+
+  const handleNewestClick = () => setOrder("createdAt");
+
+  const handleBestClick = () => setOrder("favoriteCount");
+
+  const handleLoad = async (orderQuery) => {
+    const products = await getProducts(orderQuery);
+    setItems(products);
+  };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    handleLoad(order);
+  }, [order]);
 
-  const fetchData = async () => {
-    try {
-      const { list } = await getProducts();
-      setItems(list);
-    } catch (error) {
-      console.error("상품을 불러오는 중 에러 발생:", error);
-      setItems([error]);
-    }
-  };
   return (
     <div>
       <Navbar />
       <ProductMenu title={"베스트 상품"} />
-      <Products items={items} />
-      <ProductMenu title={"전체 상품"} button />
+      <ProductMenu
+        title={"전체 상품"}
+        button
+        dropdown
+        handleNewestClick={handleNewestClick}
+        handleBestClick={handleBestClick}
+      />
+      <Products items={sortedItems} />
     </div>
   );
 }
