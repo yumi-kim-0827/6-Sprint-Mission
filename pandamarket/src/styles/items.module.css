@@ -1,8 +1,12 @@
 @import url("./style.css");
 
 .container {
-  margin: 100px auto;
+  margin: 8rem auto;
   width: 1200px;
+}
+
+.best-products {
+  margin-bottom: 4rem;
 }
 
 h3 {
@@ -19,4 +23,54 @@ h3 {
 .all-products-nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.all-products-sub-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.all-products-sub-nav button {
+  height: 42px !important;
+  padding: 0.5rem 1rem !important;
+}
+
+input {
+  background-color: var(--coolgray100);
+  border: none;
+  width: 325px;
+  height: 42px;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.search img {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 0.45rem;
+  left: 2.5rem;
+}
+
+.dropdown {
+  width: 130px;
+  height: 42px;
+  padding: 0.1rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.dropdown:focus {
+  outline: none;
+}
+
+option {
+  font-size: 15px;
 }

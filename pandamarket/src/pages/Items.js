@@ -1,10 +1,17 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import styles from "../styles/items.module.css";
 import ProductList from "../components/ProductList";
-import BestProductList from "../components/BestProductList"
+import BestProductList from "../components/BestProductList";
 import { getProducts, getBestProducts } from "../api";
+import { useNavigate } from 'react-router-dom';
 
 function Items() {
+  const navigate = useNavigate()
+  const goToAddItem = () => {
+    navigate('/additem')
+  }
+
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("createdAt");
@@ -19,7 +26,7 @@ function Items() {
         setProducts(fetchedProducts);
 
         const bestProducts = await getBestProducts();
-        setBestProducts(bestProducts)
+        setBestProducts(bestProducts);
       } catch (error) {
         console.error("상품 가져오는데 실패했습니다", error);
         setIsLoading(false);
@@ -44,18 +51,22 @@ function Items() {
       <div>
         <div className={styles["all-products-nav"]}>
           <h3>전체 상품</h3>
-          <div className={styles.search}>
-            <input placeholder="검색할 상품을 입력해주세요"></input>
-          </div>
-          <button id="btn_small">상품 등록하기</button>
-          <div className={styles.dropdown}>
-            <select
-              value={order}
-              onChange={(e) => handleOrderChange(e.target.value)}
-            >
-              <option value="createdAt">최신순</option>
-              <option value="favoriteCount">좋아요순</option>
-            </select>
+          <div className={styles["all-products-sub-nav"]}>
+            <div className={styles.search}>
+              <img src="/assets/icon_search.png" />
+              <input placeholder="검색할 상품을 입력해주세요"></input>
+            </div>
+            <button id="btn_small" onClick={goToAddItem}>상품 등록하기</button>
+            <div>
+              <select
+                className={styles.dropdown}
+                value={order}
+                onChange={(e) => handleOrderChange(e.target.value)}
+              >
+                <option value="createdAt">최신순</option>
+                <option value="favoriteCount">좋아요순</option>
+              </select>
+            </div>
           </div>
         </div>
 
