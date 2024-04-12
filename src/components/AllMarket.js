@@ -5,6 +5,7 @@ import Button from "../common/Button";
 import HeartIcon from "../assets/icon/ic_heart.svg";
 import { Link } from "react-router-dom";
 import { SearchInput } from "./Input";
+import Commas from "../util/Commas";
 
 export default function AllMarket() {
   const [AllData, setAllData] = useState([]);
@@ -59,7 +60,7 @@ export default function AllMarket() {
             <div key={item.id} className="card">
               <img className="all-img" src={item.images[0]} alt={item.name} />
               <p className="all-name">{item.name}</p>
-              <p className="all-price">{item.price}원</p>
+              <p className="all-price">{Commas(item.price)}원</p>
               <div className="like">
                 <img src={HeartIcon} alt="Heart" />
                 <p>{item.favoriteCount}</p>

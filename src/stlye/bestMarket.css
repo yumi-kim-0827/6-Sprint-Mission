@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+.best-title {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: #111827;
+    font-size: 20;
+    font-weight: 700;
+
+}
+
 .best-market .cards {
     display: grid;
     grid-gap: 24px;

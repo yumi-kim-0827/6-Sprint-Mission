@@ -6,6 +6,7 @@ import HeartIcon from "../assets/icon/ic_heart.svg";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import "../stlye/bestMarket.css";
+import Commas from "../util/Commas";
 
 const BEST_DATA = [
   {
@@ -61,7 +62,7 @@ export default function BestMarket() {
             <div key={item.id} className="card">
               <img className="best-img" src={item.images[0]} alt={item.name} />
               <p className="best-name">{item.name}</p>
-              <p className="best-price">{item.price}원</p>
+              <p className="best-price">{Commas(item.price)}원</p>
               <div className="like">
                 <img src={HeartIcon} alt="Heart" />
                 <p>{item.favoriteCount}</p>
