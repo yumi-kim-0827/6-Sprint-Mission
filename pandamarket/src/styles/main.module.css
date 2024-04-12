@@ -19,7 +19,7 @@ header {
   padding: 1rem 200px;
   background-color: #fff;
   z-index: 1000;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 header picture {
@@ -29,7 +29,7 @@ header picture {
 .header-nav {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 3rem;
   flex-grow: 3;
   font-size: 18px;
   cursor: pointer;
@@ -159,6 +159,7 @@ footer {
 .sub_nav {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 3rem;
 }
 
@@ -197,7 +198,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30rem;
+  gap: 40rem;
 }
 
 h2 {
