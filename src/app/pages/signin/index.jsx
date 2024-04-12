@@ -75,12 +75,12 @@ export default function SignInPage({ })
 				</Link>
 			</header>
 			<main>
-				<div class="container">
+				<div className="container">
 					<AuthForm fields={fields} onClick={() => navigate("/items")}>
 						로그인
 					</AuthForm>
 					<ThirdParty/>
-					<p class="assistance">
+					<p className="assistance">
 						판다마켓이 처음이신가요? <Link to="/signup">회원가입</Link>
 					</p>
 				</div>

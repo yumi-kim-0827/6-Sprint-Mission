@@ -22,7 +22,7 @@ export default function Button({ href, disabled, children, onClick })
 	}
 
 	return (
-		<section data-widget={Button.name} class={disabled && "disabled"} onClick={on_click}>
+		<section data-widget={Button.name} className={disabled && "disabled"} onClick={on_click}>
 			{children}
 		</section>
 	);

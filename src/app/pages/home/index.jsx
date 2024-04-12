@@ -12,9 +12,9 @@ export default function HomePage({ })
 	return (
 		<section data-widget={HomePage.name}>
 			<header>
-				<div class="container">
-					<Link class="logo" to="/">
-						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" class="hide-on-mobile"/>
+				<div className="container">
+					<Link className="logo" to="/">
+						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" className="hide-on-mobile"/>
 						<img src={require("assets/icons/logo_text.svg").default} alt="판다마켓 글자"/>
 					</Link>
 					<Button href="/signin">
@@ -41,11 +41,11 @@ export default function HomePage({ })
 			<Banner src={require("assets/images/banner_bottom.png")} title={["믿을 수 있는", "판다마켓 중고 거래"]} button={false}/>
 
 			<footer>
-				<div class="container">
-					<span class="left">
+				<div className="container">
+					<span className="left">
 						@codeit - 2024
 					</span>
-					<span class="center">
+					<span className="center">
 						<Link to="/privacy">
 							Privacy Policy
 						</Link>
@@ -53,7 +53,7 @@ export default function HomePage({ })
 							FAQ
 						</Link>
 					</span>
-					<span class="right">
+					<span className="right">
 						<a href="https://www.facebook.com" target="_blank">
 							<img src={require("assets/icons/facebook.svg").default} alt="페이스북"/>
 						</a>

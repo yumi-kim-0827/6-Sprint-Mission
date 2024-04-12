@@ -6,10 +6,10 @@ export default function Banner({ src, title, button })
 {
 	return (
 		<section data-widget={Banner.name}>
-			<div class="container">
-				<div class="wrapper">
-					<div class="title">
-						{title.reduce((stash, current) => [...stash, <br key={current} class="hide-on-tablet"/>, current])}
+			<div className="container">
+				<div className="wrapper">
+					<div className="title">
+						{title.reduce((stash, current) => [...stash, <br key={current} className="hide-on-tablet"/>, current])}
 					</div>
 					{(() =>
 					{

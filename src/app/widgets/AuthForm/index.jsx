@@ -42,13 +42,13 @@ export default function AuthForm({ fields, children, onClick })
 
 	return (
 		<form data-widget={AuthForm.name}>
-			<div class="fields">
+			<div className="fields">
 				{Object.keys(fields).map((key, index, array) =>
 				{
 					return (
-						<div key={key} class="data">
+						<div key={key} className="data">
 							<label for={fields[key].id}>{fields[key].alt}</label>
-							<div class="wrapper" data-error={msgs[key]}>
+							<div className="wrapper" data-error={msgs[key]}>
 								<input {...fields[key]} id={key} required={true} validators={null} onFocus={(event) => refs[key] = event.target} onBlur={validate} onChange={validate}/>
 							</div>
 						</div>

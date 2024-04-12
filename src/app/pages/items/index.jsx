@@ -89,12 +89,12 @@ export default function ItemsPage({ })
 	return (
 		<section data-widget={ItemsPage.name}>
 			<header>
-				<div class="container">
-					<Link class="logo" to="/">
-						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" class="hide-on-mobile"/>
+				<div className="container">
+					<Link className="logo" to="/">
+						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" className="hide-on-mobile"/>
 						<img src={require("assets/icons/logo_text.svg").default} alt="판다마켓 글자"/>
 					</Link>
-					<div class="links">
+					<div className="links">
 						<Link to="/posts">
 							자유게시판
 						</Link>
@@ -108,13 +108,13 @@ export default function ItemsPage({ })
 				</div>
 			</header>
 			<main>
-				<div class="container">
-					<div class="divison">
-						<h1 class="title">
+				<div className="container">
+					<div className="divison">
+						<h1 className="title">
 							베스트 상품
 						</h1>
 					</div>
-					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.best[viewport])}, 1fr)` }}>
+					<div className="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.best[viewport])}, 1fr)` }}>
 						{products_best?.["list"].slice(0, limit.best[viewport]).map((item, index, array) =>
 						{
 							return (
@@ -123,21 +123,21 @@ export default function ItemsPage({ })
 						})}
 					</div>
 				</div>
-				<div class="container">
-					<div class="division">
-						<h1 class="title">
+				<div className="container">
+					<div className="division">
+						<h1 className="title">
 							{viewport === "pc" ? "전체 상품" : "판매 중인 상품"}
 						</h1>
-						<div class="query">
+						<div className="query">
 							<img src={require("assets/icons/search.svg").default}/>
 							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => set_filter(event.target.value)}/>
 						</div>
 						<Button>
 							상품 등록하기
 						</Button>
-						<DropDown class="dropdown" index={0} items={[{ name: "최신순", onClick: (event) => order_by("recent") }, { name: "좋아요순", onClick: (event) => order_by("favorite") }]}/>
+						<DropDown className="dropdown" index={0} items={[{ name: "최신순", onClick: (event) => order_by("recent") }, { name: "좋아요순", onClick: (event) => order_by("favorite") }]}/>
 					</div>
-					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.all[viewport] / 2)}, 1fr)` }}>
+					<div className="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.all[viewport] / 2)}, 1fr)` }}>
 						{products_all?.["list"].slice(0, limit.all[viewport]).filter((item) => item.name.includes(filter)).map((item, index, array) =>
 						{
 							// TODO: filter by occurrence

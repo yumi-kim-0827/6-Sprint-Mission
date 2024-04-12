@@ -48,18 +48,18 @@ export default function Pagination({ index, length, onPaging })
 
 	return (
 		<section data-widget={Pagination.name}>
-			<div class="page" onClick={on_prev}>
+			<div className="page" onClick={on_prev}>
 				<img src={require("assets/icons/arrow_left.svg").default}/>
 			</div>
 			{length && new Array(length).fill(null).map((_, index, array) =>
 			{
 				return (
-					<div key={index} class={["page", page === index + 1 ? "indexing" : null].join("\u0020")} onClick={(event) => set_page(index + 1)}>
+					<div key={index} className={["page", page === index + 1 ? "indexing" : null].join("\u0020")} onClick={(event) => set_page(index + 1)}>
 						{index + 1}
 					</div>	
 				);
 			})}
-			<div class="page" onClick={on_next}>
+			<div className="page" onClick={on_next}>
 				<img src={require("assets/icons/arrow_right.svg").default}/>
 			</div>
 		</section>

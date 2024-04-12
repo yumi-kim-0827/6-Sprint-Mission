@@ -102,12 +102,12 @@ export default function SignUpPage({ })
 				</Link>
 			</header>
 			<main>
-				<div class="container">
+				<div className="container">
 					<AuthForm fields={fields} onClick={() => navigate("/")}>
 						회원가입
 					</AuthForm>
 					<ThirdParty/>
-					<p class="assistance">
+					<p className="assistance">
 						이미 회원이신가요? <Link to="/signin">로그인</Link>
 					</p>
 				</div>
