@@ -8,13 +8,6 @@ const LIMIT = 10;
 
 export default function Main() {
   const [items, setItems] = useState([]);
-  const [order, setOrder] = useState('createdAt');
-  const [offset, setOffset] = useState(0);
-
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
-
-  const handleNewestClick = () => setOrder('createdAt');
-  const handleBestClick = () => setOrder('favoriteCount');
 
   useEffect(() => {
     const fetchItems = async options => {
@@ -27,25 +20,7 @@ export default function Main() {
     };
 
     fetchItems({ offset: 0, limit: LIMIT });
-  }, []);
-
-  // const handleLoad = async options => {
-  //   const { list } = await getItems(options);
-  //   if (options.offset === 0) {
-  //     setItems(list);
-  //   } else {
-  //     setItems([...items, ...list]);
-  //   }
-  //   setOffset(options.offset + list.length);
-  // };
-
-  // const handleLoadMore = () => {
-  //   handleLoad({ order, offset, limit: 10 });
-  // };
-
-  // useEffect(() => {
-  //   handleLoad({ order, offset: 0, limit: 10 });
-  // }, [order]);
+  }, [items]);
 
   const getBestItems = () => {
     const sortedItems = [...items];
@@ -56,9 +31,7 @@ export default function Main() {
   return (
     <div className='main'>
       <BestItems items={getBestItems()} />
-      <ItemsForSale items={items} />
+      <ItemsForSale items={[...items]} />
     </div>
   );
 }
-
-// handleLoadMore={handleLoadMore}
