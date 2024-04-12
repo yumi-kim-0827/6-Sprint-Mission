@@ -1,12 +1,13 @@
+import "./index.scss";
+
 import { useEffect, useState } from "react";
-import styles from "./index.module.css";
 
 export default function DropDown({ index, items })
 {
 	let timer;
 
-	const [selected, set_selected] = useState(index);
 	const [active, set_active] = useState(false);
+	const [selected, set_selected] = useState(index);
 
 	function onMouseEnter(event)
 	{
@@ -23,14 +24,14 @@ export default function DropDown({ index, items })
 
 	function onMouseLeave(event)
 	{
-		timer = setTimeout(() => set_active(false), 250);
+		timer = setTimeout(() => set_active(false), 150);
 	}
 
 	return (
-		<section class={styles.widget} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-			<span class="text">
+		<section data-widget={DropDown.name} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+			<div class="text">
 				{items[selected].name}
-			</span>
+			</div>
 			<div class="icon"></div>
 			<div class="items" style={{ display: active ? "block" : "none" }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 				{items.map((item, index, array) =>

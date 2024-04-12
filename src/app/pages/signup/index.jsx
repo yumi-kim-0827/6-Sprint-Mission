@@ -1,4 +1,4 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
 import 한글 from "utilities/한글";
 
@@ -95,13 +95,13 @@ export default function SignUpPage({ })
 	const navigate = useNavigate();
 
 	return (
-		<>
-			<header class={styles.header}>
+		<section data-widget={SignUpPage.name}>
+			<header>
 				<Link to="/">
 					<img src={require("assets/icons/logo_full.svg").default} alt="판다마켓"/>
 				</Link>
 			</header>
-			<main class={styles.main}>
+			<main>
 				<div class="container">
 					<AuthForm fields={fields} onClick={() => navigate("/")}>
 						회원가입
@@ -112,6 +112,6 @@ export default function SignUpPage({ })
 					</p>
 				</div>
 			</main>
-		</>
+		</section>
 	);
 }

@@ -1,0 +1,110 @@
+[data-widget="SignInPage"]
+{
+	> header
+	{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	> main
+	{
+		display: flex;
+		justify-content: center;
+
+		> .container
+		{
+			gap: 24px;
+			width: 100%;
+			display: flex;
+			margin-left: 16px;
+			margin-right: 16px;
+			flex-direction: column;
+
+			> .assistance
+			{
+				text-align: center;
+				font-size: 15px;
+				font-weight: 500;
+				line-height: 17.9px;
+	
+				a[href]
+				{
+					color: var(--blue);
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	[data-widget="SignInPage"]
+	{
+		> header
+		{
+			margin: 50px 0px;
+
+			img
+			{
+				width: 396px;
+				height: 132px;
+			}
+		}
+		> main
+		{
+			> .container
+			{
+				max-width: 640px;
+			}
+		}
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	[data-widget="SignInPage"]
+	{
+		> header
+		{
+			margin: 50px 0px;
+
+			img
+			{
+				width: 396px;
+				height: 132px;
+			}
+		}
+		> main
+		{
+			> .container
+			{
+				max-width: 640px;
+			}
+		}
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	[data-widget="SignInPage"]
+	{
+		> header
+		{
+			margin: 24px 0px;
+
+			img
+			{
+				width: 198px;
+				height: 66px;
+			}
+		}
+		> main
+		{
+			> .container
+			{
+				max-width: 400px;
+			}
+		}
+	}
+}

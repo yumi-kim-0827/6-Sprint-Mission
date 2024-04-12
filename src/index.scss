@@ -1,0 +1,54 @@
+*
+{
+	color: inherit;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	outline: none;
+	transition: 250ms;
+	box-sizing: border-box;
+	text-decoration: none;
+	background-color: transparent;
+}
+:root
+{
+	--red: #F74747;
+	--blue: #3692FF;
+}
+#root
+{
+	color: #374151;
+	font-family: Pretendard;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.hide-on-pc
+	{
+		display: none !important;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	*
+	{
+		scrollbar-width: none;
+	}
+	.hide-on-tablet
+	{
+		display: none !important;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	*
+	{
+		scrollbar-width: none;
+	}
+	.hide-on-mobile
+	{
+		display: none !important;
+	}
+}

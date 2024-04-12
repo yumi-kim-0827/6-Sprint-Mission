@@ -1,4 +1,4 @@
-.widget
+[data-widget="ThirdParty"]
 {
 	color: #1F2937;
 	font-size: 16px;
@@ -11,13 +11,15 @@
 	align-items: center;
 	justify-content: space-between;
 	background-color: #E6F2FF;
-}
-.widget :global(.wrapper)
-{
-	gap: 16px;
-	display: flex;
-}
-.widget :global(.service)
-{
-	display: inline-flex;
+
+	> .wrapper
+	{
+		gap: 16px;
+		display: flex;
+
+		> .service
+		{
+			display: inline-flex;
+		}
+	}
 }

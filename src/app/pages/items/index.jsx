@@ -1,14 +1,26 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
-import { useEffect, useState } from "react";
+import API from "api";
 
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import Button from "app/widgets/Button";
+
 import Product from "./Product";
 import DropDown from "./DropDown";
 import Pagination from "./Pagination";
 
-const best_items = { "pc": 3, "tablet": 2, "mobile": 1, };
-const total_items = { "pc": 10, "tablet": 6, "mobile": 4, };
+const limit = {
+	all:
+	{
+		pc: 10, tablet: 6, mobile: 4,
+	},
+	best:
+	{
+		pc: 4, tablet: 2, mobile: 1,
+	},
+};
 
 function get_viewport()
 {
@@ -24,54 +36,59 @@ function get_viewport()
 	{
 		return "mobile";
 	}
-	return "unsupported";
 }
 
 export default function ItemsPage({ })
 {
-	let timer;
+	const [query, set_query] = useState({});
+	const [filter, set_filter] = useState("");
+	const [viewport, set_viewport] = useState(null);
+	const [products_all, set_products_all] = useState(null);
+	const [products_best, set_products_best] = useState(null);
 
-	const [keyword, set_keyword] = useState("");
-	const [viewport, set_viewport] = useState(get_viewport());
-	const [items, set_items] = useState({});
-	const [query, set_query] = useState({ page: 1, pageSize: total_items[viewport], orderBy: "recent" });
-
-	const on_resize = (event) =>
+	function on_resize(event)
 	{
 		set_viewport(get_viewport());
 	}
 
+	function order_by(order)
+	{
+		set_query({ ...query, order_by: order });
+	}
+
 	useEffect(() =>
 	{
-		if (!items.list) return
-		
-		if (items.list.length < total_items[viewport])
+		if (viewport)
 		{
-			set_query({ ...query, pageSize: total_items[viewport] });
+			if (!products_all || products_all["list"].length < limit.all[viewport])
+			{
+				set_query({ ...query, page_size: limit.all[viewport] }); // API.get_products(query).then(set_products_all);
+			}
+			if (!products_best || products_best["list"].length < limit.best[viewport])
+			{
+				API.get_products({ page_size: limit.best[viewport], order_by: "favorite" }).then(set_products_best);
+			}
 		}
 	},
 	[viewport])
 
 	useEffect(() =>
 	{
-		(async () => {
-			const json = await (await fetch(`https://panda-market-api.vercel.app/products?${new URLSearchParams(query).toString()}`)).json();
-
-			set_items(json);
-		})();
+		API.get_products(query).then(set_products_all);
 	},
 	[query]);
 
 	useEffect(() =>
 	{
+		set_viewport(get_viewport());
 		window.addEventListener("resize", on_resize);
 		return () => window.removeEventListener("resize", on_resize);
 	},
 	[]);
 
 	return (
-		<>
-			<header class={styles.header}>
+		<section data-widget={ItemsPage.name}>
+			<header>
 				<div class="container">
 					<Link class="logo" to="/">
 						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" class="hide-on-mobile"/>
@@ -85,20 +102,20 @@ export default function ItemsPage({ })
 							중고마켓
 						</Link>
 					</div>
-					<Link class="button" to="/signin">
+					<Button href="/signin">
 						로그인
-					</Link>
+					</Button>
 				</div>
 			</header>
-			<main class={styles.main}>
+			<main>
 				<div class="container">
-					<div class="query">
-						<h1 class="heading">
+					<div class="divison">
+						<h1 class="title">
 							베스트 상품
 						</h1>
 					</div>
-					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(best_items[viewport])}, 1fr)` }}>
-						{items.list?.slice(0, best_items[viewport]).map((item, index, array) =>
+					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.best[viewport])}, 1fr)` }}>
+						{products_best?.["list"].slice(0, limit.best[viewport]).map((item, index, array) =>
 						{
 							return (
 								<Product key={item.id} data={item}/>
@@ -106,23 +123,24 @@ export default function ItemsPage({ })
 						})}
 					</div>
 				</div>
-				<div class="container special">
-					<div class="query">
-						<h1 class="heading">
+				<div class="container">
+					<div class="division">
+						<h1 class="title">
 							{viewport === "pc" ? "전체 상품" : "판매 중인 상품"}
 						</h1>
-						<div class="wrapper">
+						<div class="query">
 							<img src={require("assets/icons/search.svg").default}/>
-							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => set_keyword(event.target.value)}/>
+							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => set_filter(event.target.value)}/>
 						</div>
-						<Link class="button">
+						<Button>
 							상품 등록하기
-						</Link>
-						<DropDown class="dropdown" index={0} items={[{ name: "최신순", onClick: (event) => set_query({...query, orderBy: "recent" }) }, { name: "좋아요순", onClick: (event) => set_query({...query, orderBy: "favorite" }) }]}/>
+						</Button>
+						<DropDown class="dropdown" index={0} items={[{ name: "최신순", onClick: (event) => order_by("recent") }, { name: "좋아요순", onClick: (event) => order_by("favorite") }]}/>
 					</div>
-					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(total_items[viewport] / 2)}, 1fr)` }}>
-						{items.list?.slice(0, total_items[viewport]).filter((item) => item.name.includes(keyword)).map((item, index, array) =>
+					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.all[viewport] / 2)}, 1fr)` }}>
+						{products_all?.["list"].slice(0, limit.all[viewport]).filter((item) => item.name.includes(filter)).map((item, index, array) =>
 						{
+							// TODO: filter by occurrence
 							return (
 								<Product key={item.id} data={item}/>
 							);
@@ -130,7 +148,7 @@ export default function ItemsPage({ })
 					</div>
 				</div>
 			</main>
-			<Pagination index={query.page} length={Math.ceil(items.totalCount / total_items[viewport])} onPaging={(index) => set_query({...query, page: index })}/>
-		</>
+			<Pagination index={1} length={products_all ? Math.ceil(products_all["totalCount"] / limit.all[viewport]) : 0} onPaging={(index) => set_query({...query, page: index })}/>
+		</section>
 	);
 }

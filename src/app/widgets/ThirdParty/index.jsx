@@ -1,11 +1,11 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
 import { Link } from "react-router-dom";
 
 export default function ThirdParty({ })
 {
 	return (
-		<section class={styles.widget}>
+		<section data-widget={ThirdParty.name}>
 			간편 로그인 하기
 			<div class="wrapper">
 				<Link class="service" to="https://www.google.com" target="_blank">

@@ -1,10 +1,10 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
 import { useEffect, useState } from "react";
 
 export default function Pagination({ index, length, onPaging })
 {
-	const [selected, set_selected] = useState(index);
+	const [page, set_page] = useState(index);
 
 	function onKeyDown(event)
 	{
@@ -12,32 +12,32 @@ export default function Pagination({ index, length, onPaging })
 		{
 			case "ArrowLeft":
 			{
-				prev();
+				on_prev();
 				break;
 			}
 			case "ArrowRight":
 			{
-				next();
+				on_next();
 				break;
 			}
 		}
 	}
 
-	function prev()
+	function on_prev()
 	{
-		set_selected(Math.max(1, selected - 1));
+		set_page(Math.max(page - 1, 1));
 	}
 
-	function next()
+	function on_next()
 	{
-		set_selected(Math.min(selected + 1, length));
+		set_page(Math.min(page + 1, length + 1));
 	}
 
 	useEffect(() =>
 	{
-		onPaging?.(selected);
+		onPaging?.(page);
 	},
-	[selected]);
+	[page]);
 
 	useEffect(() =>
 	{
@@ -47,19 +47,19 @@ export default function Pagination({ index, length, onPaging })
 	[]);
 
 	return (
-		<section class={styles.widget}>
-			<div class="page" onClick={prev}>
+		<section data-widget={Pagination.name}>
+			<div class="page" onClick={on_prev}>
 				<img src={require("assets/icons/arrow_left.svg").default}/>
 			</div>
 			{length && new Array(length).fill(null).map((_, index, array) =>
 			{
 				return (
-					<div key={index} class={["page", selected === index + 1 ? "highlight" : null].join("\u0020")} onClick={(event) => set_selected(index + 1)}>
+					<div key={index} class={["page", page === index + 1 ? "indexing" : null].join("\u0020")} onClick={(event) => set_page(index + 1)}>
 						{index + 1}
 					</div>	
 				);
 			})}
-			<div class="page" onClick={next}>
+			<div class="page" onClick={on_next}>
 				<img src={require("assets/icons/arrow_right.svg").default}/>
 			</div>
 		</section>

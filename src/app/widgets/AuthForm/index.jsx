@@ -1,11 +1,13 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
 import { useState } from "react";
 
-const refs = {};
+import Button from "app/widgets/Button";
 
 export default function AuthForm({ fields, children, onClick })
 {
+	const refs = {};
+	
 	const [msgs, set_msgs] = useState(() =>
 	{
 		const state = {};
@@ -39,23 +41,23 @@ export default function AuthForm({ fields, children, onClick })
 	}
 
 	return (
-		<form class={styles.widget}>
-			<div class="inputs">
+		<form data-widget={AuthForm.name}>
+			<div class="fields">
 				{Object.keys(fields).map((key, index, array) =>
 				{
 					return (
-						<div key={key} class="field">
+						<div key={key} class="data">
 							<label for={fields[key].id}>{fields[key].alt}</label>
 							<div class="wrapper" data-error={msgs[key]}>
-								<input {...fields[key]} id={key} required={true} onFocus={(event) => refs[key] = event.target} onBlur={validate} onChange={validate}/>
+								<input {...fields[key]} id={key} required={true} validators={null} onFocus={(event) => refs[key] = event.target} onBlur={validate} onChange={validate}/>
 							</div>
 						</div>
 					);
 				})}
 			</div>
-			<button class="button" disabled={!Object.values(msgs).every((msg, index, array) => msg === "null")} onClick={onClick}>
+			<Button disabled={!Object.values(msgs).every((msg, index, array) => msg === "null")} onClick={onClick}>
 				{children}
-			</button>
+			</Button>
 		</form>
 	);
 }

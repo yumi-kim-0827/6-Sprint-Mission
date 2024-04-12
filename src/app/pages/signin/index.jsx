@@ -1,4 +1,4 @@
-import styles from "./index.module.css";
+import "./index.scss";
 
 import 한글 from "utilities/한글";
 
@@ -68,13 +68,13 @@ export default function SignInPage({ })
 	const navigate = useNavigate();
 
 	return (
-		<>
-			<header class={styles.header}>
+		<section data-widget={SignInPage.name}>
+			<header>
 				<Link to="/">
 					<img src={require("assets/icons/logo_full.svg").default} alt="판다마켓"/>
 				</Link>
 			</header>
-			<main class={styles.main}>
+			<main>
 				<div class="container">
 					<AuthForm fields={fields} onClick={() => navigate("/items")}>
 						로그인
@@ -85,6 +85,6 @@ export default function SignInPage({ })
 					</p>
 				</div>
 			</main>
-		</>
+		</section>
 	);
 }
