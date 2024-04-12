@@ -16,6 +16,16 @@ function Header() {
             alt="판다마켓 로고"
           />
         </a>
+        <nav className="header-menu">
+          <ul className="header-menu-container">
+            <li className="header-menu-item">
+              <a href="/">자유게시판</a>
+            </li>
+            <li className="header-menu-item selected">
+              <a href="/items">중고마켓</a>
+            </li>
+          </ul>
+        </nav>
         <a className="button button-small" href="/signin.html">
           로그인
         </a>
