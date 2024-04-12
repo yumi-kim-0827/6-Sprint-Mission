@@ -28,9 +28,8 @@ function AllProducts() {
   };
 
   const loadProducts = async (order) => {
-    const allProducts = await getProducts(order);
-    const slicedProducts = allProducts.slice(0, 10);
-    setProducts(slicedProducts);
+    const allProducts = await getProducts(order, 10);
+    setProducts(allProducts);
   };
 
   useEffect(() => {

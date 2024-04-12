@@ -7,8 +7,7 @@ function BestProducts() {
   const [products, setProducts] = useState([]);
 
   const loadBestProducts = async () => {
-    const favoriteProducts = await getProducts("favorite");
-    const bestProducts = favoriteProducts.slice(0, 4);
+    const bestProducts = await getProducts("favorite", 4);
     setProducts(bestProducts);
   };
 
