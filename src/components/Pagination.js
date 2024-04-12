@@ -37,7 +37,7 @@ export default function Pagination() {
       <PageButton onClick={() => handleRightButton(startPage)}>
         <img src={arrowright} alt="arrowright" />
       </PageButton>
-      <h1>{startPage}</h1>
+      <h1>!!!{startPage}</h1>
     </div>
   );
 }

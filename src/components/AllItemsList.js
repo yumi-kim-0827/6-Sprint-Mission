@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useProductCountStore } from "../store/productCountStore";
 
 import searchIcon from "../images/ic_search.png";
 import arrowDown from "../images/ic_arrow_down.png";
@@ -8,20 +9,11 @@ import favoriteIcon from "../images/ic_heart.png";
 import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
 
-export default function AllItemsList({ data, deviceSize }) {
+export default function AllItemsList({ data }) {
   const [dropdownView, setDropdownView] = useState(false);
-  const [productCount, setproductCount] = useState(1);
   const [allProducts, setAllProducts] = useState(data.list);
 
-  useEffect(() => {
-    if (deviceSize.isMobile) {
-      setproductCount(4);
-    } else if (deviceSize.isTablet) {
-      setproductCount(6);
-    } else if (deviceSize.isPC) {
-      setproductCount(12);
-    }
-  }, [deviceSize]);
+  const productCount = useProductCountStore();
 
   const sortProductsByDate = (products) => {
     const sortedProducts = [...products].sort((a, b) => {

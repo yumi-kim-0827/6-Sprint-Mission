@@ -1,22 +1,13 @@
-import { useState, useEffect } from "react";
+import { useRankedProductCountStore } from "../store/productCountStore";
 
 import favoriteIcon from "../images/ic_heart.png";
 
-export default function RankedItems({ data, deviceSize }) {
-  const [productCount, setproductCount] = useState(1);
+export default function RankedItems({ data }) {
+  const rankedProductCount = useRankedProductCountStore();
+
   const sortedProducts = data.list.sort(
     (a, b) => b.favoriteCount - a.favoriteCount,
   );
-
-  useEffect(() => {
-    if (deviceSize.isMobile) {
-      setproductCount(1);
-    } else if (deviceSize.isTablet) {
-      setproductCount(2);
-    } else if (deviceSize.isPC) {
-      setproductCount(4);
-    }
-  }, [deviceSize]);
 
   return (
     <div>
@@ -25,7 +16,7 @@ export default function RankedItems({ data, deviceSize }) {
       </h1>
       <ul className="grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
         {sortedProducts &&
-          sortedProducts.slice(0, productCount).map((post) => {
+          sortedProducts.slice(0, rankedProductCount).map((post) => {
             return (
               <li key={post.id}>
                 <img
