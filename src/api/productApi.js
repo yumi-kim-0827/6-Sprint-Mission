@@ -3,6 +3,8 @@ export const getProducts = async ({
   pageSize = 10,
   orderBy = 'recent',
 }) => {
+  // throw new Error('에러테스트');
+
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
 
   const response = await fetch(

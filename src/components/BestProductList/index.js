@@ -8,9 +8,19 @@ import './style.css';
 const BestProductList = () => {
   const [originProduct, setOriginProduct] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleBestItemLoad = async (options) => {
-    const { list } = await getProducts({ orderBy: 'favorite' });
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getProducts({ orderBy: 'favorite' });
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    }
+    const { list } = result;
+
     setOriginProduct(list);
     setBestProduct(list.slice(0, 4));
   };
@@ -40,6 +50,7 @@ const BestProductList = () => {
   return (
     <section>
       <h3>베스트 상품</h3>
+      {loadingError?.message && <span>{loadingError.message}</span>}
       <Grid container spacing={2}>
         {bestProduct.map((item) => {
           return (

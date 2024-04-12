@@ -19,9 +19,19 @@ const AllProductList = () => {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleAllProductLoad = async (options) => {
-    const { list, totalCount } = await getProducts(options);
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getProducts(options);
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    }
+    const { list, totalCount } = result;
+
     setTotal(totalCount);
     setAllProduct(list);
   };
@@ -115,6 +125,7 @@ const AllProductList = () => {
           </div>
         </div>
       </div>
+      {loadingError?.message && <span>{loadingError.message}</span>}
       <Grid container spacing={2}>
         {allProduct.map((item) => {
           return (
