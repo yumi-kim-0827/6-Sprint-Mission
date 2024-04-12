@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import RankedItems from "../components/RankedItems";
 import AllItemsList from "../components/AllItemsList";
+import Navbar from "../components/Navbar";
+import useDeviceSize from "../utils/useDeviceSize";
 
 const fetchProducts = async () => {
   const response = await axios.get(
@@ -12,6 +14,7 @@ const fetchProducts = async () => {
 };
 
 export default function Items() {
+  const deviceSize = useDeviceSize();
   const { data, isLoading, isError, error } = useQuery("posts", fetchProducts);
 
   if (isLoading) {
@@ -23,9 +26,14 @@ export default function Items() {
   }
 
   return (
-    <div className="container mx-auto my-6">
-      <RankedItems data={data} />
-      <AllItemsList data={data} />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <div className="my-6 mx-4 flex flex-col items-center">
+          <RankedItems data={data} deviceSize={deviceSize} />
+          <AllItemsList data={data} deviceSize={deviceSize} />
+        </div>
+      </main>
+    </>
   );
 }

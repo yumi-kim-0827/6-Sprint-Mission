@@ -1,16 +1,28 @@
 import searchIcon from "../images/ic_search.png";
 import arrowDown from "../images/ic_arrow_down.png";
 import sortButton from "../images/btn_sort.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SortDropdown from "./SortDropdown";
 
-export default function AllItemsList({ data }) {
+export default function AllItemsList({ data, deviceSize }) {
   const [dropdownView, setDropdownView] = useState(false);
+  const [productCount, setproductCount] = useState(1);
+
+  useEffect(() => {
+    if (deviceSize.isMobile) {
+      setproductCount(4);
+    } else if (deviceSize.isTablet) {
+      setproductCount(6);
+    } else if (deviceSize.isPC) {
+      setproductCount(12);
+    }
+  }, [deviceSize]);
+
   return (
     <div className="my-10">
       <div className="flex flex-col sm:flex-row justify-between sm:items-center my-6">
         <div className="flex justify-between items-center mx-4 sm:mx-0">
-          <h1>전체 상품</h1>
+          <h1 className="text-xl text-[var(--footer-bg-color)]">전체 상품</h1>
           <button className="sm:hidden inline px-6 py-3 bg-[var(--btn-blue1)] rounded-lg text-white">
             상품 등록하기
           </button>
@@ -51,10 +63,14 @@ export default function AllItemsList({ data }) {
       </div>
       <ul className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 grid-rows-2 gap-x-6 gap-y-10">
         {data.list &&
-          data.list.map((post) => {
+          data.list.slice(0, productCount).map((post) => {
             return (
               <li key={post.id}>
-                <img src={post.images[0]} alt={post.name} />
+                <img
+                  src={post.images[0]}
+                  alt={post.name}
+                  className="object-fill h-56 w-56"
+                />
                 <p className="text-[var(--cool-gray800)] text-sm">
                   {post.name} 팝니다
                 </p>
