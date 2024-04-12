@@ -16,3 +16,8 @@ export const NUM_ALL_ITEMS = {
   [TABLET]: 6,
   [PC]: 10,
 };
+
+export const ORDER_MESSAGE = {
+  favorite: "좋아요순",
+  recent: "최신순",
+};

@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ItemsPage from "./pages/ItemsPage";
+import AddItemPage from "./pages/AddItemPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import FaqPage from "./pages/FaqPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -55,6 +56,7 @@ function App() {
         <Route path="signup" element={<SignupPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="items" element={<ItemsPage device={device} />} />
+        <Route path="additem" element={<AddItemPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="faq" element={<FaqPage />} />
         <Route path="*" element={<NotFoundPage />} />
