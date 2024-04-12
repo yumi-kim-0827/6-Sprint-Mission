@@ -7,6 +7,7 @@ import Button from '../Button';
 import Search from '../../assets/icons/Search.svg';
 import DropDown from '../Dropdown';
 import ArrowDown from '../../assets/icons/ArrowDown.svg';
+import Sort from '../../assets/icons/Sort.svg';
 import './style.css';
 
 const AllProductList = () => {
@@ -22,22 +23,20 @@ const AllProductList = () => {
 
   const handleClickOrder = (orderType) => setOrderBy(orderType);
 
-  const handleResize = () => {
-    if (window.innerWidth <= 767) {
-      setPageSize(4);
-    } else if (window.innerWidth <= 1199) {
-      setPageSize(6);
-    } else {
-      setPageSize(10);
-    }
-  };
-
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
   useEffect(() => {
-    handleResize();
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setPageSize(4);
+      } else if (window.innerWidth <= 1199) {
+        setPageSize(6);
+      } else {
+        setPageSize(10);
+      }
+    };
 
     window.addEventListener('resize', handleResize);
 
@@ -67,18 +66,26 @@ const AllProductList = () => {
           <Link to='/addItem'>
             <Button title='상품 등록하기' />
           </Link>
-          <div>
+          <div className='order-container'>
             <DropDown
               triggerComponent={
                 <div className='dropdown-container'>
-                  <button className='dropdown-trigger'>
-                    {orderBy === 'recent' ? '최신순' : '좋아요순'}
-                  </button>
-                  <img
-                    alt='드롭다운 아이콘'
-                    src={ArrowDown}
-                    className='dropdown-icon'
-                  />
+                  {pageSize === 4 ? (
+                    <button className='dropdown-simple-icon'>
+                      <img alt='드롭다운 아이콘' src={Sort} />
+                    </button>
+                  ) : (
+                    <>
+                      <button className='dropdown-trigger'>
+                        {orderBy === 'recent' ? '최신순' : '좋아요순'}
+                      </button>
+                      <img
+                        alt='드롭다운 아이콘'
+                        src={ArrowDown}
+                        className='dropdown-icon'
+                      />
+                    </>
+                  )}
                 </div>
               }
               options={[

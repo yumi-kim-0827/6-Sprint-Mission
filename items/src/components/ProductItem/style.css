@@ -25,6 +25,14 @@
   gap: 0.375rem;
 }
 
+.description-container {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
 .item-description {
   font-size: 0.875rem;
   font-weight: 500;

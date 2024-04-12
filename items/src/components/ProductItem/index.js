@@ -11,7 +11,9 @@ const ProductItem = ({ item }) => {
         <img src={item.images[0]} alt={item.name} className='item-image' />
       </div>
       <div className='item-info'>
-        <span className='item-description'>{item.description}</span>
+        <div className='description-container'>
+          <span className='item-description'>{item.description}</span>
+        </div>
         <span className='item-price'>{formatNumberToWon(item.price)}</span>
         <div className='favorite-container'>
           <img src={Heart} alt='하트아이콘' />
