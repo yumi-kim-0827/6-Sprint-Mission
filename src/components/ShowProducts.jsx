@@ -2,6 +2,7 @@ import React from "react";
 import searchicon from "../assets/search-icon.png";
 import "./ShowProducts.css";
 import likeicon from "../assets/like-icon.png";
+import { useNavigate } from "react-router-dom";
 
 function Products({ item }) {
   const { name, price, favoriteCount, images } = item;
@@ -20,7 +21,12 @@ function Products({ item }) {
   );
 }
 
-const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
+const ShowProducts = ({ onChangeSelect, onChangeInput, products, selectInfo }) => {
+  const navigate = useNavigate();
+
+  const goAddItem = () => {
+    navigate("./addItem");
+  };
   return (
     <>
       <div className="Search-Group">
@@ -29,7 +35,9 @@ const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
           <label htmlFor="search"></label>
           <img id="search-icon" src={searchicon} alt="검색 아이콘" />
           <input onChange={onChangeInput} id="search" type="text" placeholder="검색할 상품을 입력해주세요" />
-          <button className="Product-Resister-Btn">상품 등록하기</button>
+          <button onClick={goAddItem} className="Product-Resister-Btn">
+            상품 등록하기
+          </button>
           <label htmlFor="select-category"></label>
           <select onChange={onChangeSelect} name="category" id="select-category">
             <option value="최신순">최신순</option>
