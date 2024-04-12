@@ -7,7 +7,9 @@ const ProductItem = ({ item }) => {
   console.log(item);
   return (
     <div className='item-container'>
-      <img src={item.images[0]} alt={item.name} className='item-image' />
+      <div className='image-comtainer'>
+        <img src={item.images[0]} alt={item.name} className='item-image' />
+      </div>
       <div className='item-info'>
         <span className='item-description'>{item.description}</span>
         <span className='item-price'>{formatNumberToWon(item.price)}</span>
