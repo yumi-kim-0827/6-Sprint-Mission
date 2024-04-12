@@ -104,7 +104,10 @@ main {
   background-color: var(--visual-color);
 }
 
+
 .main_title {
+  width: 299px;
+  height: 112px;
   font-family: 'Pretendard-Regular';
   font-weight: 700;
   font-size: 40px;
@@ -375,3 +378,59 @@ footer {
 
 
 /* 미디어 쿼리 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header {
+  width: 744px;
+  padding-left: 24px;
+ }
+
+ .main_visual, .background_color{
+  width: 744px;
+  height: 771px;
+
+ }
+
+ .main_title {
+  width: 525px;
+  height: 56px;
+  text-align: center;
+  margin: 84px 116px 24px 116px;
+ }
+
+.section_button {
+  position: absolute;
+  top: 164px;
+  left: 195px;
+}
+
+.img_panda {
+  width: 744px;
+  position: absolute;
+  top: 320px;
+  /* border: 1px solid red; */
+  height: 447px;
+  overflow: hidden;
+}
+
+.section_img {
+  width: 996px;
+  height: 447px;
+  /* height: 611px; */
+  position: absolute;
+  top: 0;
+  left: -126px;
+}
+
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+ 
+  .nav_logo {
+   
+  padding-left: 16px;
+ }
+
+ .login_button {
+  padding-right: 16px;
+ }
+}

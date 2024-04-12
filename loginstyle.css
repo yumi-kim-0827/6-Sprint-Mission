@@ -52,7 +52,7 @@ main {
   height: 90px;
 }
 
-.main_title > a {
+.main_title  a {
   font-family: 'ROKAF';
   font-size: 66.34px;
   font-weight: 700;
