@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { MOBILE, TABLET, PC } from "../utils/magicLiterals";
 import { getBestItems } from "../api";
+import "./BestItemList.css";
 
 import Item from "./Item";
 

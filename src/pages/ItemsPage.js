@@ -1,6 +1,7 @@
 import Nav from "../components/Nav";
 import BestItemList from "../components/BestItemList";
 import AllItemList from "../components/AllItemList";
+import "./ItemsPage.css";
 
 function ItemsPage({ device }) {
   return (
