@@ -1,6 +1,8 @@
 import React from 'react';
 import { getProducts } from '../../api/productApi';
 import { useEffect, useState } from 'react';
+import ProductItem from '../ProductItem';
+import './style.css';
 
 const BestProductList = () => {
   const [bestProduct, setBestProduct] = useState([]);
@@ -18,12 +20,11 @@ const BestProductList = () => {
   return (
     <section>
       <h3>베스트 상품</h3>
-      {/* 여기에 아이템  */}
-      <ul>
+      <ul className='container'>
         {bestProduct.map((item) => {
           return (
-            <li key={item.id}>
-              <div>{item.name}</div>
+            <li key={item.id} className='item'>
+              <ProductItem item={item} />
             </li>
           );
         })}
