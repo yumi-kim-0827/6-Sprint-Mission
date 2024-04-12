@@ -21,173 +21,72 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="styles/home.css" />
-    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/items.css" />
   </head>
 
   <body>
-    <header>
+    <header id="items-header">
       <a href="index.html"
         ><img src="images/logo/logo.svg" alt="판다마켓 로고" width="153"
       /></a>
-      <div class="nav-box">
+      <div class="nav-menu">
         <a href="#">자유게시판</a>
         <a href="/items.html" id="marketButton">중고마켓</a>
       </div>
-      <a href="login.html" id="loginLink" class="button">로그인</a>
+      <a href="login.html">
+        <div class="login-button">로그인</div>
+      </a>
     </header>
     <main>
-      <div id="container">
-        <section>
-          <h1 class="product-name">베스트 상품</h1>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
-            </button>
-            <h2>아이패드 미니 팝니다</h2>
-            <strong>500,000원</strong>
-            <span>1000</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="책" />
-            </button>
-            <h2>책 팝니다</h2>
-            <strong>50,000원</strong>
-            <span>800</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="세탁기" />
-            </button>
-            <h2>세탁기 팝니다</h2>
-            <strong>500,000원</strong>
-            <span>700</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="오븐" />
-            </button>
-            <h2>오븐 팝니다</h2>
-            <strong>300,000원</strong>
-            <span>500</span>
-          </div>
-        </section>
-        <section>
-          <nav>
-            <h2>전체 상품</h2>
-            <div>
-              <input type="text" placeholder="검색할 상품을 입력해주세요" />
-              <a href="additem.html">상품 등록하기</a>
-              <select name="products">
-                <option value="renew">최신순</option>
-                <option value="like">좋아요순</option>
-              </select>
+      <section id="best-products">
+        <h1 id="best-products-title">베스트 상품</h1>
+        <div class="best-products-card">
+          <a href="./items.html">
+            <div class="markets-card">
+              <img src="#" alt="아이패드 미니" class="markets-product-img" />
+              <h1 class="best-products-card-title">아이패드 미니 팝니다</h1>
+              <span class="best-products-price">500,000원</span>
+              <div class="markets-like">
+                <img src="images/icons/like-heart.svg" alt="좋아요" />
+                <span>240</span>
+              </div>
             </div>
-          </nav>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="로봇 청소기" />
-            </button>
-            <h2>로봇 청소기</h2>
-            <strong>1,500,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="청소도구" />
-            </button>
-            <h2>청소 도구 팔아요</h2>
-            <strong>5,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="섀도우 팔레트" />
-            </button>
-            <h2>섀도우 팔레트</h2>
-            <strong>20,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img
-                src="images/icons/like-heart.svg"
-                alt="맥북 팝니다 m1 13인치"
-              />
-            </button>
-            <h2>아이패드 미니 팝니다</h2>
-            <strong>1,200,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="티셔츠" />
-            </button>
-            <h2>티셔츠 판매해요</h2>
-            <strong>5,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="행거" />
-            </button>
-            <h2>행거 10개 팔아요</h2>
-            <strong>5,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="곰돌이 인형" />
-            </button>
-            <h2>곰돌이 인형 팔아요</h2>
-            <strong>3,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="스탠바이미" />
-            </button>
-            <h2>스탠바이미</h2>
-            <strong>600,000원</strong>
-            <span>240</span>
-          </div>
-          <div>
-            <button type="button">
-              <img src="images/icons/like-heart.svg" alt="아이패드 미니" />
-            </button>
-            <h2>아이패드 미니 팝니다</h2>
-            <strong>500,000원</strong>
-            <span>240</span>
-          </div>
-        </section>
-      </div>
-
-      <div>
-        <ol>
-          <li>
-            <a href="#"></a>
-          </li>
-          <li>
-            <a href="#">1</a>
-          </li>
-          <li>
-            <a href="#">2</a>
-          </li>
-          <li>
-            <a href="#">3</a>
-          </li>
-          <li>
-            <a href="#">4</a>
-          </li>
-          <li>
-            <a href="#">5</a>
-          </li>
-          <li>
-            <a href="#"></a>
-          </li>
-        </ol>
-      </div>
+          </a>
+          <a href="./items.html">
+            <div class="markets-card">
+              <img src="#" alt="책" class="markets-product-img" />
+              <h1 class="best-products-card-title">책 팝니다</h1>
+              <span class="best-products-price">50,000원</span>
+              <div class="markets-like">
+                <img src="images/icons/like-heart.svg" alt="좋아요" />
+                <span>800</span>
+              </div>
+            </div>
+          </a>
+          <a href="./items.html">
+            <div class="markets-card">
+              <img src="#" alt="세탁기" class="markets-product-img" />
+              <h1 class="best-products-card-title">세탁기 팝니다</h1>
+              <span class="best-products-price">500,000원</span>
+              <div class="markets-like">
+                <img src="images/icons/like-heart.svg" alt="좋아요" />
+                <span>700</span>
+              </div>
+            </div>
+          </a>
+          <a href="./items.html">
+            <div class="markets-card">
+              <img src="#" alt="오븐" class="markets-product-img" />
+              <h1 class="best-products-card-title">오븐 팝니다</h1>
+              <span class="best-products-price">300,000원</span>
+              <div class="markets-like">
+                <img src="images/icons/like-heart.svg" alt="좋아요" />
+                <span>500</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
     </main>
   </body>
 </html>
