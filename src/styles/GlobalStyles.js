@@ -45,6 +45,11 @@ a {
 	font-size: 1.25rem;
 	font-weight: 600;
 }
+
+.active {
+	color: var(--main-blue-color);
+}
+
 `;
 
 export default GlobalStyle;

@@ -18,7 +18,7 @@ const ListHead = styled.div`
   }
 `;
 
-const SearchBox = styled.div`s
+const SearchBox = styled.div`
   background-color: var(--gray100);
   border-radius: 12px;
   padding: 9px 18px;

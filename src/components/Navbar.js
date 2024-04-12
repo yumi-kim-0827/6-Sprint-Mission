@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as HeaderLogoPc } from '../assets/header-logo-pc.svg';
 import { ReactComponent as HeaderLogoMobile } from '../assets/header-logo-mobile.svg';
 import styles from '../styles/Button.module.css';
@@ -17,19 +17,9 @@ const Header = styled.div`
     width: 100%;
   }
 
-  nav li {
-    font-weight: 600;
-    font-size: 1.125rem;
-  }
-
   @media (max-width: 375px) {
     .logo img {
       width: 80px;
-    }
-
-    nav li {
-      font-weight: 600;
-      font-size: 1rem;
     }
   }
 `;
@@ -58,9 +48,19 @@ const Siginin = styled.div`
   justify-content: end;
 `;
 
-const NavUl = styled.ul`
+const Nav = styled.nav`
   display: flex;
   gap: 1rem;
+`;
+
+const NavItem = styled.li`
+  font-weight: 600;
+  font-size: 1.125rem;
+  list-style: none;
+
+  @media (max-width: 375px) {
+    font-size: 1rem;
+  }
 `;
 
 function Navbar() {
@@ -85,16 +85,18 @@ function Navbar() {
       <Container>
         <div className="logo">{isMobile ? <HeaderLogoMobile /> : <HeaderLogoPc />}</div>
 
-        <nav>
-          <NavUl>
-            <li>
-              <Link to="/board">자유게시판</Link>
-            </li>
-            <li>
-              <Link to="/items">중고마켓</Link>
-            </li>
-          </NavUl>
-        </nav>
+        <Nav>
+          <NavItem>
+            <NavLink to="/board" className={({ isActive }) => (isActive ? 'active' : '')}>
+              자유게시판
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/items" className={({ isActive }) => (isActive ? 'active' : '')}>
+              중고마켓
+            </NavLink>
+          </NavItem>
+        </Nav>
 
         <Siginin>
           <Link to="/signin" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
