@@ -1,51 +1,20 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import ShowBestProducts from "./components/ShowBestProducts";
-import ShowProducts from "./components/ShowProducts";
-import { getProduct, getBestProduct } from "./components/api";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Header from "./pages/Header";
+import Items from "./pages/Items";
+import Main from "./pages/Main";
+import Footer from "./pages/Footer";
 
-function App() {
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
-  const [order, setOrder] = useState("recent");
-
-  const handleLoad = async (orderQuery) => {
-    const { list } = await getProduct(orderQuery);
-    setProducts(list);
-  };
-
-  const handleBestLoad = async () => {
-    const { list } = await getBestProduct();
-    setBestProducts(list);
-  };
-
-  function onChangeSelect(e) {
-    const value = e.target.value;
-    value === "좋아요순" ? setOrder("favorite") : setOrder("recent");
-  }
-
-  function onChangeInput(e) {
-    const value = e.target.value;
-    value === "" ? setOrder("recent") : setOrder(value);
-  }
-
-  useEffect(() => {
-    handleLoad(order);
-  }, [order]);
-
-  useEffect(() => {
-    handleBestLoad();
-  }, []);
-
+function App(props) {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
-      <div className="container">
-        <ShowBestProducts products={bestProducts} />
-        <ShowProducts onChangeSelect={onChangeSelect} onChangeInput={onChangeInput} products={products} />
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/items" element={<Items />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
