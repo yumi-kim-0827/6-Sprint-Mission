@@ -18,6 +18,8 @@ const ProductCard = ({ product, showLikes = false }) => {
 };
 
 const ProductCardWrapper = styled.div`
+  width: 100%;
+  height: 100%;
   border: none;
   padding: 0.5rem;
   text-align: center;
@@ -25,7 +27,7 @@ const ProductCardWrapper = styled.div`
 
 const ProductImage = styled.img`
   max-width: 100%;
-  height: 240px;
+  height: 310px;
   border-radius: 16px;
 `;
 

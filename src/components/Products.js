@@ -57,19 +57,23 @@ const Product = () => {
 
   return (
     <ProductContainer>
-      <BestTitle>베스트 상품</BestTitle>
-      <BestProduct bestProducts={bestProducts} />
-      <TotalTitleContainer>
-        <TotalTitle>전체상품</TotalTitle>
-        <SearchProducts
-          searchProduct={searchProduct}
-          handleSearch={handleSearch}
-          handleSortOrder={handleSortOrder}
-          sortOrder={sortOrder}
-          navigate={navigate}
-        />
-      </TotalTitleContainer>
-      <TotalProducts sortedProducts={sortedProducts} />
+      <BestProductContainer>
+        <BestTitle>베스트 상품</BestTitle>
+        <BestProduct bestProducts={bestProducts} />
+      </BestProductContainer>
+      <TotalProductContainer>
+        <TotalTitleContainer>
+          <TotalTitle>전체상품</TotalTitle>
+          <SearchProducts
+            searchProduct={searchProduct}
+            handleSearch={handleSearch}
+            handleSortOrder={handleSortOrder}
+            sortOrder={sortOrder}
+            navigate={navigate}
+          />
+        </TotalTitleContainer>
+        <TotalProducts sortedProducts={sortedProducts} />
+      </TotalProductContainer>
     </ProductContainer>
   );
 };
@@ -84,10 +88,54 @@ const BestTitle = styled.h3`
 
 const ProductContainer = styled.div`
   display: flex;
-  width: 1201px;
-  padding-top: 20px;
-  padding-left: 260px;
+  justify-content: center;
+  align-item: center;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
+
+  //모바일
+  @media (max-width: 767px) {
+  }
+  //테블릿
+
+  @media (max-width: 1200px) {
+    padding: 10px 30px;
+  }
+`;
+
+const BestProductContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+  opacity: 0px;
+  padding: 40px 360px;
+
+  //모바일
+  @media (max-width: 767px) {
+    padding: 10px 20px;
+  }
+  //테블릿
+
+  @media (max-width: 1200px) {
+    padding: 10px 30px;
+  }
+`;
+const TotalProductContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  gap: 24px;
+  opacity: 0px;
+  padding: 40px 360px;
+
+  //모바일
+  @media (max-width: 767px) {
+  }
+  //테블릿
+
+  @media (max-width: 1200px) {
+    padding: 10px 30px;
+  }
 `;
 
 const TotalTitle = styled.h3`
