@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { MOBILE, TABLET, PC } from "../utils/magicLiterals";
 import { getBestItems } from "../api";
 import Nav from "../components/Nav";
-import BestItemList from "../components/BestItemList";
-import AllItemList from "../components/AllItemList";
+import ItemList from "../components/ItemList";
 import "./ItemsPage.css";
 
 const numBestItems = {
@@ -37,11 +36,11 @@ function ItemsPage({ device }) {
       <main>
         <section id="best-items">
           <h1 className="section-title">베스트 상품</h1>
-          <BestItemList items={bestItemsUsing} />
+          <ItemList items={bestItemsUsing} />
         </section>
         <section id="all-items">
           <h1 className="section-title">판매 중인 상품</h1>
-          <AllItemList device={device} />
+          <ItemList items={[]} />
         </section>
       </main>
     </>

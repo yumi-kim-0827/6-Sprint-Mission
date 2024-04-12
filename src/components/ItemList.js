@@ -1,7 +1,7 @@
 import Item from "./Item";
-import "./BestItemList.css";
+import "./ItemList.css";
 
-function BestItemList({ items }) {
+function ItemList({ items }) {
   return (
     <ol className="item-list">
       {items.map((item) => (
@@ -13,4 +13,4 @@ function BestItemList({ items }) {
   );
 }
 
-export default BestItemList;
+export default ItemList;
