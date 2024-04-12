@@ -42,6 +42,7 @@ code {
 
 main {
   margin-top: 7rem;
+  margin-inline: auto;
 }
 
 a {

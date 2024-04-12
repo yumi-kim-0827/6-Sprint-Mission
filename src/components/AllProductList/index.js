@@ -9,6 +9,7 @@ import DropDown from '../Dropdown';
 import ArrowDown from '../../assets/icons/ArrowDown.svg';
 import Sort from '../../assets/icons/Sort.svg';
 import Pagination from '@mui/material/Pagination';
+import Grid from '@mui/material/Grid';
 import './style.css';
 
 const AllProductList = () => {
@@ -41,9 +42,9 @@ const AllProductList = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 767) {
+      if (window.innerWidth < 600) {
         setPageSize(4);
-      } else if (window.innerWidth <= 1199) {
+      } else if (window.innerWidth < 900) {
         setPageSize(6);
       } else {
         setPageSize(10);
@@ -114,15 +115,15 @@ const AllProductList = () => {
           </div>
         </div>
       </div>
-      <ul className="all-container" l>
+      <Grid container spacing={2}>
         {allProduct.map((item) => {
           return (
-            <li key={item.id} className="all-item">
+            <Grid item xs={6} sm={4} md={2.4} key={item.id}>
               <ProductItem item={item} />
-            </li>
+            </Grid>
           );
         })}
-      </ul>
+      </Grid>
       <div className="pagination">
         <Pagination
           count={Math.ceil(total / pageSize)}
