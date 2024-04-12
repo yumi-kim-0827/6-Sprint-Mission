@@ -5,7 +5,7 @@ import Oven from "../assets/img/mock/oven.png";
 import HeartIcon from "../assets/icon/ic_heart.svg";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import "../stlye/market.css";
+import "../stlye/bestMarket.css";
 
 const BEST_DATA = [
   {

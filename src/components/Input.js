@@ -1,0 +1,16 @@
+import SearchIcon from "../assets/icon/ic_search.svg";
+import SortIcon from "../assets/icon/ic_sort.svg";
+import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
+import { useEffect, useState } from "react";
+import "../stlye/input.css";
+
+export function SearchInput() {
+  return (
+    <div className="search">
+      <img src={SearchIcon} alt="검색" />
+      <input placeholder="검색할 상품을 입력해주세요." />
+    </div>
+  );
+}
+
+export function SelectInput() {}
