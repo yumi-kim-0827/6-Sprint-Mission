@@ -1,5 +1,5 @@
-import imgPc from "./img/logo_img.png";
-import imgMobile from "./img/logo_typo.png";
+import logoPC from "../img/logo_img.png";
+import logoMobile from "../img/logo_typo.png";
 
 export function Logo ({children}) {
   
@@ -7,9 +7,9 @@ export function Logo ({children}) {
     <h1 className="header__logo">
       <a href="/" className="link">
         <picture className="img-logo">
-          <source srcSet={imgMobile} media="(max-width: 768px)" width="103"/>
-          <source srcSet={imgPc} media="(min-width: 769px)" width="153"/>
-          <img src={{imgMobile}} alt={children + ' 로고 이미지'}/>
+          <source srcSet={logoMobile} media="(max-width: 768px)" width="103"/>
+          <source srcSet={logoPC} media="(min-width: 769px)" width="153"/>
+          <img src={logoMobile} alt={children + ' 로고 이미지'}/>
         </picture>
         <span className="blind">{children}</span>
       </a>

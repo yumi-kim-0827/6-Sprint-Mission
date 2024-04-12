@@ -30,10 +30,19 @@ html, body {
     @media screen and (max-width : $size-tablet){
       padding: 0 16px;
     }
+    .btn-login {
+      width:88px;
+    }
   }
   .section-header {
     display:flex;
     gap:32px;
+    @media screen and (max-width : $size-desktop){
+      gap:20px;
+    }
+    @media screen and (max-width : $size-tablet){
+      gap:16px;
+    }
   }
   .img-logo {
     display:flex;

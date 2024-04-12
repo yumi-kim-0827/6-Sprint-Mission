@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../components/ItemList";
 
-
-
-export function ViewItemList ({order}) {
+export function ViewItemList ({order, size, keyword}) {
   const [items, setItems] = useState([]);
- 
-  async function getItems(order) {
-    const query = `?orderBy=${order}`;
+  const [pageSize, setPageSize] = useState(size);
+
+  async function getItems({order, pageSize, keyword=""}) {
+    const query = `?orderBy=${order}&pageSize=${pageSize}&keyword=${keyword}`;
     const response = await fetch(
       `https://panda-market-api.vercel.app/products${query}`
     );
@@ -17,20 +16,20 @@ export function ViewItemList ({order}) {
     return list;
   }
 
-  const loadItems = async (order) => {
-    const itemList = await getItems(order);
+  const loadItems = async (options) => {
+    const itemList = await getItems(options);
     setItems(itemList);
   };
 
   useEffect(() => {
-    loadItems(order);
-  }, [order]);
+    loadItems({order, pageSize, keyword});
+  }, [order, keyword]);
 
   return (
-    <ul>
+    <ul className="itemlists">
       {items.map((item) => {
         return (
-          <li key={item.id}>
+          <li key={item.id} className="itemlist">
             <ItemList item={item} order={order}/>
           </li>
         );
