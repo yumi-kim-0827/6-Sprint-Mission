@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 .main {
 	padding-top: 70px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+=======
+.main{
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+>>>>>>> 72f21a664dd22b2df77a623517ccf75aa7798bbc
 }

@@ -13,6 +13,10 @@
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid #DFDFDF;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72f21a664dd22b2df77a623517ccf75aa7798bbc
 }
 
 .nav {
@@ -23,9 +27,15 @@
 	font-weight: 700;
 }
 
+<<<<<<< HEAD
 .link {
 	color: #4B5563;
 	text-decoration-line: none;
+=======
+.link{
+  color: #4B5563;
+  text-decoration-line: none;
+>>>>>>> 72f21a664dd22b2df77a623517ccf75aa7798bbc
 }
 
 .login {
