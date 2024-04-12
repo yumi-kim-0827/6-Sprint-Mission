@@ -6,7 +6,7 @@ import App from "./App.js";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Items from "./components/Items";
-import Nav from "./components/Nav.js";
+import Nav from "./components/Nav.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -2,8 +2,6 @@ import "./ItemCard.css";
 import likeIcon from "../assets/icon-like-heart.svg";
 
 export default function ItemCard({ items, count }) {
-  items.sort((a, b) => b.favoriteCount - a.favoriteCount);
-
   return (
     <>
       {items.length > 0 ? (

@@ -26,6 +26,7 @@ h1 {
 
 @media (min-width: 768px) {
   .container-best-products {
-    width: 768px;
+    margin: 0 auto;
+    width: 696px;
   }
 }
