@@ -1,14 +1,13 @@
 import Header from "./components/header";
 import BestProducts from "./components/bestProducts";
-import ProductsInSelling from './components/productsInSelling';
-import ProductInSelling from "./components/productsInSelling";
+import ProductsInSelling from "./components/productsInSelling";
 
 function App() {
   return (
     <main>
       <Header/>
       <BestProducts/>
-      <ProductInSelling/>
+      <ProductsInSelling/>
     </main>
   );
 }

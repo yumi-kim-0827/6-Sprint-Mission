@@ -1,6 +1,6 @@
 import './productsInSelling.css';
 
-export default function ProductInSelling() {
+export default function ProductsInSelling() {
     return (
         <div></div>
     );
