@@ -1,9 +1,9 @@
 import { Header } from "../../../widgets/header/index.jsx";
 
-export function Items() {
+export function Items({ isImageLogo }) {
   return (
     <>
-      <Header />
+      <Header image={isImageLogo} />
     </>
   );
 }

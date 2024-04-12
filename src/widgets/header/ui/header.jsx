@@ -1,25 +1,36 @@
 import "./header.scss";
+import "../../../shared/style/link.scss";
+import logoUrl from "../../../shared/asset/headerLogo.png";
+import { Button } from "../../../shared/ui/Button";
 
-export const Header = () => {
+export const Header = ({ image }) => {
   return (
-    <header className="header-main header-main--fixed-top">
-      <div className="header-main__content">
-        <div className="header-main__logo">
-          <img
-            src="./image/main-page/mainLogo.jpg"
-            alt="Panda Market Main Logo"
-          />
-          <a href="/">
-            <img src="./image/main-page/판다마켓.jpg" alt="Panda Market Logo" />
-          </a>
+    <header className="header">
+      <div className="wrapper">
+        <div className="header--wrap">
+          <div className="header__logo">
+            {image && <img src={logoUrl} alt="Panda Market Main Logo" />}
+            <a href="/" className="link header__text">
+              판다마켓
+            </a>
+          </div>
+          <div className="header__nav--wrap">
+            <a
+              href="/freeBoard"
+              className="link header__nav header__nav--not-active"
+            >
+              자유게시판
+            </a>
+            <a href="/market" className="link header__nav header__nav--active">
+              중고마켓
+            </a>
+          </div>
         </div>
-        <a href="./login.html">
-          <button
-            className="button button--theme-blue button__login description-login"
-            type="button"
-          >
-            로그인
-          </button>
+        <a href="/login" className="link">
+          <Button
+            classNames={["button--small", "button--blue", "button"]}
+            value={"로그인"}
+          />
         </a>
       </div>
     </header>
