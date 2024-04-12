@@ -32,12 +32,10 @@ function ItemPage() {
     const { list } = await getItems(options);
     setAllItems(list);
   };
-  useEffect(() => {
-    handLoadBestItemList();
-  }, []);
 
   useEffect(() => {
     handLoadAllItemList({ order, page, pageSize, keyword });
+    handLoadBestItemList();
   }, [order, page, pageSize, keyword]);
 
   return (
