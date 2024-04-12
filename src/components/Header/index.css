@@ -8,6 +8,10 @@
   background-color: white;
 }
 
+.header + * {
+  margin-top: 70px;
+}
+
 .header-contents {
   display: flex;
   justify-content: space-between;
