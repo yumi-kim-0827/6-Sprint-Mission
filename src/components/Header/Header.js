@@ -1,7 +1,7 @@
 import React from "react";
+import Button from "../Button/Button";
 import "./Header.css";
 import pandaLogo from "../../assets/images/panda_face.svg";
-import Button from "../Button/Button";
 
 const Header = () => {
   return (

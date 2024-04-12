@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { getProducts } from "../../api";
 import Button from "../../components/Button/Button";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import SelectBox from "../../components/SelectBox/SelectBox";
 import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
-import SelectBox from "../../components/SelectBox/SelectBox";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
