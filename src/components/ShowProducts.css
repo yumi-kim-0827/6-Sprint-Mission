@@ -1,0 +1,109 @@
+@import "../root.css";
+
+.Search-Group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Search-Group #search {
+  width: 325px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--cool-gray400);
+  outline: none;
+  border: none;
+  background-color: var(--cool-gray100);
+  padding-left: 40px;
+}
+.Search-Group #search-icon {
+  position: relative;
+  color: var(--cool-gray400);
+  left: 30px;
+  top: 2px;
+  z-index: 2;
+  width: 15px;
+}
+
+.Search-Group .Product-Resister-Btn {
+  background-color: var(--blue);
+  width: 133px;
+  height: 40px;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.Search-Group .Product-Resister-Btn:hover {
+  background-color: var(--hover-blue);
+}
+.Search-Group .Product-Resister-Btn:active {
+  background-color: var(--click-blue);
+}
+
+.Search-Group #select-category {
+  margin-left: 10px;
+  border: solid 1px #e5e7eb;
+  width: 130px;
+  height: 42px;
+  padding: 10px;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+}
+.Search-Group #select-category option {
+  font-size: 16px;
+}
+
+.ProductsList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 20px;
+  margin: 20px 0 50px 0;
+}
+
+.ProductItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ProductItem-Img {
+  width: 221px;
+  height: 221px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 6px;
+}
+
+.ProductItem-Name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.71px;
+  color: var(-product-item-name-color);
+}
+
+.ProductItem-Price {
+  font-size: 16px;
+  line-height: 19.09px;
+  font-weight: 700;
+}
+.ProductItem-Favorite {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 14px;
+}
+.ProductItem-Favorite p {
+  color: var(--product-item-name-color);
+  font-size: 14px;
+  position: relative;
+  bottom: 1px;
+}
+.ProductItem-Favorite img {
+  width: 14px;
+}
