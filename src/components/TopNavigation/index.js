@@ -34,7 +34,7 @@ const TopNavigation = () => {
             <li>
               <Link
                 to="/board"
-                className={location.pathname === '/board' && 'activ-nav'}
+                className={location.pathname === '/board' ? 'activ-nav' : ''}
               >
                 자유게시판
               </Link>
@@ -42,7 +42,7 @@ const TopNavigation = () => {
             <li>
               <Link
                 to="/items"
-                className={location.pathname === '/items' && 'activ-nav'}
+                className={location.pathname === '/items' ? 'activ-nav' : ''}
               >
                 중고마켓
               </Link>

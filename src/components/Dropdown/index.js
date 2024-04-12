@@ -31,7 +31,7 @@ const DropDown = ({ triggerComponent, options }) => {
         {options.map((option, index) => (
           <>
             <MenuItem
-              key={index}
+              key={option.label}
               onClick={() => {
                 option.onClick();
                 handleClose();

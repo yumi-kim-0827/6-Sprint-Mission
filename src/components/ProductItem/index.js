@@ -4,7 +4,6 @@ import Heart from '../../assets/icons/Heart.svg';
 import { formatNumberToWon } from '../../utils/formatNumber';
 
 const ProductItem = ({ item }) => {
-  console.log(item);
   return (
     <div className="item-container">
       <div className="image-comtainer">
