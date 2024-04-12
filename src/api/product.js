@@ -1,7 +1,7 @@
 async function getProducts(order = "") {
-  const query = `orderBy=${order}`;
+  const query = `?orderBy=${order}`;
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products?${query}`
+    `https://panda-market-api.vercel.app/products${order && query}`
   );
   const products = await response.json();
   return products.list;
