@@ -3,13 +3,17 @@ import "../../../shared/style/link.scss";
 import logoUrl from "../../../shared/asset/headerLogo.png";
 import { Button } from "../../../shared/ui/Button";
 
-export const Header = ({ image }) => {
+export const Header = () => {
   return (
     <header className="header">
       <div className="wrapper">
         <div className="header--wrap">
           <div className="header__logo">
-            {image && <img src={logoUrl} alt="Panda Market Main Logo" />}
+            <img
+              src={logoUrl}
+              alt="Panda Market Main Logo"
+              className="header__logo-image"
+            />
             <a href="/" className="link header__text">
               판다마켓
             </a>
