@@ -26,12 +26,14 @@ const SearchContainer = ({
 
   return (
     <SearchContainerWrapper>
-      <SearchInput
-        type="text"
-        placeholder="🔍 상품을 검색해주세요"
-        value={searchProduct}
-        onChange={handleSearch}
-      />
+      <SearchContainers>
+        <SearchInput
+          type="text"
+          placeholder="🔍 상품을 검색해주세요"
+          value={searchProduct}
+          onChange={handleSearch}
+        />
+      </SearchContainers>
       <ButtonProduct onClick={navigateToItemsPage}>상품 등록하기</ButtonProduct>
       <DropdownWrapper onClick={toggleDropdown}>
         {selectedOption === "newest" ? "최신순" : "좋아요순"} ▼
@@ -54,13 +56,26 @@ const SearchContainerWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const SearchInput = styled.input`
+  display: flex;
   padding: 0.5rem;
   border: 1px solid #3692ff;
   border-radius: 4px;
   margin-right: 1rem;
+`;
+
+const SearchContainers = styled.div`
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const DropdownWrapper = styled.div`
