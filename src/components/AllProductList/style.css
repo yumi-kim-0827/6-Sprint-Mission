@@ -1,3 +1,15 @@
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .all-container {
   display: flex;
   flex-wrap: wrap;

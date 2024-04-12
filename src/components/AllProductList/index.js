@@ -2,7 +2,9 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../api/productApi';
 import ProductItem from '../ProductItem';
-import './allStyle.css';
+import Button from '../Button';
+import './style.css';
+import { Link } from 'react-router-dom';
 
 const AllProductList = () => {
   const [allProduct, setAllProduct] = useState([]);
@@ -42,12 +44,21 @@ const AllProductList = () => {
 
   return (
     <section>
-      <div>
+      <div className="top-container">
         <h3>전체 상품</h3>
-        <button onClick={() => handleClickOrder('recent')}>최신순</button>
-        <button onClick={() => handleClickOrder('favorite')}>좋아요순</button>
+        <div className="product-control">
+          <input />
+          <Link to="/addItem">
+            <Button title="상품 등록하기" />
+          </Link>
+          <div>
+            <button onClick={() => handleClickOrder('recent')}>최신순</button>
+            <button onClick={() => handleClickOrder('favorite')}>
+              좋아요순
+            </button>
+          </div>
+        </div>
       </div>
-      {/* 여기에 아이템  */}
       <ul className="all-container" l>
         {allProduct.map((item) => {
           return (

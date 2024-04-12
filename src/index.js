@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     path: '/items',
     element: <ItemsPage />,
   },
+  {
+    path: '/*',
+    element: <h1>미구현 페이지 입니다.</h1>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

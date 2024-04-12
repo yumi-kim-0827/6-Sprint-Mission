@@ -1,6 +1,7 @@
 import React from 'react';
 import pandoLogo from '../../assets/logos/panda-logo.png';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 import './style.css';
 
 const TopNavigation = () => {
@@ -22,7 +23,7 @@ const TopNavigation = () => {
         </nav>
       </div>
       <Link to="/login">
-        <button className="login-button">로그인</button>
+        <Button title="로그인" />
       </Link>
     </header>
   );
