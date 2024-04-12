@@ -1,7 +1,7 @@
 import React from 'react';
-import { getProducts } from '../../api/productApi';
+import { getProducts } from 'api/productApi';
 import { useEffect, useState } from 'react';
-import ProductItem from '../ProductItem';
+import ProductItem from 'components/ProductItem';
 import Grid from '@mui/material/Grid';
 import './style.css';
 

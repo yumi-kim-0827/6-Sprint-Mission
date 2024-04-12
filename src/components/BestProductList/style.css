@@ -1,35 +1,6 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0;
-  gap: 1.5rem;
-}
-
-.item {
-  flex: 1 1 25%;
-}
-
-/* 태블릿 사이즈 */
-@media (max-width: 1199px) {
-  .item {
-    flex: 1 1 40%;
-  }
-
-  .item:nth-child(n + 3) {
-    display: none;
-  }
-}
-
 /* 모바일 사이즈 */
 @media (max-width: 767px) {
   .container {
     gap: 2rem;
-  }
-  .item {
-    flex: 1 1 100%;
-  }
-
-  .item:nth-child(n + 2) {
-    display: none;
   }
 }

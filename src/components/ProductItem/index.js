@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import Heart from '../../assets/icons/Heart.svg';
-import { formatNumberToWon } from '../../utils/formatNumber';
+import Heart from 'assets/icons/Heart.svg';
+import { formatNumberToWon } from 'utils/formatNumber';
 
 const ProductItem = ({ item }) => {
   return (

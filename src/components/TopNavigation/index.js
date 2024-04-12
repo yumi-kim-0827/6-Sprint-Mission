@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import pandoLogo from '../../assets/logos/panda-logo.png';
-import TextLogo from '../../assets/logos/text-logo.png';
+import pandoLogo from 'assets/logos/panda-logo.png';
+import TextLogo from 'assets/logos/text-logo.png';
 import { Link, useLocation } from 'react-router-dom';
-import Button from '../Button';
+import Button from 'components/Button';
 import './style.css';
 
 const TopNavigation = () => {

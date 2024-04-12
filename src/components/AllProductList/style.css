@@ -74,45 +74,22 @@
   background-color: var(--gray-200);
 }
 
-.all-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-left: 0;
-  gap: 1.5rem;
-}
-
-.all-item {
-  flex: 1 1 18%;
-}
-
-/* 태블릿 사이즈 */
-@media (max-width: 1199px) {
-  .all-item {
-    flex: 1 1 25%;
-  }
-}
-
 /* 모바일 사이즈 */
 @media (max-width: 767px) {
-  .all-item {
-    flex: 1 1 35%;
-  }
-
   .top-container {
     position: relative;
-    padding-bottom: 2.8125rem;
+    padding-bottom: 3rem;
   }
 
   .search-container {
     position: absolute;
-    bottom: 0%;
+    bottom: 9%;
     left: 0%;
   }
 
   .order-container {
     position: absolute;
-    bottom: 0%;
+    bottom: 9%;
     right: 0%;
   }
 }
