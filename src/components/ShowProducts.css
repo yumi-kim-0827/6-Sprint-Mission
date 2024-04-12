@@ -1,5 +1,9 @@
 @import "../root.css";
 
+.ProductsList {
+  height: 653px;
+}
+
 .Search-Group {
   display: flex;
   align-items: center;
