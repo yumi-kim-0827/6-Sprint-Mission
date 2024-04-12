@@ -16,7 +16,7 @@
 - Mobile : 1개 보이기
 
 전체 상품
-- Desktop : 12개 보이기
+- Desktop : 10개 보이기
 - Tablet : 6개 보이기
 - Mobile : 4개 보이기
 
