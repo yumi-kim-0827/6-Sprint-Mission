@@ -3,6 +3,11 @@
   height: 282px;
 }
 
+.all-item-list {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .item-img-container-all {
   width: 221px;
   height: 221px;
@@ -41,6 +46,7 @@
 .all-item-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
 }
 .all-item-header-filter {
@@ -50,15 +56,20 @@
 .all-item-header-search {
   border-radius: 12px;
   border: none;
-  padding: 9px 44px 9px;
+  padding-left: 35px;
   width: 325px;
   height: 42px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #9ca3af;
+  padding: 9px, 20px, 16px;
   background: #f3f4f6 url(../assets/item-search-icon.svg) no-repeat left 16px
     center;
-  line-height: 24px;
+  background-size: 15px;
+}
+
+input.all-item-header-search::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 42px;
 }
 
 .select-box {
@@ -93,4 +104,63 @@
   grid-template-columns: repeat(5, 221px);
   grid-template-rows: repeat(2, 301px);
   gap: 24px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .item-img-container {
+    width: 336px;
+    height: 336px;
+  }
+
+  .item-img-container-all {
+    width: 221px;
+    height: 221px;
+  }
+  .all-item-grid {
+    grid-template-columns: repeat(3, 221px);
+    grid-template-rows: repeat(2, 301px);
+    gap: 16px;
+  }
+  .all-item-grid > div:nth-child(n + 7) {
+    display: none;
+  }
+  .select-box {
+    width: 120px;
+  }
+  .all-item-header-search {
+    width: 242px;
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .item-img-container {
+    width: 343px;
+    height: 343px;
+  }
+
+  .item-img-container-all {
+    width: 168px;
+    height: 168px;
+  }
+  .all-item-grid {
+    grid-template-columns: repeat(2, 168px);
+    grid-template-rows: repeat(2, 248px);
+    gap: 16px;
+  }
+  .all-item-grid > div:nth-child(n + 5) {
+    display: none;
+  }
+  .all-item-header-search {
+    width: 294px;
+    order: 2;
+  }
+  .all-item-header {
+    flex-wrap: wrap;
+  }
+  .item-register-btn {
+    order: 1;
+  }
+  .select-box {
+    width: 42px;
+    background: url(../assets/arrow-down-icon.svg) no-repeat center;
+    order: 3;
+  }
 }

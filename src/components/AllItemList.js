@@ -27,7 +27,7 @@ function AllItemList({ items, handleSortedChange, className }) {
       <div className="all-item-header">
         <h2 className="category-title">전체 상품</h2>
         <div className="all-item-header-filter">
-          <form>
+          <form className="search-form">
             <input
               type="search"
               name="search"

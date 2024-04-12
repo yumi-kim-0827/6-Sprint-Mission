@@ -1,4 +1,17 @@
 main {
   width: 1200px;
   margin: 0 auto;
+  margin-top: 24px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    width: 100%;
+    padding: 24px 24px 59px;
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  main {
+    width: 100%;
+    padding: 17px 15px 82px;
+  }
 }

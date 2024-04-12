@@ -1,5 +1,6 @@
 .best-item-list {
-  margin: 24px 0 40px;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .category-title {
@@ -11,4 +12,20 @@
   display: grid;
   grid-template-columns: repeat(4, 282px);
   gap: 24px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .best-item-grid {
+    grid-template-columns: repeat(2, 336px);
+  }
+  .best-item-grid > div:nth-child(n + 3) {
+    display: none; /* 세 번째 이후의 요소는 숨김 */
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .best-item-grid {
+    grid-template-columns: 343px;
+  }
+  .best-item-grid > div:nth-child(n + 2) {
+    display: none;
+  }
 }
