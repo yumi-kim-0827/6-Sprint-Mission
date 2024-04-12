@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useProductCountStore } from "../store/productCountStore";
+import paginationStore from "../store/paginationStore";
 
 import searchIcon from "../images/ic_search.png";
 import arrowDown from "../images/ic_arrow_down.png";
@@ -14,6 +15,7 @@ export default function AllItemsList({ data }) {
   const [allProducts, setAllProducts] = useState(data.list);
 
   const productCount = useProductCountStore();
+  const currentPage = paginationStore((state) => state.currentPage);
 
   const sortProductsByDate = (products) => {
     const sortedProducts = [...products].sort((a, b) => {
@@ -90,27 +92,36 @@ export default function AllItemsList({ data }) {
       </div>
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {allProducts &&
-          allProducts.slice(0, productCount).map((post) => {
-            return (
-              <li key={post.id}>
-                <img
-                  src={post.images[0]}
-                  alt={post.name}
-                  className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
-                />
-                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
-                  {post.name} 팝니다
-                </p>
-                <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                  {post.price}원
-                </p>
-                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="ml-1 text-xs">{post.favoriteCount}</span>
-              </li>
-            );
-          })}
+          allProducts
+            .slice(
+              currentPage * productCount - productCount,
+              currentPage * productCount,
+            )
+            .map((post) => {
+              return (
+                <li key={post.id}>
+                  <img
+                    src={post.images[0]}
+                    alt={post.name}
+                    className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
+                    {post.name} 팝니다
+                  </p>
+                  <p className="text-sm font-bold text-[var(--cool-gray800)]">
+                    {post.price}원
+                  </p>
+                  <img
+                    src={favoriteIcon}
+                    alt="favoriteicon"
+                    className="inline"
+                  />
+                  <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                </li>
+              );
+            })}
       </ul>
-      <Pagination />
+      <Pagination datatotalCount={data.totalCount} />
     </div>
   );
 }

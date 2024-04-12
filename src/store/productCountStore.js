@@ -32,7 +32,7 @@ export function useProductCountStore() {
   const setProductCount = useStore((state) => state.setProductCount);
 
   useEffect(() => {
-    const count = getCountByDeviceSize(isMobile, isTablet, isPC, 4, 6, 12);
+    const count = getCountByDeviceSize(isMobile, isTablet, isPC, 4, 6, 10);
     setProductCount(count);
   }, [isMobile, isTablet, isPC, setProductCount]);
 
