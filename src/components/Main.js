@@ -1,8 +1,14 @@
-
+import BestItems from './BestItems';
+import AllItems from './AllItems';
+import './Main.css';
 
 function Main() {
 	return (
-		<p></p>
+		<div className="main">
+			<BestItems />
+			<AllItems />
+		</div>
+
 	);
 }
 
