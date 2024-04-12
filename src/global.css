@@ -17,6 +17,7 @@
   --cool-gray400: #9ca3af;
   --cool-gray100: #f3f4f6;
 
+  /* TODO 색상명을 변경할 필요가 있다. 더 자주 사용될 시 변경할 것 */
   --btn-blue1: #3692ff;
   --btn-blue2: #1967d6;
   --btn-blue3: #1251aa;
@@ -24,6 +25,7 @@
   --error-red: #f74747;
 
   --bg-color: #cfe5ff;
+  /* TODO 색상명을 변경할 필요가 있다. 더 자주 사용될 시 변경할 것 */
   --footer-bg-color: #111827;
   --sns-bg-color: #e6f2ff;
 }

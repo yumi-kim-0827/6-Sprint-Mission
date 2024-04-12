@@ -11,12 +11,17 @@ import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
 
 export default function AllItemsList({ data }) {
+  // 드롭다운 on off를 위한 state입니다.
   const [dropdownView, setDropdownView] = useState(false);
+  // api의 list만을 받아 데이터를 사용하였습니다.
   const [allProducts, setAllProducts] = useState(data.list);
 
+  // 화면 전환 시 달라지는 전체 상품 데이터들을 전역적으로 관리하였습니다.
   const productCount = useProductCountStore();
+  // 페이지네이션을 버튼 클릭시 현재 페이지를 눌러 랜더링 하도록 데이터를 만들었습니다.
   const currentPage = paginationStore((state) => state.currentPage);
 
+  // 정렬을 위한 함수입니다.
   const sortProductsByDate = (products) => {
     const sortedProducts = [...products].sort((a, b) => {
       const dateA = new Date(a.createdAt);
@@ -90,6 +95,7 @@ export default function AllItemsList({ data }) {
           </div>
         </div>
       </div>
+      {/* 클릭 시 페이지 * 화면 전환에 따른 제품 개수로 렌더링 하도록 구현하였습니다. */}
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {allProducts &&
           allProducts

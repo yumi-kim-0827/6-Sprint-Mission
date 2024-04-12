@@ -3,6 +3,7 @@ export default function SortDropdown({
   sortProductsByLike,
   allProducts,
 }) {
+  // props를 받아 구현하였습니다.
   const handleDateSort = () => {
     sortProductsByDate(allProducts);
   };

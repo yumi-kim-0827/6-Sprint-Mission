@@ -27,6 +27,7 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li>
+            {/* 클릭 시 디자인을 변경하도록 NavLink를 이용하였습니다 */}
             <NavLink
               to="/items"
               className={({ isActive }) =>
