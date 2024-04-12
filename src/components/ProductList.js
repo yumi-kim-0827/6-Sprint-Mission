@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa6';
 
 const ProductListItemLi = styled.li`
@@ -45,6 +45,30 @@ const ProductListUl = styled.ul`
   @media (max-width: 375px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  ${(props) =>
+    props.className === 'bestProductList' &&
+    css`
+      grid-template-columns: repeat(4, 1fr);
+
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+
+        /* 4개의 아이템 중 2개만 보이도록 설정 */
+        li:nth-child(n + 3) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 375px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        /* 4개의 아이템 중 3개만 보이도록 설정 */
+        li:nth-child(n + 2) {
+          display: none;
+        }
+      }
+    `}
 `;
 
 function ProductListItem({ item }) {
@@ -64,9 +88,9 @@ function ProductListItem({ item }) {
   );
 }
 
-function ProductList({ items }) {
+function ProductList({ items, className }) {
   return (
-    <ProductListUl>
+    <ProductListUl className={className}>
       {items.map((item) => {
         return (
           <ProductListItemLi key={items.id}>

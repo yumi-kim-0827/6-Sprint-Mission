@@ -6,7 +6,10 @@ import ProductList from './ProductList';
 import { getProducts } from '../api';
 import styles from '../styles/Button.module.css';
 
-const ListHead = styled.div`
+const BestListBox = styled.div`
+  margin-bottom: 40px;
+`;
+const AllListHead = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 24px;
@@ -36,6 +39,8 @@ const Input = styled.input`
 function Items() {
   const [order, setOrder] = useState('createdAt');
   const [items, setItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState([]);
+
   const sortedItems = useMemo(() => {
     return [...items].sort((a, b) => b[order] - a[order]);
   }, [items, order]);
@@ -50,13 +55,24 @@ function Items() {
     setItems(products.list);
   };
 
+  // 좋아요순으로 데이터 불러오기
+  const handleLoadFavorites = async () => {
+    const favoriteProducts = await getProducts('favoriteCount');
+    setFavoriteItems(favoriteProducts.list.slice(0, 4));
+  };
+
   useEffect(() => {
     handleLoad(order);
+    handleLoadFavorites();
   }, [order]);
 
   return (
     <>
-      <ListHead>
+      <BestListBox>
+        <h2>베스트 상품</h2>
+        <ProductList items={favoriteItems} className="bestProductList" />
+      </BestListBox>
+      <AllListHead>
         <h2>전체 상품</h2>
         <SearchBox>
           <FaSistrix />
@@ -69,7 +85,7 @@ function Items() {
           <button onClick={handleNewstClick}>최신순</button>
           <button onClick={handleBestClick}>좋아요순</button>
         </div>
-      </ListHead>
+      </AllListHead>
       <ProductList items={sortedItems} />
     </>
   );
