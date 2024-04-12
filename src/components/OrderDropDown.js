@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
 import { ORDER_MESSAGE } from "../utils/magicLiterals";
+import "./OrderDropDown.css";
 
 function OrderDropDown({ order, setOrder }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +20,12 @@ function OrderDropDown({ order, setOrder }) {
 
   return (
     <div className="drop-down">
-      <button className="" onClick={handleDropDownClick}>
-        {orderMessage}
+      <button className="drop-down-button" onClick={handleDropDownClick}>
+        <span>{orderMessage}</span>
         <img src={ArrowDownIcon} alt="드롭다운" />
       </button>
       {isOpen && (
-        <ul>
+        <ul className="drop-down-menus">
           <li
             className="drop-down-menu"
             data-value="recent"
