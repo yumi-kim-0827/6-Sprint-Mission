@@ -1,0 +1,15 @@
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  margin: 70px auto 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+}
