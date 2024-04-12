@@ -8,7 +8,7 @@ export default function ItemsForSale({ items }) {
   const [itemsToShow, setItemsToShow] = useState(10);
   const [title, setTitle] = useState('판매 중인 상품');
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState(items.slice(0, itemsToShow));
 
   const handleSort = criteria => {
     let sortedItems;
@@ -19,6 +19,7 @@ export default function ItemsForSale({ items }) {
     }
     setFilteredItems(sortedItems);
   };
+
   useEffect(() => {
     function handleResize() {
       const width = window.innerWidth;
@@ -34,7 +35,7 @@ export default function ItemsForSale({ items }) {
         itemsToShow = 10;
         title = '전체 상품';
       }
-
+      setFilteredItems(items);
       setItemsToShow(itemsToShow);
       setTitle(title);
     }
@@ -46,7 +47,7 @@ export default function ItemsForSale({ items }) {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [items]);
 
   const handleKeyPress = event => {
     if (event.key === 'Enter') {
@@ -75,7 +76,7 @@ export default function ItemsForSale({ items }) {
         <SelectBox className='select-box' items={items} handleSort={handleSort} />
       </div>
       <section className='items'>
-        {filteredItems.slice(0, itemsToShow).map(item => (
+        {filteredItems?.slice(0, itemsToShow).map(item => (
           <ItemForSale key={item.id} item={item} />
         ))}
       </section>
