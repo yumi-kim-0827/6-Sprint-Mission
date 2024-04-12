@@ -1,57 +1,110 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../img/icon/ic_brand_logo.svg">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" type="text/css" href="../global.css">
-  <meta property="og:title" content="판다마켓 로그인">
-  <title>sign-in</title>
-</head>
-<body class="body">
-  <div class="logo">
-    <a href="../">
-      <img class="img" src="../img/icon/ic_brand_logoname.svg">
-    </a>
-  </div>
-  <main class="main">
-    <form>
-      <div class="input-name">
-        <label for="email">이메일</label>
-        <input id="email" class="input" type="email" name="email" placeholder="이메일을 입력해 주세요"><br/>
-      </div>
-      <div class="input-name">
-        <label for="password">비밀번호</label>
-        <input id="password" class="input" type="password" name="password" placeholder="비밀번호를 입력해 주세요"><br/>
-        <button type="button" class="password-toggle-button">
-          <img src="../img/icon/ic_Property 1=Variant2.svg" alt="비밀번호 숨기기 아이콘">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://panda-market-sample.netlify.app" />
+    <meta property="og:title" content="판다마켓" />
+    <meta property="og:image" content="images/logo/og-image.png" />
+    <meta
+      property="og:description"
+      content="일상의 모든 물건을 거래해 보세요"
+    />
+
+    <title>판다마켓</title>
+    <link rel="icon" href="img/icon/ic_brand_logo.svg" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="auth-container">
+      <a href="../" class="logo-home-link" aria-label="홈으로 이동"
+        ><img src="../img/icon/ic_brand_logoname.svg" alt="판다마켓 로고"
+      /></a>
+      <form id="loginForm" method="post">
+        <div class="input-item">
+          <label for="email">이메일</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="이메일을 입력해 주세요"
+            required
+          />
+          <span id="emailEmptyError" class="error-message"
+            >이메일을 입력해 주세요</span
+          >
+          <span id="emailInvalidError" class="error-message"
+            >잘못된 이메일 형식입니다</span
+          >
+        </div>
+        <div class="input-item">
+          <label for="password">비밀번호</label>
+          <div class="input-wrapper">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호를 입력해 주세요"
+              required
+            />
+            <button
+              type="button"
+              class="password-toggle-button"
+              aria-label="비밀번호 보기"
+            >
+              <img
+                class="password-toggle-icon"
+                src="../img/icon/ic_Property-Variant.svg"
+                alt="비밀번호 숨김 상태 아이콘"
+              />
+            </button>
+          </div>
+          <span id="passwordEmptyError" class="error-message"
+            >비밀번호를 입력해 주세요</span
+          >
+          <span id="passwordInvalidError" class="error-message"
+            >비밀번호를 8자 이상 입력해 주세요</span
+          >
+        </div>
+        <button type="submit" class="button pill-button full-width">
+          로그인
         </button>
-      </div>
-      <button id="login-btn">
-        <a id="login" type="submit">로그인</a>
-      </button><br/>
-    </form>
-    <div class="box">
-      <div class="simple login">
-        <div>간편 로그인하기</div>
-        <div class="membership">
-          <a class="login" href="https://www.google.com/" target="_blank">
-            <img src="../img/icon/ic_google.svg" alt="구글 로그인 아이콘">
-          </a>
-          <a class="login" href="https://www.kakaocorp.com/" target="_blank" alt="카카오 로그인 아이콘">
-            <img src="../img/icon/ic_kakao.svg">
-          </a>
+      </form>
+      <div class="social-login-container">
+        <h3>간편 로그인하기</h3>
+        <div class="social-login-links-container">
+          <a
+            href="https://www.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="구글 로그인"
+            ><img src="../img/icon/ic_google.svg" alt="구글 로그인" width="42"
+          /></a>
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="카카오톡 로그인"
+            ><img
+              src="../img/icon/ic_kakao.svg"
+              alt="카카오톡 로그인"
+              width="42"
+          /></a>
         </div>
       </div>
-      <div class="box">
-        <span class="style">
-          판다마켓이 처음이신가요?
-        <a class="join" href="../signin/signup.html">회원가입</a>
-        </span>
+      <div class="auth-switch">
+        판다마켓이 처음이신가요? <a href="signup.html">회원가입</a>
       </div>
-    </div>
-  </main>
-  <script src="../signin/main.js"></script>
-</body>
+    </main>
+    <script src="scripts/auth.js"></script>
+  </body>
 </html>
