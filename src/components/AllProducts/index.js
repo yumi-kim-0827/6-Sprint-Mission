@@ -1,21 +1,41 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../../api/product";
 import ProductCard from "../ProductCard";
-import "./index.css";
 import Button from "../Button";
+import DropDown from "../DropDown";
+import "./index.css";
+
+const ORDERS = [
+  {
+    id: 0,
+    query: "recent",
+    text: "최신순",
+  },
+  {
+    id: 1,
+    query: "favorite",
+    text: "좋아요순",
+  },
+];
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
 
-  const loadProducts = async () => {
-    const allProducts = await getProducts();
+  const [order, setOrder] = useState(ORDERS[0]);
+
+  const onOptionClick = (option) => {
+    setOrder(option);
+  };
+
+  const loadProducts = async (order) => {
+    const allProducts = await getProducts(order);
     const slicedProducts = allProducts.slice(0, 10);
     setProducts(slicedProducts);
   };
 
   useEffect(() => {
-    loadProducts();
-  }, []);
+    loadProducts(order.query);
+  }, [order]);
 
   return (
     <section className="all-product">
@@ -32,6 +52,13 @@ function AllProducts() {
             />
           </div>
           <Button to="/addItem">상품 등록하기</Button>
+          <div>
+            <DropDown
+              options={ORDERS}
+              selectedOption={order}
+              onOptionClick={onOptionClick}
+            />
+          </div>
         </div>
       </div>
       <ul className="all-product-list">
