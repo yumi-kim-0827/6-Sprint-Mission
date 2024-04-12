@@ -10,7 +10,7 @@ const Header = () => {
         <div className="Header-logo">
           <a href="./">
             <picture>
-              <source srcset={shortlogo} media="(max-width: 767px)" />
+              <source srcSet={shortlogo} media="(max-width: 767px)" />
               <img className="Header-img" src={longlogo} alt="판다마켓 로고" />
             </picture>
           </a>
