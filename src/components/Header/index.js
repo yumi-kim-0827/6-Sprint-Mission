@@ -1,6 +1,17 @@
+import { Link, useLocation } from "react-router-dom";
 import "./index.css";
 
 function Header() {
+  const navigationList = [
+    { link: "/", name: "자유게시판" },
+    { link: "/items", name: "중고마켓" },
+  ];
+
+  const location = useLocation();
+  const isThisPage = (link) => {
+    return location.pathname === link;
+  };
+
   return (
     <header className="header">
       <div className="header-contents">
@@ -18,12 +29,16 @@ function Header() {
         </a>
         <nav className="header-menu">
           <ul className="header-menu-container">
-            <li className="header-menu-item">
-              <a href="/">자유게시판</a>
-            </li>
-            <li className="header-menu-item selected">
-              <a href="/items">중고마켓</a>
-            </li>
+            {navigationList.map((navigation) => (
+              <li
+                className={`header-menu-item ${
+                  isThisPage(navigation.link) && "selected"
+                }`}
+                key={navigation.link}
+              >
+                <Link to={navigation.link}>{navigation.name}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <a className="button button-small" href="/signin.html">
