@@ -4,14 +4,30 @@
   gap: 24px;
 }
 
+#all-items .item-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 24px;
+}
+
 @media (max-width: 1199px) {
   #best-items .item-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  #all-items .item-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
   }
 }
 
 @media (max-width: 767px) {
   #best-items .item-list {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  #all-items .item-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 8px;
   }
 }
