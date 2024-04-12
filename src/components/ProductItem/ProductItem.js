@@ -5,19 +5,24 @@ import favoriteIcon from "../../assets/images/favorite_icon.svg";
 const ProductItem = (props) => {
   const { item } = props;
   const { name, price, images, favoriteCount } = item;
+  const customPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 숫자 가격(,) 변환
 
   return (
     <>
-      <div className="img-area">
+      <a href="#none" className="img-area">
         <img src={images} alt={name} />
-      </div>
+      </a>
       <div className="text-area">
-        <h3 className="title">{name}</h3>
-        <p className="price">{price}원</p>
+        <a href="#none" className="title">
+          {name}
+        </a>
+        <p className="price">
+          <span>{customPrice}</span>원
+        </p>
         <div className="icon-box">
-          <div className="icon-img">
+          <button className="icon-img">
             <img src={favoriteIcon} alt="좋아요" />
-          </div>
+          </button>
           <span className="count">{favoriteCount}</span>
         </div>
       </div>

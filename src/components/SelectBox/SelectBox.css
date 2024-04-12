@@ -3,13 +3,16 @@
 }
 
 .select-box .option-item {
-  padding: 9px;
   font-size: var(--font-16);
   font-weight: 400;
   text-align: center;
 }
 
-.select-box .option-item:not(:last-of-type) {
+.select-box .option-list .option-item {
+  padding: 0.9rem;
+}
+
+.select-box .option-list .option-item:not(:last-of-type) {
   border-bottom: 1px solid var(--gray-200);
 }
 
@@ -41,4 +44,7 @@
 .select-box .option-list {
   margin: 0.4rem 0 0;
   position: absolute;
+  border: 0;
+  height: 0;
+  overflow: hidden;
 }

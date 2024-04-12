@@ -13,6 +13,7 @@ const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [sortKeyword, setSortKeyword] = useState("최신순");
+  // const [optionList, setOptionList] = useState("");
 
   const sortOptions = [
     {
@@ -33,7 +34,7 @@ const Market = () => {
     setAllProducts(list);
   };
 
-  // 상품 정렬 선택 기능
+  // 상품 정렬 옵션 선택 기능
   const handleSelectOptionClick = async (event) => {
     let sortOption;
     const { textContent } = event.target;
@@ -49,10 +50,17 @@ const Market = () => {
     setAllProducts(list);
   };
 
+  const handleSelectBoxClick = () => {};
+
   // 상품 리스트 불러오기
   const getItems = async (sort, setState) => {
     const items = await getProducts(sort);
-    const { list } = items;
+    let { list } = items;
+    if (sort === "favorite") {
+      list = list.filter((item, index) => {
+        return index < 4;
+      });
+    }
     setState(list);
   };
 
@@ -83,13 +91,14 @@ const Market = () => {
           <h3 className="title">전체 상품</h3>
           <div className="product-header-nav flex-center">
             <SearchBox
-              onInput={searchProducts}
+              onChange={searchProducts}
               placeholder="검색할 상품을 입력해주세요"
             />
             <Button href="additem.html">상품 등록하기</Button>
             <SelectBox
               text={sortKeyword}
               onOptionClick={handleSelectOptionClick}
+              onBoxClick={handleSelectBoxClick}
               options={sortOptions}
             />
           </div>

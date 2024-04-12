@@ -4,6 +4,7 @@
 }
 
 .product-item .img-area {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 16px;
@@ -37,6 +38,7 @@
 .product-item .text-area .icon-box .icon-img {
   width: 16px;
   height: 16px;
+  padding: 0.2rem;
 }
 
 .product-item .text-area .icon-box .count {
