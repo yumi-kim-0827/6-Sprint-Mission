@@ -31,16 +31,16 @@ export default function RankedItems({ data, deviceSize }) {
                 <img
                   src={post.images[0]}
                   alt={post.name}
-                  className="object-fill h-72 w-72"
+                  className="object-fill h-80 sm:h-72 w-80 sm:w-72 rounded-2xl"
                 />
-                <p className="text-[var(--cool-gray800)] text-sm">
+                <p className="text-[var(--cool-gray800)] text-sm font-medium mt-4">
                   {post.name} 팝니다
                 </p>
-                <p className="text-[var(--cool-gray800)] text-sm">
+                <p className="text-[var(--cool-gray800)] text-sm font-bold">
                   {post.price}원
                 </p>
                 <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="text-xs">{post.favoriteCount}</span>
+                <span className="text-xs ml-1">{post.favoriteCount}</span>
               </li>
             );
           })}

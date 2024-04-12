@@ -55,7 +55,7 @@ export default function AllItemsList({ data, deviceSize }) {
               className="absolute left-4"
             />
             <input
-              className="pl-11 py-2 bg-[var(--cool-gray100)] rounded-xl text-[var(--cool-gray400)] w-64 sm:w-80 lg:w-96 sm:pr-1"
+              className="pl-11 py-2 bg-[var(--cool-gray100)] rounded-xl text-[var(--cool-gray400)] w-64 sm:w-56 lg:w-96 sm:pr-1"
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
@@ -101,16 +101,16 @@ export default function AllItemsList({ data, deviceSize }) {
                 <img
                   src={post.images[0]}
                   alt={post.name}
-                  className="object-fill h-56 w-56"
+                  className="object-fill h-40 sm:h-56 w-40 sm:w-56 rounded-2xl"
                 />
-                <p className="text-[var(--cool-gray800)] text-sm">
+                <p className="text-[var(--cool-gray800)] text-sm font-medium mt-4">
                   {post.name} 팝니다
                 </p>
-                <p className="text-[var(--cool-gray800)] text-sm">
+                <p className="text-[var(--cool-gray800)] text-sm font-bold">
                   {post.price}원
                 </p>
                 <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="text-xs">{post.favoriteCount}</span>
+                <span className="text-xs ml-1">{post.favoriteCount}</span>
               </li>
             );
           })}
