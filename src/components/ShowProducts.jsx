@@ -20,7 +20,7 @@ function Products({ item }) {
   );
 }
 
-const ShowProducts = ({ onChangeSelect, products }) => {
+const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
   return (
     <>
       <div className="Search-Group">
@@ -28,7 +28,7 @@ const ShowProducts = ({ onChangeSelect, products }) => {
         <div>
           <label htmlFor="search"></label>
           <img id="search-icon" src={searchicon} alt="검색 아이콘" />
-          <input id="search" type="text" placeholder="검색할 상품을 입력해주세요" />
+          <input onChange={onChangeInput} id="search" type="text" placeholder="검색할 상품을 입력해주세요" />
           <button className="Product-Resister-Btn">상품 등록하기</button>
           <label htmlFor="select-category"></label>
           <select onChange={onChangeSelect} name="category" id="select-category">

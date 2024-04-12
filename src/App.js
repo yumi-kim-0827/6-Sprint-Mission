@@ -9,7 +9,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("recent");
-  const sortedBestProducts = products.sort((a, b) => b.favorite - a.favorite);
 
   const handleLoad = async (orderQuery) => {
     const { list } = await getProduct(orderQuery);
@@ -26,6 +25,11 @@ function App() {
     value === "좋아요순" ? setOrder("favorite") : setOrder("recent");
   }
 
+  function onChangeInput(e) {
+    const value = e.target.value;
+    value === "" ? setOrder("recent") : setOrder(value);
+  }
+
   useEffect(() => {
     handleLoad(order);
   }, [order]);
@@ -39,7 +43,7 @@ function App() {
       <Header />
       <div className="container">
         <ShowBestProducts products={bestProducts} />
-        <ShowProducts onChange={onChangeSelect} products={products} />
+        <ShowProducts onChangeSelect={onChangeSelect} onChangeInput={onChangeInput} products={products} />
       </div>
     </div>
   );
