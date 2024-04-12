@@ -56,10 +56,6 @@ const ItemsList = () => {
     loadData();
   }, [order, page]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <div className="ItemsList__wrapper">
       <div className="ItemsList__menu_bar">
@@ -86,7 +82,6 @@ const ItemsList = () => {
             />
           ))
         )}
-        ㄴ
       </div>
       <div className="ItemsList__pagination_wrapper">
         {/* <Pagenation
