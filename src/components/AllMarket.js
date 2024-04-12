@@ -47,7 +47,7 @@ export default function AllMarket() {
             <SearchInput />
           </div>
           <div className="button">
-            <Button>상품 등록하기</Button>
+            <Button to="/additem">상품 등록하기</Button>
           </div>
           <div className="selectInput">
             <Button>임시버튼</Button>
