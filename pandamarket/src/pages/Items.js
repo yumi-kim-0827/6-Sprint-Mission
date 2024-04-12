@@ -4,21 +4,33 @@ import styles from "../styles/items.module.css";
 import ProductList from "../components/ProductList";
 import BestProductList from "../components/BestProductList";
 import { getProducts, getBestProducts } from "../api";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Pagenation from "../components/Pagenation";
 
 function Items() {
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("createdAt");
   const [keyword, setKeyword] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(10);
 
-  const [isLoading, setIsLoading] = useState(false);
+  // 처음과 끝 인덱스 번호를 구하고 slice로 분할하기
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
 
-  const navigate = useNavigate()
+  const currentProducts = (products) => {
+    let currentProducts = 0;
+    currentProducts = products.slice(indexOfFirst, indexOfLast);
+    return currentProducts;
+  };
+
+  const navigate = useNavigate();
   const goToAddItem = () => {
-    navigate('/additem')
-  }
+    navigate("/additem");
+  };
 
   useEffect(() => {
     const fetch = async () => {
@@ -47,7 +59,6 @@ function Items() {
     setKeyword(e.target.value);
   };
 
-
   return (
     <div className={styles.container}>
       <div className={styles["best-products"]}>
@@ -61,9 +72,14 @@ function Items() {
           <div className={styles["all-products-sub-nav"]}>
             <div className={styles.search}>
               <img src="/assets/icon_search.png" />
-              <input placeholder="검색할 상품을 입력해주세요" onChange={handleKeywordSearch}></input>
+              <input
+                placeholder="검색할 상품을 입력해주세요"
+                onChange={handleKeywordSearch}
+              ></input>
             </div>
-            <button id="btn_small" onClick={goToAddItem}>상품 등록하기</button>
+            <button id="btn_small" onClick={goToAddItem}>
+              상품 등록하기
+            </button>
             <div>
               <select
                 className={styles.dropdown}
@@ -77,8 +93,9 @@ function Items() {
           </div>
         </div>
 
-        <ProductList products={sortedProducts} />
+        <ProductList products={currentProducts(sortedProducts)} />
       </div>
+      <Pagenation productsPerPage={productsPerPage} totalProducts={products.length} paginate={setCurrentPage} />
     </div>
   );
 }
