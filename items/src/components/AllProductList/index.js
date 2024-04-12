@@ -8,6 +8,7 @@ import Search from '../../assets/icons/Search.svg';
 import DropDown from '../Dropdown';
 import ArrowDown from '../../assets/icons/ArrowDown.svg';
 import Sort from '../../assets/icons/Sort.svg';
+import Pagination from '@mui/material/Pagination';
 import './style.css';
 
 const AllProductList = () => {
@@ -15,9 +16,12 @@ const AllProductList = () => {
   const [orderBy, setOrderBy] = useState('recent');
   const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState('');
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const handleAllProductLoad = async (options) => {
-    const { list } = await getProducts(options);
+    const { list, totalCount } = await getProducts(options);
+    setTotal(totalCount);
     setAllProduct(list);
   };
 
@@ -25,6 +29,14 @@ const AllProductList = () => {
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
+  };
+
+  const handlePagination = (_, value) => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    setPage(value);
   };
 
   useEffect(() => {
@@ -46,8 +58,8 @@ const AllProductList = () => {
   }, []);
 
   useEffect(() => {
-    handleAllProductLoad({ pageSize, orderBy });
-  }, [pageSize, orderBy]);
+    handleAllProductLoad({ page, pageSize, orderBy });
+  }, [page, pageSize, orderBy]);
 
   return (
     <section>
@@ -111,6 +123,14 @@ const AllProductList = () => {
           );
         })}
       </ul>
+      <div className='pagination'>
+        <Pagination
+          count={Math.ceil(total / pageSize)}
+          page={page}
+          onChange={handlePagination}
+          color='primary'
+        />
+      </div>
     </section>
   );
 };
