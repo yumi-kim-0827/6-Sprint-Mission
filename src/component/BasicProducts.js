@@ -2,25 +2,33 @@ import { getItems } from "../Api.js";
 import { useState, useEffect, React } from "react";
 import ProductList from "./ProductList.js";
 import { Link } from "react-router-dom";
+import Paging from "./Paging";
 
 function BasicProducts() {
   const [items, setItems] = useState([]);
-  const [order, setOrder] = useState("createdAt");
+  const [order, setOrder] = useState("recent");
+  const [totalCount, setTotalCount] = useState(0);
 
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
+  const [page, setPage] = useState(1);
+
+  const handlePage = (pageNumber) => {
+    setPage(pageNumber);
+  };
 
   const handleOrderChange = (newOrder) => {
     setOrder(newOrder);
   };
 
-  const productsLoad = async (options) => {
-    const { list } = await getItems(options);
+  const productsLoad = async (options, perPage) => {
+    const { list } = await getItems({ orderBy: options, page: perPage });
+    const { totalCount } = await getItems({ pageSize: 12 });
+    setTotalCount(totalCount);
     setItems(list);
   };
 
   useEffect(() => {
-    productsLoad(order);
-  }, [order]);
+    productsLoad(order, page);
+  }, [order, page]);
 
   return (
     <div>
@@ -35,13 +43,19 @@ function BasicProducts() {
             value={order}
             onChange={(e) => handleOrderChange(e.target.value)}
           >
-            <option value="createdAt">최신순</option>
-            <option value="favoriteCount">좋아요순</option>
+            <option value="recent">최신순</option>
+            <option value="favorite">좋아요순</option>
           </select>
         </div>
       </div>
       <div className="basic-items">
-        <ProductList items={sortedItems} />
+        <ProductList items={items} />
+        <Paging
+          page={page}
+          pageSize={12}
+          totalCount={totalCount}
+          onChange={handlePage}
+        />
       </div>
     </div>
   );
