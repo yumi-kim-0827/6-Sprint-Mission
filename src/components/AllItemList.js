@@ -35,7 +35,7 @@ function AllItemList({ items, handleSortedChange, className }) {
               placeholder="검색할 상품을 입력해주세요"
             />
           </form>
-          <a href="/" className="item-register-btn">
+          <a href="/additem" className="item-register-btn">
             상품 등록하기
           </a>
           <select className="select-box" onChange={handleSortedChange}>

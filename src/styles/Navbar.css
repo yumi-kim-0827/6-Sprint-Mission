@@ -13,11 +13,31 @@ nav {
   background-color: #ffffff;
   z-index: 2;
 }
+
+.nav-ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.nav-category-container {
+  display: flex;
+  gap: 20px;
+}
+.nav-category {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4b5563;
+}
+.active-category {
+  color: var(--primary-color);
+}
+
 .login-btn {
   color: white;
   font-size: 16px;
   font-weight: 600;
-  text-decoration: none;
   background-color: var(--primary-color);
   padding: 12px 20px;
   border-radius: 8px;
@@ -25,6 +45,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 
 .login-btn-container {
@@ -38,9 +59,6 @@ nav {
 
 .logo-container {
   margin-left: 200px;
-}
-
-.logo-container {
   display: flex;
   gap: 9px;
 }
@@ -48,6 +66,13 @@ nav {
 .logo-container:hover {
   cursor: pointer;
 }
+
+.logo-category-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .logo-container {
     margin-left: 24px;
