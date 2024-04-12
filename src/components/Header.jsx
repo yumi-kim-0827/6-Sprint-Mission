@@ -2,7 +2,7 @@ import React from "react";
 import logoOnly from "../assets/logo_only.svg";
 import logoText from "../assets/logo_text.svg";
 import Button from "./Button.jsx";
-import "./Header.css";
+import "../styles/Header.css";
 
 const Header = ({ navSelected, navClickHandler }) => {
   return (

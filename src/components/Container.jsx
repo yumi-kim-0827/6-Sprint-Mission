@@ -1,10 +1,12 @@
 import React from "react";
-import "./Container.css";
+import "../styles/Container.css";
+import Items from "./Items/Items.jsx";
+import Board from "./Board.jsx";
 
-const Container = () => {
+const Container = ({ navSelected }) => {
   return (
     <div className="Container">
-      <h1>This is Container</h1>
+      {navSelected === "자유게시판" ? <Board /> : <Items />}
     </div>
   );
 };
