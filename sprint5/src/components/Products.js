@@ -5,6 +5,7 @@ function ProductListItem({ item }) {
     <div className="ProductListItem">
       <img src={item.images} alt={item.name} />
       <div>
+        <p>{item.name}</p>
         <p>{item.description}</p>
         <p>{item.price}</p>
         <p>{item.favoriteCount}</p>

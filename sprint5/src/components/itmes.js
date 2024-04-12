@@ -4,15 +4,29 @@ import ProductMenu from "./ProductMenu";
 import Products from "./Products";
 import { getProducts } from "./Api";
 
+//아이템 상태
 function Items() {
   const [items, setItems] = useState([]);
+
+  const handleLoad = async (orderQuery) => {
+    const products = await getProducts(orderQuery);
+    setItems(products);
+  };
+
+  //드롭다운 정렬
   const [order, setOrder] = useState("createdAt");
-  const [bestItems, setBestItems] = useState([]);
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
+
+  const handleBestClick = () => setOrder("favoriteCount");
 
   const handleNewestClick = () => setOrder("createdAt");
 
-  const handleBestClick = () => setOrder("favoriteCount");
+  useEffect(() => {
+    handleLoad(order);
+  }, [order]);
+
+  //베스트 4개
+  const [bestItems, setBestItems] = useState([]);
 
   const handleLoadBestItems = async () => {
     const bestProducts = await getProducts("favoriteCount");
@@ -24,14 +38,15 @@ function Items() {
     handleLoadBestItems();
   }, []);
 
-  const handleLoad = async (orderQuery) => {
-    const products = await getProducts(orderQuery);
-    setItems(products);
-  };
+  //검색기능
+  const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    handleLoad(order);
-  }, [order]);
+  const handleSearch = async (searchValue) => {
+    const results = items.filter((item) =>
+      item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setSearchResults(results);
+  };
 
   return (
     <div>
@@ -44,8 +59,12 @@ function Items() {
         dropdown
         handleNewestClick={handleNewestClick}
         handleBestClick={handleBestClick}
+        search
+        handleSearch={handleSearch}
       />
-      <Products items={sortedItems} />
+      <Products
+        items={searchResults.length > 0 ? searchResults : sortedItems}
+      />
     </div>
   );
 }
