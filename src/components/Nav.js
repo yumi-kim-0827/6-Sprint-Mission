@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../assets/logo/panda_logo.png";
+import "./Nav.css";
 
 function Nav() {
   const getLinkStyle = ({ isActive }) => {

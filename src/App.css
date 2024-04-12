@@ -29,6 +29,9 @@
   --gray200: #e5e7eb;
   --gray100: #e8ebed;
   --gray50: #f7f7f8;
+
+  /* min width variable */
+  --min-width: 375px;
 }
 
 * {
@@ -40,6 +43,11 @@
 html {
   word-break: keep-all;
   font-family: "Pretendard", "sans-serif";
+}
+
+#root,
+#root > nav {
+  min-width: var(--min-width);
 }
 
 a {
