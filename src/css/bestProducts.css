@@ -14,3 +14,18 @@
     grid-template: 36.2rem/repeat(4,28.2rem);
     column-gap: 2.4rem;
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .best-products-content{
+    grid-template: 41.6rem/repeat(2,33.6rem);
+}
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .best-products-content {
+    grid-template: 46.7rem / 34.3rem;
+  }
+  .best-products-section {
+    margin-bottom: 2.4rem;
+  }
+}

@@ -1,19 +1,21 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { get_products } from "./api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
-import "../css/bestProducts.css"
+import "../css/bestProducts.css";
+
 const BestProducts = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   const [bestProducts, setBestProducts] = useState([]);
+  const [numOfItemsToShow, setNumOfItemsToShow] = useState(4);
+  const showedBestProducts = bestProducts.slice(0, numOfItemsToShow)
 
   const sortByLikes = (products) => {
     return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
   };
-  
+
   const handleLoad = async () => {
     let result;
     try {
@@ -26,12 +28,30 @@ const BestProducts = () => {
     } finally {
       setIsLoading(false);
     }
-    const { list, totalCount } = result;
-    setBestProducts(sortByLikes(list).slice(0,4));
+    const { list } = result;
+    setBestProducts(sortByLikes(list));
   };
 
   useEffect(() => {
     handleLoad();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setNumOfItemsToShow(1);
+      } else if (window.innerWidth <= 1024) {
+        setNumOfItemsToShow(2);
+      } else {
+        setNumOfItemsToShow(4);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -43,7 +63,7 @@ const BestProducts = () => {
         ) : loadingError ? (
           <FailLoading />
         ) : (
-          bestProducts.map((product,index) => {
+          showedBestProducts.map((product) => {
             return <ProductElement key={product.id} product={product} />;
           })
         )}
