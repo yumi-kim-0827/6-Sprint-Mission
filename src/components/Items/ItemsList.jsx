@@ -5,12 +5,33 @@ import SearchBox from "./SearchBox.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
+// import Pagenation from "../Pagenation.jsx";
 
 import { getData } from "../../apis/apis.js";
+// import {
+//   calculateTotalPages,
+//   renderPageButtons,
+// } from "../../utils/PagenationUtils.js";
+
+// const PAGE_SIGE = 10;
 
 const ItemsList = () => {
   const [data, setData] = useState([]);
   const [order, setOrder] = useState("최신순");
+
+  const [page, setPage] = useState(1);
+  // const [totalPostCount, setTotalPostCount] = useState(0);
+  // const handlePrevPage = () => {
+  //   if (page > 1) {
+  //     setPage((prevPage) => prevPage - 1);
+  //   }
+  // };
+  // const handleNextPage = () => {
+  //   const totalPages = calculateTotalPages(totalPostCount, PAGE_SIGE);
+  //   if (page < totalPages) {
+  //     setPage((prevPage) => prevPage - 1);
+  //   }
+  // };
 
   const orderHandler = (orderText) => {
     setOrder(orderText);
@@ -20,6 +41,7 @@ const ItemsList = () => {
     const loadData = async () => {
       const data = await getData();
       setData(data.list);
+      // setTotalPostCount(data.totalCount);
     };
     loadData();
   }, []);
@@ -27,11 +49,16 @@ const ItemsList = () => {
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
     const loadData = async () => {
-      const data = await getData(orderText);
+      const data = await getData(orderText, page);
       setData(data.list);
+      // setTotalPostCount(data.totalCount);
     };
     loadData();
-  }, [order]);
+  }, [order, page]);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="ItemsList__wrapper">
@@ -59,8 +86,16 @@ const ItemsList = () => {
             />
           ))
         )}
+        ㄴ
       </div>
-      <div className="ItemsList__pagination_wrapper"></div>
+      <div className="ItemsList__pagination_wrapper">
+        {/* <Pagenation
+          totalPostCount={totalPostCount}
+          page={page}
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+        /> */}
+      </div>
     </div>
   );
 };

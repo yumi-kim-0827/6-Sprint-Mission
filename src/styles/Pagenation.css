@@ -1,0 +1,24 @@
+.Pagenation {
+  display: flex;
+}
+.Pagenation__prev_button,
+.Pagenation__next_button,
+.PageButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Pagenation__next_button img {
+  transform: rotate(180deg);
+}
+
+.Pagenation__lists {
+  display: flex;
+  gap: 4px;
+  margin: 0 4px;
+}

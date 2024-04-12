@@ -22,6 +22,12 @@
   height: 42px;
 }
 
+.ItemsList__pagination_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1199px) and (min-width: 768px) {
   .ItemsList__itemsWrapper {
     grid-template-columns: 1fr 1fr 1fr;
