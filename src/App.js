@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import ItemsPage from "./pages/ItemsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import FaqPage from "./pages/FaqPage";
+import "./App.css";
 
 function App() {
   return (
