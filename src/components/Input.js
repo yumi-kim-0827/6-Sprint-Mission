@@ -1,7 +1,7 @@
 import SearchIcon from "../assets/icon/ic_search.svg";
-import SortIcon from "../assets/icon/ic_sort.svg";
-import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
-import { useEffect, useState } from "react";
+// import SortIcon from "../assets/icon/ic_sort.svg";
+// import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
+// import { useEffect, useState } from "react";
 import "../stlye/input.css";
 
 export function SearchInput() {

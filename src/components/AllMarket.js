@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../stlye/allMarket.css";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 import Button from "../common/Button";
 import HeartIcon from "../assets/icon/ic_heart.svg";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import Commas from "../util/Commas";
 
 export default function AllMarket() {
   const [AllData, setAllData] = useState([]);
-  const [order, setOrder] = useState("createdAt");
+  // const [order, setOrder] = useState("createdAt");
 
   // 상품 api 받아와서 AllData 배열에 담기
   const getData = async () => {
@@ -19,18 +19,18 @@ export default function AllMarket() {
   };
 
   // 페이지당 보여줄 데이터 갯수
-  const DataPerPage = () => {
-    const isMobile = useMediaQuery({
-      query: "(max-width: 767px)",
-    });
-    const isTablet = useMediaQuery({
-      query: "(min-width:768px) and (max-width: 1279px)",
-    });
+  // const DataPerPage = () => {
+  //   const isMobile = useMediaQuery({
+  //     query: "(max-width: 767px)",
+  //   });
+  //   const isTablet = useMediaQuery({
+  //     query: "(min-width:768px) and (max-width: 1279px)",
+  //   });
 
-    if (isMobile) return 4;
-    else if (isTablet) return 6;
-    else return 10;
-  };
+  //   if (isMobile) return 4;
+  //   else if (isTablet) return 6;
+  //   else return 10;
+  // };
 
   useEffect(() => {
     getData();
