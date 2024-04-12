@@ -1,4 +1,5 @@
 import { useRankedProductCountStore } from "../store/productCountStore";
+import formatNumber from "../utils/formatNumber";
 
 import favoriteIcon from "../images/ic_heart.png";
 
@@ -29,7 +30,7 @@ export default function RankedItems({ data }) {
                   {post.name} 팝니다
                 </p>
                 <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                  {post.price}원
+                  {formatNumber(post.price)}원
                 </p>
                 <img src={favoriteIcon} alt="favoriteicon" className="inline" />
                 <span className="ml-1 text-xs">{post.favoriteCount}</span>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductCountStore } from "../store/productCountStore";
+import formatNumber from "../utils/formatNumber";
 
 import paginationStore from "../store/paginationStore";
 
@@ -17,6 +18,9 @@ export default function AllItemsList({ data }) {
   const [dropdownView, setDropdownView] = useState(false);
   // api의 list만을 받아 데이터를 사용하였습니다.
   const [allProducts, setAllProducts] = useState(data.list);
+  // 정렬 후 화면으로 최신순인지 좋아요순인지 보여줍니다.
+  // * api를 받은 후 좋아요 순으로 정렬 되어 있어 기본 값을 좋아요순으로 바꾸었습니다.
+  const [sortContent, setSortContent] = useState("좋아요순");
 
   // 화면 전환 시 달라지는 전체 상품 데이터들을 전역적으로 관리하였습니다.
   const productCount = useProductCountStore();
@@ -31,6 +35,7 @@ export default function AllItemsList({ data }) {
       return dateB - dateA;
     });
     setAllProducts(sortedProducts);
+    setSortContent("최신순");
   };
 
   const sortProductsByLike = (products) => {
@@ -38,6 +43,7 @@ export default function AllItemsList({ data }) {
       (a, b) => b.favoriteCount - a.favoriteCount,
     );
     setAllProducts(sortedProducts);
+    setSortContent("좋아요순");
   };
 
   return (
@@ -78,7 +84,7 @@ export default function AllItemsList({ data }) {
               setDropdownView(!dropdownView);
             }}
           >
-            <span>최신순</span>
+            <span>{sortContent}</span>
             <img src={arrowDown} alt="arrowdown" className="inline" />
             {dropdownView && (
               <SortDropdown
@@ -123,7 +129,7 @@ export default function AllItemsList({ data }) {
                     {post.name} 팝니다
                   </p>
                   <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                    {post.price}원
+                    {formatNumber(post.price)}원
                   </p>
                   <img
                     src={favoriteIcon}

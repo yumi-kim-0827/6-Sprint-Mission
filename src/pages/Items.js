@@ -5,6 +5,7 @@ import RankedItems from "../components/RankedItems";
 import AllItemsList from "../components/AllItemsList";
 import Navbar from "../components/Navbar";
 
+// axios를 사용하여 fetch하였습니다.
 const fetchProducts = async () => {
   const response = await axios.get(
     "https://panda-market-api.vercel.app/products",
