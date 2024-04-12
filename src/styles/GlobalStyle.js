@@ -3,10 +3,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   :root {
     --main-color: #3692ff;
-    --text-color: #374151;
-    --background-color: #cfe5ff;
-    --white-color: #ffffff;
-    --black-color: #111827;
+    --nav-text-color: #4B5563;
+    --main-text-color: #1F2937;
+    --input-color: #9CA3AF;
   }
 
   @font-face {
@@ -15,18 +14,16 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
   }
-  
+
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Pretendard-Regular';
   }
 
   body {
-    font-family: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard-Regular';
   }
 
   button {
@@ -53,18 +50,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 40px;
+    font-family: 'ROKAF Sans';
+    font-size: 25.63px;
     font-weight: 700;
-    line-height: 56px;
-    color: var(--text-color);
-  }
-  
-  h3 {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 29px;
-    letter-spacing: 0.08em;
-    color: var(--text-color);
+    line-height: 34.6px;
   }
 `;
 
