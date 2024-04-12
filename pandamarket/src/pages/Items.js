@@ -7,22 +7,24 @@ import { getProducts, getBestProducts } from "../api";
 import { useNavigate } from 'react-router-dom';
 
 function Items() {
+  const [products, setProducts] = useState([]);
+  const [bestProducts, setBestProducts] = useState([]);
+  const [order, setOrder] = useState("createdAt");
+  const [keyword, setKeyword] = useState("");
+
+
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate()
   const goToAddItem = () => {
     navigate('/additem')
   }
 
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
-  const [order, setOrder] = useState("createdAt");
-
-  const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     const fetch = async () => {
       try {
         setIsLoading(true);
-        const fetchedProducts = await getProducts({ order });
+        const fetchedProducts = await getProducts({ order, keyword });
         setProducts(fetchedProducts);
 
         const bestProducts = await getBestProducts();
@@ -33,13 +35,18 @@ function Items() {
       }
     };
     fetch();
-  }, [order]);
+  }, [order, keyword]);
 
   const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const handleOrderChange = (orderChange) => {
     setOrder(orderChange);
   };
+
+  const handleKeywordSearch = (e) => {
+    setKeyword(e.target.value);
+  };
+
 
   return (
     <div className={styles.container}>
@@ -54,7 +61,7 @@ function Items() {
           <div className={styles["all-products-sub-nav"]}>
             <div className={styles.search}>
               <img src="/assets/icon_search.png" />
-              <input placeholder="검색할 상품을 입력해주세요"></input>
+              <input placeholder="검색할 상품을 입력해주세요" onChange={handleKeywordSearch}></input>
             </div>
             <button id="btn_small" onClick={goToAddItem}>상품 등록하기</button>
             <div>
