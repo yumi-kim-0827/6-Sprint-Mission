@@ -6,6 +6,7 @@ import sortButton from "../images/btn_sort.png";
 import favoriteIcon from "../images/ic_heart.png";
 
 import SortDropdown from "./SortDropdown";
+import Pagination from "./Pagination";
 
 export default function AllItemsList({ data, deviceSize }) {
   const [dropdownView, setDropdownView] = useState(false);
@@ -39,10 +40,12 @@ export default function AllItemsList({ data, deviceSize }) {
   };
 
   return (
-    <div className="my-10">
+    <div className="mt-6 sm:mt-10">
       <div className="my-6 flex flex-col justify-between sm:flex-row sm:items-center">
         <div className="mx-4 flex items-center justify-between sm:mx-0">
-          <h1 className="text-xl text-[var(--footer-bg-color)]">전체 상품</h1>
+          <h1 className="text-xl font-bold text-[var(--footer-bg-color)]">
+            전체 상품
+          </h1>
           <button className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:hidden">
             상품 등록하기
           </button>
@@ -63,7 +66,7 @@ export default function AllItemsList({ data, deviceSize }) {
             상품 등록하기
           </button>
           <div
-            className="relative flex hidden w-32 cursor-pointer justify-between rounded-xl border px-5 py-3 sm:inline-block"
+            className="relative hidden w-32 cursor-pointer justify-between rounded-xl border px-5 py-3 sm:inline-block sm:flex "
             onClick={() => {
               setDropdownView(!dropdownView);
             }}
@@ -115,6 +118,7 @@ export default function AllItemsList({ data, deviceSize }) {
             );
           })}
       </ul>
+      <Pagination />
     </div>
   );
 }

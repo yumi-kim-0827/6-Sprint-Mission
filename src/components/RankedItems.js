@@ -20,7 +20,7 @@ export default function RankedItems({ data, deviceSize }) {
 
   return (
     <div>
-      <h1 className="mb-4 text-xl text-[var(--footer-bg-color)]">
+      <h1 className="mb-4 text-xl font-bold text-[var(--footer-bg-color)]">
         베스트 상품
       </h1>
       <ul className="grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
