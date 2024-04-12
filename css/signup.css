@@ -102,11 +102,16 @@ body {
 }
 
 .password-eye {
+    background-image: url('../img/ic-noeye.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
+    border: none;
     width: 24px;
+    height: 24px;
     right: 20px;
-    top: 65px;
-    cursor: pointer;
+    top: 60px;
 }
 
 .join-btn {
