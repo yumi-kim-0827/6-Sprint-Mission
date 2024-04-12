@@ -9,15 +9,10 @@ const ItemImgBox = styled.div`
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 16px;
-  height: 221px;
 
   img {
     width: 100%;
     height: 100%;
-  }
-
-  @media (max-width: 375px) {
-    height: 168px;
   }
 `;
 const ItemName = styled.h3`

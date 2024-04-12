@@ -50,6 +50,12 @@ a {
 	color: var(--main-blue-color);
 }
 
+@media (max-width: 375px) {
+	.container {
+		padding: 16px;
+	}
+}
+
 `;
 
 export default GlobalStyle;
