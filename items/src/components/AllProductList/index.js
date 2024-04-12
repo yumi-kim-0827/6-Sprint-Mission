@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getProducts } from '../../api/productApi';
-import ProductItem from '../ProductItem';
-import Button from '../Button';
-import Search from '../../assets/icons/Search.svg';
-import DropDown from '../Dropdown';
-import ArrowDown from '../../assets/icons/ArrowDown.svg';
-import Sort from '../../assets/icons/Sort.svg';
+import { getProducts } from 'api/productApi';
+import ProductItem from 'components/ProductItem';
+import Button from 'components/Button';
+import Search from 'assets/icons/Search.svg';
+import DropDown from 'components/Dropdown';
+import ArrowDown from 'assets/icons/ArrowDown.svg';
+import Sort from 'assets/icons/Sort.svg';
 import Pagination from '@mui/material/Pagination';
 import Grid from '@mui/material/Grid';
 import './style.css';
@@ -19,9 +19,19 @@ const AllProductList = () => {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleAllProductLoad = async (options) => {
-    const { list, totalCount } = await getProducts(options);
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getProducts(options);
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    }
+    const { list, totalCount } = result;
+
     setTotal(totalCount);
     setAllProduct(list);
   };
@@ -115,6 +125,7 @@ const AllProductList = () => {
           </div>
         </div>
       </div>
+      {loadingError?.message && <span>{loadingError.message}</span>}
       <Grid container spacing={2}>
         {allProduct.map((item) => {
           return (
