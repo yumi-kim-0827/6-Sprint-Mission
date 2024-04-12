@@ -8,9 +8,9 @@ const DropdownContainer = ({ handleNewestClick, handleBestClick }) => {
     setDropdownView(!isDropdownView);
   };
   const handleItemClick = (order) => {
-    if (order === "createdAt") {
+    if (order === "recent") {
       handleNewestClick();
-    } else if (order === "favoriteCount") {
+    } else if (order === "favorite") {
       handleBestClick();
     }
   };

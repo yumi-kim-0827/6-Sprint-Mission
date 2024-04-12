@@ -12,7 +12,6 @@ function ProductMenu({
   handleSearch,
 }) {
   const [searchValue, setSearchValue] = useState("");
-
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };

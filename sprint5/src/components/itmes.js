@@ -8,34 +8,36 @@ import { getProducts } from "./Api";
 function Items() {
   const [items, setItems] = useState([]);
 
-  const handleLoad = async (orderQuery, startIndex = 0, itemsPerPage = 6) => {
-    const products = await getProducts(orderQuery, startIndex, itemsPerPage);
+  const handleSearch = async (searchValue) => {
+    const products = await getProducts(order, page, size, searchValue);
+    setItems(products);
+  };
+
+  const handleLoad = async (order, page, size, searchValue) => {
+    const products = await getProducts(order, page, size, searchValue);
     setItems(products);
   };
 
   //드롭다운 정렬
-  const [order, setOrder] = useState("createdAt");
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
+  const [order, setOrder] = useState("recent");
 
-  const handleBestClick = () => {
-    setOrder("favoriteCount");
-    setCurrentPage(1);
-  };
+  const handleBestClick = () => setOrder("favorite");
 
-  const handleNewestClick = () => {
-    setOrder("createdAt");
-    setCurrentPage(1);
-  };
+  const handleNewestClick = () => setOrder("recent");
+
+  //페이지네이션
+  const [page, setPage] = useState(1);
+  const [size, setPageSize] = useState(12);
 
   useEffect(() => {
-    handleLoad(order);
-  }, [order]);
+    handleLoad(order, page, size);
+  }, [order, page, size]);
 
   //베스트 4개
   const [bestItems, setBestItems] = useState([]);
 
   const handleLoadBestItems = async () => {
-    const bestProducts = await getProducts("favoriteCount");
+    const bestProducts = await getProducts("favorite");
     const bestItemsLimited = bestProducts.slice(0, 4);
     setBestItems(bestItemsLimited);
   };
@@ -43,37 +45,6 @@ function Items() {
   useEffect(() => {
     handleLoadBestItems();
   }, []);
-
-  //검색기능
-  const [searchResults, setSearchResults] = useState([]);
-
-  const handleSearch = async (searchValue) => {
-    const results = items.filter((item) =>
-      item.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setSearchResults(results);
-    setCurrentPage(1);
-  };
-
-  //페이지네이션
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
-
-  const totalPages = Math.ceil(
-    (searchResults.length > 0 ? searchResults.length : sortedItems.length) /
-      itemsPerPage
-  );
-
-  const handlePageClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems =
-    searchResults.length > 0
-      ? searchResults.slice(startIndex, endIndex)
-      : sortedItems.slice(startIndex, endIndex);
 
   return (
     <div>
@@ -89,13 +60,9 @@ function Items() {
         search
         handleSearch={handleSearch}
       />
-      <Products items={currentItems} />
+      <Products items={items} />
       <div>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button key={page} onClick={() => handlePageClick(page)}>
-            {page}
-          </button>
-        ))}
+        <button></button>
       </div>
     </div>
   );

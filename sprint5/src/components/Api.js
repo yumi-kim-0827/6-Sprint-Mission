@@ -1,12 +1,15 @@
 export async function getProducts(
-  order = "createdAt",
-  startIndex = 0,
-  itemsPerPage = 12
+  order = "recent",
+  page = 1,
+  size = 12,
+  searchValue = ""
 ) {
-  const query = `${order}&offset=${startIndex}&limit=${itemsPerPage}`;
+  const query = `page=${page}&pageSize=${size}&orderBy=${order}&keyword=${searchValue}`;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`
   );
+
   const data = await response.json();
+  console.log(data);
   return data.list;
 }

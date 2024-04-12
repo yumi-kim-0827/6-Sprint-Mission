@@ -1,0 +1,13 @@
+.ProductListItem {
+  list-style: none;
+}
+
+.ProductList {
+  display: flex;
+}
+
+.ProductImage {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}

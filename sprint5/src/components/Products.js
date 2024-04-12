@@ -1,12 +1,12 @@
 import React from "react";
+import "../Products.css";
 
 function ProductListItem({ item }) {
   return (
     <div className="ProductListItem">
-      <img src={item.images} alt={item.name} />
+      <img className="ProductImage" src={item.images} alt={item.name} />
       <div>
         <p>{item.name}</p>
-        <p>{item.description}</p>
         <p>{item.price}</p>
         <p>{item.favoriteCount}</p>
       </div>
@@ -15,10 +15,10 @@ function ProductListItem({ item }) {
 }
 function Products({ items }) {
   return (
-    <ul>
+    <ul className="ProductList">
       {items.map((item) => {
         return (
-          <li key={item.id}>
+          <li className="ProductListItem" key={item.id}>
             <ProductListItem item={item} />
           </li>
         );
