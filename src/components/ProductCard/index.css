@@ -49,6 +49,7 @@
 .product-card-favorite {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .product-card-favorite-icon {
