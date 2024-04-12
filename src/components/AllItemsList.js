@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useProductCountStore } from "../store/productCountStore";
+
 import paginationStore from "../store/paginationStore";
+
+import SortDropdown from "./SortDropdown";
+import Pagination from "./Pagination";
 
 import searchIcon from "../images/ic_search.png";
 import arrowDown from "../images/ic_arrow_down.png";
 import sortButton from "../images/btn_sort.png";
 import favoriteIcon from "../images/ic_heart.png";
-
-import SortDropdown from "./SortDropdown";
-import Pagination from "./Pagination";
 
 export default function AllItemsList({ data }) {
   // 드롭다운 on off를 위한 state입니다.
@@ -45,9 +47,12 @@ export default function AllItemsList({ data }) {
           <h1 className="text-xl font-bold text-[var(--footer-bg-color)]">
             전체 상품
           </h1>
-          <button className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:hidden">
+          <Link
+            to="/additem"
+            className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:hidden"
+          >
             상품 등록하기
-          </button>
+          </Link>
         </div>
         <div className="mx-4 my-2 flex items-center justify-between gap-x-3 sm:mx-0 sm:my-0 sm:justify-normal">
           <div className="relative flex items-center">
@@ -61,9 +66,12 @@ export default function AllItemsList({ data }) {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <button className="hidden rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:inline-block">
+          <Link
+            to="/additem"
+            className="hidden rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:inline-block"
+          >
             상품 등록하기
-          </button>
+          </Link>
           <div
             className="relative hidden w-32 cursor-pointer justify-between rounded-xl border px-5 py-3 sm:inline-block sm:flex "
             onClick={() => {

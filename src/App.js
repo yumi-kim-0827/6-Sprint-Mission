@@ -1,5 +1,7 @@
 import Home from "./pages/Home";
 import Items from "./pages/Items";
+import AddItem from "./pages/AddItem";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 
@@ -13,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/items" element={<Items />}></Route>
+            <Route path="/additem" element={<AddItem />}></Route>
           </Routes>
         </Router>
       </QueryClientProvider>
