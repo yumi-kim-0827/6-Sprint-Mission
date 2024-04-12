@@ -6,6 +6,7 @@ import BestProductList from "../components/BestProductList";
 import { getProducts, getBestProducts } from "../api";
 import { useNavigate } from "react-router-dom";
 import Pagenation from "../components/Pagenation";
+import Select from "react-select";
 
 function Items() {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,12 +52,40 @@ function Items() {
 
   const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
-  const handleOrderChange = (orderChange) => {
-    setOrder(orderChange);
+  const handleOrderChange = (selectedOption) => {
+    setOrder(selectedOption.value);
   };
 
   const handleKeywordSearch = (e) => {
     setKeyword(e.target.value);
+  };
+
+  const selectOptions = [
+    { value: "createdAt", label: "최신순" },
+    { value: "favoriteCount", label: "좋아요순" },
+  ];
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      fontSize: "16px",
+      padding: "0 1rem",
+      height: "56px",
+    }),
+    option: (provided) => ({
+      ...provided,
+      padding: "1rem",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }),
+  };
+
+  const customComponents = {
+    IndicatorSeparator: () => null, // 화살표 구분선 숨기기
   };
 
   return (
@@ -81,21 +110,35 @@ function Items() {
               상품 등록하기
             </button>
             <div>
-              <select
+              {/* <select
                 className={styles.dropdown}
                 value={order}
                 onChange={(e) => handleOrderChange(e.target.value)}
               >
-                <option value="createdAt">최신순</option>
-                <option value="favoriteCount">좋아요순</option>
+                <div value="createdAt" className={styles.customOption}>최신순</div>
+                <div value="favoriteCount" className={styles.customOption}>좋아요순</div>
               </select>
+               */}
+              <div className={styles.dropdown}>
+                <Select
+                  styles={customStyles}
+                  components={customComponents}
+                  options={selectOptions}
+                  value={selectOptions.find((option) => option.value === order)}
+                  onChange={handleOrderChange}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <ProductList products={currentProducts(sortedProducts)} />
       </div>
-      <Pagenation productsPerPage={productsPerPage} totalProducts={products.length} paginate={setCurrentPage} />
+      <Pagenation
+        productsPerPage={productsPerPage}
+        totalProducts={products.length}
+        paginate={setCurrentPage}
+      />
     </div>
   );
 }
