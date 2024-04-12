@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import styles from "../styles/productlist.module.css";
+import styles from "../styles/bestproductlist.module.css";
 
-function ProductList({ products }) {
+function BestProductList({ products }) {
   return (
     <div className={styles.products}>
-      {/* products는 map을 통해 배열 내의 각 상품을 순회하면서 상품 정보 렌더링 */}
       {products.map((product) => (
         <div key={product.id} className={styles.product}>
           <img
@@ -27,4 +26,4 @@ function ProductList({ products }) {
   );
 }
 
-export default ProductList;
+export default BestProductList;

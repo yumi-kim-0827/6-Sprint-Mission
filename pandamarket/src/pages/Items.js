@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/items.module.css";
 import ProductList from "../components/ProductList";
-import { getProducts } from "../api";
+import BestProductList from "../components/BestProductList"
+import { getProducts, getBestProducts } from "../api";
 
 function Items() {
   const [products, setProducts] = useState([]);
+  const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("createdAt");
 
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +17,9 @@ function Items() {
         setIsLoading(true);
         const fetchedProducts = await getProducts({ order });
         setProducts(fetchedProducts);
+
+        const bestProducts = await getBestProducts();
+        setBestProducts(bestProducts)
       } catch (error) {
         console.error("상품 가져오는데 실패했습니다", error);
         setIsLoading(false);
@@ -26,14 +31,14 @@ function Items() {
   const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const handleOrderChange = (orderChange) => {
-    setOrder(orderChange)
-  }
+    setOrder(orderChange);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles["best-products"]}>
         <h3>베스트 상품</h3>
-        <div className=""></div>
+        <BestProductList products={bestProducts} />
       </div>
 
       <div>
