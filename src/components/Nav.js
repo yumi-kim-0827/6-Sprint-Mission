@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Button from "./Button";
+import Button from "../common/Button";
 import logo from "../assets/pandaLogo.svg";
 
 const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 200px;
+  border: 1px solid #DFDFDF;
 `;
 
 const ListContainer = styled.div`
@@ -20,11 +22,6 @@ const LogoContainer = styled.div`
 `;
 
 const Img = styled.img`
-  margin-right: 4px;
-`;
-
-const LogoText = styled.h1`
-  color: var(--main-color);
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -49,7 +46,6 @@ function Nav() {
       <ListContainer>
         <LogoContainer>
           <Img src={logo} alt="판다마켓 로고" />
-          <LogoText>판다마켓</LogoText>
         </LogoContainer>
         <StyledNavLink to="/board" className={({ isActive }) => isActive? "active": ''}>
           자유게시판
