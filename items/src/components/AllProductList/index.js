@@ -1,15 +1,17 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../../api/productApi';
 import ProductItem from '../ProductItem';
 import Button from '../Button';
+import Search from '../../assets/icons/Search.svg';
 import './style.css';
-import { Link } from 'react-router-dom';
 
 const AllProductList = () => {
   const [allProduct, setAllProduct] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [pageSize, setPageSize] = useState(10);
+  const [search, setSearch] = useState('');
 
   const handleAllProductLoad = async (options) => {
     const { list } = await getProducts(options);
@@ -26,6 +28,10 @@ const AllProductList = () => {
     } else {
       setPageSize(10);
     }
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
   };
 
   useEffect(() => {
@@ -47,7 +53,15 @@ const AllProductList = () => {
       <div className='top-container'>
         <h3>전체 상품</h3>
         <div className='product-control'>
-          <input />
+          <div className='search-container'>
+            <img src={Search} alt='검색 아이콘' className='search-icon' />
+            <input
+              placeholder='검색할 상품을 입력해주세요'
+              value={search}
+              onChange={handleSearchChange}
+              className='search-input'
+            />
+          </div>
           <Link to='/addItem'>
             <Button title='상품 등록하기' />
           </Link>

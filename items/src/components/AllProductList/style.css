@@ -1,0 +1,61 @@
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 20%;
+  left: 3.5%;
+}
+
+.search-input {
+  width: 80%;
+  height: 100%;
+  border-radius: 0.75rem;
+  padding-block: 0.5625rem;
+  padding-left: 2.1875rem;
+  margin-right: 3rem;
+  border: none;
+  background-color: var(--gray-100);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.all-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 0;
+  gap: 1.5rem;
+}
+
+.all-item {
+  flex: 1 1 18%;
+}
+
+/* 태블릿 사이즈 */
+@media (max-width: 1199px) {
+  .all-item {
+    flex: 1 1 25%;
+  }
+}
+
+/* 모바일 사이즈 */
+@media (max-width: 767px) {
+  .all-item {
+    flex: 1 1 35%;
+  }
+}
