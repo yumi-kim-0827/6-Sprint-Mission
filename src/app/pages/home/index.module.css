@@ -1,0 +1,154 @@
+/* header */
+.header
+{
+	top: 0px;
+	z-index: 69;
+	position: sticky;
+	background-color: #FFFFFF;
+}
+.header :global(.container)
+{
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.header :global(.container > *)
+{
+	gap: 10px;
+	display: flex;
+}
+.header :global(.container > .logo)
+{
+	font-size: 25px;
+	font-weight: 700;
+}
+.header :global(.container > .button)
+{
+	width: 128px;
+	height: 48px;
+	font-weight: 600;
+	border-radius: 8px;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.header :global(.container)
+	{
+		margin: 0px 200px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.header :global(.container)
+	{
+		margin: 0px 24px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.header :global(.container)
+	{
+		margin: 0px 16px;
+	}
+}
+/* main */
+.main
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.main
+	{
+		padding-bottom: 120px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.main
+	{
+		gap: 60px;
+		padding: 24px;
+		padding-bottom: 80px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.main
+	{
+		gap: 44px;
+		padding: 50px 15.5px;
+	}
+}
+/* footer */
+.footer
+{
+	position: relative;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #111827;
+}
+.footer :global(.container)
+{
+	height: 160px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.footer :global(.container > *)
+{
+	gap: 30px;
+	display: flex;
+}
+.footer :global(.container > .left)
+{
+	color: var(--gray500);
+}
+.footer :global(.container > .center)
+{
+	color: var(--gray300);
+}
+.footer :global(.container > .right)
+{
+	gap: 12px;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.footer :global(.container)
+	{
+		padding: 32px 104px 64px 104px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.footer :global(.container)
+	{
+		padding: 32px 104px 64px 104px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.footer :global(.container)
+	{
+		padding: 32px 32px 64px 32px;
+	}
+	.footer :global(.container > .left)
+	{
+		bottom: 32px;
+		position: absolute;
+	}
+}

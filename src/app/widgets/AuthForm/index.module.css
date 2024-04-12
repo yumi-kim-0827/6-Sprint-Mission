@@ -1,0 +1,136 @@
+.widget
+{
+	gap: 24px;
+	display: flex;
+	flex-direction: column;
+}
+.widget :global(.inputs)
+{
+	display: flex;
+	flex-direction: column;
+}
+.widget :global(.field)
+{
+	display: flex;
+	flex-direction: column;
+}
+.widget :global(label)
+{
+	color: #1F2937;
+	font-weight: 700;
+}
+.widget :global(.wrapper)
+{
+	position: relative;
+}
+.widget :global(.wrapper::after)
+{
+	display: block;
+	margin-top: 8px;
+	margin-left: 16px;
+	color: var(--red);
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 17.9px;
+}
+.widget :global(.wrapper[data-error]::after)
+{
+	content: attr(data-error);
+}
+.widget :global(.wrapper[data-error="null"]::after)
+{
+	display: none;
+}
+.widget :global(img) {
+	top: 16px;
+	right: 24px;
+	position: absolute;
+}
+.widget :global(input)
+{
+	width: 100%;
+	height: 56px;
+	padding: 0px 24px;
+	outline: transparent solid thin;
+	border-radius: 12px;
+	background-color: #F3F4F6;
+}
+.widget :global(input::placeholder)
+{
+	color: #9CA3AF;
+	font-size: 16px;
+	font-weight: 400;
+}
+.widget :global(.wrapper[data-error] input)
+{
+	outline-color: var(--red);
+}
+.widget :global(.wrapper[data-error="null"] input)
+{
+	outline-color: #369EFF;
+}
+.widget :global(button)
+{
+	color: #FFFFFF;
+	height: 56px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 24px;
+	border-radius: 40px;
+	background-color: var(--blue);
+}
+.widget :global(button:disabled)
+{
+	background-color: #9CA3AF;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.widget :global(.inputs)
+	{
+		gap: 24px;
+	}
+	.widget :global(.field)
+	{
+		gap: 16px;
+	}
+	.widget :global(label)
+	{
+		font-size: 18px;
+		line-height: 21.48px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.widget :global(.inputs)
+	{
+		gap: 24px;
+	}
+	.widget :global(.field)
+	{
+		gap: 16px;
+	}
+	.widget :global(label)
+	{
+		font-size: 18px;
+		line-height: 21.48px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.widget :global(.inputs)
+	{
+		gap: 16px;
+	}
+	.widget :global(.field)
+	{
+		gap: 8px;
+	}
+	.widget :global(label)
+	{
+		font-size: 14px;
+		line-height: 16.71px;
+	}
+}

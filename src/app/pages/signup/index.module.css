@@ -1,0 +1,96 @@
+/* header */
+.header
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.header
+	{
+		margin: 50px 0px;
+	}
+	.header :global(img)
+	{
+		width: 396px;
+		height: 132px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.header
+	{
+		padding: 50px 0px;
+	}
+	.header :global(img)
+	{
+		width: 396px;
+		height: 132px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.header
+	{
+		margin: 24px 0px;
+	}
+	.header :global(img)
+	{
+		width: 198px;
+		height: 66px;
+	}
+}
+/* main */
+.main {
+	display: flex;
+	justify-content: center;
+}
+.main :global(.container)
+{
+	gap: 24px;
+	width: 100%;
+	display: flex;
+	margin-left: 16px;
+	margin-right: 16px;
+	flex-direction: column;
+}
+.main :global(.assistance)
+{
+	text-align: center;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 17.9px;
+}
+.main :global(.assistance a[href])
+{
+	color: var(--blue);
+	text-decoration: underline;
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	.main :global(.container)
+	{
+		max-width: 640px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	.main :global(.container)
+	{
+		max-width: 640px;
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	.main :global(.container)
+	{
+		max-width: 400px;
+	}
+}
