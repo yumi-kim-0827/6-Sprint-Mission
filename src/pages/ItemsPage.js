@@ -1,34 +1,47 @@
 import { useEffect, useState } from "react";
-import { MOBILE, TABLET, PC } from "../utils/magicLiterals";
-import { getBestItems } from "../api";
+import { NUM_BEST_ITEMS, NUM_ALL_ITEMS } from "../utils/magicLiterals";
+import { getBestItems, getItems } from "../api";
 import Nav from "../components/Nav";
 import ItemList from "../components/ItemList";
 import "./ItemsPage.css";
 
-const numBestItems = {
-  [MOBILE]: 1,
-  [TABLET]: 2,
-  [PC]: 4,
-};
-
 function ItemsPage({ device }) {
   const [bestItems, setBestItems] = useState([]);
   const [bestItemsUsing, setBestItemsUsing] = useState([]);
+  const [allItems, setAllItems] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [order, setOrder] = useState("favorite");
+
+  const handleInitialLoad = async () => {
+    const { list: newBestItems } = await getBestItems();
+    setBestItems(newBestItems);
+    setBestItemsUsing(newBestItems.slice(0, NUM_BEST_ITEMS[device]));
+
+    handleLoad();
+  };
 
   const handleLoad = async () => {
-    const { list: bestItems } = await getBestItems();
-    setBestItems(bestItems);
-    setBestItemsUsing(bestItems.slice(0, numBestItems[device]));
+    const pageSize = NUM_ALL_ITEMS[device];
+    const { list: newAllItems } = await getItems({
+      page: pageNumber,
+      pageSize,
+      orderBy: order,
+    });
+    setAllItems(newAllItems);
   };
 
   useEffect(() => {
-    handleLoad();
+    handleInitialLoad();
   }, []);
 
   useEffect(() => {
-    const newBestItemUsing = bestItems.slice(0, numBestItems[device]);
+    const newBestItemUsing = bestItems.slice(0, NUM_BEST_ITEMS[device]);
     setBestItemsUsing(newBestItemUsing);
   }, [device]);
+
+  useEffect(() => {
+    handleLoad();
+  }, [device, order, pageNumber]);
 
   return (
     <>
@@ -40,7 +53,7 @@ function ItemsPage({ device }) {
         </section>
         <section id="all-items">
           <h1 className="section-title">판매 중인 상품</h1>
-          <ItemList items={[]} />
+          <ItemList items={allItems} />
         </section>
       </main>
     </>
