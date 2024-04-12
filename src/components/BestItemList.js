@@ -1,7 +1,7 @@
-import { AllItem } from "./AllItemList";
 import "../styles/BestItemList.css";
+import { AllItem } from "./AllItemLIst";
 
-export default function BestItemList({ items }) {
+function BestItemList({ items }) {
   return (
     <section className="best-item-list">
       <h2 className="category-title">베스트 상품</h2>
@@ -17,3 +17,4 @@ export default function BestItemList({ items }) {
     </section>
   );
 }
+export default BestItemList;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { AllItemList } from "./AllItemList";
 import { getItems } from "../services/api";
-import BestItemList from "./BestItemList";
 import "../styles/main.css";
+import { AllItemList } from "./AllItemLIst";
+import BestItemList from "./BestItemLIst";
 
 function ItemPage() {
   const [allItems, setAllItems] = useState([]);
