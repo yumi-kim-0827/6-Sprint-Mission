@@ -10,6 +10,7 @@ header {
   padding: 0 auto;
   background-color: white;
   border-bottom: 1px solid var(--gray-200);
+  z-index: 1;
 }
 
 .leftContainer {
@@ -20,27 +21,4 @@ header {
 .navBar {
   display: flex;
   gap: 2rem;
-}
-
-.login-button {
-  background-color: var(--blue-primary);
-  width: 5.5rem;
-  height: 2.625rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.1931rem;
-}
-
-.login-button:hover {
-  background-color: var(--blue-hover);
-}
-
-.login-button:active {
-  background-color: var(--blue-active);
 }

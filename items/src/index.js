@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './normaize.css';
+import './normalize.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -13,8 +13,12 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/itmes',
+    path: '/items',
     element: <ItemsPage />,
+  },
+  {
+    path: '/*',
+    element: <h1>미구현 페이지 입니다.</h1>,
   },
 ]);
 
