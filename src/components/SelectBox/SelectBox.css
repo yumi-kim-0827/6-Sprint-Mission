@@ -42,9 +42,15 @@
 }
 
 .select-box .option-list {
+  max-height: 0;
   margin: 0.4rem 0 0;
   position: absolute;
   border: 0;
-  height: 0;
   overflow: hidden;
+  transition: max-height 0.05s;
+}
+
+.select-box .option-list.show {
+  max-height: 200px;
+  border: 1px solid var(--gray-200);
 }

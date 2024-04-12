@@ -13,7 +13,7 @@ const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [sortKeyword, setSortKeyword] = useState("최신순");
-  // const [optionList, setOptionList] = useState("");
+  const [optionList, setOptionList] = useState("");
 
   const sortOptions = [
     {
@@ -29,7 +29,7 @@ const Market = () => {
   // 상품 검색 기능
   const searchProducts = async (event) => {
     const { value } = event.target;
-    const items = await getProducts("recent", value);
+    const items = await getProducts({ keyword: value });
     const { list } = items;
     setAllProducts(list);
   };
@@ -45,16 +45,24 @@ const Market = () => {
         sortOption = sort;
       }
     });
-    const items = await getProducts(sortOption);
+    const items = await getProducts({ orderBy: sortOption });
     const { list } = items;
     setAllProducts(list);
+    handleSelectBoxClick();
   };
 
-  const handleSelectBoxClick = () => {};
+  // 옵션 리스트 토글 기능
+  const handleSelectBoxClick = () => {
+    if (optionList === "") {
+      setOptionList("show");
+    } else {
+      setOptionList("");
+    }
+  };
 
   // 상품 리스트 불러오기
   const getItems = async (sort, setState) => {
-    const items = await getProducts(sort);
+    const items = await getProducts({ orderBy: sort });
     let { list } = items;
     if (sort === "favorite") {
       list = list.filter((item, index) => {
@@ -99,6 +107,7 @@ const Market = () => {
               text={sortKeyword}
               onOptionClick={handleSelectOptionClick}
               onBoxClick={handleSelectBoxClick}
+              optionClass={optionList}
               options={sortOptions}
             />
           </div>
