@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./index.css";
+import Button from "../Button";
 
 function Header() {
   const navigationList = [
@@ -41,9 +42,7 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <a className="button button-small" href="/signin.html">
-          로그인
-        </a>
+        <Button to="/signin">로그인</Button>
       </div>
     </header>
   );
