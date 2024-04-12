@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let isEmailValid = false;
+  let isNicknameValid = false;
+  let isPasswordValid = false;
+  let isPasswordConfirmationValid = false;
+
   const emailInput = document.querySelector("#email");
   const passwordInput = document.querySelector("#password");
-  const userNameInput = document.querySelector("#nickname");
+  const nicknameInput = document.querySelector("#nickname");
   const passwordConfirmationInput = document.querySelector(
     "#passwordConfirmation"
   );
@@ -11,11 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.querySelector(
     '.auth-container form button[type="submit"]'
   );
-
-  let isEmailValid = false;
-  let isNicknameValid = false;
-  let isPasswordValid = false;
-  let isPasswordConfirmationValid = false;
 
   function showError(input, errorId) {
     const errorElement = document.getElementById(errorId);
