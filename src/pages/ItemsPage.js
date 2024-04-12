@@ -72,7 +72,11 @@ function ItemsPage({ device }) {
             <ItemListNav order={order} setOrder={setOrder} />
           )}
           <ItemList items={allItems} />
-          <Pagination totalPage={totalPage} setCurrentPage={setCurrentPage} />
+          <Pagination
+            totalPage={totalPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </section>
       </main>
     </>
