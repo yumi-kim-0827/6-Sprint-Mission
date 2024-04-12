@@ -13,4 +13,18 @@ const Mobile = ({ children }) => {
   return isMobile ? children : null;
 };
 
-export { Desktop, Tablet, Mobile };
+const DeviceSizeCheck = () => {
+  const isDesktop = useMediaQuery({ minWidth: 1200 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  if (!!isDesktop) {
+    return "Desktop";
+  } else if (!!isTablet) {
+    return "Tablet";
+  } else if (!!isMobile) {
+    return "Mobile";
+  }
+};
+
+export { Desktop, Tablet, Mobile, DeviceSizeCheck };

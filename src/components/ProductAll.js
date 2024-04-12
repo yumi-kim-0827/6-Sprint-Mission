@@ -2,8 +2,6 @@ import "./ProductAll.css";
 
 import iconHeart from "../assets/items/ic_heart.svg";
 import iconSearch from "../assets/items/ic_search.svg";
-import iconArrow from "../assets/items/ic_arrow_down.svg";
-import Select from "react-select";
 
 import React, { useState, useEffect } from "react";
 
