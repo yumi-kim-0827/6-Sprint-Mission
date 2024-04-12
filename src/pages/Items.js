@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+
 import RankedItems from "../components/RankedItems";
 import AllItemsList from "../components/AllItemsList";
 import Navbar from "../components/Navbar";
@@ -7,7 +8,7 @@ import useDeviceSize from "../utils/useDeviceSize";
 
 const fetchProducts = async () => {
   const response = await axios.get(
-    "https://panda-market-api.vercel.app/products"
+    "https://panda-market-api.vercel.app/products",
   );
 
   return response.data;
@@ -29,7 +30,7 @@ export default function Items() {
     <>
       <Navbar />
       <main>
-        <div className="my-6 mx-4 flex flex-col items-center">
+        <div className="mx-4 my-6 flex flex-col items-center">
           <RankedItems data={data} deviceSize={deviceSize} />
           <AllItemsList data={data} deviceSize={deviceSize} />
         </div>

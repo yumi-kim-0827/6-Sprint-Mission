@@ -33,37 +33,37 @@ export default function AllItemsList({ data, deviceSize }) {
 
   const sortProductsByLike = (products) => {
     const sortedProducts = [...products].sort(
-      (a, b) => b.favoriteCount - a.favoriteCount
+      (a, b) => b.favoriteCount - a.favoriteCount,
     );
     setAllProducts(sortedProducts);
   };
 
   return (
     <div className="my-10">
-      <div className="flex flex-col sm:flex-row justify-between sm:items-center my-6">
-        <div className="flex justify-between items-center mx-4 sm:mx-0">
+      <div className="my-6 flex flex-col justify-between sm:flex-row sm:items-center">
+        <div className="mx-4 flex items-center justify-between sm:mx-0">
           <h1 className="text-xl text-[var(--footer-bg-color)]">전체 상품</h1>
-          <button className="sm:hidden inline px-6 py-3 bg-[var(--btn-blue1)] rounded-lg text-white">
+          <button className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:hidden">
             상품 등록하기
           </button>
         </div>
-        <div className="flex items-center gap-x-3 mx-4 sm:mx-0 justify-between sm:justify-normal my-2 sm:my-0">
-          <div className="flex relative items-center">
+        <div className="mx-4 my-2 flex items-center justify-between gap-x-3 sm:mx-0 sm:my-0 sm:justify-normal">
+          <div className="relative flex items-center">
             <img
               src={searchIcon}
               alt="searchicon"
               className="absolute left-4"
             />
             <input
-              className="pl-11 py-2 bg-[var(--cool-gray100)] rounded-xl text-[var(--cool-gray400)] w-64 sm:w-56 lg:w-96 sm:pr-1"
+              className="w-64 rounded-xl bg-[var(--cool-gray100)] py-2 pl-11 text-[var(--cool-gray400)] sm:w-56 sm:pr-1 lg:w-96"
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <button className="hidden sm:inline-block px-6 py-3 bg-[var(--btn-blue1)] rounded-lg text-white">
+          <button className="hidden rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:inline-block">
             상품 등록하기
           </button>
           <div
-            className="hidden sm:inline-block flex justify-between relative border rounded-xl px-5 py-3 cursor-pointer w-32"
+            className="relative flex hidden w-32 cursor-pointer justify-between rounded-xl border px-5 py-3 sm:inline-block"
             onClick={() => {
               setDropdownView(!dropdownView);
             }}
@@ -79,7 +79,7 @@ export default function AllItemsList({ data, deviceSize }) {
             )}
           </div>
           <div
-            className="sm:hidden relative flex justify-between"
+            className="relative flex justify-between sm:hidden"
             onClick={() => setDropdownView(!dropdownView)}
           >
             <img src={sortButton} alt="sortbutton" />
@@ -93,7 +93,7 @@ export default function AllItemsList({ data, deviceSize }) {
           </div>
         </div>
       </div>
-      <ul className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 grid-rows-2 gap-x-6 gap-y-10">
+      <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {allProducts &&
           allProducts.slice(0, productCount).map((post) => {
             return (
@@ -101,16 +101,16 @@ export default function AllItemsList({ data, deviceSize }) {
                 <img
                   src={post.images[0]}
                   alt={post.name}
-                  className="object-fill h-40 sm:h-56 w-40 sm:w-56 rounded-2xl"
+                  className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
                 />
-                <p className="text-[var(--cool-gray800)] text-sm font-medium mt-4">
+                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
                   {post.name} 팝니다
                 </p>
-                <p className="text-[var(--cool-gray800)] text-sm font-bold">
+                <p className="text-sm font-bold text-[var(--cool-gray800)]">
                   {post.price}원
                 </p>
                 <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="text-xs ml-1">{post.favoriteCount}</span>
+                <span className="ml-1 text-xs">{post.favoriteCount}</span>
               </li>
             );
           })}

@@ -5,7 +5,7 @@ import favoriteIcon from "../images/ic_heart.png";
 export default function RankedItems({ data, deviceSize }) {
   const [productCount, setproductCount] = useState(1);
   const sortedProducts = data.list.sort(
-    (a, b) => b.favoriteCount - a.favoriteCount
+    (a, b) => b.favoriteCount - a.favoriteCount,
   );
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function RankedItems({ data, deviceSize }) {
       <h1 className="mb-4 text-xl text-[var(--footer-bg-color)]">
         베스트 상품
       </h1>
-      <ul className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-x-6">
+      <ul className="grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
         {sortedProducts &&
           sortedProducts.slice(0, productCount).map((post) => {
             return (
@@ -31,16 +31,16 @@ export default function RankedItems({ data, deviceSize }) {
                 <img
                   src={post.images[0]}
                   alt={post.name}
-                  className="object-fill h-80 sm:h-72 w-80 sm:w-72 rounded-2xl"
+                  className="h-80 w-80 rounded-2xl object-fill sm:h-72 sm:w-72"
                 />
-                <p className="text-[var(--cool-gray800)] text-sm font-medium mt-4">
+                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
                   {post.name} 팝니다
                 </p>
-                <p className="text-[var(--cool-gray800)] text-sm font-bold">
+                <p className="text-sm font-bold text-[var(--cool-gray800)]">
                   {post.price}원
                 </p>
                 <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="text-xs ml-1">{post.favoriteCount}</span>
+                <span className="ml-1 text-xs">{post.favoriteCount}</span>
               </li>
             );
           })}
