@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getProducts } from "../../api/product";
 import ProductCard from "../ProductCard";
 import "./index.css";
+import Button from "../Button";
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ function AllProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
+          <Button to="/addItem">상품 등록하기</Button>
         </div>
       </div>
       <ul className="all-product-list">
