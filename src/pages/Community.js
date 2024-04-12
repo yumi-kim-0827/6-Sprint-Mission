@@ -6,7 +6,7 @@ const Community = () => {
   return (
     <>
       <TopNavigation />
-      <main>Community</main>
+      <main className="community_container">Community</main>
     </>
   );
 };

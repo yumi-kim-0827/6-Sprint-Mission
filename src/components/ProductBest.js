@@ -27,7 +27,7 @@ const ProductBest = () => {
         <span className="best_title">베스트 상품</span>
         <div className="best_content">
           {sortedProducts.slice(0, 4).map((product) => (
-            <div className="best_wrap">
+            <div className="best_wrap" key={product.id}>
               <img
                 className="best_img"
                 src={product.images}
@@ -53,7 +53,7 @@ const ProductBest = () => {
         <span className="best_title">베스트 상품</span>
         <div className="best_content">
           {sortedProducts.slice(0, 2).map((product) => (
-            <div className="best_wrap">
+            <div className="best_wrap" key={product.id}>
               <img
                 className="best_img"
                 src={product.images}
@@ -79,7 +79,7 @@ const ProductBest = () => {
         <span className="best_title">베스트 상품</span>
         <div className="best_content">
           {sortedProducts.slice(0, 1).map((product) => (
-            <div className="best_wrap">
+            <div className="best_wrap" key={product.id}>
               <img
                 className="best_img"
                 src={product.images}

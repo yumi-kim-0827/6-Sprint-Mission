@@ -8,6 +8,7 @@ import "./Home.css";
 
 import TopNavigation from "../components/TopNavigation";
 import { NavLink } from "react-router-dom";
+import BottomNavigation from "../components/BottomNavigation";
 
 const Home = () => {
   return (
@@ -115,6 +116,7 @@ const Home = () => {
           </section>
         </article>
       </main>
+      <BottomNavigation />
     </>
   );
 };

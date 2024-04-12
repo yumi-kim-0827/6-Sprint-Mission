@@ -5,6 +5,7 @@
   background-color: #fff;
   border-bottom: 1px solid #dfdfdf;
   height: 70px;
+  z-index: 50;
 }
 .top_container {
   height: 100%;

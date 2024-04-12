@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import NavMain from "./NavMain";
 import "./Root.css";
@@ -14,9 +15,9 @@ function TopNavigation(site) {
           <NavMain site={site} />
         </div>
         <div className="top_navigation_login">
-          <a className="login_btn blue" href="/">
+          <Link to={"/SignIn"} className="login_btn blue">
             로그인
-          </a>
+          </Link>
         </div>
       </div>
     </header>

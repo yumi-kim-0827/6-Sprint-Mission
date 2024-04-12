@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <>
       <TopNavigation />
-      <main>잘못된 페이지입니다.</main>
+      <main className="wrong_page_container">잘못된 페이지입니다.</main>
     </>
   );
 };
