@@ -60,7 +60,7 @@ export default function MarketMainPage() {
     const productsPerPage = getProductsPerPage();
     const totalPages = Math.ceil(allProductsData.length / productsPerPage);
     setTotalPages(totalPages > 0 ? totalPages : 1);
-  }, [deviceState]);
+  }, [deviceState, allProductsData]);
 
   useEffect(() => {
     setCurrentPage(1);

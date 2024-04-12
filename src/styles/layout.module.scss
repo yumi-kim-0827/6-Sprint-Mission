@@ -29,19 +29,18 @@
     align-items: center;
     gap: 8px;
 
-    a {
-      color: var(--cool-gray600);
-
-      &:hover,
-      &:focus {
-        color: var(--cool-gray700);
-      }
-    }
-
     @media (min-width: $min-tablet-width) {
       font-size: 18px;
       gap: 38px;
       margin-left: 32px;
+    }
+
+    a {
+      color: var(--cool-gray600);
+      &:hover,
+      &:focus {
+        color: var(--cool-gray700);
+      }
     }
 
     .focus {
