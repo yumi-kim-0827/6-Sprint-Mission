@@ -16,9 +16,21 @@ header {
 .leftContainer {
   display: flex;
   align-items: center;
+  > a > img {
+    margin-top: 0.5rem;
+  }
 }
 
 .navBar {
   display: flex;
   gap: 2rem;
+  > li > a {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.3425rem;
+  }
+}
+
+.activ-nav {
+  color: var(--blue-primary);
 }
