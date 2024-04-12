@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return emailRegex.test(email);
   }
 
-  function checkEmailValidation() {
+  function checkEmailValidity() {
     const emailValue = emailInput.value.trim();
-    isEmailValue = false;
+    isEmailValid = false;
     hideError(emailInput, "emailEmptyError");
     hideError(emailInput, "emailInvalidError");
 
