@@ -1,16 +1,32 @@
 import "./ItemCard.css";
+import likeIcon from "../assets/icon-like-heart.svg";
 
-export default function ItemCard() {
+export default function ItemCard({ items, count }) {
+  items.sort((a, b) => b.favoriteCount - a.favoriteCount);
+
   return (
     <>
-      <div className="container">
-        <div className="image"></div>
-        <div className="info-box">
-          <p className="desc">아이패드 미니 팝니다.</p>
-          <p className="price">500,000원</p>
-          <div className="like">좋아요 카운트</div>
+      {items.length > 0 ? (
+        <div className="container-item-card">
+          <div className="image-container">
+            <img
+              className="image-item-card"
+              src={items[count].images[0]}
+              alt="상품 이미지"
+            />
+          </div>
+          <div className="info-item-card">
+            <p className="desc-item-card">{items[count].name}</p>
+            <p className="price-item-card">{items[count].price}원</p>
+            <div className="like-item-card">
+              <img src={likeIcon} alt="하트 아이콘" />
+              {items[count].favoriteCount}
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </>
   );
 }

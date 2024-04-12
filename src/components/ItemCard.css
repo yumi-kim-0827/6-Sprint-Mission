@@ -1,4 +1,61 @@
-.container {
-  /*  */
-  border: 1px solid blue;
+.container-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 343px;
+}
+
+.image-item-card {
+  width: 100%;
+}
+
+.info-item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.desc-item-card {
+  color: #1f2937;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.price-item-card {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #1f2937;
+}
+
+.like-item-card {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #4b5563;
+}
+
+@media (min-width: 1024px) {
+  .container-item-card {
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    gap: 16px;
+  }
 }
