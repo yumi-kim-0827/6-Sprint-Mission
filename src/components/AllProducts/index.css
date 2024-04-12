@@ -1,0 +1,21 @@
+.all-product {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+}
+
+.all-product-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  letter-spacing: 0.02rem;
+  color: var(--gray900);
+}
+
+.all-product-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 40px 24px;
+}
