@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import ProductList from './ProductList';
 import { getProducts } from '../api';
 
@@ -13,11 +13,15 @@ function Items() {
   const handleNewstClick = () => setOrder('createdAt');
   const handleBestClick = () => setOrder('favoriteCount');
 
-  // 데이터 불러오기 클릭 핸들러
-  const handleLoadClick = async () => {
-    const products = await getProducts();
+  // 서버에서 정렬한 데이터 불러오기
+  const handleLoad = async (orderQuery) => {
+    const products = await getProducts(orderQuery);
     setItems(products.list);
   };
+
+  useEffect(() => {
+    handleLoad(order);
+  }, [order]);
 
   return (
     <div>
@@ -26,7 +30,6 @@ function Items() {
         <button onClick={handleBestClick}>좋아요순</button>
       </div>
       <ProductList items={sortedItems} />
-      <button onClick={handleLoadClick}>불러오기</button>
     </div>
   );
 }
