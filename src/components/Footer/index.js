@@ -14,28 +14,44 @@ function Footer() {
           </a>
         </div>
         <div className="footer-socials">
-          <a href="https://www.facebook.com/" target="_blank">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="footer-social-icon"
               src="images/ic_facebook.svg"
               alt="페이스북 아이콘"
             />
           </a>
-          <a href="https://twitter.com/?lang=ko" target="_blank">
+          <a
+            href="https://twitter.com/?lang=ko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="footer-social-icon"
               src="images/ic_twitter.svg"
               alt="트위터 아이콘"
             />
           </a>
-          <a href="https://www.youtube.com/" target="_blank">
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="footer-social-icon"
               src="images/ic_youtube.svg"
               alt="유튜브 아이콘"
             />
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="footer-social-icon"
               src="images/ic_instagram.svg"
