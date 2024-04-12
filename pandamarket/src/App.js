@@ -1,13 +1,12 @@
-import { useState } from "react";
 import { Header } from "./layout/Header";
 import { View } from "./layout/View";
+import "./style/css/style.min.css";
 
 function App() {
-  const [page, setPage] = useState("ViewItemList")
   return (
     <div className="pandamarket">
       <Header/>
-      <View page={page}/>
+      <View/>
     </div>
   );
 }

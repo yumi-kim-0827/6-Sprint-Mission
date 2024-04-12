@@ -1,4 +1,3 @@
-import { Link } from "../components/Link";
 import { GNB } from "../components/GNB";
 import { Logo } from "./Logo";
 
@@ -12,7 +11,7 @@ export function Header() {
           <GNB/>
         </div>
         <div>
-          <Link href="/signin.html" size="small">로그인</Link>
+          <a href="/signin.html" className="btn-login btn-small">로그인</a>
         </div>
       </div>
     </header>
