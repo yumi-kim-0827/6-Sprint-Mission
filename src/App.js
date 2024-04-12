@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import ItemsPage from "./pages/ItemsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import FaqPage from "./pages/FaqPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="items" element={<ItemsPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="faq" element={<FaqPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
