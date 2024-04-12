@@ -15,7 +15,12 @@ function ItemPage() {
   const handleSortedChange = (e) => {
     setOrder(e.target.value);
   };
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setKeyword(e.target["search"].value);
 
+    handLoadAllItemList(keyword);
+  };
   const handLoadBestItemList = async () => {
     const { list } = await getItems({
       order: "favorite",
@@ -32,8 +37,8 @@ function ItemPage() {
   }, []);
 
   useEffect(() => {
-    handLoadAllItemList({ order, page, pageSize });
-  }, [order, page, pageSize]);
+    handLoadAllItemList({ order, page, pageSize, keyword });
+  }, [order, page, pageSize, keyword]);
 
   return (
     <main>
@@ -42,6 +47,7 @@ function ItemPage() {
         items={allItems}
         handleSortedChange={handleSortedChange}
         className="-all"
+        handleSearchSubmit={handleSearchSubmit}
       />
     </main>
   );

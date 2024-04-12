@@ -21,13 +21,18 @@ function AllItem({ item, className = "" }) {
   );
 }
 
-function AllItemList({ items, handleSortedChange, className }) {
+function AllItemList({
+  items,
+  handleSortedChange,
+  className,
+  handleSearchSubmit,
+}) {
   return (
     <section className="all-item-list">
       <div className="all-item-header">
         <h2 className="category-title">전체 상품</h2>
         <div className="all-item-header-filter">
-          <form className="search-form">
+          <form className="search-form" onSubmit={handleSearchSubmit}>
             <input
               type="search"
               name="search"
