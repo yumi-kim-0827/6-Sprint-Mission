@@ -5,8 +5,7 @@ import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentPageState, totalPagesState } from "context/atoms/page";
-
-const MOCK_PAGES = [true, false, false, false, false];
+import useDeviceState from "features/hooks/layout/useDeviceState";
 
 const cn = classNames.bind(styles);
 
@@ -26,10 +25,15 @@ function PageButton({ children, isFocus, onClick }) {
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
   const totalPages = useRecoilValue(totalPagesState);
+  const deviceState = useDeviceState();
 
   const handleButtonClick = (page) => {
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [deviceState]);
 
   return (
     <div className={styles.pagination}>
