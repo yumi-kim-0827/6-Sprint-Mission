@@ -1,31 +1,9 @@
 import ItemCard from "./ItemCard";
 import "./BestProducts.css";
-import { useState, useEffect } from "react";
+import useItemCount from "./useItemCount";
 
 export default function BestProducts({ items }) {
-  const [count, setCount] = useState(1);
-
-  const setCountBasedOnWindowSize = () => {
-    const innerWidth = window.innerWidth;
-    if (innerWidth >= 1024) {
-      setCount(4);
-    }
-    if (innerWidth >= 768 && innerWidth < 1024) {
-      setCount(2);
-    }
-
-    if (innerWidth < 768) {
-      setCount(1);
-    }
-  };
-
-  useEffect(() => {
-    setCountBasedOnWindowSize();
-    window.addEventListener("resize", setCountBasedOnWindowSize);
-    return () => {
-      window.removeEventListener("resize", setCountBasedOnWindowSize);
-    };
-  }, []);
+  let count = useItemCount();
 
   const bestItems = items
     .sort((a, b) => b.favoriteCount - a.favoriteCount)

@@ -1,14 +1,21 @@
 import "./ItemCard.css";
 import likeIcon from "../assets/icon-like-heart.svg";
 
-export default function ItemCard({ items, count }) {
+export default function ItemCard({ items, count, mb, tb, pc }) {
+  console.log("아이템:", items);
+  console.log("카운트:", count);
+  console.log("mb:", mb);
+  const checkMb = mb ? "mb" : "";
+  const checkTb = tb ? "tb" : "";
+  const checkPc = pc ? "pc" : "";
+
   return (
     <>
       {items.length > 0 ? (
-        <div className="container-item-card">
-          <div className="image-container">
+        <div className={`container-item-card ${checkMb} ${checkTb} ${checkPc}`}>
+          <div className={`image-container ${checkMb}`}>
             <img
-              className="image-item-card"
+              className={`image-item-card`}
               src={items[count].images[0]}
               alt="상품 이미지"
             />

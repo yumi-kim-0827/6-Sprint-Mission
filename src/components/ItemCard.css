@@ -3,6 +3,17 @@
   flex-direction: column;
   gap: 16px;
 }
+.container-item-card.mb {
+  width: 168px;
+}
+
+.container-item-card.tb {
+  width: 221px;
+}
+
+.container-item-card.pc {
+  width: 221px;
+}
 
 .image-container {
   display: flex;
@@ -11,6 +22,9 @@
   overflow: hidden;
   border-radius: 20px;
   height: 343px;
+}
+.image-container.mb {
+  height: 168px;
 }
 
 .image-item-card {

@@ -1,41 +1,49 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./OnSaleProducts.css";
-import dropDown from "../assets/icon-dropdown.svg";
-import searchIcon from "../assets/icon-search.svg";
+import NavOnSaleProducts from "./NavOnSaleProducts";
+import ItemCard from "./ItemCard";
+import useItemCount from "./useItemCount";
 
-export default function OnSaleProducts() {
-  const [toggleDropDown, setToggleDropDown] = useState(false);
+export default function OnSaleProducts({ items }) {
+  let count = useItemCount();
 
-  const handleClick = () => {
-    setToggleDropDown(!toggleDropDown);
-  };
   return (
-    <>
-      <div className="container-onSaleProducts">
-        <div className="nav-onSaleProducts">
-          <p className="title-onSaleProducts">판매 중인 상품</p>
-          <input
-            className="input-onSaleProducts"
-            placeholder={`검색할 상품을 입력해주세요`}
-          />
-          <img className="searchIcon" src={searchIcon} alt="검색 아이콘" />
-          <Link to="/additem" className="btn btn-addProduct">
-            상품 등록하기
-          </Link>
-          <div className="dropDownBtn-onSaleProducts">
-            <img src={dropDown} alt="드롭다운 버튼" onClick={handleClick} />
-            {toggleDropDown && (
-              <ul className="dropDownMenu-onSaleProducts">
-                <li className="li-first">최신순</li>
-                <li className="li-second">좋아요순</li>
-              </ul>
-            )}
-          </div>
-        </div>
-        <div>아이템 영역</div>
-        <div>판매 중인 상품 영역</div>
+    <div className="container-onSaleProducts">
+      <NavOnSaleProducts />
+      <div className="cards-container">
+        {count === 1 ? (
+          <>
+            <ItemCard mb items={items} count={0} />
+            <ItemCard mb items={items} count={1} />
+            <ItemCard mb items={items} count={2} />
+            <ItemCard mb items={items} count={3} />
+          </>
+        ) : count === 2 ? (
+          <>
+            <ItemCard tb items={items} count={0} />
+            <ItemCard tb items={items} count={1} />
+            <ItemCard tb items={items} count={2} />
+            <ItemCard tb items={items} count={3} />
+            <ItemCard tb items={items} count={4} />
+            <ItemCard tb items={items} count={5} />
+          </>
+        ) : count === 4 ? (
+          <>
+            <ItemCard pc items={items} count={0} />
+            <ItemCard pc items={items} count={1} />
+            <ItemCard pc items={items} count={2} />
+            <ItemCard pc items={items} count={3} />
+            <ItemCard pc items={items} count={4} />
+            <ItemCard pc items={items} count={5} />
+            <ItemCard pc items={items} count={6} />
+            <ItemCard pc items={items} count={7} />
+            <ItemCard pc items={items} count={8} />
+            <ItemCard pc items={items} count={9} />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-    </>
+      <div>판매 중인 상품 영역</div>
+    </div>
   );
 }
