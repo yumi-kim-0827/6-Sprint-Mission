@@ -33,9 +33,9 @@
     display: flex;
     font-size: 16px;
     font-weight: 600;
-    height: 24px;
+    height: 42px;
     justify-content: center;
-    min-width: 44px;
+    min-width: 88px;
     padding: 12px 23px;
     width: max-content;
 }
