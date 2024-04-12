@@ -2,7 +2,7 @@ import "./ItemPage.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getItems } from "../services/api";
-import Item from "../components/Item";
+import Card from "../components/Card";
 import Button from "../components/Button";
 import Searchbar from "../components/Searchbar";
 import SortSelectBox from "../components/SortSelectBox";
@@ -48,8 +48,6 @@ function ItemPage() {
     const fetchItems = async () => {
       try {
         const { list } = await getItems();
-
-        // api의 totalCount와 실제 상품 개수가 맞지않아요ㅜ.ㅜ
         const totalCount = list.length;
 
         const sortedItems = [...list].sort((a, b) => b[order] - a[order]);
@@ -69,15 +67,8 @@ function ItemPage() {
       }
     };
 
-    fetchItems(); // UseEffect 내부에서 실행
+    fetchItems();
   }, [pageCount, order, bestItemCount]);
-
-  const handleNewestClick = () => {
-    setOrder("createdAt");
-  };
-  const handleFavoriteClick = () => {
-    setOrder("favoriteCount");
-  };
 
   const onPageChange = (page) => {
     setCurrentPage(page);
@@ -90,7 +81,7 @@ function ItemPage() {
           <span className="ItemPage__title">베스트 상품</span>
           <div className="ItemPage__best-item-list">
             {bestItems.map((item) => (
-              <Item key={item.id} item={item} />
+              <Card key={item.id} item={item} />
             ))}
           </div>
         </div>
@@ -110,15 +101,14 @@ function ItemPage() {
             />
             <SortSelectBox
               className="ItemPage__select-box"
-              handleNewestClick={handleNewestClick}
-              handleFavoriteClick={handleFavoriteClick}
+              onClick={setOrder}
               order={order}
             ></SortSelectBox>
           </div>
           <div className="ItemPage__item-list">
             {/* 페이지네이션 - 서버에서 전부 가져와서 짤라서 보여주는 식으로 구현 */}
             {items
-              .map((item) => <Item key={item.id} item={item} />)
+              .map((item) => <Card key={item.id} item={item} />)
               .slice((currentPage - 1) * pageCount, currentPage * pageCount)}
           </div>
         </div>

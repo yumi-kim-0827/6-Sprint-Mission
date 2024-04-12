@@ -62,12 +62,12 @@
   flex-wrap: wrap;
 }
 
-.ItemPage__item-list .Item {
+.ItemPage__item-list .Card {
   width: calc(50% - 4px);
   margin-right: 8px;
 }
 
-.ItemPage__item-list .Item:nth-child(2n) {
+.ItemPage__item-list .Card:nth-child(2n) {
   margin-right: 0;
 }
 
@@ -97,22 +97,22 @@
     margin-bottom: 40px;
   }
 
-  .ItemPage__best-item-list .Item {
+  .ItemPage__best-item-list .Card {
     width: calc(50% - 12px);
     margin-right: 24px;
   }
 
-  .ItemPage__best-item-list .Item:nth-child(2n) {
+  .ItemPage__best-item-list .Card:nth-child(2n) {
     margin-right: 0;
   }
 
-  .ItemPage__item-list .Item,
-  .ItemPage__item-list .Item:nth-child(2n) {
+  .ItemPage__item-list .Card,
+  .ItemPage__item-list .Card:nth-child(2n) {
     width: calc(33.3% - 12px);
     margin-right: 16px;
   }
 
-  .ItemPage__item-list .Item:nth-child(3n) {
+  .ItemPage__item-list .Card:nth-child(3n) {
     margin-right: 0;
   }
 
@@ -128,25 +128,25 @@
     width: 325px;
   }
 
-  .ItemPage__best-item-list .Item,
-  .ItemPage__best-item-list .Item:nth-child(2n) {
+  .ItemPage__best-item-list .Card,
+  .ItemPage__best-item-list .Card:nth-child(2n) {
     width: calc(25% - 12px);
     margin-right: 16px;
   }
 
-  .ItemPage__best-item-list .Item:nth-child(4n) {
+  .ItemPage__best-item-list .Card:nth-child(4n) {
     margin-right: 0;
   }
 
-  .ItemPage__item-list .Item,
-  .ItemPage__item-list .Item:nth-child(2n),
-  .ItemPage__item-list .Item:nth-child(3n) {
+  .ItemPage__item-list .Card,
+  .ItemPage__item-list .Card:nth-child(2n),
+  .ItemPage__item-list .Card:nth-child(3n) {
     /* 19.2px = 24(margin-right값) % 5(요소 개수) * 4(gap개수)  */
     width: calc(20% - 19.2px);
     margin-right: 24px;
   }
 
-  .ItemPage__item-list .Item:nth-child(5n) {
+  .ItemPage__item-list .Card:nth-child(5n) {
     margin-right: 0;
   }
 }

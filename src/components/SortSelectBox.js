@@ -1,12 +1,7 @@
 import "./SortSelectBox.css";
 import { useState } from "react";
 
-function SortSelectBox({
-  className,
-  handleNewestClick,
-  handleFavoriteClick,
-  order,
-}) {
+function SortSelectBox({ className, order, onClick }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const orderName = {
@@ -18,12 +13,12 @@ function SortSelectBox({
     setIsVisible(!isVisible);
   };
 
-  const newestClick = () => {
-    handleNewestClick();
+  const handleNewestClick = () => {
+    onClick("createdAt");
     setIsVisible(false);
   };
-  const favoriteClick = () => {
-    handleFavoriteClick();
+  const handleFavoriteClick = () => {
+    onClick("favoriteCount");
     setIsVisible(false);
   };
 
@@ -45,10 +40,13 @@ function SortSelectBox({
         className="sort-select-box__option-box"
         style={{ display: isVisible ? "block" : "none" }}
       >
-        <button className="sort-select-box__option" onClick={newestClick}>
+        <button className="sort-select-box__option" onClick={handleNewestClick}>
           최신순
         </button>
-        <button className="sort-select-box__option" onClick={favoriteClick}>
+        <button
+          className="sort-select-box__option"
+          onClick={handleFavoriteClick}
+        >
           좋아요순
         </button>
       </div>

@@ -1,6 +1,6 @@
-* {
+*,
+html {
   box-sizing: border-box;
-  font-family: "Pretendard", Arial, Helvetica, sans-serif;
 }
 
 html,
