@@ -10,9 +10,11 @@ function App() {
       <Reset />
       <GlobalStyle />
       <Navbar />
-      <Routes>
-        <Route path="/items" element={<Items />} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/items" element={<Items />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

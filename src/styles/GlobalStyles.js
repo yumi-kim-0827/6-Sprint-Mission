@@ -40,6 +40,11 @@ a {
 	margin: 0 auto;
 	padding: 24px;
 }
+
+.container h2 {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
 `;
 
 export default GlobalStyle;

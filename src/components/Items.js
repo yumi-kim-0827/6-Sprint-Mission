@@ -1,6 +1,37 @@
+import { Link } from 'react-router-dom';
+import { FaSistrix } from 'react-icons/fa6';
 import { useState, useMemo, useEffect } from 'react';
+import { styled } from 'styled-components';
 import ProductList from './ProductList';
 import { getProducts } from '../api';
+import styles from '../styles/Button.module.css';
+
+const ListHead = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h2 {
+    grid-column: 1/2;
+  }
+`;
+
+const SearchBox = styled.div`s
+  background-color: var(--gray100);
+  border-radius: 12px;
+  padding: 9px 18px;
+  grid-column: 3/5;
+`;
+
+const Input = styled.input`
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+  color: var(--gray400);
+  min-width: 175px;
+`;
 
 function Items() {
   const [order, setOrder] = useState('createdAt');
@@ -24,13 +55,23 @@ function Items() {
   }, [order]);
 
   return (
-    <div>
-      <div>
-        <button onClick={handleNewstClick}>최신순</button>
-        <button onClick={handleBestClick}>좋아요순</button>
-      </div>
+    <>
+      <ListHead>
+        <h2>전체 상품</h2>
+        <SearchBox>
+          <FaSistrix />
+          <Input placeholder="검색할 상품을 입력해주세요" />
+        </SearchBox>
+        <Link to="/additem" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
+          상품 등록하기
+        </Link>
+        <div>
+          <button onClick={handleNewstClick}>최신순</button>
+          <button onClick={handleBestClick}>좋아요순</button>
+        </div>
+      </ListHead>
       <ProductList items={sortedItems} />
-    </div>
+    </>
   );
 }
 
