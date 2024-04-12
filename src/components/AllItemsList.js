@@ -1,12 +1,16 @@
+import { useState, useEffect } from "react";
+
 import searchIcon from "../images/ic_search.png";
 import arrowDown from "../images/ic_arrow_down.png";
 import sortButton from "../images/btn_sort.png";
-import { useState, useEffect } from "react";
+import favoriteIcon from "../images/ic_heart.png";
+
 import SortDropdown from "./SortDropdown";
 
 export default function AllItemsList({ data, deviceSize }) {
   const [dropdownView, setDropdownView] = useState(false);
   const [productCount, setproductCount] = useState(1);
+  const [allProducts, setAllProducts] = useState(data.list);
 
   useEffect(() => {
     if (deviceSize.isMobile) {
@@ -17,6 +21,22 @@ export default function AllItemsList({ data, deviceSize }) {
       setproductCount(12);
     }
   }, [deviceSize]);
+
+  const sortProductsByDate = (products) => {
+    const sortedProducts = [...products].sort((a, b) => {
+      const dateA = new Date(a.createdAt);
+      const dateB = new Date(b.createdAt);
+      return dateB - dateA;
+    });
+    setAllProducts(sortedProducts);
+  };
+
+  const sortProductsByLike = (products) => {
+    const sortedProducts = [...products].sort(
+      (a, b) => b.favoriteCount - a.favoriteCount
+    );
+    setAllProducts(sortedProducts);
+  };
 
   return (
     <div className="my-10">
@@ -35,7 +55,7 @@ export default function AllItemsList({ data, deviceSize }) {
               className="absolute left-4"
             />
             <input
-              className="pl-11 lg:pr-28 py-2 bg-[var(--cool-gray100)] rounded-xl text-[var(--cool-gray400)] sm:w-64 sm:pr-1"
+              className="pl-11 py-2 bg-[var(--cool-gray100)] rounded-xl text-[var(--cool-gray400)] w-64 sm:w-80 lg:w-96 sm:pr-1"
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
@@ -50,20 +70,32 @@ export default function AllItemsList({ data, deviceSize }) {
           >
             <span>최신순</span>
             <img src={arrowDown} alt="arrowdown" className="inline" />
-            {dropdownView && <SortDropdown />}
+            {dropdownView && (
+              <SortDropdown
+                sortProductsByDate={sortProductsByDate}
+                sortProductsByLike={sortProductsByLike}
+                allProducts={allProducts}
+              />
+            )}
           </div>
           <div
             className="sm:hidden relative flex justify-between"
             onClick={() => setDropdownView(!dropdownView)}
           >
             <img src={sortButton} alt="sortbutton" />
-            {dropdownView && <SortDropdown />}
+            {dropdownView && (
+              <SortDropdown
+                sortProductsByDate={sortProductsByDate}
+                sortProductsByLike={sortProductsByLike}
+                allProducts={allProducts}
+              />
+            )}
           </div>
         </div>
       </div>
       <ul className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 grid-rows-2 gap-x-6 gap-y-10">
-        {data.list &&
-          data.list.slice(0, productCount).map((post) => {
+        {allProducts &&
+          allProducts.slice(0, productCount).map((post) => {
             return (
               <li key={post.id}>
                 <img
@@ -77,7 +109,8 @@ export default function AllItemsList({ data, deviceSize }) {
                 <p className="text-[var(--cool-gray800)] text-sm">
                   {post.price}원
                 </p>
-                <p className="text-xs">{post.favoriteCount}</p>
+                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
+                <span className="text-xs">{post.favoriteCount}</span>
               </li>
             );
           })}

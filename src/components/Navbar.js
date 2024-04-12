@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import pandalogo from "../images/panda_logo.png";
 
 export default function Navbar() {

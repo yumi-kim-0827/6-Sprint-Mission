@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 
+import favoriteIcon from "../images/ic_heart.png";
+
 export default function RankedItems({ data, deviceSize }) {
   const [productCount, setproductCount] = useState(1);
+  const sortedProducts = data.list.sort(
+    (a, b) => b.favoriteCount - a.favoriteCount
+  );
 
   useEffect(() => {
     if (deviceSize.isMobile) {
@@ -19,8 +24,8 @@ export default function RankedItems({ data, deviceSize }) {
         베스트 상품
       </h1>
       <ul className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-x-6">
-        {data.list &&
-          data.list.slice(0, productCount).map((post) => {
+        {sortedProducts &&
+          sortedProducts.slice(0, productCount).map((post) => {
             return (
               <li key={post.id}>
                 <img
@@ -34,7 +39,8 @@ export default function RankedItems({ data, deviceSize }) {
                 <p className="text-[var(--cool-gray800)] text-sm">
                   {post.price}원
                 </p>
-                <p className="text-xs">{post.favoriteCount}</p>
+                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
+                <span className="text-xs">{post.favoriteCount}</span>
               </li>
             );
           })}
