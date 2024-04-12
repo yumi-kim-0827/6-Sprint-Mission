@@ -5,6 +5,8 @@ import { getProducts } from '../../api/productApi';
 import ProductItem from '../ProductItem';
 import Button from '../Button';
 import Search from '../../assets/icons/Search.svg';
+import DropDown from '../Dropdown';
+import ArrowDown from '../../assets/icons/ArrowDown.svg';
 import './style.css';
 
 const AllProductList = () => {
@@ -66,10 +68,30 @@ const AllProductList = () => {
             <Button title='상품 등록하기' />
           </Link>
           <div>
-            <button onClick={() => handleClickOrder('recent')}>최신순</button>
-            <button onClick={() => handleClickOrder('favorite')}>
-              좋아요순
-            </button>
+            <DropDown
+              triggerComponent={
+                <div className='dropdown-container'>
+                  <button className='dropdown-trigger'>
+                    {orderBy === 'recent' ? '최신순' : '좋아요순'}
+                  </button>
+                  <img
+                    alt='드롭다운 아이콘'
+                    src={ArrowDown}
+                    className='dropdown-icon'
+                  />
+                </div>
+              }
+              options={[
+                {
+                  label: '최신순',
+                  onClick: () => handleClickOrder('recent'),
+                },
+                {
+                  label: '좋아요순',
+                  onClick: () => handleClickOrder('favorite'),
+                },
+              ]}
+            />
           </div>
         </div>
       </div>
