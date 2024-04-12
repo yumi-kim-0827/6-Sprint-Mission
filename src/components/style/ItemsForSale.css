@@ -1,7 +1,7 @@
 .items-for-sale {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .search-bar {
@@ -21,16 +21,16 @@
 
 .search-bar__title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 2rem;
   display: flex;
   align-items: center;
-  line-height: 28px;
+  line-height: 2.8rem;
   grid-area: title;
 }
 
 .search-bar__input {
   box-sizing: border-box;
-  width: 294px;
+  width: 29.4rem;
   height: 42px;
   padding: 9px 20px;
   border-radius: 12px;
@@ -39,7 +39,7 @@
 }
 
 .search-bar__register {
-  width: 133px;
+  width: 13.3rem;
   padding: 12px 23px;
   margin-left: 10px;
   border-radius: 8px;
@@ -47,14 +47,15 @@
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
-  line-height: 19px;
+  line-height: 1.9rem;
   grid-area: register;
 }
 
 .items {
+  height: 540px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.8rem;
 }
 
 /* Ipad */
@@ -64,15 +65,16 @@
   }
 
   .search-bar__title {
-    padding-right: 62px;
+    padding-right: 58px;
   }
 
   .items {
-    gap: 16px;
+    gap: 1.6rem;
+    height: 642px;
   }
 
   .search-bar__input {
-    width: 242px;
+    width: 24.2rem;
   }
 }
 
@@ -83,10 +85,11 @@
   }
 
   .items {
-    gap: 24px;
+    height: 642px;
+    gap: 2.4rem;
   }
 
   .search-bar__input {
-    width: 325px;
+    width: 32.5rem;
   }
 }

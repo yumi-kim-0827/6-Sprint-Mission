@@ -1,4 +1,4 @@
-@import './fonts/font.css';
+@import '../fonts/font.css';
 :root {
   /* background-color */
   --color-background: #cfe5ff;

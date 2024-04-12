@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import BestItems from './BestItems';
-import ItemsForSale from './ItemsForSale';
+import BestItems from '../components/BestItems';
+import ItemsForSale from '../components/ItemsForSale';
 import { getItems } from '../services/api';
-import './style/Main.css';
+import '../styles/ItemsPage.css';
 
 const LIMIT = 10;
 
-export default function Main() {
+export default function Items() {
   const [items, setItems] = useState([]);
   const [order, setOrder] = useState('createdAt');
   const [offset, setOffset] = useState(0);

@@ -1,15 +1,23 @@
-// import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './styles/App.css';
 import Header from './components/Header';
-import Main from './components/Main';
+import Items from './pages/Items';
+import FreeBoard from './pages/FreeBoard';
+import AddItem from './pages/AddItem';
 
-function App() {
+export default function App() {
   return (
-    <div className='app'>
-      <Header />
-      <Main />
+    <div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Items />} />
+          <Route path='/items' element={<Items />} />
+          <Route path='/freeboard' element={<FreeBoard />} />
+          <Route path='/additem' element={<AddItem />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
-
-export default App;

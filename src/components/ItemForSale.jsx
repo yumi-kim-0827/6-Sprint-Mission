@@ -1,18 +1,21 @@
 import React from 'react';
 import './style/ItemForSale.css';
 
-export default function ItemForSale() {
+export default function ItemForSale({ item }) {
+  const { price, images, favoriteCount, name } = item;
+  const formattedPrice = price.toLocaleString();
+
   return (
     <div className='item'>
       <picture className='item-for-sale__img-wrap'>
-        <img className='item-for-sale__img' src='/imgs/image 42.png' alt='' />
+        <img className='item-for-sale__img' src={images} alt={name} />
       </picture>
       <div className='item-for-sale__description'>
-        <p className='item-for-sale__title'>아이패드 미니 팝니다</p>
-        <p className='item-for-sale__price'>500,000원</p>
+        <p className='item-for-sale__title'>{name}</p>
+        <p className='item-for-sale__price'>{formattedPrice}원</p>
         <div className='item-for-sale__heart'>
           <img className='item-for-sale__heart__img' src='/imgs/small_grayHeart.webp' alt='' />
-          <span className='item-for-sale__heart__count'>240</span>
+          <span className='item-for-sale__heart__count'>{favoriteCount}</span>
         </div>
       </div>
     </div>

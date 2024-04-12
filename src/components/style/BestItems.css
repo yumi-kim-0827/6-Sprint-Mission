@@ -1,13 +1,13 @@
 .best-items {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .best-items__item {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 2.4rem;
 }
 
 .best-items__title {
