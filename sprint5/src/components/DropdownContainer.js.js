@@ -18,7 +18,7 @@ const DropdownContainer = ({ handleNewestClick, handleBestClick }) => {
   return (
     <div className="container">
       <label onClick={handleClickContainer}>
-        <button>Dropdown Menu {isDropdownView ? "▲" : "▼"}</button>
+        <button>최신순 {isDropdownView ? "▲" : "▼"}</button>
       </label>
       {isDropdownView && <Dropdown handleItemClick={handleItemClick} />}
     </div>
