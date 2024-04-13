@@ -7,5 +7,5 @@ import "./Button.scss";
  * @returns blueButton
  */
 export const Button = ({ classNames, value }) => {
-  return <button className={classNames.join(" ")}>{value}</button>;
+  return <button className={"button " + classNames.join(" ")}>{value}</button>;
 };

@@ -1,0 +1,23 @@
+.ItemList {
+  &__list {
+    display: grid;
+    grid-template: repeat(5, auto) / repeat(2, auto);
+  }
+}
+
+@media (width<=767px) {
+  .ItemList {
+    &__list {
+      grid-template: repeat(3, auto) / repeat(2, auto);
+    }
+  }
+}
+
+@media (width<=1199px) {
+  .ItemList {
+    &__list {
+      display: grid;
+      grid-template: repeat(2, auto) / repeat(2, auto);
+    }
+  }
+}

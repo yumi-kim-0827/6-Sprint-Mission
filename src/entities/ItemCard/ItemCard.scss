@@ -36,3 +36,24 @@
     line-height: 14.32px;
   }
 }
+@media (375px<=width<=767px) {
+  .card {
+    &__image {
+      &--big {
+        width: 336px;
+        height: 336px;
+      }
+    }
+  }
+}
+
+@media (768px<=width<=1199px) {
+  .card {
+    &__image {
+      &--big {
+        width: 343px;
+        height: 343px;
+      }
+    }
+  }
+}

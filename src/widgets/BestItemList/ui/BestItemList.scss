@@ -1,6 +1,7 @@
 .BestItemList {
   &__list {
     display: flex;
+    gap: 24px;
   }
   &__title {
     font-size: 20px;

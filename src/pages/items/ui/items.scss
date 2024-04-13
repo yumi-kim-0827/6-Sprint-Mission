@@ -3,5 +3,15 @@
   &__content {
     margin-inline: auto;
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+@media (width<=766) {
+  .main {
+    &__content {
+      gap: 24px;
+    }
   }
 }
