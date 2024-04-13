@@ -1,22 +1,35 @@
 .ItemList {
   &__list {
     display: grid;
-    grid-template: repeat(5, auto) / repeat(2, auto);
+    grid-template: repeat(2, auto) / repeat(5, auto);
   }
-}
-
-@media (width<=767px) {
-  .ItemList {
-    &__list {
-      grid-template: repeat(3, auto) / repeat(2, auto);
-    }
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, auto);
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    text-align: left;
   }
 }
 
 @media (width<=1199px) {
   .ItemList {
     &__list {
-      display: grid;
+      grid-template: repeat(2, auto) / repeat(3, auto);
+    }
+  }
+}
+
+@media (width<=767px) {
+  .ItemList {
+    &__header {
+      grid-template: 1fr auto / repeat(2, auto);
+    }
+    &__list {
       grid-template: repeat(2, auto) / repeat(2, auto);
     }
   }

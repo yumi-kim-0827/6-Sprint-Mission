@@ -1,5 +1,4 @@
 .ToggleList {
-  padding: 12px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -20,8 +19,8 @@
   }
   &__itemList {
     position: absolute;
-    right: 15px;
-    top: 60px;
+    right: 0;
+    top: 40px;
   }
   &__item {
     display: flex;
@@ -52,9 +51,8 @@
     &__default {
       width: 42px;
       height: 42px;
-      padding: 9px;
       border-radius: 12px;
-      border: 1px;
+      border: 1px solid darkgray;
     }
   }
 }
