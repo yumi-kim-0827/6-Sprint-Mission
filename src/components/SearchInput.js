@@ -1,8 +1,5 @@
 import SearchIcon from "../assets/icon/ic_search.svg";
-// import SortIcon from "../assets/icon/ic_sort.svg";
-// import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
-// import { useEffect, useState } from "react";
-import "../stlye/input.css";
+import "../stlye/SearchInput.css";
 
 export function SearchInput() {
   return (
@@ -12,5 +9,3 @@ export function SearchInput() {
     </div>
   );
 }
-
-export function SelectInput() {}
