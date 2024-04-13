@@ -38,3 +38,9 @@ Mobile : 4개 보이기
 ## 개인적으로 적용해보고 싶은거
 
 FSD architecture
+
+## 질문
+
+1. 네트워크 느려짐 문제
+2. 전체 상품 탭에 grid style 문제
+3. 

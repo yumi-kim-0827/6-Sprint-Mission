@@ -4,9 +4,9 @@ import { getDatum } from "../../../shared/api/api.jsx";
 import { Button } from "../../../shared/ui/Button.jsx";
 import { ItemCard } from "../../../entities/ItemCard/ItemCard.jsx";
 import { useMediaQuery } from "react-responsive";
-import searchIcon from "../../../shared/asset/searchIcon.png";
 
 import "./ItemList.scss";
+import { PageList } from "../../PageList/index.jsx";
 
 export const ItemList = () => {
   const [isError, setIsError] = useState(null);
@@ -14,7 +14,7 @@ export const ItemList = () => {
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   const isMobile = useMediaQuery({ minWidth: 375, maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
@@ -22,14 +22,10 @@ export const ItemList = () => {
 
   const handleRecentSort = () => {
     setOrderBy("recent");
-
-    console.log(orderBy);
   };
 
   const handleFavoriteSort = () => {
     setOrderBy("favorite");
-
-    console.log(orderBy);
   };
 
   const handleload = async (options) => {
@@ -47,17 +43,21 @@ export const ItemList = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    setSearch(e.target["search"].value);
+    setKeyword(e.target["search"].value);
+  };
+
+  const handlePagination = (e) => {
+    setPage(e.target.innerText);
   };
 
   useEffect(() => {
     handleload({
-      page: 1,
+      page,
       orderBy,
-      search,
+      keyword,
       pageSize: isMobile ? 4 : isTablet ? 6 : 10,
     });
-  }, [page, orderBy, search, isMobile, isDesktop, isTablet]);
+  }, [page, orderBy, keyword, isMobile, isDesktop, isTablet]);
 
   return (
     <>
@@ -65,22 +65,27 @@ export const ItemList = () => {
         <span className="ItemList__title">
           {isDesktop ? "전체상품" : "판매 중인 상품"}
         </span>
-        <form onSubmit={handleSearchSubmit}>
-          <img src={searchIcon} />
-          <input name="search" placeholder={"검색할 상품을 입력해주세요"} />
+        <form onSubmit={handleSearchSubmit} className="ItemList__form">
+          <input
+            name="search"
+            placeholder={"검색할 상품을 입력해주세요"}
+            className="ItemList__input"
+          />
         </form>
-        <a href="./items">
+        <a href="./items" className="ItemList__link">
           <Button
             classNames={["button--blue", "button--small"]}
             value={"상품 등록하기"}
           />
         </a>
-        <ToggleList
-          options={[
-            { name: "최신순", callback: handleRecentSort },
-            { name: "좋아요순", callback: handleFavoriteSort },
-          ]}
-        />
+        <div className="ItemList__ToggleList">
+          <ToggleList
+            options={[
+              { name: "최신순", callback: handleRecentSort },
+              { name: "좋아요순", callback: handleFavoriteSort },
+            ]}
+          />
+        </div>
       </div>
       {isError?.message && <span>{isError.message}</span>}
       {isLoading && <span>로딩 중입니다</span>}
@@ -94,6 +99,7 @@ export const ItemList = () => {
             );
           })}
       </div>
+      <PageList callback={handlePagination} page={page} />
     </>
   );
 };
