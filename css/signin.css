@@ -63,7 +63,7 @@ body {
     width: 100%;
     height: 56px;
     background-color: var(--cool-gray100);
-    color: var(--gray300);
+    color: var(--gray800);
     border-radius: 12px;
     border: 0;
     gap: 10px;
@@ -79,7 +79,7 @@ body {
     width: 100%;
     height: 56px;
     background-color: var(--cool-gray100);
-    color: var(--gray300);
+    color: var(--gray800);
     padding-left: 16px;
     border-radius: 12px;
     border: 0;
@@ -97,11 +97,16 @@ body {
 }
 
 .password-eye {
+    background-image: url('../img/ic-noeye.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
+    border: none;
     width: 24px;
+    height: 24px;
     right: 20px;
-    top: 65px;
-    cursor: pointer;
+    top: 60px;
 }
 
 .login-btn {
@@ -117,8 +122,23 @@ body {
     line-height: 24px;
 }
 
-button:hover {
+button.active {
     background-color: var(--brand-blue);
+}
+
+/*오류메시지*/
+.hide {
+    display: none;
+}
+
+.message{
+    position : relative;
+    left: 16px;
+    top: 8px;
+    color: var(--error-red);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 17.9px;
 }
 
 .login-simple {
