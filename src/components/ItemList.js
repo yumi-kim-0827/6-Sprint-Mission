@@ -1,4 +1,4 @@
-
+import icoHeart from "../img/ic_heart.svg";
 
 export function ItemList({ item }) {
   return (
@@ -9,9 +9,12 @@ export function ItemList({ item }) {
         </a>
       </div>
       <div className="itemlist-content">
-        <a href="#" className="link"><h2 className="itemlist__title">{item.description}</h2></a>
+        <h2 className="itemlist__title"><a href="#" className="link">{item.description}</a></h2>
         <p className="itemlist__price">{item.price.toLocaleString()}원</p>
-        <h2 className="itemlist__favorite">{item.favoriteCount}</h2>
+        <p className="itemlist__favorite">
+          <img src={icoHeart} alt="좋아요"/>
+          <span>{item.favoriteCount}</span>
+        </p>
       </div>
     </>
   );

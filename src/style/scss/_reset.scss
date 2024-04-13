@@ -29,3 +29,10 @@ input[type="password"] {
     display:none;
   }
 }
+input[type="text"] {
+  border:0;
+  background:transparent;
+  &:focus {
+    outline:none;
+  }
+}
