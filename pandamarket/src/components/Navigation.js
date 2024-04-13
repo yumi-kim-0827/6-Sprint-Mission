@@ -11,10 +11,10 @@ function Navigation() {
             <img src={src} alt="logo" />
           </span>
           <li>
-            <a href="#">자유게시판</a>
+            <div>자유게시판</div>
           </li>
           <li>
-            <a href="#">중고마켓</a>
+            <div>중고마켓</div>
           </li>
         </div>
         <Button>로그인</Button>
