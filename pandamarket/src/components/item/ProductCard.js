@@ -1,4 +1,5 @@
 import favoriteIcon from "../../assets/favoriteIcon.png";
+import "../item/ProductCard.css";
 function ProductCard({ product, imgwidth, imgheight }) {
   const url = product.images[0];
   const alt = product.name;
