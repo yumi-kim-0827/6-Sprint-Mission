@@ -2,13 +2,12 @@ import "./index.scss";
 
 import 한글 from "utilities/한글";
 
+import Link from "app/widgets/Link";
 import AuthForm from "app/widgets/AuthForm";
 import ThirdParty from "app/widgets/ThirdParty";
 
-import { Link, useNavigate } from "react-router-dom";
-
 const fields = {
-	"email": { type: "email", alt: "이메일", pattern: "[^@\s]+@[^@\s]+\.[^@\s]+", autocomeplete: "email", placeholder: "이메일을 입력해주세요" },
+	"email": { type: "email", alt: "이메일", pattern: "[^@\\s]+@[^@\\s]+\\.[^@\\s]+", autocomeplete: "email", placeholder: "이메일을 입력해주세요" },
 	"username": { type: "text", alt: "닉네임", pattern: "^[a-zA-Z][a-zA-Z0-9_]*$", minlength: 2, maxlength: 8, placeholder: "닉네임을 입력해주세요" },
 	"new-password": { type: "password", alt: "비밀번호", minlength: 8, maxlength: 16, autocomeplete: "new-password", placeholder: "비밀번호를 입력해주세요" },
 	"confirm-password": { type: "password", alt: "비밀번호 확인", minlength: 8, maxlength: 16, autocomeplete: "new-password", placeholder: "비밀번호를 다시 한번 입력해주세요" },
@@ -92,23 +91,26 @@ fields["confirm-password"].validators = [
 
 export default function SignUpPage({ })
 {
-	const navigate = useNavigate();
+	const hooks = new Map(Object.entries(
+	{
+		"navigate": require("react-router-dom").useNavigate(),
+	}));
 
 	return (
 		<section data-widget={SignUpPage.name}>
 			<header>
-				<Link to="/">
+				<Link href="/">
 					<img src={require("assets/icons/logo_full.svg").default} alt="판다마켓"/>
 				</Link>
 			</header>
 			<main>
-				<div className="container">
-					<AuthForm fields={fields} onClick={() => navigate("/")}>
+				<div class="container">
+					<AuthForm fields={fields} onSubmit={() => hooks.get("navigate")("/")}>
 						회원가입
 					</AuthForm>
 					<ThirdParty/>
-					<p className="assistance">
-						이미 회원이신가요? <Link to="/signin">로그인</Link>
+					<p class="assistance">
+						이미 회원이신가요? <Link href="/signin">로그인</Link>
 					</p>
 				</div>
 			</main>

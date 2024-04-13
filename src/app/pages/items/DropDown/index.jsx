@@ -1,48 +1,52 @@
-import "./index.scss";
+import React from "react";
 
-import { Fragment, useEffect, useState } from "react";
+import "./index.scss";
 
 export default function DropDown({ index, items })
 {
-	let timer;
+	const [active, set_active] = React.useState(false);
+	const [indexing, set_indexing] = React.useState(index);
 
-	const [active, set_active] = useState(false);
-	const [selected, set_selected] = useState(index);
-
-	function onMouseEnter(event)
+	React.useEffect(() =>
 	{
-		timer = clearTimeout(timer);
-			
-		set_active(true);
-	}
-
-	useEffect(() =>
-	{
-		set_active(false);
+		set_active((active) => false);
 	},
-	[selected]);
+	[indexing]);
 
-	function onMouseLeave(event)
+	class $
 	{
-		timer = setTimeout(() => set_active(false), 150);
+		static timeout;
+		//
+		// events
+		//
+		static onMouseEnter(event)
+		{
+			set_active((active) => true);
+			
+			$.timeout = clearTimeout($.timeout);
+		}
+		static onMouseLeave(event)
+		{
+			$.timeout = setTimeout(() => set_active((active) => false), 150);
+		}
 	}
 
 	return (
-		<section data-widget={DropDown.name} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-			<div className="text">
-				{items[selected].name}
+		<section data-widget={DropDown.name} onMouseEnter={$.onMouseEnter} onMouseLeave={$.onMouseLeave}>
+			<div class="text">
+				{items[indexing].name}
 			</div>
-			<div className="icon"></div>
-			<div className="items" style={{ display: active ? "block" : "none" }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+			<div class="icon"></div>
+			<div class="items" style={{ display: active ? "block" : "none" }} onMouseEnter={$.onMouseEnter} onMouseLeave={$.onMouseLeave}>
 				{items.map((item, index, array) =>
 				{
 					return (
-						<Fragment key={index}>
-							<div key={index} className="item" onClick={(event) => { set_selected(index); item?.onClick(event); }}>
+						<React.Fragment key={index}>
+							<div key={index} class="item" onClick={(event) => { set_indexing((indexing) => index); item.onClick?.(); }}>
 								{item.name}
 							</div>
-							{index < array.length - 1 && <hr className="seperator"/>}
-						</Fragment>
+							{index < array.length - 1 && <hr class="seperator"/>}
+						</React.Fragment>
 					);
 				})}
 			</div>

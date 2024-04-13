@@ -2,7 +2,7 @@ import React from "react";
 
 import "./index.scss";
 
-export default function Button({ classes = [], href, disabled, children, onClick })
+export default function Link({ classes = [], href, disabled, children, onClick })
 {
 	const hooks = new Map(Object.entries(
 	{
@@ -29,8 +29,8 @@ export default function Button({ classes = [], href, disabled, children, onClick
 	}
 
 	return (
-		<section data-widget={Button.name} class={[...classes, disabled && "disabled"].join("\u0020")} onClick={$.onClick}>
+		<a data-widget={Link.name} class={[...classes, disabled && "disabled"].join("\u0020")} onClick={$.onClick}>
 			{children}
-		</section>
+		</a>
 	);
 }

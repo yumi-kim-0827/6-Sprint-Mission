@@ -18,7 +18,7 @@
 			{
 				display: flex;
 
-				&.logo
+				&[data-widget="Link"]
 				{
 					gap: 10px;
 				}
@@ -218,7 +218,7 @@
 			{
 				margin: 0px 16px;
 
-				> .logo
+				> [data-widget="Link"]
 				{
 					> img
 					{

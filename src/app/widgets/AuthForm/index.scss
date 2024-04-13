@@ -41,7 +41,7 @@
 				}
 				&::after
 				{
-					content: attr(data-error);
+					content: attr(data-msg);
 					color: var(--red);
 					margin-top: 8px;
 					margin-left: 16px;
@@ -49,7 +49,7 @@
 					font-weight: 600;
 					line-height: 17.9px;
 				}
-				&[data-error]
+				&[data-msg]
 				{
 					&::after
 					{
@@ -60,7 +60,7 @@
 						outline-color: var(--red);
 					}
 				}
-				&[data-error="null"]
+				&[data-msg="null"]
 				{
 					&::after
 					{

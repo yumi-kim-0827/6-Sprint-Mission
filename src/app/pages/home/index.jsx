@@ -1,20 +1,21 @@
-import "./index.scss";
+import React from "react";
 
-import Button from "app/widgets/Button";
+import "./index.scss";
 
 import Banner from "./widgets/Banner";
 import Showcase from "./widgets/Showcase";
 
-import { Link } from "react-router-dom";
+import Link from "app/widgets/Link";
+import Button from "app/widgets/Button";
 
 export default function HomePage({ })
 {
 	return (
 		<section data-widget={HomePage.name}>
 			<header>
-				<div className="container">
-					<Link className="logo" to="/">
-						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" className="hide-on-mobile"/>
+				<div class="container">
+					<Link href="/">
+						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" class="hide-on-mobile"/>
 						<img src={require("assets/icons/logo_text.svg").default} alt="판다마켓 글자"/>
 					</Link>
 					<Button href="/signin">
@@ -41,19 +42,19 @@ export default function HomePage({ })
 			<Banner src={require("assets/images/banner_bottom.png")} title={["믿을 수 있는", "판다마켓 중고 거래"]} button={false}/>
 
 			<footer>
-				<div className="container">
-					<span className="left">
+				<div class="container">
+					<span class="left">
 						@codeit - 2024
 					</span>
-					<span className="center">
-						<Link to="/privacy">
+					<span class="center">
+						<Link href="/privacy">
 							Privacy Policy
 						</Link>
-						<Link to="/faq">
+						<Link href="/faq">
 							FAQ
 						</Link>
 					</span>
-					<span className="right">
+					<span class="right">
 						<a href="https://www.facebook.com" target="_blank">
 							<img src={require("assets/icons/facebook.svg").default} alt="페이스북"/>
 						</a>

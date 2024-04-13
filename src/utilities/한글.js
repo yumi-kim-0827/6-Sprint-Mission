@@ -1,14 +1,4 @@
-function wrapper(string, { isEmpty, isNotEmpty })
-{
-	const 초중종 = 한글.초중종(string[string.length - 1]);
-
-	return (!초중종) ? string : string + (초중종.종.isEmpty ? isEmpty : isNotEmpty);
-}
-
 // @see https://github.com/toss/slash/tree/main/packages/common/hangul
-//
-// TODO: "이/가" | "을/를" | "은/는" | "으로/로" | "와/과" | "이나/나" | "이에/에" | "이란/란" | "아/야" | "이랑/랑" | "이에요/예요" | "으로서/로서" | "으로써/로써" | "으로부터/로부터"
-//
 export default class 한글
 {
 	static get 초()
@@ -28,25 +18,32 @@ export default class 한글
 
 	static ["이/가"](string)
 	{
-		return wrapper(string, { isEmpty: "이", isNotEmpty: "가" });
+		return 한글.조사(string, { isEmpty: "이", isNotEmpty: "가" });
 	}
 
 	static ["은/는"](string)
 	{
-		return wrapper(string, { isEmpty: "는", isNotEmpty: "은" });
+		return 한글.조사(string, { isEmpty: "는", isNotEmpty: "은" });
 	}
 	
 	static ["을/를"](string)
 	{
-		return wrapper(string, { isEmpty: "를", isNotEmpty: "을" });
+		return 한글.조사(string, { isEmpty: "를", isNotEmpty: "을" });
 	}
 
 	static ["와/과"](string)
 	{
-		return wrapper(string, { isEmpty: "와", isNotEmpty: "과" });
+		return 한글.조사(string, { isEmpty: "와", isNotEmpty: "과" });
 	}
 
-	static 초중종(char) // TODO: set accessibility to private
+	static 조사(string, { isEmpty, isNotEmpty })
+	{
+		const 초중종 = 한글.초중종(string[string.length - 1]);
+
+		return (!초중종) ? string : string + (초중종.종.isEmpty ? isEmpty : isNotEmpty);
+	}
+
+	static 초중종(char)
 	{
 		if ("가".charCodeAt(0) <= char.charCodeAt(0) && char.charCodeAt(0) <= "힣".charCodeAt(0))
 		{

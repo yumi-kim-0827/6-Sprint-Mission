@@ -18,7 +18,7 @@
 			{
 				display: flex;
 				
-				&.logo
+				&[data-widget="Link"]
 				{
 					gap: 10px;
 				}
