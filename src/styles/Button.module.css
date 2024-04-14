@@ -1,0 +1,15 @@
+.btn-primary {
+  background-color: var(--main-blue-color);
+  color: #fff;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 0px;
+}
+.roundedSm {
+  border-radius: 8px;
+}
