@@ -3,7 +3,7 @@ import Button from "components/commons/Button";
 import SmallMainLogo from "assets/icon/main_logo_small.svg";
 import MainLogo from "assets/icon/main_logo.svg";
 import styles from "styles/layout.module.scss";
-import { useMobileDetector } from "features/hooks/layout/useMobileDetect";
+import { useMobileDetector } from "features/hooks/useMobileDetect";
 import { useLocation } from "react-router-dom";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";

@@ -5,7 +5,6 @@ import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentPageState, totalPagesState } from "context/atoms/page";
-import useDeviceState from "features/hooks/layout/useDeviceState";
 
 const cn = classNames.bind(styles);
 
@@ -25,19 +24,24 @@ function PageButton({ children, isFocus, onClick }) {
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
   const totalPages = useRecoilValue(totalPagesState);
-  const deviceState = useDeviceState();
 
   const handleButtonClick = (page) => {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [deviceState]);
+  const handleLeftClick = () => {
+    if (currentPage === 1) return;
+    setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleRightClick = () => {
+    if (currentPage === totalPages) return;
+    setCurrentPage((prev) => prev + 1);
+  };
 
   return (
     <div className={styles.pagination}>
-      <PageButton>
+      <PageButton onClick={handleLeftClick}>
         <img src={ArrowLeft} alt="left-arrow" />
       </PageButton>
       {new Array(totalPages).fill(null).map((_, idx) => (
@@ -49,7 +53,7 @@ export default function Pagination() {
           {idx + 1}
         </PageButton>
       ))}
-      <PageButton>
+      <PageButton onClick={handleRightClick}>
         <img src={ArrowRight} alt="right-arrow" />
       </PageButton>
     </div>

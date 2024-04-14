@@ -107,6 +107,12 @@
       column-gap: 8px;
       row-gap: 32px;
     }
+
+    .noItems {
+      text-align: center;
+      color: var(--cool-gray800);
+      min-height: 500px;
+    }
   }
 }
 

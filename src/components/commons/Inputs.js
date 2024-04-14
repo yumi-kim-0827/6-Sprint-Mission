@@ -3,14 +3,22 @@ import styles from "styles/commons.module.scss";
 import SearchIcon from "assets/icon/ic_search.svg";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
-import { useMobileDetector } from "features/hooks/layout/useMobileDetect";
+import { useMobileDetector } from "features/hooks/useMobileDetect";
 import { useRecoilState } from "recoil";
 import { itemsOrderState } from "context/atoms/order";
 
-export function SearchInput() {
+export function SearchInput({ keyword, setKeyword }) {
+  const handleInputChange = (e) => {
+    setKeyword(e.currentTarget.value);
+  };
+
   return (
     <div className={styles.search}>
-      <input placeholder="검색할 상품을 입력해주세요" />
+      <input
+        placeholder="검색할 상품을 입력해주세요"
+        value={keyword}
+        onChange={handleInputChange}
+      />
       <img src={SearchIcon} alt="search-icon" />
     </div>
   );
