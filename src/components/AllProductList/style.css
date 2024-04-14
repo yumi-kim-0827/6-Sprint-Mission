@@ -1,0 +1,107 @@
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.product-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 20%;
+  left: 3.5%;
+}
+
+.search-input {
+  width: 80%;
+  min-width: 200px;
+  height: 100%;
+  border-radius: 0.75rem;
+  padding-block: 0.5625rem;
+  padding-left: 2.1875rem;
+  margin-right: 3rem;
+  border: none;
+  background-color: var(--gray-100);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-icon {
+  position: absolute;
+  top: 20%;
+  right: 8%;
+  cursor: pointer;
+}
+
+.dropdown-trigger {
+  width: 7.5rem;
+  background-color: white;
+  padding: 0px 20px;
+  padding-right: 40px;
+  height: 42px;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+}
+
+.dropdown-simple-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-200);
+  cursor: pointer;
+}
+
+.dropdown-simple-icon:hover {
+  background-color: var(--gray-100);
+}
+
+.dropdown-simple-icon:active {
+  background-color: var(--gray-200);
+}
+
+/* 모바일 사이즈 */
+@media (max-width: 767px) {
+  .top-container {
+    position: relative;
+    padding-bottom: 3rem;
+  }
+
+  .search-container {
+    position: absolute;
+    bottom: 9%;
+    left: 0%;
+  }
+
+  .order-container {
+    position: absolute;
+    bottom: 9%;
+    right: 0%;
+  }
+}
+
+.pagination {
+  padding-block: 3rem;
+  display: flex;
+  justify-content: center;
+  > nav > ul {
+    gap: 1rem;
+    > li > button {
+      border: 1px solid var(--gray-200);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+main {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+@media (max-width: 1199px) {
+  main {
+    margin-inline: 1.5rem;
+  }
+}
