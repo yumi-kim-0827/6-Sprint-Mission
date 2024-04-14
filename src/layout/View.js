@@ -49,7 +49,7 @@ export function View (){
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onChange={handleInputChange} className="section-item__search"/>
-            <SmallButton onClick="" className="section-item__btn">상품 등록하기</SmallButton>
+            <SmallButton onClick={""} className="section-item__btn">상품 등록하기</SmallButton>
             <DropDown state={popDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
           </header>
           <div className="section-content">

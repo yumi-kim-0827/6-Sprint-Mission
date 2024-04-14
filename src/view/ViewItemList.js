@@ -11,15 +11,8 @@ export function ViewItemList ({order, size, keyword}) {
   const handleLoad = useCallback( async (options) => {
     let result = await getItemsAsync(options);
     if(!result) return;
-
-    setItems(result);
     
-    // if (options.offset === 0) {
-    //   setItems(reviews);
-    // }
-    // else {
-    //   setItems((prevItems) => [...prevItems, ...reviews]);
-    // }
+    setItems(result);
   }, [getItemsAsync]);
 
   useEffect(() => {

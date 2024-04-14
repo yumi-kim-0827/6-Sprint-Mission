@@ -164,8 +164,12 @@
         border-top:none;
       }
     }
+    .dropdown-list__radio {
+      display:none;
+    }
     .dropdown-list__btn {
       justify-content: center;
+      cursor:pointer;
     }
   }
   .dropdown-main__btn,
