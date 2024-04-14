@@ -2,18 +2,24 @@ import Button from "../Button";
 import "../item/AllProductsSection.css";
 import ProductCard from "./ProductCard";
 
-function AllProductsSection({ products }) {
+function AllProductsSection({ products, setOrder, currentOrder }) {
   const IMG_WIDTH = "220px";
   const IMG_HEIGHT = "220px";
 
-  function DropDown({}) {
+  const onHandleOrder = (e) => {
+    const newOrder = e.target.value;
+    setOrder(newOrder);
+  };
+
+  function DropDown() {
     return (
-      <select>
-        <option>최신순</option>
-        <option>좋아요순</option>
+      <select value={currentOrder} onChange={onHandleOrder}>
+        <option value="최신순">최신순</option>
+        <option value="좋아요순">좋아요순</option>
       </select>
     );
   }
+
   return (
     <div className="allProductsSection">
       <div className="productsToolbar">
