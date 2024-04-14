@@ -30,7 +30,7 @@
     --font-color: #1F2937;
 }
 
-#logo {
+.logo {
     background-color: #3692FF;
     width: 103.53px;
     height: 103.88px;
@@ -51,7 +51,7 @@
     display: flex;
     justify-content: center;
 }
-#pandabox{
+.pandabox{
     width: 103.53px;
     height: 103.88px;
     padding-top: 12.98px;
@@ -255,3 +255,35 @@ button{
     width: 39px;
     height: 18px;
 }
+
+/* Mobile */
+@media (min-width:375px)  {
+ .logo{
+  margin-top:24px;
+ }
+
+ .logo img{
+  max-width:198px;
+ }
+
+ .pandabox{
+    margin:24px 16px 0 16px;
+ }
+
+ form{
+    max-width:400px;
+    width:100%;
+   }
+  
+ label{
+    font-size:14px;
+    line-height:16.71px;
+ }
+  
+ .foot{
+    width:100%;
+    max-width:400px;
+    height:75px;
+ }
+}
+  
