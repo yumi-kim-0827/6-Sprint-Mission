@@ -12,8 +12,8 @@ function BestProductsSection({ products }) {
           <ProductCard
             key={product.id}
             product={product}
-            imgwidth={IMG_WIDTH}
-            imgheight={IMG_HEIGHT}
+            imgWidth={IMG_WIDTH}
+            imgHeight={IMG_HEIGHT}
           />
         ))}
       </div>

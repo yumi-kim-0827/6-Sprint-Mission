@@ -15,8 +15,18 @@ function Item() {
     return [...products].sort((a, b) => b.favoriteCount - a.favoriteCount);
   };
 
+  const sortProductsByNewest = (products) => {
+    return [...products].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  };
+
   const bestProducts = useMemo(() => {
     return sortProductsByFavorites(products);
+  }, [products]);
+
+  const allProducts = useMemo(() => {
+    return sortProductsByNewest(products);
   }, [products]);
 
   useEffect(() => {
@@ -28,7 +38,7 @@ function Item() {
     <>
       <Navigation />
       <BestProductsSection products={bestProducts} />
-      <AllProductsSection />
+      <AllProductsSection products={allProducts} />
     </>
   );
 }
