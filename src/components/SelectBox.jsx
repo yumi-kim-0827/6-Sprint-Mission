@@ -12,17 +12,15 @@ export default function SelectBox({ items, handleSort }) {
 
   const handleNewestClick = () => {
     setTitle('최신순');
-    setIsDisplay(false);
+    setIsDisplay(true);
     handleSort('최신순');
   };
 
   const handleLikesClick = () => {
     setTitle('좋아요순');
-    setIsDisplay(false);
+    setIsDisplay(true);
     handleSort('좋아요순');
   };
-
-  const ulClassName = isDisplay ? 'select-box__list display' : 'select-box__list display-none';
 
   return (
     <div class='select-box'>
@@ -36,18 +34,20 @@ export default function SelectBox({ items, handleSort }) {
           <img class='select-box__btn__arrow' src='/imgs/ic_arrow_down.png' alt='아래 화살표' />
         </p>
       </button>
-      <ul class={ulClassName} ref={ulRef}>
-        <li>
-          <button className='select-box__list__newest-btn' type='button' onClick={handleNewestClick}>
-            최신순
-          </button>
-        </li>
-        <li>
-          <button className='select-box__list__like-btn' type='button' onClick={handleLikesClick}>
-            좋아요순
-          </button>
-        </li>
-      </ul>
+      {isDisplay || (
+        <ul class='select-box__list' ref={ulRef}>
+          <li>
+            <button className='select-box__list__newest-btn' type='button' onClick={handleNewestClick}>
+              최신순
+            </button>
+          </li>
+          <li>
+            <button className='select-box__list__like-btn' type='button' onClick={handleLikesClick}>
+              좋아요순
+            </button>
+          </li>
+        </ul>
+      )}
     </div>
   );
 }
