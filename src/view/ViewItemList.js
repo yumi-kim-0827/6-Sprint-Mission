@@ -1,29 +1,30 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ItemList } from "../components/ItemList";
+import { getItems } from "../api/api";
+import { useAsync } from "../hooks/useAsync";
 
 export function ViewItemList ({order, size, keyword}) {
   const [items, setItems] = useState([]);
   const [pageSize, setPageSize] = useState(size);
+  const [isLoading, loadingError, getItemsAsync] = useAsync(getItems); //커스텀 훅
 
-  async function getItems({order, pageSize, keyword=""}) {
-    const query = `?orderBy=${order}&pageSize=${pageSize}&keyword=${keyword}`;
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products${query}`
-    );
-    const body = await response.json();
-    const list = body.list;
-  
-    return list;
-  }
+  const handleLoad = useCallback( async (options) => {
+    let result = await getItemsAsync(options);
+    if(!result) return;
 
-  const loadItems = async (options) => {
-    const itemList = await getItems(options);
-    setItems(itemList);
-  };
+    setItems(result);
+    
+    // if (options.offset === 0) {
+    //   setItems(reviews);
+    // }
+    // else {
+    //   setItems((prevItems) => [...prevItems, ...reviews]);
+    // }
+  }, [getItemsAsync]);
 
   useEffect(() => {
-    loadItems({order, pageSize, keyword});
-  }, [order, keyword]);
+    handleLoad({order, pageSize, keyword});
+  }, [order, keyword, handleLoad]);
 
   return (
     <ul className="itemlists">
