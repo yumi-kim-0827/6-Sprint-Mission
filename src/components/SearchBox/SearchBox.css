@@ -1,0 +1,28 @@
+.search-box {
+  width: 325px;
+  padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  background-color: var(--gray-100);
+  justify-content: flex-start;
+  gap: 0.9rem;
+}
+
+.search-box .search-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.search-box input {
+  font-size: var(--font-16);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gray-400);
+}
+
+.search-box input::placeholder {
+  color: var(--gray-400);
+}
+
+.search-box input:focus-visible {
+  outline: 0;
+}

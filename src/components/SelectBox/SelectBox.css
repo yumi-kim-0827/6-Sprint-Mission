@@ -1,0 +1,56 @@
+.select-box {
+  height: 42px;
+}
+
+.select-box .option-item {
+  font-size: var(--font-16);
+  font-weight: 400;
+  text-align: center;
+}
+
+.select-box .option-list .option-item {
+  padding: 0.9rem;
+}
+
+.select-box .option-list .option-item:not(:last-of-type) {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.select-box .box {
+  width: 130px;
+  background-color: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+}
+
+.select-box .label {
+  height: 42px;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.select-box .label .option-item {
+  width: calc(100% - 14px);
+  overflow: hidden;
+}
+
+.select-box .label .icon {
+  flex-basis: 14px;
+}
+
+.select-box .option-list {
+  max-height: 0;
+  margin: 0.4rem 0 0;
+  position: absolute;
+  border: 0;
+  overflow: hidden;
+  transition: max-height 0.05s;
+}
+
+.select-box .option-list.show {
+  max-height: 200px;
+  border: 1px solid var(--gray-200);
+}

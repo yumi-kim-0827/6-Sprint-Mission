@@ -1,0 +1,44 @@
+.market-page {
+  padding: 2.4rem 0 11.3rem;
+  display: grid;
+  gap: 4rem;
+}
+
+section .title {
+  font-size: var(--font-20);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--gray-900);
+}
+
+section .product-list {
+  display: grid;
+  gap: 2.4rem;
+}
+
+/* 베스트 상품 */
+section.best-product .product-list {
+  margin: 1.6rem 0 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+section.best-product .product-list .product-item:nth-child(n + 5) {
+  display: none;
+}
+
+/* 전체 상품 */
+section.all-product .product-list {
+  margin: 2.4rem 0 0;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.product-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-list-header .product-header-nav {
+  gap: 1.2rem;
+}
