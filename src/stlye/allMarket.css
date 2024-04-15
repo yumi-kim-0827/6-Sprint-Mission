@@ -69,6 +69,33 @@
     gap: 4px;
 }
 
+.pagination {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pageBtn {
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    height: 40px;
+    justify-content: center;
+    user-select: none;
+    width: 40px;
+}
+
+.active {
+    background-color: #2f80ed;
+    color: #fff;
+}
+
 @media (max-width: 1279px) {
     .all-market .cards {
         grid-template-columns: repeat(3, 1fr);
