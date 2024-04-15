@@ -9,6 +9,7 @@ export function View (){
   const [values, setValues] = useState({
     search : "",
     order : "recent",
+    page : 1
   });
   const [popDropdown, setPopState] = useState(false);
   
@@ -49,13 +50,13 @@ export function View (){
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onChange={handleInputChange} className="section-item__search"/>
-            <SmallButton onClick={""} className="section-item__btn">상품 등록하기</SmallButton>
+            <SmallButton className="section-item__btn">상품 등록하기</SmallButton>
             <DropDown state={popDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
           </header>
           <div className="section-content">
-            <Desktop><ViewItemList order={values.order} size="10" keyword={values.search}/></Desktop>
-            <Tablet><ViewItemList order={values.order} size="6" keyword={values.search}/></Tablet>
-            <Mobile><ViewItemList order={values.order} size="4" keyword={values.search}/></Mobile>
+            <Desktop><ViewItemList order={values.order} size="10" keyword={values.search} page={values.page}/></Desktop>
+            <Tablet><ViewItemList order={values.order} size="6" keyword={values.search} page={values.page}/></Tablet>
+            <Mobile><ViewItemList order={values.order} size="4" keyword={values.search} page={values.page}/></Mobile>
           </div>
         </div>
       </section>

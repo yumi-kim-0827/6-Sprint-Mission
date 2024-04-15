@@ -46,6 +46,11 @@
     }
   }
 
+  .section-content {
+    display:flex;
+    flex-direction: column;
+    gap:40px;
+  }
 
   .itemlists {
     grid-template-columns:repeat(5, 1fr);

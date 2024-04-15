@@ -9,7 +9,6 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
   }
 
   const handleClick = (e) => {
-    console.dir(e.target);
     onChange(name, e.target.value);
     onPop(false);
   }
@@ -18,9 +17,9 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
     <div className={`dropdown ${className}`}>
       <form onChange={handleClick}>
         <div className="dropdown-main">
-          <button type="button" name={name} value={value} data-onpop={state} onClick={onClick} className="dropdown-main__btn">
+          <button type="button" name={name} value={value} aria-label="페이지 정렬 바꾸기" aria-expanded={state} aria-controls="dropdown-sort" onClick={onClick} className="dropdown-main__btn">
             <Default>
-              <span>{content[value]}</span>
+              <span aria-hidden="true">{content[value]}</span>
               <img src={icoArrow} alt="아이콘" aria-hidden="true" className="ico-arrow"/>
             </Default>
             <Mobile>
@@ -29,7 +28,7 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
           </button>
         </div>
         {state && 
-        <ul aria-hidden={onPop} className="dropdown-lists">
+        <ul id="dropdown-sort" aria-hidden={onPop} className="dropdown-lists">
           <li className="dropdown-list">
             <input type="radio" id="order-recent" name="order" value="recent" onClick={handleClick} className="dropdown-list__radio"/>
             <label type="radio" htmlFor="order-recent" className="dropdown-list__btn">최신순</label>

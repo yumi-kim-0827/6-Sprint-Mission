@@ -269,3 +269,32 @@
     }
   }
 }
+
+.pagination {
+  display:flex;
+  justify-content:center;
+  .pagination-container {
+    display:flex;
+    gap:4px;
+  }
+  .pagination-list {
+    &__btn {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:40px;
+      height:40px;
+      background:#fff;
+      border-radius:100%;
+      border:1px solid #E5E7EB;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 600;
+      color:#6B7280;
+      &.on {
+        background:var(--brand-blue);
+        color:#fff;
+      }
+    }
+  }
+}
