@@ -14,8 +14,8 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Items />} />
           <Route path='/items' element={<Items />} />
-          <Route path='/freeboard' element={<FreeBoard />} />
-          <Route path='/additem' element={<AddItem />} />
+          <Route path='/free-board' element={<FreeBoard />} />
+          <Route path='/add-item' element={<AddItem />} />
         </Routes>
       </Router>
     </div>

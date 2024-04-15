@@ -11,17 +11,8 @@
 .Header__menu {
   display: flex;
   align-items: center;
-  color: var(--color-cool-gray600);
   word-break: keep-all;
   gap: 1rem;
-}
-
-.blue-font {
-  color: var(--color-brand-blue);
-}
-
-.gray-font {
-  color: var(--color-cool-gray600);
 }
 
 .Header__free-board {
@@ -30,6 +21,7 @@
   background-color: white;
   font-size: 1.6rem;
   font-weight: 700;
+  color: var(--color-cool-gray600);
 }
 
 .Header__flea-market {
@@ -38,6 +30,7 @@
   background-color: white;
   font-size: 1.6rem;
   font-weight: 700;
+  color: var(--color-cool-gray600);
 }
 
 .Header__login-btn {
