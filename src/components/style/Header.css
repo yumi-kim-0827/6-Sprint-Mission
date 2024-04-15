@@ -1,0 +1,65 @@
+/* Mobile */
+.Header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7rem;
+  border-bottom: 1px solid #dfdfdf;
+  gap: 1rem;
+}
+
+.Header__menu {
+  display: flex;
+  align-items: center;
+  word-break: keep-all;
+  gap: 1rem;
+}
+
+.Header__free-board {
+  width: 7rem;
+  text-align: center;
+  background-color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-cool-gray600);
+}
+
+.Header__flea-market {
+  max-width: 5.6rem;
+  text-align: center;
+  background-color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-cool-gray600);
+}
+
+.Header__login-btn {
+  display: block;
+  min-width: 8.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background-color: var(--color-brand-blue);
+  color: white;
+}
+
+/* Ipad */
+@media (min-width: 768px) {
+  .Header__logo {
+    padding-right: 13px;
+  }
+
+  .Header__free-board,
+  .Header__flea-market {
+    width: 10.9rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .Header__logo {
+    padding-right: 25px;
+  }
+}

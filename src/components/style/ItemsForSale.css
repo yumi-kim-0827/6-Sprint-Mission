@@ -1,0 +1,95 @@
+.items-for-sale {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.search-bar {
+  min-width: 344px;
+  display: grid;
+  grid-template-columns: 100px 100px 91px 42px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'title title register register'
+    'input input input select';
+  grid-row-gap: 8px;
+}
+
+.select-box {
+  grid-area: select;
+}
+
+.search-bar__title {
+  font-weight: 700;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  line-height: 2.8rem;
+  grid-area: title;
+}
+
+.search-bar__input {
+  box-sizing: border-box;
+  width: 29.4rem;
+  height: 42px;
+  padding: 9px 20px;
+  border-radius: 12px;
+  background-color: var(--color-cool-gray100);
+  grid-area: input;
+}
+
+.search-bar__register {
+  width: 13.3rem;
+  padding: 12px 23px;
+  margin-left: 10px;
+  border-radius: 8px;
+  background-color: var(--color-brand-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  grid-area: register;
+}
+
+.items {
+  height: 540px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* Ipad */
+@media (min-width: 768px) {
+  .search-bar {
+    display: flex;
+  }
+
+  .search-bar__title {
+    padding-right: 58px;
+  }
+
+  .items {
+    gap: 1.6rem;
+    height: 642px;
+  }
+
+  .search-bar__input {
+    width: 24.2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .search-bar__title {
+    padding-right: 484px;
+  }
+
+  .items {
+    height: 642px;
+    gap: 2.4rem;
+  }
+
+  .search-bar__input {
+    width: 32.5rem;
+  }
+}
