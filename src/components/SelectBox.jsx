@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import './style/SelectBox.css';
 
-export default function SelectBox({ items, handleSort }) {
+export default function SelectBox({ handleSort }) {
   const [isDisplay, setIsDisplay] = useState(false);
   const ulRef = useRef(null);
   const [title, setTitle] = useState('최신순');
@@ -34,7 +34,7 @@ export default function SelectBox({ items, handleSort }) {
           <img class='select-box__btn__arrow' src='/imgs/ic_arrow_down.png' alt='아래 화살표' />
         </p>
       </button>
-      {isDisplay || (
+      {!isDisplay || (
         <ul class='select-box__list' ref={ulRef}>
           <li>
             <button className='select-box__list__newest-btn' type='button' onClick={handleNewestClick}>
