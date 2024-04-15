@@ -55,6 +55,52 @@ export default function AllMarket() {
     }
   };
 
+  const handleHeaderChange = () => {
+    if (isMobile) {
+      return (
+        <div className="all-header">
+          <div className="all-header-top">
+            <div>
+              <h1 className="all-title">판매 중인 상품</h1>
+            </div>
+            <div className="button">
+              <Button to="/additem">상품 등록하기</Button>
+            </div>
+          </div>
+          <div className="all-search-input">
+            <div className="searchInput">
+              <SearchInput />
+            </div>
+            <div className="selectInput">
+              <SelectBtn onChange={handleSortOrderChange} />
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="all-header">
+          <div>
+            <h1 className="all-title">
+              {isTablet ? "판매 중인 상품" : "전체 상품"}
+            </h1>
+          </div>
+          <div className="all-search-input">
+            <div className="searchInput">
+              <SearchInput />
+            </div>
+            <div className="button">
+              <Button to="/additem">상품 등록하기</Button>
+            </div>
+            <div className="selectInput">
+              <SelectBtn onChange={handleSortOrderChange} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -74,22 +120,7 @@ export default function AllMarket() {
   return (
     <>
       <div className="all-market">
-        <div className="all-header">
-          <div>
-            <h1 className="all-title">전체 상품</h1>
-          </div>
-          <div className="all-search-input">
-            <div className="searchInput">
-              <SearchInput />
-            </div>
-            <div className="button">
-              <Button to="/additem">상품 등록하기</Button>
-            </div>
-            <div className="selectInput">
-              <SelectBtn onChange={handleSortOrderChange} />
-            </div>
-          </div>
-        </div>
+        {handleHeaderChange()}
         {data.length > 0 && (
           <div className="cards">
             {data.map((item) => (

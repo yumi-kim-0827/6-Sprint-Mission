@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import "../stlye/SelectBtn.css";
 import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
+import sortBtn from "../assets/icon/ic_sort.svg";
+import { useMediaQuery } from "react-responsive";
 
 export default function SelectBtn({ onChange }) {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -8,6 +10,22 @@ export default function SelectBtn({ onChange }) {
   const order_kr = {
     recent: "최신순",
     favorite: "좋아요순",
+  };
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+
+  const handleMobileChange = () => {
+    if (isMobile)
+      return <img className="img-arrow" src={sortBtn} alt="arrow-down" />;
+    else
+      return (
+        <>
+          <span>{order_kr[order]}</span>
+          <img src={ArrowDownIcon} alt="arrow-down" />
+        </>
+      );
   };
 
   const dropdownRef = useRef(null);
@@ -39,10 +57,7 @@ export default function SelectBtn({ onChange }) {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <div className="dropdownBtn" onClick={toggleDropdown}>
-        <div className="select">
-          <span>{order_kr[order]}</span>
-          <img src={ArrowDownIcon} alt="arrow-down" />
-        </div>
+        <div className="select">{handleMobileChange()}</div>
       </div>
       {isDropdownOpen && (
         <ul className="dropdown_contents">

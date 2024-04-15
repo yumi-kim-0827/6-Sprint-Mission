@@ -68,3 +68,17 @@ li {
         }
     }
 }
+
+@media (max-width: 767px) {
+    .dropdown {
+        width: 42px;
+        height: 42px;
+        min-width: initial;
+    }
+
+    .select {
+        justify-content: center;
+    }
+
+
+}

@@ -110,6 +110,27 @@
 }
 
 @media (max-width: 767px) {
+    .all-header {
+        flex-direction: column;
+    }
+
+    .all-header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .all-search-input {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .searchInput {
+        width: 100%;
+    }
+
     .all-market .cards {
         grid-template-columns: repeat(2, 1fr);
     }
