@@ -3,14 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ItemPage from "./pages/ItemPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import Boilerplate from "./components/Boilerplate";
+import AppLayout from "./components/AppLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Boilerplate />}>
+      <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="items" element={<ItemPage />} />
       </Route>

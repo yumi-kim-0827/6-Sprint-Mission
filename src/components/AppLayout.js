@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Boilerplate = () => {
+const AppLayout = () => {
   return (
     <>
       <Navbar />
@@ -15,4 +15,4 @@ const Boilerplate = () => {
   );
 };
 
-export default Boilerplate;
+export default AppLayout;
