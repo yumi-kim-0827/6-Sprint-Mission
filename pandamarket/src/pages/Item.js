@@ -8,6 +8,16 @@ function Item() {
   const [order, setOrder] = useState("최신순");
   const [search, setSearch] = useState("");
 
+  const handleOrder = (e) => {
+    console.log(e.target.value);
+    const nextOrder = e.target.value;
+    setOrder(nextOrder);
+  };
+
+  const onChangeSearch = (e) => {
+    const newSearch = e.target.value;
+    setSearch(newSearch);
+  };
   // respons값 {list, totalCount}
   /* list[0] 요소
   createdAt: "2024-04-11T11:58:07.926Z"
@@ -84,9 +94,9 @@ function Item() {
       <BestProductsSection products={bestProducts} />
       <AllProductsSection
         products={allProducts}
-        setOrder={setOrder}
+        handleOrder={handleOrder}
         currentOrder={order}
-        setSearch={setSearch}
+        onChangeSearch={onChangeSearch}
       />
     </>
   );
