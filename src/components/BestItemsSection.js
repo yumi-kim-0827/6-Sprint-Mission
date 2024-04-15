@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getBestItems } from "../api";
-import { NUM_BEST_ITEMS } from "../utils/magicLiterals";
+import { NUM_BEST_ITEMS } from "../utils/constants";
 import ItemList from "./ItemList";
 
 function BestItemsSection({ device }) {

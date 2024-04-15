@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MOBILE, NUM_ALL_ITEMS, RECENT } from "../utils/magicLiterals";
+import { MOBILE, NUM_ALL_ITEMS, RECENT } from "../utils/constants.js";
 import { getItems } from "../api";
 import ItemListNav from "./ItemListNav.js";
 import ItemListNavMobile from "./ItemListNavMobile.js";

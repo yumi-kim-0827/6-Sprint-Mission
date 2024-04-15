@@ -1,4 +1,4 @@
-import { PRODUCT_API_URL } from "../utils/magicLiterals";
+import { PRODUCT_API_URL } from "../utils/constants";
 
 export async function getItems({
   page = 1,

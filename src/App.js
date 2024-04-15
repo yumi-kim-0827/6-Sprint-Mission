@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { MOBILE, TABLET, PC } from "./utils/magicLiterals";
+import { MOBILE, TABLET, PC } from "./utils/constants";
 
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
