@@ -6,8 +6,8 @@ function Pagination({ totalPage, currentPage, setCurrentPage }) {
   const maxPage = totalPage >= 5 ? 5 : totalPage;
   const pages = Array.from({ length: maxPage }, (_, index) => index + 1);
 
-  const handlePageClick = (e) => {
-    const nextPage = Number(e.target.innerText);
+  const handlePageClick = ({ target: { innerText } }) => {
+    const nextPage = Number(innerText);
     setCurrentPage(nextPage);
   };
   const handleBackClick = (e) => {};
