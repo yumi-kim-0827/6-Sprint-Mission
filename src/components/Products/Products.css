@@ -1,0 +1,31 @@
+.items {
+    list-style-type: none;
+}
+
+.product-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.likes {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.likebutton-toggle--button {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-image: url('/src/assets/images/itemsPage/like-button.svg');
+    cursor: pointer;
+}
+
+.likebutton-toggle:checked + .likebutton-toggle--button {
+    background-image: url('/src/assets/images/itemsPage/like-button-fill.svg');
+}
+
+.likebutton-toggle {
+    display: none;
+}
