@@ -47,13 +47,13 @@
 }
 
 @media (max-width: 1279px) {
-    .cards {
+    .best-market .cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 767px) {
-    .cards {
+    .best-market .cards {
         grid-template-columns: repeat(1, 1fr);
     }
 }

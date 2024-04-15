@@ -9,17 +9,27 @@ import { SearchInput } from "./SearchInput";
 import Commas from "../util/Commas";
 import SelectBtn from "./SelectBtn";
 import { getData } from "./API";
+import { useMediaQuery } from "react-responsive";
 
 export default function AllMarket() {
   const [data, setData] = useState([]);
   const [order, setOrder] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const pageSize = 10;
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px) and (max-width: 1279px)",
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let pageSize = 10;
+        if (isMobile) pageSize = 4;
+        else if (isTablet) pageSize = 6;
         const { list, totalCount } = await getData({
           page: currentPage,
           size: pageSize,
@@ -33,7 +43,7 @@ export default function AllMarket() {
     };
 
     fetchData();
-  }, [currentPage, order]);
+  }, [currentPage, order, isMobile, isTablet]);
 
   const handleSortOrderChange = (selectedOrder) => {
     setOrder(selectedOrder);
