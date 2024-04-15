@@ -17,6 +17,7 @@ const HomePage = () => {
         textFirstLine="일상의 모든 물건을"
         textSecondLine="거래해보세요"
         buttonText="구경하러 가기"
+        buttonLink="/items"
       />
 
       <div className="section">

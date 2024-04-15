@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import Searchbar from "../components/Searchbar";
 import SortSelectBox from "../components/SortSelectBox";
 import Pagination from "../components/Pagination";
+import useWindowSize from "../hooks/useWindowSize";
 
 function ItemPage() {
   const [items, setItems] = useState([]);
@@ -18,31 +19,22 @@ function ItemPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
 
+  const { width } = useWindowSize();
+
   useEffect(() => {
-    // 반응형에 따른 state
-    const handleResize = () => {
-      let newBestItemCount = 1;
-      let newPageCount = 4;
+    let newBestItemCount = 1;
+    let newPageCount = 4;
 
-      if (window.innerWidth >= 1200) {
-        newBestItemCount = 4;
-        newPageCount = 10;
-      } else if (window.innerWidth >= 768) {
-        newBestItemCount = 2;
-        newPageCount = 6;
-      }
-      setBestItemCount(newBestItemCount);
-      setPageCount(newPageCount);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (width >= 1200) {
+      newBestItemCount = 4;
+      newPageCount = 10;
+    } else if (width >= 768) {
+      newBestItemCount = 2;
+      newPageCount = 6;
+    }
+    setBestItemCount(newBestItemCount);
+    setPageCount(newPageCount);
+  }, [width]);
 
   useEffect(() => {
     const fetchItems = async () => {

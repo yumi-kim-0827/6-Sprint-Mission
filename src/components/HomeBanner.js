@@ -10,6 +10,7 @@ const HomeBanner = ({
   textFirstLine,
   textSecondLine,
   buttonText,
+  buttonLink,
 }) => {
   const text = `${textFirstLine} ${textSecondLine}`;
 
@@ -26,7 +27,7 @@ const HomeBanner = ({
           <p className="text-nowrap">{text}</p>
           {buttonText && (
             <Button className="btn-large banner-inner__btn">
-              <Link to="/items">{buttonText}</Link>
+              <Link to={buttonLink}>{buttonText}</Link>
             </Button>
           )}
         </div>
