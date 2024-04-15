@@ -1,0 +1,19 @@
+* {
+    font-family: Pretendard, sans-serif;
+}
+
+.market {
+    margin: 0 360px 100px;
+}
+
+@media (max-width: 1279px) {
+    .market {
+        margin: 0 100px 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .market {
+        margin: 0 20px 100px;
+    }
+}

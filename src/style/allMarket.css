@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.all-market {
+    margin-top: 40px;
+}
+
+.all-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 19px;
+    object-fit: cover;
+    height: 100%;
+    display: block;
+}
+
+.all-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.all-search-input {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.all-title {
+    align-self: center;
+    margin-bottom: 0;
+    color: #111827;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.button {
+    width: max-content;
+}
+
+.all-market .cards {
+    display: grid;
+    column-gap: 24px;
+    grid-row-gap: 40px;
+    row-gap: 40px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+
+.all-name {
+    font-weight: 500;
+    margin-top: 14px;
+}
+
+.all-price {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    color: #4b5563;
+    font-size: 12px;
+    gap: 4px;
+}
+
+.pagination {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pageBtn {
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    height: 40px;
+    justify-content: center;
+    user-select: none;
+    width: 40px;
+
+    &:hover,
+    &:focus {
+        background-color: #f7f7f8;
+    }
+
+    &.active {
+        color: white;
+        background-color: #2f80ed;
+    }
+}
+
+@media (max-width: 1279px) {
+    .all-market .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .all-header {
+        flex-direction: column;
+    }
+
+    .all-header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .all-search-input {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .searchInput {
+        width: 100%;
+    }
+
+    .all-market .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
