@@ -19,19 +19,15 @@ const Pagination = ({ currentPage = 1, totalPages = 7, onPageChange }) => {
   };
 
   const renderPageButtons = () => {
-    const buttons = [];
-    for (let i = 1; i <= totalPages; i++) {
-      buttons.push(
-        <button
-          key={i}
-          onClick={() => goToPage(i)}
-          className={i === currentPage && "active"}
-        >
-          {i}
-        </button>
-      );
-    }
-    return buttons;
+    return Array.from({ length: totalPages }, (_, i) => (
+      <button
+        key={i + 1}
+        onClick={() => goToPage(i + 1)}
+        className={i + 1 === currentPage ? "active" : ""}
+      >
+        {i + 1}
+      </button>
+    ));
   };
 
   return (
