@@ -6,22 +6,27 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <nav className="Navbar">
-      <NavLink exact to="/" className="Navbar__logo-section">
+      <NavLink to="/" className="Navbar__logo-section">
         <img src={logo} className="Navbar__logo" alt="판다마켓" />
         <img src={logoTypo} className="Navbar__logo-typo" alt="판다마켓" />
       </NavLink>
-      <NavLink exact to="/" className="Navbar__link" activeClassName="active">
+      <NavLink
+        to="/community"
+        className={({ isActive }) =>
+          isActive ? "active Navbar__link" : "Navbar__link"
+        }
+      >
         자유게시판
       </NavLink>
       <NavLink
-        exact
         to="/items"
-        className="Navbar__link"
-        activeClassName="active"
+        className={({ isActive }) =>
+          isActive ? "active Navbar__link" : "Navbar__link"
+        }
       >
         중고마켓
       </NavLink>
-      <NavLink exact to="/signin" className="Navbar__signin">
+      <NavLink to="/login" className="Navbar__login">
         <button type="button" className="Navbar__button">
           로그인
         </button>
