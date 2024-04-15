@@ -1,0 +1,25 @@
+.container-onSaleProducts {
+  width: 344px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container-onSaleProducts {
+    width: 696px;
+  }
+}
+@media (min-width: 1024px) {
+  .container-onSaleProducts {
+    width: 1024px;
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cards-container.tb {
+  min-width: 766px;
+}
