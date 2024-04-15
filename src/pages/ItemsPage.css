@@ -7,7 +7,7 @@ main {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.02rem;
   color: var(--cool-gray900);
 }
 
