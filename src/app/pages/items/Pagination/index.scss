@@ -1,0 +1,25 @@
+[data-widget="Pagination"]
+{
+	gap: 4px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	> .page
+	{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border: #E5E7EB solid thin;
+		border-radius: 40px;
+
+		&.indexing
+		{
+			color: white;
+			background-color: var(--blue);
+		}
+	}
+}

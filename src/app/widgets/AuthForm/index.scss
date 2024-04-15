@@ -1,0 +1,151 @@
+[data-widget="AuthForm"]
+{
+	gap: 24px;
+	display: flex;
+	flex-direction: column;
+
+	> .fields
+	{
+		display: flex;
+		flex-direction: column;
+
+		> .data
+		{
+			display: flex;
+			flex-direction: column;
+
+			> label
+			{
+				color: #1F2937;
+				font-weight: 700;
+			}
+			> .wrapper
+			{
+				position: relative;
+
+				input
+				{
+					width: 100%;
+					height: 56px;
+					padding: 0px 24px;
+					outline: transparent solid thin;
+					border-radius: 12px;
+					background-color: #F3F4F6;
+
+					&::placeholder
+					{
+						color: #9CA3AF;
+						font-size: 16px;
+						font-weight: 400;
+					}
+				}
+				&::after
+				{
+					content: attr(data-msg);
+					color: var(--red);
+					margin-top: 8px;
+					margin-left: 16px;
+					font-size: 15px;
+					font-weight: 600;
+					line-height: 17.9px;
+				}
+				&[data-msg]
+				{
+					&::after
+					{
+						display: block;
+					}
+					> input
+					{
+						outline-color: var(--red);
+					}
+				}
+				&[data-msg="null"]
+				{
+					&::after
+					{
+						display: none;
+					}
+					> input
+					{
+						outline-color: var(--blue);
+					}
+				}
+			}
+		}
+	}
+	> [data-widget="Button"]
+	{
+		height: 56px;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 24px;
+		border-radius: 40px;
+	}
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	[data-widget="AuthForm"]
+	{
+		> .fields
+		{
+			gap: 24px;
+
+			> .data
+			{
+				gap: 16px;
+
+				> label
+				{
+					font-size: 18px;
+					line-height: 21.48px;
+				}
+			}
+		}
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	[data-widget="AuthForm"]
+	{
+		> .fields
+		{
+			gap: 24px;
+
+			> .data
+			{
+				gap: 16px;
+
+				> label
+				{
+					font-size: 18px;
+					line-height: 21.48px;
+				}
+			}
+		}
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	[data-widget="AuthForm"]
+	{
+		> .fields
+		{
+			gap: 16px;
+
+			> .data
+			{
+				gap: 8px;
+
+				> label
+				{
+					font-size: 14px;
+					line-height: 16.71px;
+				}
+			}
+		}
+	}
+}
