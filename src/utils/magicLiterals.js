@@ -17,7 +17,10 @@ export const NUM_ALL_ITEMS = {
   [PC]: 10,
 };
 
+export const RECENT = "recent";
+export const FAVORITE = "favorite";
+
 export const ORDER_MESSAGE = {
-  favorite: "좋아요순",
-  recent: "최신순",
+  [FAVORITE]: "좋아요순",
+  [RECENT]: "최신순",
 };

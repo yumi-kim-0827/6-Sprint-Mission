@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { MOBILE, NUM_BEST_ITEMS, NUM_ALL_ITEMS } from "../utils/magicLiterals";
+import {
+  MOBILE,
+  RECENT,
+  NUM_BEST_ITEMS,
+  NUM_ALL_ITEMS,
+} from "../utils/magicLiterals";
 import { getBestItems, getItems } from "../api";
 import Nav from "../components/Nav";
 import ItemList from "../components/ItemList";
@@ -15,7 +20,7 @@ function ItemsPage({ device }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const [order, setOrder] = useState("recent");
+  const [order, setOrder] = useState(RECENT);
 
   const handleInitialLoad = async () => {
     const { list: newBestItems, totalCount: newTotalCountString } =
