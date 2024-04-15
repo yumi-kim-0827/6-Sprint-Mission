@@ -1,0 +1,8 @@
+.App Main {
+  margin-top: 100px;
+}
+
+.App .container {
+  width: 1200px;
+  margin: 0 auto;
+}
