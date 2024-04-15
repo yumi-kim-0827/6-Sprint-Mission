@@ -1,5 +1,5 @@
 import "./ItemList.css";
-import favoriteIcon from "../assets/icon/ic_favorite.svg";
+import favoriteIcon from "../../assets/icon/ic_favorite.svg";
 
 function Item({ item }) {
   const { name, images, price, favoriteCount } = item;

@@ -70,7 +70,7 @@ li {
   }
 
   .logo {
-    content: url(../assets/logo/panda_logo_text.png);
+    content: url(../../assets/logo/panda_logo_text.png);
     width: 81px;
     height: 40px;
   }

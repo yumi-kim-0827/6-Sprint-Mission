@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
-import { RECENT, FAVORITE, ORDER_MESSAGE } from "../utils/constants";
+import ArrowDownIcon from "../../assets/icon/ic_arrow_down.svg";
+import { RECENT, FAVORITE, ORDER_MESSAGE } from "../../utils/constants";
 import "./OrderDropDown.css";
 
 function OrderDropDown({ order, setOrder }) {

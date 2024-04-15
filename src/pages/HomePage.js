@@ -1,7 +1,7 @@
-import Banner from "../components/Banner";
-import FeatureList from "../components/FeatureList";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Banner from "../components/Home/Banner";
+import FeatureList from "../components/Home/FeatureList";
+import Footer from "../components/Home/Footer";
+import Nav from "../components/Common/Nav";
 
 function HomePage() {
   return (

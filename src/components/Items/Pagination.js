@@ -1,5 +1,5 @@
-import pageBackIcon from "../assets/icon/ic_pagination_left_dark.svg";
-import pageNextIcon from "../assets/icon/ic_pagination_right_dark.svg";
+import pageBackIcon from "../../assets/icon/ic_pagination_left_dark.svg";
+import pageNextIcon from "../../assets/icon/ic_pagination_right_dark.svg";
 import "./Pagination.css";
 
 function Pagination({ pageInfo: { totalPage, currentPage }, setPageInfo }) {
