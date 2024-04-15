@@ -8,6 +8,7 @@ const passwordMismatchMessage = document.getElementById('passwordMismatchError')
 const loginButton = document.getElementById('loginButton');
 const signinButton = document.getElementById('signinButton');
 
+
 function showError(input, errorMessage) {
   input.classList.add('error');
   errorMessage.style.display = 'block';
@@ -27,9 +28,9 @@ function validatePassword(password) {
 }
 function validateNickname(nickname) {
   if (nickname.trim() === '') {
-      return false; // 닉네임이 비어 있으면 유효하지 않음
+      return false; 
   } else {
-      return true; // 닉네임이 입력되었으면 유효함
+      return true; 
   }
 }
 

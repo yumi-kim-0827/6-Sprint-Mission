@@ -65,7 +65,6 @@ input{
     border-radius: 12px;
     margin-top: 16px;
     border : none;
-    padding: 16px 24px;
     width: 100%;
 }
 
@@ -121,13 +120,13 @@ img{
 }
 @media (min-width: 768px){
     .header{
-       width: 100%; 
+       width: 100%;
        margin:0 auto;
        margin-top: 60px;
     }
     form{
-        max-width: 100%;
-        padding: 30px 200px;
+        max-width: 640px;
+        
     }
     label{
         font-size: 18px;

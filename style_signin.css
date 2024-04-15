@@ -69,6 +69,19 @@ input {
     font-size: 16px;
 
 }
+.input-wrapper{
+    position: relative;
+    display:flex;
+    align-items:center;
+    box-sizing: border-box;
+    background-color : #F3F4F6;
+    height: 56px;
+    gap: 10px;
+    border-radius: 12px;
+    margin-top: 16px;
+    border : none;
+    width: 100%;
+}
 
 .error_message {
     display: none;
@@ -99,17 +112,11 @@ input {
     align-items: center;
     justify-content: space-between;
     align-items: center;
-    height: 42px;
-    width: 594px;
+    height: 78px;
+    margin-top: 24px;
+    padding: 16px 23px;
 }
 
-. {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 42px;
-    width: 594px;
-}
 
 .easylogin {
     color: #1F2937;
@@ -154,5 +161,5 @@ img {
         font-weight: 700;
         padding: 16px 126px;
     }
-
+    
 }
