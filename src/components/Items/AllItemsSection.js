@@ -15,13 +15,23 @@ function AllItemsSection({ device }) {
   });
   const [order, setOrder] = useState(RECENT);
   const [update, setUpdate] = useState(0); // 오버플로우 나도 상관 없음
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleLoad = async () => {
-    const { list: newAllItems, totalCount: totalCountString } = await getItems({
-      page: pageInfo.currentPage,
-      pageSize: NUM_ALL_ITEMS[device],
-      orderBy: order,
-    });
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getItems({
+        page: pageInfo.currentPage,
+        pageSize: NUM_ALL_ITEMS[device],
+        orderBy: order,
+      });
+    } catch (e) {
+      setLoadingError(e);
+      return;
+    }
+
+    const { list: newAllItems, totalCount: totalCountString } = result;
     setAllItems(newAllItems);
 
     const totalCount = Number(totalCountString);
@@ -74,6 +84,7 @@ function AllItemsSection({ device }) {
         <ItemListNav order={order} setOrder={setOrder} />
       )}
       <ItemList items={allItems} />
+      {loadingError?.message ? <p>{loadingError.message}</p> : ""}
       <Pagination pageInfo={pageInfo} setPageInfo={setPageInfoAndUpdate} />
     </section>
   );

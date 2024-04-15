@@ -6,9 +6,19 @@ import ItemList from "./ItemList";
 function BestItemsSection({ device }) {
   const [bestItems, setBestItems] = useState([]);
   const [bestItemsUsing, setBestItemsUsing] = useState([]);
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleInitialLoad = async () => {
-    const { list: newBestItems } = await getBestItems();
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getBestItems();
+    } catch (e) {
+      setLoadingError(e);
+      return;
+    }
+
+    const { list: newBestItems } = result;
 
     setBestItems(newBestItems);
     setBestItemsUsing(newBestItems.slice(0, NUM_BEST_ITEMS[device]));
@@ -27,6 +37,7 @@ function BestItemsSection({ device }) {
     <section id="best-items">
       <h1 className="section-title">베스트 상품</h1>
       <ItemList items={bestItemsUsing} />
+      {loadingError?.message ? <p>{loadingError.message}</p> : ""}
     </section>
   );
 }
