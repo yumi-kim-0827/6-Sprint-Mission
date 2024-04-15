@@ -14,17 +14,7 @@ function AllItemsSection({ device }) {
     totalPage: 1,
   });
   const [order, setOrder] = useState(RECENT);
-
-  const handleInitialLoad = async () => {
-    const totalCount = Number(await handleLoad());
-    const totalPage = Math.ceil(totalCount / NUM_ALL_ITEMS[device]);
-
-    setPageInfo((prevPageInfo) => ({
-      ...prevPageInfo,
-      totalCount,
-      totalPage,
-    }));
-  };
+  const [update, setUpdate] = useState(0); // 오버플로우 나도 상관 없음
 
   const handleLoad = async () => {
     const { list: newAllItems, totalCount: totalCountString } = await getItems({
@@ -33,12 +23,24 @@ function AllItemsSection({ device }) {
       orderBy: order,
     });
     setAllItems(newAllItems);
-    return totalCountString;
+
+    const totalCount = Number(totalCountString);
+
+    if (totalCount !== pageInfo.totalCount) {
+      const totalPage = Math.ceil(totalCount / NUM_ALL_ITEMS[device]);
+
+      setPageInfo((prevPageInfo) => ({
+        ...prevPageInfo,
+        totalCount,
+        totalPage,
+      }));
+    }
   };
 
-  useEffect(() => {
-    handleInitialLoad();
-  }, []);
+  const setPageInfoAndUpdate = (newPageInfo) => {
+    setPageInfo(newPageInfo);
+    setUpdate((prevUpdate) => prevUpdate + 1);
+  };
 
   useEffect(() => {
     const totalPage = Math.ceil(pageInfo.totalCount / NUM_ALL_ITEMS[device]);
@@ -47,6 +49,8 @@ function AllItemsSection({ device }) {
       currentPage: 1, // device 바뀌었으니 다시 첫페이지로
       totalPage,
     }));
+
+    setUpdate((prevUpdate) => prevUpdate + 1);
   }, [device]);
 
   useEffect(() => {
@@ -54,11 +58,13 @@ function AllItemsSection({ device }) {
       ...prevPageInfo,
       currentPage: 1, // order 바뀌었으니 다시 첫페이지로
     }));
+
+    setUpdate((prevUpdate) => prevUpdate + 1);
   }, [order]);
 
   useEffect(() => {
     handleLoad();
-  }, [pageInfo]);
+  }, [update]);
 
   return (
     <section id="all-items">
@@ -68,7 +74,7 @@ function AllItemsSection({ device }) {
         <ItemListNav order={order} setOrder={setOrder} />
       )}
       <ItemList items={allItems} />
-      <Pagination pageInfo={pageInfo} setPageInfo={setPageInfo} />
+      <Pagination pageInfo={pageInfo} setPageInfo={setPageInfoAndUpdate} />
     </section>
   );
 }
