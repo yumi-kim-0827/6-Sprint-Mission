@@ -1,5 +1,5 @@
 import SearchIcon from "../assets/icon/ic_search.svg";
-import "../stlye/SearchInput.css";
+import "../style/SearchInput.css";
 
 export function SearchInput() {
   return (

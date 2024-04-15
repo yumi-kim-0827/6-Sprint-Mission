@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "../stlye/header.css";
+import "../style/header.css";
 import React from "react";
 
-export default function Button({ children, to = "/" }) {
+export default function LinkButton({ children, to = "/" }) {
   return (
     <Link to={to}>
       <div className="button">{children}</div>

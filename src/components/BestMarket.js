@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../stlye/bestMarket.css";
+import "../style/bestMarket.css";
 import Commas from "../util/Commas";
 import HeartIcon from "../assets/icon/ic_heart.svg";
-import { getData } from "./API";
+import { getMarketData } from "./API";
 import { useMediaQuery } from "react-responsive";
 
 export default function BestMarket() {
@@ -22,7 +22,7 @@ export default function BestMarket() {
         if (isMobile) size = 1; // 모바일일 때는 1개의 데이터만 가져옴
         else if (isTablet) size = 2; // 태블릿일 때는 2개의 데이터를 가져옴
 
-        const data = await getData({ page: 1, size, order: "favorite" });
+        const data = await getMarketData({ page: 1, size, order: "favorite" });
         setBestData(data.list);
       } catch (error) {
         console.error("Error fetching best data:", error);
