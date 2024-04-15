@@ -2,13 +2,16 @@ import pageBackIcon from "../assets/icon/ic_pagination_left_dark.svg";
 import pageNextIcon from "../assets/icon/ic_pagination_right_dark.svg";
 import "./Pagination.css";
 
-function Pagination({ totalPage, currentPage, setCurrentPage }) {
+function Pagination({ pageInfo: { totalPage, currentPage }, setPageInfo }) {
   const maxPage = totalPage >= 5 ? 5 : totalPage;
   const pages = Array.from({ length: maxPage }, (_, index) => index + 1);
 
   const handlePageClick = ({ target: { innerText } }) => {
     const nextPage = Number(innerText);
-    setCurrentPage(nextPage);
+    setPageInfo((prevPageInfo) => ({
+      ...prevPageInfo,
+      currentPage: nextPage,
+    }));
   };
   const handleBackClick = (e) => {};
   const handleNextClick = (e) => {};
