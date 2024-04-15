@@ -29,7 +29,10 @@
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호</label>
-            <input type="text" id="pw_input"name="pw_input" placeholder="비밀번호를 입력해 주세요" required>
+            <div class="input-wrapper">
+                <input type="text" id="pw_input" class="pw_input" placeholder="비밀번호를 입력하세요" required>
+                <img src ="Image/btn_visibility_off.png" alt = "비밀번호 숨김" class = "toggle-password">
+            </div>
             <p id="passwordErrorMessage" class="error_message">
                 비밀번호를 8자 이상 입력해주세요
             </p>
