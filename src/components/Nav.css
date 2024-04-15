@@ -1,0 +1,63 @@
+main {
+  margin-top: 50px;
+}
+
+.navBar {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.homeIcon {
+  margin-left: 200px;
+  width: 153px;
+  height: 51px;
+}
+
+.signin-button {
+  width: 128px;
+  height: 48px;
+  background-color: #3692ff;
+  border: none;
+  color: #ffffff;
+  margin-right: 200px;
+  border-radius: 10px;
+
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.nav-link {
+  width: 109px;
+  height: 69px;
+  padding: 24px 16px 24px 15px;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .homeIcon {
+    margin-left: 25px;
+  }
+  .signin-button {
+    margin-right: 25px;
+  }
+}
+@media (min-width: 375px) and (max-width: 768px) {
+  .homeIcon {
+    margin-left: 17px;
+  }
+  .signin-button {
+    margin-right: 17px;
+  }
+}
