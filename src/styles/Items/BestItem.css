@@ -1,0 +1,49 @@
+.BestItem {
+  width: 282px;
+  height: 362px;
+}
+.BestItem .imgWrapper {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.BestItem .imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.BestItem .textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.BestItem .nameText {
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 14px;
+}
+.BestItem .priceText {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 16px;
+}
+.BestItem .likes {
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .BestItem .imgWrapper {
+    width: 336px;
+    height: 336px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .BestItem .imgWrapper {
+    width: 168px;
+    height: 168px;
+  }
+}
