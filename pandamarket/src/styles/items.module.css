@@ -1,0 +1,61 @@
+@import url("./style.css");
+
+.container {
+  margin: 8rem auto 3rem;
+  width: 1200px;
+}
+
+.best-products {
+  margin-bottom: 4rem;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.all-products {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.all-products-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.all-products-sub-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.all-products-sub-nav button {
+  height: 42px !important;
+  padding: 0.5rem 1rem !important;
+}
+
+input {
+  background-color: var(--coolgray100);
+  border: none;
+  width: 325px;
+  height: 42px;
+  border-radius: 0.5rem;
+  padding: 0.8rem 2.8rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.search img {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 0.45rem;
+  left: 2.5rem;
+}
