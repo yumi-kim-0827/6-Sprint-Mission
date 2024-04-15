@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMarketList } from "../api";
 import AllList from "./AllList";
+import BestList from "./BestList";
 
 const App = () => {
   const [pandaList, setPandaList] = useState([]);
@@ -14,6 +15,11 @@ const App = () => {
     handleLoad();
   }, []);
 
-  return <AllList items={pandaList} />;
+  return (
+    <div>
+      <BestList items={pandaList} />
+      <AllList items={pandaList} />
+    </div>
+  );
 };
 export default App;
