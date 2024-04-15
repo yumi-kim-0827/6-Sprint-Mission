@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 로그인</title>
+    <link rel="icon" href="images/home/favicon.ico" />
+    <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="common.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/">
+        <img class="header__logo" src="images/home/pandamarket.png" />
+      </a>
+    </header>
+
+    <main>
+      <section class="loginSection">
+        <form method="post" id="loginSection-form">
+          <div class="loginSection__input-box">
+            <label class="email-label" for="email">이메일</label>
+            <input
+              type="email"
+              name="email"
+              class="loginSection__input-field"
+              placeholder="이메일을 입력해주세요"
+            />
+            <div class="email-error error-message"></div>
+          </div>
+
+          <div class="loginSection__input-box password-input">
+            <label class="email-label" for="password">비밀번호</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                name="password"
+                class="loginSection__input-field"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <div class="password-error error-message"></div>
+              <div class="password-wrapper__toggle">
+                <img src="images/home/closeeyes.png" id="passwordToggle" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="loginSection__submit">로그인</button>
+
+          <div class="social-loginSection">
+            <span class="social-loginSection__text">간편 로그인 하기</span>
+            <div class="social-loginSection__btn-group">
+              <a
+                class="social-loginSection__btn-group social-btn"
+                href="https://www.google.com/"
+              >
+                <i><img src="images/social/google.png" alt="구글" /></i>
+              </a>
+              <a
+                class="social-loginSection__btn-group social-btn"
+                href="https://www.kakaocorp.com/page/"
+              >
+                <i><img src="images/social/kakao.png" alt="카카오" /></i>
+              </a>
+            </div>
+          </div>
+
+          <p class="signup">
+            판다마켓이 처음이신가요?<a href="signup.html" class="signup__link"
+              >회원가입</a
+            >
+          </p>
+        </form>
+      </section>
+    </main>
+    <script src="signin.js"></script>
+  </body>
+</html>
