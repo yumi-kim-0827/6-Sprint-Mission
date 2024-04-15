@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"
+    />
+    <link href="styles/members.css" rel="stylesheet" type="text/css" />
+    <title>회원가입</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="logo-box">
+        <a href="/">
+          <img class="logo" src="./images/Group 19@3x.png" />
+        </a>
+      </div>
+      <div class="members-box">
+        <div class="input-box">
+          <div class="inputs">
+            <label for="user-email">이메일</label>
+            <input
+              type="text"
+              id="user-email"
+              class="user-email"
+              name="usereamil"
+              placeholder="이메일을 입력해주세요"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="inputEmail hide">이메일을 입력해주세요</div>
+          <div class="wrongEmailFormat hide">잘못된 이메일 형식입니다</div>
+        </div>
+        <div class="input-box">
+          <div class="inputs">
+            <label for="user-name">닉네임</label>
+            <input
+              type="text"
+              id="user-name"
+              name="username"
+              placeholder="닉네임을 입력해주세요"
+              required
+              autocomplete="username"
+            />
+          </div>
+          <div class="inputEmail hide">닉네임을 입력해주세요</div>
+        </div>
+        <!-- input PW -->
+        <div class="input-box">
+          <div class="inputs">
+            <label for="pw">비밀번호</label>
+            <input
+              type="password"
+              id="pw"
+              class="pw"
+              name="userpassword"
+              placeholder="비밀번호를 입력해주세요"
+              required
+              autocomplete="password"
+            />
+            <button type="button" class="pw-visibility-toggle">
+              <img
+                class="pw-visibility-icon"
+                src="images/btn_visibility_off_24px.svg"
+                alt="비밀번호 확인"
+              />
+            </button>
+          </div>
+          <div class="inputPassword hide">비밀번호를 입력해주세요</div>
+          <div class="wrongPasswordFormat hide">
+            비밀번호를 8자 이상 입력해주세요
+          </div>
+        </div>
+        <!-- check PW -->
+        <div class="input-box">
+          <div class="inputs">
+            <label for="confirm-password">비밀번호 확인</label>
+            <input
+              type="password"
+              id="confirm-password"
+              class="confirm-password"
+              name="userpassword"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
+              autocomplete="password"
+            />
+            <button type="button" class="pw-visibility-toggle">
+              <img
+                class="pw-visibility-icon"
+                src="images/btn_visibility_off_24px.svg"
+                alt="비밀번호 확인"
+              />
+            </button>
+          </div>
+          <div class="inputCfPassword hide">비밀번호를 입력해주세요</div>
+          <div class="checkPassword hide">비밀번호가 일치하지 않습니다.</div>
+        </div>
+        <div class="button-box">
+          <button type="button" class="login-button buttonDisabled">
+            로그인
+          </button>
+        </div>
+        <div class="easy-box">
+          <p class="easy-login">간편 로그인하기</p>
+          <div class="shortcuts">
+            <a href="https://www.google.com/">
+              <img src="./images/Component 2@3x.png" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./images/Component 3@3x.png" />
+            </a>
+          </div>
+        </div>
+        <div class="sign box">
+          <span>이미 회원이신가요? </span>
+          <a href="./signin.html">로그인</a>
+        </div>
+      </div>
+    </main>
+    <script src="./scripts/signup.js"></script>
+  </body>
+</html>
