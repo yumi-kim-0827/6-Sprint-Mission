@@ -27,25 +27,6 @@ export default function AllItemsList({ data }) {
   // 페이지네이션을 버튼 클릭시 현재 페이지를 눌러 랜더링 하도록 데이터를 만들었습니다.
   const currentPage = paginationStore((state) => state.currentPage);
 
-  // 정렬을 위한 함수입니다.
-  const sortProductsByDate = (products) => {
-    const sortedProducts = [...products].sort((a, b) => {
-      const dateA = new Date(a.createdAt);
-      const dateB = new Date(b.createdAt);
-      return dateB - dateA;
-    });
-    setAllProducts(sortedProducts);
-    setSortContent("최신순");
-  };
-
-  const sortProductsByLike = (products) => {
-    const sortedProducts = [...products].sort(
-      (a, b) => b.favoriteCount - a.favoriteCount,
-    );
-    setAllProducts(sortedProducts);
-    setSortContent("좋아요순");
-  };
-
   return (
     <div className="mt-6 sm:mt-10">
       <div className="my-6 flex flex-col justify-between sm:flex-row sm:items-center">
@@ -88,8 +69,8 @@ export default function AllItemsList({ data }) {
             <img src={arrowDown} alt="arrowdown" className="inline" />
             {dropdownView && (
               <SortDropdown
-                sortProductsByDate={sortProductsByDate}
-                sortProductsByLike={sortProductsByLike}
+                setAllProducts={setAllProducts}
+                setSortContent={setSortContent}
                 allProducts={allProducts}
               />
             )}
@@ -101,8 +82,8 @@ export default function AllItemsList({ data }) {
             <img src={sortButton} alt="sortbutton" />
             {dropdownView && (
               <SortDropdown
-                sortProductsByDate={sortProductsByDate}
-                sortProductsByLike={sortProductsByLike}
+                setAllProducts={setAllProducts}
+                setSortContent={setSortContent}
                 allProducts={allProducts}
               />
             )}
