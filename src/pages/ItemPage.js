@@ -3,14 +3,16 @@ import { getItems } from "../services/api";
 import "../styles/main.css";
 import BestItemList from "../components/BestItemList";
 import { AllItemList } from "../components/AllItemList";
+import Pagination from "../components/Pagination";
 
 function ItemPage() {
   const [allItems, setAllItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
   const [order, setOrder] = useState("recent");
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
   const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1); // 현재 페이지
+  const [pageSize, setPageSize] = useState(10); // 페이지 당 상품 수
+  const [totalItemCount, setTotalItemCount] = useState(0); // 총 상품 갯수
 
   const handleSortedChange = (e) => {
     setOrder(e.target.value);
@@ -29,8 +31,9 @@ function ItemPage() {
     setBestItems(list);
   };
   const handLoadAllItemList = async (options) => {
-    const { list } = await getItems(options);
+    const { list, totalCount } = await getItems(options);
     setAllItems(list);
+    setTotalItemCount(totalCount);
   };
 
   useEffect(() => {
@@ -46,6 +49,11 @@ function ItemPage() {
         handleSortedChange={handleSortedChange}
         className="-all"
         handleSearchSubmit={handleSearchSubmit}
+      />
+      <Pagination
+        currentPage={page}
+        onPageChange={setPage}
+        totalPage={Math.ceil(totalItemCount / pageSize)}
       />
     </main>
   );

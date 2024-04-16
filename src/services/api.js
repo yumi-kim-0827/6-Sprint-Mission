@@ -1,8 +1,8 @@
 export async function getItems({
   order = "recent",
-  page = 1,
-  pageSize = 10,
-  keyword = "",
+  page = 1, // 페이지 번호
+  pageSize = 10, // 페이지 당 상품 수 
+  keyword = "", 
 }) {
   const query = `orderBy=${order}&page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
   const response = await fetch(
