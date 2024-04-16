@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import ItemForSale from './ItemForSale';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
+import AddItem from '../pages/AddItem';
 
 export default function ItemsForSale({ items }) {
   const [itemsToShow, setItemsToShow] = useState(10);
@@ -72,7 +75,9 @@ export default function ItemsForSale({ items }) {
           onChange={e => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <button className='search-bar__register'>상품 등록하기</button>
+        <Link to='/additem'>
+          <button className='search-bar__register'>상품 등록하기</button>
+        </Link>
         <SelectBox className='select-box' items={items} handleSort={handleSort} />
       </div>
       <section className='items'>

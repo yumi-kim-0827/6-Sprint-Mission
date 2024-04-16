@@ -1,0 +1,78 @@
+/* mobile */
+form {
+  padding-top: 9px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 243px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input {
+  box-sizing: border-box;
+  background-color: #f3f4f6;
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-cool-gray800);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.product-description {
+  height: 200px;
+  padding: 16px 159px 160px 24px;
+}
+
+.tag {
+  position: relative;
+}
+
+.tag__input {
+  width: 100px;
+  height: 48px;
+  border-radius: 26px;
+  padding: 12px, 12px, 12px, 16px;
+}
+
+.tag__delete {
+  width: 22px;
+  height: 24px;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  background-image: url(../../../public/imgs/ic_X.png);
+  background-size: cover;
+  background-color: #f3f4f6;
+}
+
+/* Ipad */
+@media (min-width: 768px) {
+  form {
+    padding-top: 23px;
+    padding-bottom: 199px;
+    gap: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1199px) {
+  form {
+    padding-top: 47px;
+    padding-bottom: 147px;
+    gap: 24px;
+  }
+}

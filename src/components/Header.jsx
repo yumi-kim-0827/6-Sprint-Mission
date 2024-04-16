@@ -16,7 +16,7 @@ export default function Header() {
           <source srcSet='/imgs/img_logo.webp' width={153} type='image/webp' />
           <img src='/imgs/img_logo.webp' alt='판다마켓로고' />
         </picture>
-        <NavLink to='/free-board' style={getLinkStyle}>
+        <NavLink to='/freeboard' style={getLinkStyle}>
           <button className='Header__free-board'>자유게시판</button>
         </NavLink>
         <NavLink to='/items' style={getLinkStyle}>
