@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import styles from "../styles/items.module.css";
-import ProductList from "../components/ProductList";
-import BestProductList from "../components/BestProductList";
+import { BestProductList, ProductList, Pagination } from "../components";
 import { getProducts, getBestProducts } from "../api/api";
 import { useNavigate } from "react-router-dom";
-import Pagenation from "../components/Pagination";
 import Select from "react-select";
 
 function Items() {
@@ -134,7 +132,7 @@ function Items() {
 
         <ProductList products={currentProducts(sortedProducts)} />
       </div>
-      <Pagenation
+      <Pagination
         productsPerPage={productsPerPage}
         totalProducts={products.length}
         paginate={setCurrentPage}
