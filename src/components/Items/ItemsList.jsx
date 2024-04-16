@@ -69,19 +69,15 @@ const ItemsList = () => {
         </div>
       </div>
       <div className="ItemsList__itemsWrapper">
-        {data.length === 0 ? (
-          <></>
-        ) : (
-          data.map((item) => (
-            <Item
-              key={item.id}
-              imgSrc={item.images[0]}
-              name={item.name}
-              price={item.price}
-              favoriteCount={item.favoriteCount}
-            />
-          ))
-        )}
+        {data?.map((item) => (
+          <Item
+            key={item.id}
+            imgSrc={item.images[0]}
+            name={item.name}
+            price={item.price}
+            favoriteCount={item.favoriteCount}
+          />
+        ))}
       </div>
       <div className="ItemsList__pagination_wrapper">
         {/* <Pagenation
