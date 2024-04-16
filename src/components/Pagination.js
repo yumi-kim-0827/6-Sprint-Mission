@@ -1,3 +1,4 @@
+import "../styles/Pagination.css";
 function Pagination({ currentPage, totalPage, onPageChange }) {
   if (totalPage === 1) {
     return null;
@@ -23,23 +24,28 @@ function Pagination({ currentPage, totalPage, onPageChange }) {
   return (
     <div className="pagination">
       <button
-        onClick={handleNextPage}
+        onClick={handlePrevPage}
         disabled={currentPage === 1}
-      >{`<`}</button>
+        className={`page-btn next-prev-btn ${
+          currentPage === 1 ? " disabled-prev" : " active-prev"
+        }`}
+      ></button>
       {pageList.map((page) => (
         <button
           key={page}
           onClick={() => handleChangePage(page)}
-          className={currentPage === page ? "active" : ""}
+          className={`page-btn ${currentPage === page ? " active" : ""}`}
         >
           {page}
         </button>
       ))}
-
       <button
-        onClick={handlePrevPage}
+        onClick={handleNextPage}
         disabled={currentPage === pageList.length}
-      >{`>`}</button>
+        className={`page-btn next-prev-btn ${
+          currentPage === pageList.length ? " disabled-next" : " active-next"
+        }`}
+      ></button>
     </div>
   );
 }
