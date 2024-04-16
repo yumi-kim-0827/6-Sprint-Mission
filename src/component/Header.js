@@ -1,51 +1,40 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import panda_market_logo from "../image/panda_market_home_logo.png";
 import "../css/header.css";
 
-const Header = ({ pageName }) => {
-  const currentPageBlueColor = {
-    color: "#3692FF",
+const Header = () => {
+  
+  const currentPageBlueColor = ({isActive}) => {
+    return { color: isActive ? "#3692FF" : undefined };
   };
 
-  const checkCurrentPage = (currentPageName, menuName) => {
-    if (currentPageName === menuName) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-  // 이 currentPageBlueColor 객체와 checkCurrentPage을 Header 함수 밖에 선언하는 것과 안에 하는 것으 차이가 뭘까요?
 
   return (
     <header>
       <div className="header-content">
-        <a href="/" className="panda-market-home-logo">
+        <Link to="/" className="panda-market-home-logo">
           <img src={panda_market_logo} alt="판다 마켓 로고" />
-        </a>
+        </Link>
         <div className="page-button">
-          <a
-            href="/"
-            style={
-              checkCurrentPage(pageName, "자유게시판")
-                ? currentPageBlueColor
-                : null
-            }
+          <NavLink
+            to="/"
+            style={currentPageBlueColor}
+            className="navLink"
           >
             자유게시판
-          </a>
-          <a
-            href="/items"
-            style={
-              checkCurrentPage(pageName, "중고마켓") ? currentPageBlueColor : null
-            }
+          </NavLink>
+          <NavLink
+            to="/items"
+            style={currentPageBlueColor}
+            className="navLink"
           >
             중고마켓
-          </a>
+          </NavLink>
         </div>
-        <a href="/" className="login-btn">
+        <Link to="/" className="login-btn">
           로그인
-        </a>
-
+        </Link>
       </div>
     </header>
   );

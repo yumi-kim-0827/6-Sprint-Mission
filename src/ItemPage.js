@@ -7,7 +7,7 @@ import "./css/itemPage.css";
 const ItemPage = () => {
   return (
     <>
-      <Header pageName="중고마켓" />
+      <Header/>
       <main>
         <div className="main-content">
           <BestProducts />
