@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/pagenation.module.css";
+import styles from "../styles/pagination.module.css";
 
 function Pagenation({ productsPerPage, totalProducts, paginate }) {
   const pageNumbers = [];

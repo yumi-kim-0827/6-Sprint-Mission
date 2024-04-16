@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/items.module.css";
 import ProductList from "../components/ProductList";
 import BestProductList from "../components/BestProductList";
-import { getProducts, getBestProducts } from "../api";
+import { getProducts, getBestProducts } from "../api/api";
 import { useNavigate } from "react-router-dom";
-import Pagenation from "../components/Pagenation";
+import Pagenation from "../components/Pagination";
 import Select from "react-select";
 
 function Items() {
