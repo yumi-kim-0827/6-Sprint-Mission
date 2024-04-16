@@ -16,11 +16,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 200px;
+  padding: 0 16px;
   background-color: #FFFFFF;
 }
 
-#signinLinkButton {
+.signinLinkButton {
   background-color: #3692FF;
   color: #FFFFFF;
   font-size: 16px;
@@ -55,7 +55,7 @@ h1 {
   font-weight: 700;
 }
 
-#hero-button {
+.hero-button {
   padding: 16px 124px;
   font-size: 20px;
   font-weight: 600;
@@ -187,4 +187,38 @@ footer {
 
 .button:focus {
   background-color: #1251aa;
+}
+
+
+@media (min-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
+
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  #features {
+    padding-top: 24px;
+  }
+
+  .hero-button {
+    justify-content: center;
+  }
+  #hero h1 br {
+    display: none;
+  }
+  footer {
+    padding: 32px, 104px, 64px, 104px;
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    padding: 0 200px;
+  } 
+  footer {
+    padding: 32px 200px 108px 200px;
+  }
 }
