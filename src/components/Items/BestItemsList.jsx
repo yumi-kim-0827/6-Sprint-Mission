@@ -18,19 +18,15 @@ const BestItemsList = () => {
     <div className={"BestItemsList"}>
       <h1 className={"BestItemsList__title"}>베스트 상품</h1>
       <div className={"BestItemsList__wrapper"}>
-        {data.length === 0 ? (
-          <></>
-        ) : (
-          data.map((item) => (
-            <BestItem
-              key={item.id}
-              imgSrc={item.images[0]}
-              name={item.name}
-              price={item.price}
-              favoriteCount={item.favoriteCount}
-            />
-          ))
-        )}
+        {data?.map((item) => (
+          <BestItem
+            key={item.id}
+            imgSrc={item.images[0]}
+            name={item.name}
+            price={item.price}
+            favoriteCount={item.favoriteCount}
+          />
+        ))}
       </div>
     </div>
   );
