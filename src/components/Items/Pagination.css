@@ -19,11 +19,11 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
-  color: #6b7280;
+  color: var(--cool-gray500);
 }
 
 .pagination-elem.active {
-  background-color: #2f80ed;
+  background-color: var(--point-blue200);
   border: none;
   color: var(--white);
 }

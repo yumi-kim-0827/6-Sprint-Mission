@@ -6,17 +6,20 @@
   /* color variables */
 
   --background-blue: #cfe5ff;
-  --point-blue: #3692ff;
   --point-red: #f74747;
 
-  --button-hover: #1967d6;
-  --button-click: #1251aa;
+  --point-blue400: #1251aa;
+  --point-blue300: #1967d6;
+  --point-blue200: #2f80ed;
+  --point-blue100: #3692ff;
 
   --white: #ffffff;
 
   --cool-gray900: #111827;
   --cool-gray800: #1f2937;
   --cool-gray700: #374151;
+  --cool-gray600: #4b5563;
+  --cool-gray500: #6b7280;
   --cool-gray400: #9ca3af;
   --cool-gray200: #e5e7eb;
   --cool-gray100: #f3f4f6;
@@ -26,6 +29,7 @@
   --gray600: #454c53;
   --gray500: #72787f;
   --gray400: #9ea4a8;
+  --gray300: #dfdfdf;
   --gray200: #e5e7eb;
   --gray100: #e8ebed;
   --gray50: #f7f7f8;
@@ -55,16 +59,16 @@ a {
 }
 
 .button {
-  background-color: var(--point-blue);
+  background-color: var(--point-blue100);
   color: var(--white);
 }
 
 .button:hover {
-  background-color: var(--button-hover);
+  background-color: var(--point-blue300);
 }
 
 .button:active {
-  background-color: var(--button-click);
+  background-color: var(--point-blue400);
 }
 
 .button:disabled {

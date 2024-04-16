@@ -5,7 +5,7 @@ import "./Nav.css";
 function Nav() {
   const getLinkStyle = ({ isActive }) => {
     return {
-      color: isActive ? "var(--point-blue)" : "#4b5563",
+      color: isActive ? "var(--point-blue100)" : "var(--cool-gray600)",
     };
   };
 
