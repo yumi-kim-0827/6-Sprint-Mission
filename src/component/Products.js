@@ -1,35 +1,30 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
-import { get_products } from "./api";
+import { Link } from "react-router-dom";
+import { get_products } from "../api/api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/products.css";
 
 const Products = () => {
-  
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   const [products, setProducts] = useState([]);
-  const [order, setOrder] = useState("createdAt");
+  const [order, setOrder] = useState("recent");
   const [showSelectBox, setShowSelectBox] = useState(false);
   const [numOfItemsToShow, setNumOfItemsToShow] = useState(10);
-  const showedProducts = products.slice(0, numOfItemsToShow)
-  
-  const sortByOrder = (products) => {
-    return products.sort((a, b) => {
-      if (order === "createdAt") return new Date(b[order]) - new Date(a[order]);
-      else return b[order] - a[order];
-    });
-  };
+  const [pageNumber, setPageNumber] = useState(1);
+  const showedProducts = products.slice(0, numOfItemsToShow);
 
+
+  //상품 가져오기
   const handleLoad = async () => {
     let result;
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_products();
+      result = await get_products({ orderBy: order, pageSize:numOfItemsToShow,page:pageNumber });
     } catch (error) {
       setLoadingError(error);
       return;
@@ -37,12 +32,14 @@ const Products = () => {
       setIsLoading(false);
     }
     const { list } = result;
-    setProducts(sortByOrder(list));
+    setProducts(list);
   };
 
+  //정렬 버튼 열기
   const handleSelectButton = () => {
     setShowSelectBox(!showSelectBox);
   };
+  //정렬 선택하기
   const handleSelectOption = (selectedOrder) => {
     setOrder(selectedOrder);
     setShowSelectBox(false);
@@ -50,7 +47,7 @@ const Products = () => {
 
   useEffect(() => {
     handleLoad(order);
-  }, [order]);
+  }, [order,pageNumber]);
 
   useEffect(() => {
     const handleResize = () => {

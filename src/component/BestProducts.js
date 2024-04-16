@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { get_products } from "./api";
+import { get_products } from "../api/api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
@@ -10,18 +10,14 @@ const BestProducts = () => {
   const [loadingError, setLoadingError] = useState(null);
   const [bestProducts, setBestProducts] = useState([]);
   const [numOfItemsToShow, setNumOfItemsToShow] = useState(4);
-  const showedBestProducts = bestProducts.slice(0, numOfItemsToShow)
-
-  const sortByLikes = (products) => {
-    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
-  };
+  const showedBestProducts = bestProducts.slice(0, numOfItemsToShow);
 
   const handleLoad = async () => {
     let result;
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_products();
+      result = await get_products({ orderBy: 'favorite', pageSize:4 });
     } catch (error) {
       setLoadingError(error);
       return;
@@ -29,7 +25,7 @@ const BestProducts = () => {
       setIsLoading(false);
     }
     const { list } = result;
-    setBestProducts(sortByLikes(list));
+    setBestProducts(list);
   };
 
   useEffect(() => {
