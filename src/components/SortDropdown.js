@@ -4,18 +4,19 @@ export default function SortDropdown({
   setAllProducts,
   setSortContent,
   allProducts,
+  sortOptions,
 }) {
   // props를 받아 구현하였습니다.
   const handleDateSort = () => {
     const sortedProducts = sortProductsByDate(allProducts);
     setAllProducts(sortedProducts);
-    setSortContent("최신순");
+    setSortContent(sortOptions.NEWEST);
   };
 
   const handleLikeSort = () => {
     const sortedProducts = sortProductsByLike(allProducts);
     setAllProducts(sortedProducts);
-    setSortContent("좋아요순");
+    setSortContent(sortOptions.LIKE);
   };
 
   return (

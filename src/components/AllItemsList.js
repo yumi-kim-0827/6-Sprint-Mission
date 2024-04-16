@@ -14,13 +14,19 @@ import sortButton from "../images/btn_sort.png";
 import favoriteIcon from "../images/ic_heart.png";
 
 export default function AllItemsList({ data }) {
+  // 정렬 옵션을 위한 state입니다.
+  const sortOptions = {
+    LIKE: "좋아요순",
+    NEWEST: "최신순",
+  };
+
   // 드롭다운 on off를 위한 state입니다.
   const [dropdownView, setDropdownView] = useState(false);
   // api의 list만을 받아 데이터를 사용하였습니다.
   const [allProducts, setAllProducts] = useState(data.list);
   // 정렬 후 화면으로 최신순인지 좋아요순인지 보여줍니다.
   // * api를 받은 후 좋아요 순으로 정렬 되어 있어 기본 값을 좋아요순으로 바꾸었습니다.
-  const [sortContent, setSortContent] = useState("좋아요순");
+  const [sortContent, setSortContent] = useState(sortOptions.LIKE);
 
   // 화면 전환 시 달라지는 전체 상품 데이터들을 전역적으로 관리하였습니다.
   const productCount = useProductCountStore();
@@ -72,6 +78,7 @@ export default function AllItemsList({ data }) {
                 setAllProducts={setAllProducts}
                 setSortContent={setSortContent}
                 allProducts={allProducts}
+                sortOptions={sortOptions}
               />
             )}
           </div>
@@ -85,6 +92,7 @@ export default function AllItemsList({ data }) {
                 setAllProducts={setAllProducts}
                 setSortContent={setSortContent}
                 allProducts={allProducts}
+                sortOptions={sortOptions}
               />
             )}
           </div>
