@@ -1,5 +1,5 @@
 import "../styles/BestItemList.css";
-import { AllItem } from "./AllItemList";
+import { AllItem } from "./AllItemLIst";
 
 function BestItemList({ items }) {
   return (
