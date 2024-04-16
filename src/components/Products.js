@@ -119,6 +119,8 @@ const ProductContainer = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
+  padding: 50px 140px;
+
   //모바일
   @media (max-width: 767px) {
     padding: 3px 5px;
@@ -134,7 +136,7 @@ const BestProductContainer = styled.div`
   height: 100%;
   gap: 16px;
   opacity: 0px;
-  padding: 40px 360px;
+
   //모바일
   @media (max-width: 767px) {
     padding: 10px 20px;
@@ -146,11 +148,12 @@ const BestProductContainer = styled.div`
 `;
 
 const TotalProductContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  gap: 24px;
   opacity: 0px;
-  padding: 40px 360px;
+
   //모바일
   @media (max-width: 767px) {
   }
@@ -171,6 +174,7 @@ const TotalTitle = styled.h3`
 
 const TotalTitleContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   margin-top: 20px;
 `;

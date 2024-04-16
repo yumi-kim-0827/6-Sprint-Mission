@@ -56,6 +56,7 @@ const SearchContainerWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  // width: 100%;
   @media (max-width: 767px) {
     flex-direction: column;
     align-items: flex-start;
@@ -82,7 +83,6 @@ const DropdownWrapper = styled.div`
   width: 120px;
   height: 45px;
   padding: 12px 20px 2px 12px;
-  gap: 10px;
   border-radius: 12px;
   border: 1px solid #ccc;
   cursor: pointer;
