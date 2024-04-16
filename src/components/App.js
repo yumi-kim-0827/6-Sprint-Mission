@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ItemPage from "../pages/ItemPage";
-import Home from "./Home";
+import Home from "../pages/Home";
 
 function App() {
   return (
