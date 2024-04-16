@@ -20,22 +20,22 @@ a {
   border-bottom: solid 1px #dfdfdf;
 }
 
-.Header-logo {
+.Header-container {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.Header-logo .Header-img {
+.Header-container .Header-img {
   width: 153px;
   height: 51px;
   cursor: pointer;
 }
-.Header-logo .Header-btn {
+.Header-container .Header-btn {
   display: flex;
   align-items: center;
 }
-.Header-logo .Header-btn li {
+.Header-container .Header-btn li {
   margin-right: 30px;
   font-size: 18px;
   font-weight: 700;
@@ -44,7 +44,7 @@ a {
   color: var(--items-header-btn-color-nonactive);
 }
 
-.Header-logo .Header-btn .active {
+.Header-container .Header-btn .active {
   color: var(--items-header-btn-color-active);
 }
 
@@ -63,4 +63,92 @@ header .Header-login-btn:hover {
 }
 header .Header-login-btn:active {
   background-color: var(--click-blue);
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .Header {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  .Header-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .Header-container .Header-img {
+    position: relative;
+    width: 81px;
+    top: 2px;
+    height: 43px;
+    cursor: pointer;
+  }
+  .Header-container .Header-btn {
+    display: flex;
+    align-items: center;
+  }
+  .Header-container .Header-btn li {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.48px;
+    cursor: pointer;
+    color: var(--items-header-btn-color-nonactive);
+  }
+
+  .Header-container .Header-btn .active {
+    color: var(--items-header-btn-color-active);
+  }
+  .Header .Header-login-btn {
+    background-color: var(--blue);
+    width: 88px;
+    height: 42px;
+    border-radius: 8px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  header .Header-login-btn:hover {
+    background-color: var(--hover-blue);
+  }
+  header .Header-login-btn:active {
+    background-color: var(--click-blue);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .Header {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  .Header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .Header-container .Header-img {
+    width: 153px;
+    height: 51px;
+    cursor: pointer;
+  }
+  .Header-container .Header-btn {
+    display: flex;
+    align-items: center;
+  }
+  .Header-container .Header-btn li {
+    margin-right: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    cursor: pointer;
+    color: var(--items-header-btn-color-nonactive);
+  }
+
+  .Header-container .Header-btn .active {
+    color: var(--items-header-btn-color-active);
+  }
 }
