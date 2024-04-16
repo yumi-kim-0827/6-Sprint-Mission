@@ -17,15 +17,15 @@ const BestProducts = () => {
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_products({ orderBy: 'favorite', pageSize:4 });
+      result = await get_products({ orderBy: "favorite", pageSize: 4 });
+      const { list } = result;
+      setBestProducts(list);
     } catch (error) {
       setLoadingError(error);
       return;
     } finally {
       setIsLoading(false);
     }
-    const { list } = result;
-    setBestProducts(list);
   };
 
   useEffect(() => {
@@ -59,9 +59,9 @@ const BestProducts = () => {
         ) : loadingError ? (
           <FailLoading />
         ) : (
-          showedBestProducts.map((product) => {
-            return <ProductElement key={product.id} product={product} />;
-          })
+          showedBestProducts.map((product) => (
+            <ProductElement key={product.id} product={product} />
+          ))
         )}
       </div>
     </div>

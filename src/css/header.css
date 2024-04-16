@@ -31,7 +31,7 @@ header {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 2.1rem;
-  color: #4b5563;
+  color: var(--btn5);
 }
 
 .logo {

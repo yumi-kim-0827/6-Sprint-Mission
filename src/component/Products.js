@@ -17,22 +17,25 @@ const Products = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const showedProducts = products.slice(0, numOfItemsToShow);
 
-
   //상품 가져오기
   const handleLoad = async () => {
     let result;
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_products({ orderBy: order, pageSize:numOfItemsToShow,page:pageNumber });
+      result = await get_products({
+        orderBy: order,
+        pageSize: numOfItemsToShow,
+        page: pageNumber,
+      });
+      const { list } = result;
+      setProducts(list);
     } catch (error) {
       setLoadingError(error);
       return;
     } finally {
       setIsLoading(false);
     }
-    const { list } = result;
-    setProducts(list);
   };
 
   //정렬 버튼 열기
@@ -47,7 +50,7 @@ const Products = () => {
 
   useEffect(() => {
     handleLoad(order);
-  }, [order,pageNumber]);
+  }, [order, pageNumber]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -119,9 +122,9 @@ const Products = () => {
         ) : loadingError ? (
           <FailLoading />
         ) : (
-          showedProducts.map((product) => {
-            return <ProductElement key={product.id} product={product} />;
-          })
+          showedProducts.map((product) => (
+            <ProductElement key={product.id} product={product} />
+          ))
         )}
       </div>
     </div>
