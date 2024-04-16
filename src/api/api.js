@@ -11,7 +11,6 @@ const get_products = async ({
     throw new Error("데이터를 불러오는데 실패했습니다");
   }
   const products = await response.json();
-  console.log(products);
   return products;
 };
 

@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { get_products } from "../api/api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/bestProducts.css";
+import useLoading from "../api/hooks/loading";
 
-const BestProducts = ({numOfItemsToShow}) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [loadingError, setLoadingError] = useState(null);
+const BestProducts = ({ numOfItemsToShow }) => {
   const [bestProducts, setBestProducts] = useState([]);
   const showedBestProducts = bestProducts.slice(0, numOfItemsToShow);
+  const [isLoading, loadingError, handleLoad] = useLoading();
 
-  const handleLoad = async () => {
-    let result;
-    try {
-      setLoadingError(null);
-      setIsLoading(true);
-      result = await get_products({ orderBy: "favorite", pageSize: 4 });
-      const { list } = result;
-      setBestProducts(list);
-    } catch (error) {
-      setLoadingError(error);
-      return;
-    } finally {
-      setIsLoading(false);
-    }
+  const handleBestProductsLoad = async () => {
+    const result = await handleLoad({ orderBy: "favorite", pageSize: 4 });
+    console.log(result);
+    setBestProducts(result);
   };
 
   useEffect(() => {
-    handleLoad();
+    handleBestProductsLoad();
   }, []);
-
 
   return (
     <div className="best-products-section">

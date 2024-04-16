@@ -1,0 +1,25 @@
+import { useState } from "react";
+import { get_products } from "../api";
+
+export default function useLoading() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState(null);
+
+  const handleLoad = async (...arg) => {
+    let result;
+    try {
+      setLoadingError(null);
+      setIsLoading(true);
+      result = await get_products(...arg);
+      const { list } = result;
+      return list;
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return [isLoading, loadingError, handleLoad];
+}
