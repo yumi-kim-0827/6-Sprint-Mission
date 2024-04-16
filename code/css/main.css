@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main: #3692ff;
+    --error: #f74747;
+    --gray50: #f7f7f8;
+    --gray100: #e8ebed;
+    --gray200: #e5e7eb;
+    --gray400: #9ea4a8;
+    --gray500: #72787f;
+    --gray600: #454c53;
+    --gray700: #374151;
+    --gray800: #26282b;
+    --gray900: #1b1d1f;
+    --btn1: #3692ff;
+    --btn2: #1967d6;
+    --btn3: #1251aa;
+    --btn4: #9ca3af;
+    --bannerbg: #cfe5ff;
+    /* font-size */
+    --font-15: 1.5rem;
+    --font-16: 1.6rem;
+    --font-18: 1.8rem;
+    --font-24: 2.4rem;
+    --font-20: 2rem;
+    --font-32: 3.2rem;
+    --font-26: 2.6rem;
+    --font-66: 6.6rem;
+    --font-40: 4rem;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+html{
+    font-size:62.5%;
+
+}
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    overflow-x:hidden;
+    
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+/* 헤더 */
+header{
+    display:grid;
+    height: 7rem;
+    grid-template-columns: 35.3rem 1fr 32.8rem;
+    position: sticky;
+    top:0;
+    background-color: white;
+    z-index: 1;
+
+}
+
+header a:first-child{
+    margin: auto 0 auto 20rem;
+    grid-column: 1/2;
+}
+header a:last-child{
+    margin: auto 20rem auto 0;
+    grid-column: -1/-2;
+}
+.logo{
+    width: 15.3rem;
+    height: 5.1rem;
+}
+.login-btn{
+    width: 12.8rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 0.8rem;
+    padding: 1.45rem 4.3rem;
+    line-height: 1.9rem;
+    background-color: var(--btn1);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+
+}
+
+/* 메인 */
+main{
+    display:grid;
+    grid-template: 54rem 1fr 54rem / 1fr 120rem 1fr;
+}
+.banner.top{
+    grid-column: 1/4;
+    grid-row:1/2;
+
+}
+.banner.bottom{
+    grid-column: 1/4;
+    grid-row:-1/-2;
+}
+/* 배너 */
+
+.banner{
+    background-color: var(--bannerbg);
+    display: grid;
+    grid-template-columns: 1fr 120rem 1fr;
+
+}
+
+.banner-content{
+    grid-row:1/2;
+    grid-column: 2/3;
+    display: flex;
+  
+}
+.banner-txt{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3.2rem
+}
+.banner-txt p{
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 5.6rem;
+    width: max-content; /* 텍스트 박스의 너비를 텍스트 크기에 맞게 조절 */
+    white-space: nowrap; /* 텍스트가 한 줄에만 표시되도록 줄바꿈을 막음 */
+}
+
+.action-btn{
+    background-color: var(--btn1);
+    padding: 1.6rem 12.4rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 4rem;
+    line-height: 2.4rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+.top .banner-img{
+    width: 99.6rem;
+    height: 44.7rem;
+    position: relative;
+    right:1.4rem;
+    top:9.3rem;
+}
+.bottom .banner-img{
+    width: 99.6rem;
+    height: 54rem;
+    position: relative;
+    left:5.5rem;
+
+}
+
+
+/* 인포 섹션 */
+
+.info-section{
+    grid-column: 2/3;
+    grid-row:2/-2;
+    display: grid;
+    grid-template-rows: repeat(3, 13.8rem 1fr 13.8rem);
+
+}
+.info-card{
+    display: flex;
+    gap:6.4rem;
+    
+}
+.search{
+    justify-content: end;
+
+}
+.info-card.hot-item{
+    grid-row:2/3;
+}
+.info-card.search{
+    grid-row:5/6;
+}
+.info-card.register{
+    grid-row:8/9;
+}
+
+.info-card-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.search .info-card-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: end;
+}
+.info-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--main);
+    line-height: 2.52rem;
+    margin-bottom: 1.2rem;
+
+}
+.big-info{
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 5.6rem;
+    margin-bottom: 2.4rem;
+    letter-spacing: 2%;
+}
+.small-info{
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 2.8rem;
+}
+
+
+/* footer */
+footer{
+    background-color: var(--gray900);
+    height: 16rem;
+    padding-top: 3.2rem;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 20rem;
+}
+.footer-company{
+    color:var(--gray400);
+    font-size: 1.6rem;
+    font-weight: 40;
+    line-height: 1.9rem;
+}
+.footer-policy-faq a{
+    color:var(--gray200);
+}
+.footer-policy-faq a:first-child{
+    margin-right: 3rem;
+}
+.flex-row-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-sns{
+    display: flex;
+    gap: 1.2rem;
+}
