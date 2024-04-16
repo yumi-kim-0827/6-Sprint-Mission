@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import { getProductsInfo } from "../components/item/api.js";
 import AllProductsSection from "../components/item/AllProductsSection.js";
 import BestProductsSection from "../components/item/BestProductsSection.js";
+import PageNation from "../components/item/PageNation.js";
 function Item() {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("최신순");
@@ -98,6 +99,7 @@ function Item() {
         currentOrder={order}
         onChangeSearch={onChangeSearch}
       />
+      <PageNation />
     </>
   );
 }
