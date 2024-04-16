@@ -8,6 +8,10 @@ function Item() {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("최신순");
   const [search, setSearch] = useState("");
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    innerHeight: window.innerHeight,
+  });
 
   const handleOrder = (e) => {
     console.log(e.target.value);
@@ -49,8 +53,16 @@ function Item() {
   };
 
   const bestProducts = useMemo(() => {
-    return sortProductsByFavorites(products);
-  }, [products]);
+    let nextProducts;
+    if (size.width >= 1200) {
+      nextProducts = products.slice(0, 4);
+    } else if (size.width >= 768) {
+      nextProducts = products.slice(0, 2);
+    } else if (size.width >= 375) {
+      nextProducts = products.slice(0, 1);
+    }
+    return sortProductsByFavorites(nextProducts);
+  }, [products, size.width]);
 
   const allProducts = useMemo(() => {
     let nextProducts = [];
@@ -89,8 +101,25 @@ function Item() {
     handleLoad();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
+      <h1>{size.width}</h1>
+      <h1>{size.height}</h1>
       <Navigation />
       <BestProductsSection products={bestProducts} />
       <AllProductsSection

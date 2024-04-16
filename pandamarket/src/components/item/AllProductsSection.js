@@ -8,9 +8,6 @@ function AllProductsSection({
   currentOrder,
   onChangeSearch,
 }) {
-  const IMG_WIDTH = "220px";
-  const IMG_HEIGHT = "220px";
-
   function DropDown() {
     return (
       <select value={currentOrder} onChange={handleOrder}>
@@ -38,12 +35,7 @@ function AllProductsSection({
 
       <div className="allProducts">
         {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imgWidth={IMG_WIDTH}
-            imgHeight={IMG_HEIGHT}
-          />
+          <ProductCard key={product.id} product={product} category="all" />
         ))}
       </div>
     </div>

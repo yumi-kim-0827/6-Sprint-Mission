@@ -34,3 +34,34 @@
   font-weight: 500;
   margin: 6px 0;
 }
+
+.best {
+  width: 282px;
+  height: 282px;
+}
+
+.all {
+  width: 220px;
+  height: 220px;
+}
+
+/* mobile*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .best {
+    width: 343px;
+    height: 343px;
+  }
+
+  .all {
+    width: 167px;
+    height: 167px;
+  }
+}
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .best {
+    width: 336px;
+    height: 336px;
+  }
+}

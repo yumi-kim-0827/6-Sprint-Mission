@@ -13,3 +13,17 @@ h1 {
   max-width: 1200px;
   margin: 24px auto;
 }
+
+/* mobile*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .bestProducts {
+    justify-content: center;
+  }
+}
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .bestProducts {
+    justify-content: center;
+  }
+}
