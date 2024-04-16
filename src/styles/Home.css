@@ -1,27 +1,5 @@
-html {
-  font-family: "Pretendard", sans-serif;
-}
+/****** home-top ******/
 
-body {
-  margin: 0;
-  background-color: #ffffff;
-}
-
-/****** nav & home-top ******/
-
-nav {
-  height: 70px;
-  border-bottom: 1px solid #dfdfdf;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  position: sticky;
-  top: 0;
-  background-color: #ffffff;
-  z-index: 2;
-}
 .login-btn {
   color: white;
   font-size: 16px;
@@ -120,12 +98,12 @@ nav {
 
 /****** main ******/
 
-main {
+.home-main {
   width: 1200px;
   margin: 0 auto;
 }
 
-section {
+.home-section {
   padding: 138px 0;
   display: flex;
   gap: 0 64px;
@@ -297,7 +275,7 @@ footer {
     text-align: center;
     padding-top: 201px;
   }
-  main {
+  .home-main {
     width: 100%;
     margin-top: 24px;
   }
@@ -310,7 +288,7 @@ footer {
   .main-content {
     font-size: 18px;
   }
-  section {
+  .home-section {
     padding: 0 24px 64px;
     flex-direction: column;
   }
@@ -382,7 +360,7 @@ footer {
     padding-top: 121px;
     font-size: 32px;
   }
-  main {
+  .home-main {
     width: 100%;
     margin-top: 51px;
   }
@@ -395,7 +373,7 @@ footer {
   .main-content {
     font-size: 18px;
   }
-  section {
+  .home-section {
     padding: 0 21px 64px;
     flex-direction: column;
   }

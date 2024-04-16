@@ -28,8 +28,8 @@ function Home() {
         </div>
       </header>
       {/* 메인 */}
-      <main>
-        <section>
+      <main className="home-main">
+        <section className="home-section">
           <img src={mainHotItem} alt="메인 이미지1" className="main-img" />
           <div className="main-container">
             <h3 className="main-topic">Hot Item</h3>
@@ -61,7 +61,7 @@ function Home() {
             className="main-img main-img-middle"
           />
         </section>
-        <section>
+        <section className="home-section">
           <img src={mainRegister} alt="메인 이미지3" className="main-img" />
           <div className="main-container">
             <h3 className="main-topic">Register</h3>
