@@ -35,18 +35,22 @@ function Items() {
     const fetch = async () => {
       try {
         setIsLoading(true);
-        const fetchedProducts = await getProducts({ order, keyword });
-        setProducts(fetchedProducts);
-
-        const bestProducts = await getBestProducts();
+        const [fetchedProducts, bestProducts] = await Promise.all([
+          getProducts({ order, keyword }),
+          getBestProducts()
+        ])
+        setProducts(fetchedProducts)
         setBestProducts(bestProducts);
       } catch (error) {
         console.error("상품 가져오는데 실패했습니다", error);
-        setIsLoading(false);
+      } finally {
+        setIsLoading(false)
       }
     };
     fetch();
   }, [order, keyword]);
+
+  
 
   const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
