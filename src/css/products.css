@@ -1,4 +1,3 @@
-
 .products-header {
   margin-bottom: 2.4rem;
   height: 4.2rem;
@@ -32,7 +31,6 @@
   font-size: 1.6rem;
   font-weight: 400;
   margin: auto 0;
-  
 }
 
 .register-product-btn {
@@ -48,7 +46,7 @@
   text-align: center;
   margin: auto 0;
 }
-.product-sort-select{
+.product-sort-select {
   position: relative;
 }
 .product-sort-select-btn {
@@ -70,8 +68,7 @@
 .product-sort-select-option-list {
   list-style-type: none;
   position: absolute;
-  top:4.6rem;
-
+  top: 4.6rem;
 }
 .product-sort-select-option-list li {
   width: 13rem;
@@ -80,20 +77,20 @@
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 24px;
   text-align: center;
   cursor: pointer;
 }
-.product-sort-select-option-list li:first-child{
+.product-sort-select-option-list li:first-child {
   border-radius: 12px 12px 0 0;
 }
-.product-sort-select-option-list li:last-child{
+.product-sort-select-option-list li:last-child {
   border-radius: 0 0 12px 12px;
 }
-.product-sort-select-option-list li:hover{
+.product-sort-select-option-list li:hover {
   background-color: var(--btn1);
 }
 
@@ -109,13 +106,11 @@
   .products-content {
     grid-template: repeat(2, 30rem) / repeat(3, 22rem);
     column-gap: 1.6rem;
-    
   }
-  .search-input{
+  .search-input {
     width: 24.2rem;
-
   }
-  .product-sort-select-btn{
+  .product-sort-select-btn {
     width: 12rem;
   }
 }
@@ -125,34 +120,37 @@
     grid-template: repeat(2, 24.8rem) / repeat(2, 16.8rem);
     row-gap: 3.2rem;
     column-gap: 0.8rem;
-    
   }
-  .products-section{
+  .products-section {
     position: relative;
   }
-  .products-header{
+  .products-header {
     display: grid;
-    grid-template: repeat(2,4.2rem) / 34.3rem;
+    grid-template: repeat(2, 4.2rem) / 34.3rem;
     row-gap: 0.8rem;
     height: 9.2rem;
   }
   .products-title {
     grid-row: 1/2;
   }
-  .register-product-btn{
-    position:absolute;
+  .register-product-btn {
+    position: absolute;
     top: 0;
     right: 0;
   }
-  .product-sort-select-btn{
+  .product-sort-select-btn {
+    padding: 0;
     font-size: 0;
     width: 4.2rem;
-    background-image:none;
-
+    background-image: url("../image/ic_sort.svg"); /* 이미지 경로는 실제 이미지 파일의 경로로 대체해주세요 */
+    background-size: contain; /* 배경 이미지를 요소에 맞게 조절합니다 */
+    background-repeat: no-repeat; /* 배경 이미지 반복을 막습니다 */
+    background-position: left center;
   }
-  .search-input{
+  .product-sort-select-option-list {
+    right: 0.4rem;
+  }
+  .search-input {
     width: 29.4rem;
-
   }
-
 }
