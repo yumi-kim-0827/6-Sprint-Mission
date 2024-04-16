@@ -8,7 +8,7 @@ import FAQ from "pages/supply/faq";
 import Privacy from "pages/supply/privacy";
 import FreeBoard from "pages/supply/free_board";
 
-export default function Router() {
+export default function AppRoutes() {
   return (
     <>
       <Routes>

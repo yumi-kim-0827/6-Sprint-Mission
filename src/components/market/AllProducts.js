@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "styles/markets.module.scss";
-import useDeviceState from "features/hooks/useDeviceState";
+import useDeviceState from "hooks/useDeviceState";
 import Card from "./Card";
 import Button from "components/commons/Button";
 import { SearchInput, SelectInput } from "components/commons/Inputs";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { currentPageState, totalPagesState } from "context/atoms/page";
 import { itemsOrderState } from "context/atoms/order";
-import getProductsPerPage from "features/utils/getProductsPerPage";
+import getProductsPerPage from "utils/getProductsPerPage";
 import getProductsData from "apis/getProductsData";
-import useResetPage from "features/hooks/useResetPage";
+import useResetPage from "hooks/useResetPage";
 
 export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
@@ -45,6 +45,10 @@ export default function AllProducts() {
     setTotalPages(totalPages > 0 ? totalPages : 1);
   }, [deviceState, renderDataList]);
 
+  const handleKeywordChange = (e) => {
+    setKeyword(e.target.value);
+  };
+
   return (
     <div className={styles.all__products}>
       <div className={styles.header}>
@@ -55,7 +59,7 @@ export default function AllProducts() {
           <Button to="/additem">상품 등록하기</Button>
         </div>
         <div className={styles.searchInput}>
-          <SearchInput keyword={keyword} setKeyword={setKeyword} />
+          <SearchInput value={keyword} onChange={handleKeywordChange} />
         </div>
         <div className={styles.selectInput}>
           <SelectInput />

@@ -1,6 +1,6 @@
 import React from "react";
 import HeartIcon from "assets/icon/ic_heart.svg";
-import addCommas from "features/utils/addCommas";
+import addCommas from "utils/addCommas";
 import styles from "styles/markets.module.scss";
 import { Link } from "react-router-dom";
 

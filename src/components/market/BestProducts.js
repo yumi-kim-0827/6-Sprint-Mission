@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "components/market/Card";
 import styles from "styles/markets.module.scss";
-import useDeviceState from "features/hooks/useDeviceState";
+import useDeviceState from "hooks/useDeviceState";
 import iPad from "assets/img/mock/ipad.png";
 import Book from "assets/img/mock/book.png";
 import WashingMachine from "assets/img/mock/washing-machine.png";
