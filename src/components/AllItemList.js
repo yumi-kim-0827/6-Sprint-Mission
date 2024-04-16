@@ -1,5 +1,6 @@
 import heartIcon from "../assets/heart-icon.svg";
 import "../styles/AllItemList.css";
+import { Link } from "react-router-dom";
 
 function AllItem({ item, className = "" }) {
   const { price, favoriteCount, images, name } = item;
@@ -40,9 +41,9 @@ function AllItemList({
               placeholder="검색할 상품을 입력해주세요"
             />
           </form>
-          <a href="/additem" className="item-register-btn">
+          <Link to="/addItem" className="item-register-btn">
             상품 등록하기
-          </a>
+          </Link>
           <select className="select-box" onChange={handleSortedChange}>
             <option value="recent">최신순</option>
             <option value="favorite">좋아요순</option>

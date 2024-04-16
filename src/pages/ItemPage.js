@@ -1,3 +1,4 @@
+import "../styles/ItemPage.css";
 import { useEffect, useState } from "react";
 import { getItems } from "../services/api";
 import "../styles/main.css";
@@ -42,7 +43,7 @@ function ItemPage() {
   }, [order, page, pageSize, keyword]);
 
   return (
-    <main>
+    <main className="item-main">
       <BestItemList items={bestItems} />
       <AllItemList
         items={allItems}
