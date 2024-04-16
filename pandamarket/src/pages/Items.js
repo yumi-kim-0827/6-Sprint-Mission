@@ -12,9 +12,12 @@ function Items() {
   const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("createdAt");
   const [keyword, setKeyword] = useState("");
+  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const [currentPage, setCurrentPage] = useState(1);
+
   const [productsPerPage, setProductsPerPage] = useState(10);
+  const [bestProductsPerPage, setBestProductsPerPage] = useState(4);
 
   // 처음과 끝 인덱스 번호를 구하고 slice로 분할하기
   const indexOfLast = currentPage * productsPerPage;
@@ -32,27 +35,99 @@ function Items() {
   };
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchProducts = async () => {
       try {
         setIsLoading(true);
-        const [fetchedProducts, bestProducts] = await Promise.all([
-          getProducts({ order, keyword }),
-          getBestProducts()
-        ])
-        setProducts(fetchedProducts)
-        setBestProducts(bestProducts);
+        const fetchedProducts = await getProducts({ order, keyword });
+        setProducts(fetchedProducts);
       } catch (error) {
         console.error("상품 가져오는데 실패했습니다", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     };
-    fetch();
+
+    fetchProducts();
   }, [order, keyword]);
 
-  
+  useEffect(() => {
+    const fetchBestProducts = async () => {
+      try {
+        const bestProducts = await getBestProducts();
+        const screenSize = handleMediaQueryChange();
+        const bestProductsCount = getBestProductsPerPage(screenSize);
+        setBestProducts(bestProducts.list.slice(0, bestProductsCount));
+      } catch (error) {
+        console.error("베스트 상품 가져오는데 실패했습니다", error);
+      }
+    };
+    fetchBestProducts();
+  });
 
-  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
+  // 반응형에 따라 보여지는 상품의 개수
+  // 전체 상품
+  function getProductsPerPage(screenSize) {
+    switch (screenSize) {
+      case "desktop":
+        return 10;
+      case "tablet":
+        return 6;
+      case "mobile":
+        return 4;
+      default:
+        return 10;
+    }
+  }
+
+  // 베스트 상품
+  function getBestProductsPerPage(screenSize) {
+    switch (screenSize) {
+      case "desktop":
+        return 4;
+      case "tablet":
+        return 2;
+      case "mobile":
+        return 1;
+      default:
+        return 4;
+    }
+  }
+
+  // 미디어 쿼리 변경 감지를 위한 이벤트 리스너 추가
+  const mqlDesktop = window.matchMedia("(min-width: 1024px)");
+  const mqlTablet = window.matchMedia(
+    "(min-width: 768px) and (max-width: 1199px)"
+  );
+
+  // 페이지당 아이템 개수를 설정하는 함수
+  function handleMediaQueryChange() {
+    const screenSize = mqlDesktop.matches
+      ? "desktop"
+      : mqlTablet.matches
+      ? "tablet"
+      : "mobile";
+    const productsPerPage = getProductsPerPage(screenSize);
+    const bestProductsPerPage = getBestProductsPerPage(screenSize);
+    setProductsPerPage(productsPerPage);
+    setBestProductsPerPage(bestProductsPerPage);
+
+    return screenSize;
+  }
+
+  useEffect(() => {
+    // 미디어 쿼리 변경 감지를 위한 이벤트 리스너 추가
+    mqlDesktop.addListener(handleMediaQueryChange);
+    mqlTablet.addListener(handleMediaQueryChange);
+
+    // 컴포넌트가 마운트될 때 최초 실행
+    handleMediaQueryChange();
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+    return () => {
+      mqlDesktop.removeListener(handleMediaQueryChange);
+      mqlTablet.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   const handleOrderChange = (selectedOption) => {
     setOrder(selectedOption.value);
