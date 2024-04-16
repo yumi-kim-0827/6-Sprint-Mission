@@ -7,14 +7,16 @@ import { SearchInput, SelectInput } from "components/commons/Inputs";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { currentPageState, totalPagesState } from "context/atoms/page";
 import { itemsOrderState } from "context/atoms/order";
-import getProductsPerPage from "utils/getProductsPerPage";
+import getPageSize from "utils/getPageSize";
 import getProductsData from "apis/getProductsData";
 import useResetPage from "hooks/useResetPage";
+
+const PAGE_SIZE_ARRAY = [4, 6, 10];
 
 export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
   const [totalCount, setTotalCount] = useState(0);
-  const [renderDataList, setRenderedDataList] = useState([]);
+  const [renderDataList, setRenderDataList] = useState([]);
   const orderState = useRecoilValue(itemsOrderState);
   const currentPage = useRecoilValue(currentPageState);
   const setTotalPages = useSetRecoilState(totalPagesState);
@@ -24,24 +26,24 @@ export default function AllProducts() {
   // 렌더되는 데이터 설정
   useEffect(() => {
     (async () => {
-      const productsPerPage = getProductsPerPage(deviceState);
+      const pageSize = getPageSize(deviceState, PAGE_SIZE_ARRAY);
       const order = orderState === "최신순" ? "recent" : "favorite";
 
       const data = await getProductsData({
         order,
         page: currentPage,
-        pageSize: productsPerPage,
+        pageSize,
         keyword,
       });
-      setRenderedDataList(data.list);
+      setRenderDataList(data.list);
       setTotalCount(data.totalCount);
     })();
   }, [currentPage, deviceState, orderState, keyword]);
 
   // 전체 페이지 설정
   useEffect(() => {
-    const productsPerPage = getProductsPerPage(deviceState);
-    const totalPages = Math.ceil(totalCount / productsPerPage);
+    const pageSize = getPageSize(deviceState, PAGE_SIZE_ARRAY);
+    const totalPages = Math.ceil(totalCount / pageSize);
     setTotalPages(totalPages > 0 ? totalPages : 1);
   }, [deviceState, renderDataList]);
 
