@@ -5,11 +5,10 @@ import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/bestProducts.css";
 
-const BestProducts = () => {
+const BestProducts = ({numOfItemsToShow}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   const [bestProducts, setBestProducts] = useState([]);
-  const [numOfItemsToShow, setNumOfItemsToShow] = useState(4);
   const showedBestProducts = bestProducts.slice(0, numOfItemsToShow);
 
   const handleLoad = async () => {
@@ -32,23 +31,6 @@ const BestProducts = () => {
     handleLoad();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setNumOfItemsToShow(1);
-      } else if (window.innerWidth <= 1024) {
-        setNumOfItemsToShow(2);
-      } else {
-        setNumOfItemsToShow(4);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div className="best-products-section">

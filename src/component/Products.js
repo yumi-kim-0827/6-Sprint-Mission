@@ -7,13 +7,12 @@ import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/products.css";
 
-const Products = () => {
+const Products = ({numOfItemsToShow}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("recent");
   const [showSelectBox, setShowSelectBox] = useState(false);
-  const [numOfItemsToShow, setNumOfItemsToShow] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
   const showedProducts = products.slice(0, numOfItemsToShow);
 
@@ -52,24 +51,7 @@ const Products = () => {
     handleLoad(order);
   }, [order, pageNumber]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setNumOfItemsToShow(4);
-      } else if (window.innerWidth <= 1024) {
-        setNumOfItemsToShow(6);
-      } else {
-        setNumOfItemsToShow(10);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+ 
 
   return (
     <div className="products-section">
