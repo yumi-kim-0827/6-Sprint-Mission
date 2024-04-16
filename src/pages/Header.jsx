@@ -12,13 +12,14 @@ const Header = () => {
   return (
     <>
       <header className="Header">
-        <div className="Header-logo">
-          <picture>
-            <source srcSet={shortlogo} media="(max-width: 767px)" />
-            <Link to="/">
+        <div className="Header-container">
+          <Link to="/">
+            <picture>
+              <source srcset={shortlogo} media="all and (max-width: 767px)" />
+
               <img className="Header-img" src={longlogo} alt="판다마켓 로고" />
-            </Link>
-          </picture>
+            </picture>
+          </Link>
           <ul className="Header-btn">
             <li href="#">자유게시판</li>
             <Link to="/Items">
