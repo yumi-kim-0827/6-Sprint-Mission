@@ -36,6 +36,7 @@ function AddItemFileInput() {
           className="img-input"
           ref={fileInputRef}
           onChange={handleChange}
+          name="images"
         />
       </div>
       {preview && (

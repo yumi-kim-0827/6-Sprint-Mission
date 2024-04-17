@@ -7,6 +7,8 @@
 
 .add-form {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .add-button {
@@ -21,4 +23,38 @@
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  margin: 12px 0 24px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+  padding-left: 24px;
+}
+
+.form-textarea::placeholder {
+  padding-top: 16px;
+}
+
+.form-input {
+  height: 56px;
+}
+
+.form-textarea {
+  height: 200px;
 }

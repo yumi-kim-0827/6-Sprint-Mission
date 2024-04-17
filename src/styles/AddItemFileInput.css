@@ -1,5 +1,5 @@
 .img-input-container {
-  margin-top: 16px;
+  margin: 16px 0 24px; /* 간격 조정 */
   display: flex;
   position: relative;
 }
