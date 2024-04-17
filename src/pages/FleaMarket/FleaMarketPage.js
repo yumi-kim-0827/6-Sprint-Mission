@@ -8,12 +8,128 @@ import secondImg from "../../assets/images/bookImg.png";
 import thirdImg from "../../assets/images/machineImg.png";
 import fourthImg from "../../assets/images/ovenImg.png";
 import Button from "../../common/Button";
-import Accordian from "./Accordian";
+import Accordion from "./Accordion";
 import readingGlasses from "../../assets/readingGlasses.svg";
 import leftButton from "../../assets/btnLeft.svg";
 import rightButton from "../../assets/btnRight.svg";
 import pageNum from "../../assets/pageNumber.svg";
-import { PAGESIZE } from "../../utils/utils";
+import { PAGESIZE } from "../../utils/constant";
+
+function FleaMarketPage() {
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [orderBy, setOrderBy] = useState("recent");
+
+  const handleRecent = () => {
+    setOrderBy("recent");
+  };
+
+  const handleFavorite = () => {
+    setOrderBy("favorite");
+  };
+
+  const handleload = async (options) => {
+    const { list } = await getItems(options);
+    if (options.page === 1) {
+      setProducts(list);
+    } else {
+      setProducts([...products, ...list]);
+    }
+    setPage(options.page + 1);
+  };
+
+  const handleLoadMore = async () => {
+    setPage((prev) => prev + 1);
+    await handleload({ page, pageSize: PAGESIZE, orderBy });
+  };
+
+  // orderBy 변경 시 페이지 초기화
+  useEffect(() => {
+    const initialPage = 1;
+    setPage(initialPage);
+    handleload({ page: initialPage, pageSize: PAGESIZE, orderBy });
+  }, [orderBy]);
+
+  return (
+    <StyledItems>
+      <BestProductsContainer>
+        <Title>베스트 상품</Title>
+        <BestProducts>
+          <ProductContainer
+            src={firstImg}
+            alt="아이패드 이미지"
+            description="아이패드 미니 팝니다"
+            price="500,000"
+            favoriteCount="1000"
+            width="282px"
+          />
+          <ProductContainer
+            src={secondImg}
+            alt="책 이미지"
+            description="책 팝니다"
+            price="50,000"
+            favoriteCount="800"
+            width="282px"
+          />
+          <ProductContainer
+            src={thirdImg}
+            alt="세탁기 이미지"
+            description="세탁기 팝니다"
+            price="500,000"
+            favoriteCount="700"
+            width="282px"
+          />
+          <ProductContainer
+            src={fourthImg}
+            alt="오븐 이미지"
+            description="오븐 팝니다"
+            price="300,000"
+            favoriteCount="500"
+            width="282px"
+          />
+        </BestProducts>
+      </BestProductsContainer>
+
+      <AllProductsContainer>
+        <AllProductsHeader>
+          <Title>전체 상품</Title>``
+          <InputContainer>
+            <InputForm>
+              <Input placeholder="검색할 상품을 입력해주세요" />
+              <Icon src={readingGlasses} />
+              <Link to="/additem">
+                <StyledButton>상품 등록하기</StyledButton>
+              </Link>
+              <Accordion
+                handleRecent={handleRecent}
+                handleFavorite={handleFavorite}
+              />
+            </InputForm>
+          </InputContainer>
+        </AllProductsHeader>
+
+        <AllProducts>
+          {products.map((product) => (
+            <ProductContainer
+              key={product.id}
+              src={product.images}
+              alt={product.name}
+              description={product.name}
+              price={product.price}
+              favoriteCount={product.favoriteCount}
+            />
+          ))}
+          ;
+        </AllProducts>
+      </AllProductsContainer>
+      <PageNationIconContainer>
+        <img src={leftButton} alt="왼쪽 버튼" />
+        <img src={pageNum} alt="페이지 번호" />
+        <img src={rightButton} alt="오른쪽 버튼" onClick={handleLoadMore} />
+      </PageNationIconContainer>
+    </StyledItems>
+  );
+}
 
 const StyledItems = styled.div`
   display: flex;
@@ -95,121 +211,4 @@ const PageNationIconContainer = styled.div`
   gap: 4px;
 `;
 
-function Items() {
-  const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [orderBy, setOrderBy] = useState("recent");
-
-  const handleRecent = () => {
-    setOrderBy("recent");
-  };
-
-  const hanldeFavorite = () => {
-    setOrderBy("favorite");
-  };
-
-  const hanldeLoad = async (options) => {
-    const { list } = await getItems(options);
-    if (options.page === 1) {
-      setProducts(list);
-    } else {
-      setProducts([...products, ...list]);
-    }
-    setPage(options.page + 1);
-  };
-
-  const handleLoadMore = async () => {
-    setPage((prev) => prev + 1);
-    await hanldeLoad({ page, pageSize: PAGESIZE, orderBy });
-  };
-
-  // orderBy 변경 시 페이지 초기화
-  useEffect(() => {
-    const initialPage = 1;
-    setPage(initialPage);
-    hanldeLoad({ page: initialPage, pageSize: PAGESIZE, orderBy });
-  }, [orderBy]);
-
-  return (
-    <StyledItems>
-      <BestProductsContainer>
-        <Title>베스트 상품</Title>
-        <BestProducts>
-          <ProductContainer
-            src={firstImg}
-            alt="아이패드 이미지"
-            description="아이패드 미니 팝니다"
-            price="500,000"
-            favoriteCount="1000"
-            width="282px"
-          />
-          <ProductContainer
-            src={secondImg}
-            alt="책 이미지"
-            description="책 팝니다"
-            price="50,000"
-            favoriteCount="800"
-            width="282px"
-          />
-          <ProductContainer
-            src={thirdImg}
-            alt="세탁기 이미지"
-            description="세탁기 팝니다"
-            price="500,000"
-            favoriteCount="700"
-            width="282px"
-          />
-          <ProductContainer
-            src={fourthImg}
-            alt="오븐 이미지"
-            description="오븐 팝니다"
-            price="300,000"
-            favoriteCount="500"
-            width="282px"
-          />
-        </BestProducts>
-      </BestProductsContainer>
-
-      <AllProductsContainer>
-        <AllProductsHeader>
-          <Title>전체 상품</Title>
-          <InputContainer>
-            <InputForm>
-              <Input placeholder="검색할 상품을 입력해주세요" />
-              <Icon src={readingGlasses} />
-              <Link to="/additem">
-                <StyledButton>상품 등록하기</StyledButton>
-              </Link>
-              <Accordian
-                handleRecent={handleRecent}
-                hanldeFavorite={hanldeFavorite}
-              />
-            </InputForm>
-          </InputContainer>
-        </AllProductsHeader>
-
-        <AllProducts>
-          {products.map((product) => {
-            return (
-              <ProductContainer
-                key={product.id}
-                src={product.images}
-                alt={product.name}
-                description={product.name}
-                price={product.price}
-                favoriteCount={product.favoriteCount}
-              />
-            );
-          })}
-        </AllProducts>
-      </AllProductsContainer>
-      <PageNationIconContainer>
-        <img src={leftButton} alt="왼쪽 버튼" />
-        <img src={pageNum} alt="페이지 번호" />
-        <img src={rightButton} alt="오른쪽 버튼" onClick={handleLoadMore} />
-      </PageNationIconContainer>
-    </StyledItems>
-  );
-}
-
-export default Items;
+export default FleaMarketPage;
