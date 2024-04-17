@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
+const firstWindowSize = () => {
+  let firstSize = 2;
+  if (window.innerWidth < 768) {
+    firstSize = 0;
+  } else if (window.innerWidth <= 1024) {
+    firstSize = 1;
+  } else {
+    firstSize = 2;
+  }
+  return firstSize;
 
+};
 export default function useSetNumOfItemsToShow({ bestProducts, Products }) {
   const [bestProductsNumOfItemsToShow, setBestProductsNumOfItemsToShow] =
-    useState(bestProducts[2]);
+    useState(bestProducts[firstWindowSize()]);
   const [ProductsNumOfItemsToShow, setProductsNumOfItemsToShow] = useState(
-    Products[2]
+    Products[firstWindowSize()]
   );
 
   useEffect(() => {
@@ -29,5 +40,5 @@ export default function useSetNumOfItemsToShow({ bestProducts, Products }) {
     };
   }, []);
 
-  return [bestProductsNumOfItemsToShow,ProductsNumOfItemsToShow]
+  return [bestProductsNumOfItemsToShow, ProductsNumOfItemsToShow];
 }
