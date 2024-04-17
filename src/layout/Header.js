@@ -12,7 +12,7 @@ export function Header() {
           <GNB/>
         </div>
         <div>
-          <a href="/signin.html" className="btn-login btn-small">로그인</a>
+          <Link to="/signin" className="btn-login btn-small">로그인</Link>
         </div>
       </div>
     </header>

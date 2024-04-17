@@ -4,8 +4,13 @@ import { Desktop, Mobile, Tablet } from "../common/responsive";
 import { SearchText } from "../components/SearchText";
 import { SmallButton } from "../components/SmallButton";
 import { DropDown } from "../components/DropDown";
+import { useMediaQuery } from "react-responsive";
+import { useResponsive } from "../hooks/useResponsive";
+import { Link } from "react-router-dom";
 
 export function ItemPage (){
+  const [isPC, isTablet, isMobile] = useResponsive();
+
   const [values, setValues] = useState({
     search : "",
     order : "recent",
@@ -39,9 +44,9 @@ export function ItemPage (){
             <h2 className="section-tit">베스트 상품</h2>
           </header>
           <div className="section-content">
-            <Desktop><ItemList order="favorite" size="4"/></Desktop>
-            <Tablet><ItemList order="favorite" size="2"/></Tablet>
-            <Mobile><ItemList order="favorite" size="1"/></Mobile>
+            {isPC && <ItemList order="favorite" size="4"/>}
+            {isTablet && <ItemList order="favorite" size="2"/>}
+            {isMobile &&<ItemList order="favorite" size="1"/>}
           </div>
         </div>
       </section>
@@ -50,13 +55,13 @@ export function ItemPage (){
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onChange={handleInputChange} className="section-item__search"/>
-            <SmallButton className="section-item__btn">상품 등록하기</SmallButton>
+            <Link to="/additem"><SmallButton className="section-item__btn">상품 등록하기</SmallButton></Link>
             <DropDown state={popDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
           </header>
           <div className="section-content">
-            <Desktop><ItemList order={values.order} size="10" keyword={values.search} page={values.page}/></Desktop>
-            <Tablet><ItemList order={values.order} size="6" keyword={values.search} page={values.page}/></Tablet>
-            <Mobile><ItemList order={values.order} size="4" keyword={values.search} page={values.page}/></Mobile>
+            {isPC && <ItemList order={values.order} size="10" keyword={values.search} page={values.page}/>}
+            {isTablet && <ItemList order={values.order} size="6" keyword={values.search} page={values.page}/>}
+            {isMobile && <ItemList order={values.order} size="4" keyword={values.search} page={values.page}/>}
           </div>
         </div>
       </section>

@@ -18,7 +18,6 @@ export function ItemList ({order, size, keyword, page}) {
     const { list, totalCount } = result;
 
     setPageTotal(Math.ceil(totalCount / size));
-
     setItems(list);
   }, [getItemsAsync]);
 

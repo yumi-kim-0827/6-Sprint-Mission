@@ -1,8 +1,10 @@
 import { Default, Mobile } from "../common/responsive";
+import { useResponsive } from "../hooks/useResponsive";
 import icoArrow from "../img/ic_arrow_down.svg";
 import icoSort from "../img/ic_sort.svg";
 
 export function DropDown ({state, name, value, onPop, onClick, onChange, className}) {
+  const [isPC, isTablet, isMobile] = useResponsive();
   const content = {
     recent : "최신순",
     favorite : "좋아요순"
@@ -18,13 +20,13 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
       <form onChange={handleClick}>
         <div className="dropdown-main">
           <button type="button" name={name} value={value} aria-label="페이지 정렬 바꾸기" aria-expanded={state} aria-controls="dropdown-sort" onClick={onClick} className="dropdown-main__btn">
-            <Default>
+            { (isPC || isTablet) && <>
               <span aria-hidden="true">{content[value]}</span>
               <img src={icoArrow} alt="아이콘" aria-hidden="true" className="ico-arrow"/>
-            </Default>
-            <Mobile>
+            </>}
+            { isMobile && <>
               <img src={icoSort} alt="아이콘" aria-hidden="true"/>
-            </Mobile>
+            </>}
           </button>
         </div>
         {state && 
