@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useProductCountStore } from "../store/productCountStore";
+import useFetchItems from "../api/useFetchItems";
 import formatNumber from "../utils/formatNumber";
 
 import paginationStore from "../store/paginationStore";
@@ -13,7 +14,7 @@ import arrowDown from "../images/ic_arrow_down.png";
 import sortButton from "../images/btn_sort.png";
 import favoriteIcon from "../images/ic_heart.png";
 
-export default function AllItemsList({ data }) {
+export default function AllItemsList() {
   // 정렬 옵션을 위한 state입니다.
   const sortOptions = {
     LIKE: "좋아요순",
@@ -22,8 +23,8 @@ export default function AllItemsList({ data }) {
 
   // 드롭다운 on off를 위한 state입니다.
   const [dropdownView, setDropdownView] = useState(false);
-  // api의 list만을 받아 데이터를 사용하였습니다.
-  const [allProducts, setAllProducts] = useState(data.list);
+  // 최신순으로 데이터를 받아올지, 좋아요 순으로 데이터를 받아올지 정하는 state입니다.
+  const [orderBy, setOrderBy] = useState("favorite");
   // 정렬 후 화면으로 최신순인지 좋아요순인지 보여줍니다.
   // * api를 받은 후 좋아요 순으로 정렬 되어 있어 기본 값을 좋아요순으로 바꾸었습니다.
   const [sortContent, setSortContent] = useState(sortOptions.LIKE);
@@ -44,11 +45,36 @@ export default function AllItemsList({ data }) {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    const dropdownNode = dropdownRef.current;
+
+    if (dropdownNode) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      if (dropdownNode) {
+        document.addEventListener("mousedown", handleClickOutside);
+      }
     };
   }, [dropdownRef]);
+
+  // 데이터를 가져오기 위한 옵션입니다.
+  const fetchOptions = {
+    page: currentPage,
+    pageSize: productCount,
+    orderBy: orderBy,
+  };
+
+  // useFetchItems로 데이터를 가져옵니다.
+  const { data, isLoading, isError, error } = useFetchItems(fetchOptions);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error : {error.message}</div>;
+  }
 
   return (
     <div className="mt-6 sm:mt-10">
@@ -93,9 +119,8 @@ export default function AllItemsList({ data }) {
             {dropdownView && (
               <div ref={dropdownRef}>
                 <SortDropdown
-                  setAllProducts={setAllProducts}
                   setSortContent={setSortContent}
-                  allProducts={allProducts}
+                  setOrderBy={setOrderBy}
                   sortOptions={sortOptions}
                 />
               </div>
@@ -109,9 +134,8 @@ export default function AllItemsList({ data }) {
             {dropdownView && (
               <div ref={dropdownRef}>
                 <SortDropdown
-                  setAllProducts={setAllProducts}
                   setSortContent={setSortContent}
-                  allProducts={allProducts}
+                  setOrderBy={setOrderBy}
                   sortOptions={sortOptions}
                 />
               </div>
@@ -119,37 +143,27 @@ export default function AllItemsList({ data }) {
           </div>
         </div>
       </div>
-      {/* 클릭 시 페이지 * 화면 전환에 따른 제품 개수로 렌더링 하도록 구현하였습니다. */}
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-        {allProducts &&
-          allProducts
-            .slice(
-              currentPage * productCount - productCount,
-              currentPage * productCount,
-            )
-            .map((post) => {
-              return (
-                <li key={post.id}>
-                  <img
-                    src={post.images[0]}
-                    alt={post.name}
-                    className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
-                  />
-                  <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
-                    {post.name} 팝니다
-                  </p>
-                  <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                    {formatNumber(post.price)}원
-                  </p>
-                  <img
-                    src={favoriteIcon}
-                    alt="favoriteicon"
-                    className="inline"
-                  />
-                  <span className="ml-1 text-xs">{post.favoriteCount}</span>
-                </li>
-              );
-            })}
+        {data.list &&
+          data.list.map((post) => {
+            return (
+              <li key={post.id}>
+                <img
+                  src={post.images[0]}
+                  alt={post.name}
+                  className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
+                />
+                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
+                  {post.name} 팝니다
+                </p>
+                <p className="text-sm font-bold text-[var(--cool-gray800)]">
+                  {formatNumber(post.price)}원
+                </p>
+                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
+                <span className="ml-1 text-xs">{post.favoriteCount}</span>
+              </li>
+            );
+          })}
       </ul>
       <Pagination datatotalCount={data.totalCount} />
     </div>
