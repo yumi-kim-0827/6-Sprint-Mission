@@ -21,25 +21,29 @@ export default function AddItem() {
         </div>
       </div>
       <div>
-        <p>상품 이름</p>
+        <p className={styles.titleForms}>상품명</p>
         <input type="text" placeholder="상품명을 입력해주세요" />
       </div>
       <div>
-        <p>상품 소개</p>
-        <textarea placeholder="상품 소개를 입력해주세요" />
+        <p className={styles.titleForms}>상품 소개</p>
+        <input type="text" placeholder="상품 소개를 입력해주세요" />
       </div>
       <div>
-        <p>판매 가격</p>
+        <p className={styles.titleForms}>판매 가격</p>
         <input placeholder="판매 가격을 입력해주세요" />
       </div>
       <div>
-        <p>태그</p>
+        <p className={styles.titleForms}>태그</p>
         <input placeholder="태그를 입력해주세요" />
       </div>
-      <div className="container-tags">
-        <div className="tag">
+      <div className={styles.containerTags}>
+        <div className={styles.tag}>
           <span>티셔츠</span>
-          <img />
+          <button className={styles.btnClose} />
+        </div>
+        <div className={styles.tag}>
+          <span>상의</span>
+          <button className={styles.btnClose} />
         </div>
       </div>
     </div>

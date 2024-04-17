@@ -1,7 +1,26 @@
+input {
+  width: 100%;
+  height: 56px;
+  border: none;
+  align-items: center;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  margin-top: 12px;
+  padding-left: 24px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+input::placeholder {
+  color: #9ca3af;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   width: 344px;
+  height: 100vh;
   margin: 0 auto;
   gap: 16px;
   margin-top: 16px;
@@ -60,4 +79,78 @@
 }
 .preview img {
   width: 100%;
+}
+
+.titleForms {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #1f2937;
+}
+
+.containerTags {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  width: 100px;
+  height: 48px;
+  border-radius: 26px;
+  background-color: #f9fafb;
+  border: 1px solid #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag span {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+.btnClose {
+  background-image: url("../../assets//btn-close.svg");
+  width: 22px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+@media (min-width: 744px) {
+  .titleImg {
+    font-size: 18px;
+  }
+  .titleForms {
+    font-size: 18px;
+  }
+  .titleSubmit {
+    font-size: 28px;
+  }
+  .btn {
+    font-size: 19px;
+  }
+  .container {
+    width: 696px;
+  }
+
+  .preview {
+    width: 162px;
+    height: 162px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+  .preview {
+    width: 282px;
+    height: 282px;
+  }
 }
