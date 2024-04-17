@@ -2,7 +2,7 @@ import React from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
 
-function BestProducts({ item }) {
+function BestProduct({ item }) {
   const { name, price, favoriteCount, images } = item;
   const formatedPrice = price.toLocaleString();
 
@@ -22,13 +22,16 @@ function BestProducts({ item }) {
 const ShowBestProducts = ({ products }) => {
   return (
     <main className="Main">
-      <h2>베스트 상품</h2>
+      <div className="best">
+        <h2>베스트 상품</h2>
+      </div>
+
       <ul className="BestProductsList">
         {products
           .map((item) => {
             return (
               <li key={item.id}>
-                <BestProducts item={item} />
+                <BestProduct item={item} />
               </li>
             );
           })
