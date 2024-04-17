@@ -99,8 +99,7 @@ const BestProductContainer = styled.div`
 
 const TotalProductContainer = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   flex-wrap: wrap; 
   }
 `;
@@ -156,7 +155,7 @@ const TotalProductImage = styled.img`
 `;
 
 const ProductName = styled.h3`
-  margin: 0.5rem 0;
+  margin: 8px 0;
   width: 116px;
   height: 17px;
   font-size: 14px;
@@ -228,7 +227,7 @@ const SortDropdown = styled.select`
 const AddItemButton = styled(Link)`
   width: 130px;
   height: 19px;
-  padding: 12px 20px 12px 20px;
+  padding: 12px 20px;
   gap: 10px;
   border-radius: 12px;
   background-color: #3692ff;
