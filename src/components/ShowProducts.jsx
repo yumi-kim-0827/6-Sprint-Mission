@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import searchicon from "../assets/search-icon.png";
 import "./ShowProducts.css";
 import likeicon from "../assets/like-icon.png";
-import { Link, useNavigate } from "react-router-dom";
 
-function Products({ item }) {
+import { Link } from "react-router-dom";
+
+function Product({ item }) {
   const { name, price, favoriteCount, images } = item;
   const formatedPrice = price.toLocaleString();
 
@@ -30,21 +31,21 @@ const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
           <label htmlFor="search"></label>
           <img id="search-icon" src={searchicon} alt="검색 아이콘" />
           <input onChange={onChangeInput} id="search" type="text" placeholder="검색할 상품을 입력해주세요" />
-          <Link to="/additems">
-            <button className="Product-Resister-Btn">상품 등록하기</button>
-          </Link>
-          <label htmlFor="select-category"></label>
-          <select onChange={onChangeSelect} name="category" id="select-category">
-            <option value="최신순">최신순</option>
-            <option value="좋아요순">좋아요순</option>
-          </select>
         </div>
+        <Link className="link" to="/additems">
+          <button className="Product-Resister-Btn">상품 등록하기</button>
+        </Link>
+        <label htmlFor="select-category"></label>
+        <select onChange={onChangeSelect} name="category" id="select-category">
+          <option value="최신순">최신순</option>
+          <option value="좋아요순">좋아요순</option>
+        </select>
       </div>
       <ul className="ProductsList">
         {products.map((item) => {
           return (
             <li key={item.id}>
-              <Products item={item} />
+              <Product item={item} />
             </li>
           );
         })}
