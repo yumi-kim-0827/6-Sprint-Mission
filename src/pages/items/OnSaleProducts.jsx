@@ -1,7 +1,7 @@
 import "./OnSaleProducts.css";
 import NavOnSaleProducts from "./NavOnSaleProducts";
-import ItemCard from "./ItemCard";
-import useItemCount from "./useItemCount";
+import ItemCard from "../../components/ItemCard";
+import useItemCount from "../../hooks/useItemCount";
 
 export default function OnSaleProducts({ items }) {
   let count = useItemCount();
