@@ -1,0 +1,112 @@
+@import "variables";
+
+/* add item */
+
+.add__item {
+  margin-top: 16px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--cool-gray800);
+
+      @media (min-width: $min-tablet-width) {
+        font-size: 28px;
+      }
+    }
+
+    .submitBtn {
+      background-color: var(--light-gray);
+    }
+  }
+}
+
+@mixin formLabel {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--cool-gray800);
+  margin-bottom: 12px;
+
+  @media (min-width: $min-tablet-width) {
+    font-size: 18px;
+  }
+}
+
+.add__item__form {
+  .form__image {
+    margin-top: 16px;
+
+    & > h1 {
+      @include formLabel;
+    }
+
+    .image__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+      gap: 8px;
+
+      @media (min-width: $min-tablet-width) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      @media (min-width: $min-desktop-width) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+    }
+  }
+
+  .form__title {
+    margin-top: 9px;
+
+    @media (min-width: $min-tablet-width) {
+      margin-top: 23px;
+    }
+
+    @media (min-width: $min-desktop-width) {
+      margin-top: 47px;
+    }
+
+    & > h1 {
+      @include formLabel;
+    }
+  }
+
+  .form__description {
+    margin-top: 16px;
+
+    & > h1 {
+      @include formLabel;
+    }
+  }
+
+  .form__price {
+    margin-top: 16px;
+
+    & > h1 {
+      @include formLabel;
+    }
+  }
+
+  .form__tags {
+    margin-top: 16px;
+
+    & > h1 {
+      @include formLabel;
+    }
+
+    .tag__list {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+  }
+}
