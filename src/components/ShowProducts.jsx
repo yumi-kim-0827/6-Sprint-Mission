@@ -5,8 +5,7 @@ import likeicon from "../assets/like-icon.png";
 
 import { Link } from "react-router-dom";
 
-function Product({ item }) {
-  const { name, price, favoriteCount, images } = item;
+function Product({ name, price, favoriteCount, images }) {
   const formatedPrice = price.toLocaleString();
 
   return (
@@ -45,7 +44,7 @@ const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
         {products.map((item) => {
           return (
             <li key={item.id}>
-              <Product item={item} />
+              <Product {...item} />
             </li>
           );
         })}

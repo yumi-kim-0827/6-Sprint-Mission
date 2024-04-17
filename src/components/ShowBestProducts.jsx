@@ -2,8 +2,7 @@ import React from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
 
-function BestProduct({ item }) {
-  const { name, price, favoriteCount, images } = item;
+function BestProduct({ name, price, favoriteCount, images }) {
   const formatedPrice = price.toLocaleString();
 
   return (
@@ -31,7 +30,7 @@ const ShowBestProducts = ({ products }) => {
           .map((item) => {
             return (
               <li key={item.id}>
-                <BestProduct item={item} />
+                <BestProduct {...item} />
               </li>
             );
           })
