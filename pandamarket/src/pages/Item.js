@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Navigation from "../components/Navigation";
 import { getProductsInfo } from "../components/item/api.js";
 import AllProductsSection from "../components/item/AllProductsSection.js";
 import BestProductsSection from "../components/item/BestProductsSection.js";
@@ -118,9 +117,6 @@ function Item() {
 
   return (
     <>
-      <h1>{size.width}</h1>
-      <h1>{size.height}</h1>
-      <Navigation />
       <BestProductsSection products={bestProducts} />
       <AllProductsSection
         products={allProducts}

@@ -1,8 +1,17 @@
 import "./Navigation.css";
 import Button from "./Button";
 import logo from "../assets/logo.png";
+import { NavLink } from "react-router-dom";
 function Navigation() {
   const src = logo;
+
+  function getLinkStyle({ isActive }) {
+    return {
+      color: isActive ? "#3692ff" : "#4b5563",
+      textDecoration: "none",
+    };
+  }
+  console.log(getLinkStyle);
   return (
     <>
       <nav>
@@ -11,10 +20,14 @@ function Navigation() {
             <img src={src} alt="logo" />
           </span>
           <li>
-            <div>자유게시판</div>
+            <NavLink to="/freeboard" style={getLinkStyle}>
+              자유게시판
+            </NavLink>
           </li>
           <li>
-            <div>중고마켓</div>
+            <NavLink to="/items" style={getLinkStyle}>
+              중고마켓
+            </NavLink>
           </li>
         </div>
         <Button>로그인</Button>
