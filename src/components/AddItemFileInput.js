@@ -40,7 +40,10 @@ function AddItemFileInput() {
         />
       </div>
       {preview && (
-        <img src={preview} alt="이미지 미리보기" className="preview" />
+        <>
+          <img src={preview} alt="이미지 미리보기" className="preview" />
+          <input type="button" className="preview-delete-btn" />
+        </>
       )}
     </div>
   );
