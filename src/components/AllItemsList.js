@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useProductCountStore } from "../store/productCountStore";
 import formatNumber from "../utils/formatNumber";
@@ -32,6 +32,23 @@ export default function AllItemsList({ data }) {
   const productCount = useProductCountStore();
   // 페이지네이션을 버튼 클릭시 현재 페이지를 눌러 랜더링 하도록 데이터를 만들었습니다.
   const currentPage = paginationStore((state) => state.currentPage);
+
+  // 드롭다운을 외부에서 클릭 시 닫히게 하기위한 Ref와 Effect입니다.
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      // 드롭다운이 존재하고 클릭한 요소가 드롭다운 밖에 있으면 드롭다운을 닫습니다.
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownView(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
     <div className="mt-6 sm:mt-10">
@@ -74,12 +91,14 @@ export default function AllItemsList({ data }) {
             <span>{sortContent}</span>
             <img src={arrowDown} alt="arrowdown" className="inline" />
             {dropdownView && (
-              <SortDropdown
-                setAllProducts={setAllProducts}
-                setSortContent={setSortContent}
-                allProducts={allProducts}
-                sortOptions={sortOptions}
-              />
+              <div ref={dropdownRef}>
+                <SortDropdown
+                  setAllProducts={setAllProducts}
+                  setSortContent={setSortContent}
+                  allProducts={allProducts}
+                  sortOptions={sortOptions}
+                />
+              </div>
             )}
           </div>
           <div
@@ -88,12 +107,14 @@ export default function AllItemsList({ data }) {
           >
             <img src={sortButton} alt="sortbutton" />
             {dropdownView && (
-              <SortDropdown
-                setAllProducts={setAllProducts}
-                setSortContent={setSortContent}
-                allProducts={allProducts}
-                sortOptions={sortOptions}
-              />
+              <div ref={dropdownRef}>
+                <SortDropdown
+                  setAllProducts={setAllProducts}
+                  setSortContent={setSortContent}
+                  allProducts={allProducts}
+                  sortOptions={sortOptions}
+                />
+              </div>
             )}
           </div>
         </div>
