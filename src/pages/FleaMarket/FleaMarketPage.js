@@ -1,35 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getItems } from "../../api/api";
 import { styled } from "styled-components";
-import ProductContainer from "./ProductContainer";
-import firstImg from "../../assets/images/ipadImg.png";
-import secondImg from "../../assets/images/bookImg.png";
-import thirdImg from "../../assets/images/machineImg.png";
-import fourthImg from "../../assets/images/ovenImg.png";
-import Button from "../../common/Button";
-import Accordion from "./Accordion";
-import readingGlasses from "../../assets/readingGlasses.svg";
+import BestProducts from "./BestProducts";
+import AllProducts from "./AllProducts";
+import { PAGESIZE } from "../../utils/constant";
+import { getBestProducts, getItems } from "../../api/api";
 import leftButton from "../../assets/btnLeft.svg";
 import rightButton from "../../assets/btnRight.svg";
 import pageNum from "../../assets/pageNumber.svg";
-import { PAGESIZE } from "../../utils/constant";
 
 function FleaMarketPage() {
   const [products, setProducts] = useState([]);
+  const [bestProducts, setBestProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [loadingError, setLoadingError] = useState(null);
+  
+  // 베스트 상품
+  const handleLoadBestProducts = async () => {
+    let bestResult;
+    try {
+      setLoadingError(null);
+      bestResult = await getBestProducts();
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    }
 
-  const handleRecent = () => {
-    setOrderBy("recent");
-  };
+    const { list } = bestResult;
+    const sliceList = list.slice(0, 4);
+    setBestProducts(sliceList);
+  }
 
-  const handleFavorite = () => {
-    setOrderBy("favorite");
-  };
-
-  const handleload = async (options) => {
+  // 전체 상품
+  const handleLoadAllProducts = async (options) => {
     let result;
     try {
       setLoadingError(null);
@@ -37,7 +40,7 @@ function FleaMarketPage() {
     } catch (error) {
       setLoadingError(error);
       return;
-    } 
+    }
 
     const { list } = result;
     if (options.page === 1) {
@@ -47,178 +50,55 @@ function FleaMarketPage() {
     }
     setPage(options.page + 1);
   };
-
+  
   const handleLoadMore = async () => {
     setPage((prev) => prev + 1);
-    await handleload({ page, pageSize: PAGESIZE, orderBy });
+    await handleLoadAllProducts({ page, pageSize: PAGESIZE, orderBy });
   };
 
-  // orderBy 변경 시 페이지 초기화
   useEffect(() => {
     const initialPage = 1;
     setPage(initialPage);
-    handleload({ page: initialPage, pageSize: PAGESIZE, orderBy });
+    handleLoadAllProducts({ page: initialPage, pageSize: PAGESIZE, orderBy });
+    handleLoadBestProducts();
   }, [orderBy]);
 
   return (
-    <StyledItems>
-      {loadingError?.message && <span>{loadingError.message}</span>}
-      <BestProductsContainer>
-        <Title>베스트 상품</Title>
-        <BestProducts>
-          <ProductContainer
-            src={firstImg}
-            alt="아이패드 이미지"
-            description="아이패드 미니 팝니다"
-            price="500,000"
-            favoriteCount="1000"
-            width="282px"
-          />
-          <ProductContainer
-            src={secondImg}
-            alt="책 이미지"
-            description="책 팝니다"
-            price="50,000"
-            favoriteCount="800"
-            width="282px"
-          />
-          <ProductContainer
-            src={thirdImg}
-            alt="세탁기 이미지"
-            description="세탁기 팝니다"
-            price="500,000"
-            favoriteCount="700"
-            width="282px"
-          />
-          <ProductContainer
-            src={fourthImg}
-            alt="오븐 이미지"
-            description="오븐 팝니다"
-            price="300,000"
-            favoriteCount="500"
-            width="282px"
-          />
-        </BestProducts>
-      </BestProductsContainer>
-
-      <AllProductsContainer>
-        <AllProductsHeader>
-          <Title>전체 상품</Title>
-          <InputContainer>
-            <InputForm>
-              <Input placeholder="검색할 상품을 입력해주세요" />
-              <Icon src={readingGlasses} />
-              <Link to="/additem">
-                <StyledButton>상품 등록하기</StyledButton>
-              </Link>
-              <Accordion
-                handleRecent={handleRecent}
-                handleFavorite={handleFavorite}
-              />
-            </InputForm>
-          </InputContainer>
-        </AllProductsHeader>
-
-        <AllProducts>
-          {products.map((product) => (
-            <ProductContainer
-              key={product.id}
-              src={product.images}
-              alt={product.name}
-              description={product.name}
-              price={product.price}
-              favoriteCount={product.favoriteCount}
-            />
-          ))}
-        </AllProducts>
-      </AllProductsContainer>
-      <PageNationIconContainer>
-        <img src={leftButton} alt="왼쪽 버튼" />
-        <img src={pageNum} alt="페이지 번호" />
-        <img src={rightButton} alt="오른쪽 버튼" onClick={handleLoadMore} />
-      </PageNationIconContainer>
-    </StyledItems>
+    <>
+      {loadingError?.message ? (
+        <ErrorContainer>{loadingError.message}</ErrorContainer>
+      ) : (
+        <FleaMarketContainer>
+          <BestProducts bestProducts={bestProducts} />
+          <AllProducts products={products} setOrderBy={setOrderBy} />
+          <PageNationIconContainer>
+            <img src={leftButton} alt="왼쪽 버튼" />
+            <img src={pageNum} alt="페이지 번호" />
+            <img src={rightButton} alt="오른쪽 버튼" onClick={handleLoadMore} />
+          </PageNationIconContainer>
+        </FleaMarketContainer>
+      )}
+    </>
   );
 }
 
-const StyledItems = styled.div`
+const FleaMarketContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 24px;
 `;
 
-const BestProductsContainer = styled.div`
-  margin-bottom: 40px;
-`;
-
-const BestProducts = styled.div`
-  display: flex;
-  gap: 24px;
-`;
-
-const Title = styled.p`
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 28px;
-  letter-spacing: 0.02em;
-  color: var(--main-text-color);
-  margin-bottom: 16px;
-`;
-
-const AllProductsContainer = styled.div`
-  margin-bottom: 40px;
-`;
-
-const AllProductsHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
-`;
-
-const InputContainer = styled.div``;
-
-const InputForm = styled.form`
-  position: relative;
-  display: flex;
-  gap: 12px;
-`;
-
-const Input = styled.input`
-  width: 352px;
-  height: 42px;
-  background: #f3f4f6;
-  padding: 9px 0 9px 44px;
-  border-radius: 12px;
-  border: 1px solid #f3f4f6;
-
-  &::placeholder {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--input-color);
-  }
-`;
-
-const Icon = styled.img`
-  position: absolute;
-  padding: 13px 20px;
-`;
-
-const StyledButton = styled(Button)`
-  width: 133px;
-`;
-
-const AllProducts = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 24px;
-`;
-
 const PageNationIconContainer = styled.div`
   display: flex;
   gap: 4px;
 `;
+
+const ErrorContainer = styled.h1`
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 250px;
+`
 
 export default FleaMarketPage;
