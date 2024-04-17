@@ -13,6 +13,7 @@ const Products = ({ numOfItemsToShow }) => {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("recent");
   const [isLoading, loadingError, handleLoad] = useLoading();
+  const [search, setSearch] = useState("");
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsTotalCount, setProductsTotalCount] = useState(0);
@@ -33,13 +34,13 @@ const Products = ({ numOfItemsToShow }) => {
       setCurrentPage((prev) => prev - 1);
     }
   };
-
   //상품 LOAD
   const handleProductsLoad = async () => {
     const result = await handleLoad({
       orderBy: order,
       pageSize: numOfItemsToShow,
       page: currentPage,
+      keyword: search,
     });
     console.log(result);
     setProducts(result.list);
@@ -49,7 +50,6 @@ const Products = ({ numOfItemsToShow }) => {
     const totalPageCount = Math.ceil(result.totalCount / numOfItemsToShow);
     settingPageNumbers(totalPageCount);
   };
- 
 
   // "<" 버튼
   const prevPageBtn = () => {
@@ -103,23 +103,27 @@ const Products = ({ numOfItemsToShow }) => {
     }
   };
 
+  //검색
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setSearch(e.target["search"].value);
+  };
 
-
-   //정렬 선택하기
-   const handleSelectOption = (selectedOrder) => {
+  //정렬 선택하기
+  const handleSelectOption = (selectedOrder) => {
     setOrder(selectedOrder);
   };
 
   useEffect(() => {
     handleProductsLoad();
-  }, [order, currentPage, numOfItemsToShow]);
+  }, [order, currentPage, numOfItemsToShow, search]);
 
   return (
     <div className="products-section">
       <div className="products-header">
         <span className="products-title">전체 상품</span>
         <div className="products-sort-section">
-          <form>
+          <form onSubmit={handleSearchSubmit}>
             <input
               name="search"
               className="search-input"
