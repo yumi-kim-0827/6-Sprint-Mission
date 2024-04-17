@@ -13,17 +13,12 @@ const Product = () => {
       try {
         const productList = await fetchProducts();
 
-        let sortedProducts = [...productList];
+        const sortByFunction =
+          sortBy === "latest"
+            ? (a, b) => b.createdAt - a.createdAt
+            : (a, b) => b.favoriteCount - a.favoriteCount;
 
-        if (sortBy === "latest") {
-          sortedProducts = sortedProducts.sort(
-            (a, b) => b.createdAt - a.createdAt
-          );
-        } else if (sortBy === "likes") {
-          sortedProducts = sortedProducts.sort(
-            (a, b) => b.favoriteCount - a.favoriteCount
-          );
-        }
+        let sortedProducts = [...productList].sort(sortByFunction);
 
         setProducts(sortedProducts.slice(0, 12));
 

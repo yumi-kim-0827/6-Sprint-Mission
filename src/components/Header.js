@@ -37,6 +37,7 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div`
+  font-family: Pretendard;
   position: sticky;
   top: 0px;
   max-width: 1920px;
@@ -76,7 +77,6 @@ const MenuContainer = styled.div`
 `;
 
 const FreeBoard = styled.div`
-  font-family: Pretendard;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
@@ -86,7 +86,6 @@ const FreeBoard = styled.div`
 `;
 
 const UsedMarket = styled.div`
-  font-family: Pretendard;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.48px;
