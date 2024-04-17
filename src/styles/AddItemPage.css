@@ -1,4 +1,24 @@
+@import url("global.css");
+
 .add-page-heading {
   font-size: 28px;
   font-weight: 700;
+}
+
+.add-form {
+  position: relative;
+}
+
+.add-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 88px;
+  height: 42px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
 }
