@@ -4,7 +4,6 @@ import styles from "../styles/items.module.css";
 import { BestProductList, ProductList, Pagination } from "../components";
 import { getProducts, getBestProducts } from "../api/api";
 import { useNavigate } from "react-router-dom";
-import Select from "react-select";
 
 function Items() {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,12 +17,20 @@ function Items() {
   const [productsPerPage, setProductsPerPage] = useState(10);
   const [bestProductsPerPage, setBestProductsPerPage] = useState(4);
 
+  const [isDropdownView, setDropdownView] = useState(false);
+
   // 처음과 끝 인덱스 번호를 구하고 slice로 분할하기
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
 
+  const selectOptions = [
+    { value: "createdAt", label: "최신순" },
+    { value: "favoriteCount", label: "좋아요순" },
+  ];
+
   const currentProducts = (products) => {
     let currentProducts = 0;
+
     currentProducts = products.slice(indexOfFirst, indexOfLast);
     return currentProducts;
   };
@@ -128,45 +135,20 @@ function Items() {
     };
   }, []);
 
-  const handleOrderChange = (selectedOption) => {
-    setOrder(selectedOption.value);
-  };
-
   const handleKeywordSearch = (e) => {
     setKeyword(e.target.value);
   };
 
-  const selectOptions = [
-    { value: "createdAt", label: "최신순" },
-    { value: "favoriteCount", label: "좋아요순" },
-  ];
-
-
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      border: "1px solid #ccc",
-      borderRadius: "8px",
-      fontSize: "16px",
-      padding: "0 1rem",
-      height: "56px",
-    }),
-    option: (provided) => ({
-      ...provided,
-      padding: "1rem",
-      height: "20px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }),
-    
-  };
-  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
-
-  const customComponents = {
-    IndicatorSeparator: () => null, // 화살표 구분선 숨기기
+  // 드롭다운 토글 함수
+  const toggleDropdown = () => {
+    setDropdownView(!isDropdownView);
   };
 
+  // 선택된 옵션을 처리하는 함수
+  const selectOption = (value) => {
+    setOrder(value);
+    setDropdownView(false); // 옵션 선택 후 드롭다운 닫기
+  };
 
   return (
     <div className={styles.container}>
@@ -178,7 +160,7 @@ function Items() {
       <div>
         <div className={styles["all-products-nav"]}>
           <div className={styles["all-products-sub-nav"]}>
-          <h3>전체 상품</h3>
+            <h3>전체 상품</h3>
             <div className={styles.search}>
               <img src="/assets/icon_search.png" />
               <input
@@ -189,21 +171,34 @@ function Items() {
             <button id="btn_small" onClick={goToAddItem}>
               상품 등록하기
             </button>
-            <div>
-              <div className={styles.dropdown}>
-                <Select
-                  styles={customStyles}
-                  components={customComponents}
-                  options={selectOptions}
-                  value={selectOptions.find((option) => option.value === order)}
-                  onChange={handleOrderChange}
+            <div className={styles.dropdown} onClick={toggleDropdown}>
+              <picture>
+                <source
+                  srcset="assets/icon_order.png"
+                  media="all and (max-width: 768px)"
                 />
-              </div>
+                <span className={styles.valueName}>
+                  {selectOptions.find((option) => option.value === order).label}
+                </span>
+                <img src="assets/icon_dropdown.png" />
+              </picture>
+              {isDropdownView && (
+                <ul className={styles.dropdownMenu}>
+                  {selectOptions.map((option) => (
+                    <li
+                      key={option.value}
+                      onClick={() => selectOption(option.value)}
+                    >
+                      {option.label}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
 
-        <ProductList products={currentProducts(sortedProducts)} />
+        <ProductList products={currentProducts(products)} />
       </div>
       <Pagination
         productsPerPage={productsPerPage}
