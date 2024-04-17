@@ -1,10 +1,11 @@
 import iconLogo from "./images/Group 19@3x.png";
 import textLogo from "./images/logo@3x.png";
+import "./Navigator.css";
 
 function Navigator() {
   return (
-    <header>
-      <nav>
+    <header className="header">
+      <nav className="nav">
         <div>
           <a href="/">
             <img className="icon-logo" src={iconLogo} alt="Logo" />
@@ -24,10 +25,10 @@ function NavMenuButtons() {
   return (
     <div className="menu-box">
       <div>
-        <button className="button menu-button">자유게시판</button>
+        <button className="menu-button">자유게시판</button>
       </div>
       <div>
-        <button className="button menu-button" style={{ color: "#3692FF" }}>
+        <button className="menu-button" style={{ color: "#3692FF" }}>
           중고마켓
         </button>
       </div>

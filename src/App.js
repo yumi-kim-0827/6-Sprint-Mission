@@ -1,8 +1,8 @@
 import Navigator from "./Navigator";
-import Content from "./Content";
 import { GetItems } from "./GetItems";
-import AllItems from "./AllItems";
+import ItemsAll from "./ItemsAll";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const [order, setOrder] = useState("createdAt");
@@ -23,13 +23,18 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <Navigator />
-      <Content />
-      <AllItems items={sortedItems} />
-      <button onClick={handleLatestClick}>최신순</button>
-      <button onClick={handleMostFavClick}>좋아요순</button>
-    </div>
+      <main className="content-container">
+        <article className="products-best">
+          <div className="content-label">베스트 상품</div>
+        </article>
+        <article className="products-all">
+          <div className="content-label">전체 상품</div>
+          <ItemsAll items={sortedItems} />
+        </article>
+      </main>
+    </>
   );
 }
 
