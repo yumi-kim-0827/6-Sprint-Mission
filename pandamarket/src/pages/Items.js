@@ -14,14 +14,14 @@ function Items() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [productsPerPage, setProductsPerPage] = useState(10);
+  const [productsPerPage, setProductsPerPage] = useState(10); // 한 페이지에 보여질 상품 수는 10개로 초기화
   const [bestProductsPerPage, setBestProductsPerPage] = useState(4);
 
   const [isDropdownView, setDropdownView] = useState(false);
 
   // 처음과 끝 인덱스 번호를 구하고 slice로 분할하기
-  const indexOfLast = currentPage * productsPerPage;
-  const indexOfFirst = indexOfLast - productsPerPage;
+  const indexOfLast = currentPage * productsPerPage; // 현재 페이지의 마지막 상품 인덱스
+  const indexOfFirst = indexOfLast - productsPerPage; // 현재 페이지의 첫 번째 상품 인덱스
 
   const selectOptions = [
     { value: "createdAt", label: "최신순" },
@@ -31,6 +31,7 @@ function Items() {
   const currentProducts = (products) => {
     let currentProducts = 0;
 
+    // 전체 상품 리스트에서 현재 페이지에 해당하는 부분만 잘라내기
     currentProducts = products.slice(indexOfFirst, indexOfLast);
     return currentProducts;
   };
