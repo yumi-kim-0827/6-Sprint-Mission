@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AppLayout from "./components/AppLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import AddItemPage from "./pages/AddItemPage";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="items" element={<ItemPage />} />
+        <Route path="additem" element={<AddItemPage />} />
       </Route>
       <Route path="/login" element={<LogIn />} />
       <Route path="/signup" element={<SignUp />} />
