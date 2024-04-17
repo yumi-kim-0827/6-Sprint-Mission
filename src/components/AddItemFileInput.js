@@ -39,7 +39,9 @@ function AddItemFileInput() {
           onChange={handleChange}
         />
       </div>
-      <img src={preview} alt="이미지 미리보기" className="preview" />
+      {preview && (
+        <img src={preview} alt="이미지 미리보기" className="preview" />
+      )}
     </div>
   );
 }
