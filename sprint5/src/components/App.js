@@ -1,5 +1,5 @@
 import React from "react";
-import Items from "./Itmes";
+import Items from "./Items";
 
 function App() {
   return (
