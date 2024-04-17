@@ -301,3 +301,12 @@
     }
   }
 }
+
+
+.error {
+  display:flex;
+  justify-content:center;
+  .error-txt {
+    font-size:16px;
+  }
+}

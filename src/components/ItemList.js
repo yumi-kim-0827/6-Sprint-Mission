@@ -9,9 +9,14 @@ export function ItemList ({order, size, keyword, page}) {
   const [paging, setPaging] = useState(1);
   const [isLoading, loadingError, getItemsAsync] = useAsync(getItems); //커스텀 훅 
   const [pageTotal, setPageTotal] = useState(0);
+  
+  
   const handleLoad = useCallback( async (options) => {
-    let { list, totalCount } = await getItemsAsync(options);
-    if(!list) return;
+    let result = await getItemsAsync(options);
+    if(!result) return;
+
+    const { list, totalCount } = result;
+
     setPageTotal(Math.ceil(totalCount / size));
 
     setItems(list);
@@ -37,6 +42,9 @@ export function ItemList ({order, size, keyword, page}) {
             );
           })}
         </ul>
+        
+        {!loadingError && items.length == 0 && <div className="error"><p className="error-txt">일치하는 결과가 없습니다.</p></div>}
+        {loadingError?.message && <div className="error"><p className="error-txt">{loadingError.message}</p></div>}
         <Pagination now={paging} total={pageTotal} onClick={handleLoadMore} onChange={setPaging}/>
       </>
     );
