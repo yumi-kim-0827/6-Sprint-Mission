@@ -4,12 +4,14 @@ import ShowBestProducts from "../components/ShowBestProducts";
 import ShowProducts from "../components/ShowProducts";
 import PageButton from "../components/PageButton";
 import { getProduct, getBestProduct } from "../components/api";
+import debounce from "../components/common/debounce";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [selectValue, setSelectValue] = useState("최신순");
   const [totalCount, setTotalCount] = useState();
+  const [width, setWidth] = useState();
   const [order, setOrder] = useState({
     order: "recent",
     page: 1,
@@ -64,14 +66,39 @@ function App() {
       page: value,
     }));
   };
+  const handlePageSize = (width) => {
+    if (width >= 1200) {
+      return 10;
+    } else if (width >= 768 && width <= 1199) {
+      return 6;
+    } else if (width >= 380 && width <= 767) {
+      return 4;
+    }
+  };
+
+  const handleResize = debounce(() => {
+    setWidth(window.innerWidth);
+  }, 200);
+
+  useEffect(() => {
+    const pageSize = handlePageSize(width);
+    setOrder((prevOrder) => ({ ...prevOrder, pageSize }));
+  }, [width]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     handleLoad(order);
-    getTotalCount();
   }, [order]);
 
   useEffect(() => {
     handleBestLoad();
+    getTotalCount();
   }, []);
 
   return (
