@@ -1,7 +1,7 @@
 @import url("./style.css");
 
 .container {
-  margin: 8rem auto 3rem;
+  margin: 8rem auto 5rem;
   width: 1200px;
 }
 
@@ -11,6 +11,7 @@
 
 h3 {
   font-size: 20px;
+  flex-grow: 1;
 }
 
 .all-products {
@@ -21,15 +22,12 @@ h3 {
 }
 
 .all-products-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1rem;
 }
 
 .all-products-sub-nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
@@ -58,4 +56,50 @@ input:focus {
   position: relative;
   top: 0.45rem;
   left: 2.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    width: 100%;
+    margin: 8rem auto 5rem;
+  }
+  .best-products {
+    margin: 5rem 1rem;
+  }
+  .all-products-nav {
+    margin: 0 1rem;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    width: 100%;
+    margin: 8rem auto 5rem;
+  }
+  .best-products {
+    margin: 3rem 1rem;
+  }
+  .all-products-nav {
+    margin: 0 1rem;
+  }
+  .all-products-sub-nav {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "h b"
+      "i s";
+  }
+  .h3 {
+    grid-area: h;
+  }
+  .search {
+    grid-area: i;
+  }
+  #btn_small {
+    grid-area: b;
+  }
+  .dropdown {
+    grid-area: s;
+  }
 }

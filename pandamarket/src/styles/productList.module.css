@@ -4,10 +4,13 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
   height: 45rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .product {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -43,4 +46,23 @@
 
 .favoritecount-number {
   font-size: 12px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    height: 40rem;
+  }
+  .product-img {
+    width: 168px;
+    height: 168px;
+  }
 }

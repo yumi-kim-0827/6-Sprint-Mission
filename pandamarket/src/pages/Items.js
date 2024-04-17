@@ -12,7 +12,6 @@ function Items() {
   const [bestProducts, setBestProducts] = useState([]);
   const [order, setOrder] = useState("createdAt");
   const [keyword, setKeyword] = useState("");
-  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -94,7 +93,7 @@ function Items() {
   }
 
   // 미디어 쿼리 변경 감지를 위한 이벤트 리스너 추가
-  const mqlDesktop = window.matchMedia("(min-width: 1024px)");
+  const mqlDesktop = window.matchMedia("(min-width: 1200px)");
   const mqlTablet = window.matchMedia(
     "(min-width: 768px) and (max-width: 1199px)"
   );
@@ -142,6 +141,7 @@ function Items() {
     { value: "favoriteCount", label: "좋아요순" },
   ];
 
+
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -159,11 +159,14 @@ function Items() {
       alignItems: "center",
       justifyContent: "center",
     }),
+    
   };
+  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const customComponents = {
     IndicatorSeparator: () => null, // 화살표 구분선 숨기기
   };
+
 
   return (
     <div className={styles.container}>
@@ -174,8 +177,8 @@ function Items() {
 
       <div>
         <div className={styles["all-products-nav"]}>
-          <h3>전체 상품</h3>
           <div className={styles["all-products-sub-nav"]}>
+          <h3>전체 상품</h3>
             <div className={styles.search}>
               <img src="/assets/icon_search.png" />
               <input
@@ -187,15 +190,6 @@ function Items() {
               상품 등록하기
             </button>
             <div>
-              {/* <select
-                className={styles.dropdown}
-                value={order}
-                onChange={(e) => handleOrderChange(e.target.value)}
-              >
-                <div value="createdAt" className={styles.customOption}>최신순</div>
-                <div value="favoriteCount" className={styles.customOption}>좋아요순</div>
-              </select>
-               */}
               <div className={styles.dropdown}>
                 <Select
                   styles={customStyles}
