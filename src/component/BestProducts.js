@@ -13,7 +13,7 @@ const BestProducts = ({ numOfItemsToShow }) => {
   const handleBestProductsLoad = async () => {
     const result = await handleLoad({ orderBy: "favorite", pageSize: 4 });
     console.log(result);
-    setBestProducts(result);
+    setBestProducts(result.list);
   };
 
   useEffect(() => {

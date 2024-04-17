@@ -11,8 +11,7 @@ export default function useLoading() {
       setLoadingError(null);
       setIsLoading(true);
       result = await get_products(...arg);
-      const { list } = result;
-      return list;
+      return result;
     } catch (error) {
       setLoadingError(error);
       return;
