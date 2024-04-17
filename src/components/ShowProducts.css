@@ -160,7 +160,7 @@
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     gap: 20px 10px;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 10px 0;
     padding: 0 10px;
   }
 
@@ -214,7 +214,6 @@
   }
   .Search-Group h2 {
     margin-right: auto;
-    text-align: ;
   }
 
   .Search-Group .Product-Resister-Btn {
