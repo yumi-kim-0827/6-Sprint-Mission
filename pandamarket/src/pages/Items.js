@@ -44,7 +44,19 @@ function Items() {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
-        const fetchedProducts = await getProducts({ order, keyword });
+        let fetchedProducts = await getProducts({ keyword });
+
+        // 정렬 로직 추가
+        if (order === "favoriteCount") {
+          fetchedProducts = fetchedProducts.sort(
+            (a, b) => b.favoriteCount - a.favoriteCount
+          );
+        } else {
+          fetchedProducts = fetchedProducts.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+        }
+
         setProducts(fetchedProducts);
       } catch (error) {
         console.error("상품 가져오는데 실패했습니다", error);
