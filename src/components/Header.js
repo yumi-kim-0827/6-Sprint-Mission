@@ -6,10 +6,12 @@ import "../css/style.css";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const handleLoginClick = () => {
     navigate("/login");
   };
+
+  const isUsedMarketActive =
+    location.pathname === "/items" || location.pathname === "/additem";
 
   return (
     <HeaderContainer>
@@ -19,7 +21,7 @@ const Header = () => {
         </div>
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
-          active={location.pathname === "/items"}
+          active={isUsedMarketActive}
           onClick={() => navigate("/items")}
         >
           중고마켓
@@ -58,7 +60,7 @@ const GoLogin = styled.a`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 13px 23px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
