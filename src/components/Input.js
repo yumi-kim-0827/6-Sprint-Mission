@@ -1,102 +1,46 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-import plusIcon from "../assets/icon/plus.svg";
-import DeleteIconButton from "./DeleteIconButton";
+const Input = ({
+  label = "",
+  type = "text",
+  placeholder = "",
+  onChange,
+  onBlur,
+  accept = null,
+  value,
+  autoComplete = "off",
+}) => {
+  return (
+    <>
+      <InputEl
+        id={label}
+        name={label}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        accept={accept}
+        autoComplete={autoComplete}
+      />
+    </>
+  );
+};
 
-const Input = forwardRef(
-  (
-    {
-      label = "",
-      type = "text",
-      placeholder = "",
-      onChange,
-      onBlur,
-      accept = null,
-      value = "",
-    },
-    ref = null
-  ) => {
-    return (
-      <>
-        <InputEl
-          id={label}
-          name={label}
-          type={type}
-          placeholder={placeholder}
-          ref={ref}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          accept={accept}
-        />
-      </>
-    );
-  }
-);
-
-const ImageInput = forwardRef(
-  (
-    { placeholder, onChange, icon = "icon-plus", className },
-    ref = null,
-    value
-  ) => {
-    const [postImg, setPostImg] = useState([]);
-    const [previewImg, setPreviewImg] = useState("");
-
-    const handleUploadFile = (e) => {
-      const files = e.target.files;
-      setPostImg([...files]);
-
-      let fileURL;
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        fileURL = reader.result;
-        setPreviewImg(fileURL);
-      };
-
-      reader.readAsDataURL(files[0]);
-    };
-
-    const handleDeleteFile = (e) => {
-      e.preventDefault();
-      setPreviewImg("");
-    };
-
-    return (
-      <StyledImgInput className={className}>
-        <label>
-          <i className="icon-plus"></i>
-          <p>{placeholder}</p>
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={handleUploadFile}
-            value={value}
-          />
-        </label>
-        {previewImg && (
-          <Preview>
-            <img alt={previewImg} src={previewImg} />
-            <DeleteIconButton onClick={handleDeleteFile} />
-          </Preview>
-        )}
-      </StyledImgInput>
-    );
-  }
-);
-
-const Preview = styled.div`
-  position: relative;
-
-  button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: transparent;
-  }
-`;
+const TextAreaInput = ({ label = "", placeholder = "", onChange, value }) => {
+  return (
+    <>
+      <TextAreaEl
+        id={label}
+        name={label}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
+    </>
+  );
+};
 
 const InputEl = styled.input`
   position: relative;
@@ -136,69 +80,6 @@ const InputEl = styled.input`
   }
 `;
 
-const StyledImgInput = styled.div`
-  display: flex;
-  gap: 8px;
-  min-width: 168px;
-  min-height: 168px;
-
-  input {
-    display: none;
-  }
-
-  label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    min-width: 168px;
-    width: 100%;
-    min-height: 168px;
-    height: 100%;
-    background-color: var(--color-cool-gray-100);
-    border-radius: 12px;
-
-    p {
-      font-weight: 400;
-      font-size: 16px;
-      color: #9ca3af;
-    }
-  }
-
-  i.icon-plus {
-    display: block;
-    width: 48px;
-    height: 48px;
-    background-image: url(${plusIcon});
-  }
-
-  img {
-    min-width: 168px;
-    min-height: 168px;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-  }
-`;
-
-const TextAreaInput = forwardRef(
-  ({ placeholder = "", onChange, value = "", label = "" }, ref = null) => {
-    return (
-      <>
-        <TextAreaEl
-          id={label}
-          name={label}
-          placeholder={placeholder}
-          onChange={onChange}
-        >
-          {value}
-        </TextAreaEl>
-      </>
-    );
-  }
-);
-
 const TextAreaEl = styled.textarea`
   width: 100%;
   height: 200px;
@@ -216,4 +97,4 @@ const TextAreaEl = styled.textarea`
   }
 `;
 
-export { Input, TextAreaInput, ImageInput };
+export { Input, TextAreaInput };

@@ -1,9 +1,11 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import ItemFormGroup from "../components/ItemFormGroup";
 import Button from "../components/Button";
-import { Input, TextAreaInput, ImageInput } from "../components/Input";
 import DeleteIconButton from "../components/DeleteIconButton";
+
+const TAG_LIMIT = 7;
 
 const AddItemPage = () => {
   const [tags, setTags] = useState([]);
@@ -15,6 +17,8 @@ const AddItemPage = () => {
     description: "",
     tag: "",
   });
+
+  const { name, price, description, tag } = values;
 
   const handleChangeValue = (e) => {
     const { name, value } = e.target;
@@ -30,7 +34,7 @@ const AddItemPage = () => {
   };
 
   const handleUpdateTag = (e) => {
-    if (tags.length > 7) return;
+    if (tags.length > TAG_LIMIT) return;
 
     const nextValue = e.target.value;
 
@@ -43,21 +47,17 @@ const AddItemPage = () => {
     }));
   };
 
-  const handleDeleteTag = (e) => {
-    e.preventDefault();
-    const currentTag = e.target.parentNode.children[0];
-    setTags((prevTags) =>
-      prevTags.filter((tag) => tag !== currentTag.innerText)
-    );
+  const handleDeleteTag = (tag) => {
+    setTags((prevTags) => prevTags.filter((tagEl) => tagEl !== tag));
   };
 
   useEffect(() => {
-    if (values.name && values.price && values.description && tags) {
+    if (name && price && description && tags) {
       setIsValidation(true);
     } else {
       setIsValidation(false);
     }
-  }, [values]);
+  }, [name, price, description, tags]);
 
   return (
     <StyledDiv>
@@ -69,34 +69,37 @@ const AddItemPage = () => {
         <ItemFormGroup
           label="name"
           placeholder="상품명을 입력해주세요"
-          value={values.name}
+          value={name}
           onChange={handleChangeValue}
         />
         <ItemFormGroup
           label="price"
           placeholder="판매가격을 입력해주세요"
-          value={values.price}
+          value={price}
           onChange={handleChangeValue}
         />
         <ItemFormGroup
           label="description"
           placeholder="상품소개를 입력해주세요"
-          value={values.description}
+          value={description}
           onChange={handleChangeValue}
         />
         <ItemFormGroup
           label="tag"
           placeholder="태그를 입력해주세요"
-          value={values.tag}
+          value={tag}
           onChange={handleChangeValue}
           onBlur={handleUpdateTag}
         />
         {tags && (
           <TagBox>
-            {tags.map((tag, idx) => (
-              <TagEl key={idx}>
+            {tags.map((tag) => (
+              <TagEl>
                 <p>{tag}</p>
-                <DeleteIconButton onClick={handleDeleteTag} />
+                <DeleteIconButton
+                  key={tag}
+                  onClick={() => handleDeleteTag(tag)}
+                />
               </TagEl>
             ))}
           </TagBox>
@@ -108,102 +111,6 @@ const AddItemPage = () => {
     </StyledDiv>
   );
 };
-
-const ItemFormGroup = forwardRef(
-  ({ label, placeholder = "", onChange, onBlur, value }, ref) => {
-    const labelTable = {
-      name: "상품명",
-      price: "판매가격",
-      description: "상품 소개",
-      tag: "태그",
-      image: "상품 이미지",
-    };
-
-    const labelName = labelTable[label];
-
-    return (
-      <StyledFormGroup>
-        <label htmlFor={label}>{labelName}</label>
-        <div className="form__input">
-          {label === "image" ? (
-            <ImageInput
-              className="form__imgInput"
-              label={label}
-              placeholder={placeholder}
-              onChange={onChange}
-            />
-          ) : label === "description" ? (
-            <TextAreaInput
-              label={label}
-              placeholder={placeholder}
-              onChange={onChange}
-            ></TextAreaInput>
-          ) : (
-            <Input
-              label={label}
-              placeholder={placeholder}
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-            ></Input>
-          )}
-        </div>
-        <p className="error-msg hidden"></p>
-      </StyledFormGroup>
-    );
-  }
-);
-
-const TagBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: 100%;
-  min-height: 100px;
-  height: auto;
-  margin-top: 8px;
-`;
-
-const TagEl = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 4px;
-  min-width: 100px;
-  height: 48px;
-  padding: 12px;
-  border-radius: 26px;
-  background-color: var(--color-cool-gray-100);
-  font-weight: 400;
-  font-size: 16px;
-`;
-
-const StyledFormGroup = styled.div`
-  width: 100%;
-  min-height: 85px;
-  margin-bottom: 16px;
-
-  > label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16.71px;
-    color: var(--color-cool-gray-800);
-  }
-
-  div {
-    position: relative;
-  }
-
-  @media screen and (min-width: 768px) {
-    > label {
-      margin-bottom: 12px;
-      font-size: 18px;
-      line-height: 21.48px;
-    }
-  }
-`;
 
 const StyledDiv = styled.div`
   position: relative;
@@ -250,6 +157,30 @@ const StyledButton = styled(Button)`
   right: 0;
   width: 88px;
   height: 42px;
+`;
+
+const TagBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  margin-top: 8px;
+`;
+
+const TagEl = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 26px;
+  background-color: var(--color-cool-gray-100);
+  font-weight: 400;
+  font-size: 16px;
 `;
 
 export default AddItemPage;
