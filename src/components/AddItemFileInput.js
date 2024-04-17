@@ -27,9 +27,8 @@ function AddItemFileInput() {
   return (
     <div className="img-input-container">
       <div className="img-input-label-container">
-        <label htmlFor="img" className="img-input-label">
-          상품 이미지
-        </label>
+        <h2 className="img-input-title">상품 이미지</h2>
+        <label htmlFor="img" className="img-input-label"></label>
         <input
           type="file"
           id="img"

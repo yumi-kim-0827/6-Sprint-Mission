@@ -10,12 +10,12 @@
   gap: 12px;
 }
 
-.img-input-label {
+.img-input-title {
   font-size: 18px;
   font-weight: 700;
 }
 
-.img-input {
+.img-input-label {
   width: 282px;
   height: 282px;
   border-radius: 12px;
@@ -25,6 +25,10 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+
+.img-input {
+  display: none;
 }
 
 .preview {
