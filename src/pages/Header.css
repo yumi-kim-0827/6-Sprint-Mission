@@ -68,13 +68,14 @@ header .Header-login-btn:active {
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .Header {
     width: 100%;
-    padding: 0 30px;
+    padding: 0 15px;
   }
 
   .Header-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: space-around;
+    gap: 10px;
   }
 
   .Header-container .Header-img {
@@ -89,7 +90,7 @@ header .Header-login-btn:active {
     align-items: center;
   }
   .Header-container .Header-btn li {
-    margin-right: 10px;
+    margin-right: 5px;
     font-size: 16px;
     font-weight: 700;
     line-height: 21.48px;
