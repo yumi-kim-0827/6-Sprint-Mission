@@ -81,7 +81,7 @@ function ItemPage() {
           <div className="ItemPage__title-section">
             <span className="ItemPage__title">판매중인 상품</span>
             <Link to="/additem">
-              <Button className="btn-small ItemPage__additem-btn">
+              <Button className="ItemPage__additem-btn" size="small">
                 상품 등록하기
               </Button>
             </Link>
@@ -95,6 +95,7 @@ function ItemPage() {
               className="ItemPage__select-box"
               onClick={setOrder}
               order={order}
+              size={width >= 768 ? "medium" : "small"}
             ></SortSelectBox>
           </div>
           <div className="ItemPage__item-list">
