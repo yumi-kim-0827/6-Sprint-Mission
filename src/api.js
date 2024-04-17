@@ -1,15 +1,13 @@
 import axios from "axios";
 
+const instance = axios.create({
+  baseURL: "https://panda-market-api.vercel.app/",
+  headers: { "Content-Type": "application/json" },
+});
+
 export const fetchProducts = async () => {
   try {
-    const response = await axios.get(
-      "https://panda-market-api.vercel.app/products",
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await instance.get("/products");
     const data = response.data;
     if (data && data.list) {
       return data.list;
