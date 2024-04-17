@@ -1,0 +1,50 @@
+:root {
+  --blue: #3692ff;
+  --white: #ffffff;
+  --banner_color: #cfe5ff;
+}
+
+.best_title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.best_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.best_list img {
+  width: 282px;
+  width: 282px;
+  border-radius: 16px;
+}
+
+.best_item {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.best_item_title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.best_item_price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.best_item_favorite {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  font-weight: 500;
+}
+.best_item_favorite img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}

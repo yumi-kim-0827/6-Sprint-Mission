@@ -1,7 +1,9 @@
+import "../styles/App.css";
 import { useEffect, useState } from "react";
 import { getMarketList } from "../api";
 import AllList from "./AllList";
 import BestList from "./BestList";
+import Nav from "./Nav";
 
 const App = () => {
   const [pandaList, setPandaList] = useState([]);
@@ -17,8 +19,11 @@ const App = () => {
 
   return (
     <div>
-      <BestList items={pandaList} />
-      <AllList items={pandaList} />
+      <Nav />
+      <div className="itemPage">
+        <BestList items={pandaList} />
+        <AllList items={pandaList} />
+      </div>
     </div>
   );
 };

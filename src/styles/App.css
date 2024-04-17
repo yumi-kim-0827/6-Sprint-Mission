@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "pretendard";
+}
+
+.itemPage {
+  margin: 94px auto;
+  max-width: 1200px;
+}
