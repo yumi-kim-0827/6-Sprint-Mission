@@ -1,14 +1,6 @@
 import AddItemFileInput from "../components/AddItemFileInput";
 import "../styles/AddItemPage.css";
 
-const INITIAL_VALUES = {
-  images: [],
-  name: "",
-  description: "",
-  price: 0,
-  tags: [],
-};
-
 export default function AddItemPage() {
   return (
     <main>
