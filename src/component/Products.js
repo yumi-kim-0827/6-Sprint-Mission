@@ -5,7 +5,7 @@ import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/products.css";
-import useLoading from "../api/hooks/loading";
+import useLoading from "../hooks/loading";
 import SelectOrderButton from "./SelectOrderButton";
 import PageNav from "./PageNav";
 

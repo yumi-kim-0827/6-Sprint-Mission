@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { get_products } from "../api";
+import { get_products } from "../api/api";
 
 export default function useLoading() {
   const [isLoading, setIsLoading] = useState(false);

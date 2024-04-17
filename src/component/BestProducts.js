@@ -3,7 +3,7 @@ import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/bestProducts.css";
-import useLoading from "../api/hooks/loading";
+import useLoading from "../hooks/loading";
 
 const BestProducts = ({ numOfItemsToShow }) => {
   const [bestProducts, setBestProducts] = useState([]);
