@@ -1,6 +1,6 @@
 import React from "react";
 
-const LinkButton = ({ href, src, alt }) => {
+const ALinkImageButton = ({ href, src, alt }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       <img src={src} alt={alt} />
@@ -8,4 +8,4 @@ const LinkButton = ({ href, src, alt }) => {
   );
 };
 
-export default LinkButton;
+export default ALinkImageButton;
