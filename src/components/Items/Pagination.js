@@ -13,35 +13,50 @@ function Pagination({ pageInfo: { totalPage, currentPage }, setPageInfo }) {
       currentPage: nextPage,
     }));
   };
-  const handleBackClick = (e) => {};
-  const handleNextClick = (e) => {};
+  const handleBackClick = () => {
+    setPageInfo((prevPageInfo) => ({
+      ...prevPageInfo,
+      currentPage: prevPageInfo.currentPage - 1,
+    }));
+  };
+  const handleNextClick = () => {
+    setPageInfo((prevPageInfo) => ({
+      ...prevPageInfo,
+      currentPage: prevPageInfo.currentPage + 1,
+    }));
+  };
 
   const isActive = (page) => currentPage === page;
 
   return (
     <ol className="pagination">
-      <li
-        className="pagination-elem elem-first"
-        key="back"
-        onClick={handleBackClick}
-      >
-        <img src={pageBackIcon} alt="이전페이지" />
+      <li key="back">
+        <button
+          className="pagination-elem elem-first"
+          onClick={handleBackClick}
+          disabled={currentPage === 1}
+        >
+          <img src={pageBackIcon} alt="이전페이지" />
+        </button>
       </li>
       {pages.map((page) => (
-        <li
-          className={`pagination-elem ${isActive(page) ? "active" : ""}`}
-          key={page}
-          onClick={handlePageClick}
-        >
-          {page}
+        <li key={page}>
+          <button
+            className={`pagination-elem ${isActive(page) ? "active" : ""}`}
+            onClick={handlePageClick}
+          >
+            {page}
+          </button>
         </li>
       ))}
-      <li
-        className="pagination-elem elem-last"
-        key="next"
-        onClick={handleNextClick}
-      >
-        <img src={pageNextIcon} alt="다음페이지" />
+      <li key="next">
+        <button
+          className="pagination-elem elem-last"
+          onClick={handleNextClick}
+          disabled={currentPage === totalPage}
+        >
+          <img src={pageNextIcon} alt="다음페이지" />
+        </button>
       </li>
     </ol>
   );
