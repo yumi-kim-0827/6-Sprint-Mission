@@ -10,6 +10,8 @@ import useResetPage from "hooks/useResetPage";
 import { useAtomValue, useSetAtom } from "jotai";
 import { orderAtom } from "context/atoms/order";
 import { currentPageAtom, totalPagesAtom } from "context/atoms/page";
+import useAsync from "hooks/useAsync";
+import Loading from "components/commons/Loading";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,
@@ -24,6 +26,7 @@ export default function AllProducts() {
   const orderState = useAtomValue(orderAtom);
   const currentPage = useAtomValue(currentPageAtom);
   const setTotalPages = useSetAtom(totalPagesAtom);
+  const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
   const { deviceState } = useDeviceState();
   useResetPage([deviceState, keyword]);
 
@@ -33,7 +36,7 @@ export default function AllProducts() {
       const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
       const order = orderState === "최신순" ? "recent" : "favorite";
 
-      const data = await getProductsData({
+      const data = await getProductsDataAsync({
         order,
         page: currentPage,
         pageSize,
@@ -74,9 +77,11 @@ export default function AllProducts() {
 
       {renderDataList.length > 0 ? (
         <div className={styles.cards}>
-          {renderDataList.map((data, idx) => (
-            <Card key={idx} data={data} />
-          ))}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            renderDataList.map((data, idx) => <Card key={idx} data={data} />)
+          )}
         </div>
       ) : (
         <h1 className={styles.noItems}>상품이 존재하지 않습니다</h1>

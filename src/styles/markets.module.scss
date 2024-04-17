@@ -50,6 +50,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+    position: relative;
 
     @media (min-width: $min-tablet-width) {
       grid-template-columns: repeat(2, 1fr);
@@ -71,6 +72,10 @@
       line-height: 28px;
       color: var(--dark-gray800);
     }
+  }
+
+  .cards {
+    position: relative;
   }
 }
 
