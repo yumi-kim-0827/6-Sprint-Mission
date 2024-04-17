@@ -1,0 +1,9 @@
+.ItemComp > img {
+  width: 50%;
+}
+
+.ItemComp > img:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
