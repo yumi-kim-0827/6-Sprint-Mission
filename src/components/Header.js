@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Logo from "./assets/home/pandamarket.png";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -14,7 +13,11 @@ const Header = () => {
     <HeaderContainer>
       <MenuContainer>
         <div onClick={() => navigate("/")}>
-          <img src={Logo} alt="판다마켓 홈" width="153" />
+          <img
+            src="/images/home/pandamarket.png"
+            alt="판다마켓 홈"
+            width="153"
+          />
         </div>
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
