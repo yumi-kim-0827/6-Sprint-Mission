@@ -1,41 +1,52 @@
 import ICON_ARROW from "../assets/icon_arrow_left.svg";
 import "../styles/Pagenation.css";
 
-const PageButton = ({ page }) => {
-  return <div className="PageButton">{page}</div>;
+const PageButton = ({ page, currentPage, handlePage }) => {
+  return (
+    <div
+      onClick={handlePage}
+      className={["PageButton", currentPage === page ? "isActive" : ""].join(
+        " "
+      )}
+    >
+      {page}
+    </div>
+  );
 };
 
 const Pagenation = ({
-  totalPostCount,
-  page,
-  handlePrevPage,
-  handleNextPage,
+  totalPages,
+  currentPage,
+  handlePageBtn,
+  handlePagePrevBtn,
+  handlePageNextBtn,
 }) => {
-  const caluclateTotalPages = (totalPostCount, pageSize) => {
-    return Math.ceil(totalPostCount / pageSize);
-  };
-  const renderPageButtons = (totalPages, currentPage, handlePageChange) => {
-    const pageButtons = [];
+  const createPagenation = (totalPages) => {
+    const pagenationArray = [];
     for (let i = 1; i <= totalPages; i++) {
-      <PageButton
-        key={i}
-        page={i}
-        isActive={i === currentPage}
-        handlePageChange={handlePageChange}
-      />;
+      pagenationArray.push(
+        <PageButton
+          key={`pageButton-${i}`}
+          page={i}
+          currentPage={currentPage}
+          handlePage={() => {
+            handlePageBtn(i);
+          }}
+        />
+      );
     }
+    return pagenationArray;
   };
 
   return (
     <div className="Pagenation">
-      <div className="Pagenation__prev_button">
+      <div className="Pagenation__prev_button" onClick={handlePagePrevBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>
       <div className="Pagenation__lists">
-        <PageButton page={1} />
-        <PageButton page={2} />
+        {createPagenation(totalPages).map((item) => item)}
       </div>
-      <div className="Pagenation__next_button">
+      <div className="Pagenation__next_button" onClick={handlePageNextBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>
     </div>

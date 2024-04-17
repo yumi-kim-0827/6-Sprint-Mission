@@ -12,6 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.PageButton.isActive {
+  background-color: #2f80ed;
+  color: white;
 }
 .Pagenation__next_button img {
   transform: rotate(180deg);

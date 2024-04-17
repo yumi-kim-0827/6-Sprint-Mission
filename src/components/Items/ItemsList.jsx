@@ -5,56 +5,56 @@ import SearchBox from "./SearchBox.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
-// import Pagenation from "../Pagenation.jsx";
-
 import { getData } from "../../apis/apis.js";
-// import {
-//   calculateTotalPages,
-//   renderPageButtons,
-// } from "../../utils/PagenationUtils.js";
+import Pagenation from "../Pagenation.jsx";
 
-// const PAGE_SIGE = 10;
+const ITEMS_PER_PAGE = 10;
 
 const ItemsList = () => {
   const [data, setData] = useState([]);
   const [order, setOrder] = useState("최신순");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
-  const [page, setPage] = useState(1);
-  // const [totalPostCount, setTotalPostCount] = useState(0);
-  // const handlePrevPage = () => {
-  //   if (page > 1) {
-  //     setPage((prevPage) => prevPage - 1);
-  //   }
-  // };
-  // const handleNextPage = () => {
-  //   const totalPages = calculateTotalPages(totalPostCount, PAGE_SIGE);
-  //   if (page < totalPages) {
-  //     setPage((prevPage) => prevPage - 1);
-  //   }
-  // };
-
-  const orderHandler = (orderText) => {
-    setOrder(orderText);
-  };
-
+  // 데이터 로드
   useEffect(() => {
     const loadData = async () => {
-      const data = await getData();
-      setData(data.list);
-      // setTotalPostCount(data.totalCount);
+      const newData = await getData();
+      setData(newData.list);
+      setTotalPages(Math.ceil(newData.totalCount / ITEMS_PER_PAGE));
     };
     loadData();
   }, []);
 
+  // 페이지 및 정렬 변경 시 데이터 로드
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
     const loadData = async () => {
-      const data = await getData(orderText, page);
-      setData(data.list);
-      // setTotalPostCount(data.totalCount);
+      const newData = await getData(orderText, currentPage);
+      setData(newData.list);
+      setTotalPages(Math.ceil(newData.totalCount / ITEMS_PER_PAGE));
     };
     loadData();
-  }, [order, page]);
+  }, [order, currentPage]);
+
+  // 최신순, 좋아요순 정렬
+  const orderChangeHandler = (orderText) => {
+    setOrder(orderText);
+    setCurrentPage(1);
+  };
+
+  // 페이지네이션 클릭 핸들러
+  const handlePagePrevBtn = () => {
+    if (currentPage === 1) return;
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+  const handlePageNextBtn = () => {
+    if (currentPage === totalPages) return;
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+  const handlePageBtn = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="ItemsList__wrapper">
@@ -65,7 +65,10 @@ const ItemsList = () => {
           <div className="ItemsList__menu_bar__button_wrapper">
             <Button text={"상품 등록하기"} />
           </div>
-          <DropdownOrder order={order} orderHandler={orderHandler} />
+          <DropdownOrder
+            order={order}
+            orderChangeHandler={orderChangeHandler}
+          />
         </div>
       </div>
       <div className="ItemsList__itemsWrapper">
@@ -80,12 +83,13 @@ const ItemsList = () => {
         ))}
       </div>
       <div className="ItemsList__pagination_wrapper">
-        {/* <Pagenation
-          totalPostCount={totalPostCount}
-          page={page}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-        /> */}
+        <Pagenation
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handlePageBtn={handlePageBtn}
+          handlePagePrevBtn={handlePagePrevBtn}
+          handlePageNextBtn={handlePageNextBtn}
+        />
       </div>
     </div>
   );

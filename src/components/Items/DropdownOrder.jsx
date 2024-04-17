@@ -2,7 +2,7 @@ import "../../styles/Items/DropdownOrder.css";
 import ICON_DOWN from "../../assets/icon_down.svg";
 import { useState } from "react";
 
-const DropdownOrder = ({ order, orderHandler }) => {
+const DropdownOrder = ({ order, orderChangeHandler }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleMouseEnter = () => {
@@ -13,7 +13,7 @@ const DropdownOrder = ({ order, orderHandler }) => {
   };
 
   const clickHandler = (orderText) => {
-    orderHandler(orderText);
+    orderChangeHandler(orderText);
   };
 
   return (
