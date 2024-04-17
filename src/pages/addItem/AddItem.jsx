@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
 
 export default function AddItem() {
   const [preview, setPreview] = useState(skeleton);
+  const fileInputRef = useRef(null);
+  const isPreview = preview !== skeleton;
+
+  const handleFileInputChange = () => {
+    const file = fileInputRef.current.files[0];
+    setPreview(URL.createObjectURL(file));
+  };
+
+  const handleCloseClick = () => {
+    setPreview(skeleton);
+  };
 
   return (
     <div className={styles.container}>
@@ -14,10 +25,28 @@ export default function AddItem() {
       <div>
         <p className={styles.titleImg}>상품 이미지</p>
         <div className={styles.containerImg}>
-          <div className={styles.preview}>
-            <img src={preview} alt="상품 미리보기 이미지" />
-          </div>
-          <div className={styles.preview} />
+          {isPreview ? (
+            <div className={styles.preview}>
+              <img src={preview} alt="상품 미리보기 이미지" />
+              <button
+                className={styles.btnCloseActive}
+                onClick={handleCloseClick}
+              />
+            </div>
+          ) : (
+            <div
+              className={styles.preview}
+              onClick={() => fileInputRef.current.click()}
+            >
+              <img src={preview} alt="상품 이미지 추가 버튼" />
+              <input
+                type="file"
+                ref={fileInputRef}
+                style={{ display: "none" }}
+                onChange={handleFileInputChange}
+              />
+            </div>
+          )}
         </div>
       </div>
       <div>

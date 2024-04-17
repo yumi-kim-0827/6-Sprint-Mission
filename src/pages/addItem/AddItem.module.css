@@ -69,16 +69,16 @@ input::placeholder {
 }
 
 .preview {
+  position: relative;
   width: 168px;
   height: 168px;
-  background-color: #f3f4f6;
-  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .preview img {
   width: 100%;
+  border-radius: 12px;
 }
 
 .titleForms {
@@ -119,6 +119,18 @@ input::placeholder {
   background-image: url("../../assets//btn-close.svg");
   width: 22px;
   height: 24px;
+  margin-left: 8px;
+}
+
+.btnCloseActive {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url("../../assets//btn-close-active.svg");
+  background-position: center;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
   margin-left: 8px;
 }
 
