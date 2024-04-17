@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import pandoLogo from 'assets/logos/panda-logo.png';
 import TextLogo from 'assets/logos/text-logo.png';
+import pandaProfile from 'assets/icons/Profile.svg';
 import { Link, useLocation } from 'react-router-dom';
 import Button from 'components/Button';
 import './style.css';
@@ -15,13 +16,14 @@ const TopNavigation = () => {
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const isAddItemPage = location.pathname.includes('/addItem');
+  const isItemsPage = location.pathname === '/items';
 
   return (
     <header>
@@ -42,7 +44,8 @@ const TopNavigation = () => {
             <li>
               <Link
                 to='/items'
-                className={location.pathname === '/items' ? 'activ-nav' : ''}
+                className={isItemsPage ? 'activ-nav' : ''}
+                style={{ color: isAddItemPage ? '#3692FF' : '' }}
               >
                 중고마켓
               </Link>
@@ -50,9 +53,16 @@ const TopNavigation = () => {
           </ul>
         </nav>
       </div>
-      <Link to='/login'>
-        <Button title='로그인' />
-      </Link>
+      {isAddItemPage && (
+        <div className='rightContainer'>
+          <img src={pandaProfile} alt='Profile' className='profileIcon' />
+        </div>
+      )}
+      {!isAddItemPage && (
+        <Link to='/login'>
+          <Button title='로그인' />
+        </Link>
+      )}
     </header>
   );
 };
