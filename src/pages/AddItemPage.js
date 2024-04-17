@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddItemFileInput from "../components/AddItemFileInput";
 import "../styles/AddItemPage.css";
+import AddItemTagsInput from "../components/AddItemTagsInput";
 
 export default function AddItemPage() {
   const [values, setValues] = useState({
@@ -71,6 +72,7 @@ export default function AddItemPage() {
             onChange={handleChange}
           />
         </div>
+        <AddItemTagsInput />
         <button
           type="submit"
           onSubmit={handleSubmit}
