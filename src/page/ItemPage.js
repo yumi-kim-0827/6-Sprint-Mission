@@ -16,12 +16,12 @@ export function ItemPage (){
     order : "recent",
     page : 1
   });
-  const [popDropdown, setPopState] = useState(false);
+  const [isPopDropdown, setPopState] = useState(false);
   
   const handlePop = (e) => {
     let {name, value} = e.target;
 
-    setPopState(!popDropdown);
+    setPopState(!isPopDropdown);
     handleChange(name, value);
   }
 
@@ -56,7 +56,7 @@ export function ItemPage (){
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onChange={handleInputChange} className="section-item__search"/>
             <Link to="/additem"><SmallButton className="section-item__btn">상품 등록하기</SmallButton></Link>
-            <DropDown state={popDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
+            <DropDown isShow={isPopDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
           </header>
           <div className="section-content">
             {isPC && <ItemList order={values.order} size="10" keyword={values.search} page={values.page}/>}

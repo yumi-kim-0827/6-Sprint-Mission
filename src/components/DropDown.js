@@ -3,7 +3,7 @@ import { useResponsive } from "../hooks/useResponsive";
 import icoArrow from "../img/ic_arrow_down.svg";
 import icoSort from "../img/ic_sort.svg";
 
-export function DropDown ({state, name, value, onPop, onClick, onChange, className}) {
+export function DropDown ({isShow, name, value, onPop, onClick, onChange, className}) {
   const [isPC, isTablet, isMobile] = useResponsive();
   const content = {
     recent : "최신순",
@@ -19,7 +19,7 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
     <div className={`dropdown ${className}`}>
       <form onChange={handleClick}>
         <div className="dropdown-main">
-          <button type="button" name={name} value={value} aria-label="페이지 정렬 바꾸기" aria-expanded={state} aria-controls="dropdown-sort" onClick={onClick} className="dropdown-main__btn">
+          <button type="button" name={name} value={value} aria-label="페이지 정렬 바꾸기" aria-expanded={isShow} aria-controls="dropdown-sort" onClick={onClick} className="dropdown-main__btn">
             { (isPC || isTablet) && <>
               <span aria-hidden="true">{content[value]}</span>
               <img src={icoArrow} alt="아이콘" aria-hidden="true" className="ico-arrow"/>
@@ -29,7 +29,7 @@ export function DropDown ({state, name, value, onPop, onClick, onChange, classNa
             </>}
           </button>
         </div>
-        {state && 
+        {isShow && 
         <ul id="dropdown-sort" aria-hidden={onPop} className="dropdown-lists">
           <li className="dropdown-list">
             <input type="radio" id="order-recent" name="order" value="recent" onClick={handleClick} className="dropdown-list__radio"/>
