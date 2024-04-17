@@ -23,3 +23,20 @@
 .SearchBox input::placeholder {
   color: #9ca3af;
 }
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .SearchBox {
+    width: 242px;
+  }
+  .SearchBox input {
+    width: 242px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .SearchBox {
+    width: 294px;
+  }
+  .SearchBox input {
+    width: 294px;
+  }
+}
