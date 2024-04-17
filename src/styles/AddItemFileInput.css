@@ -1,0 +1,36 @@
+.img-input-container {
+  margin-top: 16px;
+  display: flex;
+  gap: 24px;
+}
+
+.img-input-label-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.img-input-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.img-input {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  border: none;
+  background-image: url("../assets/file-input-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.preview {
+  width: 282px;
+  height: 282px;
+}
+
+.img-input::file-selector-button {
+  display: none;
+}
