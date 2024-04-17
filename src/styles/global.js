@@ -1,5 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
+import PretendardThin from "../assets/fonts/Pretendard-Thin.woff";
+import PretendardLight from "../assets/fonts/Pretendard-Light.woff";
+import PretendardRegular from "../assets/fonts/Pretendard-Regular.woff";
+import PretendardMedium from "../assets/fonts/Pretendard-Medium.woff";
+import PretendardBold from "../assets/fonts/Pretendard-Bold.woff";
+
 const GlobalStyle = createGlobalStyle`
 :root {
   --color-blue: #3692ff;
@@ -30,7 +36,7 @@ button i {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../assets/fonts/Pretendard-Thin.woff") format("woff");
+  src: url(${PretendardThin}) format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -38,7 +44,7 @@ button i {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../assets/fonts/Pretendard-Light.woff") format("woff");
+  src: url(${PretendardLight}) format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -46,7 +52,7 @@ button i {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../assets/fonts/Pretendard-Regular.woff") format("woff");
+  src: url(${PretendardRegular}) format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -54,7 +60,7 @@ button i {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../assets/fonts/Pretendard-Medium.woff") format("woff");
+  src: url(${PretendardMedium}) format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -62,7 +68,7 @@ button i {
 
 @font-face {
   font-family: "Pretendard";
-  src: url("../assets/fonts/Pretendard-Bold.woff") format("woff");
+  src: url(${PretendardBold}) format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
