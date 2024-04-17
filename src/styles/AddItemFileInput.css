@@ -1,7 +1,7 @@
 .img-input-container {
   margin-top: 16px;
   display: flex;
-  gap: 24px;
+  position: relative;
 }
 
 .img-input-label-container {
@@ -34,8 +34,7 @@
 .preview {
   width: 282px;
   height: 282px;
-}
-
-.img-input::file-selector-button {
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 306px; /* 인풋이랑 간격 조정 (인풋 가로 282, gap 24) */
 }
