@@ -7,6 +7,7 @@ import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
 import { getData } from "../../apis/apis.js";
 import Pagenation from "../Pagenation.jsx";
+import { formatCurrency } from "../../utils/utils.js";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -77,7 +78,7 @@ const ItemsList = () => {
             key={item.id}
             imgSrc={item.images[0]}
             name={item.name}
-            price={item.price}
+            price={formatCurrency(item.price)}
             favoriteCount={item.favoriteCount}
           />
         ))}

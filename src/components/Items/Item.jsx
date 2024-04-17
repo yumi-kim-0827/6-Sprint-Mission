@@ -1,4 +1,5 @@
 import "../../styles/Items/Item.css";
+import iconLikes from "../../assets/Icon_likes.svg";
 
 const Item = ({ imgSrc, name, price, favoriteCount }) => {
   return (
@@ -9,7 +10,10 @@ const Item = ({ imgSrc, name, price, favoriteCount }) => {
       <div className={"textWrapper"}>
         <p className={"nameText"}>{name}</p>
         <p className={"priceText"}>{price}</p>
-        <p className={"likes"}>{favoriteCount}</p>
+        <p className={"likes"}>
+          <img src={iconLikes} alt="좋아요 아이콘" />
+          {favoriteCount}
+        </p>
       </div>
     </div>
   );

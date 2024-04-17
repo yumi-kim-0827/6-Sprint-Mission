@@ -28,6 +28,10 @@
   align-items: center;
 }
 
+.ItemsList__pagination_wrapper {
+  margin: 50px 0;
+}
+
 @media screen and (max-width: 1199px) and (min-width: 768px) {
   .ItemsList__itemsWrapper {
     grid-template-columns: 1fr 1fr 1fr;

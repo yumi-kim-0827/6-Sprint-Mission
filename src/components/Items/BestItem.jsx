@@ -1,4 +1,6 @@
 import "../../styles/Items/BestItem.css";
+import { formatCurrency } from "../../utils/utils";
+import iconLikes from "../../assets/Icon_likes.svg";
 
 const BestItem = ({ imgSrc, name, price, favoriteCount }) => {
   return (
@@ -8,8 +10,13 @@ const BestItem = ({ imgSrc, name, price, favoriteCount }) => {
       </div>
       <div className={"BestItem__textWrapper"}>
         <p className={"BestItem__textWrapper_nameText"}>{name}</p>
-        <p className={"BestItem__textWrapper_priceText"}>{price}</p>
-        <p className={"BestItem__textWrapper_likes"}>{favoriteCount}</p>
+        <p className={"BestItem__textWrapper_priceText"}>
+          {formatCurrency(price)}
+        </p>
+        <p className={"BestItem__textWrapper_likes"}>
+          <img src={iconLikes} alt="좋아요 아이콘" />
+          {favoriteCount}
+        </p>
       </div>
     </div>
   );
