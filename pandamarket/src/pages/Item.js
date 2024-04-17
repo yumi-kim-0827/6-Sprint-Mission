@@ -68,25 +68,9 @@ function Item() {
     if (search === "") {
       nextProducts = [...products];
     } else {
-      // input 필드에 값이 들오면 필터링하여 product 정렬
-      /* 현재 문제점 공백을 제거하여 띄어쓰기 포함까지 검색이 가능하지만
-       문자열 시작부터 순회하기 때문에 검색문자열을 포함한 문자열을 찾을 수 없음 */
-      nextProducts = [...products].filter((product) => {
-        let { name: productName } = product;
-        let searchInput = search;
-        productName = productName.split(" ").join("").toLowerCase();
-        searchInput = searchInput.split(" ").join("").toLowerCase();
-
-        //시작부터 문자열 순회하여 상품리스트 변경
-        let check = true;
-        for (let i = 0; i < searchInput.length; i++) {
-          if (productName[i] !== searchInput[i]) {
-            check = false;
-            break;
-          }
-        }
-        return check;
-      });
+      nextProducts = [...products].filter((product) =>
+        product.name.includes(search)
+      );
     }
 
     if (order === "좋아요순") {

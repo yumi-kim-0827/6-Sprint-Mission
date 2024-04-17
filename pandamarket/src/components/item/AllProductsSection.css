@@ -3,7 +3,7 @@
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   row-gap: 43px;
-  column-gap: 18px;
+  column-gap: 24px;
 }
 
 .allProductsSection {
@@ -44,4 +44,27 @@
   color: #9ca3af;
   font-size: 16px;
   padding-left: 16px;
+}
+
+/* mobile*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .allProducts {
+    row-gap: 8px;
+  }
+
+  .tool-container input {
+    width: 294px;
+    height: 42px;
+  }
+}
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .allProducts {
+    row-gap: 16px;
+  }
+  .tool-container input {
+    width: 242px;
+    height: 42px;
+  }
 }

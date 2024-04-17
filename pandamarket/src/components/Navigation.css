@@ -12,16 +12,20 @@ nav {
 }
 
 #nav > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   font-size: 18px;
-  padding: 24px;
+  width: 109px;
+  height: 69px;
 }
 
 span {
   display: flex;
   align-items: center;
-  padding: 0 32px;
   cursor: pointer;
+  padding: 0 32px;
 }
 
 hr {
@@ -31,6 +35,10 @@ hr {
 @media (min-width: 375px) and (max-width: 767px) {
   nav {
     padding: 0 16px;
+  }
+
+  span {
+    padding-left: 0;
   }
 }
 /* tablet*/

@@ -4,6 +4,7 @@ import Item from "./pages/Item";
 import "./App.css";
 import FreeBoard from "./pages/FreeBoard";
 import Navigation from "./components/Navigation";
+import SignIn from "./pages/SignIn";
 
 function Layout() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="items" element={<Item />} />
         <Route path="freeboard" element={<FreeBoard />} />
       </Route>
+      <Route path="/signIn" element={<SignIn />} />
     </Routes>
   );
 }

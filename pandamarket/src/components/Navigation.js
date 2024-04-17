@@ -1,7 +1,7 @@
 import "./Navigation.css";
 import Button from "./Button";
 import logo from "../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Navigation() {
   const src = logo;
 
@@ -11,13 +11,15 @@ function Navigation() {
       textDecoration: "none",
     };
   }
-  console.log(getLinkStyle);
+
   return (
     <>
       <nav>
         <div id="nav">
           <span>
-            <img src={src} alt="logo" />
+            <Link to="/">
+              <img src={src} alt="logo" />
+            </Link>
           </span>
           <li>
             <NavLink to="/freeboard" style={getLinkStyle}>
@@ -30,7 +32,9 @@ function Navigation() {
             </NavLink>
           </li>
         </div>
-        <Button>로그인</Button>
+        <Link to="/signIn">
+          <Button>로그인</Button>
+        </Link>
       </nav>
       <hr />
     </>
