@@ -1,22 +1,59 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './style/FileInput.css';
 
-export default function FileInput() {
-  const imageInput = useRef();
-  const [imageSrc, setImageSrc] = useState('');
+export default function FileInput({ name, value, onChange }) {
+  const [imgValue, setImgValue] = useState();
+  const [preview, setPreview] = useState();
+  const inputRef = useRef();
 
-  const onCickImageUpload = () => {
-    imageInput.current.click();
+  const handleChange = e => {
+    const nextValue = e.target.files[0];
+    setImgValue(nextValue);
+    onChange(name, nextValue);
+  };
+
+  const handleClearClick = () => {
+    const inputNode = inputRef.current;
+    if (!inputNode) return;
+
+    inputNode.value = '';
+    onChange(name, null);
+  };
+
+  useEffect(() => {
+    if (!value) return;
+    const nextPreview = URL.createObjectURL(value);
+    setPreview(nextPreview);
+
+    return () => {
+      setPreview();
+      URL.revokeObjectURL(nextPreview);
+    };
+  }, [value]);
+
+  const onClickImageUpload = () => {
+    inputRef.current.click();
   };
   return (
     <div className='file-input__container'>
       <p className='file-input__title'>상품 이미지</p>
       <div className='file-input__wrap'>
-        <input type='file' style={{ display: 'none' }} ref={imageInput} />
-        <button onClick={onCickImageUpload} className='file-input'>
+        <input
+          type='file' //
+          accept='image/png, image/jpeg'
+          style={{ display: 'none' }}
+          ref={inputRef}
+          onChange={handleChange}
+        />
+        <button onClick={onClickImageUpload} className='file-input'>
           <span>이미지 등록</span>
         </button>
-        <div className='file-input__preview'>{imageSrc && <img src={imageSrc} alt='이미지 미리보기' />}</div>
+        {value && <img src={preview} alt='이미지 미리보기' className='preview-img' />}
+        {value && (
+          <button className='preview-delete-btn' onClick={handleClearClick}>
+            <img src='/imgs/ic_X.png' alt='x' />
+          </button>
+        )}
       </div>
     </div>
   );
