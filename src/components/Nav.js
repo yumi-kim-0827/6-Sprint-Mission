@@ -47,10 +47,10 @@ function Nav() {
         <LogoContainer>
           <Img src={logo} alt="판다마켓 로고" />
         </LogoContainer>
-        <StyledNavLink to="/board" className={({ isActive }) => isActive? "active": ''}>
+        <StyledNavLink to="/board">
           자유게시판
         </StyledNavLink>
-        <StyledNavLink to="/items" className={({ isActive }) => isActive? "active": ''}>
+        <StyledNavLink to="/fleamarket">
           중고마켓
         </StyledNavLink>
       </ListContainer>
