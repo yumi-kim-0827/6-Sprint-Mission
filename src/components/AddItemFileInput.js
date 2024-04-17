@@ -15,6 +15,13 @@ function AddItemFileInput() {
     }
   };
 
+  const handleClearClick = () => {
+    const fileInputNode = fileInputRef.current;
+    if (!fileInputNode) return;
+    fileInputNode.value = "";
+    setPreview(null);
+  };
+
   useEffect(() => {
     return () => {
       // 정리함수
@@ -42,7 +49,11 @@ function AddItemFileInput() {
       {preview && (
         <>
           <img src={preview} alt="이미지 미리보기" className="preview" />
-          <input type="button" className="preview-delete-btn" />
+          <input
+            type="button"
+            className="preview-delete-btn"
+            onClick={handleClearClick}
+          />
         </>
       )}
     </div>
