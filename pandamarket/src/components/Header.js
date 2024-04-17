@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Header() {
   const location = useLocation()
 
-  const isItemsPage = location.pathname === "/items"
+  const isItemsPage = location.pathname === "/items" || location.pathname === "/additem"
 
   const navigate = useNavigate()
 
