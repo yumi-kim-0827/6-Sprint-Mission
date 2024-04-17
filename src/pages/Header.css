@@ -15,6 +15,7 @@ a {
   justify-content: space-between;
   padding: 0 200px;
   display: flex;
+  z-index: 3;
   align-items: center;
   background-color: #fff;
   border-bottom: solid 1px #dfdfdf;
