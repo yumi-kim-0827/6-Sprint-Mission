@@ -34,6 +34,7 @@ const Header = () => {
 
 const HeaderContainer = styled.div`
   position: sticky;
+  z-index: 1;
   top: 0px;
   width: 100%;
   height: 70px;

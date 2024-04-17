@@ -1,52 +1,49 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const FileInput = () => {
   const [file, setFile] = useState(null);
-  const [previewURL, setPreviewURL] = useState(null);
-  const inputRef = useRef(null);
+  const [previewImg, setPreviewImg] = useState(null);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
-    setPreviewURL(URL.createObjectURL(selectedFile));
-  };
-
-  const handleUploadClick = () => {
-    inputRef.current.click();
+    setPreviewImg(URL.createObjectURL(selectedFile));
   };
 
   const handleRemoveFile = () => {
     setFile(null);
-    setPreviewURL(null);
+    setPreviewImg(null);
   };
 
   return (
-    <Container>
-      <UploadArea>
+    <FileInputContainer>
+      <TotalContainer>
         <input
           type="file"
           accept="image/png, image/jpeg"
           onChange={handleFileChange}
-          ref={inputRef}
+          id="file-input"
           style={{ display: "none" }}
         />
-        <UploadButton onClick={handleUploadClick}>
-          <Icon>+</Icon>
-          <Text>이미지 등록</Text>
-        </UploadButton>
-        {previewURL && (
-          <PreviewContainer>
-            <PreviewImage src={previewURL} alt="Preview" />
-            <RemoveButton onClick={handleRemoveFile}>X</RemoveButton>
-          </PreviewContainer>
-        )}
-      </UploadArea>
-    </Container>
+        <label htmlFor="file-input">
+          <UploadButton>
+            <Icon>+</Icon>
+            <Text>이미지 등록</Text>
+          </UploadButton>
+        </label>
+      </TotalContainer>
+      {previewImg && (
+        <ImagePreview>
+          <PreviewImage src={previewImg} alt="Preview" />
+          <RemoveButton onClick={handleRemoveFile}>X</RemoveButton>
+        </ImagePreview>
+      )}
+    </FileInputContainer>
   );
 };
 
-const Container = styled.div`
+const TotalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,14 +53,20 @@ const Container = styled.div`
   height: 282px;
   background-color: #f3f4f6;
   margin-top: 20px;
+  @media (max-width: 1023px) {
+    width: 162px;
+    height: 162px;
+  }
+
+  @media (max-width: 767px) {
+    width: 168px;
+    height: 168px;
+  }
 `;
 
-const UploadArea = styled.div`
+const FileInputContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
 `;
 
 const UploadButton = styled.div`
@@ -83,21 +86,32 @@ const Text = styled.div`
   margin-top: 10px;
   color: #9ca3af;
 `;
-
-const PreviewContainer = styled.div`
+const ImagePreview = styled.div`
   position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 22px;
   margin-left: 20px;
+  margin-top: 20px;
+  @media (max-width: 1023px) {
+    width: 162px;
+    height: 162px;
+  }
+  @media (max-width: 767px) {
+    width: 168px;
+    height: 168px;
+  }
 `;
 
 const PreviewImage = styled.img`
-  max-width: 283px;
-  max-height: 283px;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 `;
 
 const RemoveButton = styled.button`
   position: absolute;
-  top: -10px;
-  right: -10px;
+  right: -1px;
   background-color: #3692ff;
   color: white;
   border: none;

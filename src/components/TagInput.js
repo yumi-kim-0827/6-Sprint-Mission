@@ -83,7 +83,7 @@ const TagItem = styled.div`
   background-color: #f3f4f6;
   color: #333;
   padding: 5px 10px;
-  border-radius: 12px;
+  border-radius: 30px;
   margin-right: 10px;
   margin-bottom: 10px;
 `;
@@ -99,7 +99,6 @@ const DeleteButton = styled.button`
   color: #ccc;
   border: none;
   cursor: pointer;
-  font-size: 14px;
   margin-left: 5px;
 `;
 

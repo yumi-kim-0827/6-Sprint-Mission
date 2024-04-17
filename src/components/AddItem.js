@@ -10,7 +10,7 @@ const AddItem = () => {
   const [tags, setTags] = useState([]);
   const [isTagsEmpty, setIsTagsEmpty] = useState(true);
 
-  const FormComplete =
+  const formComplete =
     title.trim() !== "" &&
     description.trim() !== "" &&
     price.trim() !== "" &&
@@ -28,7 +28,7 @@ const AddItem = () => {
     <AddItemContainer onSubmit={handleSubmit}>
       <AddItemTitle>
         상품등록하기
-        <SubmitButton type="submit" disabled={!FormComplete}>
+        <SubmitButton type="submit" disabled={!formComplete}>
           등록
         </SubmitButton>
       </AddItemTitle>
@@ -78,6 +78,15 @@ const AddItemContainer = styled.form`
   width: 100%;
   height: 1200px;
   padding: 40px 140px;
+  @media (max-width: 1023px) {
+    padding: 30px 30px;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    padding: 20px 20px;
+    height: 100%;
+  }
 `;
 
 const AddItemTitle = styled.div`
