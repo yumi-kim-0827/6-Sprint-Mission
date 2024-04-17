@@ -9,6 +9,10 @@ const Header = () => {
     navigate("/");
   };
 
+  const handleUsedMarketClick = () => {
+    navigate("/items");
+  };
+
   return (
     <HeaderContainer>
       <MenuContainer>
@@ -22,7 +26,7 @@ const Header = () => {
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
           active={location.pathname === "/items"}
-          onClick={() => navigate("/items")}
+          onClick={handleUsedMarketClick}
         >
           중고마켓
         </UsedMarket>
