@@ -2,6 +2,7 @@ import {Header, Footer} from './components'
 import Main from "./pages/Main";
 import Items from "./pages/Items";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import AddItem from './pages/AddItem';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/items" element={<Items />} />
+          <Route path="/additem" element={<AddItem />} />          
         </Routes>
         <Footer />
       </BrowserRouter>

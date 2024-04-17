@@ -166,17 +166,18 @@ function Items() {
   return (
     <div className={styles.container}>
       <div className={styles["best-products"]}>
-        <h3>베스트 상품</h3>
+        <h3 className={styles["products-name"]}>베스트 상품</h3>
         <BestProductList products={bestProducts} />
       </div>
 
       <div>
         <div className={styles["all-products-nav"]}>
           <div className={styles["all-products-sub-nav"]}>
-            <h3>전체 상품</h3>
+            <h3 className={styles["products-name"]}>전체 상품</h3>
             <div className={styles.search}>
               <img src="/assets/icon_search.png" />
               <input
+                className={styles["search-input"]}
                 placeholder="검색할 상품을 입력해주세요"
                 onChange={handleKeywordSearch}
               ></input>

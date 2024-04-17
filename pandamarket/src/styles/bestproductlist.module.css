@@ -54,6 +54,9 @@
     width: 336px;
     height: 336px;
   }
+  form {
+    padding: 0 1rem;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
@@ -63,5 +66,8 @@
   .product-img {
     width: 343px;
     height: 343px;
+  }
+  form {
+    padding: 0 1rem;
   }
 }
