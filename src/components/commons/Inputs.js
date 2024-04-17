@@ -6,7 +6,7 @@ import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
 import useDeviceState from "hooks/useDeviceState";
 import { orderAtom } from "context/atoms/order";
 import { useAtom } from "jotai";
-import { addCommas, removeCommas } from "utils/commas";
+import { addCommas } from "utils/commas";
 
 export function SearchInput({ value, onChange }) {
   return (

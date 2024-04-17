@@ -192,7 +192,7 @@
   margin-top: 40px;
 }
 
-/* Loading */
+/* loading */
 
 .loading__container {
   min-height: 500px;
@@ -209,4 +209,20 @@
     border-radius: 50%;
     z-index: 999;
   }
+}
+
+/* tag */
+
+.tag {
+  background-color: var(--cool-gray200);
+  width: max-content;
+  padding: 12px 12px 12px 16px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--cool-gray800);
 }

@@ -3,6 +3,7 @@ import {
   FormTextarea,
   NumberInput,
 } from "components/commons/Inputs";
+import Tag from "components/commons/Tag";
 import GNB from "components/layouts/GNB";
 import { MainLayout } from "components/layouts/Layout";
 import React, { useEffect, useState } from "react";
@@ -46,6 +47,8 @@ export default function AddItem() {
             setTextContent(e.target.value);
           }}
         />
+        <Tag>티셔츠</Tag>
+        <Tag>상의</Tag>
       </MainLayout>
     </>
   );

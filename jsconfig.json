@@ -22,7 +22,10 @@
     "pages/*": ["pages/*"],
     "components/*": ["components/*"],
     "styles/*": ["styles/*"],
-    "features/*": ["features/*"],
-    "assets/*": ["assets/*"]
+    "assets/*": ["assets/*"],
+    "utils/*": ["utils/*"],
+    "hooks/*": ["hooks/*"],
+    "context/*": ["context/*"],
+    "apis/*": ["apis/*"]
   }
 }
