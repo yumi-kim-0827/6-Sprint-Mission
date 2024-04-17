@@ -1,16 +1,16 @@
-main{
+.itemPage-main{
     display: grid;
     grid-template: 2.4rem 123.4rem 11.3rem / 1fr 120rem 1fr;
 }
 
-.main-content{
+.itemPage-main-content{
     grid-row:2/3;
     grid-column: 2/3;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-    main{
+    .itemPage-main{
         display: grid;
         grid-template: 2.4rem 128.8rem 5.9rem / 1fr 69.6rem 1fr;
         column-gap: 2.4rem;
@@ -21,7 +21,7 @@ main{
 
   @media (min-width: 375px) and (max-width: 768px) {
 
-    main{
+    .itemPage-main{
         display: grid;
         grid-template: 1.7rem 120.7rem 8.2rem / 1fr 34.4rem 1fr;
         column-gap: 1.6rem;
