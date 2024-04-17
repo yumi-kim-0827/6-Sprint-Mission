@@ -97,17 +97,19 @@ input::placeholder {
 }
 
 .tag {
-  width: 100px;
+  min-width: 100px;
   height: 48px;
   border-radius: 26px;
   background-color: #f9fafb;
   border: 1px solid #f9fafb;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding: 0 8px 0 8px;
 }
 
 .tag span {
+  text-wrap: wrap;
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
