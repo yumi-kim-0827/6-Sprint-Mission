@@ -4,6 +4,5 @@ export async function getItems({order, page, pageSize, keyword=""}) {
     `https://panda-market-api.vercel.app/products${query}`
   );
   const body = await response.json();
-  console.log(body);
   return body;
 }

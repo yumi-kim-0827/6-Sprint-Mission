@@ -2,7 +2,6 @@ import logoPC from "../img/logo_img.png";
 import logoMobile from "../img/logo_typo.png";
 
 export function Logo ({children}) {
-  
   return (
     <h1 className="header__logo">
       <a href="/" className="link">
