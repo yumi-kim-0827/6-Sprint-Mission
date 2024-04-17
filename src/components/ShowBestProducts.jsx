@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
+import debounce from "./common/debounce";
 
 function BestProduct({ name, price, favoriteCount, images }) {
   const formatedPrice = price.toLocaleString();
@@ -19,6 +20,28 @@ function BestProduct({ name, price, favoriteCount, images }) {
 }
 
 const ShowBestProducts = ({ products }) => {
+  const [width, setWidth] = useState();
+
+  const handlePageSize = (width) => {
+    if (width >= 1200) {
+      return 4;
+    } else if (width >= 768 && width <= 1199) {
+      return 2;
+    } else if (width >= 380 && width <= 767) {
+      return 1;
+    }
+  };
+
+  const handleResize = debounce(() => {
+    setWidth(window.innerWidth);
+  }, 200);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <main className="Main">
       <div className="best">
@@ -34,7 +57,7 @@ const ShowBestProducts = ({ products }) => {
               </li>
             );
           })
-          .slice(0, 4)}
+          .slice(0, handlePageSize(width))}
       </ul>
     </main>
   );
