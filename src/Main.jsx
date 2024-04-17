@@ -4,10 +4,12 @@ import HomePage from "./pages/HomePage.jsx";
 import App from "./App.js";
 import { useEffect, useState } from "react";
 import AddItem from "./pages/addItem/AddItem.jsx";
+import LoginContext from "./contexts/LoginContext.js";
 
 export default function Main() {
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -21,14 +23,16 @@ export default function Main() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<HomePage />} />
-          <Route path="/items" element={<Items items={items} />} />
-          <Route path="/additem" element={<AddItem />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <LoginContext.Provider value={isLogin}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePage />} />
+            <Route path="/items" element={<Items items={items} />} />
+            <Route path="/additem" element={<AddItem />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </LoginContext.Provider>
   );
 }

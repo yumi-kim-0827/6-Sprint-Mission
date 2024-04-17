@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import logo from "../../assets/logo-panda.svg";
+import { useContext } from "react";
+import LoginContext from "../../contexts/LoginContext";
+import LoginIcon from "../../assets/icon-login.svg";
 
 export default function Nav() {
+  const isLogin = useContext(LoginContext);
+  console.log("isLogin?", isLogin);
   return (
     <>
       <header>
@@ -21,9 +26,13 @@ export default function Nav() {
               중고마켓
             </Link>
           </div>
-          <Link to="/login" className="btn login-btn">
-            로그인
-          </Link>
+          {!isLogin ? (
+            <img className="icon-login" src={LoginIcon} alt="로그인 아이콘" />
+          ) : (
+            <Link to="/login" className="btn login-btn">
+              로그인
+            </Link>
+          )}
         </div>
       </header>
     </>

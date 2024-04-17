@@ -64,6 +64,10 @@ header {
   margin-right: 16px;
 }
 
+.icon-login {
+  margin: 15px 16px;
+}
+
 @media (min-width: 744px) {
   .logo-icon {
     /*  */
@@ -85,6 +89,9 @@ header {
     display: flex;
     gap: 39px;
     margin-left: 40px;
+  }
+  .icon-login {
+    margin: 15px 24px;
   }
 }
 
