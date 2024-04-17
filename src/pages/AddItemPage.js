@@ -1,7 +1,33 @@
+import { useEffect, useState } from "react";
 import AddItemFileInput from "../components/AddItemFileInput";
 import "../styles/AddItemPage.css";
 
 export default function AddItemPage() {
+  const [values, setValues] = useState({
+    name: "",
+    description: "",
+    price: "",
+  });
+
+  const [isWriteAll, setIsWriteAll] = useState(true);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    if (values.name && values.description && values.price) {
+      setIsWriteAll(false);
+    } else {
+      setIsWriteAll(true);
+    }
+  }, [values]);
+
   return (
     <main>
       <form className="add-form">
@@ -17,6 +43,7 @@ export default function AddItemPage() {
             id="name"
             placeholder="상품명을 입력해주세요"
             className="form-input"
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -28,6 +55,7 @@ export default function AddItemPage() {
             id="description"
             placeholder="상품 소개를 입력해주세요"
             className="form-textarea"
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -40,9 +68,17 @@ export default function AddItemPage() {
             id="price"
             placeholder="판매가격을 입력해주세요"
             className="form-input"
+            onChange={handleChange}
           />
         </div>
-        <button className="add-button">등록</button>
+        <button
+          type="submit"
+          onSubmit={handleSubmit}
+          className={`add-button-disabled ${isWriteAll ? "" : "active"}`}
+          disabled={isWriteAll}
+        >
+          등록
+        </button>
       </form>
     </main>
   );

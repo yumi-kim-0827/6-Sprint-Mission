@@ -11,18 +11,23 @@
   flex-direction: column;
 }
 
-.add-button {
+.add-button-disabled {
   position: absolute;
   top: 0;
   right: 0;
   width: 88px;
   height: 42px;
-  background-color: var(--primary-color);
+  background-color: #9ca3af;
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
+}
+
+.active {
+  background-color: var(--primary-color);
+  cursor: pointer;
 }
 
 .form-label {
