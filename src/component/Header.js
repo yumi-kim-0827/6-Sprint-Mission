@@ -1,14 +1,20 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import panda_market_logo from "../image/panda_market_home_logo.png";
 import "../css/header.css";
 
 const Header = () => {
-  
-  const currentPageBlueColor = ({isActive}) => {
-    return { color: isActive ? "#3692FF" : undefined };
-  };
+  const location = useLocation();
+  console.log("asd");
 
+  const currentPageBlueColor = (paths) => {
+    for (let path of paths) {
+      console.log(location.pathname, path);
+      if (path === location.pathname) {
+        return { color: "#3692FF" };
+      }
+    }
+  };
 
   return (
     <header>
@@ -19,14 +25,14 @@ const Header = () => {
         <div className="page-button">
           <NavLink
             to="/"
-            style={currentPageBlueColor}
+            style={currentPageBlueColor(["/"])}
             className="navLink"
           >
             자유게시판
           </NavLink>
           <NavLink
             to="/items"
-            style={currentPageBlueColor}
+            style={currentPageBlueColor(["/items", "/additem"])}
             className="navLink"
           >
             중고마켓
