@@ -37,7 +37,6 @@
   cursor: pointer;
 }
 
-
 .fileinput-clear-button {
   position: absolute;
   top: 9px;
@@ -49,4 +48,14 @@
   border-radius: 10px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.fileinput-clear-button img {
+  background-color: var(--btn4);
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+.fileinput-clear-button img:hover {
+  background-color: var(--main);
 }

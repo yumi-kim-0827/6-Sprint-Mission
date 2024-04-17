@@ -9,21 +9,17 @@ const INITIAL_VALUES = {
   imgFile: null,
 };
 
-function AddItem({
-  initialValues = INITIAL_VALUES,
-  initialPreview,
-  onCancel,
-  onSubmit,
-  onSubmitSuccess,
-}) {
+function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
   const [values, setValues] = useState(initialValues);
 
+  //  함수는 필드의 이름과 새 값이 전달될 때마다 호출
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();

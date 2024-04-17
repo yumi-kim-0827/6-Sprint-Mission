@@ -10,6 +10,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
     onChange(name, nextValue);
   };
 
+  // 이미지 클릭 = 파일 선택 요소 클릭
   const handleImageClick = () => {
     inputRef.current.click();
   };
@@ -19,14 +20,16 @@ function FileInput({ name, value, initialPreview, onChange }) {
     if (!inputNode) return;
 
     inputNode.value = "";
-    onChange(name, null);
+    onChange(name, null); // 선택 해제 알리기
   };
 
   useEffect(() => {
     if (!value) return;
+    // 선택된 파일의 URL을 생성해 미리보기 이미지로 설정
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
 
+    // 정리함수: 언마운트될 때 URL 해제하기
     return () => {
       setPreview(initialPreview);
       URL.revokeObjectURL(nextPreview);
