@@ -1,11 +1,11 @@
 import React from "react";
-import Items from "./itmes.js";
+import Items from "./Itmes";
 
 function App() {
   return (
-    <div>
+    <main>
       <Items />
-    </div>
+    </main>
   );
 }
 
