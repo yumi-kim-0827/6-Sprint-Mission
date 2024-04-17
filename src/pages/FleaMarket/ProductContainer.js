@@ -7,8 +7,7 @@ const StyledProductContainer = styled(Link)`
 `;
 
 const ProductImg = styled.img`
-  width: ${(props) => props.width || '220px'};
-  height: ${(props) => props.width || '220px'};
+d  width: 100%;
   border-radius: 16.59px;
   margin-bottom: 16px;
 `;
