@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddItem(props) {
+function AddItemPage(props) {
   return (
     <div>
       <h1>상품 추가하기 페이지</h1>
@@ -8,4 +8,4 @@ function AddItem(props) {
   );
 }
 
-export default AddItem;
+export default AddItemPage;

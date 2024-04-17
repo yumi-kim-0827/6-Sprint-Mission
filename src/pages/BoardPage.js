@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Board(props) {
+function BoardPage(props) {
   return (
     <div>
       <h1>자유게시판</h1>
@@ -8,4 +8,4 @@ function Board(props) {
   );
 }
 
-export default Board;
+export default BoardPage;
