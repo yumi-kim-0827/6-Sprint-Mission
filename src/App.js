@@ -1,8 +1,9 @@
-import Navigator from "./Navigator";
 import { GetItems } from "./GetItems";
-import ItemsAll from "./ItemsAll";
 import { useEffect, useState } from "react";
 import "./App.css";
+import Navigator from "./Navigator";
+import ItemsAll from "./ItemsAll";
+import Controller from "./Controller";
 
 function App() {
   const [order, setOrder] = useState("createdAt");
@@ -30,7 +31,10 @@ function App() {
           <div className="content-label">베스트 상품</div>
         </article>
         <article className="products-all">
-          <div className="content-label">전체 상품</div>
+          <div className="content-label-box">
+            <div className="content-label">전체 상품</div>
+            <Controller />
+          </div>
           <ItemsAll items={sortedItems} />
         </article>
       </main>
