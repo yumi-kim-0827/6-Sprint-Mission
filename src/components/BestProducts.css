@@ -31,9 +31,9 @@ h1 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .container-best-products {
     margin: 0 auto;
-    width: 1024px;
+    width: 1200px;
   }
 }

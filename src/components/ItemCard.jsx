@@ -1,31 +1,31 @@
 import "./ItemCard.css";
 import likeIcon from "../assets/icon-like-heart.svg";
 
-export default function ItemCard({ items, count, mb, tb, pc }) {
-  console.log("아이템:", items);
-  console.log("카운트:", count);
-  console.log("mb:", mb);
-  const checkMb = mb ? "mb" : "";
-  const checkTb = tb ? "tb" : "";
-  const checkPc = pc ? "pc" : "";
+export default function ItemCard({ item, best, mb, tb, pc }) {
+  const isMb = mb ? "mb" : "";
+  const isTb = tb ? "tb" : "";
+  const isPc = pc ? "pc" : "";
+  const isBest = best ? "best" : "";
 
   return (
     <>
-      {items.length > 0 ? (
-        <div className={`container-item-card ${checkMb} ${checkTb} ${checkPc}`}>
-          <div className={`image-container ${checkMb}`}>
+      {item ? (
+        <div
+          className={`container-item-card ${isBest} ${isMb} ${isTb} ${isPc}`}
+        >
+          <div className={`image-container ${isBest} ${isMb} ${isPc}`}>
             <img
               className={`image-item-card`}
-              src={items[count].images[0]}
+              src={item.images[0]}
               alt="상품 이미지"
             />
           </div>
           <div className="info-item-card">
-            <p className="desc-item-card">{items[count].name}</p>
-            <p className="price-item-card">{items[count].price}원</p>
+            <p className="desc-item-card">{item.name}</p>
+            <p className="price-item-card">{item.price}원</p>
             <div className="like-item-card">
               <img src={likeIcon} alt="하트 아이콘" />
-              {items[count].favoriteCount}
+              {item.favoriteCount}
             </div>
           </div>
         </div>

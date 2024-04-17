@@ -8,16 +8,17 @@
     width: 696px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .container-onSaleProducts {
-    width: 1024px;
+    width: 1200px;
   }
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .cards-container.tb {
