@@ -19,6 +19,7 @@ function FleaMarketPage() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleRecent = () => {
     setOrderBy("recent");
@@ -29,7 +30,16 @@ function FleaMarketPage() {
   };
 
   const handleload = async (options) => {
-    const { list } = await getItems(options);
+    let result;
+    try {
+      setLoadingError(null);
+      result = await getItems(options);
+    } catch (error) {
+      setLoadingError(error);
+      return;
+    } 
+
+    const { list } = result;
     if (options.page === 1) {
       setProducts(list);
     } else {
@@ -52,6 +62,7 @@ function FleaMarketPage() {
 
   return (
     <StyledItems>
+      {loadingError?.message && <span>{loadingError.message}</span>}
       <BestProductsContainer>
         <Title>베스트 상품</Title>
         <BestProducts>
@@ -92,7 +103,7 @@ function FleaMarketPage() {
 
       <AllProductsContainer>
         <AllProductsHeader>
-          <Title>전체 상품</Title>``
+          <Title>전체 상품</Title>
           <InputContainer>
             <InputForm>
               <Input placeholder="검색할 상품을 입력해주세요" />
@@ -119,7 +130,6 @@ function FleaMarketPage() {
               favoriteCount={product.favoriteCount}
             />
           ))}
-          ;
         </AllProducts>
       </AllProductsContainer>
       <PageNationIconContainer>
