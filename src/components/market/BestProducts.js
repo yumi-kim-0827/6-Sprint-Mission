@@ -5,15 +5,19 @@ import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
 import getProductsData from "apis/getProductsData";
 
-const PAGE_SIZE_ARRAY = [1, 2, 4];
+const DEVICE_PRODUCT_COUNT = {
+  mobile: 1,
+  tablet: 2,
+  desktop: 4,
+};
 
 export default function BestProducts() {
-  const deviceState = useDeviceState();
+  const { deviceState } = useDeviceState();
   const [renderDataList, setRenderDataList] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const pageSize = getPageSize(deviceState, PAGE_SIZE_ARRAY);
+      const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
 
       const data = await getProductsData({
         order: "favorite",

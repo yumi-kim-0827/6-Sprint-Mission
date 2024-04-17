@@ -11,7 +11,11 @@ import getPageSize from "utils/getPageSize";
 import getProductsData from "apis/getProductsData";
 import useResetPage from "hooks/useResetPage";
 
-const PAGE_SIZE_ARRAY = [4, 6, 10];
+const DEVICE_PRODUCT_COUNT = {
+  mobile: 4,
+  tablet: 6,
+  desktop: 10,
+};
 
 export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
@@ -20,13 +24,13 @@ export default function AllProducts() {
   const orderState = useRecoilValue(itemsOrderState);
   const currentPage = useRecoilValue(currentPageState);
   const setTotalPages = useSetRecoilState(totalPagesState);
-  const deviceState = useDeviceState();
+  const { deviceState } = useDeviceState();
   useResetPage([deviceState, keyword]);
 
   // 렌더되는 데이터 설정
   useEffect(() => {
     (async () => {
-      const pageSize = getPageSize(deviceState, PAGE_SIZE_ARRAY);
+      const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
       const order = orderState === "최신순" ? "recent" : "favorite";
 
       const data = await getProductsData({
@@ -42,7 +46,7 @@ export default function AllProducts() {
 
   // 전체 페이지 설정
   useEffect(() => {
-    const pageSize = getPageSize(deviceState, PAGE_SIZE_ARRAY);
+    const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
     const totalPages = Math.ceil(totalCount / pageSize);
     setTotalPages(totalPages > 0 ? totalPages : 1);
   }, [deviceState, renderDataList]);

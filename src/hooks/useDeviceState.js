@@ -12,6 +12,7 @@ const DEVICE = {
 
 export default function useDeviceState() {
   const [deviceState, setDeviceState] = useState(getDeviceState());
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
 
   useEffect(() => {
     function handleResize() {
@@ -27,7 +28,11 @@ export default function useDeviceState() {
     };
   }, []);
 
-  return deviceState;
+  useEffect(() => {
+    setIsMobileWidth(deviceState === "mobile");
+  }, [deviceState]);
+
+  return { deviceState, isMobileWidth };
 }
 
 function getDeviceState() {

@@ -1,5 +1,5 @@
-export default function getPageSize(deviceState, pageSizeArray) {
-  if (deviceState === "mobile") return pageSizeArray[0];
-  if (deviceState === "tablet") return pageSizeArray[1];
-  if (deviceState === "desktop") return pageSizeArray[2];
+export default function getPageSize(deviceState, deviceProductCount) {
+  if (deviceState === "mobile") return deviceProductCount.mobile;
+  if (deviceState === "tablet") return deviceProductCount.tablet;
+  if (deviceState === "desktop") return deviceProductCount.desktop;
 }
