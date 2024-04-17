@@ -3,8 +3,8 @@ import styles from "styles/commons.module.scss";
 import classNames from "classnames/bind";
 import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { currentPageState, totalPagesState } from "context/atoms/page";
+import { useAtom, useAtomValue } from "jotai";
+import { currentPageAtom, totalPagesAtom } from "context/atoms/page";
 
 const cn = classNames.bind(styles);
 
@@ -22,8 +22,8 @@ function PageButton({ children, isFocus, onClick }) {
 }
 
 export default function Pagination() {
-  const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
-  const totalPages = useRecoilValue(totalPagesState);
+  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
+  const totalPages = useAtomValue(totalPagesAtom);
 
   const handleButtonClick = (page) => {
     setCurrentPage(page);

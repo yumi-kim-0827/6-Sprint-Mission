@@ -4,12 +4,12 @@ import useDeviceState from "hooks/useDeviceState";
 import Card from "./Card";
 import Button from "components/commons/Button";
 import { SearchInput, SelectInput } from "components/commons/Inputs";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { currentPageState, totalPagesState } from "context/atoms/page";
-import { itemsOrderState } from "context/atoms/order";
 import getPageSize from "utils/getPageSize";
 import getProductsData from "apis/getProductsData";
 import useResetPage from "hooks/useResetPage";
+import { useAtomValue, useSetAtom } from "jotai";
+import { orderAtom } from "context/atoms/order";
+import { currentPageAtom, totalPagesAtom } from "context/atoms/page";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,
@@ -21,9 +21,9 @@ export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
   const [totalCount, setTotalCount] = useState(0);
   const [renderDataList, setRenderDataList] = useState([]);
-  const orderState = useRecoilValue(itemsOrderState);
-  const currentPage = useRecoilValue(currentPageState);
-  const setTotalPages = useSetRecoilState(totalPagesState);
+  const orderState = useAtomValue(orderAtom);
+  const currentPage = useAtomValue(currentPageAtom);
+  const setTotalPages = useSetAtom(totalPagesAtom);
   const { deviceState } = useDeviceState();
   useResetPage([deviceState, keyword]);
 

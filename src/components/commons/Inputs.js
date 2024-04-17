@@ -3,9 +3,9 @@ import styles from "styles/commons.module.scss";
 import SearchIcon from "assets/icon/ic_search.svg";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
-import { useRecoilState } from "recoil";
-import { itemsOrderState } from "context/atoms/order";
 import useDeviceState from "hooks/useDeviceState";
+import { orderAtom } from "context/atoms/order";
+import { useAtom } from "jotai";
 
 export function SearchInput({ value, onChange }) {
   return (
@@ -22,8 +22,7 @@ export function SearchInput({ value, onChange }) {
 
 export function SelectInput() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [order, setOrder] = useRecoilState(itemsOrderState);
-
+  const [order, setOrder] = useAtom(orderAtom);
   const { isMobileWidth } = useDeviceState();
   const dropdownRef = useRef(null);
 

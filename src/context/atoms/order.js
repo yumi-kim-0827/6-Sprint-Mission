@@ -1,6 +1,3 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
-export const itemsOrderState = atom({
-  key: "itemsOrderState",
-  default: "최신순",
-});
+export const orderAtom = atom("최신순");

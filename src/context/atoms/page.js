@@ -1,11 +1,4 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
-export const currentPageState = atom({
-  key: "currentPageState",
-  default: 1,
-});
-
-export const totalPagesState = atom({
-  key: "totalPagesState",
-  default: 1,
-});
+export const currentPageAtom = atom(1);
+export const totalPagesAtom = atom(1);
