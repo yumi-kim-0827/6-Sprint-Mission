@@ -11,9 +11,11 @@ function App(props) {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/items" element={<Items />} />
-        <Route path="/additems" element={<AddItems />} />
+        <Route path="/">
+          <Route index element={<Main />} />
+          <Route path="items" element={<Items />} />
+          <Route path="additems" element={<AddItems />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
