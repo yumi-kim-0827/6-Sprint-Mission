@@ -6,6 +6,7 @@ import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
 import useDeviceState from "hooks/useDeviceState";
 import { orderAtom } from "context/atoms/order";
 import { useAtom } from "jotai";
+import { addCommas, removeCommas } from "utils/commas";
 
 export function SearchInput({ value, onChange }) {
   return (
@@ -61,6 +62,48 @@ export function SelectInput() {
           <li onClick={() => setOrder("좋아요순")}>좋아요순</li>
         </ul>
       )}
+    </div>
+  );
+}
+
+export function FormInput({ value, onChange, placeholder }) {
+  return (
+    <div className={styles.form__input}>
+      <input
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required
+      />
+    </div>
+  );
+}
+
+export function NumberInput({ value: number, onChange, placeholder }) {
+  const [priceStr, setPriceStr] = useState("");
+
+  useEffect(() => {
+    if (isNaN(number)) return;
+    if (number === 0) setPriceStr("");
+    else setPriceStr(addCommas(String(number)));
+  }, [number]);
+
+  return (
+    <div className={styles.form__input}>
+      <input
+        placeholder={placeholder}
+        value={priceStr}
+        onChange={onChange}
+        required
+      />
+    </div>
+  );
+}
+
+export function FormTextarea({ content, onChange, placeholder }) {
+  return (
+    <div className={styles.form__textarea}>
+      <textarea placeholder={placeholder} value={content} onChange={onChange} />
     </div>
   );
 }
