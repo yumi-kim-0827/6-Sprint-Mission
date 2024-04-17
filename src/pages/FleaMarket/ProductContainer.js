@@ -3,11 +3,25 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import heart from "../../assets/heart.svg";
 
+function ProductContainer({src, alt, description, price, favoriteCount, width }) {
+  return (
+    <StyledProductContainer>
+      <ProductImg src={src} alt={alt} width={width} />
+      <ProductDes>{description}</ProductDes>
+      <ProductPrice>{price}</ProductPrice>
+      <ProductFooter>
+        <HeartImg src={heart}/>
+        <ProductFav>{favoriteCount}</ProductFav>
+      </ProductFooter>
+    </StyledProductContainer>
+  );
+}
+
 const StyledProductContainer = styled(Link)`
 `;
 
 const ProductImg = styled.img`
-d  width: 100%;
+  width: 100%;
   border-radius: 16.59px;
   margin-bottom: 16px;
 `;
@@ -43,19 +57,5 @@ const ProductFooter = styled.div`
 const HeartImg = styled.img`
   margin-right: 5px;
 `
-
-function ProductContainer({src, alt, description, price, favoriteCount, width }) {
-  return (
-    <StyledProductContainer>
-      <ProductImg src={src} alt={alt} width={width} />
-      <ProductDes>{description}</ProductDes>
-      <ProductPrice>{price}</ProductPrice>
-      <ProductFooter>
-        <HeartImg src={heart}/>
-        <ProductFav>{favoriteCount}</ProductFav>
-      </ProductFooter>
-    </StyledProductContainer>
-  );
-}
 
 export default ProductContainer;
