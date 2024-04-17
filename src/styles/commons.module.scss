@@ -225,4 +225,71 @@
   font-weight: 400;
   font-size: 16px;
   color: var(--cool-gray800);
+
+  .icon {
+    cursor: pointer;
+    &:hover {
+      fill: var(--blue);
+    }
+  }
+}
+
+/* image block */
+
+@mixin imageContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background-color: var(--input-bg);
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.image__input {
+  @include imageContainer;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  .plus__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  h1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--light-gray);
+  }
+}
+
+.image__block {
+  @include imageContainer;
+
+  .product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .x__icon {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+
+    .icon:hover {
+      fill: var(--blue);
+    }
+  }
 }

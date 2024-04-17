@@ -1,3 +1,4 @@
+import { ImageBlock, ImageInput } from "components/commons/ImageBlock";
 import {
   FormInput,
   FormTextarea,
@@ -8,6 +9,7 @@ import GNB from "components/layouts/GNB";
 import { MainLayout } from "components/layouts/Layout";
 import React, { useEffect, useState } from "react";
 import { addCommas, removeCommas } from "utils/commas";
+import TShirt from "assets/img/t-shirt.jpg";
 
 export default function AddItem() {
   const [productName, setProductName] = useState("");
@@ -19,6 +21,8 @@ export default function AddItem() {
     <>
       <GNB />
       <MainLayout>
+        <ImageInput />
+        <ImageBlock url={TShirt} />
         <FormInput
           placeholder="상품명을 입력해주세요"
           value={productName}
