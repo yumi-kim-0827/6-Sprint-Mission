@@ -11,8 +11,12 @@
   line-height: 19.09px;
   width: 88px;
   height: 42px;
+  position: relative;
+  top: -950px;
+  right: -1120px;
 }
 
-.register-button:hover {
+.register-button.active {
   background-color: #3692ff;
+  cursor: pointer;
 }

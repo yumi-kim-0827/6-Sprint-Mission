@@ -1,12 +1,16 @@
 import React from 'react';
 import './style.css';
 
-const Button = ({ onClick }) => {
+const RegisterButton = ({ onClick, disabled }) => {
   return (
-    <button className='register-button' onClick={onClick}>
+    <button
+      className={`register-button ${!disabled ? 'active' : ''}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       등록
     </button>
   );
 };
 
-export default Button;
+export default RegisterButton;
