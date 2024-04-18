@@ -39,7 +39,16 @@ export const Textarea = styled.textarea`
   ${inputStyle}
 `;
 
+/* styled button */
 export const PureButton = styled.button`
   border: none;
   background-color: transparent;
+`;
+
+export const RoundStyledButton = styled(PureButton)`
+  border-radius: 12px;
+
+  &:hover {
+    box-shadow: 0px 0px 2px var(--cool-gray500);
+  }
 `;

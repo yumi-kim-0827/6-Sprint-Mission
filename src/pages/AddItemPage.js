@@ -1,11 +1,8 @@
 import { useCallback, useState } from "react";
 import styled from "styled-components";
 import FormHeader from "../components/AddItem/FormHeader";
-import {
-  InputWrapper,
-  ImgInputWrapper,
-  TextareaWrapper,
-} from "../components/AddItem/Input";
+import { ImgInputWrapper } from "../components/AddItem/ImgInput";
+import { InputWrapper, TextareaWrapper } from "../components/AddItem/Input";
 import { TagInputWrapper } from "../components/AddItem/TagInput";
 import {
   IMAGE,
@@ -27,15 +24,37 @@ const FormContents = styled.div`
 `;
 
 function AddItemPage() {
+  // 서버에게 보낼 용도
   const [productInfo, setProductInfo] = useState({
     [IMAGE]: null,
     [NAME]: "",
     [DESCRIPTION]: "",
     [PRICE]: 0,
     [TAG]: [],
-  }); // 서버에게 보낼 용도
-  const [priceString, setPriceString] = useState(""); // 사용자에게 보여줄 용도
-  const [tagString, setTagString] = useState(""); // 사용자에게 보여줄 용도
+  });
+
+  // 사용자에게 보여줄 용도
+  const [priceString, setPriceString] = useState("");
+  const [tagString, setTagString] = useState("");
+  const [imgSrc, setImgSrc] = useState("");
+
+  const handleImgInputChange = useCallback(({ target: { files } }) => {
+    if (!files[0]) return;
+
+    setProductInfo((prevInfo) => ({
+      ...prevInfo,
+      [IMAGE]: files[0],
+    }));
+    setImgSrc(URL.createObjectURL(files[0]));
+  }, []);
+
+  const handleImgDelete = useCallback(() => {
+    setProductInfo((prevInfo) => ({
+      ...prevInfo,
+      [IMAGE]: null,
+    }));
+    setImgSrc("");
+  }, []);
 
   const handleInputChange = useCallback(({ target }) => {
     setProductInfo((prevInfo) => ({
@@ -91,7 +110,12 @@ function AddItemPage() {
       <form>
         <FormHeader />
         <FormContents>
-          <ImgInputWrapper name={IMAGE} />
+          <ImgInputWrapper
+            name={IMAGE}
+            value={imgSrc}
+            onChange={handleImgInputChange}
+            onClick={handleImgDelete}
+          />
           <InputWrapper
             name={NAME}
             value={productInfo[NAME]}

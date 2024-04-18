@@ -19,10 +19,6 @@ export function InputWrapper({ name, value, onChange, onKeyDown }) {
   );
 }
 
-export function ImgInputWrapper() {
-  return <></>;
-}
-
 export function TextareaWrapper({ name, value, onChange }) {
   const inputMessage = INPUT_MESSAGE[name];
   return (
