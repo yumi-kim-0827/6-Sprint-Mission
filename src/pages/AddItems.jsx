@@ -3,16 +3,39 @@ import "./AddItems.css";
 import fileplus from "../assets/file-plus.png";
 import tagdelete from "../assets/tag-delete.png";
 
-function ProductImg() {
+function ProductImg({ name, value, onChange }) {
+  const inputRef = useRef();
+
+  const handleFileChange = (e) => {
+    const nextImg = e.target.files[0];
+    onChange(name, nextImg);
+  };
+
+  const handleClearClick = () => {
+    const inputNode = inputRef;
+    if (inputNode) {
+      inputNode.value = "";
+      onChange(name, null);
+    }
+  };
+
   return (
     <div className="product-img container">
       <h3>상품 이미지</h3>
       <div className="product-img">
-        <input type="file" name="productImg" id="product-img-input" />
+        <input type="file" name="productImg" id="product-img-input" onChange={handleFileChange} ref={inputRef} />
         <label htmlFor="product-img-input">
           <img src={fileplus} alt="파일 이미지 선택" />
           <p>이미지 등록</p>
         </label>
+        {value && (
+          <div className="prev-img">
+            <img src={preview} alt="파일 이미지 미리보기" />
+            <button type="button" onClick={handleClearClick}>
+              X
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -24,7 +47,6 @@ function ProductTag() {
       <h3>태그</h3>
       <label htmlFor="product-tag"></label>
       <input type="text" name="productTag" id="product-tag" placeholder="태그를 입력해주세요" />
-      <div className="show-tag"></div>
     </div>
   );
 }
@@ -39,6 +61,18 @@ const AddItems = () => {
   });
   const buttonRef = useRef();
 
+  const handleChange = (name, value) => {
+    setProductValues((prevProductValues) => ({
+      ...prevProductValues,
+      [name]: value,
+    }));
+  };
+
+  const handleValuesChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -51,7 +85,7 @@ const AddItems = () => {
           등록
         </button>
       </div>
-      <ProductImg name="productImg" value={productValues.productImg} />
+      <ProductImg name="productImg" value={productValues.productImg} onChange={handleChange} />
       <div className="product-name container">
         <h3>상품명</h3>
         <label htmlFor="product-name"></label>
@@ -60,6 +94,7 @@ const AddItems = () => {
           type="text"
           id="product-name"
           placeholder="상품명을 입력해주세요"
+          onChange={handleValuesChange}
           value={productValues.productName}
         />
       </div>
@@ -70,6 +105,7 @@ const AddItems = () => {
           name="productIntro"
           id="product-intro"
           placeholder="상품 소개를 입력해주세요"
+          onChange={handleValuesChange}
           value={productValues.productIntro}
         ></textarea>
       </div>
@@ -81,10 +117,11 @@ const AddItems = () => {
           type="number"
           id="product-price"
           placeholder="판매 가격을 입력해주세요"
+          onChange={handleValuesChange}
           value={productValues.productPrice}
         />
       </div>
-      <ProductTag name="productTag" value={productValues.productIag} />
+      <ProductTag name="productTag" value={productValues.productIag} onChange={handleChange} />
     </form>
   );
 };
