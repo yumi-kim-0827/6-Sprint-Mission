@@ -12,6 +12,7 @@ const InputTag = ({ tags, setTags, setIsTagsEmpty }) => {
   const handleInputKeyDown = (e) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
       setTags([...tags, inputValue.trim()]);
+      e.preventDefault();
       setInputValue("");
       setIsTagsEmpty(false);
     }
