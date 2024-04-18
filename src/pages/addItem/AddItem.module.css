@@ -26,65 +26,6 @@ input::placeholder {
   margin-top: 16px;
 }
 
-.containerSubmit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.btn {
-  display: flex;
-  width: 88px;
-  height: 42px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #3692ff;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 19px;
-  color: #ffffff;
-}
-
-.btn:disabled {
-  background-color: #9ca3af;
-}
-
-.titleSubmit {
-  font-family: Pretendard;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  color: #1f2937;
-}
-
-.titleImg {
-  font-family: Pretendard;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 16px;
-  color: #1f2937;
-}
-
-.containerImg {
-  display: flex;
-  gap: 9px;
-  margin-top: 9px;
-}
-
-.preview {
-  position: relative;
-  width: 168px;
-  height: 168px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.preview img {
-  width: 100%;
-  border-radius: 12px;
-}
-
 .titleForms {
   font-family: Pretendard;
   font-size: 14px;
@@ -93,82 +34,17 @@ input::placeholder {
   color: #1f2937;
 }
 
-.containerTags {
-  width: 100%;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  min-width: 100px;
-  height: 48px;
-  border-radius: 26px;
-  background-color: #f9fafb;
-  border: 1px solid #f9fafb;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 8px 0 8px;
-}
-
-.tag span {
-  text-wrap: wrap;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #1f2937;
-}
-
-.btnClose {
-  background-image: url("../../assets//btn-close.svg");
-  width: 22px;
-  height: 24px;
-  margin-left: 8px;
-}
-
-.btnCloseActive {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-image: url("../../assets//btn-close-active.svg");
-  background-position: center;
-  border-radius: 10px;
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-}
-
 @media (min-width: 744px) {
-  .titleImg {
-    font-size: 18px;
-  }
   .titleForms {
     font-size: 18px;
   }
-  .titleSubmit {
-    font-size: 28px;
-  }
-  .btn {
-    font-size: 19px;
-  }
   .container {
     width: 696px;
-  }
-
-  .preview {
-    width: 162px;
-    height: 162px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
-  }
-  .preview {
-    width: 282px;
-    height: 282px;
   }
 }

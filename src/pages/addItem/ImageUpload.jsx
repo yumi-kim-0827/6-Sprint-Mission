@@ -1,4 +1,4 @@
-import styles from "./AddItem.module.css";
+import styles from "./ImageUpload.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
 
 const ImageUpload = ({

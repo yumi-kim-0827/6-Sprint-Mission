@@ -4,10 +4,11 @@ import skeleton from "../../assets/bg-img-skeleton.svg";
 import { createFormData } from "../../utils/createFormData";
 import ImageUpload from "./ImageUpload";
 import NameInput from "./NameInput";
-import { PLACEHOLDER } from "../../utils/placeholder";
 import TagInput from "./TagInput";
 import ProductSubmitButton from "./ProductSubmitButton";
 import { allValid } from "../../utils/allValid";
+import DescriptionInput from "./DescriptionInput";
+import PriceInput from "./PriceInput";
 
 export default function AddItem() {
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
@@ -46,6 +47,11 @@ export default function AddItem() {
     }
   };
 
+  const handleSubmit = () => {
+    createFormData({ ...propsForCreateFormData });
+    formInit();
+  };
+
   const propsForCreateFormData = {
     productName,
     productDescription,
@@ -73,58 +79,43 @@ export default function AddItem() {
     [setIsButtonEnabled, productName, productDescription, price, tags]
   );
 
+  const propsForNameInput = {
+    productName,
+    handleInputChange,
+  };
+
+  const propsForDescriptionInput = {
+    productDescription,
+    handleInputChange,
+  };
+
+  const propsForPriceInput = {
+    price,
+    handleInputChange,
+  };
+
   const propsForTagInput = {
     tags,
     setTags,
-    handleInputChange,
     allValid,
+  };
+
+  const propsForSubmitButton = {
+    isButtonEnabled,
+    handleSubmit,
   };
 
   useEffect(() => {
     allValid({ ...propsForAllValid });
   }, [propsForAllValid]);
 
-  const handleSubmit = () => {
-    createFormData({ ...propsForCreateFormData });
-    formInit();
-  };
-
   return (
     <div className={styles.container}>
-      <ProductSubmitButton
-        handleSubmit={handleSubmit}
-        isButtonEnabled={isButtonEnabled}
-      />
-
+      <ProductSubmitButton {...propsForSubmitButton} />
       <ImageUpload {...propsForImageUpload} />
-      <NameInput
-        handleInputChange={handleInputChange}
-        productName={productName}
-      />
-
-      <div>
-        <p className={styles.titleForms}>상품 소개</p>
-        <input
-          type="text"
-          name="productDescription"
-          placeholder={PLACEHOLDER.productDescription}
-          onChange={e => {
-            handleInputChange(e);
-          }}
-          value={productDescription}
-        />
-      </div>
-      <div>
-        <p className={styles.titleForms}>판매 가격</p>
-        <input
-          name="price"
-          placeholder={PLACEHOLDER.price}
-          onChange={e => {
-            handleInputChange(e);
-          }}
-          value={price}
-        />
-      </div>
+      <NameInput {...propsForNameInput} />
+      <DescriptionInput {...propsForDescriptionInput} />
+      <PriceInput {...propsForPriceInput} />
       <TagInput {...propsForTagInput} />
     </div>
   );

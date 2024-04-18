@@ -1,6 +1,6 @@
-import styles from "./AddItem.module.css";
+import styles from "./ProductSubmitButton.module.css";
 
-const ProductSubmitButton = ({ handleSubmit, isButtonEnabled }) => {
+const SubmitButton = ({ handleSubmit, isButtonEnabled }) => {
   return (
     <div className={styles.containerSubmit}>
       <p className={styles.titleSubmit}>상품 등록하기</p>
@@ -15,4 +15,4 @@ const ProductSubmitButton = ({ handleSubmit, isButtonEnabled }) => {
   );
 };
 
-export default ProductSubmitButton;
+export default SubmitButton;

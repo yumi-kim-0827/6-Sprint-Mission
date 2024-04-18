@@ -1,7 +1,7 @@
 import { PLACEHOLDER } from "../../utils/placeholder";
-import styles from "./AddItem.module.css";
+import styles from "./TagInput.module.css";
 
-const TagInput = ({ tags, setTags, handleInputChange }) => {
+const TagInput = ({ tags, setTags }) => {
   const handleTagDeleteClick = targetTagValue => {
     const newTags = tags.filter(tag => tag !== targetTagValue);
     setTags(newTags);
@@ -25,9 +25,6 @@ const TagInput = ({ tags, setTags, handleInputChange }) => {
           name="tags"
           placeholder={PLACEHOLDER.tags}
           onKeyUp={handleTagChange}
-          onChange={e => {
-            handleInputChange(e);
-          }}
         />
       </div>
       <div className={styles.containerTags}>
