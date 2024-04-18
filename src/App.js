@@ -8,27 +8,19 @@ import Controller from "./Controller";
 import ItemsBest from "./ItemsBest";
 
 function App() {
-  const [order, setOrder] = useState("createdAt");
-  const [orderQuery, setOrderQuery] = useState("recent");
+  const [order, setOrder] = useState("recent");
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
 
-  const sortedBestItems = bestItems.sort(
-    (a, b) => b[`favoriteCount`] - a[`favoriteCount`]
-  );
-  const sortedItems = items.sort((a, b) => a[order] - b[order]);
-
   const handleLatestClick = () => {
-    setOrder("createdAt");
-    setOrderQuery("recent");
+    setOrder("recent");
   };
   const handleMostFavClick = () => {
-    setOrder("favoriteCount");
-    setOrderQuery("favorite");
+    setOrder("favorite");
   };
 
-  const handleLoad = async (orderQueryName) => {
-    const { list } = await GetItems(orderQueryName);
+  const handleLoad = async (orderQuery) => {
+    const { list } = await GetItems(orderQuery);
     setItems(list);
   };
 
@@ -38,12 +30,13 @@ function App() {
   };
 
   useEffect(() => {
-    handleLoad(orderQuery);
-  }, [orderQuery]);
+    handleLoad(order);
+  }, [order]);
 
   useEffect(() => {
     handleLoadBest();
   }, []);
+
   return (
     <>
       <Navigator />
@@ -52,14 +45,14 @@ function App() {
         <button onClick={handleMostFavClick}>인기순</button>
         <article className="products-best">
           <div className="content-label">베스트 상품</div>
-          <ItemsBest items={sortedBestItems} />
+          <ItemsBest items={bestItems} />
         </article>
         <article className="products-all">
           <div className="content-label-box">
             <div className="content-label">전체 상품</div>
             <Controller />
           </div>
-          <ItemsAll items={sortedItems} />
+          <ItemsAll items={items} />
         </article>
       </main>
     </>
