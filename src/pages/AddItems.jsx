@@ -155,8 +155,10 @@ const AddItems = () => {
       productValues.productTag.length !== 0
     ) {
       buttonRef.current.disabled = false;
+      buttonRef.current.classList.add("active");
     } else {
       buttonRef.current.disabled = true;
+      buttonRef.current.classList.remove("active");
     }
   }, [productValues]);
 
