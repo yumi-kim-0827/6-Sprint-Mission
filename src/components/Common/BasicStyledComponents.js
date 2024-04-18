@@ -52,6 +52,23 @@ export const RoundStyledButton = styled(PureButton)`
   }
 `;
 
+export const buttonEffect = css`
+  background-color: var(--point-blue100);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--point-blue300);
+  }
+
+  &:active {
+    background-color: var(--point-blue400);
+  }
+
+  &:disabled {
+    background-color: var(--cool-gray400);
+  }
+`;
+
 export const smallButton = css`
   width: 88px;
   height: 42px;

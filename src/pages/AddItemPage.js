@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import FormHeader from "../components/AddItem/FormHeader";
 import { ImgInputWrapper } from "../components/AddItem/ImgInput";
@@ -28,6 +28,8 @@ const Main = styled.main`
 `;
 
 function AddItemPage() {
+  const [isRegisterDisable, setIsRegisterDisable] = useState(true);
+
   // 서버에게 보낼 용도
   const [productInfo, setProductInfo] = useState({
     [IMAGE]: null,
@@ -109,10 +111,23 @@ function AddItemPage() {
     }));
   }, []);
 
+  useEffect(() => {
+    if (
+      productInfo[NAME] &&
+      productInfo[DESCRIPTION] &&
+      priceString &&
+      productInfo[TAG].length
+    ) {
+      setIsRegisterDisable(false);
+    } else {
+      setIsRegisterDisable(true);
+    }
+  }, [productInfo, priceString]);
+
   return (
     <Main>
       <form>
-        <FormHeader />
+        <FormHeader disabled={isRegisterDisable} />
         <FormContents>
           <ImgInputWrapper
             name={IMAGE}

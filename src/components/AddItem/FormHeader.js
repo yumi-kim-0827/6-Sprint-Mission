@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { PureButton, smallButton } from "../Common/BasicStyledComponents";
+import {
+  PureButton,
+  buttonEffect,
+  smallButton,
+} from "../Common/BasicStyledComponents";
 
 const Header = styled.header`
   margin-bottom: 16px;
@@ -15,18 +19,19 @@ const H1 = styled.h1`
 `;
 
 const Button = styled(PureButton)`
+  ${buttonEffect}
   ${smallButton}
-  background-color: var(--cool-gray400);
-  color: var(--white);
   font-weight: 600;
   line-height: 1.2;
 `;
 
-function FormHeader() {
+function FormHeader({ disabled }) {
   return (
     <Header>
       <H1>상품 등록하기</H1>
-      <Button type="submit">등록</Button>
+      <Button type="submit" disabled={disabled}>
+        등록
+      </Button>
     </Header>
   );
 }
