@@ -39,11 +39,15 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: #9ca3af;
+  background-color: #3692ff;
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;
   color: #ffffff;
+}
+
+.btn:disabled {
+  background-color: #9ca3af;
 }
 
 .titleSubmit {

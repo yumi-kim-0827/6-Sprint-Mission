@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
 import { createFormData } from "../../utils/createFormData";
@@ -7,8 +7,10 @@ import NameInput from "./NameInput";
 import { PLACEHOLDER } from "../../utils/placeholder";
 import TagInput from "./TagInput";
 import ProductSubmitButton from "./ProductSubmitButton";
+import { allValid } from "../../utils/allValid";
 
 export default function AddItem() {
+  const [isButtonEnabled, setIsButtonEnabled] = useState(true);
   const [preview, setPreview] = useState(skeleton);
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
@@ -17,26 +19,6 @@ export default function AddItem() {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
   const isPreview = preview !== skeleton;
-  const propsForCreateFormData = {
-    productName,
-    productDescription,
-    price,
-    tags,
-    file,
-  };
-
-  const propsForImageUpload = {
-    fileInputRef,
-    isPreview,
-    preview,
-    setPreview,
-    setFile,
-  };
-
-  const propsForTagInput = {
-    tags,
-    setTags,
-  };
 
   const formInit = () => {
     setProductName("");
@@ -64,6 +46,44 @@ export default function AddItem() {
     }
   };
 
+  const propsForCreateFormData = {
+    productName,
+    productDescription,
+    price,
+    tags,
+    file,
+  };
+
+  const propsForImageUpload = {
+    fileInputRef,
+    isPreview,
+    preview,
+    setPreview,
+    setFile,
+  };
+
+  const propsForAllValid = useMemo(
+    () => ({
+      setIsButtonEnabled,
+      productName,
+      productDescription,
+      price,
+      tags,
+    }),
+    [setIsButtonEnabled, productName, productDescription, price, tags]
+  );
+
+  const propsForTagInput = {
+    tags,
+    setTags,
+    handleInputChange,
+    allValid,
+  };
+
+  useEffect(() => {
+    allValid({ ...propsForAllValid });
+  }, [propsForAllValid]);
+
   const handleSubmit = () => {
     createFormData({ ...propsForCreateFormData });
     formInit();
@@ -71,7 +91,10 @@ export default function AddItem() {
 
   return (
     <div className={styles.container}>
-      <ProductSubmitButton handleSubmit={handleSubmit} />
+      <ProductSubmitButton
+        handleSubmit={handleSubmit}
+        isButtonEnabled={isButtonEnabled}
+      />
 
       <ImageUpload {...propsForImageUpload} />
       <NameInput

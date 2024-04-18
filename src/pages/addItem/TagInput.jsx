@@ -1,9 +1,9 @@
 import { PLACEHOLDER } from "../../utils/placeholder";
 import styles from "./AddItem.module.css";
 
-const TagInput = ({ tags, setTags }) => {
-  const handleTagDeleteClick = tagToDelete => {
-    const newTags = tags.filter(tag => tag !== tagToDelete);
+const TagInput = ({ tags, setTags, handleInputChange }) => {
+  const handleTagDeleteClick = targetTagValue => {
+    const newTags = tags.filter(tag => tag !== targetTagValue);
     setTags(newTags);
   };
 
@@ -21,7 +21,14 @@ const TagInput = ({ tags, setTags }) => {
     <>
       <div>
         <p className={styles.titleForms}>태그</p>
-        <input placeholder={PLACEHOLDER.tags} onKeyUp={handleTagChange} />
+        <input
+          name="tags"
+          placeholder={PLACEHOLDER.tags}
+          onKeyUp={handleTagChange}
+          onChange={e => {
+            handleInputChange(e);
+          }}
+        />
       </div>
       <div className={styles.containerTags}>
         {tags.map((tag, i) => (
