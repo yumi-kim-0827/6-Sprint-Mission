@@ -1,12 +1,12 @@
 import React from 'react';
 import './style.css';
-import Heart from 'assets/icons/Heart.svg';
+import HeartIcon from 'assets/icons/Heart.svg';
 import { formatNumberToWon } from 'utils/formatNumber';
 
 const ProductItem = ({ item }) => {
   return (
     <div className="item-container">
-      <div className="image-comtainer">
+      <div className="image-container">
         <img src={item.images[0]} alt={item.name} className="item-image" />
       </div>
       <div className="item-info">
@@ -15,7 +15,7 @@ const ProductItem = ({ item }) => {
         </div>
         <span className="item-price">{formatNumberToWon(item.price)}</span>
         <div className="favorite-container">
-          <img src={Heart} alt="하트아이콘" />
+          <img src={HeartIcon} alt="하트아이콘" />
           <span className="item-favoriteCount">{item.favoriteCount}</span>
         </div>
       </div>

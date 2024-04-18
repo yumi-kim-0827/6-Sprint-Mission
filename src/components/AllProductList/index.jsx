@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { getProducts } from 'api/productApi';
 import ProductItem from 'components/ProductItem';
 import Button from 'components/Button';
-import Search from 'assets/icons/Search.svg';
+import SearchIcon from 'assets/icons/Search.svg';
 import DropDown from 'components/Dropdown';
-import ArrowDown from 'assets/icons/ArrowDown.svg';
-import Sort from 'assets/icons/Sort.svg';
+import ArrowDownIcon from 'assets/icons/ArrowDown.svg';
+import SortIcon from 'assets/icons/Sort.svg';
 import Pagination from '@mui/material/Pagination';
 import Grid from '@mui/material/Grid';
 import './style.css';
@@ -80,7 +80,7 @@ const AllProductList = () => {
         <h3>전체 상품</h3>
         <div className="product-control">
           <div className="search-container">
-            <img src={Search} alt="검색 아이콘" className="search-icon" />
+            <img src={SearchIcon} alt="검색 아이콘" className="search-icon" />
             <input
               placeholder="검색할 상품을 입력해주세요"
               value={search}
@@ -97,7 +97,7 @@ const AllProductList = () => {
                 <div className="dropdown-container">
                   {pageSize === 4 ? (
                     <button className="dropdown-simple-icon">
-                      <img alt="드롭다운 아이콘" src={Sort} />
+                      <img alt="드롭다운 아이콘" src={SortIcon} />
                     </button>
                   ) : (
                     <>
@@ -106,7 +106,7 @@ const AllProductList = () => {
                       </button>
                       <img
                         alt="드롭다운 아이콘"
-                        src={ArrowDown}
+                        src={ArrowDownIcon}
                         className="dropdown-icon"
                       />
                     </>

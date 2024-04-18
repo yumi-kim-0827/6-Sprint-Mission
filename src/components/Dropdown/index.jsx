@@ -29,9 +29,8 @@ const DropDown = ({ triggerComponent, options }) => {
         onClose={handleClose}
       >
         {options.map((option, index) => (
-          <>
+          <div key={option.label}>
             <MenuItem
-              key={option.label}
               onClick={() => {
                 option.onClick();
                 handleClose();
@@ -41,7 +40,7 @@ const DropDown = ({ triggerComponent, options }) => {
               {option.label}
             </MenuItem>
             {index !== options.length - 1 && <Divider />}
-          </>
+          </div>
         ))}
       </Menu>
     </div>
