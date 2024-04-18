@@ -7,7 +7,8 @@ import { useLocation, Link } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
 
-  const isItemPage = location.pathname === "/Items";
+  const isItemPage = location.pathname === "/Items" || location.pathname === "/additems";
+  console.log(location);
 
   return (
     <>
