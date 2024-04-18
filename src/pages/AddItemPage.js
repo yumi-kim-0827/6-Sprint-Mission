@@ -72,12 +72,12 @@ function AddItemPage() {
   const handlePriceChange = useCallback(({ target: { value } }) => {
     const newPriceString = value;
     // 사용자 입력값에서 ,를 떼고 다시 적절하게 붙여서 보여줘야 함
-    const newPrice = parseInt(newPriceString.replaceAll(",", ""));
+    const newPrice = parseInt(newPriceString.replaceAll(",", "")) || 0;
     setProductInfo((prevInfo) => ({
       ...prevInfo,
       [PRICE]: newPrice,
     }));
-    setPriceString(`${newPrice.toLocaleString("ko-KR")}`);
+    setPriceString(newPrice ? `${newPrice.toLocaleString("ko-KR")}` : "");
   }, []);
 
   const handleTagChange = useCallback((e) => {
