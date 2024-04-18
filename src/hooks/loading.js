@@ -12,11 +12,9 @@ export default function useLoading() {
       setLoadingError(null);
       setIsLoading(true);
       result = await get_products(...arg);
-      console.log(result);
       if(result.totalCount===0){setNoResult(true)}
       return result;
     } catch (error) {
-      console.log("error!")
       setLoadingError(error);
       return;
     } finally {

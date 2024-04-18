@@ -44,8 +44,6 @@ const Products = ({ numOfItemsToShow }) => {
       page: currentPage,
       keyword: search,
     });
-
-    console.log(result);
     if (result) {
       setProducts(result.list);
       setProductsTotalCount(result.totalCount);

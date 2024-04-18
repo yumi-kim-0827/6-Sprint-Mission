@@ -5,16 +5,16 @@ import "../css/header.css";
 
 const Header = () => {
   const location = useLocation();
-  console.log("asd");
 
   const currentPageBlueColor = (paths) => {
     for (let path of paths) {
-      console.log(location.pathname, path);
       if (path === location.pathname) {
         return { color: "#3692FF" };
       }
     }
   };
+  //additem 페이지에도 중고마켓 글자를 파랗게 하는 요구 사항을 위해
+  // 이런 코드를 작성했는데 괜찮은 코드인가요
 
   return (
     <header>
