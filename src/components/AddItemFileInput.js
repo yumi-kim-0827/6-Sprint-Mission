@@ -34,7 +34,7 @@ function AddItemFileInput({ onChange, name }) {
   }, [preview]);
 
   return (
-    <div className="img-input-container">
+    <section className="img-input-container">
       <div className="img-input-label-container">
         <h2 className="img-input-title">상품 이미지</h2>
         <label htmlFor="img" className="img-input-label"></label>
@@ -58,7 +58,7 @@ function AddItemFileInput({ onChange, name }) {
           />
         </>
       )}
-    </div>
+    </section>
   );
 }
 

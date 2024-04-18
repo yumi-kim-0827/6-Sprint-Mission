@@ -71,7 +71,7 @@ export default function AddItemPage() {
       <form className="add-form" onSubmit={handleSubmit}>
         <h1 className="add-page-heading">상품 등록하기</h1>
         <AddItemFileInput name="images" onChange={handleChange} />
-        <div>
+        <section>
           <label htmlFor="name" className="form-label">
             상품명
           </label>
@@ -83,8 +83,8 @@ export default function AddItemPage() {
             className="form-input"
             onChange={handleInputChange}
           />
-        </div>
-        <div>
+        </section>
+        <section>
           <label htmlFor="description" className="form-label">
             상품 소개
           </label>
@@ -95,8 +95,8 @@ export default function AddItemPage() {
             className="form-textarea"
             onChange={handleInputChange}
           />
-        </div>
-        <div>
+        </section>
+        <section>
           <label htmlFor="price" className="form-label">
             판매가격
           </label>
@@ -108,7 +108,7 @@ export default function AddItemPage() {
             className="form-input"
             onChange={handleInputChange}
           />
-        </div>
+        </section>
         <AddItemTagsInput
           name="tags"
           onChange={handleChange}

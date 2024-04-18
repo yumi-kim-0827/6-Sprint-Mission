@@ -9,7 +9,7 @@ function AddItemTagsInput({ onChange, name, value, onClearClick }) {
   };
 
   return (
-    <div>
+    <section>
       <label className="form-label" htmlFor="tags">
         태그
       </label>
@@ -35,7 +35,7 @@ function AddItemTagsInput({ onChange, name, value, onClearClick }) {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
 
