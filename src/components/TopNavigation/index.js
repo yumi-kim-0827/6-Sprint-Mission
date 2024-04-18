@@ -55,7 +55,7 @@ const TopNavigation = () => {
       </div>
       {isAddItemPage && (
         <div className='rightContainer'>
-          <img src={pandaProfile} alt='Profile' className='profileIcon' />
+          <img src={pandaProfile} alt='현재 프로필' className='profileIcon' />
         </div>
       )}
       {!isAddItemPage && (
