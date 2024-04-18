@@ -8,6 +8,12 @@
   gap: 1rem;
 }
 
+.Header__wrap {
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .Header__menu {
   display: flex;
   align-items: center;
@@ -50,6 +56,12 @@
     padding-right: 13px;
   }
 
+  .Header__wrap {
+    width: 768px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .Header__free-board,
   .Header__flea-market {
     width: 10.9rem;
@@ -59,6 +71,10 @@
 
 /* Desktop */
 @media (min-width: 1200px) {
+  .Header__wrap {
+    width: 1200px;
+  }
+
   .Header__logo {
     padding-right: 25px;
   }
