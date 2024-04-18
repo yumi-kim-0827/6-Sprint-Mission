@@ -63,3 +63,9 @@
 .form-textarea {
   height: 200px;
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+}
