@@ -1,6 +1,6 @@
-import GNB from "components/layouts/GNB";
-import { MainLayout } from "components/layouts/Layout";
-import AddItemForm from "components/forms/AddItem";
+import MainLayout from "components/Layout";
+import GNB from "components/NavBar";
+import AddItemForm from "templates/market/AddItemForm";
 
 export default function AddItemPage() {
   return (

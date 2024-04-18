@@ -1,10 +1,9 @@
-import React from "react";
-import GNB from "components/layouts/GNB";
+import GNB from "components/NavBar";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <GNB />
-    </div>
+    </>
   );
 }
