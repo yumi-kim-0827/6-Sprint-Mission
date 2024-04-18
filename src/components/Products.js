@@ -2,17 +2,25 @@ import styled from "styled-components";
 import { fetchProducts } from "../api";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Pagination from "@mui/material/Pagination";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [sortBy, setSortBy] = useState("");
-  const [keyword, setKeyword] = useState("");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const [pageSize] = useState(10);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const productList = await fetchProducts();
+
+        let filteredProducts = productList.filter((product) =>
+          product.name.toLowerCase().includes(search.toLowerCase())
+        );
 
         const sortByFunction =
           sortBy === "latest"
@@ -20,7 +28,8 @@ const Product = () => {
             : (a, b) => b.favoriteCount - a.favoriteCount;
 
         let sortedProducts = [...productList].sort(sortByFunction);
-
+        filteredProducts = filteredProducts.sort(sortByFunction);
+        setTotal(filteredProducts.length);
         setProducts(sortedProducts.slice(0, 12));
 
         const bestSortedProducts = [...productList].sort(
@@ -32,14 +41,22 @@ const Product = () => {
       }
     };
     fetchData();
-  }, [sortBy]);
+  }, [sortBy, search, page]);
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
   };
 
-  const handleKeywordChange = (event) => {
-    setKeyword(event.target.value);
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handlePagination = (_, value) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setPage(value);
   };
 
   return (
@@ -58,10 +75,9 @@ const Product = () => {
       <TotalTitle>상품</TotalTitle>
       <ButtonContainer>
         <SearchInput
-          name="keyword"
-          value={keyword}
-          onChange={handleKeywordChange}
-          placeholder="  🔎   검색할 상품을 입력해주세요"
+          placeholder="   🔎 검색할 상품을 입력해주세요"
+          value={search}
+          onChange={handleSearchChange}
         />
         <AddItemButton to="/additem">상품 등록하기</AddItemButton>
         <SortDropdown value={sortBy} onChange={handleSortChange}>
@@ -79,6 +95,16 @@ const Product = () => {
           </ProductCard>
         ))}
       </TotalProductContainer>
+      <Pagination
+        count={Math.ceil(total / pageSize)}
+        page={page}
+        onChange={handlePagination}
+        color="primary"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      />
     </ProductContainer>
   );
 };
@@ -220,16 +246,6 @@ const TotalTitle = styled.h3`
   }
 `;
 
-const SearchInput = styled.input`
-  display: flex;
-  align-items: center;
-  width: 240px;
-  height: 40px;
-  border-radius: 12px;
-  border: 1px solid rgba(229, 231, 235, 1);
-  background-color: ##f0f0f0;
-`;
-
 const AddItemButton = styled(Link)`
   width: 130px;
   height: 19px;
@@ -265,6 +281,16 @@ const ButtonContainer = styled.div`
   display: flex;
   margin-left: auto;
   gap: 12px;
+`;
+
+const SearchInput = styled.input`
+  width: 250px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  background-color: #f9f9f9;
+  font-weight: 400;
+  font-size: 16px;
 `;
 
 export default Product;
