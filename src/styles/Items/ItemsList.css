@@ -41,6 +41,7 @@
 @media screen and (max-width: 767px) {
   .ItemsList__itemsWrapper {
     grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
   }
   .ItemsList__menu_bar {
     flex-direction: column;

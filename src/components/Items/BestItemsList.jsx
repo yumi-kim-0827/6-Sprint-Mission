@@ -8,6 +8,16 @@ const BestItemsList = () => {
   const [displayedItems, setDisplayedItems] = useState(4);
 
   useEffect(() => {
+    (function () {
+      if (window.innerWidth < 1199 && window.innerWidth > 768) {
+        setDisplayedItems(2);
+      } else if (window.innerWidth < 767) {
+        setDisplayedItems(1);
+      } else {
+        setDisplayedItems(4);
+      }
+    })();
+
     const loadData = async () => {
       const data = await getFavoriteData();
       setData(data);

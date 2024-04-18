@@ -19,6 +19,20 @@ const ItemsList = () => {
 
   // 데이터 로드
   useEffect(() => {
+    // 데이터가 처음 로드될 때 브라우저 사이즈를 체크해서 스테이트 변경
+    (function () {
+      if (window.innerWidth < 1199 && window.innerWidth > 768) {
+        setDisplaySize("tablet");
+        setItemsPerPage(6);
+      } else if (window.innerWidth < 767) {
+        setDisplaySize("mobile");
+        setItemsPerPage(4);
+      } else {
+        setDisplaySize("desktop");
+        setItemsPerPage(10);
+      }
+    })();
+
     const loadData = async () => {
       const newData = await getData();
       setData(newData.list);

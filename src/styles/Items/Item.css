@@ -39,6 +39,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .Item {
+    width: 168px;
+    height: 248px;
+  }
   .imgWrapper {
     width: 168px;
     height: 168px;
