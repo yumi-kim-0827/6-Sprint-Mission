@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
 import { createFormData } from "../../utils/createFormData";
@@ -6,6 +6,7 @@ import ImageUpload from "./ImageUpload";
 import NameInput from "./NameInput";
 import { PLACEHOLDER } from "../../utils/placeholder";
 import TagInput from "./TagInput";
+import ProductSubmitButton from "./ProductSubmitButton";
 
 export default function AddItem() {
   const [preview, setPreview] = useState(skeleton);
@@ -70,12 +71,7 @@ export default function AddItem() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.containerSubmit}>
-        <p className={styles.titleSubmit}>상품 등록하기</p>
-        <button className={styles.btn} onClick={handleSubmit}>
-          등록
-        </button>
-      </div>
+      <ProductSubmitButton handleSubmit={handleSubmit} />
 
       <ImageUpload {...propsForImageUpload} />
       <NameInput
