@@ -6,8 +6,16 @@ function AddItem() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [tag, setTag] = useState("");
+  const [image, setImage] = useState(null);
 
   const isButtonActive = productName && description && price && tag;
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+    }
+  };
 
   return (
     <form className="addItemForm">
@@ -17,7 +25,11 @@ function AddItem() {
       </div>
       <div className="formInput">
         <label>상품 이미지</label>
-        <input type="file"></input>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+        ></input>
         <label>상품명</label>
         <input
           placeholder="상품명을 입력해주세요"
