@@ -15,14 +15,15 @@ const BestProductList = () => {
     try {
       setLoadingError(null);
       result = await getProducts({ orderBy: 'favorite' });
+
+      const { list } = result;
+
+      setOriginProduct(list);
+      setBestProduct(list.slice(0, 4));
     } catch (error) {
       setLoadingError(error);
       return;
     }
-    const { list } = result;
-
-    setOriginProduct(list);
-    setBestProduct(list.slice(0, 4));
   };
 
   useEffect(() => {

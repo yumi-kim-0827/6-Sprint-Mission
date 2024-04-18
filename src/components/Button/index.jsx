@@ -1,8 +1,12 @@
 import React from 'react';
 import './style.css';
 
-const Button = ({ title }) => {
-  return <button className="blue-button">{title}</button>;
+const Button = ({ title, ...props }) => {
+  return (
+    <button {...props} className="blue-button">
+      {title}
+    </button>
+  );
 };
 
 export default Button;

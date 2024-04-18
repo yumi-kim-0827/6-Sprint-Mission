@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getProducts } from 'api/productApi';
 import ProductItem from 'components/ProductItem';
 import Button from 'components/Button';
@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import './style.css';
 
 const AllProductList = () => {
-  const navigation = navigate();
+  const navigate = useNavigate();
   const [allProduct, setAllProduct] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [pageSize, setPageSize] = useState(10);
@@ -21,6 +21,17 @@ const AllProductList = () => {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [loadingError, setLoadingError] = useState(null);
+
+  const dropDownOptions = [
+    {
+      label: '최신순',
+      onClick: () => handleClickOrder('recent'),
+    },
+    {
+      label: '좋아요순',
+      onClick: () => handleClickOrder('favorite'),
+    },
+  ];
 
   const handleAllProductLoad = async (options) => {
     let result;
@@ -81,7 +92,7 @@ const AllProductList = () => {
         <h3>전체 상품</h3>
         <div className="product-control">
           <div className="search-container">
-            <svg src={SearchIcon} alt="검색 아이콘" className="search-icon" />
+            <img src={SearchIcon} alt="검색 아이콘" className="search-icon" />
             <input
               placeholder="검색할 상품을 입력해주세요"
               value={search}
@@ -89,24 +100,21 @@ const AllProductList = () => {
               className="search-input"
             />
           </div>
-          <Button
-            title="상품 등록하기"
-            onClick={() => navigation('/addItem')}
-          />
+          <Button title="상품 등록하기" onClick={() => navigate('/addItem')} />
           <div className="order-container">
             <DropDown
               triggerComponent={
                 <div className="dropdown-container">
                   {pageSize === 4 ? (
                     <button className="dropdown-simple-icon">
-                      <svg alt="드롭다운 아이콘" src={SortIcon} />
+                      <img alt="드롭다운 아이콘" src={SortIcon} />
                     </button>
                   ) : (
                     <>
                       <button className="dropdown-trigger">
                         {orderBy === 'recent' ? '최신순' : '좋아요순'}
                       </button>
-                      <svg
+                      <img
                         alt="드롭다운 아이콘"
                         src={ArrowDownIcon}
                         className="dropdown-icon"
@@ -115,16 +123,7 @@ const AllProductList = () => {
                   )}
                 </div>
               }
-              options={[
-                {
-                  label: '최신순',
-                  onClick: () => handleClickOrder('recent'),
-                },
-                {
-                  label: '좋아요순',
-                  onClick: () => handleClickOrder('favorite'),
-                },
-              ]}
+              options={dropDownOptions}
             />
           </div>
         </div>
