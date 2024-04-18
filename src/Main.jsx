@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Items from "./pages/items/Items.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import App from "./App.js";
@@ -24,7 +24,7 @@ export default function Main() {
 
   return (
     <LoginContext.Provider value={isLogin}>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
@@ -32,7 +32,7 @@ export default function Main() {
             <Route path="/additem" element={<AddItem />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </LoginContext.Provider>
   );
 }

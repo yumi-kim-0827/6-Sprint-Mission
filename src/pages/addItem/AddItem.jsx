@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
+import { createFormData } from "../../utils/createFormData";
+import ImageUpload from "./ImageUpload";
+import NameInput from "./NameInput";
+import { PLACEHOLDER } from "../../utils/placeholder";
+import TagInput from "./TagInput";
 
 export default function AddItem() {
   const [preview, setPreview] = useState(skeleton);
@@ -11,68 +16,56 @@ export default function AddItem() {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
   const isPreview = preview !== skeleton;
-
-  const handleFileInputChange = () => {
-    if (fileInputRef.current) {
-      const file = fileInputRef.current.files[0];
-      setPreview(URL.createObjectURL(file));
-      setFile(file);
-    }
+  const propsForCreateFormData = {
+    productName,
+    productDescription,
+    price,
+    tags,
+    file,
   };
 
-  const handleCloseClick = () => {
+  const propsForImageUpload = {
+    fileInputRef,
+    isPreview,
+    preview,
+    setPreview,
+    setFile,
+  };
+
+  const propsForTagInput = {
+    tags,
+    setTags,
+  };
+
+  const formInit = () => {
+    setProductName("");
+    setProductDescription("");
+    setPrice("");
+    setTags([]);
+    setFile(null);
     setPreview(skeleton);
   };
 
-  const handleTagDeleteClick = tagToDelete => {
-    const newTags = tags.filter(tag => tag !== tagToDelete);
-    setTags(newTags);
-  };
-
-  const handleProductNameChange = e => {
-    setProductName(e.target.value);
-  };
-
-  const handleProductDescriptionChange = e => {
-    setProductDescription(e.target.value);
-  };
-
-  const handlePriceChange = e => {
-    setPrice(e.target.value);
-  };
-
-  const handleTagChange = e => {
-    if (e.key === "Enter") {
-      setTags([...tags, e.target.value]);
-      e.target.value = "";
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "productName":
+        setProductName(value);
+        break;
+      case "productDescription":
+        setProductDescription(value);
+        break;
+      case "price":
+        setPrice(value);
+        break;
+      default:
+        break;
     }
   };
 
-  const CreateTag = ({ tag, i }) => (
-    <div className={styles.tag}>
-      <span>{tag}</span>
-      <button
-        className={styles.btnClose}
-        type="button"
-        id={i}
-        onClick={() => {
-          handleTagDeleteClick(tag);
-        }}
-      />
-    </div>
-  );
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("productName", productName);
-    formData.append("productDescription", productDescription);
-    formData.append("price", price);
-    formData.append("tags", tags.join(","));
-    if (file) {
-      formData.append("productImage", file);
-    }
+  const handleSubmit = () => {
+    createFormData({ ...propsForCreateFormData });
+    formInit();
   };
 
   return (
@@ -83,70 +76,37 @@ export default function AddItem() {
           등록
         </button>
       </div>
-      <div>
-        <p className={styles.titleImg}>상품 이미지</p>
-        <div className={styles.containerImg}>
-          {isPreview ? (
-            <div className={styles.preview}>
-              <img src={preview} alt="상품 미리보기 이미지" />
-              <button
-                className={styles.btnCloseActive}
-                onClick={handleCloseClick}
-              />
-            </div>
-          ) : (
-            <div
-              className={styles.preview}
-              onClick={() => fileInputRef.current.click()}
-            >
-              <img src={preview} alt="상품 이미지 추가 버튼" />
-              <input
-                type="file"
-                accept="image/*"
-                ref={fileInputRef}
-                style={{ display: "none" }}
-                onChange={handleFileInputChange}
-              />
-            </div>
-          )}
-        </div>
-      </div>
-      <div>
-        <p className={styles.titleForms}>상품명</p>
-        <input
-          type="text"
-          placeholder="상품명을 입력해주세요"
-          onChange={handleProductNameChange}
-          value={productName}
-        />
-      </div>
+
+      <ImageUpload {...propsForImageUpload} />
+      <NameInput
+        handleInputChange={handleInputChange}
+        productName={productName}
+      />
+
       <div>
         <p className={styles.titleForms}>상품 소개</p>
         <input
           type="text"
-          placeholder="상품 소개를 입력해주세요"
-          onChange={handleProductDescriptionChange}
+          name="productDescription"
+          placeholder={PLACEHOLDER.productDescription}
+          onChange={e => {
+            handleInputChange(e);
+          }}
           value={productDescription}
         />
       </div>
       <div>
         <p className={styles.titleForms}>판매 가격</p>
         <input
-          placeholder="판매 가격을 입력해주세요"
-          onChange={handlePriceChange}
+          name="price"
+          placeholder={PLACEHOLDER.price}
+          onChange={e => {
+            handleInputChange(e);
+          }}
           value={price}
         />
       </div>
-      <div>
-        <p className={styles.titleForms}>태그</p>
-        <input placeholder="태그를 입력해주세요" onKeyUp={handleTagChange} />
-      </div>
-      <div className={styles.containerTags}>
-        {tags.length > 0 &&
-          tags.map((tag, i) => {
-            return <CreateTag key={`${tag}-${i}`} tag={tag} i={i} />;
-          })}
-      </div>
+      <TagInput {...propsForTagInput} />
     </div>
   );
 }
