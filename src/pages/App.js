@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles/GlobalStyle";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PaginationProvider } from "../context/PaginationContext";
 import HomePage from "./HomePage";
 import BoardPage from "./BoardPage";
 import AddItemPage from "./AddItemPage";
@@ -9,20 +10,20 @@ import Layout from "../Layout";
 
 function App() {
   return (
-    <div>
+    <PaginationProvider>
       <GlobalStyle />
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-              <Route path="board" element={<BoardPage />} />
-              <Route path="fleamarket" element={<FleaMarketPage />} />
-              <Route path="additem" element={<AddItemPage />} />
-              <Route path="login" element={<LoginPage />} />
+            <Route path="board" element={<BoardPage />} />
+            <Route path="fleamarket" element={<FleaMarketPage />} />
+            <Route path="additem" element={<AddItemPage />} />
+            <Route path="login" element={<LoginPage />} />
           </Route>
         </Routes>
       </Router>
-    </div>
+    </PaginationProvider>
   );
 }
 
