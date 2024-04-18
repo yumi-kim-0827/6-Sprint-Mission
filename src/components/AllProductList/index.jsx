@@ -80,7 +80,7 @@ const AllProductList = () => {
         <h3>전체 상품</h3>
         <div className="product-control">
           <div className="search-container">
-            <img src={SearchIcon} alt="검색 아이콘" className="search-icon" />
+            <svg src={SearchIcon} alt="검색 아이콘" className="search-icon" />
             <input
               placeholder="검색할 상품을 입력해주세요"
               value={search}
@@ -97,14 +97,14 @@ const AllProductList = () => {
                 <div className="dropdown-container">
                   {pageSize === 4 ? (
                     <button className="dropdown-simple-icon">
-                      <img alt="드롭다운 아이콘" src={SortIcon} />
+                      <svg alt="드롭다운 아이콘" src={SortIcon} />
                     </button>
                   ) : (
                     <>
                       <button className="dropdown-trigger">
                         {orderBy === 'recent' ? '최신순' : '좋아요순'}
                       </button>
-                      <img
+                      <svg
                         alt="드롭다운 아이콘"
                         src={ArrowDownIcon}
                         className="dropdown-icon"

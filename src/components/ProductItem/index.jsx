@@ -15,7 +15,7 @@ const ProductItem = ({ item }) => {
         </div>
         <span className="item-price">{formatNumberToWon(item.price)}</span>
         <div className="favorite-container">
-          <img src={HeartIcon} alt="하트아이콘" />
+          <svg src={HeartIcon} alt="하트아이콘" />
           <span className="item-favoriteCount">{item.favoriteCount}</span>
         </div>
       </div>
