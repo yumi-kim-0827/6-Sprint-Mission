@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const Button = ({ title, ...props }) => {
+const Button = ({ title, disabled, ...props }) => {
   return (
     <button {...props} className="blue-button">
       {title}

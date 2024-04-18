@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import ImageAddBox from 'components/ImageAddBox';
 import { InputContainer, Label, Input, Textarea, ImageInput } from './style';
 
-const InputElement = ({ id, type, placeholder }) => {
+const InputElement = ({ id, type, placeholder, ...props }) => {
   const imageRef = useRef(null);
 
   const handleClick = () => {
@@ -10,27 +10,31 @@ const InputElement = ({ id, type, placeholder }) => {
   };
 
   if (type === 'textarea') {
-    return <Textarea id={id} name={id} placeholder={placeholder} />;
+    return <Textarea id={id} name={id} placeholder={placeholder} {...props} />;
   } else if (type === 'file') {
     return (
       <>
-        <ImageInput id={id} type={type} accept="image/*" ref={imageRef} />
-        <ImageAddBox
-          onClick={handleClick}
-          imgUrl="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg"
+        <ImageInput
+          id={id}
+          name={id}
+          type={type}
+          accept=".png, .jpg, .jpeg"
+          ref={imageRef}
+          {...props}
         />
+        <ImageAddBox onClick={handleClick} />
       </>
     );
   } else {
-    return <Input id={id} name={id} placeholder={placeholder} />;
+    return <Input id={id} name={id} placeholder={placeholder} {...props} />;
   }
 };
 
-const FormInput = ({ label, id, type = 'text', placeholder }) => {
+const FormInput = ({ label, id, type = 'text', placeholder, ...props }) => {
   return (
     <InputContainer>
       <Label htmlFor={id}>{label}</Label>
-      <InputElement id={id} type={type} placeholder={placeholder} />
+      <InputElement id={id} type={type} placeholder={placeholder} {...props} />
     </InputContainer>
   );
 };
