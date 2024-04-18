@@ -66,10 +66,11 @@ export function SelectInput() {
   );
 }
 
-export function FormInput({ value, onChange, placeholder }) {
+export function FormInput({ name, value, onChange, placeholder }) {
   return (
     <div className={styles.form__input}>
       <input
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -79,7 +80,7 @@ export function FormInput({ value, onChange, placeholder }) {
   );
 }
 
-export function NumberInput({ value: number, onChange, placeholder }) {
+export function NumberInput({ name, value: number, onChange, placeholder }) {
   const [priceStr, setPriceStr] = useState("");
 
   useEffect(() => {
@@ -91,6 +92,7 @@ export function NumberInput({ value: number, onChange, placeholder }) {
   return (
     <div className={styles.form__input}>
       <input
+        name={name}
         placeholder={placeholder}
         value={priceStr}
         onChange={onChange}

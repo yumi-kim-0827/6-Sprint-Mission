@@ -236,7 +236,7 @@
 
 /* image block */
 
-@mixin imageContainer {
+@mixin imageBlock {
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
@@ -251,45 +251,61 @@
   position: relative;
 }
 
-.image__input {
-  @include imageContainer;
-  cursor: pointer;
+.image__input__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  gap: 8px;
 
-  input {
-    display: none;
+  @media (min-width: $min-tablet-width) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 
-  .plus__icon {
-    width: 48px;
-    height: 48px;
+  @media (min-width: $min-desktop-width) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
-
-  h1 {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--light-gray);
-  }
-}
-
-.image__block {
-  @include imageContainer;
-
-  .product__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  .x__icon {
-    position: absolute;
-    right: 12px;
-    top: 12px;
+  .image__input {
+    @include imageBlock;
     cursor: pointer;
 
-    .icon:hover {
-      fill: var(--blue);
+    input {
+      display: none;
+    }
+
+    .plus__icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: var(--light-gray);
+    }
+  }
+
+  .image__preview {
+    @include imageBlock;
+
+    .product__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .x__icon {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      cursor: pointer;
+
+      .icon:hover {
+        fill: var(--blue);
+      }
     }
   }
 }

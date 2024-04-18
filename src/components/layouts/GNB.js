@@ -26,7 +26,11 @@ export default function GNB() {
           </span>
         </Link>
         <Link to="/items">
-          <span className={cn({ [styles.focus]: pathname === "/items" })}>
+          <span
+            className={cn({
+              [styles.focus]: pathname === "/items" || pathname === "/additem",
+            })}
+          >
             중고마켓
           </span>
         </Link>

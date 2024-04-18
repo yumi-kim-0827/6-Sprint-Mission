@@ -44,23 +44,6 @@
     & > h1 {
       @include formLabel;
     }
-
-    .image__container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: auto;
-      gap: 8px;
-
-      @media (min-width: $min-tablet-width) {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-      }
-
-      @media (min-width: $min-desktop-width) {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-      }
-    }
   }
 
   .form__title {
