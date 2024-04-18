@@ -8,7 +8,6 @@ const Header = () => {
   const location = useLocation();
 
   const isItemPage = location.pathname === "/Items" || location.pathname === "/additems";
-  console.log(location);
 
   return (
     <>
