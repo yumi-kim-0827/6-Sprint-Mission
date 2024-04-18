@@ -37,8 +37,8 @@
   width: 282px;
   height: 282px;
   position: absolute;
-  bottom: 0;
   left: 306px; /* 인풋이랑 간격 조정 (인풋 가로 282, gap 24) */
+  bottom: 0;
 }
 
 .preview-delete-btn {
@@ -54,4 +54,38 @@
   /* 간격 조정 */
   left: 556px;
   top: 38px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .img-input-label {
+    width: 162px;
+    height: 162px;
+  }
+  .preview {
+    width: 162px;
+    height: 162px;
+    left: 178px; /* 인풋이랑 간격 조정 (인풋 가로 282, gap 16) */
+  }
+  .preview-delete-btn {
+    /* 간격 조정 */
+    left: 310px;
+    top: 38px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .img-input-label {
+    width: 168px;
+    height: 168px;
+  }
+  .preview {
+    width: 168px;
+    height: 168px;
+    left: 176px; /* 인풋이랑 간격 조정 (인풋 가로 168, gap 8) */
+  }
+  .preview-delete-btn {
+    /* 간격 조정 */
+    left: 312px;
+    top: 38px;
+  }
 }

@@ -21,6 +21,7 @@
 .tags-container {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .tag-container {
