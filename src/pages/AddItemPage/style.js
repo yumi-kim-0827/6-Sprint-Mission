@@ -17,4 +17,5 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 5rem;
 `;
