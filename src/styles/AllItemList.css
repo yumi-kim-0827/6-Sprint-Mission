@@ -1,7 +1,7 @@
-.item-img-container {
+/* .item-img-container {
   width: 282px;
   height: 282px;
-}
+} */
 
 .all-item-list {
   width: 100%;
@@ -14,9 +14,13 @@
 }
 
 .item-img {
-  width: 100%;
-  height: 100%;
+  /* 가로 너비와 세로 높이 사이의 비율을 설정 */
+  aspect-ratio: 1;
   border-radius: 16px;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
 }
 .item-contents {
   display: flex;
@@ -44,10 +48,12 @@
   font-size: 12px;
 }
 .all-item-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  position: relative;
 }
 .all-item-header-filter {
   display: flex;
@@ -83,6 +89,10 @@ input.all-item-header-search::placeholder {
   appearance: none;
   background: url(../assets/arrow-down-icon.svg) no-repeat right 17px center;
 }
+.select-box:focus {
+  outline: none;
+}
+
 .item-register-btn {
   color: white;
   font-size: 16px;
@@ -101,9 +111,13 @@ input.all-item-header-search::placeholder {
 
 .all-item-grid {
   display: grid;
-  grid-template-columns: repeat(5, 221px);
-  grid-template-rows: repeat(2, 301px);
-  gap: 24px;
+  gap: 40px 24px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.item-container {
+  cursor: pointer;
+  overflow: hidden;
 }
 @media (min-width: 768px) and (max-width: 1199px) {
   .item-img-container {
@@ -111,14 +125,9 @@ input.all-item-header-search::placeholder {
     height: 336px;
   }
 
-  .item-img-container-all {
-    width: 221px;
-    height: 221px;
-  }
   .all-item-grid {
-    grid-template-columns: repeat(3, 221px);
-    grid-template-rows: repeat(2, 301px);
-    gap: 16px;
+    gap: 40px 16px;
+    grid-template-columns: repeat(3, 1fr);
   }
   .all-item-grid > div:nth-child(n + 7) {
     display: none;
@@ -141,26 +150,26 @@ input.all-item-header-search::placeholder {
     height: 168px;
   }
   .all-item-grid {
-    grid-template-columns: repeat(2, 168px);
-    grid-template-rows: repeat(2, 248px);
-    gap: 16px;
+    grid-gap: 32px 8px;
+    gap: 32px 8px;
+    grid-template-columns: repeat(2, 1fr);
   }
   .all-item-grid > div:nth-child(n + 5) {
     display: none;
   }
   .all-item-header-search {
     width: 294px;
-    order: 2;
   }
   .all-item-header {
     flex-wrap: wrap;
   }
-  .item-register-btn {
-    order: 1;
-  }
+  /* .item-register-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  } */
   .select-box {
     width: 42px;
     background: url(../assets/arrow-down-icon.svg) no-repeat center;
-    order: 3;
   }
 }

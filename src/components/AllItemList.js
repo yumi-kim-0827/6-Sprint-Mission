@@ -7,9 +7,7 @@ function AllItem({ item, className = "" }) {
   const classNames = `item-img-container${className}`;
   return (
     <>
-      <div className={classNames}>
-        <img src={images[0]} alt={name} className="item-img" />
-      </div>
+      <img src={images[0]} alt={name} className="item-img" />
       <div className="item-contents">
         <h3 className="item-name">{name}</h3>
         <p className="item-price">{price}</p>
@@ -53,7 +51,7 @@ function AllItemList({
       <div className="all-item-grid">
         {items.map((item) => {
           return (
-            <div key={item.id}>
+            <div key={item.id} className="item-container">
               <AllItem item={item} className={className} />
             </div>
           );

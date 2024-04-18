@@ -10,12 +10,23 @@
 
 .best-item-grid {
   display: grid;
-  grid-template-columns: repeat(4, 282px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 24px;
   gap: 24px;
+}
+
+.item-img {
+  /* 가로 너비와 세로 높이 사이의 비율을 설정 */
+  aspect-ratio: 1;
+  border-radius: 16px;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
 }
 @media (min-width: 768px) and (max-width: 1199px) {
   .best-item-grid {
-    grid-template-columns: repeat(2, 336px);
+    grid-template-columns: repeat(2, 1fr);
   }
   .best-item-grid > div:nth-child(n + 3) {
     display: none; /* 세 번째 이후의 요소는 숨김 */
@@ -23,7 +34,7 @@
 }
 @media (min-width: 375px) and (max-width: 767px) {
   .best-item-grid {
-    grid-template-columns: 343px;
+    display: block;
   }
   .best-item-grid > div:nth-child(n + 2) {
     display: none;
