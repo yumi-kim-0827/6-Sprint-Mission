@@ -49,19 +49,18 @@
   margin-bottom: 20px;
 }
 .basic-product-header {
-  overflow: hidden;
   margin: 40px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas: "h2 h2 h2 h2 search search add select";
 }
 .basic-product-header h2 {
-  float: left;
   margin: 0;
   font-size: 20px;
   line-height: 42px;
+  grid-area: h2;
 }
-.basic-product-header-inner {
-  float: right;
-}
-.basic-product-header-inner input {
+.basic-product-header input {
   width: 325px;
   padding: 12px 30px;
   background: #f3f4f6;
@@ -69,22 +68,41 @@
   border: none;
   border-radius: 10px;
   font-size: 16px;
+  grid-area: search;
 }
-.basic-product-header-inner button {
+.basic-product-header a {
+  grid-area: add;
+}
+.basic-product-header button {
   cursor: pointer;
   margin: 0 12px;
   background: #3692ff;
   border: none;
   color: #fff;
   border-radius: 8px;
-  padding: 11px 23px;
+  padding: 11px 17px;
   font-size: 16px;
 }
-.basic-product-header-inner select {
-  padding: 12px 33px 12px 20px;
+.basic-product-header .selectBox {
+  grid-area: select;
+}
+.orderSelect > div {
   border-radius: 10px;
-  outline: none;
-  border-color: #e5e7eb;
-  appearance: none;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  padding: 5px 6px;
+}
+.orderSelect > div:hover,
+.orderSelect > div:active {
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+.css-1fdsijx-ValueContainer {
   background: url("../images/Polygon.png") no-repeat right 10px center;
+}
+.basic-product-header .selectBox .css-1hb7zxy-IndicatorsContainer {
+  display: none;
+}
+.react-select__option {
+  text-align: center;
 }

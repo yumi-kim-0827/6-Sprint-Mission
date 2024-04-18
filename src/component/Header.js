@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LogoImg from "../images/logo.png";
 import "../css/common.css";
+
+function getLink({ isActive }) {
+  return {
+    color: isActive ? "#3182f6" : undefined,
+  };
+}
 
 function Header() {
   return (
@@ -11,12 +17,14 @@ function Header() {
             <img src={LogoImg} alt="로고 이미지" />
           </Link>
           <nav>
-            <Link to="/Board">자유게시판</Link>
-            <Link to="/" className="active">
+            <NavLink to="/Board" style={getLink}>
+              자유게시판
+            </NavLink>
+            <NavLink to="/" style={getLink} className="active">
               중고마켓
-            </Link>
+            </NavLink>
           </nav>
-          <Link to="/login" id="login">
+          <Link to="/Login" id="login">
             로그인
           </Link>
         </div>
