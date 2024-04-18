@@ -4,23 +4,40 @@ import FileInput from "./FileInputs";
 import InputTag from "./TagInput";
 
 const AddItem = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [tags, setTags] = useState([]);
   const [isTagsEmpty, setIsTagsEmpty] = useState(true);
 
+  const [values, setValues] = useState({
+    title: "",
+    description: "",
+    price: "",
+    isTagsEmpty: true,
+    imgFile: null,
+  });
+
+  const handleChange = (name, value) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
   const formComplete =
-    title.trim() !== "" &&
-    description.trim() !== "" &&
-    price.trim() !== "" &&
+    values.title.trim() !== "" &&
+    values.description.trim() !== "" &&
+    values.price.trim() !== "" &&
     !isTagsEmpty;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("제목:", title);
-    console.log("설명:", description);
-    console.log("가격:", price);
+    console.log("제목:", values.title);
+    console.log("설명:", values.description);
+    console.log("가격:", values.price);
     console.log("태그:", tags);
   };
 
@@ -33,36 +50,44 @@ const AddItem = () => {
         </SubmitButton>
       </AddItemTitle>
       <TitleText>상품이미지</TitleText>
-      <FileInput />
+      <FileInput
+        name="imgFile"
+        value={values.imgFile}
+        onChange={handleChange}
+      />
       <InputTitleWrapper>
         <TitleText>상품명</TitleText>
         <InputText
+          name="title"
           type="text"
           placeholder="상품명을 입력해 주세요"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={values.title}
+          onChange={handleInputChange}
         />
       </InputTitleWrapper>
       <IntroItemWrapper>
         <TitleText>상품소개</TitleText>
         <ItemIntroduce
+          name="description"
           placeholder="상품소개를 입력해주세요"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={values.description}
+          onChange={handleInputChange}
         />
       </IntroItemWrapper>
       <InputTitleWrapper>
         <TitleText>판매가격</TitleText>
         <InputText
+          name="price"
           type="text"
           placeholder="판매가격을 입력해 주세요"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          value={values.price}
+          onChange={handleInputChange}
         />
       </InputTitleWrapper>
       <InputTitleWrapper>
         <TitleText>태그</TitleText>
         <InputTag
+          name="tags"
           tags={tags}
           setTags={setTags}
           setIsTagsEmpty={setIsTagsEmpty}

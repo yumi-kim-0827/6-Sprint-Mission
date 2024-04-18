@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
-const FileInput = () => {
-  const [file, setFile] = useState(null);
+const FileInput = ({ name, value, onChange }) => {
   const [previewImg, setPreviewImg] = useState(null);
-
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setFile(selectedFile);
-    setPreviewImg(URL.createObjectURL(selectedFile));
+  const inputRef = useRef();
+  const handleChange = (e) => {
+    const selectedFile = e.target.files[0];
+    onChange(name, selectedFile);
   };
 
   const handleRemoveFile = () => {
-    setFile(null);
-    setPreviewImg(null);
+    const inputNode = inputRef.current;
+    if (!inputNode) return;
+
+    inputNode.value = "";
+    onChange(name, null);
   };
+
+  useEffect(() => {
+    if (!value) return;
+    const nextPreview = URL.createObjectURL(value);
+    setPreviewImg(nextPreview);
+
+    return () => {
+      setPreviewImg();
+      URL.revokeObjectURL(nextPreview);
+    };
+  }, [value]);
 
   return (
     <FileInputContainer>
@@ -22,8 +34,9 @@ const FileInput = () => {
         <input
           type="file"
           accept="image/png, image/jpeg"
-          onChange={handleFileChange}
+          onChange={handleChange}
           id="file-input"
+          ref={inputRef}
           style={{ display: "none" }}
         />
         <label htmlFor="file-input">
@@ -33,7 +46,7 @@ const FileInput = () => {
           </UploadButton>
         </label>
       </TotalContainer>
-      {previewImg && (
+      {value && (
         <ImagePreview>
           <PreviewImage src={previewImg} alt="Preview" />
           <RemoveButton onClick={handleRemoveFile}>X</RemoveButton>
