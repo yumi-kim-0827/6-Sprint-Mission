@@ -13,7 +13,11 @@ const TagInput = ({ tags, setTags }) => {
     const isNotEmpty = e.target.value.trim() !== "";
 
     if (isEnter && isNotEmpty) {
-      setTags([...tags, e.target.value.trim()]);
+      const newTag = e.target.value.trim();
+
+      if (!tags.includes(newTag)) {
+        setTags([...tags, newTag]);
+      }
       e.target.value = "";
     }
   };
@@ -29,8 +33,8 @@ const TagInput = ({ tags, setTags }) => {
         />
       </div>
       <div className={styles.containerTags}>
-        {tags.map((tag, i) => (
-          <div className={styles.tag} key={`${tag}-${i}`}>
+        {tags.map(tag => (
+          <div className={styles.tag} key={tag}>
             <span>{tag}</span>
             <button
               className={styles.btnClose}
