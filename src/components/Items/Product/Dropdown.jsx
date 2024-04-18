@@ -1,12 +1,12 @@
 import "./Dropdown.css";
 
 import React, { useState } from "react";
-import { Desktop, Mobile, Tablet } from "./MediaQuery";
+import { Desktop, Mobile, Tablet } from "../../MediaQuery";
 
 import PropTypes from "prop-types";
 
-import iconArrow from "../assets/items/ic_arrow_down.svg";
-import iconSort from "../assets/items/ic_sort.svg";
+import iconArrow from "../../../assets/images/items/ic_arrow_down.svg";
+import iconSort from "../../../assets/images/items/ic_sort.svg";
 
 function Dropdown({ options, className, onChange }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,13 +1,13 @@
-import ic_facebook from "../assets/icon/ic_facebook.svg";
-import ic_twitter from "../assets/icon/ic_twitter.svg";
-import ic_youtube from "../assets/icon/ic_youtube.svg";
-import ic_instagram from "../assets/icon/ic_instagram.svg";
+import ic_facebook from "../../assets/images/icon/ic_facebook.svg";
+import ic_twitter from "../../assets/images/icon/ic_twitter.svg";
+import ic_youtube from "../../assets/images/icon/ic_youtube.svg";
+import ic_instagram from "../../assets/images/icon/ic_instagram.svg";
 
 import { Link } from "react-router-dom";
 
-import "./BottomNavigation.css";
+import "./Footer.css";
 
-function BottomNavigation() {
+function Footer() {
   return (
     <footer className="bottom_container">
       <article className="bottom_content">
@@ -65,4 +65,4 @@ function BottomNavigation() {
   );
 }
 
-export default BottomNavigation;
+export default Footer;

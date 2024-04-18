@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import NavMain from "./NavMain";
-import "./Root.css";
-import "./TopNavigation.css";
+import "../../assets/styles/Root.css";
+import "./Header.css";
 
-function TopNavigation(site) {
+function Header(site) {
   return (
     <header className="top_navigation">
       <div className="top_container">
@@ -24,4 +24,4 @@ function TopNavigation(site) {
   );
 }
 
-export default TopNavigation;
+export default Header;

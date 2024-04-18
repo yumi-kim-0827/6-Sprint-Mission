@@ -1,21 +1,19 @@
 import "./ProductAll.css";
 
-import iconHeart from "../assets/items/ic_heart.svg";
-import iconSearch from "../assets/items/ic_search.svg";
+import iconHeart from "../../../assets/images/items/ic_heart.svg";
+import iconSearch from "../../../assets/images/items/ic_search.svg";
 
 import React, { useState, useEffect } from "react";
 
-import { getProducts } from "./api";
+import { getProducts } from "../../../api/ItemsApi";
 import { Link } from "react-router-dom";
-import { Desktop, Mobile, Tablet } from "./MediaQuery";
+import { Desktop, Mobile, Tablet } from "../../MediaQuery";
 import Dropdown from "./Dropdown";
 
 const ProductAll = () => {
   const [order, setOrder] = useState("recent");
 
   const [products, setProducts] = useState([]);
-
-  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const handleLoad = async (orderQuery) => {
     const { list } = await getProducts(orderQuery);
@@ -51,73 +49,31 @@ const ProductAll = () => {
           />
         </div>
 
-        <Link to={"/additem"} className="all_add_item blue">
+        <Link to={"/addItem"} className="all_add_item blue">
           상품 등록하기
         </Link>
 
         <div className="all_sort_wrap">
-          <Desktop>
-            <Dropdown
-              options={[
-                {
-                  label: "최신순",
-                  value: "recent",
-                  className: "custom-class-1",
-                },
-                {
-                  label: "좋아요순",
-                  value: "favorite",
-                  className: "custom-class-2",
-                },
-              ]}
-              className="custom-dropdown"
-              onChange={handleChange}
-            />
-          </Desktop>
-
-          <Tablet>
-            <Dropdown
-              options={[
-                {
-                  label: "최신순",
-                  value: "recent",
-                  className: "custom-class-1",
-                },
-                {
-                  label: "좋아요순",
-                  value: "favorite",
-                  className: "custom-class-2",
-                },
-              ]}
-              className="custom-dropdown"
-              onChange={handleChange}
-            />{" "}
-          </Tablet>
-
-          <Mobile>
-            <Dropdown
-              options={[
-                {
-                  label: "최신순",
-                  value: "recent",
-                  className: "custom-class-1",
-                },
-                {
-                  label: "좋아요순",
-                  value: "favorite",
-                  className: "custom-class-2",
-                },
-              ]}
-              className="custom-dropdown"
-              onChange={handleChange}
-            />
-          </Mobile>
+          <Dropdown
+            options={[
+              {
+                label: "최신순",
+                value: "recent",
+              },
+              {
+                label: "좋아요순",
+                value: "favorite",
+              },
+            ]}
+            className="custom-dropdown"
+            onChange={handleChange}
+          />
         </div>
       </div>
 
       <div className="all_content">
         <Desktop>
-          {sortedProducts.slice(0, 12).map((product) => (
+          {products.slice(0, 12).map((product) => (
             <div className="all_wrap" key={product.id}>
               <img
                 className="all_img"
@@ -139,7 +95,7 @@ const ProductAll = () => {
         </Desktop>
 
         <Tablet>
-          {sortedProducts.slice(0, 6).map((product) => (
+          {products.slice(0, 6).map((product) => (
             <div className="all_wrap" key={product.id}>
               <img
                 className="all_img"
@@ -161,7 +117,7 @@ const ProductAll = () => {
         </Tablet>
 
         <Mobile>
-          {sortedProducts.slice(0, 4).map((product) => (
+          {products.slice(0, 4).map((product) => (
             <div className="all_wrap" key={product.id}>
               <img
                 className="all_img"

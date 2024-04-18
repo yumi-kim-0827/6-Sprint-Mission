@@ -1,19 +1,16 @@
-import bannerTopImg from "../assets/home/Img_home_top.svg";
-import bannerBottomImg from "../assets/home/Img_home_bottom.svg";
-import homeImg1 from "../assets/home/Img_home_01.svg";
-import homeImg2 from "../assets/home/Img_home_02.svg";
-import homeImg3 from "../assets/home/Img_home_03.svg";
+import bannerTopImg from "../assets/images/home/Img_home_top.svg";
+import bannerBottomImg from "../assets/images/home/Img_home_bottom.svg";
+import homeImg1 from "../assets/images/home/Img_home_01.svg";
+import homeImg2 from "../assets/images/home/Img_home_02.svg";
+import homeImg3 from "../assets/images/home/Img_home_03.svg";
 
 import "./Home.css";
 
-import TopNavigation from "../components/TopNavigation";
 import { NavLink } from "react-router-dom";
-import BottomNavigation from "../components/BottomNavigation";
 
 const Home = () => {
   return (
     <>
-      <TopNavigation />
       <main>
         <article className="container">
           {/* 상단 배너 */}
@@ -116,7 +113,6 @@ const Home = () => {
           </section>
         </article>
       </main>
-      <BottomNavigation />
     </>
   );
 };
