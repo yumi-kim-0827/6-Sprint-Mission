@@ -1,19 +1,21 @@
-import React from 'react';
-import styles from '../styles/Nav.module.css';
+import React from 'react'
+import logoImage from '../assets/logo.svg';
 import Button from './Button';
-import pandaMarketLogo from '../assets/logo.svg'
+import styles from '../styles/Nav.module.css';
 
-export default function Nav() {
+function Nav() {
   return (
-    <div className={styles.nav_container}>
+    <div className={styles.nav_wrap}>
       <div className={styles.nav_logo_box}>
-        <img className={styles.nav_logo} src={pandaMarketLogo} alt="판다마켓 로고" />
+        <img className={styles.nav_logo} src={logoImage} alt="로고 이미지" />
       </div>
-      <div className={styles.nav_link}>
-        <a href>자유게시판</a>
-        <a href="/items">중고마켓</a>
+      <div className={styles.nav_linkList}>
+        <span>자유게시판</span>
+        <span>중고마켓</span>
       </div>
       <Button>로그인</Button>
     </div>
   )
 }
+
+export default Nav
