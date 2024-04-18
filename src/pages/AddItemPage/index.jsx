@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
 import { FormHeader, AddItemTitle, FormContainer } from './style';
 
 const AddItemPage = () => {
+  const fileInputRef = useRef(null);
+
+  const handleClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <>
       <TopNavigation />
@@ -15,8 +23,13 @@ const AddItemPage = () => {
             <Button title="등록" />
           </FormHeader>
           <FormContainer>
-            <label htmlFor="itemImage">상품 이미지</label>
-            <input id="itemImage" type="file" name="itemImage" />
+            <FormInput
+              id="itemImage"
+              label="상품 이미지"
+              type="file"
+              ref={fileInputRef}
+            />
+            <div onClick={handleClick}>이미지 인풋??</div>
 
             <FormInput
               id="itemName"
@@ -31,14 +44,17 @@ const AddItemPage = () => {
               type="textarea"
             />
 
-            {/* <label htmlFor="itemDescription">상품 소개</label>
-            <input id="itemDescription" type="text" name="itemDescription" /> */}
+            <FormInput
+              id="itemPrice"
+              label="판매가격"
+              placeholder="판매 가격을 입력해주세요"
+            />
 
-            <label htmlFor="itemPrice">판매가격</label>
-            <input id="itemPrice" type="text" name="itemPrice" />
-
-            <label htmlFor="itemTag">태그</label>
-            <input id="itemTag" type="text" name="itemTag" />
+            <FormInput
+              id="itemTag"
+              label="태그"
+              placeholder="태그를 입력해주세요"
+            />
           </FormContainer>
         </form>
       </main>

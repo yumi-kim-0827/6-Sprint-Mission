@@ -29,6 +29,10 @@ export const Textarea = styled.textarea`
   ${inputStyle}
 `;
 
+export const ImageInput = styled.input`
+  display: none;
+`;
+
 export const InputContainer = styled.section`
   display: flex;
   flex-direction: column;
