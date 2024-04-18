@@ -55,10 +55,14 @@ function ProductTag({ name, value, onChange }) {
   const handleTagValue = (e) => {
     if (e.key === "Enter") {
       const tagValue = e.target.value;
-      onChange(name, tagValue);
-      const newTagArr = [...tagArr, tagValue];
-      setTagArr(newTagArr);
-      inputRef.current.value = "";
+      if (tagValue !== "") {
+        onChange(name, tagValue);
+        const newTagArr = [...tagArr, tagValue];
+        setTagArr(newTagArr);
+        if (inputRef) {
+          inputRef.current.value = "";
+        }
+      }
     }
   };
 
@@ -101,15 +105,23 @@ const AddItems = () => {
     productIntro: "",
     productPrice: 0,
     productImg: null,
-    productTag: "",
+    productTag: [],
   });
   const buttonRef = useRef();
 
   const handleChange = (name, value) => {
-    setProductValues((prevProductValues) => ({
-      ...prevProductValues,
-      [name]: value,
-    }));
+    if (name === "productTag") {
+      const newArr = [...productValues.productTag, value];
+      setProductValues((prevProductValues) => ({
+        ...prevProductValues,
+        productTag: newArr,
+      }));
+    } else {
+      setProductValues((prevProductValues) => ({
+        ...prevProductValues,
+        [name]: value,
+      }));
+    }
   };
 
   const handleValuesChange = (e) => {
@@ -119,13 +131,14 @@ const AddItems = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("성공");
   };
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
       <div className="product-form-top">
         <h2>상품 등록하기</h2>
-        <button id="register-btn" ref={buttonRef} type="submit">
+        <button id="register-btn" ref={buttonRef} disabled type="submit">
           등록
         </button>
       </div>
