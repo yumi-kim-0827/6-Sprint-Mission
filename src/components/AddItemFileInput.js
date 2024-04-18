@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/AddItemFileInput.css";
 
-function AddItemFileInput() {
+function AddItemFileInput({ onChange, name }) {
   const [preview, setPreview] = useState(null);
 
   const fileInputRef = useRef();
 
   const handleChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // 파일 선택을 취소하는 경우
-      const nextPreview = URL.createObjectURL(file);
+    const nextValue = e.target.files[0];
+    if (nextValue) {
+      onChange(name, nextValue);
+      const nextPreview = URL.createObjectURL(nextValue);
       setPreview(nextPreview);
     }
   };
@@ -19,6 +19,7 @@ function AddItemFileInput() {
     const fileInputNode = fileInputRef.current;
     if (!fileInputNode) return;
     fileInputNode.value = "";
+    onChange(name, null);
     setPreview(null);
   };
 
@@ -26,6 +27,7 @@ function AddItemFileInput() {
     return () => {
       // 정리함수
       if (preview) {
+        setPreview(null);
         URL.revokeObjectURL(preview);
       }
     };
@@ -43,7 +45,7 @@ function AddItemFileInput() {
           className="img-input"
           ref={fileInputRef}
           onChange={handleChange}
-          name="images"
+          name={name}
         />
       </div>
       {preview && (
