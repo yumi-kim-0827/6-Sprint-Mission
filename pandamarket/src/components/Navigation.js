@@ -1,9 +1,28 @@
 import "./Navigation.css";
 import Button from "./Button";
 import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 function Navigation() {
-  const src = logo;
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let src = logo;
+  if (width < 767) {
+    src = logo2;
+  }
 
   function getLinkStyle({ isActive }) {
     return {

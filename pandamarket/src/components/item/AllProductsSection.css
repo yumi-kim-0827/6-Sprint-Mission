@@ -50,6 +50,9 @@
 @media (min-width: 375px) and (max-width: 767px) {
   .allProducts {
     row-gap: 8px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .tool-container input {
@@ -61,6 +64,11 @@
 /* tablet*/
 @media (min-width: 768px) and (max-width: 1199px) {
   .allProducts {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 24px;
+    column-gap: 24px;
     row-gap: 16px;
   }
   .tool-container input {

@@ -41,9 +41,12 @@ hr {
     padding-left: 0;
   }
 }
-/* tablet*/
+
 @media (min-width: 768px) and (max-width: 1199px) {
   nav {
     padding: 0 24px;
   }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
 }

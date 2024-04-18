@@ -34,6 +34,9 @@
   font-weight: 500;
   margin: 6px 0;
 }
+.productInfoCard {
+  margin: auto;
+}
 
 .best {
   width: 282px;
