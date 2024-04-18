@@ -9,8 +9,8 @@ export default function AddItem() {
     name: '',
     description: '',
     price: 0,
-    tag: '',
   });
+  const [tagList, setTagList] = useState([]);
 
   const handleChange = (name, value) => {
     setValues(prevValues => ({
@@ -29,12 +29,15 @@ export default function AddItem() {
     console.log(values);
   };
 
-  const textClear = e => {
-    const { name } = e.target;
-    setValues(prevValues => ({
-      ...prevValues,
-      [name]: '',
-    }));
+  const handlePriceChange = e => {
+    const { value } = e.target;
+
+    if (!/^\d*$/g.test(value)) {
+      return;
+    }
+
+    const numberValue = parseInt(value, 10);
+    handleChange('price', numberValue);
   };
 
   return (
@@ -63,7 +66,7 @@ export default function AddItem() {
       <label htmlFor=''>
         상품 소개
         <textarea
-          className='product-description'
+          // className='product-description'
           name='description'
           value={values.description}
           placeholder='상품 소개를 입력해주세요'
@@ -79,17 +82,11 @@ export default function AddItem() {
           value={values.price}
           type='text'
           placeholder='판매 가격을 입력해주세요'
-          onChange={handleInputChange}
+          onChange={handlePriceChange}
           className='add-item-form__price-input'
         />
       </label>
-      <TagInput
-        onChange={handleInputChange}
-        name='tag'
-        value={values.tag}
-        textClear={textClear}
-        className='add-item-form__name-input'
-      />
+      <TagInput name='tag' tagList={tagList} setTagList={setTagList} className='add-item-form__name-input' />
     </form>
   );
 }

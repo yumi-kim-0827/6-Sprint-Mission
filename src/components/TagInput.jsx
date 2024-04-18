@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import DeleteButton from './DeleteButton';
 import './style/TagInput.css';
-
-export default function TagInput({ name, value, onChange, textClear }) {
-  const [tagList, setTagList] = useState([]);
+export default function TagInput({ name, tagList, setTagList }) {
+  const [tag, setTag] = useState('');
 
   const handleKeyDown = e => {
-    if (value.length !== 0 && e.key === 'Enter') {
+    if (tag.trim() !== '' && e.key === 'Enter') {
       submitTagItem();
-      textClear(e);
+      setTag('');
     }
   };
 
+  const handleInputChange = e => {
+    setTag(e.target.value);
+  };
+
   const submitTagItem = () => {
-    setTagList([value, ...tagList]);
+    setTagList([tag, ...tagList]);
   };
 
   const handleDeleteClick = tagValue => {
@@ -27,10 +30,10 @@ export default function TagInput({ name, value, onChange, textClear }) {
         태그
         <input
           name={name}
-          value={value}
+          value={tag}
           type='text'
           placeholder='태그를 입력해주세요'
-          onChange={onChange}
+          onChange={handleInputChange}
           onKeyDown={handleKeyDown}
         />
       </label>

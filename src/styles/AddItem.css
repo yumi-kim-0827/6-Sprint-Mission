@@ -34,11 +34,6 @@
   font-weight: 600;
 }
 
-.input__wrap {
-  display: flex;
-  justify-content: space-between;
-}
-
 label {
   display: flex;
   flex-direction: column;
