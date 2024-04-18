@@ -76,6 +76,30 @@ h4 {
   cursor: not-allowed;
 }
 
+.tags {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background-color: var(--coolgray100);
+  color: var(--coolgray800);
+  padding: 1rem;
+  border-radius: 3rem;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-remove {
+  width: 22px;
+  height: 24px;
+  cursor: pointer;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .container {
     width: 100%;

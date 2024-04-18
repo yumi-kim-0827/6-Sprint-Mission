@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import styles from "../styles/additem.module.css";
 import FileInput from "../components/FileInput";
@@ -11,12 +12,34 @@ const INITIAL_VALUES = {
 
 function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
   const [values, setValues] = useState(initialValues);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [tags, setTags] = useState([]);
+  const [inputTag, setInputTag] = useState("");
+
+  // input 값 받아오기
+  const handleTagInput = (e) => {
+    setInputTag(e.target.value);
+  };
+
+  const inputKeyDown = (e) => {
+    if (e.key === "Enter" && inputTag) {
+      if (!tags.includes(inputTag)) {
+        //동일한 이름 태그 중복 안 되게
+        setTags([...tags, inputTag]);
+      }
+      setInputTag("");
+      e.preventDefault(); // 엔터 눌렀을 때 폼 제출하지 않도록 막기
+    }
+  };
+
+  const removeTag = (removeTagIndex) => {
+    const newTags = tags.filter((tag, index) => index !== removeTagIndex);
+    setTags(newTags);
+  };
 
   // input 입력할 때마다 새로운 값 반영하기
   const handleChange = (e) => {
     // input의 name, value 추출
-    const {name, value} = e.target
+    const { name, value } = e.target;
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value, // 변경된 필드의 값만 새로운 값으로 업데이트
@@ -86,7 +109,25 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
         />
 
         <h4>태그</h4>
-        <input type="text" placeholder="태그를 입력해주세요" />
+        <input
+          type="text"
+          value={inputTag}
+          onChange={handleTagInput}
+          onKeyDown={inputKeyDown}
+          placeholder="태그를 입력해주세요 (엔터를 누르면 태그가 적용돼요)"
+        />
+        <div className={styles.tags}>
+          {tags.map((tag, index) => (
+            <div key={index} className={styles.tag}>
+              {tag}
+              <img
+                src="/assets/icon_tag_remove.png"
+                onClick={() => removeTag(index)}
+                className={styles["tag-remove"]}
+              />
+            </div>
+          ))}
+        </div>
       </form>
     </div>
   );
