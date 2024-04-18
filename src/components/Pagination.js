@@ -5,29 +5,12 @@ import arrowRightIcon from "../assets/icon/arrow-right.svg";
 import arrowLeftIcon from "../assets/icon/arrow-left.svg";
 
 const Pagination = ({
-  limit,
-  totalCount = 10,
-  currentPage = 1,
-  onPageChange,
+  currentPage,
+  totalPages,
+  goToPrevPage,
+  goToNextPage,
+  goToPage,
 }) => {
-  const totalPages = Math.ceil(totalCount / limit);
-
-  const goToPrevPage = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
-
-  const goToPage = (page) => {
-    onPageChange(page);
-  };
-
   const renderPageButtons = () => {
     return Array.from({ length: totalPages }, (_, i) => (
       <button

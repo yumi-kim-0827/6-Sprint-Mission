@@ -1,48 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import Card from "../components/Card";
 import Button from "../components/Button";
 import Searchbar from "../components/Searchbar";
 import SortSelectBox from "../components/SortSelectBox";
 import Pagination from "../components/Pagination";
+
 import { getItems } from "../services/api";
 import useWindowSize from "../hooks/useWindowSize";
-import styled from "styled-components";
+import usePagination from "../hooks/usePagination";
+
+const BEST_ITEMS_LIMIT = {
+  small: 1,
+  medium: 2,
+  large: 4,
+};
+
+const ITEMS_LIMIT = {
+  small: 4,
+  medium: 6,
+  large: 10,
+};
 
 function ItemPage() {
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
   const [order, setOrder] = useState("createdAt");
-  const [bestItemsLimit, setBestItemsLimit] = useState(0);
-  const [itemsLimit, setItemsLimit] = useState(1);
-  const [totalCount, setTotalCount] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [inputValue, setInputValue] = useState("");
-
+  const [searchValue, setSearchValue] = useState("");
   const { width } = useWindowSize();
+  const [screenSize, setScreenSize] = useState("small");
 
   useEffect(() => {
-    let newBestItemsLimit = 1;
-    let newItemsLimit = 4;
-
-    if (width >= 1200) {
-      newBestItemsLimit = 4;
-      newItemsLimit = 10;
-    } else if (width >= 768) {
-      newBestItemsLimit = 2;
-      newItemsLimit = 6;
-    }
-    setBestItemsLimit(newBestItemsLimit);
-    setItemsLimit(newItemsLimit);
+    width >= 1200
+      ? setScreenSize("large")
+      : width >= 768
+      ? setScreenSize("medium")
+      : setScreenSize("small");
   }, [width]);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         const { list } = await getItems();
-        const newTotalCount = list.length;
-        setTotalCount(newTotalCount);
 
         const sortedItems = [...list].sort((a, b) => b[order] - a[order]);
         setItems(sortedItems);
@@ -51,22 +52,34 @@ function ItemPage() {
           (a, b) => b.favoriteCount - a.favoriteCount
         );
 
-        const favoriteItemList = sortedItemsByFavorite.slice(0, bestItemsLimit);
+        const favoriteItemList = sortedItemsByFavorite.slice(
+          0,
+          BEST_ITEMS_LIMIT[screenSize]
+        );
         setBestItems(favoriteItemList);
+
+        if (searchValue) {
+          const searchedItem = list.filter((item) => {
+            return item.name.toLowerCase().includes(searchValue.toLowerCase());
+          });
+          setItems(searchedItem);
+        }
       } catch (error) {
         console.error("상품 목록을 불러오는 중 오류가 발생했습니다:", error);
       }
     };
 
     fetchItems();
-  }, [order, itemsLimit, bestItemsLimit]);
+  }, [order, screenSize, searchValue]);
 
-  const onPageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  const startItemNum = (currentPage - 1) * itemsLimit;
-  const endItemNum = startItemNum + itemsLimit;
+  const {
+    currentPage,
+    totalPages,
+    goToPrevPage,
+    goToNextPage,
+    goToPage,
+    paginatedList,
+  } = usePagination(items, ITEMS_LIMIT[screenSize]);
 
   return (
     <>
@@ -90,28 +103,29 @@ function ItemPage() {
             <Searchbar
               placeholder="검색할 상품을 입력해주세요"
               className="ItemPage__search-bar"
-              value={inputValue}
-              onChange={setInputValue}
+              value={searchValue}
+              onChange={setSearchValue}
             />
             <SortSelectBox
               className="ItemPage__select-box"
               onClick={setOrder}
               order={order}
-              size={width >= 768 ? "medium" : "small"}
+              size={screenSize === "small" ? "small" : "medium"}
             ></SortSelectBox>
           </div>
           <div className="ItemPage__item-list">
-            {items
-              .map((item) => <Card key={item.id} item={item} />)
-              .slice(startItemNum, endItemNum)}
+            {paginatedList.map((item) => (
+              <Card key={item.id} item={item} />
+            ))}
           </div>
         </div>
         <Pagination
           className="ItemPage__pagination"
-          limit={itemsLimit}
-          totalCount={totalCount}
           currentPage={currentPage}
-          onPageChange={onPageChange}
+          totalPages={totalPages}
+          goToPrevPage={goToPrevPage}
+          goToNextPage={goToNextPage}
+          goToPage={goToPage}
         ></Pagination>
       </StyledDiv>
     </>
