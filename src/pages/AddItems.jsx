@@ -48,12 +48,49 @@ function ProductImg({ name, value, onChange }) {
   );
 }
 
-function ProductTag() {
+function ProductTag({ name, value, onChange }) {
+  const [tagArr, setTagArr] = useState([]);
+  const inputRef = useRef();
+
+  const handleTagValue = (e) => {
+    if (e.key === "Enter") {
+      const tagValue = e.target.value;
+      onChange(name, tagValue);
+      const newTagArr = [...tagArr, tagValue];
+      setTagArr(newTagArr);
+      inputRef.current.value = "";
+    }
+  };
+
+  const handleDeleteTag = (e) => {
+    const tagValue = e.target.parentElement.innerText;
+    const compareValue = tagValue.slice(2, tagValue.length);
+    const newTag = tagArr.filter((tag) => tag !== compareValue);
+    setTagArr(newTag);
+  };
+
   return (
     <div className="product-tag container">
       <h3>태그</h3>
       <label htmlFor="product-tag"></label>
-      <input type="text" name="productTag" id="product-tag" placeholder="태그를 입력해주세요" />
+      <input
+        type="text"
+        name="productTag"
+        id="product-tag"
+        onKeyDown={handleTagValue}
+        placeholder="태그를 입력해주세요"
+        ref={inputRef}
+      />
+      <div className="show-tag">
+        {tagArr.map((tag, idx) => {
+          return (
+            <p key={idx}>
+              {`# ${tag}`}
+              <img src={tagdelete} alt="태그 삭제 버튼" onClick={handleDeleteTag} />
+            </p>
+          );
+        })}
+      </div>
     </div>
   );
 }
