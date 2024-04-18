@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
-import { FormHeader, AddItemTitle, FormContainer } from './style';
+import { FormHeader, AddItemTitle, FormContainer, TagList, Tag } from './style';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
+import GrayXIcon from 'assets/icons/Gray-X.svg';
 
 const AddItemPage = () => {
   const [inputData, setInputData] = useState({
     itemName: '',
     itemDescription: '',
     itemPrice: '',
-    itemTag: '',
+    itemTag: [],
   });
   const imageUrl = useImageUrl();
   const setImageUrl = useSetImageUrl();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
+
+    console.log(inputData);
 
     const formData = new FormData();
     formData.append('image', imageUrl);
@@ -31,12 +34,38 @@ const AddItemPage = () => {
 
     if (name === 'itemImage') {
       setImageUrl(files[0]);
-    } else {
+    } else if (name !== 'itemTag') {
       setInputData({
         ...inputData,
         [name]: value,
       });
     }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const tag = e.target.value;
+      setInputData({
+        ...inputData,
+        itemTag: [...inputData.itemTag, tag],
+      });
+      e.target.value = '';
+    }
+  };
+
+  const handleKeyDownPrevent = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
+
+  const handleClickTag = (index) => {
+    const newTagList = inputData.itemTag.filter((_, idx) => idx !== index);
+    setInputData({
+      ...inputData,
+      itemTag: newTagList,
+    });
   };
 
   return (
@@ -60,6 +89,7 @@ const AddItemPage = () => {
               label="상품명"
               placeholder="상품명을 입력해주세요"
               onChange={handleChange}
+              onKeyPress={handleKeyDownPrevent}
             />
             <FormInput
               id="itemDescription"
@@ -73,13 +103,29 @@ const AddItemPage = () => {
               label="판매가격"
               placeholder="판매 가격을 입력해주세요"
               onChange={handleChange}
+              onKeyPress={handleKeyDownPrevent}
             />
             <FormInput
               id="itemTag"
               label="태그"
               placeholder="태그를 입력해주세요"
               onChange={handleChange}
+              onKeyPress={handleKeyDown}
             />
+            {inputData.itemTag.length !== 0 && (
+              <TagList>
+                {inputData.itemTag.map((item, index) => (
+                  <Tag key={index}>
+                    {item}
+                    <img
+                      src={GrayXIcon}
+                      onClick={() => handleClickTag(index)}
+                      alt="태그 삭제 아이콘"
+                    />
+                  </Tag>
+                ))}
+              </TagList>
+            )}
           </FormContainer>
         </form>
       </main>
