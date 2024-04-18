@@ -15,15 +15,6 @@ export const NUM_ALL_ITEMS = {
   [PC]: 10,
 };
 
-/* constants for order of items */
-export const RECENT = "recent";
-export const FAVORITE = "favorite";
-
-export const ORDER_MESSAGE = {
-  [FAVORITE]: "좋아요순",
-  [RECENT]: "최신순",
-};
-
 /* constants for api url */
 export const BASE_API_URL = "https://panda-market-api.vercel.app/";
 export const PRODUCT_API_URL = `${BASE_API_URL}products/`;

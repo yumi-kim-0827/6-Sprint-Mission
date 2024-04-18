@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { MOBILE, NUM_ALL_ITEMS, RECENT } from "../../utils/constants.js";
+import { MOBILE, NUM_ALL_ITEMS } from "../../utils/constants.js";
+import { RECENT } from "../../utils/constantsItems.js";
 import { getItems } from "../../api/index.js";
 import ItemListNav from "./ItemListNav.js";
 import ItemListNavMobile from "./ItemListNavMobile.js";
