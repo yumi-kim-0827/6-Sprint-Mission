@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PaginationProvider } from "../context/PaginationContext";
 import HomePage from "./HomePage";
 import BoardPage from "./BoardPage";
-import AddItemPage from "./AddItemPage";
+import AddItemPage from "./AddItem/AddItemPage";
 import FleaMarketPage from "./FleaMarket/FleaMarketPage";
 import LoginPage from "./LoginPage";
 import Layout from "../Layout";
