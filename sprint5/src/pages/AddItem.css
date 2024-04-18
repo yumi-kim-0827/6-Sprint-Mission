@@ -1,0 +1,13 @@
+.addItemForm {
+  margin: 94px 360px;
+}
+
+.formTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+}
