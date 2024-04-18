@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from 'App';
 import ItemsPage from 'pages/ItemsPage';
 import AddItemPage from 'pages/AddItemPage';
+import { ImageUrlProvider } from 'contexts/ItemImageContext';
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ export const router = createBrowserRouter([
   },
   {
     path: '/addItem',
-    element: <AddItemPage />,
+    element: (
+      <ImageUrlProvider>
+        <AddItemPage />
+      </ImageUrlProvider>
+    ),
   },
   {
     path: '/*',

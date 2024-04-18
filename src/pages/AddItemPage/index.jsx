@@ -3,6 +3,7 @@ import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
 import { FormHeader, AddItemTitle, FormContainer } from './style';
+import { useSetImageUrl } from 'contexts/ItemImageContext';
 
 const AddItemPage = () => {
   const [inputData, setInputData] = useState({
@@ -12,6 +13,7 @@ const AddItemPage = () => {
     itemPrice: '',
     itemTag: '',
   });
+  const setImageUrl = useSetImageUrl();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -26,6 +28,7 @@ const AddItemPage = () => {
         ...inputData,
         [name]: files[0],
       });
+      setImageUrl(files[0]);
     } else {
       setInputData({
         ...inputData,
