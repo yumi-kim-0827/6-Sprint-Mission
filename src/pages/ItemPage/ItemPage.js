@@ -1,5 +1,5 @@
-import ItemList from "../components/features/ItemList";
-import { getProducts } from "../services/api";
+import ItemList from "./components/ItemList";
+import { getProducts } from "../../services/api";
 import { useEffect, useState } from "react";
 
 function ItemPage() {
