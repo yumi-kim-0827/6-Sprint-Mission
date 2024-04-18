@@ -16,6 +16,15 @@ const AddItemPage = () => {
   const imageUrl = useImageUrl();
   const setImageUrl = useSetImageUrl();
 
+  const isFormValid = () => {
+    return (
+      inputData.itemName !== '' &&
+      inputData.itemDescription !== '' &&
+      inputData.itemPrice !== '' &&
+      inputData.itemTag.length > 0
+    );
+  };
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
@@ -45,12 +54,14 @@ const AddItemPage = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      const tag = e.target.value;
-      setInputData({
-        ...inputData,
-        itemTag: [...inputData.itemTag, tag],
-      });
-      e.target.value = '';
+      if (e.target.value !== '') {
+        const tag = e.target.value;
+        setInputData({
+          ...inputData,
+          itemTag: [...inputData.itemTag, tag],
+        });
+        e.target.value = '';
+      }
     }
   };
 
@@ -75,7 +86,7 @@ const AddItemPage = () => {
         <form onSubmit={handleSubmitForm}>
           <FormHeader>
             <AddItemTitle>상품 등록하기</AddItemTitle>
-            <Button title="등록" type="submit" />
+            <Button disabled={!isFormValid()} title="등록" type="submit" />
           </FormHeader>
           <FormContainer>
             <FormInput

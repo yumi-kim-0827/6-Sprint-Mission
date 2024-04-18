@@ -1,7 +1,7 @@
 .blue-button {
   background-color: var(--blue-primary);
   height: 2.625rem;
-  padding: 0.75rem 1.25rem;
+  padding: 0.72rem 1.88rem;
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;
@@ -12,10 +12,15 @@
   line-height: 1.1931rem;
 }
 
-.blue-button:hover {
+.blue-button:disabled {
+  cursor: not-allowed;
+  background-color: var(--gray-400);
+}
+
+.blue-button:not(:disabled):hover {
   background-color: var(--blue-hover);
 }
 
-.blue-button:active {
+.blue-button:not(:disabled):active {
   background-color: var(--blue-active);
 }
