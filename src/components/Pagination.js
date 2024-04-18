@@ -4,7 +4,14 @@ import styled from "styled-components";
 import arrowRightIcon from "../assets/icon/arrow-right.svg";
 import arrowLeftIcon from "../assets/icon/arrow-left.svg";
 
-const Pagination = ({ currentPage = 1, totalPages = 7, onPageChange }) => {
+const Pagination = ({
+  limit,
+  totalCount = 10,
+  currentPage = 1,
+  onPageChange,
+}) => {
+  const totalPages = Math.ceil(totalCount / limit);
+
   const goToPrevPage = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
@@ -26,7 +33,7 @@ const Pagination = ({ currentPage = 1, totalPages = 7, onPageChange }) => {
       <button
         key={i + 1}
         onClick={() => goToPage(i + 1)}
-        className={i + 1 === currentPage ? "active" : ""}
+        className={i + 1 === currentPage && "active"}
       >
         {i + 1}
       </button>
