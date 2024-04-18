@@ -7,6 +7,7 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [sortBy, setSortBy] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +38,10 @@ const Product = () => {
     setSortBy(event.target.value);
   };
 
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
+  };
+
   return (
     <ProductContainer>
       <BestTitle>베스트 상품</BestTitle>
@@ -52,6 +57,12 @@ const Product = () => {
       </BestProductContainer>
       <TotalTitle>상품</TotalTitle>
       <ButtonContainer>
+        <SearchInput
+          name="keyword"
+          value={keyword}
+          onChange={handleKeywordChange}
+          placeholder="  🔎   검색할 상품을 입력해주세요"
+        />
         <AddItemButton to="/additem">상품 등록하기</AddItemButton>
         <SortDropdown value={sortBy} onChange={handleSortChange}>
           <option value="latest">최신순</option>
@@ -209,19 +220,14 @@ const TotalTitle = styled.h3`
   }
 `;
 
-const SortDropdown = styled.select`
-  width: 130px;
-  height: 42px;
-  padding: 8px 20px 8px 20px;
-  gap: 10px;
+const SearchInput = styled.input`
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 40px;
   border-radius: 12px;
   border: 1px solid rgba(229, 231, 235, 1);
-  margin-left: auto;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 42px;
-  text-align: left;
+  background-color: ##f0f0f0;
 `;
 
 const AddItemButton = styled(Link)`
@@ -238,6 +244,21 @@ const AddItemButton = styled(Link)`
   text-align: center;
   color: #ffffff;
   text-decoration: none;
+`;
+
+const SortDropdown = styled.select`
+  width: 130px;
+  height: 42px;
+  padding: 8px 20px 8px 20px;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  margin-left: auto;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 42px;
+  text-align: left;
 `;
 
 const ButtonContainer = styled.div`
