@@ -15,7 +15,7 @@ import sortButton from "../images/btn_sort.png";
 import favoriteIcon from "../images/ic_heart.png";
 
 export default function AllItemsList() {
-  // 정렬 옵션을 위한 state입니다.
+  // 정렬 옵션을 위한 객체입니다.
   const sortOptions = {
     LIKE: "좋아요순",
     NEWEST: "최신순",
