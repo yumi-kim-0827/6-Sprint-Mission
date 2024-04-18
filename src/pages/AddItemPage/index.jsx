@@ -3,31 +3,33 @@ import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
 import { FormHeader, AddItemTitle, FormContainer } from './style';
-import { useSetImageUrl } from 'contexts/ItemImageContext';
+import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
 
 const AddItemPage = () => {
   const [inputData, setInputData] = useState({
-    itemImage: null,
     itemName: '',
     itemDescription: '',
     itemPrice: '',
     itemTag: '',
   });
+  const imageUrl = useImageUrl();
   const setImageUrl = useSetImageUrl();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(inputData);
+
+    const formData = new FormData();
+    formData.append('image', imageUrl);
+    formData.append('name', inputData.itemName);
+    formData.append('description', inputData.itemDescription);
+    formData.append('price', inputData.itemPrice);
+    formData.append('tag', inputData.itemTag);
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
     if (name === 'itemImage') {
-      setInputData({
-        ...inputData,
-        [name]: files[0],
-      });
       setImageUrl(files[0]);
     } else {
       setInputData({

@@ -32,7 +32,7 @@ export const ImageAdd = styled.div`
 
 export const ImagePreview = styled.div`
   ${boxStyle}
-  background-image: url(${(props) => props.imageUrl});
+  background-image: url(${(props) => props.$imageUrl});
   background-size: cover;
   background-position: center;
 
