@@ -20,7 +20,7 @@ function BestProduct({ name, price, favoriteCount, images }) {
 }
 
 const ShowBestProducts = ({ products }) => {
-  const [width, setWidth] = useState();
+  const [width, setWidth] = useState(4);
 
   const handlePageSize = (width) => {
     if (width >= 1200) {
@@ -38,10 +38,12 @@ const ShowBestProducts = ({ products }) => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    setWidth(window.innerWidth);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <main className="Main">
       <div className="best">
