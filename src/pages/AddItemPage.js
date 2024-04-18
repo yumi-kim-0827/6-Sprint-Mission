@@ -19,6 +19,7 @@ const AddItemPage = () => {
   });
 
   const { name, price, description, tag } = values;
+  const formatPrice = Number(price).toLocaleString();
 
   const handleChangeValue = (e) => {
     const { name, value } = e.target;
@@ -75,7 +76,7 @@ const AddItemPage = () => {
         <ItemFormGroup
           label="price"
           placeholder="판매가격을 입력해주세요"
-          value={price}
+          value={formatPrice}
           onChange={handleChangeValue}
         />
         <ItemFormGroup
@@ -114,7 +115,7 @@ const AddItemPage = () => {
 
 const StyledDiv = styled.div`
   position: relative;
-  margin: calc(70px + 16px) 16px;
+  margin: 96px 16px;
   height: auto;
 
   .form-header {
@@ -132,9 +133,9 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    margin: calc(70px + 16px) 24px;
+    margin: 96px 24px;
 
-    > .form-header {
+    .form-header {
       margin-bottom: 20px;
       font-size: 28px;
       line-height: 33.41px;
@@ -143,6 +144,7 @@ const StyledDiv = styled.div`
 
   @media screen and (min-width: 1200px) {
     max-width: 1200px;
+    margin: 96px auto;
 
     .form__imgInput {
       width: 282px;
