@@ -42,7 +42,6 @@ export const Textarea = styled.textarea`
 /* styled button */
 export const PureButton = styled.button`
   border: none;
-  background-color: transparent;
 `;
 
 export const RoundStyledButton = styled(PureButton)`
@@ -51,4 +50,11 @@ export const RoundStyledButton = styled(PureButton)`
   &:hover {
     box-shadow: 0px 0px 2px var(--cool-gray500);
   }
+`;
+
+export const smallButton = css`
+  width: 88px;
+  height: 42px;
+  padding: 12px 20px;
+  border-radius: 8px;
 `;
