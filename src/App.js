@@ -1,22 +1,23 @@
 import { GetItems } from "./GetItems";
-import { GetBestItems } from "./GetItems";
+import { GetBestItems } from "./GetBestItems";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Navigator from "./Navigator";
 import ItemsAll from "./ItemsAll";
-import Controller from "./Controller";
+import SearchItem from "./SearchItem";
+import EnterItem from "./EnterItem";
 import ItemsBest from "./ItemsBest";
+import DropdownSort from "./DropdownSort";
 
 function App() {
   const [order, setOrder] = useState("recent");
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  const handleLatestClick = () => {
-    setOrder("recent");
-  };
-  const handleMostFavClick = () => {
-    setOrder("favorite");
+  const handleSortOption = (option) => {
+    setOrder(option);
+    setShowDropdown(false);
   };
 
   const handleLoad = async (orderQuery) => {
@@ -37,23 +38,36 @@ function App() {
     handleLoadBest();
   }, []);
 
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <>
       <Navigator />
       <main className="content-container">
-        <button onClick={handleLatestClick}>최신순</button>
-        <button onClick={handleMostFavClick}>인기순</button>
-        <article className="products-best">
+        <section className="products-best">
           <div className="content-label">베스트 상품</div>
           <ItemsBest items={bestItems} />
-        </article>
-        <article className="products-all">
+        </section>
+        <section className="products-all">
           <div className="content-label-box">
             <div className="content-label">전체 상품</div>
-            <Controller />
+            <div className="control-box">
+              <SearchItem />
+              <EnterItem />
+              <div className="dropdown-box">
+                <button className="dropdown-button" onClick={toggleDropdown}>
+                  {order === "recent" ? "최신순" : "좋아요순"}
+                </button>
+                {showDropdown && (
+                  <DropdownSort handleSortOption={handleSortOption} />
+                )}
+              </div>
+            </div>
           </div>
           <ItemsAll items={items} />
-        </article>
+        </section>
       </main>
     </>
   );

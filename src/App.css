@@ -18,6 +18,7 @@
 .products-best {
   margin-top: 24px;
 }
+
 .products-all {
   margin-top: 40px;
 }
@@ -28,6 +29,71 @@
   align-items: center;
   height: 42px;
   margin-bottom: 24px;
+}
+
+.control-box {
+  display: flex;
+  gap: 12px;
+}
+
+.search-box {
+  width: 325px;
+  height: 42px;
+  position: relative;
+}
+
+.keywords {
+  width: 325px;
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+  padding: 9px 20px 9px 44px;
+}
+
+.search-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.enterButton-box {
+  width: 133px;
+  height: 42px;
+}
+
+.enterButton {
+  width: 133px;
+  height: 42px;
+  padding: 12px 23px;
+  border-radius: 8px;
+}
+
+.sortButton {
+  width: 130px;
+  height: 42px;
+
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  text-align: center;
 }
 
 /*----------------------------tablet----------------------------*/
@@ -89,13 +155,13 @@
     margin-top: 56px;
   }
 
-  .banner-container.top > .banner {
+  .banner-container.top>.banner {
     width: 744px;
     height: 771px;
     position: relative;
   }
 
-  .banner-container.bottom > .banner {
+  .banner-container.bottom>.banner {
     width: 744px;
     height: 927px;
     position: relative;
@@ -281,13 +347,13 @@
     margin-top: 32px;
   }
 
-  .banner-container.top > .banner {
+  .banner-container.top>.banner {
     width: 375px;
     height: 540px;
     position: relative;
   }
 
-  .banner-container.bottom > .banner {
+  .banner-container.bottom>.banner {
     width: 375px;
     height: 540px;
     position: relative;
