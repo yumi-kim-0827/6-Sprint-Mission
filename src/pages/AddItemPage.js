@@ -23,6 +23,10 @@ const FormContents = styled.div`
   line-height: 1.5;
 `;
 
+const Main = styled.main`
+  padding-bottom: 90px;
+`;
+
 function AddItemPage() {
   // 서버에게 보낼 용도
   const [productInfo, setProductInfo] = useState({
@@ -106,7 +110,7 @@ function AddItemPage() {
   }, []);
 
   return (
-    <main>
+    <Main>
       <form>
         <FormHeader />
         <FormContents>
@@ -141,7 +145,7 @@ function AddItemPage() {
           />
         </FormContents>
       </form>
-    </main>
+    </Main>
   );
 }
 
