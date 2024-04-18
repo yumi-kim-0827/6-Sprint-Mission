@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Items from "./pages/items/Items.jsx";
-import HomePage from "./pages/HomePage.jsx";
+import HomePage from "./pages/homePage/HomePage.jsx";
 import App from "./App.js";
 import { useEffect, useState } from "react";
 import AddItem from "./pages/addItem/AddItem.jsx";

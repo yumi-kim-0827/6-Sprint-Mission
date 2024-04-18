@@ -1,5 +1,6 @@
 import { PLACEHOLDER } from "../../utils/placeholder";
 import styles from "./TagInput.module.css";
+import addItemStyles from "./AddItem.module.css";
 
 const TagInput = ({ tags, setTags }) => {
   const handleTagDeleteClick = targetTagValue => {
@@ -20,9 +21,9 @@ const TagInput = ({ tags, setTags }) => {
   return (
     <>
       <div>
-        <p className={styles.titleForms}>태그</p>
+        <p className={addItemStyles.titleForms}>태그</p>
         <input
-          name="tags"
+          maxLength={30}
           placeholder={PLACEHOLDER.tags}
           onKeyUp={handleTagChange}
         />

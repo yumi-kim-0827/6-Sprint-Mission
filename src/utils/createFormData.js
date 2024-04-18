@@ -13,4 +13,5 @@ export const createFormData = ({
   if (file) {
     formData.append("productImage", file);
   }
+  return formData;
 };

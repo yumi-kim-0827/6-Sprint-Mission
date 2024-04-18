@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
-import { createFormData } from "../../utils/createFormData";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { allValid } from "../../utils/allValid";
 import ImageUpload from "./ImageUpload";
 import NameInput from "./NameInput";
 import TagInput from "./TagInput";
 import ProductSubmitButton from "./ProductSubmitButton";
-import { allValid } from "../../utils/allValid";
 import DescriptionInput from "./DescriptionInput";
 import PriceInput from "./PriceInput";
 
@@ -20,15 +19,6 @@ export default function AddItem() {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
   const isPreview = preview !== skeleton;
-
-  const formInit = () => {
-    setProductName("");
-    setProductDescription("");
-    setPrice("");
-    setTags([]);
-    setFile(null);
-    setPreview(skeleton);
-  };
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -47,17 +37,19 @@ export default function AddItem() {
     }
   };
 
-  const handleSubmit = () => {
-    createFormData({ ...propsForCreateFormData });
-    formInit();
-  };
-
-  const propsForCreateFormData = {
+  const propsForSubmitButton = {
+    isButtonEnabled,
     productName,
+    setProductName,
     productDescription,
+    setProductDescription,
     price,
+    setPrice,
     tags,
+    setTags,
     file,
+    setFile,
+    setPreview,
   };
 
   const propsForImageUpload = {
@@ -79,30 +71,17 @@ export default function AddItem() {
     [setIsButtonEnabled, productName, productDescription, price, tags]
   );
 
-  const propsForNameInput = {
+  const propsForInputs = {
+    handleInputChange,
     productName,
-    handleInputChange,
-  };
-
-  const propsForDescriptionInput = {
     productDescription,
-    handleInputChange,
-  };
-
-  const propsForPriceInput = {
     price,
-    handleInputChange,
   };
 
   const propsForTagInput = {
     tags,
     setTags,
     allValid,
-  };
-
-  const propsForSubmitButton = {
-    isButtonEnabled,
-    handleSubmit,
   };
 
   useEffect(() => {
@@ -113,9 +92,9 @@ export default function AddItem() {
     <div className={styles.container}>
       <ProductSubmitButton {...propsForSubmitButton} />
       <ImageUpload {...propsForImageUpload} />
-      <NameInput {...propsForNameInput} />
-      <DescriptionInput {...propsForDescriptionInput} />
-      <PriceInput {...propsForPriceInput} />
+      <NameInput {...propsForInputs} />
+      <DescriptionInput {...propsForInputs} />
+      <PriceInput {...propsForInputs} />
       <TagInput {...propsForTagInput} />
     </div>
   );
