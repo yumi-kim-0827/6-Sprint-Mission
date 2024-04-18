@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../common/Button";
 import logo from "../assets/pandaLogo.svg";
@@ -41,6 +41,7 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function Nav() {
+  const { pathname } =  useLocation();
   return (
     <StyledNav>
       <ListContainer>
@@ -50,7 +51,10 @@ function Nav() {
         <StyledNavLink to="/board">
           자유게시판
         </StyledNavLink>
-        <StyledNavLink to="/fleamarket">
+        <StyledNavLink
+          to="/fleamarket"
+          className={pathname === "/additem" ? "active" : ""}
+        >
           중고마켓
         </StyledNavLink>
       </ListContainer>
