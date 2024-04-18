@@ -26,14 +26,15 @@ const AllProductList = () => {
     try {
       setLoadingError(null);
       result = await getProducts(options);
+
+      const { list, totalCount } = result;
+
+      setTotal(totalCount);
+      setAllProduct(list);
     } catch (error) {
       setLoadingError(error);
       return;
     }
-    const { list, totalCount } = result;
-
-    setTotal(totalCount);
-    setAllProduct(list);
   };
 
   const handleClickOrder = (orderType) => setOrderBy(orderType);
@@ -43,6 +44,7 @@ const AllProductList = () => {
   };
 
   const handlePagination = (_, value) => {
+    console.log(value);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
