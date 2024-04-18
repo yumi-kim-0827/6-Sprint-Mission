@@ -1,4 +1,25 @@
+import { useState } from "react";
+import closeTagIcon from "../images/ic_X.png";
+
 export default function ProductForm() {
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState("");
+
+  const handleTagInput = (e) => {
+    setTagInput(e.target.value);
+  };
+
+  const handleTagKeyDown = (e) => {
+    if (e.key === "Enter" && tagInput.trim() !== "") {
+      setTags([...tags, e.target.value]);
+      setTagInput("");
+    }
+  };
+
+  const handleRemoveTag = (idx) => {
+    setTags(tags.filter((_, i) => i !== idx));
+  };
+
   return (
     <form action="post" className="mx-auto mb-40 mt-6 flex w-7/12 flex-col">
       <div className="flex items-center justify-between">
@@ -80,8 +101,28 @@ export default function ProductForm() {
           name="tag"
           placeholder="태그를 입력해주세요"
           className="mt-3 rounded-xl bg-[var(--cool-gray100)] py-4 pl-6"
-          required
+          value={tagInput}
+          onChange={handleTagInput}
+          onKeyDown={handleTagKeyDown}
         />
+        <div className="mt-3 flex flex-wrap gap-x-3">
+          {tags.map((tag, idx) => {
+            return (
+              <div
+                key={idx}
+                className="flex gap-x-2 rounded-3xl bg-[var(--cool-gray50)] px-4 py-3"
+              >
+                <span>{tag}</span>
+                <img
+                  src={closeTagIcon}
+                  alt="close tag"
+                  className="h-6 w-6 cursor-pointer"
+                  onClick={() => handleRemoveTag(idx)}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </form>
   );
