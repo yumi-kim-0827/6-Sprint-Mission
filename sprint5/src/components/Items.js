@@ -3,23 +3,41 @@ import Navbar from "./Navbar";
 import Products from "./Products";
 import { getBestProducts, getProducts } from "./Api";
 import DropdownContainer from "./DropdownContainer";
+import PaginationButton from "./PaginationButton";
+
+const getLimit = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 4;
+  } else if (width < 1280) {
+    return 6;
+  } else {
+    return 10;
+  }
+};
 
 function Items() {
   const [items, setItems] = useState([]);
   const [order, setOrder] = useState("recent");
-  // const [page, setPage] = useState(1);
-  // const [size, setPageSize] = useState(12);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(getLimit());
+  const [totalPages, setTotalPages] = useState();
   const [keyword, setKeyword] = useState("");
   const [bestItems, setBestItems] = useState([]);
 
-  // const handleSearch = async (searchValue) => {
-  //   const products = await getProducts(order, searchValue);
-  //   setItems(products);
-  // };
+  //데이터 가져오기
+  const handleLoad = async (page, limit, order, keyword) => {
+    const products = await getProducts(page, limit, order, keyword);
+    //데이터 저장
+    console.log(products.totalCount);
+    setItems(products.list);
+    //페이지 길이
+    setTotalPages(Math.ceil(products.totalCount / limit));
+    console.log(totalPages);
+  };
 
-  const handleLoad = async (order, keyword) => {
-    const products = await getProducts(order, keyword);
-    setItems(products);
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
   };
 
   const handleBestClick = () => setOrder("favorite");
@@ -34,18 +52,29 @@ function Items() {
     setBestItems(bestItemsLimited);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleLoad(order, keyword);
+    await handleLoad(page, limit, order, keyword);
   };
 
   useEffect(() => {
-    handleLoad(order, keyword);
-  }, [order]);
+    const handleResize = () => {
+      setLimit(getLimit());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [page, limit, order, keyword]);
 
   useEffect(() => {
     handleLoadBestItems();
   }, []);
+
+  useEffect(() => {
+    handleLoad(page, limit, order, keyword);
+  }, [page, limit, order]);
 
   return (
     <div>
@@ -69,6 +98,13 @@ function Items() {
           onBestClick={handleBestClick}
         />
         <Products items={items} />
+        <div>
+          <PaginationButton
+            totalPageNum={totalPages}
+            activePageNum={page}
+            onPageChange={onPageChange}
+          />
+        </div>
       </div>
     </div>
   );
