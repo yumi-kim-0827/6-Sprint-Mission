@@ -5,7 +5,7 @@ import SearchBox from "./SearchBox.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
-import { getData, getTabletData, getMobileData } from "../../apis/apis.js";
+import { getData } from "../../apis/apis.js";
 import Pagenation from "../Pagenation.jsx";
 import { formatCurrency } from "../../utils/utils.js";
 
@@ -100,6 +100,7 @@ const ItemsList = () => {
           <DropdownOrder
             order={order}
             orderChangeHandler={orderChangeHandler}
+            displaySize={displaySize}
           />
         </div>
       </div>

@@ -42,4 +42,20 @@
   .ItemsList__itemsWrapper {
     grid-template-columns: 1fr 1fr;
   }
+  .ItemsList__menu_bar {
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+  .ItemsList__menu_bar__title {
+    width: 344px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+  .ItemsList__menu_bar__button_wrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
 }

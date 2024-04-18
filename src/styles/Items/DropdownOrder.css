@@ -28,13 +28,18 @@
 }
 
 .DropdownWrapper {
-  transition: 0.2s;
+  transition: 0.4s;
   opacity: 0;
   pointer-events: none;
 }
+
 .DropdownWrapper.show {
   opacity: 1;
   pointer-events: all;
+}
+
+.DropdownWrapper.mobile {
+  left: -90px;
 }
 
 .DropdownWrapper ul li {
@@ -43,7 +48,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .DropdownWrapper ul li:first-child {
   border-bottom: 1px solid #e5e7eb;
+}
+
+@media screen and (max-width: 767px) {
+  .DropdownOrderWrapper {
+    width: 42px;
+    height: 42px;
+  }
+  .DropdownOrder {
+    width: 42px;
+    height: 42px;
+  }
 }
