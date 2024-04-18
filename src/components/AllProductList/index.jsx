@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { navigate } from 'react-router-dom';
 import { getProducts } from 'api/productApi';
 import ProductItem from 'components/ProductItem';
 import Button from 'components/Button';
@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import './style.css';
 
 const AllProductList = () => {
+  const navigation = navigate();
   const [allProduct, setAllProduct] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [pageSize, setPageSize] = useState(10);
@@ -88,9 +89,10 @@ const AllProductList = () => {
               className="search-input"
             />
           </div>
-          <Link to="/addItem">
-            <Button title="상품 등록하기" />
-          </Link>
+          <Button
+            title="상품 등록하기"
+            onClick={() => navigation('/addItem')}
+          />
           <div className="order-container">
             <DropDown
               triggerComponent={
