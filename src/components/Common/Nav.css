@@ -43,6 +43,14 @@ li {
   text-align: center;
 }
 
+a.active {
+  color: var(--point-blue100);
+}
+
+a.basic {
+  color: var(--cool-gray600);
+}
+
 .button-login {
   width: 88;
   height: 42;
