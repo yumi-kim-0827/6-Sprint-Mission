@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { InputWrapper } from "./Input";
+import { PureButton } from "../Common/BasicStyledComponents";
 import XIcon from "../../assets/icon/ic_X.svg";
 
-const Button = styled.img`
+const Icon = styled.img`
   width: 22px;
   height: 24px;
-  cursor: pointer;
 `;
 
 const StyledTag = styled.li`
@@ -29,7 +29,9 @@ function TagList({ tagList, onClick }) {
         tagList.map((tag) => (
           <StyledTag key={tag}>
             <p>{tag}</p>
-            <Button src={XIcon} onClick={() => onClick(tag)} alt="삭제" />
+            <PureButton type="button" onClick={() => onClick(tag)}>
+              <Icon src={XIcon} alt="삭제" />
+            </PureButton>
           </StyledTag>
         ))}
     </StyledTagList>

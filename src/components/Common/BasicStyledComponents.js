@@ -38,3 +38,8 @@ export const Textarea = styled.textarea`
   resize: none;
   ${inputStyle}
 `;
+
+export const PureButton = styled.button`
+  border: none;
+  background-color: transparent;
+`;
