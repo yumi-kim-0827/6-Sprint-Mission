@@ -47,8 +47,17 @@ function Items() {
   const handleKeywordChange = (e) => setKeyword(e.target.value);
 
   const handleLoadBestItems = async () => {
+    let bestItemsCount;
+    const width = window.innerWidth;
     const bestProducts = await getBestProducts("favorite");
-    const bestItemsLimited = bestProducts.slice(0, 4);
+    if (width < 768) {
+      bestItemsCount = 1;
+    } else if (width < 1280) {
+      bestItemsCount = 2;
+    } else {
+      bestItemsCount = 4;
+    }
+    const bestItemsLimited = bestProducts.slice(0, bestItemsCount);
     setBestItems(bestItemsLimited);
   };
 
@@ -56,6 +65,16 @@ function Items() {
     e.preventDefault();
     await handleLoad(page, limit, order, keyword);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      handleLoadBestItems();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
