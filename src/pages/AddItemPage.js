@@ -78,25 +78,25 @@ function AddItemPage() {
     setTagString(e.target.value);
   }, []);
 
-  const handleTagEnter = useCallback(
-    ({ keyCode, target: { value: newTag } }) => {
-      // 새로운 태그 추가
-      if (keyCode === 13) {
-        setTagString("");
+  const handleTagEnter = useCallback((e) => {
+    if (e.keyCode !== 13) return; // 엔터
+    e.preventDefault();
+    setTagString("");
 
-        setProductInfo((prevInfo) => {
-          if (prevInfo[TAG].includes(newTag)) {
-            return prevInfo;
-          }
-          return {
-            ...prevInfo,
-            [TAG]: [...prevInfo[TAG], newTag],
-          };
-        });
+    const newTag = e.target.value;
+    if (newTag.trim() === "") return; // 빈 값 아님
+
+    setProductInfo((prevInfo) => {
+      if (prevInfo[TAG].includes(newTag)) {
+        return prevInfo;
       }
-    },
-    []
-  );
+      // 기존에 있는 값 아님
+      return {
+        ...prevInfo,
+        [TAG]: [...prevInfo[TAG], newTag],
+      };
+    });
+  }, []);
 
   const handleTagDelete = useCallback((value) => {
     setProductInfo((prevInfo) => ({
