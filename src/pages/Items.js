@@ -3,7 +3,7 @@ import "./Items.css";
 import ShowBestProducts from "../components/ShowBestProducts";
 import ShowProducts from "../components/ShowProducts";
 import PageButton from "../components/PageButton";
-import { getProduct, getBestProduct } from "../components/api";
+import { getProduct, getBestProduct } from "../components/common/api";
 import debounce from "../components/common/debounce";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   const [totalCount, setTotalCount] = useState();
   const [width, setWidth] = useState();
   const [order, setOrder] = useState({
-    order: "recent",
+    orderBy: "recent",
     page: 1,
     pageSize: 10,
   });
@@ -31,8 +31,8 @@ function App() {
     const value = e.target.value;
     setSelectValue(value);
     value === "좋아요순"
-      ? setOrder((prevOrder) => ({ ...prevOrder, order: "favorite" }))
-      : setOrder((prevOrder) => ({ ...prevOrder, order: "recent" }));
+      ? setOrder((prevOrder) => ({ ...prevOrder, orderBy: "favorite" }))
+      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: "recent" }));
   }
 
   const getSelectValue = (value) => {
@@ -43,9 +43,9 @@ function App() {
     const value = e.target.value;
     value === ""
       ? setOrder((prevOrder) =>
-          selectValue === "좋아요순" ? { ...prevOrder, order: "favorite" } : { ...prevOrder, order: "recent" }
+          selectValue === "좋아요순" ? { ...prevOrder, orderBy: "favorite" } : { ...prevOrder, orderBy: "recent" }
         )
-      : setOrder((prevOrder) => ({ ...prevOrder, order: value }));
+      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: value }));
   }
 
   const getTotalCount = async () => {
@@ -86,19 +86,17 @@ function App() {
   }, [width]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     handleLoad(order);
   }, [order]);
 
   useEffect(() => {
     handleBestLoad();
     getTotalCount();
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
