@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProductItem.css";
 import favoriteIcon from "../../assets/images/favorite_icon.svg";
+import { Link } from "react-router-dom";
 
 const ProductItem = (props) => {
   const { item } = props;
@@ -9,13 +10,11 @@ const ProductItem = (props) => {
 
   return (
     <>
-      <a href="#none" className="img-area">
+      <Link className="img-area">
         <img src={images} alt={name} />
-      </a>
+      </Link>
       <div className="text-area">
-        <a href="#none" className="title">
-          {name}
-        </a>
+        <Link className="title">{name}</Link>
         <p className="price">
           <span>{customPrice}</span>원
         </p>

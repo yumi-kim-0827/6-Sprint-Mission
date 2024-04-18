@@ -8,6 +8,7 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
+import { Link } from "react-router-dom";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
@@ -102,7 +103,7 @@ const Market = () => {
               onChange={searchProducts}
               placeholder="검색할 상품을 입력해주세요"
             />
-            <Button href="additem.html">상품 등록하기</Button>
+            <Button to="/additem">상품 등록하기</Button>
             <SelectBox
               text={sortKeyword}
               onOptionClick={handleSelectOptionClick}
