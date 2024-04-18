@@ -93,15 +93,25 @@ const DropdownItem = styled.li`
 `;
 
 function Items() {
-  const [order, setOrder] = useState('createdAt');
+  const [order, setOrder] = useState('recent');
   const [items, setItems] = useState([]);
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('createdAt');
+  // const [selectedOption, setSelectedOption] = useState('createdAt');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // const sortedItems = useMemo(() => {
+  //   return [...items].sort((a, b) => b[order] - a[order]);
+  // }, [items, order]);
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => b[order] - a[order]);
-  }, [items, order]);
+    let filteredItems = items.filter((item) => {
+      // 필터링을 위해 상품명을 소문자로 변환하여 검색어와 비교합니다.
+      return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    // 필터된 상품들을 정렬합니다.
+    return filteredItems.sort((a, b) => b[order] - a[order]);
+  }, [items, order, searchTerm]);
 
   // 서버에서 정렬한 데이터 불러오기
   const handleLoad = async (orderQuery) => {
@@ -111,7 +121,7 @@ function Items() {
 
   // 좋아요순으로 데이터 불러오기
   const handleLoadFavorites = async () => {
-    const favoriteProducts = await getProducts('favoriteCount');
+    const favoriteProducts = await getProducts('favorite');
     setFavoriteItems(favoriteProducts.list.slice(0, 4));
   };
 
@@ -122,7 +132,7 @@ function Items() {
 
   const handleSortChange = (option) => {
     setOrder(option);
-    setSelectedOption(option);
+    // setSelectedOption(option);
   };
 
   return (
@@ -135,19 +145,24 @@ function Items() {
         <h2>전체 상품</h2>
         <SearchBox>
           <FaSistrix />
-          <Input placeholder="검색할 상품을 입력해주세요" />
+          {/* <Input placeholder="검색할 상품을 입력해주세요" /> */}
+          <Input
+            placeholder="검색할 상품을 입력해주세요"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </SearchBox>
         <Link to="/additem" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
           상품 등록하기
         </Link>
         <SelectWrapper>
           <SelectButton onClick={() => setDropdownOpen(!dropdownOpen)}>
-            {selectedOption === 'createdAt' ? '최신순' : '좋아요순'} <FaCaretDown />
+            {order === 'createdAt' ? '최신순' : '좋아요순'} <FaCaretDown />
           </SelectButton>
           {dropdownOpen && (
             <DropdownMenu>
-              <DropdownItem onClick={() => handleSortChange('createdAt')}>최신순</DropdownItem>
-              <DropdownItem onClick={() => handleSortChange('favoriteCount')}>좋아요순</DropdownItem>
+              <DropdownItem onClick={() => handleSortChange('recent')}>최신순</DropdownItem>
+              <DropdownItem onClick={() => handleSortChange('favorite')}>좋아요순</DropdownItem>
             </DropdownMenu>
           )}
         </SelectWrapper>
