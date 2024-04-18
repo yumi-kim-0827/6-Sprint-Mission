@@ -1,8 +1,8 @@
 /* mobile */
 .add-item-form {
-  max-width: 344px;
+  min-width: 344px;
   margin: auto;
-  padding-top: 9px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -80,8 +80,8 @@ input::placeholder,
   }
 
   .add-item-form {
-    max-width: 696px;
     padding-top: 23px;
+    padding: 23px 24px auto 24px;
     padding-bottom: 199px;
     gap: 24px;
   }
@@ -90,7 +90,7 @@ input::placeholder,
 /* Desktop */
 @media (min-width: 1199px) {
   .add-item-form {
-    max-width: 1200px;
+    padding: 24px 360px 147px 360px;
     padding-top: 24px;
     padding-bottom: 147px;
     gap: 24px;

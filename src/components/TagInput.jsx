@@ -41,7 +41,7 @@ export default function TagInput({ name, tagList, setTagList }) {
         {tagList.map((tagItem, index) => {
           return (
             <div key={index} className='tag'>
-              <span className='tag__text'>{tagItem}</span>
+              <p className='tag__text'>{tagItem}</p>
               <DeleteButton deleteItem={'tag'} onClick={() => handleDeleteClick(tagItem)} />
             </div>
           );
