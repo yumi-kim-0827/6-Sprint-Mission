@@ -4,6 +4,7 @@ import closeTagIcon from "../images/ic_X.png";
 export default function ProductForm() {
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
+  const [previewImage, setPreviewImage] = useState(null);
 
   const handleTagInput = (e) => {
     setTagInput(e.target.value);
@@ -18,6 +19,19 @@ export default function ProductForm() {
 
   const handleRemoveTag = (idx) => {
     setTags(tags.filter((_, i) => i !== idx));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setPreviewImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -35,22 +49,32 @@ export default function ProductForm() {
         <label htmlFor="image" className="text-lg font-bold">
           상품 이미지
         </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          placeholder="이미지를 업로드해주세요"
-          accept="image/*"
-          className="hidden"
-          required
-        />
-        <label
-          htmlFor="image"
-          className="mt-3 flex h-72 w-72 cursor-pointer flex-col items-center justify-center rounded-xl bg-[var(--cool-gray100)] text-[var(--cool-gray400)]"
-        >
-          <p className="text-5xl">+</p>
-          <p className="mt-3">이미지 등록</p>
-        </label>
+        <div className="mt-3 flex gap-x-6">
+          <input
+            type="file"
+            id="image"
+            name="image"
+            placeholder="이미지를 업로드해주세요"
+            accept="image/*"
+            className="hidden"
+            onChange={handleImageChange}
+            required
+          />
+          <label
+            htmlFor="image"
+            className="flex h-72 w-72 cursor-pointer flex-col items-center justify-center rounded-xl bg-[var(--cool-gray100)] text-[var(--cool-gray400)]"
+          >
+            <p className="text-5xl">+</p>
+            <p className="mt-3">이미지 등록</p>
+          </label>
+          {previewImage && (
+            <img
+              src={previewImage}
+              alt="previewImage"
+              className="h-72 w-72 rounded-xl object-fill"
+            />
+          )}
+        </div>
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="productName" className="text-lg font-bold">
