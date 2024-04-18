@@ -97,6 +97,14 @@ const StyledImgInput = styled.div`
     height: 100%;
     border-radius: 12px;
   }
+
+  @media screen and (min-width: 1200px) {
+    label,
+    img {
+      width: 282px;
+      height: 282px;
+    }
+  }
 `;
 
 const Preview = styled.div`

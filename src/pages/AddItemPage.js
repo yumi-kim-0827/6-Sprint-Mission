@@ -76,7 +76,7 @@ const AddItemPage = () => {
         <ItemFormGroup
           label="price"
           placeholder="판매가격을 입력해주세요"
-          value={formatPrice}
+          value={price && formatPrice}
           onChange={handleChangeValue}
         />
         <ItemFormGroup
@@ -127,11 +127,6 @@ const StyledDiv = styled.div`
     font-weight: 700;
   }
 
-  .form__imgInput {
-    width: 168px;
-    height: 168px;
-  }
-
   @media screen and (min-width: 768px) {
     margin: 96px 24px;
 
@@ -145,11 +140,6 @@ const StyledDiv = styled.div`
   @media screen and (min-width: 1200px) {
     max-width: 1200px;
     margin: 96px auto;
-
-    .form__imgInput {
-      width: 282px;
-      height: 282px;
-    }
   }
 `;
 
