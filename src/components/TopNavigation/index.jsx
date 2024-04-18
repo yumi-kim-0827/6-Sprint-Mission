@@ -43,7 +43,12 @@ const TopNavigation = () => {
             <li>
               <Link
                 to="/items"
-                className={location.pathname === '/items' ? 'active-nav' : ''}
+                className={
+                  location.pathname === '/items' ||
+                  location.pathname === '/addItem'
+                    ? 'active-nav'
+                    : ''
+                }
               >
                 중고마켓
               </Link>

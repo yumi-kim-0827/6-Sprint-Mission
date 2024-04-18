@@ -76,13 +76,11 @@ const AllProductList = () => {
       </div>
       {loadingError?.message && <span>{loadingError.message}</span>}
       <Grid container spacing={2}>
-        {allProduct.map((item) => {
-          return (
-            <Grid item xs={6} sm={4} md={2.4} key={item.id}>
-              <ProductItem item={item} />
-            </Grid>
-          );
-        })}
+        {allProduct.map((item) => (
+          <Grid item xs={6} sm={4} md={2.4} key={item.id}>
+            <ProductItem item={item} />
+          </Grid>
+        ))}
       </Grid>
       <div className="pagination">
         <Pagination
