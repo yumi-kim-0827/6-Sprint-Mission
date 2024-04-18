@@ -4,7 +4,6 @@ import "./AddItemLayout.css";
 import { useState } from "react";
 import FileInput from "./FileInput";
 import AddTag from "./AddTag";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const AddItemLayout = () => {
   const [values, setValues] = useState({
@@ -30,9 +29,8 @@ const AddItemLayout = () => {
   const isDone = !!(values.title && values.description && values.price);
 
   const handleSubmit = (e) => {
-    if (e.ketCode === 13) return;
     e.preventDefault();
-    console.log("완료: ", values);
+    console.log("등록: ", values);
   };
 
   return (
