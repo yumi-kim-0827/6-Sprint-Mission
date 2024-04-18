@@ -6,7 +6,6 @@ const ProductImageInput = ({ value, onChange, onDelete }) => {
   const [preview, setPreview] = useState();
   const inputRef = useRef();
 
-  
   useEffect(() => {
     if (!value) return;
     const nextPreview = URL.createObjectURL(value);
@@ -31,7 +30,7 @@ const ProductImageInput = ({ value, onChange, onDelete }) => {
       <div className="image-input-content">
         <label htmlFor="productImage">
           <div className="btn-upload">
-            <img src={plusIcon} />
+            <img src={plusIcon} alt="플러스 버튼" />
             <span>이미지 등록</span>
           </div>
         </label>
@@ -95,6 +94,13 @@ const AddItemForm = () => {
   //입력 했을 떄 함수
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    if (e.target.type === "number") {
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: Number(value),
+      }));
+      return;
+    }
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -148,6 +154,7 @@ const AddItemForm = () => {
         <label htmlFor="ProductPrice">판매 가격</label>
         <input
           id="ProductPrice"
+          type="number"
           name="price"
           placeholder="판매 가격을 입력해주세요"
           value={values.price}
