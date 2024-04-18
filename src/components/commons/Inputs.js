@@ -102,10 +102,16 @@ export function NumberInput({ name, value: number, onChange, placeholder }) {
   );
 }
 
-export function FormTextarea({ content, onChange, placeholder }) {
+export function FormTextarea({ name, content, onChange, placeholder }) {
   return (
     <div className={styles.form__textarea}>
-      <textarea placeholder={placeholder} value={content} onChange={onChange} />
+      <textarea
+        name={name}
+        placeholder={placeholder}
+        value={content}
+        onChange={onChange}
+        required
+      />
     </div>
   );
 }

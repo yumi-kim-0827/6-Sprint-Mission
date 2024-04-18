@@ -9,3 +9,14 @@ export default function Button({ className, children, to = "/" }) {
     </Link>
   );
 }
+
+export function SubmitButton({ className, children }) {
+  return (
+    <button
+      type={styles.submitBtn}
+      className={`${styles.submitBtn} ${className}`}
+    >
+      {children}
+    </button>
+  );
+}

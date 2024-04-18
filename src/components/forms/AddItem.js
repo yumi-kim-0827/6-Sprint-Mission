@@ -1,4 +1,4 @@
-import Button from "components/commons/Button";
+import Button, { SubmitButton } from "components/commons/Button";
 import { ImageInput } from "components/commons/ImageBlock";
 import styles from "styles/forms.module.scss";
 import {
@@ -9,6 +9,9 @@ import {
 import { useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
 import Tag from "components/commons/Tag";
+import classNames from "classnames/bind";
+
+const cn = classNames.bind(styles);
 
 export default function AddItemForm() {
   const [title, setTitle] = useState("");
@@ -16,6 +19,7 @@ export default function AddItemForm() {
   const [price, setPrice] = useState(0);
   const [currentTag, setCurrentTag] = useState("");
   const [imgFile, setImgFile] = useState(null);
+  const [isActivate, setIsActivate] = useState(false);
 
   const onChange = (e) => {
     const { name, value, files } = e.target;
@@ -27,11 +31,27 @@ export default function AddItemForm() {
     if (name === "tags") setCurrentTag(value);
   };
 
+  useEffect(() => {
+    if (
+      title !== "" &&
+      description !== "" &&
+      price !== 0 &&
+      currentTag !== "" &&
+      imgFile !== null
+    ) {
+      setIsActivate(true);
+    } else {
+      setIsActivate(false);
+    }
+  }, [title, description, price, currentTag, imgFile]);
+
   return (
     <div className={styles.add__item}>
       <header className={styles.header}>
         <h1>상품 등록하기</h1>
-        <Button className={styles.submitBtn}>등록</Button>
+        <SubmitButton className={cn({ [styles.activate]: isActivate })}>
+          등록
+        </SubmitButton>
       </header>
 
       <form className={styles.add__item__form}>
