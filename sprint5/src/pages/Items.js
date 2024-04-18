@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Products from "./Products";
-import { getBestProducts, getProducts } from "./Api";
-import DropdownContainer from "./DropdownContainer";
-import PaginationButton from "./PaginationButton";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Products from "../components/Products";
+import { getBestProducts, getProducts } from "../components/Api";
+import DropdownContainer from "../components/DropdownContainer";
+import PaginationButton from "../components/PaginationButton";
 
 const getLimit = () => {
   const width = window.innerWidth;
@@ -111,7 +112,10 @@ function Items() {
           />
           <button type="submit">검색</button>
         </form>
-        <button>상품 등록하기</button>
+        <Link to={"/additem"}>
+          <button>상품 등록하기</button>
+        </Link>
+
         <DropdownContainer
           onNewestClick={handleNewestClick}
           onBestClick={handleBestClick}
