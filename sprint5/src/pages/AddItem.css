@@ -11,3 +11,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.imgPreview {
+  width: 282px;
+  height: 282px;
+}
