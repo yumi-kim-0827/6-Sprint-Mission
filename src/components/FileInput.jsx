@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './style/FileInput.css';
+import DeleteButton from './DeleteButton';
 
 export default function FileInput({ name, value, onChange }) {
   const [imgValue, setImgValue] = useState();
@@ -49,11 +50,7 @@ export default function FileInput({ name, value, onChange }) {
           <span>이미지 등록</span>
         </button>
         {value && <img src={preview} alt='이미지 미리보기' className='preview-img' />}
-        {value && (
-          <button className='preview-delete-btn' onClick={handleClearClick}>
-            <img src='/imgs/ic_X.png' alt='x' />
-          </button>
-        )}
+        {value && <DeleteButton deleteItem={'preview'} onClick={handleClearClick} />}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 /* mobile */
 .add-item-form {
-  width: 344px;
+  max-width: 344px;
   margin: auto;
   padding-top: 9px;
   display: flex;
@@ -60,11 +60,11 @@ input {
 }
 
 input::placeholder,
-.product-description::placeholder {
+.add-item-form__description-input::placeholder {
   color: #9ca3af;
 }
 
-.product-description {
+.add-item-form__description-input {
   box-sizing: border-box;
   background-color: #f3f4f6;
   width: 100%;
@@ -78,28 +78,6 @@ input::placeholder,
   resize: none;
 }
 
-.tag {
-  position: relative;
-}
-
-.tag__input {
-  width: 100px;
-  height: 48px;
-  border-radius: 26px;
-  padding: 12px, 12px, 12px, 16px;
-}
-
-.tag__delete {
-  width: 22px;
-  height: 24px;
-  position: absolute;
-  top: 25%;
-  left: 20%;
-  background-image: url('/public/imgs/ic_X.png');
-  background-size: cover;
-  background-color: #f3f4f6;
-}
-
 /* Ipad */
 @media (min-width: 768px) {
   .register-item__title {
@@ -107,7 +85,7 @@ input::placeholder,
   }
 
   .add-item-form {
-    width: 696px;
+    max-width: 696px;
     padding-top: 23px;
     padding-bottom: 199px;
     gap: 24px;
@@ -117,7 +95,7 @@ input::placeholder,
 /* Desktop */
 @media (min-width: 1199px) {
   .add-item-form {
-    width: 1200px;
+    max-width: 1200px;
     padding-top: 24px;
     padding-bottom: 147px;
     gap: 24px;

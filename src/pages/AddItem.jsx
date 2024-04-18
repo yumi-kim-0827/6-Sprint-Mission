@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/AddItem.css';
 import FileInput from '../components/FileInput';
+import TagInput from '../components/TagInput';
 
 export default function AddItem() {
   const [values, setValues] = useState({
@@ -28,6 +29,14 @@ export default function AddItem() {
     console.log(values);
   };
 
+  const textClear = e => {
+    const { name } = e.target;
+    setValues(prevValues => ({
+      ...prevValues,
+      [name]: '',
+    }));
+  };
+
   return (
     <form className='add-item-form' action='submit' onSubmit={handleSubmit}>
       <div className='register-item__title-wrap'>
@@ -47,6 +56,7 @@ export default function AddItem() {
           type='text'
           placeholder='상품명을 입력해주세요'
           onChange={handleInputChange}
+          className='add-item-form__name-input'
         />
       </label>
 
@@ -58,6 +68,7 @@ export default function AddItem() {
           value={values.description}
           placeholder='상품 소개를 입력해주세요'
           onChange={handleInputChange}
+          className='add-item-form__description-input'
         />
       </label>
 
@@ -69,23 +80,16 @@ export default function AddItem() {
           type='text'
           placeholder='판매 가격을 입력해주세요'
           onChange={handleInputChange}
+          className='add-item-form__price-input'
         />
       </label>
-
-      <label htmlFor=''>
-        태그
-        <input
-          name='tag'
-          value={values.tag}
-          type='text'
-          placeholder='태그를 입력해주세요'
-          onChange={handleInputChange}
-        />
-      </label>
-      {/* <div className='tag'>
-        <input className='tag__input' type='text' />
-        <button className='tag__delete'></button>
-      </div> */}
+      <TagInput
+        onChange={handleInputChange}
+        name='tag'
+        value={values.tag}
+        textClear={textClear}
+        className='add-item-form__name-input'
+      />
     </form>
   );
 }
