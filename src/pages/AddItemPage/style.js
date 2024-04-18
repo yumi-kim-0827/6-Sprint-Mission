@@ -4,6 +4,7 @@ export const FormHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: -2.5rem;
 `;
 
 export const AddItemTitle = styled.h2`
@@ -15,4 +16,5 @@ export const AddItemTitle = styled.h2`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 `;

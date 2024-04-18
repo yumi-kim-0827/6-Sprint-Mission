@@ -21,11 +21,18 @@ const AddItemPage = () => {
             <FormInput
               id="itemName"
               label="상품명"
-              placeholder="상품명을 입력해주세요."
+              placeholder="상품명을 입력해주세요"
             />
 
-            <label htmlFor="itemDescription">상품 소개</label>
-            <input id="itemDescription" type="text" name="itemDescription" />
+            <FormInput
+              id="itemDescription"
+              label="상품 소개"
+              placeholder="상품 소개를 입력해주세요"
+              type="textarea"
+            />
+
+            {/* <label htmlFor="itemDescription">상품 소개</label>
+            <input id="itemDescription" type="text" name="itemDescription" /> */}
 
             <label htmlFor="itemPrice">판매가격</label>
             <input id="itemPrice" type="text" name="itemPrice" />

@@ -1,11 +1,15 @@
 import React from 'react';
-import { InputContainer, Label, Input } from './style';
+import { InputContainer, Label, Input, Textarea } from './style';
 
 const FormInput = ({ label, id, type = 'text', placeholder }) => {
   return (
     <InputContainer>
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} type={type} name={id} placeholder={placeholder} />
+      {type === 'textarea' ? (
+        <Textarea id={id} name={id} placeholder={placeholder} />
+      ) : (
+        <Input id={id} type={type} name={id} placeholder={placeholder} />
+      )}
     </InputContainer>
   );
 };
