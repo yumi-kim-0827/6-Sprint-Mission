@@ -4,15 +4,16 @@ import { Desktop, Mobile, Tablet } from "../common/responsive";
 import { SearchText } from "../components/SearchText";
 import { SmallButton } from "../components/SmallButton";
 import { DropDown } from "../components/DropDown";
-import { useMediaQuery } from "react-responsive";
 import { useResponsive } from "../hooks/useResponsive";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export function ItemPage (){
   const [isPC, isTablet, isMobile] = useResponsive();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initKeyword = searchParams.get("keyword") || "";
 
   const [values, setValues] = useState({
-    search : "",
+    search : initKeyword,
     order : "recent",
     page : 1
   });
@@ -36,6 +37,11 @@ export function ItemPage (){
     handleChange(name, value);
   }
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchParams( values.search ? {keyword : values.search} : {})
+  }
+
   return (
     <>
       <section className="section-items best">
@@ -54,7 +60,7 @@ export function ItemPage (){
         <div className="section-wrap">
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
-            <SearchText name="search" value={values.search} onChange={handleInputChange} className="section-item__search"/>
+            <SearchText name="search" value={values.search} onSubmit={handleSearch} onChange={handleInputChange} className="section-item__search"/>
             <Link to="/additem"><SmallButton className="section-item__btn">상품 등록하기</SmallButton></Link>
             <DropDown isShow={isPopDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
           </header>
