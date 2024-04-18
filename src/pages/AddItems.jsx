@@ -48,12 +48,13 @@ function ProductImg({ name, value, onChange }) {
   );
 }
 
-function ProductTag({ name, value, onChange }) {
+function ProductTag({ name, value, onChange, clearProductTag }) {
   const [tagArr, setTagArr] = useState([]);
   const inputRef = useRef();
 
   const handleTagValue = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       const tagValue = e.target.value;
       if (tagValue !== "") {
         onChange(name, tagValue);
@@ -71,6 +72,7 @@ function ProductTag({ name, value, onChange }) {
     const compareValue = tagValue.slice(2, tagValue.length);
     const newTag = tagArr.filter((tag) => tag !== compareValue);
     setTagArr(newTag);
+    clearProductTag(compareValue);
   };
 
   return (
@@ -79,7 +81,7 @@ function ProductTag({ name, value, onChange }) {
       <label htmlFor="product-tag"></label>
       <input
         type="text"
-        name="productTag"
+        name={name}
         id="product-tag"
         onKeyDown={handleTagValue}
         placeholder="태그를 입력해주세요"
@@ -103,7 +105,7 @@ const AddItems = () => {
   const [productValues, setProductValues] = useState({
     productName: "",
     productIntro: "",
-    productPrice: 0,
+    productPrice: "",
     productImg: null,
     productTag: [],
   });
@@ -124,6 +126,16 @@ const AddItems = () => {
     }
   };
 
+  const clearProductTag = (value) => {
+    setProductValues((prevProductValues) => {
+      const updatedProductValues = prevProductValues.productTag.filter((tag) => tag !== value);
+      return {
+        ...prevProductValues,
+        productTag: updatedProductValues,
+      };
+    });
+  };
+
   const handleValuesChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
@@ -133,6 +145,20 @@ const AddItems = () => {
     e.preventDefault();
     console.log("성공");
   };
+
+  useEffect(() => {
+    if (
+      productValues.productImg !== null &&
+      productValues.productName !== "" &&
+      productValues.productIntro !== "" &&
+      productValues.productPrice !== "" &&
+      productValues.productTag.length !== 0
+    ) {
+      buttonRef.current.disabled = false;
+    } else {
+      buttonRef.current.disabled = true;
+    }
+  }, [productValues]);
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
@@ -178,7 +204,12 @@ const AddItems = () => {
           value={productValues.productPrice}
         />
       </div>
-      <ProductTag name="productTag" value={productValues.productIag} onChange={handleChange} />
+      <ProductTag
+        name="productTag"
+        value={productValues.productIag}
+        onChange={handleChange}
+        clearProductTag={clearProductTag}
+      />
     </form>
   );
 };
