@@ -6,7 +6,7 @@ import FileInput from "../components/FileInput";
 const INITIAL_VALUES = {
   title: "",
   content: "",
-  price: 0,
+  price: "",
   imgFile: null,
 };
 
@@ -38,12 +38,26 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
 
   // input 입력할 때마다 새로운 값 반영하기
   const handleChange = (e) => {
-    // input의 name, value 추출
     const { name, value } = e.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value, // 변경된 필드의 값만 새로운 값으로 업데이트
-    }));
+
+    if (name === "price") {
+      // 숫자와 콤마(,)만을 허용 (문자열 입력 못하게)
+      const numericValue = value.replace(/[^0-9,]/g, "");
+
+      // 콤마를 제거한 후 다시 콤마 추가
+      const rawNumbers = numericValue.replace(/,/g, "");
+      const formattedValue = rawNumbers.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: formattedValue,
+      }));
+    } else {
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -101,7 +115,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
 
         <h4>판매가격</h4>
         <input
-          type="number"
+          type="text"
           name="price"
           value={values.price}
           placeholder="판매 가격을 입력해주세요"
