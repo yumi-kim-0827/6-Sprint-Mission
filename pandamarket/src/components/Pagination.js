@@ -39,7 +39,7 @@ function Pagination({ productsPerPage, totalProducts, paginate }) {
   return (
     <div>
       <nav>
-        <div className={styles.pagenation}>
+        <div className={styles.pagination}>
           <div
             className={
               currentPage === 1 ? styles["disabled"] : styles["page-link"]

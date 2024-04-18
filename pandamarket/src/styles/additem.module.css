@@ -58,6 +58,24 @@ h4 {
   width: 100px !important;
 }
 
+.button-abled {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.button-disabled {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+  background-color: var(--btn4);
+  cursor: not-allowed;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .container {
     width: 100%;
