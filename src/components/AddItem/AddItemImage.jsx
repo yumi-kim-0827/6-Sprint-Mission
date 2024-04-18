@@ -1,0 +1,48 @@
+import styled from "styled-components";
+import closeIcon from "../../assets/images/icon/ic_close.svg";
+
+const AddItemImage = ({ value, preview, onClearClick }) => {
+  return (
+    <>
+      {value && (
+        <PreviewImageWrap>
+          <PreviewImage src={preview} alt="이미지 미리보기" />
+          <CloseIcon onClick={onClearClick}>
+            <img src={closeIcon} alt="" />
+          </CloseIcon>
+        </PreviewImageWrap>
+      )}
+    </>
+  );
+};
+
+const PreviewImageWrap = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 282px;
+  height: 282px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+`;
+
+const PreviewImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+`;
+
+const CloseIcon = styled.button`
+  position: absolute;
+  top: 6px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+export default AddItemImage;

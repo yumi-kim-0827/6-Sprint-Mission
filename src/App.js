@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Items from "./pages/Items";
-import AddItem from "./components/AddItem/AddItem";
+import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 

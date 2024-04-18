@@ -26,13 +26,24 @@
 
 .add_top_btn {
   padding: 12px 30px;
-  background-color: #9ca3af;
+  background-color: var(--blue);
   font-size: 16px;
   font-weight: 700;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover {
+    background-color: var(--blue-100);
+  }
+  &:active {
+    background-color: var(--blue-200);
+  }
+  &:disabled {
+    background-color: var(--blue-50);
+    cursor: not-allowed;
+  }
 }
 
 .add_image {
@@ -50,6 +61,17 @@
 .add_image_wrap {
   display: flex;
   gap: 10px;
+
+  & #file_input {
+    &[type="file"] {
+      position: absolute;
+      width: 0;
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+    }
+  }
 }
 
 .add_image_input {
@@ -64,11 +86,6 @@
   border-radius: 12px;
   background-color: #f3f4f6;
   cursor: pointer;
-  & .placeholder {
-    font-size: 16px;
-    font-weight: 400;
-    color: #9ca3af;
-  }
 }
 
 .add_name {
@@ -194,4 +211,16 @@
     font-weight: 400;
     color: #9ca3af;
   }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Tablet Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Mobile Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
 }
