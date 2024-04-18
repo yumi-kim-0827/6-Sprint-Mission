@@ -1,9 +1,9 @@
 import "./Items.css";
 import heart from "./images/ic_heart.png";
 
-function ItemsAllItem({ item }) {
+function ItemsBestItem({ item }) {
   return (
-    <div className="items-box items-all">
+    <div className="items-box items-best">
       <div className="image-box">
         <img className="item-image" src={item.images} alt={item.name} />
       </div>
@@ -21,13 +21,13 @@ function ItemsAllItem({ item }) {
   );
 }
 
-function ItemsAll({ items }) {
+function ItemsBest({ items }) {
   return (
     <div className="item-container">
       {items.map((item) => {
         return (
           <div className="item-box" key={item.id}>
-            <ItemsAllItem item={item} />
+            <ItemsBestItem item={item} />
           </div>
         );
       })}
@@ -35,4 +35,4 @@ function ItemsAll({ items }) {
   );
 }
 
-export default ItemsAll;
+export default ItemsBest;

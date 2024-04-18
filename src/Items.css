@@ -1,19 +1,43 @@
-* {
-  box-sizing: border-box;
+.items-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
-.image-box-all {
+/* all items */
+.items-box.items-all .image-box {
   width: 221px;
   height: 221px;
 }
 
-.item-image {
+.items-box.items-all .item-image {
   width: 221px;
   height: 221px;
 }
 
-.description-box-all {
+.items-box.items-all .description-box {
   width: 221px;
+}
+/* ---------- */
+/* best Items */
+.items-box.items-best .image-box {
+  width: 282px;
+  height: 282px;
+}
+
+.items-box.items-best .item-image {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.items-box.items-best .description-box {
+  width: 282px;
+}
+/* ----------- */
+
+.description-box {
   color: #1f2937;
   display: flex;
   flex-direction: column;
@@ -23,11 +47,13 @@
 .item-name {
   font-size: 14px;
   font-weight: 500;
+  line-height: 17px;
 }
 
 .item-price {
   font-size: 16px;
   font-weight: 700;
+  line-height: 19px;
 }
 
 .likes-box {

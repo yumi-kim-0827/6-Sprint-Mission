@@ -1,34 +1,10 @@
 /* default: PC */
-.container {
-  width: 1200px;
-  height: 1154px;
-  display: flex;
-  flex-direction: column;
-  margin: 94px auto 40px;
-  border: 1px solid #dfdfdf;
-  align-items: center;
-}
-
-.label-box {
-  width: 1200px;
-  height: 42px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.label {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 28px;
-  letter-spacing: 2%;
-  color: #111827;
-}
-
 .content-container {
   width: 100%;
-  max-width: 1201px;
+  max-width: 1203px;
   height: auto;
-  margin: 94px auto 0;
+  margin: 94px auto 200px;
+  border: 1px solid #dfdfdf;
 }
 
 .content-label {
@@ -39,6 +15,9 @@
   text-align: left;
 }
 
+.products-best {
+  margin-top: 24px;
+}
 .products-all {
   margin-top: 40px;
 }
