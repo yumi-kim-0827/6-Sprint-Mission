@@ -8,11 +8,12 @@ import "../css/products.css";
 import useLoading from "../hooks/loading";
 import SelectOrderButton from "./SelectOrderButton";
 import PageNav from "./PageNav";
+import NoProduct from "./NoProduct";
 
 const Products = ({ numOfItemsToShow }) => {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("recent");
-  const [isLoading, loadingError, handleLoad] = useLoading();
+  const [isLoading, loadingError, noResult, handleLoad] = useLoading();
   const [search, setSearch] = useState("");
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,6 +35,7 @@ const Products = ({ numOfItemsToShow }) => {
       setCurrentPage((prev) => prev - 1);
     }
   };
+
   //상품 LOAD
   const handleProductsLoad = async () => {
     const result = await handleLoad({
@@ -42,13 +44,15 @@ const Products = ({ numOfItemsToShow }) => {
       page: currentPage,
       keyword: search,
     });
-    console.log(result);
-    setProducts(result.list);
-    setProductsTotalCount(result.totalCount);
 
-    //페이지 번호 설정
-    const totalPageCount = Math.ceil(result.totalCount / numOfItemsToShow);
-    settingPageNumbers(totalPageCount);
+    console.log(result);
+    if (result) {
+      setProducts(result.list);
+      setProductsTotalCount(result.totalCount);
+      //페이지 번호 설정
+      const totalPageCount = Math.ceil(result.totalCount / numOfItemsToShow);
+      settingPageNumbers(totalPageCount);
+    }
   };
 
   // "<" 버튼
@@ -143,7 +147,9 @@ const Products = ({ numOfItemsToShow }) => {
         {isLoading ? (
           <IsLoading />
         ) : loadingError ? (
-          <FailLoading />
+          <FailLoading loadingError={loadingError} />
+        ) : noResult ? (
+          <NoProduct />
         ) : (
           products.map((product) => (
             <ProductElement key={product.id} product={product} />

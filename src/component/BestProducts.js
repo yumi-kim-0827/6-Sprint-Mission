@@ -4,11 +4,12 @@ import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/bestProducts.css";
 import useLoading from "../hooks/loading";
+import NoProduct from "./NoProduct";
 
 const BestProducts = ({ numOfItemsToShow }) => {
   const [bestProducts, setBestProducts] = useState([]);
   const showedBestProducts = bestProducts.slice(0, numOfItemsToShow);
-  const [isLoading, loadingError, handleLoad] = useLoading();
+  const [isLoading, loadingError, noResult, handleLoad] = useLoading();
 
   const handleBestProductsLoad = async () => {
     const result = await handleLoad({ orderBy: "favorite", pageSize: 4 });
@@ -28,6 +29,8 @@ const BestProducts = ({ numOfItemsToShow }) => {
           <IsLoading />
         ) : loadingError ? (
           <FailLoading />
+        ) : noResult ? (
+          <NoProduct />
         ) : (
           showedBestProducts.map((product) => (
             <ProductElement key={product.id} product={product} />
