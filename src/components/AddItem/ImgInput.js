@@ -27,8 +27,16 @@ const PositionedButton = styled(RoundStyledButton)`
 
 const Card = styled.div`
   width: 282px;
-  height: 282px;
+  aspect-ratio: 1/1;
   border-radius: 12px;
+
+  @media (max-width: 1199px) {
+    width: 162px;
+  }
+
+  @media (max-width: 767px) {
+    width: 168px;
+  }
 `;
 
 const AddCard = styled(Card)`
@@ -61,6 +69,16 @@ const CardsContainer = styled.div`
   margin: 16px 0 23px;
   display: flex;
   gap: 24px;
+
+  @media (max-width: 1199px) {
+    gap: 16px;
+    margin: 16px 0 -1px;
+  }
+
+  @media (max-width: 767px) {
+    gap: 8px;
+    margin: 9px 0 -7px;
+  }
 `;
 
 export function ImgInputWrapper({ name, value, onChange, onClick }) {

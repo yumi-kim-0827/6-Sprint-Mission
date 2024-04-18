@@ -6,6 +6,10 @@ export const Label = styled.label`
   font-weight: 700;
   line-height: 1.2px;
   color: var(--cool-gray800);
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 const inputStyle = css`

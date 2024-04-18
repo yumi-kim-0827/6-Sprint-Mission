@@ -21,10 +21,18 @@ const FormContents = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (max-width: 767px) {
+    gap: 16px;
+  }
 `;
 
 const Main = styled.main`
   padding-bottom: 90px;
+
+  @media (max-width: 1199px) {
+    margin-top: 86px;
+  }
 `;
 
 function AddItemPage() {

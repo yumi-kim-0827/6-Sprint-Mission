@@ -16,6 +16,10 @@ const H1 = styled.h1`
   font-size: 28px;
   font-weight: 700;
   line-height: 1.2;
+
+  @media (max-width: 1199px) {
+    font-size: 20px;
+  }
 `;
 
 const Button = styled(PureButton)`
