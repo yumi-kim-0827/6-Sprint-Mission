@@ -115,3 +115,17 @@ export function FormTextarea({ name, content, onChange, placeholder }) {
     </div>
   );
 }
+
+export function TagInput({ name, value, onChange, onKeyUp, placeholder }) {
+  return (
+    <div className={styles.form__input}>
+      <input
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onKeyUp={onKeyUp}
+      />
+    </div>
+  );
+}

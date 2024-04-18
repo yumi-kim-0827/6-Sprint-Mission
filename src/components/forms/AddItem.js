@@ -5,6 +5,7 @@ import {
   FormInput,
   FormTextarea,
   NumberInput,
+  TagInput,
 } from "components/commons/Inputs";
 import { useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
@@ -14,11 +15,12 @@ import classNames from "classnames/bind";
 const cn = classNames.bind(styles);
 
 export default function AddItemForm() {
+  const [imgFile, setImgFile] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [currentTag, setCurrentTag] = useState("");
-  const [imgFile, setImgFile] = useState(null);
+  const [tagList, setTagList] = useState([]);
   const [isActivate, setIsActivate] = useState(false);
 
   const onChange = (e) => {
@@ -31,19 +33,29 @@ export default function AddItemForm() {
     if (name === "tags") setCurrentTag(value);
   };
 
+  const onKeyUp = (e) => {
+    if (e.keyCode !== 13 || e.target.value.trim() === "") return;
+    if (tagList.includes(currentTag)) {
+      alert("같은 태그가 있습니다");
+      return;
+    }
+    setTagList((prev) => [...prev, currentTag]);
+    setCurrentTag("");
+  };
+
   useEffect(() => {
     if (
       title !== "" &&
       description !== "" &&
       price !== 0 &&
-      currentTag !== "" &&
+      tagList.length > 0 &&
       imgFile !== null
     ) {
       setIsActivate(true);
     } else {
       setIsActivate(false);
     }
-  }, [title, description, price, currentTag, imgFile]);
+  }, [title, description, price, tagList, imgFile]);
 
   return (
     <div className={styles.add__item}>
@@ -92,15 +104,17 @@ export default function AddItemForm() {
 
         <div className={styles.form__tags}>
           <h1>태그</h1>
-          <FormInput
+          <TagInput
             name="tags"
             placeholder="태그를 입력해주세요"
             value={currentTag}
             onChange={onChange}
+            onKeyUp={onKeyUp}
           />
           <div className={styles.tag__list}>
-            <Tag>티셔츠</Tag>
-            <Tag>상의</Tag>
+            {tagList.reverse().map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
           </div>
         </div>
       </form>
