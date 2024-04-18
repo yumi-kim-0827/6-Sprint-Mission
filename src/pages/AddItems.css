@@ -57,6 +57,9 @@
 .product-form .product-form-top #register-btn.active {
   background-color: var(--items-header-btn-color-active);
 }
+.product-form .product-form-top #register-btn.active:hover {
+  background-color: var(--hover-blue);
+}
 
 .product-form .container {
   display: flex;
@@ -157,4 +160,92 @@
 .product-form .product-tag .show-tag img {
   width: 22px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 380px) and (max-width: 767px) {
+  .container h3 {
+    font-size: 16px;
+  }
+  .product-form {
+    padding: 0 15px;
+  }
+  .product-form h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--product-item-name-color);
+  }
+
+  .product-form .product-img label {
+    border: none;
+    position: relative;
+    width: 162px;
+    height: 162px;
+  }
+  .product-form .product-img label img {
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    width: 46px;
+  }
+  .product-form .product-img label p {
+    position: absolute;
+    font-size: 16px;
+    font-weight: 400;
+    top: 90px;
+    left: 40px;
+  }
+  .product-form .product-img .prev-img {
+    width: 162px;
+    height: 162px;
+    position: relative;
+  }
+  .product-form .product-img .prev-img button {
+    position: absolute;
+    top: 8px;
+    left: 132px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .product-form .product-img label {
+    border: none;
+    position: relative;
+    width: 162px;
+    height: 162px;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: var(--cool-gray100);
+    color: var(--cool-gray400);
+  }
+  .product-form .product-img label img {
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    width: 46px;
+  }
+  .product-form .product-img label p {
+    position: absolute;
+    font-size: 16px;
+    font-weight: 400;
+    top: 90px;
+    left: 40px;
+  }
+  .product-form .product-img .prev-img {
+    width: 162px;
+    height: 162px;
+    border: none;
+    border-radius: 12px;
+    position: relative;
+  }
+  .product-form .product-img .prev-img button {
+    position: absolute;
+    top: 8px;
+    left: 132px;
+    width: 22px;
+    height: 24px;
+    color: #fff;
+    background-color: var(--items-header-btn-color-active);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
 }
