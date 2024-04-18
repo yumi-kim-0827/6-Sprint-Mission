@@ -33,7 +33,7 @@ export default function AddItemForm() {
     if (name === "tags") setCurrentTag(value);
   };
 
-  const onKeyUp = (e) => {
+  const handleTagKeyUp = (e) => {
     if (e.keyCode !== 13 || e.target.value.trim() === "") return;
     if (tagList.includes(currentTag)) {
       alert("같은 태그가 있습니다");
@@ -41,6 +41,10 @@ export default function AddItemForm() {
     }
     setTagList((prev) => [...prev, currentTag]);
     setCurrentTag("");
+  };
+
+  const handleTagDelete = (tagToDelete) => {
+    setTagList((prev) => prev.filter((tag) => tag !== tagToDelete));
   };
 
   useEffect(() => {
@@ -109,11 +113,13 @@ export default function AddItemForm() {
             placeholder="태그를 입력해주세요"
             value={currentTag}
             onChange={onChange}
-            onKeyUp={onKeyUp}
+            onKeyUp={handleTagKeyUp}
           />
           <div className={styles.tag__list}>
             {tagList.reverse().map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
+              <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
+                {tag}
+              </Tag>
             ))}
           </div>
         </div>

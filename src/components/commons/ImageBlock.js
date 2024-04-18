@@ -11,6 +11,14 @@ export function ImageInput({ name, value, onChange }) {
     imgFileRef.current.click();
   };
 
+  const handleImgFileDelete = () => {
+    const inputNode = imgFileRef.current;
+    if (!inputNode) return;
+
+    inputNode.value = "";
+    onChange({ target: { name: "img-file", files: [null] } });
+  };
+
   useEffect(() => {
     if (!value) return;
 
@@ -36,17 +44,17 @@ export function ImageInput({ name, value, onChange }) {
         <img className={styles.plus__icon} src={PlusIcon} alt="img-file" />
         <h1>이미지 등록</h1>
       </div>
-      {preview && <PreviewImage url={preview} />}
+      {preview && <PreviewImage url={preview} onDelete={handleImgFileDelete} />}
     </div>
   );
 }
 
-export function PreviewImage({ url }) {
+export function PreviewImage({ url, onDelete }) {
   return (
     <div className={styles.image__preview}>
       <img className={styles.product__image} src={url} alt="img-file" />
       <div className={styles.x__icon}>
-        <XIcon fill="#9CA3AF" className={styles.icon} />
+        <XIcon fill="#9CA3AF" className={styles.icon} onClick={onDelete} />
       </div>
     </div>
   );
