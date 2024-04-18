@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import plusIcon from "../image/ic_plus.png";
-import deleteButton from "../image/ic_X.png";
+import deleteImgButton from "../image/ic_X_for_img.png";
+import deleteTagButton from "../image/ic_X_for_tag.png";
 
 const ProductImageInput = ({ value, onChange, onDelete }) => {
   const [preview, setPreview] = useState();
@@ -50,7 +51,7 @@ const ProductImageInput = ({ value, onChange, onDelete }) => {
               className="image-preview"
             />
             <img
-              src={deleteButton}
+              src={deleteImgButton}
               alt="이미지 삭제"
               className="image-preview-delete-button"
               onClick={handleClearClick}
@@ -61,22 +62,46 @@ const ProductImageInput = ({ value, onChange, onDelete }) => {
     </div>
   );
 };
-const TagInput = ({ value, onChange }) => {
+const TagInput = ({ onSubmit }) => {
+  const [tag, setTag] = useState("");
+  const handleTagChange = (e) => {
+    setTag(e.target.value);
+  };
+  const handleEnterOneTag = (e) => {
+    e.preventDefault();
+    onSubmit(tag);
+    setTag("");
+  };
   return (
-    <div className="one-line-input additem-input">
+    <form onSubmit={handleEnterOneTag} className="one-line-input additem-input">
       <label htmlFor="ProductTag">태그</label>
       <input
         id="ProductTag"
         name="tags"
         placeholder="태그를 입력해주세요"
-        value={value}
-        onChange={onChange}
+        value={tag}
+        onChange={handleTagChange}
+      />
+    </form>
+  );
+};
+const TagListElement = ({ tag, onDelete }) => {
+  const handleDeleteTag = () => {
+    onDelete(tag);
+  };
+  return (
+    <div className="tag-element">
+      <span>{tag}</span>
+      <img
+        src={deleteTagButton}
+        onClick={handleDeleteTag}
+        alt="태그 삭제 버튼"
       />
     </div>
   );
 };
 
-const AddItemForm = () => {
+const AddItemForm = ({ setEnrollButtonDisable }) => {
   //상품 정보 담은 객체
   const [values, setValues] = useState({
     images: null,
@@ -85,12 +110,25 @@ const AddItemForm = () => {
     price: "",
     tags: [],
   });
+  const [tags, setTags] = useState([]);
 
-  //서밋 함수 미완성
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(values);
-  };
+  //등록 버튼 활성화 검사
+  const completeFormCheck =
+    values.images &&
+    values.name &&
+    values.description &&
+    values.price &&
+    tags.length;
+  console.log(completeFormCheck);
+  if (completeFormCheck) {
+    setEnrollButtonDisable(false);
+  } else {
+    setEnrollButtonDisable(true);
+  }
+  // 위 코드 올바른 코드인가요?
+  //useEffect 안에 들어가야 하는 코든가요?
+  // INPUT 값이 변할 때마다 실해해서 비효율적인 코드인가요? 흠....
+
   //입력 했을 떄 함수
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -121,9 +159,27 @@ const AddItemForm = () => {
       images: null,
     }));
   };
+  // 태그 리스트 추가
+  const handleTagList = (tag) => {
+    const duplicationCheck = tags.every((element) => {
+      return element !== tag;
+    });
+
+    if (duplicationCheck) {
+      setTags((prevList) => [...prevList, tag]);
+    } else {
+      alert("이미 존재하는 태그입니다");
+    }
+  };
+  const handleDeleteTag = (targetTag) => {
+    const newList = tags.filter((tag) => {
+      return tag !== targetTag;
+    });
+    setTags(newList);
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="additem-form">
+    <div className="additem-form">
       <ProductImageInput
         name="images"
         value={values.images}
@@ -161,8 +217,13 @@ const AddItemForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <TagInput value={values.tags} onChange={handleInputChange} />
-    </form>
+      <TagInput onSubmit={handleTagList} />
+      <div className="tag-list-section">
+        {tags.map((tag) => (
+          <TagListElement key={tag} tag={tag} onDelete={handleDeleteTag} />
+        ))}
+      </div>
+    </div>
   );
 };
 
