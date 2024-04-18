@@ -15,10 +15,10 @@ function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="items" element={<ItemPage />} />
         <Route path="additem" element={<AddItemPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/login" element={<LogIn />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
