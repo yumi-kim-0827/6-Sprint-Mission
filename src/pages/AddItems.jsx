@@ -4,6 +4,7 @@ import fileplus from "../assets/file-plus.png";
 import tagdelete from "../assets/tag-delete.png";
 
 function ProductImg({ name, value, onChange }) {
+  const [preview, setPreview] = useState();
   const inputRef = useRef();
 
   const handleFileChange = (e) => {
@@ -18,6 +19,12 @@ function ProductImg({ name, value, onChange }) {
       onChange(name, null);
     }
   };
+
+  useEffect(() => {
+    if (!value) return;
+    const nextPreview = URL.createObjectURL(value);
+    setPreview(nextPreview);
+  }, [value]);
 
   return (
     <div className="product-img container">
