@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FileInput from "./FileInput";
 
 function AddItemPage() {
   const [values, setValues] = useState({
@@ -6,14 +7,18 @@ function AddItemPage() {
     content: "",
     price: 0,
     tag: "",
+    imgFile: null,
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
@@ -23,6 +28,11 @@ function AddItemPage() {
 
   return (
     <form className="AddItemForm" onSubmit={handleSubmit}>
+      <FileInput
+        name="imgFile"
+        value={values.imgFile}
+        onChange={{ handleChange }}
+      />
       <input
         name="title"
         value={values.title}
