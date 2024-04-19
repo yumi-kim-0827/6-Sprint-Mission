@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import plusIcon from "../../assets/images/ic_plus.svg";
+import deleteIcon from "../../assets/images/ic_X.svg";
 
 const FileUpload = (props) => {
   const { label, name, placeholder = "이미지 등록", onChange } = props;
   const [imgUrl, setImgUrl] = useState(null);
 
+  const deleteImg = () => {
+    setImgUrl(null);
+  };
+
   useEffect(() => {
-    if (imgUrl) {
-      onChange(imgUrl, name);
-    }
+    onChange(imgUrl, name);
   }, [imgUrl]);
 
   return (
@@ -34,6 +37,9 @@ const FileUpload = (props) => {
         </FileBox>
         {imgUrl && (
           <Box>
+            <DeleteIcon onClick={deleteImg}>
+              <img src={deleteIcon} alt="삭제" />
+            </DeleteIcon>
             <img src={imgUrl} alt="이미지 미리보기" />
           </Box>
         )}
@@ -82,6 +88,16 @@ const Text = styled.p`
   font-size: var(--font-16);
   color: var(--gray-400);
   line-height: 1.5;
+`;
+
+const DeleteIcon = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 22px;
+  height: 24px;
+  z-index: 10;
+  cursor: pointer;
 `;
 
 export default FileUpload;
