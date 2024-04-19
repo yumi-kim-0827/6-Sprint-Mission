@@ -1,12 +1,12 @@
-import { ToggleList } from "../../../shared/ui/ToggleList";
+import { ToggleList } from "/src/shared/ui/ToggleList";
 import { useState, useEffect } from "react";
-import { getDatum } from "../../../shared/api/api.jsx";
-import { Button } from "../../../shared/ui/Button.jsx";
-import { ItemCard } from "../../../entities/ItemCard/ItemCard.jsx";
-import { useMediaQuery } from "react-responsive";
+import { getDatum } from "/src/shared/api/api.jsx";
+import { Button } from "/src/shared/ui/Button.jsx";
+import { ItemCard } from "/src/entities/ItemCard/ItemCard.jsx";
 
 import "./ItemList.scss";
-import { PageList } from "../../PageList/index.jsx";
+import { PageList } from "/src/widgets/PageList/index.jsx";
+import { useCustomMediaQuery } from "/src/shared/hooks/useCustomMediaQuery.jsx";
 
 export const ItemList = () => {
   const [isError, setIsError] = useState(null);
@@ -16,9 +16,7 @@ export const ItemList = () => {
   const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState("");
 
-  const isMobile = useMediaQuery({ minWidth: 375, maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
-  const isDesktop = useMediaQuery({ minWidth: 1200 });
+  const { isMobile, isTablet, isDesktop } = useCustomMediaQuery();
 
   const handleRecentSort = () => {
     setOrderBy("recent");

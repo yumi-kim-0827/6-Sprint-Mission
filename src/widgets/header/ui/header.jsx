@@ -1,7 +1,7 @@
 import "./header.scss";
-import "../../../shared/style/link.scss";
-import logoUrl from "../../../shared/asset/headerLogo.png";
-import { Button } from "../../../shared/ui/Button";
+import "/src/shared/style/link.scss";
+import logoUrl from "/src/shared/asset/headerLogo.png";
+import { Button } from "/src/shared/ui/Button";
 
 export const Header = () => {
   return (

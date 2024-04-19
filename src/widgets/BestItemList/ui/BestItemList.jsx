@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getDatum } from "../../../shared/api/api";
-import { ItemCard } from "../../../entities/ItemCard/ItemCard";
+import { getDatum } from "/src/shared/api/api";
+import { ItemCard } from "/src/entities/ItemCard/ItemCard";
 import "./BestItemList.scss";
 
 export const BestItemList = () => {
