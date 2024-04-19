@@ -3,6 +3,7 @@ import { getProducts } from "../../api";
 import ProductCard from "../ProductCard";
 import Button from "../Button";
 import DropDown from "../DropDown";
+import { PAGES } from "../../constants/paths";
 import "./index.css";
 
 const ORDERS = [
@@ -50,7 +51,7 @@ function AllProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Button to="/addItem">상품 등록하기</Button>
+          <Button to={PAGES.addProduct.link}>상품 등록하기</Button>
           <div>
             <DropDown
               options={ORDERS}
