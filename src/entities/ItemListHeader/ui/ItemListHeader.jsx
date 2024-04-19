@@ -1,6 +1,7 @@
 import { useCustomMediaQuery } from "/src/shared/hooks/useCustomMediaQuery.jsx";
 import { Button } from "/src/shared/ui/Button.jsx";
 import { ToggleList } from "/src/shared/ui/ToggleList.jsx";
+import { Link } from "react-router-dom";
 
 import "../ItemListHeader.scss";
 
@@ -32,12 +33,12 @@ export function ItemListHeader({ setOrderBy, setKeyword }) {
             className="ItemList__input"
           />
         </form>
-        <a href="./items" className="ItemList__link">
+        <Link to="/register" className="ItemList__link">
           <Button
             classNames={["button--blue", "button--small"]}
             value={"상품 등록하기"}
           />
-        </a>
+        </Link>
         <div className="ItemList__ToggleList">
           <ToggleList
             options={[

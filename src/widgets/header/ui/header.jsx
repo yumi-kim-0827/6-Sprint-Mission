@@ -2,6 +2,7 @@ import "./header.scss";
 import "/src/shared/style/link.scss";
 import logoUrl from "/src/shared/asset/headerLogo.png";
 import { Button } from "/src/shared/ui/Button";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -19,15 +20,15 @@ export const Header = () => {
             </a>
           </div>
           <div className="header__nav--wrap">
-            <a
-              href="/freeBoard"
+            <Link
+              to="/freeBoard"
               className="link header__nav header__nav--not-active"
             >
               자유게시판
-            </a>
-            <a href="/market" className="link header__nav header__nav--active">
+            </Link>
+            <Link to="/market" className="link header__nav header__nav--active">
               중고마켓
-            </a>
+            </Link>
           </div>
         </div>
         <a href="/login" className="link">
