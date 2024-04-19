@@ -9,6 +9,7 @@ const AddItem = () => {
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
   const [tags, setTags] = useState("");
+  const [currentTag, setCurrentTag] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const navigate = useNavigate();
 
@@ -18,12 +19,28 @@ const AddItem = () => {
     navigate.push("/");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const newTag = currentTag.trim();
+
+      if (newTag !== "") {
+        setTags([...tags, newTag]);
+        setCurrentTag("");
+      }
+    }
+  };
+
+  const handleTagRemove = (indexToRemove) => {
+    setTags(tags.filter((_, index) => index !== indexToRemove));
+  };
+
   const isFormValid = () => {
     return (
       productName.trim() !== "" &&
       productDescription.trim() !== "" &&
       productPrice.trim() !== "" &&
-      tags.trim() !== ""
+      tags.length > 0
     );
   };
 
@@ -110,16 +127,25 @@ const AddItem = () => {
             required
           />
         </ItemPriceContainer>
-
         <ItemTagContainer>
           <ItemTagTitle>태그</ItemTagTitle>
           <ItemTagInput
             type="text"
             placeholder="태그를 입력해주세요"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
+            value={currentTag}
+            onChange={(e) => setCurrentTag(e.target.value)}
+            onKeyDown={handleKeyDown}
             required
           />
+          {Array.isArray(tags) &&
+            tags.map((tag, index) => (
+              <TagItem key={index}>
+                <TagText>{tag}</TagText>
+                <CancelTagButton onClick={() => handleTagRemove(index)}>
+                  <FaTimes />
+                </CancelTagButton>
+              </TagItem>
+            ))}
         </ItemTagContainer>
       </form>
     </AddItemContainer>
@@ -310,11 +336,39 @@ const ItemTagTitle = styled.h3`
 
 const ItemTagInput = styled.input`
   width: 100%;
-  margin-bottom: 300px;
+  margin-bottom: 10px;
   background-color: #f3f4f6;
   padding: 15px;
   border-radius: 8px;
   border: none;
+`;
+
+const TagItem = styled.div`
+  display: inline-block;
+  margin-right: 5px;
+  background-color: #f9fafb;
+  border-radius: 25px;
+  padding: 5px;
+  border: none;
+`;
+
+const TagText = styled.span`
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 8px;
+`;
+
+const CancelTagButton = styled.button`
+  position: relative;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #9ca3af;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  padding: 3px 3px;
+  border: none;
+  margin: 1px;
 `;
 
 export default AddItem;
