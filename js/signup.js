@@ -3,12 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailInput = loginForm.querySelector("#login__input-email");
   const usernameInput = loginForm.querySelector("#login__input-username");
   const passwordInput = loginForm.querySelector("#login__input-password");
+  const passwordCheckInput = loginForm.querySelector(
+    "#login__input-password-check"
+  );
   const loginButton = loginForm.querySelector(".login__submit");
 
   // 에러 상태 표시 여부 저장 변수
   let emailErrorDisplayed = false;
   let usernameErrorDisplayed = false;
   let passwordErrorDisplayed = false;
+  let passwordCheckErrorDisplayed = false;
 
   // 초기설정
   loginButton.disabled = true;
@@ -20,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
   usernameInput.addEventListener("focus", clearUsernameError);
   passwordInput.addEventListener("focusout", validatePassword);
   passwordInput.addEventListener("focus", clearPasswordError);
+  passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
+  passwordCheckInput.addEventListener("focus", clearPasswordCheckError);
   loginButton.addEventListener("click", moveToItems);
 
   // 유효성 검사 함수
@@ -35,6 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       clearError(emailInput);
       emailErrorDisplayed = false;
+    }
+
+    toggleLoginButton();
+  }
+
+  function validateUsername() {
+    const username = usernameInput.value.trim();
+
+    if (username === "") {
+      showError(usernameInput, "닉네임을 입력해주세요");
+      usernameErrorDisplayed = true;
+    } else {
+      clearError(usernameInput);
+      usernameErrorDisplayed = false;
     }
 
     toggleLoginButton();
@@ -57,14 +77,19 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleLoginButton();
   }
 
-  function validateUsername() {
-    const username = usernameInput.value.trim();
+  function validatePasswordCheck() {
+    const password = passwordInput.value.trim();
+    const passwordCheck = passwordCheckInput.value.trim();
 
-    if (username === "") {
-      showError(usernameInput, "닉네임을 입력해주세요");
+    if (passwordCheck === "") {
+      showError(passwordCheckInput, "비밀번호를 다시 한 번 입력해주세요");
+      passwordCheckErrorDisplayed = true;
+    } else if (passwordCheck !== password) {
+      showError(passwordCheckInput, "비밀번호가 일치하지 않습니다");
+      passwordCheckErrorDisplayed = true;
     } else {
-      clearError(usernameInput);
-      usernameErrorDisplayed = false;
+      clearError(passwordCheckInput);
+      passwordCheckErrorDisplayed = false;
     }
 
     toggleLoginButton();
@@ -115,9 +140,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function clearPasswordCheckError() {
+    if (passwordCheckErrorDisplayed) {
+      clearError(passwordCheckInput);
+      passwordCheckErrorDisplayed = false;
+    }
+  }
+
   function toggleLoginButton() {
     loginButton.disabled =
-      emailErrorDisplayed || passwordErrorDisplayed || usernameErrorDisplayed;
+      emailErrorDisplayed ||
+      usernameErrorDisplayed ||
+      passwordErrorDisplayed ||
+      passwordCheckErrorDisplayed;
   }
 
   function moveToItems() {
