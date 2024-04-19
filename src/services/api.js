@@ -1,10 +1,10 @@
+const BASE_URL = "https://panda-market-api.vercel.app";
+
 export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
 
   try {
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products?${query}`
-    );
+    const response = await fetch(`${BASE_URL}/products?${query}`);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
