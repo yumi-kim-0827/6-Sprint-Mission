@@ -1,12 +1,7 @@
-import { StrictMode, useState } from "react";
+import { useState } from "react";
 import FileInput from "../component/Product/FileInput";
 import "../css/Product.css";
 import Tags from "../component/Product/Tags";
-
-/*
-3. 태그 추가하기
-4. 등록된 태그 삭제하기
-*/
 
 function AddItem() {
   const [values, setValues] = useState({
@@ -92,9 +87,7 @@ function AddItem() {
             placeholder="판매 가격을 입력해주세요"
           />
           <h3>태그</h3>
-          <StrictMode>
-            <Tags name="tag" value={values.tag} onKeyUp={handleChange} />
-          </StrictMode>
+          <Tags name="tag" value={values.tag} onChange={handleChange} />
         </form>
       </div>
     </div>
