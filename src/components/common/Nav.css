@@ -27,11 +27,14 @@ header {
 }
 
 .items-btn {
-  color: var(--blue);
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
+  color: #4b5563;
+}
+.active {
+  color: var(--blue);
 }
 
 .logo-icon {

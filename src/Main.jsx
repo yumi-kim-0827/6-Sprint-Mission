@@ -5,6 +5,7 @@ import App from "./App.js";
 import { useEffect, useState } from "react";
 import AddItem from "./pages/addItem/AddItem.jsx";
 import LoginContext from "./contexts/LoginContext.js";
+import Board from "./pages/board/Board.jsx";
 
 export default function Main() {
   const [items, setItems] = useState([]);
@@ -29,6 +30,7 @@ export default function Main() {
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
             <Route path="/items" element={<Items items={items} />} />
+            <Route path="/board" element={<Board />} />
             <Route path="/additem" element={<AddItem />} />
           </Route>
         </Routes>

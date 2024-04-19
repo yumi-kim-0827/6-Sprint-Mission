@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Nav.css";
 import logo from "../../assets/logo-panda.svg";
 import { useContext } from "react";
@@ -7,7 +7,8 @@ import LoginIcon from "../../assets/icon-login.svg";
 
 export default function Nav() {
   const isLogin = useContext(LoginContext);
-  console.log("isLogin?", isLogin);
+  const { pathname } = useLocation();
+  console.log("path", typeof pathname, pathname);
   return (
     <>
       <header>
@@ -19,10 +20,18 @@ export default function Nav() {
             </Link>
           </div>
           <div className="nav-pages">
-            <Link to="/" className="board-btn">
+            <Link
+              to="/board"
+              className={`board-btn ${pathname === "/board" ? "active" : ""}`}
+            >
               자유게시판
             </Link>
-            <Link to="/items" className="items-btn">
+            <Link
+              to="/items"
+              className={`items-btn ${
+                pathname === "/additem" || pathname === "/items" ? "active" : ""
+              }`}
+            >
               중고마켓
             </Link>
           </div>
