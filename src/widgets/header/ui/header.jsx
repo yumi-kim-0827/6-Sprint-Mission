@@ -33,7 +33,7 @@ export const Header = () => {
         <a href="/login" className="link">
           <Button
             classNames={["button--small", "button--blue", "button"]}
-            value={"로그인"}
+            value="로그인"
           />
         </a>
       </div>
