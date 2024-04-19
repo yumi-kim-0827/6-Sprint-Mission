@@ -34,7 +34,7 @@ const ShowBestProducts = ({ products }) => {
 
   const handleResize = debounce(() => {
     setWidth(window.innerWidth);
-  }, 200);
+  }, 50);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
