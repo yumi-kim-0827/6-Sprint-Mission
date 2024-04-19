@@ -28,6 +28,7 @@ function AllProducts() {
 
   const handleSortSelect = (sortOption) => {
     setOrderBy(sortOption);
+    setIsDropdownVisible(false);
   };
 
   useEffect(() => {
@@ -44,6 +45,11 @@ function AllProducts() {
   }, [orderBy, page, pageSize]);
 
   // 정렬 기준
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
 
   // pagination
   return (
@@ -59,10 +65,12 @@ function AllProducts() {
           <input type="text" placeholder='검색할 상품을 입력해 주세요' />
         </div>
         <div>
-          <button>
+          <button onClick={toggleDropdown}>
             <img src={sortIcon} alt="정렬 버튼" />
           </button>
-
+          {isDropdownVisible && (
+            <DropdownList onSortSelect={handleSortSelect} />
+          )}
         </div>
       </div>
 
