@@ -160,8 +160,8 @@ const AddItemContainer = styled.div`
 const AddItemHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 10px 340px;
+  align-items: end;
+  margin: 10px 310px 5px 340px;
 `;
 
 const AddItemTitle = styled.h2`

@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
-          active={location.pathname === "/items"}
+          active={location.pathname === "/additem"}
           onClick={handleUsedMarketClick}
         >
           중고마켓
@@ -91,7 +91,7 @@ const UsedMarket = styled.div`
   font-weight: 700;
   line-height: 21.48px;
   text-align: center;
-  color: #3692ff;
+  color: ${(props) => (props.active ? "#3692ff" : "#4b5563")};
   cursor: pointer;
 `;
 
