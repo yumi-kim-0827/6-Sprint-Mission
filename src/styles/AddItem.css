@@ -1,4 +1,9 @@
 /* mobile */
+.active {
+  background-color: var(--color-brand-blue); /* 원하는 활성화된 상태의 색상 */
+  color: white;
+}
+
 .add-item-form {
   min-width: 344px;
   margin: auto;

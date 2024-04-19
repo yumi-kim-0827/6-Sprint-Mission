@@ -29,22 +29,28 @@ export default function AddItem() {
     console.log(values);
   };
 
-  const handlePriceChange = e => {
-    const { value } = e.target;
+  const isFormComplete =
+    values.name.trim() !== '' &&
+    values.description.trim() !== '' &&
+    values.price > 0 &&
+    values.imgFile !== null &&
+    tagList.length > 0;
 
-    if (!/^\d*$/g.test(value)) {
-      return;
-    }
+  const buttonStyle = {
+    backgroundColor: isFormComplete ? '#3692FF' : '#9CA3AF',
+  };
 
-    const numberValue = parseInt(value, 10);
-    handleChange('price', numberValue);
+  const preventDefault = e => {
+    e.key === 'Enter' && e.preventDefault();
   };
 
   return (
-    <form className='add-item-form' action='submit' onSubmit={handleSubmit}>
+    <form className='add-item-form' action='submit' onSubmit={handleSubmit} onKeyDown={preventDefault}>
       <div className='register-item__title-wrap'>
         <h2 className='register-item__title'>상품 등록하기</h2>
-        <button className='register-item__btn'>등록</button>
+        <button className='register-item__btn' style={buttonStyle} type='submit' disabled={!isFormComplete}>
+          등록
+        </button>
       </div>
       <FileInput
         name='imgFile' //
@@ -66,7 +72,6 @@ export default function AddItem() {
       <label htmlFor=''>
         상품 소개
         <textarea
-          // className='product-description'
           name='description'
           value={values.description}
           placeholder='상품 소개를 입력해주세요'
@@ -82,7 +87,7 @@ export default function AddItem() {
           value={values.price}
           type='text'
           placeholder='판매 가격을 입력해주세요'
-          onChange={handlePriceChange}
+          onChange={handleInputChange}
           className='add-item-form__price-input'
         />
       </label>
