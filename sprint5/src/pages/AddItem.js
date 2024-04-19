@@ -8,13 +8,17 @@ function AddItem() {
     productName: "",
     description: "",
     price: 0,
-    tag: "",
+    currentTag: "",
   });
 
+  const [tags, setTags] = useState([]);
   const [image, setImage] = useState(null);
 
   const isButtonActive =
-    values.productName && values.description && values.price && values.tag;
+    values.productName &&
+    values.description &&
+    values.price &&
+    values.currentTag;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +34,27 @@ function AddItem() {
 
   const handleImageDelete = () => {
     setImage(null);
+  };
+
+  const handleAddTag = () => {
+    if (values.currentTag.trim() !== "" && !tags.includes(values.currentTag)) {
+      setTags([...tags, values.currentTag.trim()]);
+      setValues((prevValues) => ({
+        ...prevValues,
+        currentTag: "",
+      }));
+    }
+  };
+
+  const handleRemoveTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleAddTag();
+    }
   };
 
   return (
@@ -68,11 +93,23 @@ function AddItem() {
         />
         <label>태그</label>
         <input
-          name="tag"
-          value={values.tag}
+          name="currentTag"
+          value={values.currentTag}
           placeholder="태그를 입력해주세요"
           onChange={handleChange}
+          onKeyDown={handleKeyPress}
         />
+
+        <div>
+          {tags.map((tag, index) => (
+            <span key={index} className="tag">
+              {tag}
+              <button type="button" onClick={() => handleRemoveTag(tag)}>
+                X
+              </button>
+            </span>
+          ))}
+        </div>
       </div>
     </form>
   );
