@@ -3,7 +3,7 @@ import { Reset } from 'styled-reset';
 import GlobalStyle from '../styles/GlobalStyles';
 import Navbar from './Navbar';
 import Items from './Items';
-
+import AddItemPage from '../pages/AddItemPage';
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +12,10 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/items" element={<Items />} />
+          <Route>
+            <Route path="/items" element={<Items />} />
+            <Route path="/additem" element={<AddItemPage />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
