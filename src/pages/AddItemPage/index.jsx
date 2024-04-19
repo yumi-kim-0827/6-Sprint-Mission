@@ -29,6 +29,7 @@ const AddItemPage = () => {
     e.preventDefault();
 
     console.log(inputData);
+    console.log(imageUrl);
 
     const formData = new FormData();
     formData.append('image', imageUrl);

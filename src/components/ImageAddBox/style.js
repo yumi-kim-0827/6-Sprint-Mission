@@ -9,6 +9,11 @@ const boxStyle = css`
   width: 17.63rem;
   height: 17.63rem;
   border-radius: 0.75rem;
+
+  @media (max-width: 900px) {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
 `;
 
 export const ImageAdd = styled.div`
@@ -17,6 +22,7 @@ export const ImageAdd = styled.div`
 
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
   align-items: center;
   justify-content: center;
 

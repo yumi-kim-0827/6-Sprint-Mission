@@ -25,6 +25,7 @@ export const TagList = styled.ul`
   gap: 0.75rem;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
 `;
 
 export const Tag = styled.li`
