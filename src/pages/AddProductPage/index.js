@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import "./index.css";
 
 function AddProductPage() {
   const [values, setValues] = useState({
+    imageFile: null,
     name: "",
     introduction: "",
     price: "",
   });
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  const isFormValid = () => {
+  const isFormValid = useCallback(() => {
     const valueList = Object.values(values);
     return !valueList.includes("");
-  };
+  }, [values]);
 
   useEffect(() => {
     if (isFormValid()) {
@@ -22,14 +23,23 @@ function AddProductPage() {
     } else {
       setButtonDisabled(true);
     }
-  }, [values]);
+  }, [isFormValid]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleImageChange = (e) => {
+    const nextValue = e.target.files[0];
+    handleChange("imageFile", nextValue);
   };
 
   const handleSubmit = (e) => {
@@ -62,6 +72,7 @@ function AddProductPage() {
               name="image"
               type="file"
               accept="image/png, image/jpg, image/jpeg"
+              onChange={handleImageChange}
             />
           </div>
           <div className="product-form-item">
@@ -74,7 +85,7 @@ function AddProductPage() {
               name="name"
               placeholder="상품명을 입력해주세요"
               value={values.name}
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </div>
           <div className="product-form-item">
@@ -87,7 +98,7 @@ function AddProductPage() {
               name="introduction"
               placeholder="상품 소개를 입력해주세요"
               value={values.introduction}
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </div>
           <div className="product-form-item">
@@ -100,7 +111,7 @@ function AddProductPage() {
               name="price"
               placeholder="판매가격을 입력해주세요"
               value={values.price}
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </div>
           <div className="product-form-item">
