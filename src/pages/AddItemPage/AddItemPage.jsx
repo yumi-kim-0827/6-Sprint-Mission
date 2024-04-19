@@ -17,6 +17,7 @@ function AddItemPage() {
       [name]: value,
     }));
   };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
@@ -39,7 +40,6 @@ function AddItemPage() {
           name="imgFile"
           value={values.imgFile}
           onChange={{ handleChange }}
-          placeholder="이미지 등록"
         />
       </div>
       <div className="AddItemWrapper">

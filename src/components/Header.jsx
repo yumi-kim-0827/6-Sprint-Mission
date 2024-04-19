@@ -1,13 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 import "./Header.css";
 
-function linkStyle({ isActive }) {
-  return { color: isActive ? "#3692ff" : undefined };
-}
-
 function Header() {
+  const location = useLocation();
+
   return (
     <header className="header">
       <div className="headerLeft">
@@ -18,12 +16,24 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/community" style={linkStyle}>
+              <NavLink
+                to="/community"
+                className="navLink"
+                activeClassName="activeLink"
+              >
                 자유게시판
               </NavLink>
             </li>
             <li>
-              <NavLink to="/items" style={linkStyle}>
+              <NavLink
+                to="/items"
+                className="navLink"
+                style={{
+                  color: ["/additem"].includes(location.pathname)
+                    ? "#3692FF"
+                    : "",
+                }}
+              >
                 중고마켓
               </NavLink>
             </li>
