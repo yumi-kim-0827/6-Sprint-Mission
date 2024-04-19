@@ -49,12 +49,16 @@
   height: 200px;
 }
 
+.product-introduction-input::placeholder {
+  padding-top: 16px;
+}
+
 .product-name-input::placeholder,
 .product-introduction-input::placeholder,
 .product-price-input::placeholder,
 .product-tag-input::placeholder {
   color: #9ca3af;
-  padding-left: 12px;
+  padding-left: 24px;
 }
 
 .product-name-input,

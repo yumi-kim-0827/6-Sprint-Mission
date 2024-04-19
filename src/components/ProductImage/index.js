@@ -67,14 +67,14 @@ const UploadImage = () => {
       </div>
       <div>
         <label className='product-introduction'>상품 소개</label>
-        <input
+        <textarea
           type='text'
           name='productIntroduction'
           placeholder='상품 소개를 입력해주세요'
           className='product-introduction-input'
           value={productIntroduction}
           onChange={(e) => setProductIntroduction(e.target.value)}
-        />
+        ></textarea>
       </div>
       <div>
         <label className='product-price'>판매가격</label>
