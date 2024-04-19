@@ -60,7 +60,9 @@
 .product-form .product-form-top #register-btn.active:hover {
   background-color: var(--hover-blue);
 }
-
+.product-form .product-form-top #register-btn.active:active {
+  background-color: var(--click-blue);
+}
 .product-form .container {
   display: flex;
   flex-direction: column;
