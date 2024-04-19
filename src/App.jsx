@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/App.css';
+import Main from './Main';
 import Header from './components/Header';
 import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
@@ -10,12 +11,12 @@ export default function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Routes>
-          <Route path='/' element={<Items />} />
-          <Route path='/items' element={<Items />} />
-          <Route path='/additem' element={<AddItem />} />
-          <Route path='/freeboard' element={<FreeBoard />} />
+          <Route path='/' element={<Main />}>
+            <Route path='/items' element={<Items />} />
+            <Route path='/additem' element={<AddItem />} />
+            <Route path='/freeboard' element={<FreeBoard />} />
+          </Route>
         </Routes>
       </Router>
     </div>
