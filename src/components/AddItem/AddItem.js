@@ -1,35 +1,9 @@
 import React from "react";
+import json from "./addItemInputs.json";
 import InputWrapper from "../InputWrapper/InputWrapper";
 import "./AddItem.css";
 
-const inputs = [
-  {
-    type: "file",
-    label: "상품 이미지",
-    name: "File",
-  },
-  {
-    label: "상품명",
-    name: "title",
-    placeholder: "상품명을 입력해주세요",
-  },
-  {
-    type: "textarea",
-    label: "상품 소개",
-    name: "introduce",
-    placeholder: "상품 소개를 입력해주세요",
-  },
-  {
-    label: "판매가격",
-    name: "price",
-    placeholder: "판매 가격을 입력해주세요",
-  },
-  {
-    label: "태그",
-    name: "tag",
-    placeholder: "태그를 입력해주세요",
-  },
-];
+console.log(json);
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -47,7 +21,7 @@ const AddItem = () => {
 
         {/* 입력 폼 */}
         <div className="input-form">
-          <InputWrapper inputs={inputs} />
+          <InputWrapper inputs={json} />
         </div>
       </form>
     </section>
