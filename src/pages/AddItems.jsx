@@ -148,7 +148,6 @@ const AddItems = () => {
 
   useEffect(() => {
     if (
-      productValues.productImg !== null &&
       productValues.productName !== "" &&
       productValues.productIntro !== "" &&
       productValues.productPrice !== "" &&
