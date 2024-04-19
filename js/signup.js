@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   passwordInput.addEventListener("focus", clearPasswordError);
   passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
   passwordCheckInput.addEventListener("focus", clearPasswordCheckError);
-  loginButton.addEventListener("click", moveToItems);
+  loginButton.addEventListener("click", moveToSignin);
 
   // 유효성 검사 함수
   function validateEmail() {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordCheckErrorDisplayed;
   }
 
-  function moveToItems() {
-    window.location.href = "/items";
+  function moveToSignin() {
+    window.location.href = "/signin";
   }
 });
