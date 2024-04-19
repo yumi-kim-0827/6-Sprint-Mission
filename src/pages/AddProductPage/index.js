@@ -7,11 +7,11 @@ function AddProductPage() {
     <>
       <Header />
       <div className="form-container">
-        <div className="product-form-title-wrapper">
-          <h1 className="product-form-title">상품 등록하기</h1>
-          <Button>등록</Button>
-        </div>
         <form className="product-form">
+          <div className="product-form-title-wrapper">
+            <h1 className="product-form-title">상품 등록하기</h1>
+            <Button>등록</Button>
+          </div>
           <div className="product-form-item">
             <label className="product-form-item-name" htmlFor="image">
               상품 이미지
