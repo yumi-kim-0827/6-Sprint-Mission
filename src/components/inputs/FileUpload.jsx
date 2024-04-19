@@ -1,34 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import plusIcon from "../../assets/images/ic_plus.svg";
 
 const FileUpload = (props) => {
-  const { label, name, placeholder = "이미지 등록" } = props;
+  const { label, name, placeholder = "이미지 등록", onChange } = props;
+  const [imgUrl, setImgUrl] = useState(null);
+
+  useEffect(() => {
+    if (imgUrl) {
+      onChange(imgUrl, name);
+    }
+  }, [imgUrl]);
+
   return (
     <div key={name} className="input-wrapper">
       <label htmlFor={name}>{label}</label>
-      <Box>
-        <div>
-          <Icon>
-            <img src={plusIcon} alt={placeholder} />
-          </Icon>
-          <Text>이미지 등록</Text>
-        </div>
-        <Input type="file" name={name} id={name} />
-      </Box>
+      <Wrap>
+        <FileBox>
+          <div>
+            <Icon>
+              <img src={plusIcon} alt={placeholder} />
+            </Icon>
+            <Text>이미지 등록</Text>
+          </div>
+          <Input
+            onChange={(e) => {
+              setImgUrl(URL.createObjectURL(e.target.files[0]));
+            }}
+            type="file"
+            name={name}
+            id={name}
+          />
+        </FileBox>
+        {imgUrl && (
+          <Box>
+            <img src={imgUrl} alt="이미지 미리보기" />
+          </Box>
+        )}
+      </Wrap>
     </div>
   );
 };
+
+const Wrap = styled.div`
+  display: flex;
+  gap: 2.4rem;
+`;
 
 const Box = styled.div`
   position: relative;
   width: 282px;
   height: 282px;
   border-radius: 12px;
-  background-color: var(--gray-100);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+`;
+
+const FileBox = styled(Box)`
+  background-color: var(--gray-100);
 `;
 
 const Input = styled.input`

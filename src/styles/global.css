@@ -142,6 +142,7 @@ img {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 a {
@@ -164,6 +165,7 @@ textarea {
 
 textarea {
   height: 200px;
+  resize: none;
 }
 
 input:focus-visible,

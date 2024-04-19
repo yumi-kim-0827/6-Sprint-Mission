@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import json from "./addItemInputs.json";
 import InputWrapper from "../InputWrapper/InputWrapper";
 import "./AddItem.css";
@@ -10,6 +10,26 @@ const handleSubmit = (e) => {
 };
 
 const AddItem = () => {
+  const [values, setValues] = useState({
+    file: null,
+    title: "",
+    introduce: "",
+    price: 0,
+    tag: [],
+  });
+
+  console.log(values, "avv");
+
+  const handleChange = (value, name) => {
+    console.log(value, name);
+    setValues((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
   return (
     <section className="container add-item-page">
       <form className="add-item-form" onSubmit={handleSubmit}>
@@ -21,7 +41,7 @@ const AddItem = () => {
 
         {/* 입력 폼 */}
         <div className="input-form">
-          <InputWrapper inputs={json} />
+          <InputWrapper inputs={json} onChange={handleChange} />
         </div>
       </form>
     </section>
