@@ -18,10 +18,9 @@ const AddItem = () => {
     tag: [],
   });
 
-  console.log(values, "avv");
+  console.log(values, "이거지~");
 
   const handleChange = (value, name) => {
-    console.log(value, name);
     setValues((prev) => {
       return {
         ...prev,

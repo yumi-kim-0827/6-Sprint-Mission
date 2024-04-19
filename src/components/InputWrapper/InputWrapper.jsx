@@ -2,6 +2,7 @@ import React from "react";
 import TextArea from "../inputs/TextArea";
 import InputText from "../inputs/InputText";
 import FileUpload from "../inputs/FileUpload";
+import TagInputText from "../inputs/TagInputText";
 
 const InputWrapper = (props) => {
   const { inputs, onChange } = props;
@@ -14,6 +15,7 @@ const InputWrapper = (props) => {
     } else if (type === "file") {
       return <FileUpload key={name + idx} {...input} onChange={onChange} />;
     } else if (type === "tag") {
+      return <TagInputText key={name + idx} {...input} onChange={onChange} />;
     } else {
       return <InputText key={name + idx} {...input} onChange={onChange} />;
     }
