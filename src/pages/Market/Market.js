@@ -9,6 +9,9 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
 
+import prevIcon from "../../assets/images/prev.svg";
+import nextIcon from "../../assets/images/next.svg";
+
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
@@ -67,7 +70,7 @@ const Market = () => {
     const items = await getProducts({ orderBy: sort });
     let { list } = items;
     if (sort === "favorite") {
-      list = list.filter((item, index) => {
+      list = list?.filter((item, index) => {
         return index < 4;
       });
     }
@@ -86,7 +89,7 @@ const Market = () => {
       <section className="best-product">
         <h3 className="title">베스트 상품</h3>
         <ul className="product-list">
-          {bestProducts.map((product) => {
+          {bestProducts?.map((product) => {
             return (
               <li className="product-item" key={product.id}>
                 <ProductItem item={product} />
@@ -118,7 +121,7 @@ const Market = () => {
           </div>
         </div>
         <ul className="product-list">
-          {allProducts.map((product) => {
+          {allProducts?.map((product) => {
             return (
               <li className="product-item" key={product.id}>
                 <ProductItem item={product} />
