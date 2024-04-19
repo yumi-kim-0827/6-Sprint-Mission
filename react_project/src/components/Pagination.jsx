@@ -1,6 +1,7 @@
 import React from 'react'
 import leftArrow from '../assets/arrow_left.svg';
 import rightArrow from '../assets/arrow_right.svg';
+import styles from '../styles/Pagination.module.css';
 
 function Pagination({ totalPageNum, activePageNum, onPageChange }) {
   const maxVisiblePages = 5;
@@ -19,19 +20,19 @@ function Pagination({ totalPageNum, activePageNum, onPageChange }) {
   );
 
   return (
-    <div>
-      <button disabled={activePageNum === 1} onClick={() => onPageChange(activePageNum - 1)}>
-      <img src={leftArrow} alt="이전 페이지로 이동" />
+    <>
+      <button className={styles.pagination_commonButton_box} disabled={activePageNum === 1} onClick={() => onPageChange(activePageNum - 1)}>
+        <img className={styles.pagination_commonButton_img} src={leftArrow} alt="이전 페이지로 이동" />
       </button>
       {pages.map((page) => (
-        <button key={page} onClick={() => onPageChange(page)}>
+        <button className={styles.pagination_commonButton_box} key={page} onClick={() => onPageChange(page)}>
           {page}
         </button>
       ))}
-      <button disabled={activePageNum === totalPageNum} onClick={() => onPageChange(activePageNum + 1)}>
-        <img src={rightArrow} alt="다음 페이지로 이동" />
+      <button className={styles.pagination_commonButton_box} disabled={activePageNum === totalPageNum} onClick={() => onPageChange(activePageNum + 1)}>
+        <img className={styles.pagination_commonButton_img} src={rightArrow} alt="다음 페이지로 이동" />
       </button>
-    </div>
+    </>
   )
 }
 
