@@ -56,3 +56,10 @@
   color: #9ca3af;
   padding-left: 12px;
 }
+
+.product-name-input,
+.product-introduction-input,
+.product-price-input,
+.product-tag-input {
+  width: 100%;
+}

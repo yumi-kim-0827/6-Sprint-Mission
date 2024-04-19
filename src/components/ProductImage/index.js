@@ -27,7 +27,7 @@ const UploadImage = () => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()} className='form-container'>
       <div>
         <label className='product-image-title'>상품 이미지</label>
         <div className='image-box'>
@@ -50,7 +50,7 @@ const UploadImage = () => {
             id='image-upload'
           />
           <label htmlFor='image-upload' className='image-upload-label'>
-            {productImage ? '이미지 등록' : '이미지 등록'}
+            {productImage ? '이미지 변경' : '이미지 등록'}
           </label>
         </div>
       </div>
