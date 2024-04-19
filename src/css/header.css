@@ -54,6 +54,10 @@ header {
   color: white;
   white-space: nowrap;
 }
+.user-icon{
+  grid-column: 6/7;
+  margin: 1.5rem auto;
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
   header {

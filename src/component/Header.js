@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import panda_market_logo from "../image/panda_market_home_logo.png";
 import "../css/header.css";
+import userIcon from "../image/ic_user.png";
 
 const Header = () => {
   const location = useLocation();
@@ -38,9 +39,13 @@ const Header = () => {
             중고마켓
           </NavLink>
         </div>
-        <Link to="/" className="login-btn">
-          로그인
-        </Link>
+        {location.pathname === "/additem" ? (
+          <img src={userIcon} className="user-icon"/>
+        ) : (
+          <Link to="/" className="login-btn">
+            로그인
+          </Link>
+        )}
       </div>
     </header>
   );
