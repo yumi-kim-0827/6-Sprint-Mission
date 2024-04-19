@@ -3,8 +3,6 @@ import json from "./addItemInputs.json";
 import InputWrapper from "../InputWrapper/InputWrapper";
 import "./AddItem.css";
 
-console.log(json);
-
 const handleSubmit = (e) => {
   e.preventDefault();
 };
@@ -14,11 +12,21 @@ const AddItem = () => {
     file: null,
     title: "",
     introduce: "",
-    price: 0,
+    price: "",
     tag: [],
   });
 
-  console.log(values, "이거지~");
+  const handleDisabled = () => {
+    const { title, introduce, price, tag } = values;
+    const disabled =
+      title !== "" &&
+      introduce !== "" &&
+      price !== "" &&
+      !isNaN(Number(price)) &&
+      tag.length > 0;
+
+    return !disabled;
+  };
 
   const handleChange = (value, name) => {
     setValues((prev) => {
@@ -35,7 +43,9 @@ const AddItem = () => {
         {/* 타이틀 */}
         <div className="title-header">
           <h3 className="title">상품 등록하기</h3>
-          <button type="submit">등록</button>
+          <button disabled={handleDisabled()} type="submit">
+            등록
+          </button>
         </div>
 
         {/* 입력 폼 */}

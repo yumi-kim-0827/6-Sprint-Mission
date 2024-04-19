@@ -177,6 +177,12 @@ textarea:focus-visible {
 button {
   padding: 0;
   background-color: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: var(--gray-400);
+  cursor: auto;
 }
 
 .inner {

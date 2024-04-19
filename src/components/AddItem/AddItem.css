@@ -17,7 +17,8 @@
   background-color: var(--blue);
 }
 
-.add-item-page button.disabled {
+.add-item-page button:disabled {
+  background-color: var(--gray-400);
 }
 
 .input-form {
