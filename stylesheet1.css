@@ -379,11 +379,7 @@ footer {
 
 /* 미디어 쿼리 */
 @media (min-width: 768px) and (max-width: 1199px) {
-  main {
-    width: 744px;
-    height: 2000px;
-  }
-  
+
   header {
   width: 744px;
   padding-left: 24px;
@@ -568,8 +564,40 @@ footer {
 }
 
 footer {
+  width: 744px;
+  height: 927px;
+  /* border: 1px solid red; */
   position: relative;
-  top: 2000px;
+  top: 1520px;
+}
+
+.footer_bg {
+  width: 744px;
+  height: 927px;
+  overflow: hidden;
+  position: relative;
+}
+
+.trade_panda {
+  width: 996px;
+  height: 540px;
+  position: absolute;
+  margin: 0 auto;
+  top: 392px;
+  left: -126px;
+}
+
+.footer_title {
+  position: absolute;
+  width: 295px;
+  height: 112px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  /* border: 1px solid blue; */
+  top: 201px;
+  left: 224px;
+  text-align: center;
 }
 
 
