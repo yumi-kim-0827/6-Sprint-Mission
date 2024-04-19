@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledFileInput = styled.input`
@@ -10,6 +10,8 @@ const StyledFileInput = styled.input`
 `;
 
 function FileInput({ name, value, onChange }) {
+  const [preview, setPreview] = useState();
+
   // 파일 입력 요소에 대한 실제 HTML DOM 요소에 접근할 수 있는 참조 생성
   const inputRef = useRef();
 
@@ -33,10 +35,26 @@ function FileInput({ name, value, onChange }) {
     onChange(name, null);
   };
 
+  useEffect(() => {
+    if (!value) return;
+
+    // URL.createObjectURL을 사용하여 파일 객체를 나타내는 URL을 생성
+    const nextPreview = URL.createObjectURL(value);
+
+    // 새로운 미리보기 URL을 preview 상태로 설정
+    setPreview(nextPreview);
+
+    return () => {
+      setPreview();
+      URL.revokeObjectURL(nextPreview);
+    };
+  }, [value]); // value가 변경될 때마다 이펙트 실행
+
   return (
     <>
       {/* 파일 입력 요소를 렌더링하고, 파일이 변경될 때 handleChange 함수 호출 */}
-      <StyledFileInput type="file" onChange={handleChange} ref={inputRef} />
+      <StyledFileInput type="file" accept="image/png, image/jpeg" onChange={handleChange} ref={inputRef} />
+      <img src={preview} alt="이미지 미리보기" />
       {value && <button onClick={handleClearClick}>X</button>}
     </>
   );
