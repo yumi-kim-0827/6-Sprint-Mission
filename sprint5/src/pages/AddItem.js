@@ -1,13 +1,15 @@
 // AddItem.js
 import React, { useState } from "react";
 import ImageInput from "./ImageInput";
+import deleteTagIcon from "../assets/tag_x.svg";
 import "./AddItem.css";
+import Navbar from "../components/Navbar";
 
 function AddItem() {
   const [values, setValues] = useState({
     productName: "",
     description: "",
-    price: 0,
+    price: "",
     currentTag: "",
   });
 
@@ -58,60 +60,83 @@ function AddItem() {
   };
 
   return (
-    <form className="addItemForm">
-      <div className="formTitle">
-        <h1>상품 등록하기</h1>
-        <button disabled={!isButtonActive}>등록</button>
-      </div>
-
-      <ImageInput
-        onImageChange={handleImageChange}
-        onImageDelete={handleImageDelete}
-        image={image}
-      />
-      <div className="formInput">
-        <label>상품명</label>
-        <input
-          name="productName"
-          value={values.productName}
-          placeholder="상품명을 입력해주세요"
-          onChange={handleChange}
-        />
-        <label>상품 소개</label>
-        <textarea
-          name="description"
-          value={values.description}
-          placeholder="상품 소개를 입력해주세요"
-          onChange={handleChange}
-        />
-        <label>판매가격</label>
-        <input
-          name="price"
-          value={values.price}
-          placeholder="판매 가격을 입력해주세요"
-          onChange={handleChange}
-        />
-        <label>태그</label>
-        <input
-          name="currentTag"
-          value={values.currentTag}
-          placeholder="태그를 입력해주세요"
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-        />
-
-        <div>
-          {tags.map((tag, index) => (
-            <span key={index} className="tag">
-              {tag}
-              <button type="button" onClick={() => handleRemoveTag(tag)}>
-                X
-              </button>
-            </span>
-          ))}
+    <div>
+      <Navbar />
+      <form className="addItemForm">
+        <div className="formTitle">
+          <h1>상품 등록하기</h1>
+          <button
+            className={`addItemButton ${
+              isButtonActive ? "activeAddButton" : ""
+            }`}
+            disabled={!isButtonActive}
+          >
+            등록
+          </button>
         </div>
-      </div>
-    </form>
+
+        <ImageInput
+          className="imageInput"
+          onImageChange={handleImageChange}
+          onImageDelete={handleImageDelete}
+          image={image}
+        />
+        <div className="formInput">
+          <label>상품명</label>
+          <input
+            className="formInputItem"
+            name="productName"
+            value={values.productName}
+            placeholder="상품명을 입력해주세요"
+            onChange={handleChange}
+          />
+          <label>상품 소개</label>
+          <textarea
+            className="productDescription"
+            name="description"
+            value={values.description}
+            placeholder="상품 소개를 입력해주세요"
+            onChange={handleChange}
+          />
+          <label>판매가격</label>
+          <input
+            className="formInputItem"
+            name="price"
+            value={values.price}
+            placeholder="판매 가격을 입력해주세요"
+            onChange={handleChange}
+          />
+          <label>태그</label>
+          <input
+            className="formInputItem"
+            name="currentTag"
+            value={values.currentTag}
+            placeholder="태그를 입력해주세요"
+            onChange={handleChange}
+            onKeyDown={handleKeyPress}
+          />
+
+          <div className="tags">
+            {tags.map((tag, id) => (
+              <span key={id} className="tag">
+                {tag}
+                <button
+                  className="deleteTagButton"
+                  type="button"
+                  onClick={() => handleRemoveTag(tag)}
+                >
+                  <img
+                    className="deleteTagIcon"
+                    src={deleteTagIcon}
+                    alt="태그 삭제"
+                  />
+                </button>
+              </span>
+            ))}
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }
 

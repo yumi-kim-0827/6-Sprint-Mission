@@ -1,0 +1,39 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 200px 9px 200px;
+  background-color: #ffffff;
+  height: 70px;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-button {
+  margin-left: 32px;
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.active-link {
+  color: #3692ff;
+}
+
+.profileButton {
+  border: none;
+  background-color: transparent;
+}
+
+.profileButton:hover {
+  transform: scale(1.1);
+}

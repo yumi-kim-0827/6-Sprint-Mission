@@ -30,11 +30,9 @@ function Items() {
   const handleLoad = async (page, limit, order, keyword) => {
     const products = await getProducts(page, limit, order, keyword);
     //데이터 저장
-    console.log(products.totalCount);
     setItems(products.list);
     //페이지 길이
     setTotalPages(Math.ceil(products.totalCount / limit));
-    console.log(totalPages);
   };
 
   const onPageChange = (pageNumber) => {
@@ -68,6 +66,14 @@ function Items() {
   };
 
   useEffect(() => {
+    handleLoad(page, limit, order, keyword);
+  }, [page, limit, order, keyword]);
+
+  useEffect(() => {
+    handleLoadBestItems();
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       handleLoadBestItems();
     };
@@ -87,14 +93,6 @@ function Items() {
       window.removeEventListener("resize", handleResize);
     };
   }, [page, limit, order, keyword]);
-
-  useEffect(() => {
-    handleLoadBestItems();
-  }, []);
-
-  useEffect(() => {
-    handleLoad(page, limit, order, keyword);
-  }, [page, limit, order]);
 
   return (
     <div>
