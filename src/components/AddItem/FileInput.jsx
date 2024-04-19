@@ -32,26 +32,35 @@ const FileInput = ({ name, value, onChange }) => {
   }, [value]);
 
   return (
-    <AddImageWrap>
-      <AddImageLabel htmlFor="file_input">
-        <PlusIcon className="plus" />
-        <ImagePlaceholder>이미지 등록</ImagePlaceholder>
-      </AddImageLabel>
-      <input
-        id="file_input"
-        type="file"
-        onChange={handleChange}
-        ref={inputRef}
-      />
+    <>
+      <AddImageTitle htmlFor="file_input">상품 이미지</AddImageTitle>
+      <AddImageWrap>
+        <AddImageLabel htmlFor="file_input">
+          <PlusIcon className="plus" />
+          <ImagePlaceholder>이미지 등록</ImagePlaceholder>
+        </AddImageLabel>
+        <input
+          id="file_input"
+          type="file"
+          onChange={handleChange}
+          ref={inputRef}
+        />
 
-      <AddItemImage
-        value={value}
-        preview={preview}
-        onClearClick={handleClearClick}
-      />
-    </AddImageWrap>
+        <AddItemImage
+          value={value}
+          preview={preview}
+          onClearClick={handleClearClick}
+        />
+      </AddImageWrap>
+    </>
   );
 };
+
+const AddImageTitle = styled.label`
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+`;
 
 const AddImageWrap = styled.div`
   display: flex;

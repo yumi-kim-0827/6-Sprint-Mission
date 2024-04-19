@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import close_icon from "../../assets/images/icon/ic_close_black.svg";
+import closeIcon from "../../assets/images/icon/ic_X.svg";
 
 const AddTag = ({ tags, setTags }) => {
   const removeTags = (indexToRemove) => {
@@ -7,31 +7,38 @@ const AddTag = ({ tags, setTags }) => {
     setTags(filter);
   };
 
-  const addTags = (event) => {
-    const inputVal = event.target.value;
-    if (event.key === "Enter" && inputVal !== "" && !tags.includes(inputVal)) {
+  const addTags = (e) => {
+    const inputVal = e.target.value;
+    if (e.key === "Enter" && inputVal !== "" && !tags.includes(inputVal)) {
       setTags([...tags, inputVal]);
-      event.target.value = "";
+      e.preventDefault();
+      e.target.value = "";
     }
   };
 
   return (
     <div className="add_tag">
-      <span className="add_tag_title">태그</span>
+      <label htmlFor="tag_input_id" className="add_tag_title">
+        태그
+      </label>
       <TagsInput
-        className="tag-input"
+        id="tag_input_id"
+        className="tag_input"
         type="text"
         onKeyUp={(e) => {
           addTags(e);
         }}
         placeholder="태그를 입력해주세요"
+        maxLength={12}
       />
 
       <Tags id="tags">
         {tags.map((tag, index) => (
           <Tag key={index}>
-            <span className="tag-title">{tag}</span>
-            <CloseIcon src={close_icon} onClick={() => removeTags(index)} />
+            <span className="tag_title">{tag}</span>
+            <CloseIcon onClick={() => removeTags(index)}>
+              <img src={closeIcon} alt="태그 닫기" />
+            </CloseIcon>
           </Tag>
         ))}
       </Tags>
@@ -79,17 +86,19 @@ const Tag = styled.li`
   background: var(--gray-50);
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled.button`
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  text-align: center;
-  font-size: 14px;
+  width: 20px;
+  height: 20px;
   margin-left: 8px;
-  border-radius: 50%;
-  background: #fff;
+  background-color: #9ca3af;
+  border: none;
+  border-radius: 999999px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #3692ff;
+  }
 `;
 
 export default AddTag;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import closeIcon from "../../assets/images/icon/ic_close.svg";
+import closeIcon from "../../assets/images/icon/ic_X.svg";
 
 const AddItemImage = ({ value, preview, onClearClick }) => {
   return (
@@ -52,11 +52,18 @@ const PreviewImage = styled.img`
 
 const CloseIcon = styled.button`
   position: absolute;
+  width: 26px;
+  height: 26px;
   top: 6px;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0);
+  right: 6px;
+  background-color: #9ca3af;
   border: none;
+  border-radius: 999999px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #3692ff;
+  }
 `;
 
 export default AddItemImage;

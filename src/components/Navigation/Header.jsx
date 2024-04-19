@@ -4,7 +4,7 @@ import NavMain from "./NavMain";
 import "../../assets/styles/Root.css";
 import "./Header.css";
 
-function Header(site) {
+function Header({ site = "" }) {
   return (
     <header className="top_navigation">
       <div className="top_container">
