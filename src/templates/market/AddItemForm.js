@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
 import classNames from "classnames/bind";
 import { Button } from "components/Button";
-import Tag from "components/Tag";
 import { Input } from "components/Input";
 
 const cn = classNames.bind(styles);
@@ -110,16 +109,11 @@ export default function AddItemForm() {
             name="tags"
             placeholder="태그를 입력해주세요"
             value={currentTag}
+            tagList={tagList}
+            handleTagDelete={handleTagDelete}
             onChange={onChange}
             onKeyUp={handleTagKeyUp}
           />
-          <div className={styles.tag__list}>
-            {tagList.reverse().map((tag) => (
-              <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
-                {tag}
-              </Tag>
-            ))}
-          </div>
         </div>
       </form>
     </div>
