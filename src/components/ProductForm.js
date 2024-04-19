@@ -1,26 +1,58 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import closeTagIcon from "../images/ic_X.png";
+import deletePreviewImageIcon from "../images/ic_X_preview_image.png";
+
+// form내 에러메시지를 객체로 관리하였습니다.
+const formErrorMessage = {
+  required: "필수 입력 항목입니다",
+  pattern: {
+    number: "숫자만 입력해주세요",
+  },
+};
 
 export default function ProductForm() {
-  const [tags, setTags] = useState([]);
-  const [tagInput, setTagInput] = useState("");
+  // 태그에 관한 state입니다.
+  const [tagState, setTagState] = useState({
+    tags: [],
+    tagInput: "",
+  });
+  // 미리보기 이미지를 위한 state입니다.
   const [previewImage, setPreviewImage] = useState(null);
 
+  // react-hook-form으로 form의 유효성 체크 및 에러 관리를 하였습니다.
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid: formIsValid },
+  } = useForm();
+
+  // 모든 유효성을 만족하고 이미지를 제거해버리면 등록이 되어버려 useForm의 valid를 수정하였습니다.
+  const isValid = formIsValid && previewImage !== null;
+
+  // 태그를 위한 함수입니다.
   const handleTagInput = (e) => {
-    setTagInput(e.target.value);
+    setTagState({ ...tagState, tagInput: e.target.value });
   };
 
   const handleTagKeyDown = (e) => {
-    if (e.key === "Enter" && tagInput.trim() !== "") {
-      setTags([...tags, e.target.value]);
-      setTagInput("");
+    if (e.key === "Enter" && tagState.tagInput.trim() !== "") {
+      e.preventDefault();
+      setTagState({
+        tags: [...tagState.tags, tagState.tagInput],
+        tagInput: "",
+      });
     }
   };
 
   const handleRemoveTag = (idx) => {
-    setTags(tags.filter((_, i) => i !== idx));
+    setTagState({
+      ...tagState,
+      tags: tagState.tags.filter((_, i) => i !== idx),
+    });
   };
 
+  // FileReader를 사용하여 미리보기 이미지를 보여주는 함수입니다.
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -34,13 +66,21 @@ export default function ProductForm() {
     }
   };
 
+  // * onSubmit테스트 코드입니다.
+  const onSubmit = (data) => {
+    console.log("로그인 데이터입니다", { ...data, tags: tagState.tags });
+  };
+
   return (
-    <form action="post" className="mx-auto mb-40 mt-6 flex w-7/12 flex-col">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto mb-40 mt-6 flex w-7/12 flex-col"
+    >
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">상품 등록하기</h1>
         <button
-          className="rounded-lg bg-[var(--cool-gray400)] px-7 py-3 text-white"
-          disabled
+          className={`rounded-lg px-7 py-3 text-white ${isValid ? "bg-[var(--btn-blue1)]" : "bg-[var(--cool-gray400)]"}`}
+          disabled={!isValid}
         >
           등록
         </button>
@@ -53,6 +93,9 @@ export default function ProductForm() {
           <input
             type="file"
             id="image"
+            {...register("image", {
+              required: formErrorMessage.required,
+            })}
             name="image"
             placeholder="이미지를 업로드해주세요"
             accept="image/*"
@@ -68,13 +111,25 @@ export default function ProductForm() {
             <p className="mt-3">이미지 등록</p>
           </label>
           {previewImage && (
-            <img
-              src={previewImage}
-              alt="previewImage"
-              className="h-72 w-72 rounded-xl object-fill"
-            />
+            <div className="relative">
+              <img
+                src={previewImage}
+                alt="previewImage"
+                className="h-72 w-72 rounded-xl object-fill"
+              />
+              <button
+                type="button"
+                className="absolute right-2 top-2"
+                onClick={() => setPreviewImage(null)}
+              >
+                <img src={deletePreviewImageIcon} alt="deletepreviewimage" />
+              </button>
+            </div>
           )}
         </div>
+        {errors.image && (
+          <p className="mt-1 text-sm text-red-500">{errors.image.message}</p>
+        )}
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="productName" className="text-lg font-bold">
@@ -83,11 +138,19 @@ export default function ProductForm() {
         <input
           type="text"
           id="productName"
+          {...register("productName", {
+            required: formErrorMessage.required,
+          })}
           name="productName"
           placeholder="상품명을 입력해주세요"
           className="mt-3 rounded-xl bg-[var(--cool-gray100)] py-4 pl-6"
           required
         />
+        {errors.productName && (
+          <p className="mt-1 text-sm text-red-500">
+            {errors.productName.message}
+          </p>
+        )}
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="productIntro" className="text-lg font-bold">
@@ -96,11 +159,19 @@ export default function ProductForm() {
         <textarea
           type="text"
           id="productIntro"
+          {...register("productIntro", {
+            required: formErrorMessage.required,
+          })}
           name="productIntro"
           placeholder="상품소개를 입력해주세요"
           className="mt-3 resize-none rounded-xl bg-[var(--cool-gray100)] pb-40 pl-6 pt-4"
           required
         ></textarea>
+        {errors.productIntro && (
+          <p className="mt-1 text-sm text-red-500">
+            {errors.productIntro.message}
+          </p>
+        )}
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="price" className="text-lg font-bold">
@@ -109,11 +180,21 @@ export default function ProductForm() {
         <input
           type="text"
           id="price"
+          {...register("price", {
+            required: formErrorMessage.required,
+            pattern: {
+              value: /^[0-9]+$/,
+              message: formErrorMessage.pattern.number,
+            },
+          })}
           name="price"
           placeholder="판매 가격을 입력해주세요"
           className="mt-3 rounded-xl bg-[var(--cool-gray100)] py-4 pl-6"
           required
         />
+        {errors.price && (
+          <p className="mt-1 text-sm text-red-500">{errors.price.message}</p>
+        )}
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="tag" className="text-lg font-bold">
@@ -125,12 +206,12 @@ export default function ProductForm() {
           name="tag"
           placeholder="태그를 입력해주세요"
           className="mt-3 rounded-xl bg-[var(--cool-gray100)] py-4 pl-6"
-          value={tagInput}
+          value={tagState.tagInput}
           onChange={handleTagInput}
           onKeyDown={handleTagKeyDown}
         />
         <div className="mt-3 flex flex-wrap gap-x-3">
-          {tags.map((tag, idx) => {
+          {tagState.tags.map((tag, idx) => {
             return (
               <div
                 key={idx}
