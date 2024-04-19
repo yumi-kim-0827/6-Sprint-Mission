@@ -148,11 +148,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleLoginButton() {
+    const email = emailInput.value.trim();
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+    const passwordCheck = passwordCheckInput.value.trim();
+
     loginButton.disabled =
       emailErrorDisplayed ||
       usernameErrorDisplayed ||
       passwordErrorDisplayed ||
-      passwordCheckErrorDisplayed;
+      passwordCheckErrorDisplayed ||
+      email === "" ||
+      username === "" ||
+      password === "" ||
+      passwordCheck === "";
   }
 
   function moveToSignin() {

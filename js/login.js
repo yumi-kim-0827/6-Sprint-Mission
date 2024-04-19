@@ -92,7 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleLoginButton() {
-    loginButton.disabled = emailErrorDisplayed || passwordErrorDisplayed;
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    loginButton.disabled =
+      emailErrorDisplayed ||
+      passwordErrorDisplayed ||
+      email === "" ||
+      password === "";
   }
 
   function moveToItems() {
