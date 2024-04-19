@@ -39,7 +39,7 @@ function AddItemPage() {
         <FileInput
           name="imgFile"
           value={values.imgFile}
-          onChange={{ handleChange }}
+          onChange={(name, value) => handleChange(name, value)}
         />
       </div>
       <div className="AddItemWrapper">
