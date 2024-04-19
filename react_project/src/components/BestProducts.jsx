@@ -10,12 +10,12 @@ const getPageSize = () => {
 };
 
 function BestProducts() {
-  const [itemList, setItemList] = useState([]);
+  const [productList, setProductList] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
 
   const fetchSortedData = async ({ orderBy, pageSize }) => {
     const porducts = await getProducts({ orderBy, pageSize });
-    setItemList(porducts.list);
+    setProductList(porducts.list);
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function BestProducts() {
     <div>
       <h1>베스트 상품</h1>
       <div>
-        {itemList.map((item) => (
+        {productList?.map((item) => (
           <ProductCard item={item} key={`bestItem_${item.id}`} />
         ))}
       </div>

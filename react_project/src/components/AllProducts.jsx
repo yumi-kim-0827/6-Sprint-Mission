@@ -67,7 +67,7 @@ function AllProducts() {
       </div>
 
       <div>
-        {productList.map((item) => (
+        {productList?.map((item) => (
           <ProductCard item={item} key={`merket_item_${item.id}`} />
         ))}
       </div>
