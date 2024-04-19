@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 const AddItem = () => {
   const [productName, setProductName] = useState("");
@@ -9,6 +9,7 @@ const AddItem = () => {
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
   const [tags, setTags] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -26,6 +27,27 @@ const AddItem = () => {
     );
   };
 
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    if (selectedImage instanceof Blob) {
+      setProductImage(selectedImage);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(selectedImage);
+    } else {
+      console.error("선택한 파일이 유효하지 않습니다.");
+    }
+  };
+
+  const handleCancelPreview = (e) => {
+    e.preventDefault();
+    setProductImage("");
+    setImagePreview("");
+  };
+
   return (
     <AddItemContainer>
       <AddItemHeader>
@@ -40,13 +62,20 @@ const AddItem = () => {
           <ImageUploadContainer>
             <ItemImgInput
               type="file"
-              value={productImage}
               accept="image/*"
-              onChange={(e) => setProductImage(e.target.files[0])}
+              onChange={handleImageChange}
               required
             />
             <PlusIcon />
             <ImageUploadText>이미지 등록</ImageUploadText>
+            {imagePreview && (
+              <ImagePreviewContainer>
+                <img src={imagePreview} alt="미리보기" />
+                <CancelButton onClick={handleCancelPreview}>
+                  <FaTimes />
+                </CancelButton>
+              </ImagePreviewContainer>
+            )}
           </ImageUploadContainer>
         </AddImgContainer>
 
@@ -82,7 +111,6 @@ const AddItem = () => {
           />
         </ItemPriceContainer>
 
-        {/* 태그 입력 */}
         <ItemTagContainer>
           <ItemTagTitle>태그</ItemTagTitle>
           <ItemTagInput
@@ -119,7 +147,6 @@ const AddItemsButton = styled(Link)`
   height: 19px;
   padding: 12px 20px;
   border-radius: 12px;
-  background-color: #3692ff;
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 600;
@@ -127,6 +154,18 @@ const AddItemsButton = styled(Link)`
   text-align: center;
   color: #ffffff;
   text-decoration: none;
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      background-color: #3691ff;
+    `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    `}
 `;
 
 const AddImgContainer = styled.div`
@@ -144,7 +183,35 @@ const PlusIcon = styled(FaPlus)`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 32px;
-  color: #666;
+  color: #9ca3af;
+`;
+
+const ImagePreviewContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: -220px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CancelButton = styled.button`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #3691ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 3px 3.4px;
+  border: none;
 `;
 
 const ItemImgTitle = styled.h3`
@@ -166,6 +233,7 @@ const ImageUploadContainer = styled.label`
   input[type="file"] {
     display: none;
   }
+  background-color: #f3f4f6;
 `;
 
 const ItemImgInput = styled.input`
