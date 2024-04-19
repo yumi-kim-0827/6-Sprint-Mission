@@ -11,7 +11,9 @@ export const ItemCard = ({ item, cardType }) => {
         className={"card__image card__image" + cardType}
       />
       <h2 className="card__name">{name}</h2>
-      <p className="card__price">{price + "원"}</p>
+      <p className="card__price">
+        {new Intl.NumberFormat().format(price) + "원"}
+      </p>
       <div className="card__footer">
         <img src={likeIcon} alt="like button" />
         <p className="card__favoriteCount">{favoriteCount}</p>
