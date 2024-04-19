@@ -4,13 +4,22 @@ import Plus from 'assets/icons/Plus.svg';
 import RegisterButton from 'components/RegisterButton';
 
 const UploadImage = () => {
+  const [productImage, setProductImage] = useState(null);
   const [productName, setProductName] = useState('');
   const [productIntroduction, setProductIntroduction] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [productTag, setProductTag] = useState('');
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      setProductImage(URL.createObjectURL(file));
+    }
+  };
+
   const isFormValid = () => {
     return (
+      productImage &&
       productName.trim() &&
       productIntroduction.trim() &&
       productPrice.trim() &&
@@ -23,8 +32,27 @@ const UploadImage = () => {
       <div>
         <label className='product-image-title'>상품 이미지</label>
         <div className='image-box'>
-          <img src={Plus} alt='이미지 추가' />
-          <span className='image-upload'>이미지 등록</span>
+          {productImage ? (
+            <img
+              src={productImage}
+              alt='상품 이미지'
+              className='uploaded-image'
+            />
+          ) : (
+            <>
+              <img src={Plus} alt='이미지 추가' />
+            </>
+          )}
+          <input
+            type='file'
+            accept='image/*'
+            onChange={handleImageChange}
+            style={{ display: 'none' }}
+            id='image-upload'
+          />
+          <label htmlFor='image-upload' className='image-upload-label'>
+            {productImage ? '이미지 변경' : '이미지 등록'}
+          </label>
         </div>
       </div>
       <div>

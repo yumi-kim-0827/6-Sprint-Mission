@@ -22,7 +22,8 @@
   margin-bottom: 12px;
 }
 
-.image-upload {
+#image-upload,
+.image-upload-label {
   color: #9ca3af;
   font-weight: 400;
   font-size: 16px;
