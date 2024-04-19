@@ -1,0 +1,42 @@
+.product_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bestProduct_box {
+  width: 282px;
+  height: 282px;
+}
+
+.allProduct_box {
+  width: 221px;
+  height: 221px;
+}
+
+.product_img {
+  width: 100%;
+  height: 100%;
+}
+
+.product_info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product_favorite {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product_favoriteButton_box {
+  width: 16px;
+  height: 16px;
+}
+
+.product_favoriteButton_img {
+  width: 100%;
+  height: 100%;
+}
