@@ -4,15 +4,15 @@ import "./SearchBox.css";
 import searchIcon from "../../assets/images/search_icon.svg";
 
 const SearchBox = (props) => {
-  const { placeholder, onChange } = props;
+  const { value, placeholder, onChange, onSubmit } = props;
 
   return (
-    <div className="search-box flex-center">
-      <div className="search-icon">
+    <form className="search-box flex-center" onSubmit={onSubmit}>
+      <button type="submit" className="search-icon">
         <img src={searchIcon} alt="검색" />
-      </div>
-      <input onChange={onChange} placeholder={placeholder} />
-    </div>
+      </button>
+      <input value={value} onChange={onChange} placeholder={placeholder} />
+    </form>
   );
 };
 

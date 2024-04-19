@@ -8,11 +8,11 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 // style
 import "./Market.css";
 import "../../components/SearchBox/SearchBox.css";
-import { Link } from "react-router-dom";
 
 const Market = () => {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [sortKeyword, setSortKeyword] = useState("최신순");
   const [optionList, setOptionList] = useState("");
 
@@ -30,23 +30,28 @@ const Market = () => {
   // 상품 검색 기능
   const searchProducts = async (event) => {
     const { value } = event.target;
-    const items = await getProducts({ keyword: value });
+    setSearchKeyword(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const items = await getProducts({ keyword: searchKeyword });
     const { list } = items;
     setAllProducts(list);
   };
 
   // 상품 정렬 옵션 선택 기능
   const handleSelectOptionClick = async (event) => {
-    let sortOption;
+    let order;
     const { textContent } = event.target;
     sortOptions.forEach((option) => {
       const { text, sort } = option;
       if (textContent === text) {
         setSortKeyword(text);
-        sortOption = sort;
+        order = sort;
       }
     });
-    const items = await getProducts({ orderBy: sortOption });
+    const items = await getProducts({ orderBy: order });
     const { list } = items;
     setAllProducts(list);
     handleSelectBoxClick();
@@ -54,11 +59,7 @@ const Market = () => {
 
   // 옵션 리스트 토글 기능
   const handleSelectBoxClick = () => {
-    if (optionList === "") {
-      setOptionList("show");
-    } else {
-      setOptionList("");
-    }
+    return optionList === "" ? setOptionList("show") : setOptionList("");
   };
 
   // 상품 리스트 불러오기
@@ -73,6 +74,7 @@ const Market = () => {
     setState(list);
   };
 
+  // 전체 상품
   useEffect(() => {
     getItems("favorite", setBestProducts);
     getItems("recent", setAllProducts);
@@ -100,8 +102,10 @@ const Market = () => {
           <h3 className="title">전체 상품</h3>
           <div className="product-header-nav flex-center">
             <SearchBox
+              value={searchKeyword}
               onChange={searchProducts}
               placeholder="검색할 상품을 입력해주세요"
+              onSubmit={handleSubmit}
             />
             <Button to="/additem">상품 등록하기</Button>
             <SelectBox
