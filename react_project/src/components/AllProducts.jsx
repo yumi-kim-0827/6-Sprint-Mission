@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import searchIcon from '../assets/ic_search.svg';
 import sortIcon from '../assets/ic_sort.svg'
 import DropdownList from './DropdownList';
 import ProductCard from './ProductCard';
 import { getProducts } from '../data/api';
 import Pagination from './Pagination';
+import Button from './Button';
+import styles from '../styles/AllProducts.module.css';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -17,9 +17,9 @@ const getPageSize = () => {
 
 function AllProducts() {
   // 데이터 받아오기
-  const [orderBy, setOrderBy] = useState('recent');
+  const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(1);
+  const [pageSize, setPageSize] = useState(getPageSize());
   const [productList, setProductList] = useState([]);
   
   const fetchSortedData = async ({ orderBy, page, pageSize }) => {
@@ -61,34 +61,34 @@ function AllProducts() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.allProducts_wrap}>
+      <div className={styles.allProducts_header}>
         <h1>판매 중인 상품</h1>
-        <Link to="/additem">상품 등록하기</Link>
-      </div>
   
-      <div>
-        <div>
-          <img src={searchIcon} alt="검색 아이콘" />
-          <input type="text" placeholder='검색할 상품을 입력해 주세요' />
-        </div>
-        <div>
-          <button onClick={toggleDropdown}>
-            <img src={sortIcon} alt="정렬 버튼" />
-          </button>
-          {isDropdownVisible && (
-            <DropdownList onSortSelect={handleSortSelect} />
-          )}
+        <div className={styles.allProducts_function}>
+          <div className={styles.allProducts_search}>
+            <input type="text" placeholder='검색할 상품을 입력해 주세요'>
+            </input>
+          </div>
+          <Button>상품 등록하기</Button>
+          <div>
+            <button onClick={toggleDropdown}>
+              <img src={sortIcon} alt="정렬 버튼" />
+            </button>
+            {isDropdownVisible && (
+              <DropdownList onSortSelect={handleSortSelect} />
+            )}
+          </div>
         </div>
       </div>
 
-      <div>
+      <div className={styles.allProducts_list}>
         {productList?.map((item) => (
           <ProductCard item={item} key={`merket_item_${item.id}`} />
         ))}
       </div>
 
-      <div>
+      <div className={styles.allProducts_pagination}>
         <Pagination
           totalPageNum={totalPageNum}
           activePageNum={page}
