@@ -379,6 +379,8 @@ footer {
 
 /* 미디어 쿼리 */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  
   header {
   width: 744px;
   padding-left: 24px;
@@ -421,7 +423,51 @@ footer {
   left: -126px;
 }
 
+.container {
+  width: 744px;
+  height: 800px;
+  /* border: 1px solid red; */
+  position: relative;
+  left: 0;
+  top: 0;
+  padding: 24px 24px 20px 24px;
 }
+
+.image {
+  width: 696px;
+  height: 524px;
+  margin: 0 auto;
+}
+
+.mini_title {
+  position: absolute;
+  top: 568px;
+  left: 22px;
+  font-size: 18px;
+}
+
+.main_subtitle {
+ position: absolute;
+ top: 605px;
+ left: 22px;
+ font-size: 32px;
+ font-weight: 700;
+ line-height: 44.8px;
+ width: 335px;
+ height: 45px;
+ /* border: 1px solid red; */
+}
+
+.explanation {
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  top: 670px;
+  left: 22px;
+  width: 225px;
+  height: 44px;
+}
+
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
  
