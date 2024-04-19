@@ -3,9 +3,10 @@ import { FaSistrix } from 'react-icons/fa6';
 import { useState, useMemo, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa6';
-import ProductList from './ProductList';
 import { getProducts } from '../api';
 import styles from '../styles/Button.module.css';
+import ProductList from './ProductList';
+import PagenationBar from './PaginationBar';
 
 const BestListBox = styled.div`
   margin-bottom: 40px;
@@ -168,6 +169,7 @@ function Items() {
         </SelectWrapper>
       </AllListHead>
       <ProductList items={sortedItems} />
+      <PagenationBar />
     </>
   );
 }
