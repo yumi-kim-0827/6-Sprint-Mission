@@ -3,41 +3,6 @@
     display: grid;
     grid-template: repeat(2, auto) / repeat(5, auto);
   }
-  &__header {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 1fr repeat(3, auto);
-    grid-template-areas: "title form link ToggleList";
-    align-items: center;
-  }
-  &__title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 28px;
-    letter-spacing: 0.02em;
-    text-align: left;
-    grid-area: title;
-  }
-  &__form {
-    grid-area: form;
-  }
-  &__input {
-    width: 294px;
-    height: 42px;
-    border-radius: 12px;
-    border: none;
-    background-color: #f3f4f6;
-    background-image: url("../../../shared/asset/searchIcon.png");
-    background-repeat: no-repeat;
-    background-position: 10px;
-    text-indent: 30px;
-  }
-  &__link {
-    grid-area: link;
-  }
-  &__ToggleList {
-    grid-area: ToggleList;
-  }
 }
 
 @media (width<=1199px) {
@@ -50,12 +15,6 @@
 
 @media (width<=767px) {
   .ItemList {
-    &__header {
-      grid-template-areas:
-        "title link"
-        "form ToggleList";
-      grid-template-columns: 1fr auto;
-    }
     &__list {
       grid-template: repeat(2, auto) / repeat(2, auto);
     }

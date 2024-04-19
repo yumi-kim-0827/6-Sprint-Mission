@@ -31,11 +31,10 @@ API를 통한 상품 등록은 추후 미션에서 적용합니다.
 1. 모바일 데스크톱 전용 엘리먼트 분리도 방법 중 하나
 2. 금액 관련 ,을 넣는 유틸 함수를 만들거나 Intl 객체 이용
 3. URLSearchParams
-4. useMediaQuery에서 객체를 return
-5. value가 문자열이므로 중괄호 x header.jsx
+4. value가 문자열이므로 중괄호 x header.jsx
 
 ## 개인적으로 하는 작업
 
 1. Custom Hook으로 fetch관련 로직 분리
 2. UI에는 UI만 다루게 하고 비즈니스 로직은 Hook으로 관리하기
-3. 컴포넌트 더 분리
+3. 컴포넌트 더 분리 (ItemListHeader)
