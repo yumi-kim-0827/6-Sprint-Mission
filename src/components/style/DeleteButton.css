@@ -24,3 +24,7 @@
   left: -40px;
   top: 10px;
 }
+
+.button_preview:hover {
+  background-color: var(--color-brand-blue);
+}
