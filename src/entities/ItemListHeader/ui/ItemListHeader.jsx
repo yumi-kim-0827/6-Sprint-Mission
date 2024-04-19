@@ -33,7 +33,7 @@ export function ItemListHeader({ setOrderBy, setKeyword }) {
             className="ItemList__input"
           />
         </form>
-        <Link to="/register" className="ItemList__link">
+        <Link to="/additem" className="ItemList__link">
           <Button
             classNames={["button--blue", "button--small"]}
             value={"상품 등록하기"}
@@ -54,12 +54,12 @@ export function ItemListHeader({ setOrderBy, setKeyword }) {
       <div className="ItemList__header">
         <div className="flex-wrapper">
           <span className="ItemList__title">판매 중인 상품</span>
-          <a href="./items" className="ItemList__link">
+          <Link to="/additem" className="ItemList__link">
             <Button
               classNames={["button--blue", "button--small"]}
               value={"상품 등록하기"}
             />
-          </a>
+          </Link>
         </div>
         <div className="flex-wrapper">
           <form onSubmit={handleSearchSubmit} className="ItemList__form">

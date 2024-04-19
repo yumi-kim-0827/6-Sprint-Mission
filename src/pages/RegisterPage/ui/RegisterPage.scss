@@ -1,0 +1,29 @@
+.register {
+  display: flex;
+  justify-content: center;
+  &__content {
+    margin-inline: auto;
+    margin-bottom: 100px;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+  }
+}
+@media (767px<=width<=1999px) {
+  .register {
+    &__content {
+      gap: 23px;
+      margin-inline: 24px;
+    }
+  }
+}
+
+@media (375px<=width<=766px) {
+  .register {
+    &__content {
+      gap: 9px;
+      margin-inline: 16px;
+    }
+  }
+}
