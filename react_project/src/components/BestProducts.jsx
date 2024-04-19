@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../data/api';
 import ProductCard from './ProductCard';
+import styles from '../styles/BestProducts.module.css';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -32,9 +33,9 @@ function BestProducts() {
   }, [pageSize]);
 
   return (
-    <div>
+    <div className={styles.bestProducts_wrap}>
       <h1>베스트 상품</h1>
-      <div>
+      <div className={styles.bestProducts_list}>
         {productList?.map((item) => (
           <ProductCard item={item} key={`bestItem_${item.id}`} />
         ))}
