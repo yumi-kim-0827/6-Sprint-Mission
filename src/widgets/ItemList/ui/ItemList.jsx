@@ -6,10 +6,10 @@ import { ItemListHeader } from "/src/entities/index.jsx";
 import "./ItemList.scss";
 import { PageList } from "/src/widgets/PageList/index.jsx";
 import { useCustomMediaQuery } from "/src/shared/hooks/useCustomMediaQuery.jsx";
+import { INITIALVALUE } from "../../../shared/constants/constants";
 
 export const ItemList = () => {
-  const [isError, setIsError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [dataState, setDataState] = useState(INITIALVALUE);
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
@@ -19,14 +19,23 @@ export const ItemList = () => {
 
   const handleload = async (options) => {
     try {
-      setIsError(null);
-      setIsLoading(true);
+      setDataState((prevState) => ({
+        ...prevState,
+        isLoading: true,
+        errorMessage: null,
+      }));
       const newItems = await getDatum(options);
       setItems(newItems);
     } catch (error) {
-      setIsError(error);
+      setDataState((prevState) => ({
+        ...prevState,
+        errorMessage: error,
+      }));
     } finally {
-      setIsLoading(false);
+      setDataState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+      }));
     }
   };
 
@@ -46,13 +55,15 @@ export const ItemList = () => {
   return (
     <>
       <ItemListHeader setOrderBy={setOrderBy} setKeyword={setKeyword} />
-      {isError?.message && <span>{isError.message}</span>}
-      {isLoading && <span>로딩 중입니다</span>}
+      {dataState.errorMessage?.message && (
+        <span>{dataState.errorMessage.message}</span>
+      )}
+      {dataState.isLoading && <span>로딩 중입니다</span>}
       <div className="ItemList__list">
         {items.list &&
           items.list.map((item) => {
             return (
-              <div key={item.createdAt} className="">
+              <div key={item.id} className="">
                 <ItemCard item={item} cardType="--small" />
               </div>
             );

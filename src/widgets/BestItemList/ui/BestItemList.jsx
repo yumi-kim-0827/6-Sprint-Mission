@@ -1,25 +1,35 @@
 import { useState, useEffect } from "react";
 import { getDatum } from "/src/shared/api/api";
 import { ItemCard } from "/src/entities/ItemCard/ItemCard";
+import { INITIALVALUE } from "../../../shared/constants/constants";
+
 import "./BestItemList.scss";
 
 export const BestItemList = () => {
+  const [dataState, setDataState] = useState(INITIALVALUE);
   const [items, setItems] = useState([]);
-  const [isError, setIsError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const order = "favorite";
 
   const getBestItems = async (options) => {
     try {
-      setIsError(null);
-      setIsLoading(true);
+      setDataState((prevState) => ({
+        ...prevState,
+        isLoading: true,
+        errorMessage: null,
+      }));
       const newItems = await getDatum(options);
       const newBestItems = newItems.list.slice(0, 4);
       options.offset === 0 ? setItems() : setItems(newBestItems);
     } catch (error) {
-      setIsError(error);
+      setDataState((prevState) => ({
+        ...prevState,
+        errorMessage: error,
+      }));
     } finally {
-      setIsLoading(false);
+      setDataState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+      }));
     }
   };
 
@@ -30,8 +40,10 @@ export const BestItemList = () => {
   return (
     <>
       <h1 className="BestItemList__title">베스트 상품</h1>
-      {isError?.message && <span>{isError.message}</span>}
-      {isLoading && <span>로딩 중입니다</span>}
+      {dataState.errorMessage?.message && (
+        <span>{dataState.errorMessage.message}</span>
+      )}
+      {dataState.isLoading && <span>로딩 중입니다</span>}
       <div className="BestItemList__list">
         {items &&
           items.map((item) => {

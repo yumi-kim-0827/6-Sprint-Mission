@@ -1,4 +1,4 @@
-const BASEURL = `https://panda-market-api.vercel.app/products`;
+const BASEURL = `https://panda-market-api.vercel.app`;
 
 export async function getDatum({
   page = 1,
@@ -7,7 +7,9 @@ export async function getDatum({
   keyword = "",
 }) {
   let searchParams = new URLSearchParams({ page, pageSize, orderBy, keyword });
-  const response = await fetch(BASEURL + `?${searchParams.toString()}`);
+  const response = await fetch(
+    BASEURL + `/products?${searchParams.toString()}`
+  );
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다.");
   }
