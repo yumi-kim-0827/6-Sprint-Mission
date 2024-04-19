@@ -37,7 +37,7 @@ function AddItemPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    alert("submit!");
   };
 
   return (
@@ -57,7 +57,7 @@ function AddItemPage() {
         <FileInput
           name="imgFile"
           value={values.imgFile}
-          onChange={(name, value) => handleChange(name, value)}
+          onChange={handleChange}
         />
       </div>
       <div className="AddItemWrapper">
