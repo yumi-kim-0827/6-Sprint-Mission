@@ -27,7 +27,7 @@ export default function ProductForm() {
     formState: { errors, isValid: formIsValid },
   } = useForm();
 
-  // 모든 유효성을 만족하고 이미지를 제거해버리면 등록이 되어버려 useForm의 valid를 수정하였습니다.
+  // 모든 유효성을 만족하고 이미지를 제거해버리면 등록이 되어버려 useForm의 유효성을 수정하였습니다.
   const isValid = formIsValid && previewImage !== null;
 
   // 태그를 위한 함수입니다.
@@ -74,7 +74,7 @@ export default function ProductForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto mb-40 mt-6 flex w-7/12 flex-col"
+      className="mx-auto mb-40 mt-4 flex w-full flex-col px-6 lg:mt-6 lg:w-7/12 lg:px-0"
     >
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">상품 등록하기</h1>
@@ -86,7 +86,7 @@ export default function ProductForm() {
         </button>
       </div>
       <div className="mt-4 flex flex-col">
-        <label htmlFor="image" className="text-lg font-bold">
+        <label htmlFor="image" className="text-sm font-bold sm:text-lg">
           상품 이미지
         </label>
         <div className="mt-3 flex gap-x-6">
@@ -105,7 +105,7 @@ export default function ProductForm() {
           />
           <label
             htmlFor="image"
-            className="flex h-72 w-72 cursor-pointer flex-col items-center justify-center rounded-xl bg-[var(--cool-gray100)] text-[var(--cool-gray400)]"
+            className="flex h-40 w-40 cursor-pointer flex-col items-center justify-center rounded-xl bg-[var(--cool-gray100)] text-[var(--cool-gray400)] lg:h-72 lg:w-72"
           >
             <p className="text-5xl">+</p>
             <p className="mt-3">이미지 등록</p>
@@ -115,7 +115,7 @@ export default function ProductForm() {
               <img
                 src={previewImage}
                 alt="previewImage"
-                className="h-72 w-72 rounded-xl object-fill"
+                className="h-40 w-40 rounded-xl object-fill lg:h-72 lg:w-72"
               />
               <button
                 type="button"
@@ -132,7 +132,7 @@ export default function ProductForm() {
         )}
       </div>
       <div className="mt-6 flex flex-col">
-        <label htmlFor="productName" className="text-lg font-bold">
+        <label htmlFor="productName" className="text-sm font-bold sm:text-lg">
           상품명
         </label>
         <input
@@ -153,7 +153,7 @@ export default function ProductForm() {
         )}
       </div>
       <div className="mt-6 flex flex-col">
-        <label htmlFor="productIntro" className="text-lg font-bold">
+        <label htmlFor="productIntro" className="text-sm font-bold sm:text-lg">
           상품 소개
         </label>
         <textarea
@@ -164,7 +164,7 @@ export default function ProductForm() {
           })}
           name="productIntro"
           placeholder="상품소개를 입력해주세요"
-          className="mt-3 resize-none rounded-xl bg-[var(--cool-gray100)] pb-40 pl-6 pt-4"
+          className="mt-3 resize-none rounded-xl bg-[var(--cool-gray100)] pb-32 pl-6 pt-4 lg:pb-40"
           required
         ></textarea>
         {errors.productIntro && (
@@ -174,7 +174,7 @@ export default function ProductForm() {
         )}
       </div>
       <div className="mt-6 flex flex-col">
-        <label htmlFor="price" className="text-lg font-bold">
+        <label htmlFor="price" className="text-sm font-bold sm:text-lg">
           판매가격
         </label>
         <input
@@ -197,7 +197,7 @@ export default function ProductForm() {
         )}
       </div>
       <div className="mt-6 flex flex-col">
-        <label htmlFor="tag" className="text-lg font-bold">
+        <label htmlFor="tag" className="text-sm font-bold sm:text-lg">
           태그
         </label>
         <input
