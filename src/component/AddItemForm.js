@@ -28,8 +28,6 @@ const AddItemForm = ({
   addTagList,
   deleteTagList,
 }) => {
-  
-
   const [tag, setTag] = useState("");
 
   //태그 onChange
@@ -41,6 +39,13 @@ const AddItemForm = ({
     e.preventDefault();
     addTagList(tag);
     setTag("");
+  };
+  //태그 스페이스비 누르면 입력
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 32) {
+      addTagList(tag);
+      setTag("");
+    }
   };
 
   return (
@@ -85,6 +90,7 @@ const AddItemForm = ({
         value={tag}
         onChange={handleTagChange}
         onSubmit={handleEnterOneTag}
+        onKeyDown={handleKeyDown}
       />
       <div className="tag-list-section">
         {values.tags.map((tag) => (

@@ -8,7 +8,8 @@ const ProductInfoInput = ({
   id,
   name,
   type = "text",
-  onSubmit=null
+  onSubmit=null,
+  onKeyDown=null
 }) => {
     
     
@@ -34,6 +35,7 @@ const ProductInfoInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </form>
   ) : (
