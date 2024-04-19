@@ -4,6 +4,7 @@ import { sortItems } from "../utils/sort";
 import Products from "./Products";
 import { Link } from "react-router-dom";
 import styles from "../styles/AllItems.module.css";
+import SelectMenu from "./SelectMenu";
 
 function getLinkStyle({ isActive }) {
   return {
@@ -31,19 +32,6 @@ function AllItems({ pageSize }) {
   const [keyword, setKeyword] = useState("");
 
   const sortedItems = sortItems(items, order);
-
-  const setDropdown = (e) => {
-    if (e.target.parentNode.classList.contains("active")) {
-      e.target.parentNode.classList.remove("active");
-    } else {
-      e.target.parentNode.classList.add("active");
-    }
-  };
-  const handleSelect = (order, e) => {
-    e.target.parentNode.parentNode.classList.remove("active");
-    e.target.parentNode.previousSibling.innerHTML = e.target.textContent;
-    setOrder(order);
-  };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -75,51 +63,24 @@ function AllItems({ pageSize }) {
     <>
       <div className={styles.allitemContainer}>
         <div className={styles.allitemTitle}>
-          <h2 className={styles.allitemTitleContent}>전체 상품</h2>
-          <div className={styles.allitemTitleForm}>
-            <div className={styles.allitemTitleFormSearch}>
-              <span className={styles.allitemTitleFormSearchImage}></span>
-              <form onSubmit={handleSearchSubmit}>
-                <input
-                  type="text"
-                  name="keyword"
-                  className={styles.allitemTitleFormSearchInput}
-                  placeholder="검색할 상품을 입력해주세요"
-                />
-              </form>
-            </div>
-            <Link to="/additem" className={styles.allitemTitleFormButton}>
-              상품 등록하기
-            </Link>
-            {/*<select name="sort-item" id="sort-item" onChange={handleSelect}>*/}
-            {/*    <option value="recent">최신순</option>*/}
-            {/*    <option value="favorite">좋아요순</option>*/}
-            {/*</select>*/}
-            <div className={styles.allitemTitleSelectBox}>
-              <button
-                className={styles.label}
-                onClick={(e) => {
-                  setDropdown(e);
-                }}
-              >
-                최신순
-              </button>
-              <ul className={styles.optionList}>
-                <li
-                  className={styles.optionItem}
-                  onClick={(e) => handleSelect("recent", e)}
-                >
-                  최신순
-                </li>
-                <li
-                  className={styles.optionItem}
-                  onClick={(e) => handleSelect("favorite", e)}
-                >
-                  좋아요순
-                </li>
-              </ul>
-            </div>
+          <h2 className={styles.allitemTitleContent}>
+            {window.innerWidth < 1199 ? "판매 중인 상품" : "전체 상품"}
+          </h2>
+          <div className={styles.allitemTitleFormSearch}>
+            <span className={styles.allitemTitleFormSearchImage}></span>
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                type="text"
+                name="keyword"
+                className={styles.allitemTitleFormSearchInput}
+                placeholder="검색할 상품을 입력해주세요"
+              />
+            </form>
           </div>
+          <Link to="/additem" className={styles.allitemTitleFormButton}>
+            상품 등록하기
+          </Link>
+          <SelectMenu className={styles.SelectBox} setOrder={setOrder} />
         </div>
         <div>
           <Products className={allItemsListStyles} items={sortedItems} />

@@ -14,18 +14,14 @@ const INITIAL_VALUES = {
 function Tags({ onChange }) {
   const [tags, setTags] = useState([]);
   const removeTags = (targetIndex) => {
-    // 태그를 삭제하는 메소드
     const filteredTags = tags.filter((el, index) => index !== targetIndex);
     onChange("tags", filteredTags);
-    setTags((prevTags) => [...prevTags, ...filteredTags]);
+    setTags(filteredTags);
   };
 
   const addTags = (e) => {
-    // tags 배열에 새로운 태그를 추가하는 메소드
     const inputVal = e.target.value;
-    // 이미 입력되어 있는 태그인지 검사하여 이미 있는 태그라면 추가하지 말기
-    // 아무것도 입력하지 않은 채 Enter 키 입력시 메소드 실행하지 말기
-    // 태그가 추가되면 input 창 비우기
+
     if (e.key === "Enter" && inputVal !== "" && !tags.includes(inputVal)) {
       setTags((prevTags) => [...prevTags, inputVal]);
       onChange("tags", tags);

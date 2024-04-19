@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   padding-block: 24px 12px;
 }
 
@@ -14,12 +15,8 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
-}
-
-.allitemTitleForm {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  max-width: 600px;
+  flex-grow: 3;
 }
 
 .allitemTitleFormSearch {
@@ -65,93 +62,6 @@
   color: var(--button-font-color);
   text-decoration: none;
   flex-shrink: 0;
-}
-
-.allitemTitleSelectBox * {
-  box-sizing: border-box;
-}
-.allitemTitleSelectBox {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 130px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid var(--cool-gray-100);
-  padding: 12px 10px;
-  background-size: 20px;
-  cursor: pointer;
-}
-
-.allitemTitleSelectBox:after {
-  content: "";
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  position: relative;
-  right: 10px;
-  background-image: url("../assets/images/itemsPage/dropdown-cursor.svg");
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 8px;
-  background-size: 14px;
-}
-
-.allitemTitleSelectBox .label {
-  display: flex;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  align-items: center;
-  width: inherit;
-  height: inherit;
-  border: 0 none;
-  outline: 0 none;
-  padding-left: 10px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.allitemTitleSelectBox .optionList {
-  position: absolute;
-  top: 45px;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  list-style-type: none;
-  padding: 0;
-  /*border: 1px solid var(--cool-gray-100);*/
-  border-radius: 12px;
-  overflow: hidden;
-  max-height: 0;
-  transition: 0.3s ease-in;
-}
-
-.allitemTitleSelectBox.active .optionList {
-  max-height: 500px;
-}
-
-.allitemTitleSelectBox .optionItem {
-  display: flex;
-  justify-content: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  border: 1px solid var(--cool-gray-100);
-  padding-block: 9px;
-  transition: 0.1s;
-}
-
-.allitemTitleSelectBox .optionItem:hover {
-  background: rgb(175, 93, 93);
-}
-
-.allitemTitleSelectBox .optionItem:last-child {
-  border-bottom: 0 none;
 }
 
 .allitemList {
@@ -206,6 +116,10 @@
   .allitemList {
     grid-template: repeat(2, 301px) / repeat(3, 221px);
   }
+
+  .allitemTitleFormSearch {
+    width: 242px;
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
@@ -230,16 +144,24 @@
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
 
-  .allitemTitleFormSearch {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 1;
+  .allitemListItemImage {
+    width: 168px;
+    height: 168px;
   }
-  .allitemTitleFormButton {
+
+  .allitemTitleFormSearch {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
   }
-  .allitemTitleSelectBox {
+  .allitemTitleFormButton {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .SelectBox {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
+    width: 42px;
+    height: 42px;
+    background-image: url("../assets/images/itemsPage/selectBox.svg");
   }
 }

@@ -76,6 +76,7 @@
   display: flex;
   gap: 10px;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .tag {
@@ -118,4 +119,16 @@
   padding-block-start: 20px;
   resize: none;
   height: 200px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .addItemForm {
+    width: 696px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .addItemForm {
+    width: 344px;
+  }
 }

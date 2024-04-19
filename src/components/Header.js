@@ -12,7 +12,7 @@ function HeaderLogo() {
   return (
     <div>
       <div className={styles.headerLogo}>
-        <span className="header-container__logo--svg">
+        <span className={styles.headerLogoImage}>
           <svg
             width="40"
             height="41"

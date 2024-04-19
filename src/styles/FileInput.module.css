@@ -50,3 +50,27 @@
   right: 5px;
   top: 5px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .imagePreview {
+    width: 162px;
+    height: 162px;
+  }
+
+  .imageAddButton {
+    width: 162px;
+    height: 162px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .imagePreview {
+    width: 168px;
+    height: 168px;
+  }
+
+  .imageAddButton {
+    width: 168px;
+    height: 168px;
+  }
+}
