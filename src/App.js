@@ -1,4 +1,4 @@
-import { GetItems } from "./GetItems";
+import { GetAllItems } from "./GetAllItems";
 import { GetBestItems } from "./GetBestItems";
 import { useEffect, useState } from "react";
 import "./App.css";
@@ -8,20 +8,25 @@ import SearchItem from "./SearchItem";
 import EnterItem from "./EnterItem";
 import ItemsBest from "./ItemsBest";
 import DropdownSort from "./DropdownSort";
+import ArrowDown from "./images/ic_arrow_down.svg";
+import PagiNationBar from "./PagiNationBar";
+
+const PAGESIZE = 10;
 
 function App() {
   const [order, setOrder] = useState("recent");
   const [items, setItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [pageNum, setPageNum] = useState([]);
 
   const handleSortOption = (option) => {
     setOrder(option);
     setShowDropdown(false);
   };
 
-  const handleLoad = async (orderQuery) => {
-    const { list } = await GetItems(orderQuery);
+  const handleLoad = async (options) => {
+    const { list } = await GetAllItems(options);
     setItems(list);
   };
 
@@ -30,9 +35,14 @@ function App() {
     setBestItems(list);
   };
 
+  const handleLoadPage = (NumOfPage) => {
+    handleLoad({ order, pageNum: NumOfPage, pageSize: PAGESIZE });
+    setPageNum(NumOfPage);
+  };
+
   useEffect(() => {
-    handleLoad(order);
-  }, [order]);
+    handleLoad({ order, pageNum: 1, pageSize: PAGESIZE });
+  }, [order, pageNum]);
 
   useEffect(() => {
     handleLoadBest();
@@ -59,6 +69,15 @@ function App() {
               <div className="dropdown-box">
                 <button className="dropdown-button" onClick={toggleDropdown}>
                   {order === "recent" ? "최신순" : "좋아요순"}
+                  <img
+                    className={
+                      showDropdown
+                        ? "arrow-down-image reverse"
+                        : "arrow-down-image"
+                    }
+                    src={ArrowDown}
+                    alt="▼"
+                  />
                 </button>
                 {showDropdown && (
                   <DropdownSort handleSortOption={handleSortOption} />
@@ -67,6 +86,7 @@ function App() {
             </div>
           </div>
           <ItemsAll items={items} />
+          <PagiNationBar handlePageNum={handleLoadPage} />
         </section>
       </main>
     </>

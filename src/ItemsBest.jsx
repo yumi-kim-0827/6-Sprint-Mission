@@ -1,6 +1,6 @@
 import "./Items.css";
 import heart from "./images/ic_heart.png";
-import { FormatCurrency } from "./FormatCurrency";
+import { FormatCurrencyWon } from "./FormatCurrencyWon";
 
 function ItemsBestItem({ item }) {
   return (
@@ -10,7 +10,7 @@ function ItemsBestItem({ item }) {
       </div>
       <div className="description-box">
         <p className="item-name">{item.name}</p>
-        <p className="item-price">{FormatCurrency(item.price)}</p>
+        <p className="item-price">{FormatCurrencyWon(item.price)}</p>
         <div className="likes-box">
           <a>
             <img src={heart} alt="like-button" />
