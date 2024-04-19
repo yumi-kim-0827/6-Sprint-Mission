@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../components/ItemList";
-import { Desktop, Mobile, Tablet } from "../common/responsive";
 import { SearchText } from "../components/SearchText";
 import { SmallButton } from "../components/SmallButton";
-import { DropDown } from "../components/DropDown";
+import { Select } from "../components/Select";
 import { useResponsive } from "../hooks/useResponsive";
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -18,7 +17,11 @@ export function ItemPage (){
     page : 1
   });
   const [isPopDropdown, setPopState] = useState(false);
-  
+  const sortOptions = [
+    { value: "recent", name: "최신순" },
+    { value: "favorite", name: "좋아요순" },
+  ];
+
   const handlePop = (e) => {
     let {name, value} = e.target;
 
@@ -62,7 +65,7 @@ export function ItemPage (){
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onSubmit={handleSearch} onChange={handleInputChange} className="section-item__search"/>
             <Link to="/additem"><SmallButton className="section-item__btn">상품 등록하기</SmallButton></Link>
-            <DropDown isShow={isPopDropdown} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></DropDown>
+            <Select isShow={isPopDropdown} selectOptions={sortOptions} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></Select>
           </header>
           <div className="section-content">
             {isPC && <ItemList order={values.order} size="10" keyword={values.search} page={values.page}/>}
