@@ -15,10 +15,7 @@ export const BestItemList = () => {
       setIsLoading(true);
       const newItems = await getDatum(options);
       const newBestItems = newItems.list.slice(0, 4);
-      setItems(newBestItems);
-      if (options.offset === 0) {
-        setItems();
-      }
+      options.offset === 0 ? setItems() : setItems(newBestItems);
     } catch (error) {
       setIsError(error);
     } finally {
