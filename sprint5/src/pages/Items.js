@@ -67,7 +67,7 @@ function Items() {
 
   useEffect(() => {
     handleLoad(page, limit, order, keyword);
-  }, [page, limit, order, keyword]);
+  }, [page, limit, order]);
 
   useEffect(() => {
     handleLoadBestItems();

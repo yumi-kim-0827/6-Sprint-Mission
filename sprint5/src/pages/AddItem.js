@@ -17,10 +17,7 @@ function AddItem() {
   const [image, setImage] = useState(null);
 
   const isButtonActive =
-    values.productName &&
-    values.description &&
-    values.price &&
-    values.currentTag;
+    values.productName && values.description && values.price && tags.length > 0;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
