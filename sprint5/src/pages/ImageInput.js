@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./AddItem";
-import "./ImageInput.css";
+import "../styles/ImageInput.css";
 import imageDeleteIcon from "../assets/imageFile_x.svg";
 import imageAddIcon from "../assets/imageFile_+.svg";
 
