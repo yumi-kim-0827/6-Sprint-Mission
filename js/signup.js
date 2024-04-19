@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".login__form");
   const emailInput = loginForm.querySelector("#login__input-email");
   const usernameInput = loginForm.querySelector("#login__input-username");
+  const passwordVisibilityToggle = document.querySelector("#password-icon");
+  const passwordCheckVisibilityToggle = document.querySelector(
+    "#password-check-icon"
+  );
   const passwordInput = loginForm.querySelector("#login__input-password");
   const passwordCheckInput = loginForm.querySelector(
     "#login__input-password-check"
@@ -27,6 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
   passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
   passwordCheckInput.addEventListener("focus", clearPasswordCheckError);
   loginButton.addEventListener("click", moveToSignin);
+  passwordVisibilityToggle.addEventListener("click", function () {
+    togglePasswordVisibility(passwordInput, passwordVisibilityToggle);
+  });
+  passwordCheckVisibilityToggle.addEventListener("click", function () {
+    togglePasswordVisibility(passwordCheckInput, passwordCheckVisibilityToggle);
+  });
 
   // 유효성 검사 함수
   function validateEmail() {
@@ -166,5 +176,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function moveToSignin() {
     window.location.href = "/signin";
+  }
+
+  function togglePasswordVisibility(inputField, toggleButton) {
+    const type =
+      inputField.getAttribute("type") === "password" ? "text" : "password";
+    inputField.setAttribute("type", type);
+
+    if (type === "password") {
+      toggleButton.src = "img/btn_visibility_off.png";
+    } else {
+      toggleButton.src = "img/btn_visibility_on.png";
+    }
   }
 });

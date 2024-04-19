@@ -51,7 +51,8 @@
   outline: 2px solid #3692ff;
 }
 
-#password-icon {
+#password-icon,
+#password-check-icon {
   position: absolute;
   top: 50px;
   right: 24px;

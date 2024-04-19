@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".login__form");
   const emailInput = loginForm.querySelector("#login__input-email");
+  const passwordVisibilityToggle = document.querySelector("#password-icon");
   const passwordInput = loginForm.querySelector("#login__input-password");
   const loginButton = loginForm.querySelector(".login__submit");
 
@@ -17,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
   passwordInput.addEventListener("focusout", validatePassword);
   passwordInput.addEventListener("focus", clearPasswordError);
   loginButton.addEventListener("click", moveToItems);
+  passwordVisibilityToggle.addEventListener("click", function () {
+    togglePasswordVisibility(passwordInput, passwordVisibilityToggle);
+  });
 
   // 유효성 검사 함수
   function validateEmail() {
@@ -104,5 +108,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function moveToItems() {
     window.location.href = "/items";
+  }
+
+  function togglePasswordVisibility(inputField, toggleButton) {
+    const type =
+      inputField.getAttribute("type") === "password" ? "text" : "password";
+    inputField.setAttribute("type", type);
+
+    if (type === "password") {
+      toggleButton.src = "img/btn_visibility_off.png";
+    } else {
+      toggleButton.src = "img/btn_visibility_on.png";
+    }
   }
 });
