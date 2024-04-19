@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { getProducts } from "../../api";
-import Button from "../../components/Button/Button";
+import LinkButton from "../../components/Button/LinkButton";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import SelectBox from "../../components/SelectBox/SelectBox";
 import ProductItem from "../../components/ProductItem/ProductItem";
@@ -110,7 +110,7 @@ const Market = () => {
               placeholder="검색할 상품을 입력해주세요"
               onSubmit={handleSubmit}
             />
-            <Button to="/additem">상품 등록하기</Button>
+            <LinkButton to="/additem">상품 등록하기</LinkButton>
             <SelectBox
               text={sortKeyword}
               onOptionClick={handleSelectOptionClick}
