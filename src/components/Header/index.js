@@ -7,7 +7,7 @@ function Header() {
   const navigationList = Object.values(PAGES);
 
   const location = useLocation();
-  const isThisPage = (link) => {
+  const isCurrentPage = (link) => {
     return location.pathname === link;
   };
 
@@ -33,7 +33,7 @@ function Header() {
                 navName && (
                   <li
                     className={`header-menu-item ${
-                      isThisPage(link) && "selected"
+                      isCurrentPage(link) && "selected"
                     }`}
                     key={link}
                   >
