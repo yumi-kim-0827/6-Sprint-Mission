@@ -121,6 +121,10 @@
   margin-bottom: 24px;
 }
 
+.login__submit:disabled {
+  background-color: var(--gray400);
+}
+
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .login__logo {

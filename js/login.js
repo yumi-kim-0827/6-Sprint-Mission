@@ -2,16 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".login__form");
   const emailInput = loginForm.querySelector("#login__input-email");
   const passwordInput = loginForm.querySelector("#login__input-password");
+  const loginButton = loginForm.querySelector(".login__submit");
 
   // 에러 상태 표시 여부 저장 변수
   let emailErrorDisplayed = false;
   let passwordErrorDisplayed = false;
+
+  // 초기설정
+  loginButton.disabled = true;
 
   // 이벤트 리스너 추가
   emailInput.addEventListener("focusout", validateEmail);
   emailInput.addEventListener("focus", clearEmailError);
   passwordInput.addEventListener("focusout", validatePassword);
   passwordInput.addEventListener("focus", clearPasswordError);
+  loginButton.addEventListener("click", moveToItems);
 
   // 유효성 검사 함수
   function validateEmail() {
@@ -27,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       clearError(emailInput);
       emailErrorDisplayed = false;
     }
+
+    toggleLoginButton();
   }
 
   function validatePassword() {
@@ -42,6 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
       clearError(passwordInput);
       passwordErrorDisplayed = false;
     }
+
+    toggleLoginButton();
   }
 
   // 유틸리티 함수
@@ -80,5 +89,13 @@ document.addEventListener("DOMContentLoaded", function () {
       clearError(passwordInput);
       passwordErrorDisplayed = false;
     }
+  }
+
+  function toggleLoginButton() {
+    loginButton.disabled = emailErrorDisplayed || passwordErrorDisplayed;
+  }
+
+  function moveToItems() {
+    window.location.href = "/items";
   }
 });
