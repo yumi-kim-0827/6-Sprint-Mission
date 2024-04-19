@@ -1,8 +1,8 @@
-import { Axios } from "./Axios";
+import { instance } from "./Axios";
 
 export const getProducts = async () => {
   try {
-    const response = await Axios.get("/products", {
+    const response = await instance.get("/products", {
       headers: {
         "Content-Type": "application/json",
       },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import BestProduct from "./BestProduct";
@@ -21,12 +21,7 @@ const Product = () => {
         const data = await getProducts();
         if (data && data.list) {
           const originalProducts = data.list;
-          const sortedBestProducts = originalProducts
-            .slice()
-            .sort((a, b) => b.favoriteCount - a.favoriteCount)
-            .slice(0, bestProductsCount);
           setProducts(originalProducts);
-          setBestProducts(sortedBestProducts);
         } else {
           console.error("데이터를 받아오지 못했습니다.");
         }
@@ -35,28 +30,46 @@ const Product = () => {
       }
     };
     fetchProducts();
-  }, [bestProductsCount]);
+  }, []);
+
+  const sortedBestProducts = useMemo(
+    () =>
+      products
+        .slice()
+        .sort((a, b) => b.favoriteCount - a.favoriteCount)
+        .slice(0, bestProductsCount),
+    [products, bestProductsCount]
+  );
 
   useEffect(() => {
+    setBestProducts(sortedBestProducts);
+  }, [sortedBestProducts]);
+
+  useEffect(() => {
+    let debounceTimer;
+
     const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      if (screenWidth <= 767) {
-        setBestProductsCount(1);
-        setTotalProductsCount(4);
-      } else if (screenWidth <= 1200) {
-        setBestProductsCount(2);
-        setTotalProductsCount(6);
-      } else {
-        setBestProductsCount(4);
-        setTotalProductsCount(10);
-      }
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 767) {
+          setBestProductsCount(1);
+          setTotalProductsCount(4);
+        } else if (screenWidth <= 1200) {
+          setBestProductsCount(2);
+          setTotalProductsCount(6);
+        } else {
+          setBestProductsCount(4);
+          setTotalProductsCount(10);
+        }
+      }, 300);
     };
 
-    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      clearTimeout(debounceTimer);
     };
   }, []);
 
@@ -68,16 +81,25 @@ const Product = () => {
     setSortOrder(order);
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchProduct.toLowerCase())
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product) =>
+        product.name.toLowerCase().includes(searchProduct.toLowerCase())
+      ),
+    [products, searchProduct]
   );
 
-  const sortedProducts =
-    sortOrder === "newest"
-      ? filteredProducts.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        )
-      : filteredProducts.sort((a, b) => b.favoriteCount - a.favoriteCount);
+  const sortedProducts = useMemo(() => {
+    if (sortOrder === "newest") {
+      return [...filteredProducts].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    } else {
+      return [...filteredProducts].sort(
+        (a, b) => b.favoriteCount - a.favoriteCount
+      );
+    }
+  }, [sortOrder, filteredProducts]);
 
   return (
     <ProductContainer>

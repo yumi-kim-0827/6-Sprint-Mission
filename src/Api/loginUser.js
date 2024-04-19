@@ -1,8 +1,8 @@
-import { Axios } from "./Axios";
+import { instance } from "./Axios";
 
 export const LoginUser = async (data) => {
   try {
-    const response = await Axios.post("/auth/signIn", JSON.stringify(data), {
+    const response = await instance.post("/auth/signIn", JSON.stringify(data), {
       headers: {
         "Content-Type": "application/json",
       },
