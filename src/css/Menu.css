@@ -1,0 +1,10 @@
+.menu {
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--gray600);
+}
+
+.menu.blue {
+  color: var(--blue);
+}

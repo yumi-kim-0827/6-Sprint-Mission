@@ -1,0 +1,21 @@
+.pagination-button {
+  width: 40px;
+  height: 40px;
+
+  color: var(--gray500);
+  font-size: 16px;
+  font-weight: 600;
+
+  background-color: var(--white);
+
+  border-radius: 40px;
+  border: 1px solid var(--gray200);
+
+  cursor: pointer;
+}
+
+.pagination-button--selected {
+  color: var(--white);
+  background-color: #2f80ed;
+  border: none;
+}

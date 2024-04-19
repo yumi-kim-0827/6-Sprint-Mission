@@ -1,0 +1,33 @@
+.best-items__name-tag {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray900);
+  line-height: 28px;
+}
+
+.best-items__layout {
+  margin-top: 16px;
+
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.best-items__img-container {
+  width: 282px;
+  height: 282px;
+}
+
+@media (max-width: 1200px) {
+  .best-items__img-container {
+    width: 336px;
+    height: 336px;
+  }
+}
+
+@media (max-width: 743px) {
+  .best-items__img-container {
+    width: 343px;
+    height: 343px;
+  }
+}

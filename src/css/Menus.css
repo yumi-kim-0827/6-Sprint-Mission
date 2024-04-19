@@ -1,0 +1,12 @@
+.menus__menu {
+  margin-right: 40px;
+}
+
+/* //로고에서 48 36 16 */
+
+/*애매한점: 어디까지가 태블릿 사이즈냐, ipad mini는? */
+@media (max-width: 743px) {
+  .menus__menu {
+    margin-right: 8px;
+  }
+}
