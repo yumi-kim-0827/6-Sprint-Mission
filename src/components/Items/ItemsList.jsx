@@ -52,7 +52,7 @@ const ItemsList = () => {
     };
   }, []);
 
-  // DisplaySize State가 변할 때 마다 itemsPerPage를 변경해서 API 재호출
+  // DisplaySize State가 변할 때 마다 itemsPerPage를 변경해서 API 호출
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
     setCurrentPage(1);
