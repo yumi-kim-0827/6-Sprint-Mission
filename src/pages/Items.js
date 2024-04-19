@@ -3,7 +3,7 @@ import "./Items.css";
 import ShowBestProducts from "../components/ShowBestProducts";
 import ShowProducts from "../components/ShowProducts";
 import PageButton from "../components/PageButton";
-import { getProduct, getBestProduct } from "../components/common/api";
+import { getProduct, getBestProduct } from "../api";
 import debounce from "../components/common/debounce";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const [bestProducts, setBestProducts] = useState([]);
   const [selectValue, setSelectValue] = useState("최신순");
   const [totalCount, setTotalCount] = useState();
+  const [bestItemPage, setBestItemPage] = useState(4);
   const [width, setWidth] = useState();
   const [order, setOrder] = useState({
     orderBy: "recent",
@@ -31,8 +32,8 @@ function App() {
     const value = e.target.value;
     setSelectValue(value);
     value === "좋아요순"
-      ? setOrder((prevOrder) => ({ ...prevOrder, orderBy: "favorite" }))
-      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: "recent" }));
+      ? setOrder((prevOrder) => ({ ...prevOrder, orderBy: "favorite", page: 1 }))
+      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: "recent", page: 1 }));
   }
 
   const getSelectValue = (value) => {
@@ -78,26 +79,27 @@ function App() {
 
   const handleResize = debounce(() => {
     setWidth(window.innerWidth);
-  }, 200);
+  }, 50);
 
   useEffect(() => {
     const pageSize = handlePageSize(width);
     setOrder((prevOrder) => ({ ...prevOrder, pageSize }));
+    setOrder((prevOrder) => ({ ...prevOrder, page: 1 }));
   }, [width]);
-
-  useEffect(() => {
-    handleLoad(order);
-  }, [order]);
 
   useEffect(() => {
     handleBestLoad();
     getTotalCount();
-    setWidth(window.innerWidth);
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    handleLoad(order);
+  }, [order]);
 
   return (
     <div className="App">
