@@ -8,7 +8,7 @@ import LoginIcon from "../../assets/icon-login.svg";
 export default function Nav() {
   const isLogin = useContext(LoginContext);
   const { pathname } = useLocation();
-  console.log("path", typeof pathname, pathname);
+
   return (
     <>
       <header>

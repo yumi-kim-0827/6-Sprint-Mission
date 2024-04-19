@@ -1,41 +1,14 @@
 import styles from "./ProductSubmitButton.module.css";
-import skeleton from "../../assets/bg-img-skeleton.svg";
 import { createFormData } from "../../utils/createFormData";
+import { initialFormState } from "../../utils/initialFormState";
+import { useValidation } from "../../hooks/useValidation";
 
-const SubmitButton = ({
-  isButtonEnabled,
-  productName,
-  productDescription,
-  price,
-  tags,
-  file,
-  setFile,
-  setPreview,
-  setPrice,
-  setProductDescription,
-  setProductName,
-  setTags,
-}) => {
-  const formInit = () => {
-    setProductName("");
-    setProductDescription("");
-    setPrice("");
-    setTags([]);
-    setFile(null);
-    setPreview(skeleton);
-  };
-
-  const propsForCreateFormData = {
-    productName,
-    productDescription,
-    price,
-    tags,
-    file,
-  };
+const SubmitButton = ({ values, setValues }) => {
+  const isButtonEnabled = useValidation(values);
 
   const handleSubmit = () => {
-    createFormData({ ...propsForCreateFormData });
-    formInit();
+    createFormData({ ...values });
+    setValues(initialFormState);
   };
 
   return (
@@ -44,7 +17,7 @@ const SubmitButton = ({
       <button
         className={styles.btn}
         onClick={handleSubmit}
-        disabled={isButtonEnabled}
+        disabled={!isButtonEnabled}
       >
         등록
       </button>

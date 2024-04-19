@@ -18,6 +18,7 @@ export default function NavOnSaleProducts() {
   const handleSortOrderClick = e => {
     setSortOrder(e.target.textContent);
   };
+
   return (
     <>
       <div className="nav-onSaleProducts">

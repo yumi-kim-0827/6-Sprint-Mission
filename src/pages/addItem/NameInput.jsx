@@ -1,7 +1,8 @@
 import styles from "./AddItem.module.css";
 import { PLACEHOLDER } from "../../utils/placeholder";
+import { handleInputChange } from "../../utils/handleInputChange";
 
-const NameInput = ({ handleInputChange, productName }) => {
+const NameInput = ({ values: { productName }, setValues }) => {
   return (
     <div>
       <p className={styles.titleForms}>상품명</p>
@@ -9,9 +10,7 @@ const NameInput = ({ handleInputChange, productName }) => {
         type="text"
         name="productName"
         placeholder={PLACEHOLDER.productName}
-        onChange={e => {
-          handleInputChange(e);
-        }}
+        onChange={handleInputChange(setValues)}
         value={productName}
       />
     </div>

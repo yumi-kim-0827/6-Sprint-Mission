@@ -2,10 +2,10 @@ import { PLACEHOLDER } from "../../utils/placeholder";
 import styles from "./TagInput.module.css";
 import addItemStyles from "./AddItem.module.css";
 
-const TagInput = ({ tags, setTags }) => {
+const TagInput = ({ values: { tags }, setValues }) => {
   const handleTagDeleteClick = targetTagValue => {
     const newTags = tags.filter(tag => tag !== targetTagValue);
-    setTags(newTags);
+    setValues(prev => ({ ...prev, tags: newTags }));
   };
 
   const handleTagChange = e => {
@@ -16,7 +16,7 @@ const TagInput = ({ tags, setTags }) => {
       const newTag = e.target.value.trim();
 
       if (!tags.includes(newTag)) {
-        setTags([...tags, newTag]);
+        setValues(prev => ({ ...prev, tags: [...prev.tags, newTag] }));
       }
       e.target.value = "";
     }
