@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CustomButton = styled.button`
+const Button = styled.button`
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
@@ -10,9 +10,5 @@ const CustomButton = styled.button`
   border: none;
   cursor: pointer;
 `;
-
-function Button({ children, type }) {
-  return <CustomButton type={type}>{children}</CustomButton>;
-}
 
 export default Button;

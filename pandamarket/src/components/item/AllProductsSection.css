@@ -59,6 +59,11 @@
     width: 294px;
     height: 42px;
   }
+
+  .tool-container {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
 }
 
 /* tablet*/

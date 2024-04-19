@@ -9,13 +9,13 @@ export default function PageNation() {
   return (
     <div className="pageNation">
       <PageNationButton>
-        <img src={arrowLeft} />
+        <img src={arrowLeft} alt="leftPage" />
       </PageNationButton>
       {list.map((index, i) => (
         <PageNationButton key={i}>{index}</PageNationButton>
       ))}
       <PageNationButton>
-        <img src={arrowRight} />
+        <img src={arrowRight} alt="rightPage" />
       </PageNationButton>
     </div>
   );

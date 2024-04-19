@@ -1,6 +1,6 @@
 import React from "react";
 
-const nomalStyle = {
+const normalStyle = {
   width: "40px",
   height: "40px",
   borderRadius: "40px",
@@ -12,13 +12,13 @@ const nomalStyle = {
   color: "#6b7280",
 };
 
-const selectStyle = {
-  ...nomalStyle,
-  backgroundColor: "#2F80ED",
-  color: "#ffffff",
-  border: "none",
-};
+// const selectStyle = {
+//   ...normalStyle,
+//   backgroundColor: "#2F80ED",
+//   color: "#ffffff",
+//   border: "none",
+// };
 
 export default function PageNationButton({ children }) {
-  return <button style={nomalStyle}>{children}</button>;
+  return <button style={normalStyle}>{children}</button>;
 }
