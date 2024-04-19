@@ -2,8 +2,6 @@ import "../styles/BestList.css";
 import heart from "../imgs/heart.svg";
 
 const BestList = ({ items }) => {
-  console.log(items);
-  console.log([...items]);
   const topList = [...items].sort(
     (a, b) => b["favoriteCount"] - a["favoriteCount"]
   );

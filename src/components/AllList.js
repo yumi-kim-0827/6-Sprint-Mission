@@ -2,7 +2,9 @@ import "../styles/AllList.css";
 import vetor from "../imgs/vector.svg";
 import heart from "../imgs/heart.svg";
 
-const AllList = ({ items }) => {
+const AllList = ({ items, onClick }) => {
+  const handlerNewOrder = (e) => onClick(e.target.value);
+
   return (
     <section>
       <div className="allList">
@@ -13,9 +15,9 @@ const AllList = ({ items }) => {
             <input type="text" placeholder="검색할 상품을 입력해주세요" />
           </div>
           <button>상품 등록하기</button>
-          <select className="select_tool">
-            <option>최신순</option>
-            <option>좋아요순</option>
+          <select className="select_tool" onClick={handlerNewOrder}>
+            <option value="id">최신순</option>
+            <option value="favoriteCount">좋아요순</option>
           </select>
         </div>
       </div>

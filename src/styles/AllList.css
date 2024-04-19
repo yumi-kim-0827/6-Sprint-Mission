@@ -24,6 +24,7 @@
 
 .input_tool {
   display: flex;
+  align-items: center;
   width: 325px;
   background-color: var(--cool_gray);
   padding: 9px 20px 9px 16px;
@@ -38,6 +39,12 @@
   font-weight: 400px;
   line-height: 24px;
   color: #1f2937;
+  outline: none;
+}
+
+.input_tool img {
+  width: 16px;
+  height: 16px;
 }
 
 .allList_tools button {

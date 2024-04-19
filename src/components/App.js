@@ -7,6 +7,9 @@ import Nav from "./Nav";
 
 const App = () => {
   const [pandaList, setPandaList] = useState([]);
+  const [order, setOrder] = useState("id");
+  const sortedList = pandaList.sort((a, b) => b[order] - a[order]);
+  console.log(pandaList);
 
   const handleLoad = async () => {
     const { list } = await getMarketList();
@@ -22,7 +25,7 @@ const App = () => {
       <Nav />
       <div className="itemPage">
         <BestList items={pandaList} />
-        <AllList items={pandaList} />
+        <AllList items={sortedList} onClick={setOrder} />
       </div>
     </div>
   );
