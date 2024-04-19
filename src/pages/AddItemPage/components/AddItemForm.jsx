@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import FileInput from "./FileInput";
 
 const INITIAL_VALUES = {
   name: "",
   description: "",
-  price: 0,
+  price: null,
   tags: [],
   images: null,
 };
@@ -50,7 +51,7 @@ function AddItemForm() {
       <form onSubmit={handleFormSubmit}>
         <div className="add-item-header">
           <h1>상품 등록하기</h1>
-          <button type="submit" className="btn-primary btn-submit">
+          <button type="submit" className="btn-submit" style={activeFormButton}>
             등록
           </button>
         </div>

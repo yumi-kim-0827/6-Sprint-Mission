@@ -38,6 +38,11 @@
 
     &:focus {
       outline: none;
+      background-color: var(--gray-100);
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 500px var(--gray-100) inset !important;
     }
   }
 }
@@ -56,6 +61,8 @@
   width: 88px;
   height: 42px;
   border-radius: 8px;
+  background-color: var(--gray-400);
+  color: var(--white);
 }
 
 /* File Input */
@@ -94,10 +101,14 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: var(--blue);
+    background-color: var(--gray-400);
     color: var(--white);
     width: 20px;
     height: 20px;
     border-radius: 50%;
+
+    &:hover {
+      background-color: var(--blue);
+    }
   }
 }
