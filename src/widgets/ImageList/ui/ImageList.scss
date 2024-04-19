@@ -1,0 +1,59 @@
+.ImageList {
+  &__file-input {
+    display: none;
+  }
+  &__subtitle {
+    font-size: 18px;
+  }
+  &__FileInput {
+    position: relative;
+    width: fit-content;
+    width: 282px;
+    height: 282px;
+    background: #f3f4f6;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  &__placeholder {
+    width: 48px;
+    height: 48px;
+  }
+  &__plus {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    bottom: 50%;
+    &-message {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: #9ca3af;
+    }
+  }
+}
+
+@media (width<=767px) {
+  .ImageList {
+    &__subtitle {
+      font-size: 14px;
+    }
+    &__file-input {
+      width: 168px;
+      height: 168px;
+    }
+  }
+}
+
+@media (768px<=width<=1199px) {
+  .ImageList {
+    &__file-input {
+      width: 162px;
+      height: 162px;
+    }
+  }
+}
