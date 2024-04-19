@@ -4,16 +4,24 @@ import ImageInput from "./ImageInput";
 import "./AddItem.css";
 
 function AddItem() {
-  const [productName, setProductName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [tag, setTag] = useState("");
+  const [values, setValues] = useState({
+    productName: "",
+    description: "",
+    price: 0,
+    tag: "",
+  });
+
   const [image, setImage] = useState(null);
 
-  const isButtonActive = productName && description && price && tag;
+  const isButtonActive =
+    values.productName && values.description && values.price && values.tag;
 
-  const valueChange = (setter) => (e) => {
-    setter(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   };
 
   const handleImageChange = (file) => {
@@ -39,23 +47,31 @@ function AddItem() {
       <div className="formInput">
         <label>상품명</label>
         <input
+          name="productName"
+          value={values.productName}
           placeholder="상품명을 입력해주세요"
-          onChange={valueChange(setProductName)}
+          onChange={handleChange}
         />
         <label>상품 소개</label>
         <textarea
+          name="description"
+          value={values.description}
           placeholder="상품 소개를 입력해주세요"
-          onChange={valueChange(setDescription)}
+          onChange={handleChange}
         />
         <label>판매가격</label>
         <input
+          name="price"
+          value={values.price}
           placeholder="판매 가격을 입력해주세요"
-          onChange={valueChange(setPrice)}
+          onChange={handleChange}
         />
         <label>태그</label>
         <input
+          name="tag"
+          value={values.tag}
           placeholder="태그를 입력해주세요"
-          onChange={valueChange(setTag)}
+          onChange={handleChange}
         />
       </div>
     </form>
