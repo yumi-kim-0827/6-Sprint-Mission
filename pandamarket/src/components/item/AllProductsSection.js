@@ -3,6 +3,7 @@ import Button from "../Button";
 import "../item/AllProductsSection.css";
 import ProductCard from "./ProductCard";
 import { getProductsInfo } from "./api";
+import { Link } from "react-router-dom";
 
 function AllProductsSection({ size }) {
   const [allProducts, setAllProducts] = useState([]);
@@ -66,7 +67,9 @@ function AllProductsSection({ size }) {
             placeholder="검색할 상품을 입력해주세요"
             name="keyword"
           ></input>
-          <Button>상품등록하기</Button>
+          <Link to="/additem">
+            <Button>상품등록하기</Button>
+          </Link>
           <DropDown />
         </div>
       </div>
