@@ -16,8 +16,8 @@ export function ImageList() {
     setImages((prevImages) => [...prevImages, newFile]);
   };
 
-  const handleDelete = () => {
-    setImages([]);
+  const handleDelete = (src) => {
+    setImages((prevImages) => prevImages.filter((v) => v !== src));
   };
 
   return (

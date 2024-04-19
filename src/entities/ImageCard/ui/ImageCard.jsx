@@ -15,7 +15,12 @@ export function ImageCard({ src, onClick, className }) {
     <>
       <div className={`${className}`}>
         <img src={src} className={`${className} ImageCard__image`} />
-        <button onClick={onClick} className="ImageCard__cancel">
+        <button
+          onClick={() => {
+            onClick(src);
+          }}
+          className="ImageCard__cancel"
+        >
           <img src={xIcon} />
         </button>
       </div>
