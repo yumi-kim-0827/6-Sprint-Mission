@@ -1,27 +1,18 @@
-export async function getProducts(order = 'recent', page = 1) {
-  try {
-    let query = `orderBy = ${order}`;
-    if (order !== 'recent' && order !== 'favorite') {
-      query = `keywords = ${order}`;
-    }
-    const response = await fetch(
-      `https://panda-market-api.vercel.app/products?page=${page}&pageSize=10&${query}`
-    );
-    const data = response.json();
-    return data;
-  } catch (error) {
-    console.log(`${error} : error`);
-  }
-}
+export async function getProducts(params = {}) {
+  // URLSearchParams을 이용하면 파라미터 값을 자동으로 쉽게 인코딩할 수 있어요.
+  const query = new URLSearchParams(params).toString();
 
-export async function getBestProduct() {
   try {
     const response = await fetch(
-      `https://panda-market-api.vercel.app/products/?orderBy=favorite`
+      `https://panda-market-api.vercel.app/products?${query}`
     );
-    const data = response.json();
-    return data;
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const body = await response.json();
+    return body;
   } catch (error) {
-    console.log(`${error} : error`);
+    console.error('Failed to fetch products:', error);
+    throw error;
   }
 }
