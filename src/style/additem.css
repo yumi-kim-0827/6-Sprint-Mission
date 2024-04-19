@@ -1,0 +1,106 @@
+.item-container {
+    width: 1200px;
+    margin: auto;
+    padding-top: 17px;
+}
+
+p {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+div input {
+    background-color: #F3F4F6;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 16px 24px;
+    width: 100%;
+    border: none;
+}
+
+textarea {
+    background-color: #F3F4F6;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 16px 24px;
+    width: 100%;
+    border: none;
+    height: 200px;
+}
+
+.add-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-header p {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.add-header button {
+    background-color: #9ea4a8;
+    border-radius: 8px;
+    color: white;
+    height: 42px;
+    width: 88px;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.filled {
+    background-color: #3692FF !important;
+}
+
+
+.flexrow {
+    display: flex;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.margin-bottom10 {
+    margin-bottom: 10px;
+}
+
+.add-img {
+    text-align: center;
+    background-color: #F3F4F6;
+    width: 282px;
+    height: 282px;
+    margin-right: 10px;
+    border-radius: 12px;
+}
+
+.input-img-btn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.handleImage {
+    width: 282px;
+    height: 282px;
+    border-radius: 12px;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
