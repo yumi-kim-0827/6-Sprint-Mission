@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".login__form");
   const emailInput = loginForm.querySelector("#login__input-email");
+  const passwordInput = loginForm.querySelector("#login__input-password");
 
   // 에러 상태 표시 여부 저장 변수
   let emailErrorDisplayed = false;
+  let passwordErrorDisplayed = false;
 
   // 이벤트 리스너 추가
   emailInput.addEventListener("focusout", validateEmail);
   emailInput.addEventListener("focus", clearEmailError);
+  passwordInput.addEventListener("focusout", validatePassword);
+  passwordInput.addEventListener("focus", clearPasswordError);
 
   // 유효성 검사 함수
   function validateEmail() {
@@ -22,6 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       clearError(emailInput);
       emailErrorDisplayed = false;
+    }
+  }
+
+  function validatePassword() {
+    const password = passwordInput.value.trim();
+
+    if (password === "") {
+      showError(passwordInput, "비밀번호를 입력해주세요");
+      passwordErrorDisplayed = true;
+    } else if (password.length < 8) {
+      showError(passwordInput, "비밀번호를 8자 이상 입력해주세요");
+      passwordErrorDisplayed = true;
+    } else {
+      clearError(passwordInput);
+      passwordErrorDisplayed = false;
     }
   }
 
@@ -53,6 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (emailErrorDisplayed) {
       clearError(emailInput);
       emailErrorDisplayed = false;
+    }
+  }
+
+  function clearPasswordError() {
+    if (passwordErrorDisplayed) {
+      clearError(passwordInput);
+      passwordErrorDisplayed = false;
     }
   }
 });
