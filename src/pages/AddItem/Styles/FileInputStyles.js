@@ -21,6 +21,16 @@ export const IconContainer = styled.div`
   height: 282px;
   border-radius: 12px;
   background-color: var(--input-background-color);
+
+  @media ${props => props.theme.mobile} {
+    width: 162px;
+    height: 162px;
+  }
+
+  @media ${props => props.theme.tablet} {
+    width: 162px;
+    height: 162px;
+  }
 `;
 
 export const Text = styled.p`
@@ -39,6 +49,16 @@ export const ImagePreviewContainer = styled.div`
   position: relative;
   width: 282px;
   height: 282px;
+
+  @media ${props => props.theme.mobile} {
+    width: 162px;
+    height: 162px;
+  }
+
+  @media ${props => props.theme.tablet} {
+    width: 162px;
+    height: 162px;
+  }
 `;
 
 export const ImagePreview = styled.img`
