@@ -6,6 +6,7 @@ import sortIcon from '../assets/ic_sort.svg'
 import DropdownList from './DropdownList';
 import ProductCard from './ProductCard';
 import { getProducts } from '../data/api';
+import Pagination from './Pagination';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -21,10 +22,11 @@ function AllProducts() {
   const [pageSize, setPageSize] = useState(1);
   const [productList, setProductList] = useState([]);
   
-  const fetchSortedData = async ({orderBy, page, pageSize}) => {
-    const products = await getProducts({ orderBy, page, pageSize});
+  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+    const products = await getProducts({ orderBy, page, pageSize });
     setProductList(products.list);
-  }
+    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+  };
 
   const handleSortSelect = (sortOption) => {
     setOrderBy(sortOption);
@@ -52,6 +54,12 @@ function AllProducts() {
   };
 
   // pagination
+  const [totalPageNum, setTotalPageNum] = useState();
+
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
+
   return (
     <div>
       <div>
@@ -78,6 +86,14 @@ function AllProducts() {
         {productList?.map((item) => (
           <ProductCard item={item} key={`merket_item_${item.id}`} />
         ))}
+      </div>
+
+      <div>
+        <Pagination
+          totalPageNum={totalPageNum}
+          activePageNum={page}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   )
