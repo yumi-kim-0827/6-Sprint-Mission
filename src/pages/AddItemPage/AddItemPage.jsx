@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FileInput from "./FileInput";
 import "./AddItemPage.css";
 
@@ -10,6 +10,18 @@ function AddItemPage() {
     tag: "",
     imgFile: null,
   });
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const isValid =
+      values.title !== "" &&
+      values.content !== "" &&
+      values.price !== "" &&
+      values.tag !== "" &&
+      values.imgFile !== null;
+
+    setIsFormValid(isValid);
+  }, [values]);
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
@@ -32,7 +44,13 @@ function AddItemPage() {
     <form className="AddItemForm" onSubmit={handleSubmit}>
       <div className="AddItemHeader">
         <h1>상품 등록하기</h1>
-        <button type="submit">등록</button>
+        <button
+          type="submit"
+          style={{ backgroundColor: isFormValid ? "#3692FF" : "" }}
+          disabled={!isFormValid}
+        >
+          등록
+        </button>
       </div>
       <div className="AddItemWrapper">
         <h2>상품 이미지</h2>
