@@ -33,7 +33,13 @@ function FileInput({ name, value, onChange }) {
       <label for="file">
         + <br /> 이미지 등록
       </label>
-      <input type="file" id="file" onChange={handleChange} ref={inputRef} />
+      <input
+        className="input-img"
+        type="file"
+        id="file"
+        onChange={handleChange}
+        ref={inputRef}
+      />
       {previewImg && (
         <div className="img-preview">
           <img src={previewImg} />

@@ -74,7 +74,7 @@ function AddItemForm() {
         </div>
         <div className="add-item-description">
           <h2>상품 소개</h2>
-          <input
+          <textarea
             name="description"
             value={values.description}
             onChange={handleInputChange}
