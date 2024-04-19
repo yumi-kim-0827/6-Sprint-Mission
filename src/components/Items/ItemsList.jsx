@@ -33,13 +33,6 @@ const ItemsList = () => {
       }
     })();
 
-    const loadData = async () => {
-      const newData = await getData();
-      setData(newData.list);
-      setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
-    };
-    loadData();
-
     // window.innerWidth에 따라서 displaySize, itemsPerPage state 변경
     const resizeHandler = () => {
       if (window.innerWidth < 1199 && window.innerWidth > 768) {
