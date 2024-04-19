@@ -6,7 +6,7 @@ function ProductsListItem({ item }) {
     <div className="ProductsListItem">
       <img className="ProductsListItem-img" src={item.images} alt={item.name} />
       <div>
-        <h1>{item.name}</h1>
+        <h2>{item.name}</h2>
         <p>{item.price}</p>
         <p>{item.favoriteCount}</p>
       </div>
