@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
 // AddItemPage.js
+export const Wrapper = styled.form`
+  width: 1200px;
+  margin: 24px auto 170px;
+
+  @media ${props => props.theme.mobile} {
+    width: 344px;
+  }
+
+  @media ${props => props.theme.tablet} {
+    width: 696px;
+  }
+`;
+
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
@@ -12,6 +25,11 @@ export const HeaderTitle = styled.p`
   font-weight: 700;
   line-height: 33.41px;
   color: var(--main-text-color);
+  
+  @media ${props => props.theme.mobile} {
+    font-size: 20px;
+    line-height: 23.87px;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -34,11 +52,6 @@ export const Main = styled.div`
   flex-direction: column;
   gap: 24px;
   margin-bottom: 12px;
-`;
-
-export const Wrapper = styled.form`
-  width: 1200px;
-  margin: 24px auto 170px;
 `;
 
 export const Input = styled.input`
@@ -66,9 +79,14 @@ export const Textarea = styled.textarea`
 `;
 
 export const Title = styled.p`
-font-size: 18px;
-font-weight: 700;
-line-height: 21.48px;
-color: var(--main-text-color);
-margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.48px;
+  color: var(--main-text-color);
+  margin-bottom: 12px;
+  
+  @media ${props => props.theme.mobile} {
+    font-size: 14px;
+    line-height: 16.71px;
+  }
 `;
