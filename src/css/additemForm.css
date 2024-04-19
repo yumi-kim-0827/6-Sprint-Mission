@@ -164,6 +164,10 @@
 }
 
 @media (min-width: 375px) and (max-width: 768px) {
+  .additem-header h1 {
+    font-size: 2rem;
+  }
+
   .image-input-content {
     gap: 0.8rem;
     height: 16.8rem;
