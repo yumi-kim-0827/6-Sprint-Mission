@@ -37,9 +37,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
   };
 
   // input 입력할 때마다 새로운 값 반영하기
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
+  const handleChange = (name, value) => {
     if (name === "price") {
       // 숫자와 콤마(,)만을 허용 (문자열 입력 못하게)
       const numericValue = value.replace(/[^0-9,]/g, "");
@@ -58,6 +56,11 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
         [name]: value,
       }));
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = async (e) => {
@@ -102,7 +105,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
           name="title"
           value={values.title}
           placeholder="상품명을 입력해주세요"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <h4>상품 소개</h4>
         <textarea
@@ -110,7 +113,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
           name="content"
           value={values.content}
           placeholder="상품 소개를 입력해주세요"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
 
         <h4>판매가격</h4>
@@ -119,7 +122,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
           name="price"
           value={values.price}
           placeholder="판매 가격을 입력해주세요"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
 
         <h4>태그</h4>

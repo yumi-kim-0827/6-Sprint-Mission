@@ -5,7 +5,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
   const [preview, setPreview] = useState(initialPreview);
   const inputRef = useRef();
 
-  const handleChange = (e) => {
+  const handleImgChange = (e) => {
     const nextValue = e.target.files[0];
     onChange(name, nextValue);
   };
@@ -40,7 +40,8 @@ function FileInput({ name, value, initialPreview, onChange }) {
     <div className={styles.fileinput}>
       <div className={styles["fileinput-preview-container"]}>
         <img
-          className={styles["fileinput-preview", preview ? "selected" : ""]}
+          name={name}
+          className={styles[`"fileinput-preview" ${preview ? "selected" : ""}`]}
           src={preview || "/assets/icon_placeholder.png"}
           alt="이미지 미리보기"
           onClick={handleImageClick}
@@ -50,7 +51,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
         className={styles["fileinput-hidden-overlay"]}
         type="file"
         accept="image/png, image/jpeg"
-        onChange={handleChange}
+        onChange={handleImgChange}
         ref={inputRef}
       />
       {value && (
