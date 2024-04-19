@@ -19,7 +19,6 @@ const UploadImage = () => {
 
   const isFormValid = () => {
     return (
-      productImage &&
       productName.trim() &&
       productIntroduction.trim() &&
       productPrice.trim() &&
@@ -51,7 +50,7 @@ const UploadImage = () => {
             id='image-upload'
           />
           <label htmlFor='image-upload' className='image-upload-label'>
-            {productImage ? '이미지 변경' : '이미지 등록'}
+            {productImage ? '이미지 등록' : '이미지 등록'}
           </label>
         </div>
       </div>
