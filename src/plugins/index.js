@@ -9,11 +9,9 @@ const viewport = new Map(Object.entries({
 	["Mobile@Min"]: 375, ["Mobile@Max"]: 768 - 1, ["Tablet@Min"]: 768, ["Tablet@Max"]: 1200 - 1, ["PC@Min"]: 1200, ["PC@FHD"]: 1920,
 }));
 
-if (/localhost/.test(window.location))
+if (/localhost/.test(window.location) && true)
 {
 	let index = viewport.size - 1;
-
-	console.log(viewport)
 
 	switch (window.opener)
 	{

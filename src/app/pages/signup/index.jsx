@@ -1,10 +1,10 @@
-import "./index.scss";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import 한글 from "utilities/한글";
+import 한글 from "@/utilities/한글";
 
-import Link from "app/widgets/Link";
-import AuthForm from "app/widgets/AuthForm";
-import ThirdParty from "app/widgets/ThirdParty";
+import Link from "@/app/widgets/design/Link";
+import AuthForm from "@/app/widgets/design/AuthForm";
+import ThirdParty from "@/app/widgets/design/ThirdParty";
 
 const fields = {
 	"email": { type: "email", alt: "이메일", pattern: "[^@\\s]+@[^@\\s]+\\.[^@\\s]+", autocomeplete: "email", placeholder: "이메일을 입력해주세요" },
@@ -89,7 +89,7 @@ fields["confirm-password"].validators = [
 	}
 ];
 
-export default function SignUpPage({ })
+export default function SignUpPage({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
 	const hooks = new Map(Object.entries(
 	{
@@ -97,10 +97,10 @@ export default function SignUpPage({ })
 	}));
 
 	return (
-		<section data-widget={SignUpPage.name}>
+		<section {...widget(SignUpPage.name, { id, style, classes })}>
 			<header>
 				<Link href="/">
-					<img src={require("assets/icons/logo_full.svg").default} alt="판다마켓"/>
+					<img src={require("@/assets/icons/logo_full.svg").default} alt="판다마켓"/>
 				</Link>
 			</header>
 			<main>

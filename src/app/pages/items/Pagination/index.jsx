@@ -1,8 +1,6 @@
-import React from "react";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import "./index.scss";
-
-export default function Pagination({ index, length, onPaging })
+export default function Pagination({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ index, length, onPaging })
 {
 	const [page, set_page] = React.useState(index);
 
@@ -68,9 +66,9 @@ export default function Pagination({ index, length, onPaging })
 	}
 
 	return (
-		<section data-widget={Pagination.name}>
+		<section {...widget(Pagination.name, { id, style, classes })}>
 			<div class="page" onClick={(event) => $.prev()}>
-				<img src={require("assets/icons/arrow_left.svg").default}/>
+				<img src={require("@/assets/icons/arrow_left.svg").default}/>
 			</div>
 			{length && new Array(length).fill(null).map((_, index, array) =>
 			{
@@ -81,7 +79,7 @@ export default function Pagination({ index, length, onPaging })
 				);
 			})}
 			<div class="page" onClick={(event) => $.next()}>
-				<img src={require("assets/icons/arrow_right.svg").default}/>
+				<img src={require("@/assets/icons/arrow_right.svg").default}/>
 			</div>
 		</section>
 	);

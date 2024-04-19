@@ -3,8 +3,12 @@
 	{
 		"paths":
 		{
-			"*": ["src/*"]
+			"@/*": ["./src/*"]
 		},
-		"baseUrl": "src"
-	}
+		"baseUrl": "."
+	},
+	"exclude":
+	[
+		"/node_modules"
+	]
 }

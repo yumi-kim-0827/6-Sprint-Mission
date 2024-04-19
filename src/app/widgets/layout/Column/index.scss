@@ -1,0 +1,20 @@
+[data-widget="Column"]
+{
+	display: flex;
+	/* axis */
+	&.top-to-bottom
+	{
+		flex-direction: column;
+	}
+	&.bottom-to-top
+	{
+		flex-direction: column-reverse;
+	}
+
+	> *
+	{
+		text-wrap: nowrap;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}
