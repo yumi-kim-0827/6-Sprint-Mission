@@ -33,7 +33,7 @@ function BestItems() {
 
   return (
     <div className="best-item-container">
-      <h1>베스트 상품</h1>
+      <h1 className="container-title">베스트 상품</h1>
       <div className="best-item-list">
         {itemList?.map((item) => (
           <ItemCard item={item} key={`best-item-${item.id}`} />

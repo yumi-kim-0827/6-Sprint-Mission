@@ -54,21 +54,27 @@ function AllItems() {
   return (
     <div className="all-item-container">
       <div className="all-item-header">
-        <h1>전체 상품</h1>
-        <div className="input-item-search">
-          <input placeholder="검색할 상품을 입력해주세요" />
-        </div>
-        <Link to="/additem" className="btn-primary">
-          상품 등록하기
-        </Link>
-        <div className="btn-item-sort">
-          <button onClick={toggleDropdown}>최신순</button>
-          {isOrderDrop && (
-            <ul>
-              <li onClick={() => handleSortSelection("recent")}>최신순</li>
-              <li onClick={() => handleSortSelection("favorite")}>좋아요순</li>
-            </ul>
-          )}
+        <h1 className="container-title">전체 상품</h1>
+        <div className="item-sidebar">
+          <div className="input-search">
+            <input placeholder="검색할 상품을 입력해주세요" />
+          </div>
+          <Link to="/additem" className="btn-primary btn-add">
+            상품 등록하기
+          </Link>
+          <div>
+            <button className="btn-sort" onClick={toggleDropdown}>
+              최신순
+            </button>
+            {isOrderDrop && (
+              <ul className="btn-sort-list">
+                <li onClick={() => handleSortSelection("recent")}>최신순</li>
+                <li onClick={() => handleSortSelection("favorite")}>
+                  좋아요순
+                </li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
 

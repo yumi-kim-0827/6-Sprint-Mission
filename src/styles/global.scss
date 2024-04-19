@@ -25,6 +25,7 @@
 
 body {
   font-family: "Pretendard", sans-serif;
+  margin-top: 70px;
 }
 
 button,
@@ -51,6 +52,11 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.page-wrapper {
+  width: 100%;
+  padding: 0 200px;
 }
 
 .btn-primary {
