@@ -24,11 +24,8 @@ export default function ProductForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid: formIsValid },
+    formState: { errors, isValid },
   } = useForm();
-
-  // 모든 유효성을 만족하고 이미지를 제거해버리면 등록이 되어버려 useForm의 유효성을 수정하였습니다.
-  const isValid = formIsValid && previewImage !== null;
 
   // 태그를 위한 함수입니다.
   const handleTagInput = (e) => {
@@ -68,7 +65,11 @@ export default function ProductForm() {
 
   // * onSubmit테스트 코드입니다.
   const onSubmit = (data) => {
-    console.log("로그인 데이터입니다", { ...data, tags: tagState.tags });
+    console.log("로그인 데이터입니다", {
+      ...data,
+      tags: tagState.tags,
+      previewImage,
+    });
   };
 
   return (
@@ -93,15 +94,11 @@ export default function ProductForm() {
           <input
             type="file"
             id="image"
-            {...register("image", {
-              required: formErrorMessage.required,
-            })}
             name="image"
             placeholder="이미지를 업로드해주세요"
             accept="image/*"
             className="hidden"
             onChange={handleImageChange}
-            required
           />
           <label
             htmlFor="image"
@@ -127,9 +124,6 @@ export default function ProductForm() {
             </div>
           )}
         </div>
-        {errors.image && (
-          <p className="mt-1 text-sm text-red-500">{errors.image.message}</p>
-        )}
       </div>
       <div className="mt-6 flex flex-col">
         <label htmlFor="productName" className="text-sm font-bold sm:text-lg">
