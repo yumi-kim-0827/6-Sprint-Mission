@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Items/ItemsList.css";
+
+import { getData } from "../../apis/apis.js";
 
 import SearchBox from "./SearchBox.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
-import { getData } from "../../apis/apis.js";
 import Pagenation from "../Pagenation.jsx";
 import { formatCurrency } from "../../utils/utils.js";
 
@@ -17,7 +19,6 @@ const ItemsList = () => {
   const [displaySize, setDisplaySize] = useState("desktop");
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  // 데이터 로드
   useEffect(() => {
     // 데이터가 처음 로드될 때 브라우저 사이즈를 체크해서 스테이트 변경
     (function () {
@@ -102,7 +103,9 @@ const ItemsList = () => {
         <div className={"ItemsList__menu_bar__right"}>
           <SearchBox />
           <div className="ItemsList__menu_bar__button_wrapper">
-            <Button text={"상품 등록하기"} />
+            <Link to={"additem"}>
+              <Button text={"상품 등록하기"} />
+            </Link>
           </div>
           <DropdownOrder
             order={order}

@@ -3,6 +3,7 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import Items from "./pages/Items";
 import Board from "./pages/Board";
+import AddItem from "./pages/AddItem";
 
 const Main = () => {
   return (
@@ -10,7 +11,10 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path="items" element={<Items />} />
+          <Route path="items">
+            <Route index element={<Items />} />
+            <Route path="additem" element={<AddItem />} />
+          </Route>
           <Route path="board" element={<Board />} />
         </Route>
       </Routes>
