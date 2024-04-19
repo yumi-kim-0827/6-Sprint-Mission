@@ -9,14 +9,14 @@ export default function BestItem({ price, images, favoriteCount, name }) {
     <div className='item'>
       <picture className='item__img__wrap'>
         <source srcSet={images} />
-        <img className='item__img' src={images} alt='' />
+        <img className='item__img' src={images} alt={name} />
       </picture>
 
       <div className='item__description'>
         <p className='item__title'>{name}</p>
         <p className='item__price'>{formattedPrice}원</p>
         <div className='item__heart'>
-          <img className='item__heart__img' src='/imgs/small_grayHeart.webp' alt='' />
+          <img className='item__heart__img' src='/imgs/small_grayHeart.webp' alt='좋아요 하트' />
           <span className='item__heart__count'>{favoriteCount}</span>
         </div>
       </div>
