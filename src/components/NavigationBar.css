@@ -23,19 +23,21 @@ main {
 }
 
 .signin-button {
-  width: 128px;
-  height: 48px;
+  width: 88px;
+  height: 42px;
   background-color: #3692ff;
   border: none;
   color: #ffffff;
   margin-right: 200px;
   border-radius: 10px;
+  text-decoration: none; 
 
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 600;
-  line-height: 19px;
   letter-spacing: 0em;
+  line-height: 42px; /* 높이와 동일하게 설정하여 수직 가운데 정렬 */
+  text-align: center; /* 텍스트를 수평 가운데 정렬 */
 }
 
 .nav-link {
@@ -48,7 +50,13 @@ main {
   line-height: 21.48px;
   text-align: center;
   color: #4b5563;
+  text-decoration: none; 
 }
+.nav-link.active {
+  color: #3692FF; /* 활성화된 링크의 색상 */
+}
+  
+  
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .logo-with-img {

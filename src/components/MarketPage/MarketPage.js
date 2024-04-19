@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import BestProducts from './BestProducts';
 import AllProducts from './AllProducts';
-import "./ItemsPage.css";
+import "./MarketPage.css";
 
 
-function ItemsPage() {
+function MarketPage() {
   const [products, setProducts] = useState({ list: [], totalCount: 0 });
 
   useEffect(() => {
@@ -28,4 +28,4 @@ function ItemsPage() {
   );
 }
 
-export default ItemsPage;
+export default MarketPage;
