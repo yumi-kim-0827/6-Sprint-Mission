@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import HomePage from "./pages/HomePage/HomePage";
-import Nav from "./components/ui/Nav";
+import Header from "./components/Layout/Header";
 
 function App() {
   return (
     <BrowserRouter>
-      <Nav />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="items" element={<ItemPage />} />
