@@ -8,9 +8,7 @@ function AllProductsSection({ size }) {
   const [allProducts, setAllProducts] = useState([]);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  console.log(
-    `페이지 새로 고침발생! 제품:${allProducts.length} 정렬:${order} 검색:${keyword}`
-  );
+
   //페이지 사이즈 확인
   let pageSize = 0;
   if (size.width >= 1200) {
@@ -30,7 +28,7 @@ function AllProductsSection({ size }) {
     const word = e.target.value;
     setKeyword(word);
   };
-  // keyword가 set될때 마다 get요청을 보내서 문
+  // keyword가 set될때 마다 get요청을 보내서 문제
   useEffect(() => {
     handleLoad({ pageSize: pageSize, orderBy: order, keyword: keyword });
   }, [order, pageSize, keyword]);
