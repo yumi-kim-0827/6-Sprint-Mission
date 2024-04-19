@@ -1,4 +1,4 @@
-import { PLACEHOLDER } from "../../utils/placeholder";
+import { PLACEHOLDER } from "../../constants/placeholder";
 import styles from "./AddItem.module.css";
 import { handleInputChange } from "../../utils/handleInputChange";
 

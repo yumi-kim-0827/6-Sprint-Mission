@@ -1,5 +1,5 @@
 import styles from "./AddItem.module.css";
-import { PLACEHOLDER } from "../../utils/placeholder";
+import { PLACEHOLDER } from "../../constants/placeholder";
 import { handleInputChange } from "../../utils/handleInputChange";
 
 const NameInput = ({ values: { productName }, setValues }) => {

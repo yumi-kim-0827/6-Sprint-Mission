@@ -1,4 +1,4 @@
-import { PLACEHOLDER } from "../../utils/placeholder";
+import { PLACEHOLDER } from "../../constants/placeholder";
 import styles from "./TagInput.module.css";
 import addItemStyles from "./AddItem.module.css";
 
