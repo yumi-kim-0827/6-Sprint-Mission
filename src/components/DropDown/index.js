@@ -19,7 +19,7 @@ function DropDown({ options, selectedOption, onOptionClick }) {
         className="dropdown-selected dropdown-button"
         onClick={handleSelectedButtonClick}
       >
-        <p className="dropdown-selected-text">{selectedOption.text}</p>
+        <p className="dropdown-selected-text">{selectedOption.label}</p>
         <img
           className="dropdown-selected-icon"
           src="images/ic_arrow_down.svg"
@@ -34,7 +34,7 @@ function DropDown({ options, selectedOption, onOptionClick }) {
               key={option.id}
               onClick={() => handleOptionButtonClick(option)}
             >
-              {option.text}
+              {option.label}
             </button>
           ))}
         </div>

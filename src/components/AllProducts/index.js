@@ -8,13 +8,13 @@ import "./index.css";
 const ORDERS = [
   {
     id: 0,
-    query: "recent",
-    text: "최신순",
+    orderBy: "recent",
+    label: "최신순",
   },
   {
     id: 1,
-    query: "favorite",
-    text: "좋아요순",
+    orderBy: "favorite",
+    label: "좋아요순",
   },
 ];
 
@@ -33,7 +33,7 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    loadProducts(order.query);
+    loadProducts(order.orderBy);
   }, [order]);
 
   return (
