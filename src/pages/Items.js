@@ -1,6 +1,4 @@
-import RankedItems from "../components/RankedItems";
-import AllItemsList from "../components/AllItemsList";
-import Navbar from "../components/Navbar";
+import { AllItemsList, Navbar, RankedItems } from "../components";
 
 // 데이터를 react-query를 이용하여 동일한 데이터의 재접근 속도를 높였습니다.
 export default function Items() {

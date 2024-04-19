@@ -1,5 +1,6 @@
-import { create } from "zustand";
 import { useEffect } from "react";
+import { create } from "zustand";
+
 import useDeviceSize from "../utils/useDeviceSize";
 
 // 페이지 변경 시 동적으로 상품 개수들을 바꾸는 것이

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import closeTagIcon from "../images/ic_X.png";
-import deletePreviewImageIcon from "../images/ic_X_preview_image.png";
+
+import { closeTagIcon, deletePreviewImageIcon } from "../images";
 
 // form내 에러메시지를 객체로 관리하였습니다.
 const formErrorMessage = {

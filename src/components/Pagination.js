@@ -1,8 +1,6 @@
+import { arrowLeft, arrowRight } from "../images";
 import paginationStore from "../store/paginationStore";
 import { useProductCountStore } from "../store/productCountStore";
-
-import arrowleft from "../images/arrow_left.png";
-import arrowright from "../images/arrow_right.png";
 
 function PageButton({ onClick, children }) {
   return (
@@ -30,7 +28,7 @@ export default function Pagination({ datatotalCount }) {
   return (
     <div className="mt-10 flex justify-center gap-x-1">
       <PageButton>
-        <img src={arrowleft} alt="arrowleft" />
+        <img src={arrowLeft} alt="arrowleft" />
       </PageButton>
       {lastPage >= 0 &&
         new Array(lastPage).fill().map((_, idx) => {
@@ -41,7 +39,7 @@ export default function Pagination({ datatotalCount }) {
           );
         })}
       <PageButton>
-        <img src={arrowright} alt="arrowright" />
+        <img src={arrowRight} alt="arrowright" />
       </PageButton>
     </div>
   );

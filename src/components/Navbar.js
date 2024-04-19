@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-import pandalogo from "../images/panda_logo.png";
+import { pandaLogo } from "../images";
 
 export default function Navbar() {
   const location = useLocation();
@@ -12,7 +12,7 @@ export default function Navbar() {
           <li>
             <NavLink to="/" className="flex items-center">
               <img
-                src={pandalogo}
+                src={pandaLogo}
                 alt="pandalogo"
                 className="hidden sm:block"
               />
