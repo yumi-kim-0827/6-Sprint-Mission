@@ -4,10 +4,13 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import MarketPage from './pages/MarketPage/MarketPage';
 import AddItemPage from './pages/AddItemPage/AddItemPage';
 import CommunityFeedPage from './pages/CommunityFeedPage/CommunityFeedPage';
+import Header from './components/Layout/Header';
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
+
       <div>
         <Routes>
           <Route index element={<HomePage />} />
