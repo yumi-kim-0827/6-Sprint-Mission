@@ -1,7 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './style/Header.css';
 
 export default function Header() {
+  const location = useLocation();
+  const isItemsActive = location.pathname.startsWith('/items') || location.pathname === '/additem';
+
   return (
     <div className='Header'>
       <div className='Header__menu'>
@@ -18,11 +21,9 @@ export default function Header() {
           )}
         </NavLink>
         <NavLink to='/items'>
-          {({ isActive }) => (
-            <button className='Header__flea-market' style={{ color: isActive ? '#3692FF' : '#4B5563' }}>
-              중고마켓
-            </button>
-          )}
+          <button className='Header__flea-market' style={{ color: isItemsActive ? '#3692FF' : '#4B5563' }}>
+            중고마켓
+          </button>
         </NavLink>
       </div>
       <button className='Header__login-btn'>로그인</button>
