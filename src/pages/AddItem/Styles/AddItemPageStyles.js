@@ -33,6 +33,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 12px;
 `;
 
 export const Wrapper = styled.form`

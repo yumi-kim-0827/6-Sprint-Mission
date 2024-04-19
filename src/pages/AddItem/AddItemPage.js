@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FileInput from "./FileInput";
+import Tag from "./Tag";
 import * as S from "./Styles/AddItemPageStyles";
 
 function AddItemPage(props) {
@@ -10,6 +11,7 @@ function AddItemPage(props) {
     price: "",
     tag: "",
   });
+  const [tags, setTags] = useState([]);
 
   const handleChange = (name, value) => {
     setValue((prev) => ({ ...prev, [name]: value }));
@@ -30,11 +32,23 @@ function AddItemPage(props) {
     );
   };
 
+  // Tags
+  const AddTags = (e) => {
+    const inputValue = e.target.value;
+
+    if (e.key === "Enter" && inputValue !== "" && !tags.includes(inputValue)) {
+      setTags([...tags, inputValue]);
+      e.target.value = "";
+    }
+  };
+
   return (
     <S.Wrapper>
       <S.Header>
         <S.HeaderTitle>상품 등록하기</S.HeaderTitle>
-        <S.SubmitButton type="button" disabled={isFormValid()} >등록</S.SubmitButton>
+        <S.SubmitButton type="button" disabled={isFormValid()}>
+          등록
+        </S.SubmitButton>
       </S.Header>
       <S.Main>
         <div>
@@ -79,9 +93,11 @@ function AddItemPage(props) {
             name="tag"
             placeholder="태그를 입력해주세요."
             onChange={handleInputChange}
+            onKeyUp={(e) => AddTags(e)}
           />
         </div>
       </S.Main>
+      <Tag tags={tags} setTags={setTags} />
     </S.Wrapper>
   );
 }
