@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".login__form");
   const emailInput = loginForm.querySelector("#login__input-email");
+  const usernameInput = loginForm.querySelector("#login__input-username");
   const passwordInput = loginForm.querySelector("#login__input-password");
   const loginButton = loginForm.querySelector(".login__submit");
 
   // 에러 상태 표시 여부 저장 변수
   let emailErrorDisplayed = false;
+  let usernameErrorDisplayed = false;
   let passwordErrorDisplayed = false;
 
   // 초기설정
@@ -14,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // 이벤트 리스너 추가
   emailInput.addEventListener("focusout", validateEmail);
   emailInput.addEventListener("focus", clearEmailError);
+  usernameInput.addEventListener("focusout", validateUsername);
+  usernameInput.addEventListener("focus", clearUsernameError);
   passwordInput.addEventListener("focusout", validatePassword);
   passwordInput.addEventListener("focus", clearPasswordError);
   loginButton.addEventListener("click", moveToItems);
@@ -53,6 +57,19 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleLoginButton();
   }
 
+  function validateUsername() {
+    const username = usernameInput.value.trim();
+
+    if (username === "") {
+      showError(usernameInput, "닉네임을 입력해주세요");
+    } else {
+      clearError(usernameInput);
+      usernameErrorDisplayed = false;
+    }
+
+    toggleLoginButton();
+  }
+
   // 유틸리티 함수
   function validateEmailFormat(email) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -84,6 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function clearUsernameError() {
+    if (usernameErrorDisplayed) {
+      clearError(usernameInput);
+      usernameErrorDisplayed = false;
+    }
+  }
+
   function clearPasswordError() {
     if (passwordErrorDisplayed) {
       clearError(passwordInput);
@@ -92,7 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleLoginButton() {
-    loginButton.disabled = emailErrorDisplayed || passwordErrorDisplayed;
+    loginButton.disabled =
+      emailErrorDisplayed || passwordErrorDisplayed || usernameErrorDisplayed;
   }
 
   function moveToItems() {
