@@ -1,0 +1,65 @@
+.previewImg {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  float: right;
+  position: absolute;
+  background-size: contain;
+  left: 300px;
+  top: 10px;
+}
+.FileInputForm {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+.inputImg {
+  background: url("../assets/img-registration.png") no-repeat;
+  background-size: cover;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  font-size: 0;
+}
+.cancelButton {
+  position: absolute;
+  background: url("../assets/cancel-icon.png") no-repeat;
+  background-size: cover;
+  width: 22px;
+  height: 24px;
+  top: 20px;
+  left: 550px;
+  border: 0;
+}
+form input::file-selector-button {
+  display: none;
+}
+/*tablet*/
+@media (max-width: 1199px) {
+  .previewImg {
+    width: 162px;
+    height: 162px;
+    left: 180px;
+  }
+  .cancelButton {
+    left: 310px;
+  }
+  .inputImg {
+    width: 162px;
+    height: 162px;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  .previewImg {
+    width: 168px;
+    height: 168px;
+    left: 180px;
+  }
+  .inputImg {
+    width: 168px;
+    height: 168px;
+    left: 16px;
+  }
+}

@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  width: auto;
+  height: auto;
+  font-family: "Pretendard Variable", "Noto Sans KR", sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MarketRegistForm {
+  width: 1200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 90px;
+}
+#registDiv {
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#registButton {
+  width: 88px;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #3692ff;
+  color: white;
+  &:disabled {
+    background-color: #9ca3af;
+  }
+}
+form > h1 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #1f2937;
+}
+form > label {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 16px 0;
+}
+form > input {
+  margin: 12px 0;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+.textInput {
+  width: 100%;
+  height: 56px;
+  padding: 20px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: 0;
+}
+.textInputLong {
+  width: 100%;
+  height: 200px;
+  padding: 16px 20px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: 0;
+}
+.textInputLong::placeholder {
+  position: absolute;
+  top: 25px;
+}
+
+/*tablet*/
+@media (max-width: 1199px) {
+  .MarketRegistForm {
+    width: 696px;
+  }
+  form > label {
+    margin: 8px 0;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  .MarketRegistForm {
+    width: 344px;
+  }
+  form > label {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
