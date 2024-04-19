@@ -7,7 +7,6 @@ import "./Button.scss";
  * @returns blueButton
  */
 export const Button = ({ classNames, value, active = true, onClick }) => {
-  console.log(active);
   return (
     <button
       disabled={!active}

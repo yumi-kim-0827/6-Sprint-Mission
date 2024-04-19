@@ -5,21 +5,20 @@
 // }
 import "./ItemInput.scss";
 
-export function ItemInput({ name, placeHolder, type }) {
+export function ItemInput({ name, placeholder, type, onKeyPress = null }) {
+  const props = onKeyPress
+    ? { name, placeholder, type, onKeyPress }
+    : { name, placeholder, type };
   return (
     <div className="ItemInput__card">
       <h2 className="ItemInput__subtitle">{name}</h2>
       <div>
         {type !== "textarea" ? (
-          <input
-            type={type}
-            placeholder={placeHolder}
-            className="ItemInput ItemInput--small"
-          />
+          <input className="ItemInput ItemInput--small" {...props} />
         ) : (
           <textarea
             className="ItemInput ItemInput--big"
-            placeholder={placeHolder}
+            placeholder={placeholder}
           ></textarea>
         )}
       </div>

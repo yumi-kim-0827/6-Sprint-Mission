@@ -1,11 +1,3 @@
-{
-  /* <ImageCard
-  className="register__image"
-  src={v}
-  key={index}
-  onClick={handleDelete}
-/>; */
-}
 import xIcon from "/src/shared/asset/xicon.png";
 
 import "./ImageCard.scss";
