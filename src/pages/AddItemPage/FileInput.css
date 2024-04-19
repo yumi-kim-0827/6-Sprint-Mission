@@ -1,0 +1,34 @@
+.FileInput {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
+
+.FileinputPreview {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.FileinputHiddenOverlay {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.FileinputClearButton {
+  position: absolute;
+  top: 10px;
+  width: 22px;
+  height: 24px;
+  cursor: pointer;
+}
