@@ -379,7 +379,10 @@ footer {
 
 /* 미디어 쿼리 */
 @media (min-width: 768px) and (max-width: 1199px) {
-
+  main {
+    width: 744px;
+    height: 2000px;
+  }
   
   header {
   width: 744px;
@@ -524,15 +527,49 @@ footer {
 .container3 {
   width: 744px;
   height: 800px;
-  border: 1px solid green;
-  position: relative;
-  top: 1000px;
+  position: absolute;
+  top: 1550px;
+  z-index: 1;
+  left: 0;
   padding: 24px 24px 20px 24px;
+}
+
+.register {
+  width: 67px;
+  height: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  position: absolute;
+  top: 580px;
+  left: 24px;
+}
+
+.main_subtitle_sell {
+  font-size: 32px;
+  width: 420px;
+  height: 45px;
+  font-weight: 700;
+  line-height: 44.8px;
+  position: absolute;
+  top: 615px;
+  left: 24px;
+}
+
+.explanation_p_p {
+  font-size: 18px;
+  width: 270px;
+  height: 44px;
+  font-weight: 500;
+  line-height: 21.6px;
+  position: absolute;
+  top: 690px;
+  left: 24px;
 }
 
 footer {
   position: relative;
-  top: 900px;
+  top: 2000px;
 }
 
 
