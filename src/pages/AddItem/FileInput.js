@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import uploadIcon from "../../assets/plusIcon.svg";
-import backIcon from "../../assets/deleteIcon.svg";
 import * as S from "./Styles/FileInputStyles";
 
 function FileInput({ name, value, onChange }) {
@@ -49,8 +48,6 @@ function FileInput({ name, value, onChange }) {
         <S.ImagePreviewContainer>
           <S.ImagePreview src={preview} alt="이미지 미리보기" />
           <S.DeleteIcon
-            src={backIcon}
-            alt="이미지 삭제하기"
             onClick={handleDelete}
           />
         </S.ImagePreviewContainer>

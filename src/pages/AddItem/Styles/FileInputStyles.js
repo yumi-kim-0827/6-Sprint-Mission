@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as CloseIcon } from "../../../assets/deleteIcon.svg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -46,9 +47,10 @@ export const ImagePreview = styled.img`
   border-radius: 12px;
 `;
 
-export const DeleteIcon = styled.img`
+export const DeleteIcon = styled(CloseIcon)`
   position: absolute;
   top: 8px;
   right: 8px;
   cursor: pointer;
+  fill: var(--main-color);
 `;
