@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import plusIcon from "../image/ic_plus.png";
 import deleteImgButton from "../image/ic_X_for_img.png";
 import deleteTagButton from "../image/ic_X_for_tag.png";
+import "../css/additemForm.css"
 
 const ProductImageInput = ({ value, onChange, onDelete }) => {
   const [preview, setPreview] = useState();
@@ -119,7 +120,6 @@ const AddItemForm = ({ setEnrollButtonDisable }) => {
     values.description &&
     values.price &&
     tags.length;
-  console.log(completeFormCheck);
   if (completeFormCheck) {
     setEnrollButtonDisable(false);
   } else {
