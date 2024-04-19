@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import ItemComp from "./ItemComp";
+import Card from "./Card";
+import "./../css/ListItems.css";
 
-function ListItems({ items }) {
+function ListItems({ items, gridCol }) {
+  const className = `ListItems ${gridCol}`;
   return (
-    <div className="ListItems">
+    <ul className={className}>
       {items &&
         items.map((item) => {
           return (
             <li key={item.id}>
-              <ItemComp item={item} />
+              <Card item={item} />
             </li>
           );
         })}
-    </div>
+    </ul>
   );
 }
 
