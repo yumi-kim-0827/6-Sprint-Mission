@@ -7,8 +7,12 @@ function Header() {
   const navigationList = Object.values(PAGES);
 
   const location = useLocation();
-  const isCurrentPage = (link) => {
-    return location.pathname === link;
+
+  const isCurrentPage = (link, otherNavLinks) => {
+    const currentLink = location.pathname;
+    if (currentLink !== link && otherNavLinks)
+      return otherNavLinks.includes(currentLink);
+    return currentLink === link;
   };
 
   return (
@@ -29,11 +33,11 @@ function Header() {
         <nav className="header-menu">
           <ul className="header-menu-container">
             {navigationList.map(
-              ({ link, navName }) =>
+              ({ link, otherNavLinks, navName }) =>
                 navName && (
                   <li
                     className={`header-menu-item ${
-                      isCurrentPage(link) && "selected"
+                      isCurrentPage(link, otherNavLinks) && "selected"
                     }`}
                     key={link}
                   >

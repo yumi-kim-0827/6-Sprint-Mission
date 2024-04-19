@@ -8,10 +8,11 @@ const PAGES = {
   },
   products: {
     link: "/products",
+    otherNavLinks: ["/addproduct"],
     navName: "중고마켓",
   },
   addProduct: {
-    link: "/addProduct",
+    link: "/addproduct",
   },
 };
 
