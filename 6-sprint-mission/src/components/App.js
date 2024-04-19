@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
-import Header from "./Header.js";
-import ProductList from "./ProductList.js";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "../pages/HomePage/HomePage.js";
+import MarketPage from "../pages/MarketPage/MarketPage.js";
+import AddItemPage from "../pages/AddItemPage/AddItemPage.js";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -25,12 +27,13 @@ function App() {
   }, [order]);
 
   return (
-    <div>
-      <Header />
-      <div>
-        <ProductList items={sortedItems} />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="products" element={<MarketPage />} />
+        <Route path="additem" element={<AddItemPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

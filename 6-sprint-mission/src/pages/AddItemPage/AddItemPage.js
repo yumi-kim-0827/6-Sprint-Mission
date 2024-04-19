@@ -1,0 +1,97 @@
+import { useState } from "react";
+import Header from "../../components/LoginHeader";
+import "./AddItemPage.css";
+import FileInput from "./FileInput";
+import Tag from "./Tag";
+
+function AddItemForm() {
+  const [values, setValues] = useState({
+    imgFile: null,
+    title: "",
+    content: "",
+    price: "",
+    tag: "",
+  });
+
+  const handleChange = (name, value) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("submit~!");
+  };
+
+  return (
+    <div className="AddItemPage">
+      <form onSubmit={handleSubmit}>
+        <div className="AddItemPageHeader">
+          <h1>상품 등록하기</h1>
+          <button className="register-button" type="submit">
+            등록
+          </button>
+        </div>
+
+        <div className="AddItemPageMain">
+          <div className="itemImgFile mainSection">
+            <FileInput
+              name="imgFile"
+              value={values.imgFile}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="itemTitle mainSection">
+            <p>상품명</p>
+            <input
+              name="title"
+              value={values.title}
+              onChange={handleInputChange}
+              placeholder="상품명을 입력해주세요"
+            />
+          </div>
+          <div className="itemContent mainSection">
+            <p>상품 소개</p>
+            <textarea
+              name="content"
+              value={values.content}
+              onChange={handleInputChange}
+              placeholder="상품 소개를 입력해주세요"
+            />
+          </div>
+          <div className="itemPrice mainSection">
+            <p>판매 가격</p>
+            <input
+              name="price"
+              type="number"
+              value={values.price}
+              onChange={handleInputChange}
+              placeholder="판매 가격을 입력해주세요"
+            />
+          </div>
+          <div className="itemTag mainSection">
+            <Tag />
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+function AddItemPage() {
+  return (
+    <>
+      <Header />
+      <AddItemForm />
+    </>
+  );
+}
+
+export default AddItemPage;
