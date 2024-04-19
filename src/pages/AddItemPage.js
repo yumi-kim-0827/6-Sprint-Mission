@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/Button.module.css';
 import styled from 'styled-components';
+import FileInput from '../components/FileInput';
 
 const ListHead = styled.div`
   display: flex;
@@ -29,10 +30,7 @@ const inputStyles = `
 const Input = styled.input`
   ${inputStyles}
 `;
-const FileInput = styled.input`
-  ${inputStyles}
-  width: auto;
-`;
+
 const ContentInput = styled.textarea`
   ${inputStyles}
   min-height: 200px;
@@ -41,17 +39,32 @@ const ContentInput = styled.textarea`
 function AddItemPage() {
   const [values, setValues] = useState({
     title: '',
-    price: 0,
+    price: '',
     content: '',
     tags: '',
+    imgFile: null,
   });
 
-  const handleChage = (e) => {
-    const { name, value } = e.target;
+  // 모든 필수 입력값이 채워졌는지 확인하는 함수
+  const isFormValid = () => {
+    return values.title !== '' && values.price !== 0 && values.content !== '' && values.tags !== '';
+  };
+
+  // 버튼의 활성화 여부에 따라 disabled 상태 조절
+  const buttonDisabled = !isFormValid();
+  const buttonClass = buttonDisabled
+    ? `${styles['btn-primary']} ${styles.roundedSm} ${styles.disabled}`
+    : `${styles['btn-primary']} ${styles.roundedSm}`;
+
+  const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
@@ -73,13 +86,13 @@ function AddItemPage() {
     <form onSubmit={handleSubmit}>
       <ListHead>
         <h2>상품 등록하기</h2>
-        <button type="submit" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
+        <button type="submit" className={buttonClass} disabled={buttonDisabled}>
           등록
         </button>
       </ListHead>
       <InputBox>
         <h4>상품 이미지</h4>
-        <FileInput type="file" />
+        <FileInput value={values.imgFile} name="imgFile" onChange={handleChange} />
       </InputBox>
       <InputBox>
         <h4>상품명</h4>
@@ -88,7 +101,7 @@ function AddItemPage() {
           value={values.title}
           name="title"
           placeholder="상품명을 입력해주세요"
-          onChange={handleChage}
+          onChange={handleInputChange}
         />
       </InputBox>
       <InputBox>
@@ -98,7 +111,7 @@ function AddItemPage() {
           value={values.content}
           name="content"
           placeholder="상품 소개를 입력해주세요"
-          onChange={handleChage}
+          onChange={handleInputChange}
         />
       </InputBox>
       <InputBox>
@@ -108,7 +121,7 @@ function AddItemPage() {
           value={values.price}
           name="price"
           placeholder="판매 가격을 입력해주세요"
-          onChange={handleChage}
+          onChange={handleInputChange}
         />
       </InputBox>
       <InputBox>
@@ -118,7 +131,7 @@ function AddItemPage() {
           value={values.tags}
           name="tags"
           placeholder="태그를 입력해주세요"
-          onChange={handleChage}
+          onChange={handleInputChange}
           onKeyDown={handleEnter}
         />
       </InputBox>

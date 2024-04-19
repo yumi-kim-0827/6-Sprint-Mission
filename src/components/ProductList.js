@@ -89,7 +89,7 @@ function ProductList({ items, className }) {
     <ProductListUl className={className}>
       {items.map((item) => {
         return (
-          <ProductListItemLi key={items.id}>
+          <ProductListItemLi key={item.id}>
             <ProductListItem item={item} />
           </ProductListItemLi>
         );
