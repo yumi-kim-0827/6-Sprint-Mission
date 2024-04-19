@@ -23,7 +23,7 @@ function AllProducts() {
 
   const [order, setOrder] = useState(ORDERS[0]);
 
-  const onOptionClick = (option) => {
+  const onSelectOrderOption = (option) => {
     setOrder(option);
   };
 
@@ -55,7 +55,7 @@ function AllProducts() {
             <DropDown
               options={ORDERS}
               selectedOption={order}
-              onOptionClick={onOptionClick}
+              onSelectOption={onSelectOrderOption}
             />
           </div>
         </div>

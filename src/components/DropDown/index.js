@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./index.css";
 
-function DropDown({ options, selectedOption, onOptionClick }) {
+function DropDown({ options, selectedOption, onSelectOption }) {
   const [optionsVisible, setOptionsVisible] = useState(false);
 
   const handleSelectedButtonClick = () => {
@@ -9,7 +9,7 @@ function DropDown({ options, selectedOption, onOptionClick }) {
   };
 
   const handleOptionButtonClick = (option) => {
-    onOptionClick(option);
+    onSelectOption(option);
     setOptionsVisible(false);
   };
 
