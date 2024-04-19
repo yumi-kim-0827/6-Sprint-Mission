@@ -1,16 +1,49 @@
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import "./index.css";
 
 function AddProductPage() {
+  const [values, setValues] = useState({
+    name: "",
+    introduction: "",
+    price: "",
+  });
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
+  const isFormValid = () => {
+    const valueList = Object.values(values);
+    return !valueList.includes("");
+  };
+
+  useEffect(() => {
+    if (isFormValid()) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [values]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <Header />
       <div className="form-container">
-        <form className="product-form">
+        <form className="product-form" onSubmit={handleSubmit}>
           <div className="product-form-title-wrapper">
             <h1 className="product-form-title">상품 등록하기</h1>
-            <Button>등록</Button>
+            <Button disabled={buttonDisabled}>등록</Button>
           </div>
           <div className="product-form-item">
             <label className="product-form-item-name" htmlFor="image">
@@ -40,6 +73,8 @@ function AddProductPage() {
               id="name"
               name="name"
               placeholder="상품명을 입력해주세요"
+              value={values.name}
+              onChange={handleChange}
             />
           </div>
           <div className="product-form-item">
@@ -51,6 +86,8 @@ function AddProductPage() {
               id="introduction"
               name="introduction"
               placeholder="상품 소개를 입력해주세요"
+              value={values.introduction}
+              onChange={handleChange}
             />
           </div>
           <div className="product-form-item">
@@ -62,6 +99,8 @@ function AddProductPage() {
               id="price"
               name="price"
               placeholder="판매가격을 입력해주세요"
+              value={values.price}
+              onChange={handleChange}
             />
           </div>
           <div className="product-form-item">
