@@ -3,8 +3,6 @@ import FileInput from "../component/Product/FileInput";
 import "../css/Product.css";
 
 /*
-1. 상단 네비 중고마켓 색상 변경
-2. 이미지 제외한 인풋에 모든 값은 입력하면 등록 버튼 활성화
 3. 태그 추가하기
 4. 등록된 태그 삭제하기
 */

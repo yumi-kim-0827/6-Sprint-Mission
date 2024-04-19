@@ -13,14 +13,14 @@ function Header() {
     <div>
       <header>
         <div className="head_area">
-          <Link to="/AddItem" id="logo">
+          <Link to="/" id="logo">
             <img src={LogoImg} alt="로고 이미지" />
           </Link>
           <nav>
             <NavLink to="/Board" style={getLink}>
               자유게시판
             </NavLink>
-            <NavLink to="/" style={getLink} className="active">
+            <NavLink to="/Product" style={getLink}>
               중고마켓
             </NavLink>
           </nav>
