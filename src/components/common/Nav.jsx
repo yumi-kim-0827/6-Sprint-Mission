@@ -22,14 +22,14 @@ export default function Nav() {
           <div className="nav-pages">
             <Link
               to="/board"
-              className={`board-btn ${pathname === "/board" ? "active" : ""}`}
+              className={`board-btn ${pathname === "/board" && "active"}`}
             >
               자유게시판
             </Link>
             <Link
               to="/items"
               className={`items-btn ${
-                pathname === "/additem" || pathname === "/items" ? "active" : ""
+                (pathname === "/additem" || pathname === "/items") && "active"
               }`}
             >
               중고마켓

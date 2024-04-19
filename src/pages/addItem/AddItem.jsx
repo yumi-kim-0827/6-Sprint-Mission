@@ -1,6 +1,6 @@
 import styles from "./AddItem.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { allValid } from "../../utils/allValid";
 import ImageUpload from "./ImageUpload";
 import NameInput from "./NameInput";
@@ -60,17 +60,6 @@ export default function AddItem() {
     setFile,
   };
 
-  const propsForAllValid = useMemo(
-    () => ({
-      setIsButtonEnabled,
-      productName,
-      productDescription,
-      price,
-      tags,
-    }),
-    [setIsButtonEnabled, productName, productDescription, price, tags]
-  );
-
   const propsForInputs = {
     handleInputChange,
     productName,
@@ -85,8 +74,14 @@ export default function AddItem() {
   };
 
   useEffect(() => {
-    allValid({ ...propsForAllValid });
-  }, [propsForAllValid]);
+    allValid({
+      setIsButtonEnabled,
+      productName,
+      productDescription,
+      price,
+      tags,
+    });
+  }, [productName, productDescription, price, tags]);
 
   return (
     <div className={styles.container}>
