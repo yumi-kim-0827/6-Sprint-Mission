@@ -25,28 +25,42 @@ export function ImageList() {
       <div>
         <h2 className="ImageList__subtitle">상품 이미지</h2>
       </div>
-      <div className="ImageList__FileInput">
-        <label htmlFor="fileInput" className="ImageList__plus">
-          <img
-            className="ImageList__placeholder"
-            src={icplus}
-            alt="이미지 등록"
-          />
-          <span className="ImageList__plus-message">이미지 등록</span>
-        </label>
-        <input
-          type="file"
-          className="ImageList__file-input"
-          onChange={handleFileSelect}
-          id="fileInput"
-          ref={fileRef}
-          accept=".png,.jpeg"
-        />
-      </div>
-      {!!images.length &&
-        images.map((v, index) => {
-          return <ImageCard src={v} key={index} onClick={handleDelete} />;
-        })}
+      <ul className="ImageList__list">
+        <li key="title">
+          <label
+            htmlFor="fileInput"
+            className="ImageList__FileInput ImageList__card"
+          >
+            <div className="ImageList__plus">
+              <img
+                className="ImageList__placeholder"
+                src={icplus}
+                alt="이미지 등록"
+              />
+              <span className="ImageList__plus-message">이미지 등록</span>
+            </div>
+            <input
+              type="file"
+              className="ImageList__file-input"
+              onChange={handleFileSelect}
+              id="fileInput"
+              ref={fileRef}
+              accept=".png,.jpeg"
+            />
+          </label>
+        </li>
+        {!!images.length &&
+          images.map((v, index) => {
+            return (
+              <ImageCard
+                src={v}
+                key={index}
+                className="ImageList__card"
+                onClick={handleDelete}
+              />
+            );
+          })}
+      </ul>
     </>
   );
 }
