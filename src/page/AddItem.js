@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { StrictMode, useState } from "react";
 import FileInput from "../component/Product/FileInput";
 import "../css/Product.css";
+import Tags from "../component/Product/Tags";
 
 /*
 3. 태그 추가하기
@@ -13,7 +14,7 @@ function AddItem() {
     itemName: "",
     intro: "",
     price: "",
-    tag: "",
+    tag: null,
   });
 
   //File Input의 value를 가져오기 위해 기존 handleInputChange 함수와 분리
@@ -91,14 +92,9 @@ function AddItem() {
             placeholder="판매 가격을 입력해주세요"
           />
           <h3>태그</h3>
-          <input
-            type="text"
-            value={values.tag}
-            name="tag"
-            id="Tag"
-            onChange={handleInputChange}
-            placeholder="태그를 입력해주세요"
-          />
+          <StrictMode>
+            <Tags name="tag" value={values.tag} onKeyUp={handleChange} />
+          </StrictMode>
         </form>
       </div>
     </div>
