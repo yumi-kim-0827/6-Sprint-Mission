@@ -1,50 +1,30 @@
-import "../styles/NavBar.css";
-import pandaLogoImg from "../assets/images/home-logo.svg";
+import "./../styles/NavBar.css";
 
-import { Link, useLocation } from "react-router-dom";
-
-function Navbar() {
-  const location = useLocation();
-
-  const isActive = (pathname) => {
-    return location.pathname === pathname ? "active-category" : "";
-  };
+function NavBar() {
   return (
     <nav>
       <ul className="nav-ul">
         <div className="logo-category-container">
           <li>
-            <Link to="/" className="logo-container">
-              <img className="logo" src={pandaLogoImg} alt="판다마켓 로고" />
-            </Link>
+            <a href="/">
+              <img className="logo" src="#" alt="판다마켓 로고" />
+            </a>
           </li>
           <div className="nav-category-container">
-            <li>
-              <Link
-                to="/board"
-                className={`nav-category ${isActive("/board")}`}
-              >
-                자유게시판
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/items"
-                className={`nav-category ${isActive("/items")}`}
-              >
-                중고마켓
-              </Link>
-            </li>
+            <a href="comunity">
+              <li>자유게시판</li>
+            </a>
+            <a href="items">
+              <li>중고마켓</li>
+            </a>
           </div>
         </div>
-        <li className="login-btn-container">
-          <Link to="/" className="login-btn">
-            로그인
-          </Link>
-        </li>
+        <a href="login">
+          <li className="login-btn-container">로그인</li>
+        </a>
       </ul>
     </nav>
   );
 }
 
-export default Navbar;
+export default NavBar;
