@@ -21,7 +21,7 @@ export function ImageList() {
   };
 
   return (
-    <>
+    <div className="ImageList">
       <div>
         <h2 className="ImageList__subtitle">상품 이미지</h2>
       </div>
@@ -61,6 +61,6 @@ export function ImageList() {
             );
           })}
       </ul>
-    </>
+    </div>
   );
 }
