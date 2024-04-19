@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../api/product";
+import { getProducts } from "../../api";
 import ProductCard from "../ProductCard";
 import "./index.css";
 
