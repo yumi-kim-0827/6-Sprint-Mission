@@ -1,8 +1,8 @@
 import React from 'react';
 import './style/BestItem.css';
 
-export default function BestItem({ item }) {
-  const { price, images, favoriteCount, name } = item;
+export default function BestItem({ price, images, favoriteCount, name }) {
+  // const { price, images, favoriteCount, name } = item;
   const formattedPrice = price.toLocaleString();
 
   return (

@@ -5,7 +5,6 @@ import ItemForSale from './ItemForSale';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
-import AddItem from '../pages/AddItem';
 
 export default function ItemsForSale({ items }) {
   const [itemsToShow, setItemsToShow] = useState(10);
@@ -82,7 +81,7 @@ export default function ItemsForSale({ items }) {
       </div>
       <section className='items'>
         {filteredItems?.slice(0, itemsToShow).map(item => (
-          <ItemForSale key={item.id} item={item} />
+          <ItemForSale key={item.id} {...item} />
         ))}
       </section>
       <PageButton />
