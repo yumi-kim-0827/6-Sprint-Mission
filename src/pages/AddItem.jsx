@@ -8,7 +8,7 @@ export default function AddItem() {
     imgFile: null,
     name: '',
     description: '',
-    price: 0,
+    price: '',
   });
   const [tagList, setTagList] = useState([]);
 
