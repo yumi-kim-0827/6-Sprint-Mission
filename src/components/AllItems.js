@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../utils/api";
-import { sortItems } from "../../utils/sort";
-import Products from "../Products/Products";
+import { getProducts } from "../api";
+import { sortItems } from "../utils/sort";
+import Products from "./Products";
 import { Link } from "react-router-dom";
-import "./AllItems.css";
-// import Paging from "../Common/Paging";
+import styles from "../styles/AllItems.module.css";
+
+function getLinkStyle({ isActive }) {
+  return {
+    color: isActive ? "#3692FF" : "#000",
+  };
+}
 
 function AllItems({ pageSize }) {
   const allItemsListStyles = {
-    list: "allitem-list",
-    listItem: "allitem-list--item",
+    list: styles.allitemList,
+    listItem: styles.allitemListItem,
     elements: {
-      listItemImg: "allitem-list--item__image",
-      listItemTitle: "allitem-list--item__title",
-      listItemPrice: "allitem-list--item__price",
-      listItemLikeButton: "allitem-list--item__likebutton",
-      listItemLikeCount: "allitem-list--item__likecount",
+      listItemImg: styles.allitemListItemImage,
+      listItemTitle: styles.allitemListItemTitle,
+      listItemPrice: styles.allitemListItemPrice,
+      listItemLikeButton: styles.allitemListItemLikebutton,
+      listItemLikeCount: styles.allitemListItemLikecount,
     },
   };
 
@@ -68,46 +73,46 @@ function AllItems({ pageSize }) {
 
   return (
     <>
-      <div className="allitem-container">
-        <div className="allitem-title">
-          <h2 className="allitem-title__content">전체 상품</h2>
-          <div className="allitem-title__form">
-            <div className="allitem-title__form--search">
-              <span className="allitem-title__form--search_image"></span>
+      <div className={styles.allitemContainer}>
+        <div className={styles.allitemTitle}>
+          <h2 className={styles.allitemTitleContent}>전체 상품</h2>
+          <div className={styles.allitemTitleForm}>
+            <div className={styles.allitemTitleFormSearch}>
+              <span className={styles.allitemTitleFormSearchImage}></span>
               <form onSubmit={handleSearchSubmit}>
                 <input
                   type="text"
                   name="keyword"
-                  className="allitem-title__form--search_input"
+                  className={styles.allitemTitleFormSearchInput}
                   placeholder="검색할 상품을 입력해주세요"
                 />
               </form>
             </div>
-            <Link to="/additem" className="allitem-title__form--button">
+            <Link to="/additem" className={styles.allitemTitleFormButton}>
               상품 등록하기
             </Link>
             {/*<select name="sort-item" id="sort-item" onChange={handleSelect}>*/}
             {/*    <option value="recent">최신순</option>*/}
             {/*    <option value="favorite">좋아요순</option>*/}
             {/*</select>*/}
-            <div className="allitem-title__select_box">
+            <div className={styles.allitemTitleSelectBox}>
               <button
-                className="label"
+                className={styles.label}
                 onClick={(e) => {
                   setDropdown(e);
                 }}
               >
                 최신순
               </button>
-              <ul className="optionList">
+              <ul className={styles.optionList}>
                 <li
-                  className="optionItem"
+                  className={styles.optionItem}
                   onClick={(e) => handleSelect("recent", e)}
                 >
                   최신순
                 </li>
                 <li
-                  className="optionItem"
+                  className={styles.optionItem}
                   onClick={(e) => handleSelect("favorite", e)}
                 >
                   좋아요순

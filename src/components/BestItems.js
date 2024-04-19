@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../utils/api";
-import Products from "../Products/Products";
-import { sortItems } from "../../utils/sort";
-import "./BestItems.css";
+import { getProducts } from "../api";
+import Products from "./Products";
+import { sortItems } from "../utils/sort";
+import styles from "../styles/BestItems.module.css";
 
 function BestItems({ pageSize }) {
   const bestItemsListStyles = {
-    list: "bestitem-list",
-    listItem: "bestitem-list--item",
+    list: styles.bestitemList,
+    listItem: styles.bestitemListItem,
     elements: {
-      listItemImg: "bestitem-list--item__image",
-      listItemTitle: "bestitem-list--item__title",
-      listItemPrice: "bestitem-list--item__price",
-      listItemLikeButton: "bestitem-list--item__likebutton",
-      listItemLikeCount: "bestitem-list--item__likecount",
+      listItemImg: styles.bestitemListItemImage,
+      listItemTitle: styles.bestitemListItemTitle,
+      listItemPrice: styles.bestitemListItemPrice,
+      listItemLikeButton: styles.bestitemListItemLikebutton,
+      listItemLikeCount: styles.bestitemListItemLikecount,
     },
   };
 
@@ -47,9 +47,9 @@ function BestItems({ pageSize }) {
 
   return (
     <>
-      <div className="bestitem-container">
-        <div className="bestitem-title">
-          <h2 className="bestitem-title--content">베스트 상품</h2>
+      <div className={styles.bestitemContainer}>
+        <div className={styles.bestitemTitle}>
+          <h2 className={styles.bestitemTitleContent}>베스트 상품</h2>
         </div>
         <Products className={bestItemsListStyles} items={sortedItems} />
       </div>

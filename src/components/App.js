@@ -1,14 +1,13 @@
-import React from 'react';
-import Header from "./Header/Header";
-import Items from "./Items/Items";
+import styles from "../styles/App.module.css";
+import Header from "./Header";
 
-function App() {
-    return (
-        <>
-          <Header className="header-container"/>
-          {/*<Items />*/}
-        </>
-    );
+function App({ children }) {
+  return (
+    <>
+      <Header />
+      <div>{children}</div>
+    </>
+  );
 }
 
 export default App;

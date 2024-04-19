@@ -1,20 +1,21 @@
 * {
-    box-sizing: border-box;
-   transition: all 0.5s ease;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
 }
 
 :root {
-   --banner-bg-color: #CFE5FF;
-   --panda-gray-color: #9CA3AF;
-   --footer-bg-color: #111827;
-   --header-logo-color: #3692FF;
-   --button-font-color: #fff;
-   --faq-font-color: #E5E7EB;
-   --cool-gray-100: #F3F4F6;
-   --cool-gray-800: #1F2937;
-   --brand-blue: #3692FF;
-   --brand-sky: #E6F2FF;
-   --brand-blue-100: #3182F6;
-   --invalid-color: #f00;
-   --item-header-line-color: #DFDFDF;
+  --banner-bg-color: #cfe5ff;
+  --panda-gray-color: #9ca3af;
+  --footer-bg-color: #111827;
+  --button-font-color: #fff;
+  --faq-font-color: #e5e7eb;
+  --cool-gray-50: #f9fafb;
+  --cool-gray-100: #f3f4f6;
+  --cool-gray-800: #1f2937;
+  --brand-blue: #3692ff;
+  --brand-sky: #e6f2ff;
+  --brand-blue-100: #3182f6;
+  --invalid-color: #f00;
+  --item-header-line-color: #dfdfdf;
+  --additem-title-color: #1f2937;
 }
