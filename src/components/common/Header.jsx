@@ -1,10 +1,12 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import LinkButton from "../Button/LinkButton";
 import pandaLogo from "../../assets/images/panda_face.svg";
 
 const Header = () => {
+  //ROTUE
+  const { pathname } = useLocation();
   const getLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? "var(--blue)" : "#4b5563",
@@ -29,7 +31,17 @@ const Header = () => {
               </NavItemLink>
             </NavItem>
             <NavItem>
-              <NavItemLink to="/items" style={getLinkStyle}>
+              <NavItemLink
+                to="/items"
+                style={(isActive) => {
+                  return {
+                    color:
+                      pathname === "/items" || pathname === "/additem"
+                        ? "var(--blue)"
+                        : "#4b5563",
+                  };
+                }}
+              >
                 중고마켓
               </NavItemLink>
             </NavItem>
