@@ -184,6 +184,9 @@ main {
 }
 
 .main_subtitle {
+  width: 221px;
+  height: 112px;
+  /* border: 1px solid red; */
   font-family: 'Pretendard-Regular';
   font-weight: 700;
   font-size: 40px;
@@ -194,6 +197,8 @@ main {
 }
 
 .explanation {
+  width: 280px;
+  height: 58px;
   font-family: 'Pretendard-Regular';
   font-weight: 500;
   font-size: 24px;
@@ -239,11 +244,10 @@ main {
   line-height: 56px;
   position: absolute;
   top: 281.5px;
-  left: 231px;
+  left: 240px;
   text-align: right;
-  width: 317px;
+  width: 313px;
   height: 112px;
-  /* border: 1px solid green; */
 }
 
 .explanation_p {
@@ -508,6 +512,9 @@ footer {
   text-align: right;
 }
 
+.main_subtitle_buy br {
+  display: none;
+}
 .explanation_p {
   position: absolute;
   top: 650px;
@@ -552,6 +559,10 @@ footer {
   left: 24px;
 }
 
+.main_subtitle_sell br {
+  display: none;
+}
+
 .explanation_p_p {
   font-size: 18px;
   width: 270px;
@@ -559,7 +570,7 @@ footer {
   font-weight: 500;
   line-height: 21.6px;
   position: absolute;
-  top: 690px;
+  top: 680px;
   left: 24px;
 }
 
@@ -600,7 +611,19 @@ footer {
   text-align: center;
 }
 
+.information {
+  width: 744px;
+  height: 160px;
+}
 
+.information_group {
+  width: 536px;
+  height: 20px;
+  position: absolute;
+  top: 32px;
+  left: 104px;
+  
+}
 
 }
 
