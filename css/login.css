@@ -109,6 +109,18 @@
   color: #3182f6;
 }
 
+/* 유효성 검사 */
+.login__input.error {
+  outline: 2px solid var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 15px;
+  margin-top: -10px;
+  margin-bottom: 24px;
+}
+
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .login__logo {
