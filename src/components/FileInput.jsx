@@ -32,7 +32,8 @@ export default function FileInput({ name, value, onChange }) {
     };
   }, [value]);
 
-  const onClickImageUpload = () => {
+  const onClickImageUpload = e => {
+    e.preventDefault();
     inputRef.current.click();
   };
   return (
