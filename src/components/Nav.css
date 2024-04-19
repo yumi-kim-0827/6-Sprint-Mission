@@ -28,6 +28,10 @@
   height: 51px;
 }
 
+.logo-box:hover {
+  cursor: pointer;
+}
+
 .button-box {
   width: 128px;
   height: 48px;

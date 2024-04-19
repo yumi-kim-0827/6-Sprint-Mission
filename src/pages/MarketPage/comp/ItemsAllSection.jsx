@@ -1,12 +1,13 @@
-import { GetAllItems } from "../api/GetAllItems";
+import { GetAllItems } from "../../../api/GetAllItems";
 import { useEffect, useState } from "react";
 import SearchItem from "../../../components/SearchItem";
 import EnterItem from "../../../components/EnterItem";
 import DropdownSort from "../../../components/DropdownSort";
-import ArrowDown from "../assets/ic_arrow_down.svg";
+import ArrowDown from "../../../assets/ic_arrow_down.svg";
 import PagiNationBar from "../../../components/PagiNationBar";
-import MakeItemCard from "./MakeItemCard";
 import MakeItemList from "./MakeItemList";
+
+const PAGESIZE = 10;
 
 function ItemsAllSection() {
   const [order, setOrder] = useState("recent");

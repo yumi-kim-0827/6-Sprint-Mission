@@ -1,6 +1,6 @@
 import React from "react";
-import ItemsAllSection from "./components/ItemsAllSection";
-import ItemsBestSection from "./components/ItemsBestSection";
+import ItemsAllSection from "./comp/ItemsAllSection";
+import ItemsBestSection from "./comp/ItemsBestSection";
 import "./MarketPage.css";
 
 function MarketPage() {

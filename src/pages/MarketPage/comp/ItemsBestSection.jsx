@@ -1,4 +1,4 @@
-import { GetBestItems } from "../api/GetBestItems";
+import { GetBestItems } from "../../../api/GetBestItems";
 import { useEffect, useState } from "react";
 import MakeItemList from "./MakeItemList";
 

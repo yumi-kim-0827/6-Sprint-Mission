@@ -1,16 +1,19 @@
 import iconLogo from "../assets/Group 19@3x.png";
 import textLogo from "../assets/logo@3x.png";
-import "./Navigator.css";
+import "./Nav.css";
+import { Link } from "react-router-dom";
 
-function Navigator() {
+function Nav() {
   return (
     <header className="header">
       <nav className="nav">
-        <div>
-          <a href="/">
+        <div className="logo-box">
+          <Link to="/">
             <img className="icon-logo" src={iconLogo} alt="Logo" />
+          </Link>
+          <Link to="/">
             <img className="text-logo" src={textLogo} alt="text-logo" />
-          </a>
+          </Link>
         </div>
         <NavMenuButtons></NavMenuButtons>
         <div className="button-box">
@@ -25,15 +28,19 @@ function NavMenuButtons() {
   return (
     <div className="menu-box">
       <div>
-        <button className="menu-button">자유게시판</button>
+        <Link to="/feed">
+          <button className="menu-button">자유게시판</button>
+        </Link>
       </div>
       <div>
-        <button className="menu-button" style={{ color: "#3692FF" }}>
-          중고마켓
-        </button>
+        <Link to="/feed">
+          <button className="menu-button" style={{ color: "#3692FF" }}>
+            중고마켓
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Navigator;
+export default Nav;

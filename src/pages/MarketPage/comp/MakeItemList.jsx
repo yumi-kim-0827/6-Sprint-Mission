@@ -1,6 +1,4 @@
 import MakeItemCard from "./MakeItemCard";
-import heart from "../assets/ic_heart.png";
-import { FormatCurrencyWon } from "../utils/FormatCurrencyWon";
 
 function MakeItemList({ items }) {
   return (
