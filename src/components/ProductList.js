@@ -12,7 +12,9 @@ const ItemImgBox = styled.div`
 
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1;
   }
 `;
 const ItemName = styled.h3`
@@ -34,10 +36,10 @@ const ProductListUl = styled.ul`
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -46,7 +48,7 @@ const ProductListUl = styled.ul`
     css`
       grid-template-columns: repeat(4, 1fr);
 
-      @media (max-width: 767px) {
+      @media (max-width: 1280px) {
         grid-template-columns: repeat(2, 1fr);
 
         /* 4개의 아이템 중 2개만 보이도록 설정 */
@@ -54,8 +56,7 @@ const ProductListUl = styled.ul`
           display: none;
         }
       }
-
-      @media (max-width: 375px) {
+      @media (max-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
 
         /* 4개의 아이템 중 3개만 보이도록 설정 */
