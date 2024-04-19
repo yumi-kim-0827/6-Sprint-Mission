@@ -1,4 +1,5 @@
 import AddItemForm from "./components/AddItemForm";
+import "./AddItemPage.scss";
 
 function AddItemPage() {
   return (
