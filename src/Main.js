@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import { ItemPage } from "./page/ItemPage";
 import { HomePage } from "./page/HomePage";
+import { AddItemPage } from "./page/AddItemPage";
 
 export default function Main() {
   return (
@@ -12,6 +13,7 @@ export default function Main() {
           <Route path="items">
             <Route index element={<ItemPage />}/>
           </Route>
+          <Route path="additem" element={<AddItemPage />}/>
         </Route>
       </Routes>
     </BrowserRouter>
