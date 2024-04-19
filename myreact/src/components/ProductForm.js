@@ -53,7 +53,8 @@ function ProductForm() {
         <input
           id="description"
           name="description"
-          placeholder="상품명을 상품 소개를 입력해주세요"
+          className="descriptionInput"
+          placeholder="상품 소개를 입력해주세요"
           value={values.description}
           onChange={handleInputChange}
         ></input>

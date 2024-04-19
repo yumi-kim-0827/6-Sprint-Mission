@@ -12,33 +12,40 @@
     </div>
 
     <div class="login-container">
-        <div class="signup-input">
-            <label for="email">이메일</label>
-            <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요">
-        </div>
-
-        <div class="signup-input">
-            <label for="nickname">닉네임</label>
-            <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해 주세요">
-        </div>
-
-        <div class="signup-input">
-            <label for="password">비밀번호</label>
-            <div class="password-text">   
-                <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요">
-                <img src="image/invisible.png" alt="비밀번호 숨김" class="password-invisible">
+        <form class="signup-form">
+            <div class="signup-input">
+                <label for="email">이메일</label>
+                <input id="email" name="email" type="email" placeholder="이메일을 입력해 주세요">
+                <div id="errorEmail" class="error-message"></div>
             </div>
-        </div>
 
-        <div class="signup-input">
-            <label for="password-confirm">비밀번호 확인</label>
-            <div class="password-text">   
-                <input id="password-confirm" name="password-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해 주세요">
-                <img src="image/invisible.png" alt="비밀번호 숨김" class="password-invisible">
+            <div class="signup-input">
+                <label for="nickname">닉네임</label>
+                <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해 주세요">
+                <div id="errorNickname" class="error-message"></div>
             </div>
-        </div>
 
-        <button class="signup-btn">회원가입</button>
+            <div class="signup-input">
+                <label for="password">비밀번호</label>
+                <div class="password-text">   
+                    <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요">
+                    <img src="image/invisible.png" alt="비밀번호 숨김" class="password-invisible">
+                </div>
+                <div id="errorPassword" class="error-message"></div>
+            </div>
+
+            <div class="signup-input">
+                <label for="password-confirm">비밀번호 확인</label>
+                <div class="password-text">   
+                    <input id="password-confirm" name="password-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해 주세요">
+                    <img src="image/invisible.png" alt="비밀번호 숨김" class="password-invisible">
+                </div>
+                <div id="errorPasswordConfirm" class="error-message"></div>
+            </div>
+
+            <button class="signup-btn" type="button">회원가입</button>
+        </form>
+        
 
         <div class="social-login">
             <h4>간편 로그인하기</h4>
@@ -55,6 +62,6 @@
             이미 회원이신가요?<a href="login.html">로그인</a>
         </div>
     </div>
-
+    <script src="JS/signup.js"></script>
 </body>
 </html>
