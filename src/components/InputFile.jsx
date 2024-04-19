@@ -24,6 +24,11 @@ function InputFile({ name, value, onChange }) {
 
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+
+    return () => {
+      setPreview();
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
   return (
     <>
@@ -35,12 +40,16 @@ function InputFile({ name, value, onChange }) {
         ref={inputRef}
         placeholder="이미지 등록"
       />
-      {value && <img src={preview} alt="이미지 미리보기" />}
-      {value && (
-        <button onClick={handleClearClick}>
-          <img src={IconX} alt="파일첨부취소" />
-        </button>
-      )}
+      <div className="preview-box">
+        {value && (
+          <img className="preview-image" src={preview} alt="이미지 미리보기" />
+        )}
+        {value && (
+          <button className="preview-delete-button" onClick={handleClearClick}>
+            <img className="icon-x" src={IconX} alt="파일첨부취소" />
+          </button>
+        )}
+      </div>
     </>
   );
 }

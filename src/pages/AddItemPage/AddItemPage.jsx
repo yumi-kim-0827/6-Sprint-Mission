@@ -9,7 +9,6 @@ function AddItemPage() {
     itemName: "",
     itemDescription: "",
     itemPrice: "",
-    itemTags: [],
   });
 
   const handleChange = (name, value) => {
@@ -21,6 +20,7 @@ function AddItemPage() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
@@ -31,24 +31,24 @@ function AddItemPage() {
     <form className="enter-item-section" onSubmit={handleSubmit}>
       <div className="label-box">
         <div className="enter-label">상품등록하기</div>
-        <button
-          type="submit"
-          className="enter-button"
-          onClick={console.log("ta-da")}
-        >
+        <button type="submit" className="enter-button" onClick={handleSubmit}>
           등록
         </button>
       </div>
       <div className="input-container">
-        <div className="input-box input-image-box">
-          <label htmlFor="input-image" className="input-label">
-            상품 이미지
-          </label>
-          <InputFile
-            name="imageFile"
-            value={values.imageFile}
-            onChange={handleChange}
-          />
+        <div className="input-image-box">
+          <div className="input-label">상품 이미지</div>
+          <div className="input-file-box">
+            <label htmlFor="input-file" className="input-file-label">
+              <img className="image-plus" src={Plus} alt="이미지등록" />
+              <p className="enter-image-text">이미지 등록</p>
+            </label>
+            <InputFile
+              name="imageFile"
+              value={values.imageFile}
+              onChange={handleChange}
+            />
+          </div>
         </div>
         <div className="input-box">
           <label htmlFor="input-name" className="input-label">
@@ -62,20 +62,22 @@ function AddItemPage() {
             name="itemName"
             onChange={handleInputChange}
             placeholder="상품명을 입력해주세요"
+            required
           />
         </div>
         <div className="input-box">
           <label htmlFor="input-description" className="input-label">
             상품 소개
           </label>
-          <input
+          <textarea
             className="inputs input-textarea"
+            type="text"
             id="input-description"
-            type="text-area"
             value={values.itemDescription}
-            name="itemScript"
+            name="itemDescription"
             onChange={handleInputChange}
             placeholder="상품 소개를 입력해주세요"
+            required
           />
         </div>
         <div className="input-box">
@@ -90,6 +92,7 @@ function AddItemPage() {
             name="itemPrice"
             onChange={handleInputChange}
             placeholder="판매 가격을 입력해주세요"
+            required
           />
         </div>
         <div className="input-box">
@@ -101,7 +104,7 @@ function AddItemPage() {
             id="input-tags"
             type="text"
             value={values.itemTags}
-            name="itemTags"
+            name="itemTag"
             onChange={handleInputChange}
             placeholder="태그를 입력해주세요"
           />
