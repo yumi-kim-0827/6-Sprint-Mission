@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageCard } from "/src/entities/ImageCard";
 import icplus from "/src/shared/asset/ic_plus.png";
 
 import "./ImageList.scss";
 
-export function ImageList() {
+export function ImageList({ onChange }) {
   const [images, setImages] = useState([]);
 
   const fileRef = useRef();
@@ -19,6 +19,13 @@ export function ImageList() {
   const handleDelete = (src) => {
     setImages((prevImages) => prevImages.filter((v) => v !== src));
   };
+
+  useEffect(() => {
+    onChange((prevItem) => ({
+      ...prevItem,
+      image: images,
+    }));
+  }, [images]);
 
   return (
     <div className="ImageList">

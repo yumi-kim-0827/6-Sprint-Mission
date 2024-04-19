@@ -19,6 +19,7 @@ export function TagList({ tags, onDelete }) {
               onClick={() => {
                 onDelete(v);
               }}
+              type="button"
             >
               <img src={tagXicon} />
             </button>
