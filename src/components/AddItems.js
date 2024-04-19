@@ -223,7 +223,6 @@ const ImageUploadContainer = styled.label`
   position: relative;
   width: 200px;
   height: 200px;
-  border: 1px solid #ccc;
   border-radius: 18px;
   display: flex;
   flex-direction: column;
@@ -258,6 +257,10 @@ const ItemNameTitle = styled.h3`
 
 const ItemNameInput = styled.input`
   width: 100%;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
 `;
 
 const ItemDescriptionContainer = styled.div`
@@ -272,6 +275,11 @@ const ItemDescriptionTitle = styled.h3`
 const StyledTextarea = styled.textarea`
   width: 100%;
   height: 200px;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  resize: none;
 `;
 
 const ItemPriceContainer = styled.div`
@@ -285,6 +293,10 @@ const ItemPriceTitle = styled.h3`
 
 const ItemPriceInput = styled.input`
   width: 100%;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
 `;
 
 const ItemTagContainer = styled.div`
@@ -299,6 +311,10 @@ const ItemTagTitle = styled.h3`
 const ItemTagInput = styled.input`
   width: 100%;
   margin-bottom: 300px;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
 `;
 
 export default AddItem;
