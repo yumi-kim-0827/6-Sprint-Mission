@@ -6,6 +6,7 @@ import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AddItemPage from "./pages/AddItemPage";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
           <Route index element={<HomePage />} />
           <Route path="/board" element={<BoardPage />} />
           <Route path="/items" element={<ItemPage />} />
+          <Route path="/additem" element={<AddItemPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="*" element={<NotFoundPage />} />

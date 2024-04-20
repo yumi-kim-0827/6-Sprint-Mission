@@ -34,7 +34,7 @@ const Nav = () => {
             </NavLink>
           </li>
         </ul>
-        <Button isLink={true} text={"로그인"} href={"/login"} isActive={'on'} />
+        <Button isLink={true} text={"로그인"} href={"/login"} isActive={"on"} />
       </nav>
     </>
   );

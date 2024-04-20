@@ -4,13 +4,17 @@ import classNames from "classnames/bind";
 
 const cn = classNames.bind(style);
 
-const Button = ({ isLink = false, isActive = 'on', text, onClick, href }) => {
+const Button = ({ isLink = false, isActive = "on", text, onClick, href }) => {
   return (
     <>
       {isLink ? (
-        <Link className={cn("Button", isActive)} to={href}>{text}</Link>
+        <Link className={cn("Button", isActive)} to={href}>
+          {text}
+        </Link>
       ) : (
-        <button className={cn("Button", isActive)} onClick={onClick}>{text}</button>
+        <button className={cn("Button", isActive)} onClick={onClick}>
+          {text}
+        </button>
       )}
     </>
   );
