@@ -1,0 +1,87 @@
+/*초기 설정*/
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "Pretendard";
+  margin: 0;
+  box-sizing: border-box;
+}
+p {
+  font-weight: 400;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+ul,
+li,
+ol,
+dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #fcfcfc;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.img_responsive {
+  width: auto;
+  max-width: 100%;
+}
+
+/*사용자 정의 속성으로 컬러값 지정*/
+:root {
+  --blue: #3692ff;
+  --skyBlue: #cfe5ff;
+  --gray: #9ca3af;
+  --coolGray: #f3f4f6;
+}
+
+/*Header*/
+.head_area {
+  padding: 8px 200px;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 25px;
+  display: flex;
+  gap: 45px;
+  align-items: center;
+}
+
+.head_area #logo img {
+  width: 100%;
+  max-height: 50px;
+  display: block;
+}
+.head_area nav {
+  flex: 1 0 auto;
+}
+.head_area nav a {
+  font-size: 18px;
+  color: #4b5563;
+  margin-right: 40px;
+  line-height: 1;
+  font-weight: 500;
+}
+.head_area nav a.active {
+  color: var(--blue);
+}
+.head_area #login {
+  padding: 14px 43px;
+  background: var(--blue);
+  border-radius: 8px;
+  color: #fff;
+  margin-top: 4px;
+}

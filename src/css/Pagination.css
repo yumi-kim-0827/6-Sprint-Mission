@@ -1,0 +1,29 @@
+.pagination {
+  text-align: center;
+  margin: 40px 0;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.pagination li a[aria-label="Go to first page"],
+.pagination li a[aria-label="Go to last page"] {
+  display: none;
+}
+.pagination li a {
+  padding: 11px 0;
+  display: inline-block;
+  width: 40px;
+  font-size: 16px;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  line-height: 1;
+  border-radius: 40px;
+  font-weight: bold;
+}
+
+.pagination li.active a {
+  background: #2f80ed;
+  color: #fff;
+  border-color: #2f80ed;
+}
