@@ -1,10 +1,10 @@
 import { useState } from "react";
-import dropDown from "../assets/icon-dropdown.svg";
-import searchIcon from "../assets/icon-search.svg";
+import dropDown from "../../assets/icon-dropdown.svg";
+import searchIcon from "../../assets/icon-search.svg";
 import { Link } from "react-router-dom";
 import "./NavOnSaleProducts.css";
-import useItemCount from "../components/useItemCount";
-import iconArrow from "../assets/icon-arrow.svg";
+import useItemCount from "../../hooks/useItemCount";
+import iconArrow from "../../assets/icon-arrow.svg";
 
 export default function NavOnSaleProducts() {
   const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -18,6 +18,7 @@ export default function NavOnSaleProducts() {
   const handleSortOrderClick = e => {
     setSortOrder(e.target.textContent);
   };
+
   return (
     <>
       <div className="nav-onSaleProducts">

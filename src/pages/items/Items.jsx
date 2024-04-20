@@ -1,7 +1,7 @@
 import BestProducts from "./BestProducts";
-import OnSaleProducts from "./OnSaleProducts.jsx";
+import OnSaleProducts from "./OnSaleProducts";
 
-export default function Main({ items }) {
+export default function Items({ items }) {
   return (
     <>
       <BestProducts items={items} />

@@ -5,12 +5,12 @@ export default function useItemCount() {
 
   const updateItemCountOnResize = () => {
     const innerWidth = window.innerWidth;
-    if (innerWidth >= 1024) {
-      setItemCount(4);
+    if (innerWidth >= 1200) {
+      setItemCount(10);
     } else if (innerWidth >= 768) {
-      setItemCount(2);
+      setItemCount(6);
     } else {
-      setItemCount(1);
+      setItemCount(4);
     }
   };
 

@@ -1,0 +1,55 @@
+.titleImg {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #1f2937;
+}
+
+.containerImg {
+  display: flex;
+  gap: 9px;
+  margin-top: 9px;
+}
+
+.preview {
+  position: relative;
+  width: 168px;
+  height: 168px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preview img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.btnCloseActive {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url("../../assets//btn-close-active.svg");
+  background-position: center;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+@media (min-width: 744px) {
+  .titleImg {
+    font-size: 18px;
+  }
+  .preview {
+    width: 162px;
+    height: 162px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .preview {
+    width: 282px;
+    height: 282px;
+  }
+}
