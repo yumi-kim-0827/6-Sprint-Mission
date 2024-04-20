@@ -15,14 +15,14 @@ function getLinkStyle({ isActive }) {
 const Nav = () => {
   return (
     <>
-      <nav className={cn("Nav")}>
-        <h1>
+      <nav className={cn("nav")}>
+        <h1 className={cn("logo")}>
           <Link to="/">
             <img src={logoImg} alt="판다마켓 로고" />
-            판다마켓
+            <span className="sr-only">판다마켓</span>
           </Link>
         </h1>
-        <ul className={cn("menu")}>
+        <ul className={cn("nav_list")}>
           <li>
             <NavLink to="/board" style={getLinkStyle}>
               자유게시판

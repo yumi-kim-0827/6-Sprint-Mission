@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70px;
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.logo {
+  width: 153px;
+}
+
+.nav_list {
+  display: flex;
+  flex: 1;
+  gap: 23px;
+  font-size: 18px;
+  font-weight: 700;
+}
