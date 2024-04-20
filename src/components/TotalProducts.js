@@ -5,7 +5,7 @@ const TotalProducts = ({ sortedProducts }) => {
   return (
     <TotalProductContainer>
       {sortedProducts.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} showLikes />
       ))}
     </TotalProductContainer>
   );

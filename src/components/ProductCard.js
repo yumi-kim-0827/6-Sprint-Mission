@@ -19,15 +19,22 @@ const ProductCard = ({ product, showLikes = false }) => {
 
 const ProductCardWrapper = styled.div`
   width: 100%;
+  max-width:221px
   height: 100%;
   border: none;
   padding: 0.5rem;
   text-align: center;
+  object-fit: cover;
+
+  
 `;
 
 const ProductImage = styled.img`
-  max-width: 100%;
-  height: 310px;
+  width: 100%;
+  max-width: 221px;
+  height: 290px;
+
+  aspect-ratio: 1;
   border-radius: 16px;
 `;
 
@@ -39,6 +46,9 @@ const ProductName = styled.h3`
   font-weight: 500;
   line-height: 16.71px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const ProductPrice = styled.p`
