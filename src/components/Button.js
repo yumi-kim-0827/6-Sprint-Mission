@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import style from "./Button.module.css";
+import style from "../styles/Button.module.css";
 import classNames from "classnames/bind";
 
 const cn = classNames.bind(style);
 
-const Button = ({ isLink = false, text, type = "", onClick, href }) => {
+const Button = ({ isLink = false, isActive = 'on', text, onClick, href }) => {
   return (
-    <div className={cn("Button", type)}>
+    <>
       {isLink ? (
-        <Link to={href}>{text}</Link>
+        <Link className={cn("Button", isActive)} to={href}>{text}</Link>
       ) : (
-        <button onClick={onClick}>{text}</button>
+        <button className={cn("Button", isActive)} onClick={onClick}>{text}</button>
       )}
-    </div>
+    </>
   );
 };
 

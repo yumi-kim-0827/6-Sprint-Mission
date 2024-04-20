@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import style from "./Nav.module.css";
+import style from "../styles/Nav.module.css";
 import classNames from "classnames/bind";
 import logoImg from "../assets/logo.png";
 import Button from "./Button";
@@ -34,7 +34,7 @@ const Nav = () => {
             </NavLink>
           </li>
         </ul>
-        <Button isLink={true} text={"로그인"} href={"/login"} type={"active"} />
+        <Button isLink={true} text={"로그인"} href={"/login"} isActive={'on'} />
       </nav>
     </>
   );
