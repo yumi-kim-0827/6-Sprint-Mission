@@ -28,9 +28,6 @@ const AddItemPage = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
-    console.log(inputData);
-    console.log(imageUrl);
-
     const formData = new FormData();
     formData.append('image', imageUrl);
     formData.append('name', inputData.itemName);
