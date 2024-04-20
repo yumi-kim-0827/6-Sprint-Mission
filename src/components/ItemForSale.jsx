@@ -1,8 +1,7 @@
 import React from 'react';
 import './style/ItemForSale.css';
 
-export default function ItemForSale({ item }) {
-  const { price, images, favoriteCount, name } = item;
+export default function ItemForSale({ price, images, favoriteCount, name }) {
   const formattedPrice = price.toLocaleString();
 
   return (

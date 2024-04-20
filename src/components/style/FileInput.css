@@ -1,0 +1,62 @@
+/* mobile */
+.file-input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  align-items: flex-start;
+}
+
+.file-input__title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6rem;
+  color: var(--color-cool-gray800);
+}
+
+.file-input__wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.file-input {
+  width: 168px;
+  height: 168px;
+  background-color: #f3f4f6;
+  background-image: url('../../../public/imgs/ic_plus.png');
+  background-size: 48px;
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+  border-radius: 1.2rem;
+}
+
+.file-input span {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  top: 25px;
+}
+
+.file-input__preview {
+  width: 168px;
+  height: 168px;
+  background-color: #f3f4f6;
+  border-radius: 1.2rem;
+}
+
+.preview-img {
+  width: 168px;
+  height: 168px;
+  border-radius: 14px;
+}
+
+/* Ipad */
+@media (min-width: 768px) {
+  .file-input__container {
+    align-items: space;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1199px) {
+}

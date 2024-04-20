@@ -12,13 +12,13 @@ export default function SelectBox({ handleSort }) {
 
   const handleNewestClick = () => {
     setTitle('최신순');
-    setIsDisplay(true);
+    setIsDisplay(false);
     handleSort('최신순');
   };
 
   const handleLikesClick = () => {
     setTitle('좋아요순');
-    setIsDisplay(true);
+    setIsDisplay(false);
     handleSort('좋아요순');
   };
 
@@ -34,7 +34,7 @@ export default function SelectBox({ handleSort }) {
           <img class='select-box__btn__arrow' src='/imgs/ic_arrow_down.png' alt='아래 화살표' />
         </p>
       </button>
-      {!isDisplay || (
+      {isDisplay && (
         <ul class='select-box__list' ref={ulRef}>
           <li>
             <button className='select-box__list__newest-btn' type='button' onClick={handleNewestClick}>

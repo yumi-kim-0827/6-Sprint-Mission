@@ -1,0 +1,30 @@
+.delete-btn {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #9ca3af;
+}
+
+.delete-btn img {
+  position: relative;
+  top: -1px;
+  width: 8px;
+  height: 8px;
+}
+
+.button_tag {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+}
+
+.button_preview {
+  left: -40px;
+  top: 10px;
+}
+
+.button_preview:hover {
+  background-color: var(--color-brand-blue);
+}

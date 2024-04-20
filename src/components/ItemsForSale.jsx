@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import ItemForSale from './ItemForSale';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
@@ -72,12 +74,14 @@ export default function ItemsForSale({ items }) {
           onChange={e => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <button className='search-bar__register'>상품 등록하기</button>
+        <Link to='/additem'>
+          <button className='search-bar__register'>상품 등록하기</button>
+        </Link>
         <SelectBox className='select-box' items={items} handleSort={handleSort} />
       </div>
       <section className='items'>
         {filteredItems?.slice(0, itemsToShow).map(item => (
-          <ItemForSale key={item.id} item={item} />
+          <ItemForSale key={item.id} {...item} />
         ))}
       </section>
       <PageButton />

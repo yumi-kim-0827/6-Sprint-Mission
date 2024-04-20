@@ -31,7 +31,7 @@ export default function BestItems({ items }) {
       <h2 className='best-items__title'>베스트 상품</h2>
       <section className='best-items__item'>
         {items.slice(0, itemsToShow).map(item => (
-          <BestItem key={item.id} item={item} />
+          <BestItem key={item.id} {...item} />
         ))}
       </section>
     </div>
