@@ -52,6 +52,7 @@ header{
 .banner-container, .bottom-container{
     width: 1200px;
     display: flex;
+    height: 100%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -67,6 +68,7 @@ header{
 
 .banner-img, .bottom-img{
     width: 996px;
+    margin-top: auto;
 }
 
 .box {

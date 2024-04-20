@@ -92,6 +92,10 @@ input::placeholder {
     background: #9CA3AF;
 }
 
+.signup-btn:disabled {
+    background: #9CA3AF;
+}
+
 .social-login {
     background: #E6F2FF;
     display:flex;

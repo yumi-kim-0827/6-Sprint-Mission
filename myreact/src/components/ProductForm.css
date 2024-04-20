@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+.productForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 360px;
+}
+
+.addProductTitle{
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem;
+}
+
+.inputTitle {
+    color:#1f2937;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+input{
+    background: #F3F4F6;
+    border-radius: 0.75rem;
+    height: 3.5rem;
+    border: none;
+    outline: none;
+    margin-bottom: 1.5rem;
+}
+
+input::placeholder {
+    /* vertical-align: top; */
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.productSubmit {
+    margin-left: auto;
+    width: 5.5rem;
+    height: 2.625rem;
+    border: none;
+    background: #3692FF;
+    color: #ffffff;
+    border-radius: 0.5rem;
+}
