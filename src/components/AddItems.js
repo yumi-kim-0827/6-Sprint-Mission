@@ -306,6 +306,7 @@ const StyledTextarea = styled.textarea`
   border-radius: 8px;
   border: none;
   resize: none;
+  font-family: auto;
 `;
 
 const ItemPriceContainer = styled.div`
