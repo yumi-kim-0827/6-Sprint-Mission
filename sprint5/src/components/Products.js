@@ -2,13 +2,14 @@ import React from "react";
 import "../styles/Products.css";
 
 function ProductListItem({ item }) {
+  const { images, name, price, favoriteCount } = item;
   return (
     <div className="ProductListItem">
-      <img className="ProductImage" src={item.images} alt={item.name} />
+      <img className="ProductImage" src={images} alt={name} />
       <div>
-        <p>{item.name}</p>
-        <p>{item.price}</p>
-        <p>{item.favoriteCount}</p>
+        <p>{name}</p>
+        <p>{price}</p>
+        <p>{favoriteCount}</p>
       </div>
     </div>
   );

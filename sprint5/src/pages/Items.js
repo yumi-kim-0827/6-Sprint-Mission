@@ -26,24 +26,12 @@ function Items() {
   const [keyword, setKeyword] = useState("");
   const [bestItems, setBestItems] = useState([]);
 
-  //데이터 가져오기
   const handleLoad = async (page, limit, order, keyword) => {
     const products = await getProducts(page, limit, order, keyword);
-    //데이터 저장
+
     setItems(products.list);
-    //페이지 길이
     setTotalPages(Math.ceil(products.totalCount / limit));
   };
-
-  const onPageChange = (pageNumber) => {
-    setPage(pageNumber);
-  };
-
-  const handleBestClick = () => setOrder("favorite");
-
-  const handleNewestClick = () => setOrder("recent");
-
-  const handleKeywordChange = (e) => setKeyword(e.target.value);
 
   const handleLoadBestItems = async () => {
     let bestItemsCount;
@@ -59,6 +47,15 @@ function Items() {
     const bestItemsLimited = bestProducts.slice(0, bestItemsCount);
     setBestItems(bestItemsLimited);
   };
+  const onPageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
+
+  const handleBestClick = () => setOrder("favorite");
+
+  const handleNewestClick = () => setOrder("recent");
+
+  const handleKeywordChange = (e) => setKeyword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
