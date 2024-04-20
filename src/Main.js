@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./components/App";
-import HomePage from './pages/HomePage'
+import HomePage from "./pages/HomePage";
+import BoardPage from "./pages/BoardPage";
 import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -12,6 +13,7 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
+          <Route path="/board" element={<BoardPage />} />
           <Route path="/items" element={<ItemPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
