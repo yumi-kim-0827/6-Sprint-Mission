@@ -1,0 +1,30 @@
+.pagetitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 24px 0 16px 0;
+}
+
+.sectiontitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+.AIPpadding {
+  margin: 0 200px;
+  margin-bottom: 24px;
+}
+
+.inputStyle {
+  background-color: #f3f4f6;
+  width: 100%;
+  max-width: 1200px;
+  height: 56px;
+  gap: 10px;
+  border-radius: 12px;
+  border: none;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+}
