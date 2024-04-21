@@ -55,13 +55,7 @@ const AddItem = () => {
   };
 
   useEffect(() => {
-    if (
-      values.imgFile &&
-      values.title &&
-      values.description &&
-      values.price &&
-      tags.length
-    ) {
+    if (values.title && values.description && values.price && tags.length) {
       setCanSubmit(true);
     } else {
       setCanSubmit(false);
