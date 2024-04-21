@@ -1,14 +1,13 @@
 import heartIcon from "../assets/heart-icon.svg";
 import "../styles/AllItemList.css";
+import { Link } from "react-router-dom";
 
 function AllItem({ item, className = "" }) {
   const { price, favoriteCount, images, name } = item;
   const classNames = `item-img-container${className}`;
   return (
     <>
-      <div className={classNames}>
-        <img src={images[0]} alt={name} className="item-img" />
-      </div>
+      <img src={images[0]} alt={name} className="item-img" />
       <div className="item-contents">
         <h3 className="item-name">{name}</h3>
         <p className="item-price">{price}</p>
@@ -40,9 +39,9 @@ function AllItemList({
               placeholder="검색할 상품을 입력해주세요"
             />
           </form>
-          <a href="/additem" className="item-register-btn">
+          <Link to="/addItem" className="item-register-btn">
             상품 등록하기
-          </a>
+          </Link>
           <select className="select-box" onChange={handleSortedChange}>
             <option value="recent">최신순</option>
             <option value="favorite">좋아요순</option>
@@ -52,7 +51,7 @@ function AllItemList({
       <div className="all-item-grid">
         {items.map((item) => {
           return (
-            <div key={item.id}>
+            <div key={item.id} className="item-container">
               <AllItem item={item} className={className} />
             </div>
           );

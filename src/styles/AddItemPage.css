@@ -1,0 +1,65 @@
+@import url("global.css");
+
+.add-page-heading {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.add-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button-disabled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 88px;
+  height: 42px;
+  background-color: #9ca3af;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.active {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  margin: 12px 0 24px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
+  padding-left: 24px;
+}
+
+.form-textarea::placeholder {
+  padding-top: 16px;
+}
+
+.form-input {
+  height: 56px;
+}
+
+.form-textarea {
+  height: 200px;
+}

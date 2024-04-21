@@ -9,6 +9,7 @@ function Navbar() {
   const isActive = (pathname) => {
     return location.pathname === pathname ? "active-category" : "";
   };
+
   return (
     <nav>
       <ul className="nav-ul">
@@ -35,7 +36,9 @@ function Navbar() {
             <li>
               <Link
                 to="/items"
-                className={`nav-category ${isActive("/items")}`}
+                className={`nav-category ${isActive("/items")} ${isActive(
+                  "/addItem"
+                )}`}
               >
                 중고마켓
               </Link>
