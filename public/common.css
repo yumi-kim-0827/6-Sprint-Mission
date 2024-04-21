@@ -69,6 +69,17 @@ input {
   border: none;
 }
 
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .sr-only {
   overflow: hidden;
   position: absolute;
