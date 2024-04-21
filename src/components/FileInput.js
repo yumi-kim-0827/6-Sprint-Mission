@@ -12,6 +12,7 @@ export function FileInput({ name, value, initialPreview, onChange }) {
 
   const handleClearClick = (e) => {
     setPreviews(null);
+    onChange(name, null);
   }
 
   useEffect(() => {

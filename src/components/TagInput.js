@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import icoX from "../img/ic_x.svg";
 
 
@@ -6,13 +6,13 @@ export function TagInput ({name, onChange}) {
   const [tagArr, setTagArr] = useState([]);
   const tagInput = useRef();
 
-  const handleChange = (e) => {
-    if(e.target.value === "") setTagArr([]);
-    else {
-      setTagArr(e.target.value.split(","));
-      onChange(name, tagArr);
+  const handleKeydown = (e) => {
+    if(e.key === 'Enter') {
+      const nextValue = e.target.value;
+      
+      setTagArr((prevArr) => [...prevArr, nextValue]);
+      e.target.value="";
     }
-    
   }
 
   const handleDelete = (e) => {
@@ -20,12 +20,15 @@ export function TagInput ({name, onChange}) {
     
     setTagArr(nextTagArr);
     onChange(name, nextTagArr);
-
-    tagInput.current.value = tagArr.filter((el, index) => index !== Number(e.target.value)).join(",");
   }
+
+  useEffect(() => {
+    onChange(name, tagArr);
+  }, [tagArr])
+
   return (
     <div className="tag-view">
-      <input onChange={handleChange} ref={tagInput} className="input-theme" placeholder="태그를 입력해주세요"/>
+      <input onKeyDown={handleKeydown} ref={tagInput} className="input-theme" placeholder="태그를 입력해주세요"/>
       <ul className="tag-container">
         {
           tagArr.map((tag, index) => {

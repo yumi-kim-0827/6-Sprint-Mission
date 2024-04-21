@@ -46,7 +46,7 @@ export function AddItemPage({initialValues = INITIAL_VALUES, initialPreview}) {
   }
 
   useEffect(()=>{
-    setIsDisableSubmit( Object.values(values).every((el) => el !== "" && el !== null) );
+    setIsDisableSubmit( Object.values(values).every((el) => el !== "" && el !== null && el.length !== 0) );
   }, [values])
 
   return (
