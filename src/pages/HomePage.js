@@ -1,17 +1,15 @@
-import Banner from "../components/Banner";
-import FeatureList from "../components/FeatureList";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Banner from "../components/Home/Banner";
+import FeatureList from "../components/Home/FeatureList";
+import Footer from "../components/Home/Footer";
 
 function HomePage() {
   return (
-    <>
-      <Nav />
+    <main>
       <Banner id="home-top-banner" />
       <FeatureList />
       <Banner id="home-bottom-banner" />
       <Footer />
-    </>
+    </main>
   );
 }
 

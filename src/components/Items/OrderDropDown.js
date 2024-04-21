@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ArrowDownIcon from "../assets/icon/ic_arrow_down.svg";
-import { ORDER_MESSAGE } from "../utils/magicLiterals";
+import ArrowDownIcon from "../../assets/icon/ic_arrow_down.svg";
+import { RECENT, FAVORITE, ORDER_MESSAGE } from "../../utils/constantsItems";
 import "./OrderDropDown.css";
 
 function OrderDropDown({ order, setOrder }) {
@@ -11,8 +11,7 @@ function OrderDropDown({ order, setOrder }) {
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const handleMenuClick = (e) => {
-    const newOrder = e.target.dataset.value;
+  const handleMenuClick = (newOrder) => {
     setOrder(newOrder);
     setOrderMessage(ORDER_MESSAGE[newOrder]);
     setIsOpen(false);
@@ -28,15 +27,13 @@ function OrderDropDown({ order, setOrder }) {
         <ul className="drop-down-menus">
           <li
             className="drop-down-menu"
-            data-value="recent"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick(RECENT)}
           >
             최신순
           </li>
           <li
             className="drop-down-menu"
-            data-value="favorite"
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick(FAVORITE)}
           >
             좋아요순
           </li>

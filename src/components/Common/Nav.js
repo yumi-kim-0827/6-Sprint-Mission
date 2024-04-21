@@ -1,12 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
-import logoImg from "../assets/logo/panda_logo.png";
+import { Link, useLocation } from "react-router-dom";
+import logoImg from "../../assets/logo/panda_logo.png";
 import "./Nav.css";
 
+const PATH_LIST = {
+  freeboard: ["/freeboard"],
+  market: ["/items", "/additem"],
+};
+
 function Nav() {
-  const getLinkStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "var(--point-blue)" : "#4b5563",
-    };
+  const pathName = useLocation().pathname;
+
+  const getLinkClass = (value) => {
+    return PATH_LIST[value].includes(pathName) ? "active" : "basic";
   };
 
   return (
@@ -17,14 +22,14 @@ function Nav() {
         </Link>
         <ul className="menu">
           <li>
-            <NavLink to="/freeboard" style={getLinkStyle}>
+            <Link to="/freeboard" className={getLinkClass("freeboard")}>
               자유게시판
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/items" style={getLinkStyle}>
+            <Link to="/items" className={getLinkClass("market")}>
               중고마켓
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </div>

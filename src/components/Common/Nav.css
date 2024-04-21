@@ -6,7 +6,7 @@
   width: 100%;
   height: 70px;
   background-color: var(--white);
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid var(--gray300);
 
   display: flex;
   justify-content: space-between;
@@ -35,12 +35,20 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
-  color: #4b5563;
+  color: var(--cool-gray600);
 }
 
 li {
   list-style: none;
   text-align: center;
+}
+
+a.active {
+  color: var(--point-blue100);
+}
+
+a.basic {
+  color: var(--cool-gray600);
 }
 
 .button-login {
@@ -70,7 +78,7 @@ li {
   }
 
   .logo {
-    content: url(../assets/logo/panda_logo_text.png);
+    content: url(../../assets/logo/panda_logo_text.png);
     width: 81px;
     height: 40px;
   }

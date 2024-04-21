@@ -1,14 +1,13 @@
-import "./Item.css";
-import favoriteIcon from "../assets/icon/ic_favorite.svg";
+import "./ItemList.css";
+import favoriteIcon from "../../assets/icon/ic_favorite.svg";
 
 function Item({ item }) {
   const { name, images, price, favoriteCount } = item;
-  const imgSrc = images[0];
   const priceString = `${price.toLocaleString("ko-KR")}원`;
 
   return (
     <article className="item">
-      <img className="item-image" src={imgSrc} alt="상품 이미지" />
+      <img className="item-image" src={images[0]} alt="상품 이미지" />
       <div className="item-info">
         <p className="item-title">{name}</p>
         <p className="item-price">{priceString}</p>
@@ -21,4 +20,16 @@ function Item({ item }) {
   );
 }
 
-export default Item;
+function ItemList({ items }) {
+  return (
+    <ol className="item-list">
+      {items.map((item) => (
+        <li key={item.id}>
+          <Item item={item} />
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export default ItemList;
