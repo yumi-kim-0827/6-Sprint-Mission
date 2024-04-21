@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import usePageTitle from '../hooks/usePageTitle';
 import BestItems from '../components/BestItems';
 import ItemsForSale from '../components/ItemsForSale';
 import { getItems } from '../services/api';
@@ -8,6 +9,7 @@ const LIMIT = 10;
 
 export default function Items() {
   const [items, setItems] = useState([]);
+  usePageTitle('판다마켓: 중고마켓');
 
   useEffect(() => {
     const fetchItems = async options => {

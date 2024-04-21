@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/AddItem.css';
+import usePageTitle from '../hooks/usePageTitle';
 import FileInput from '../components/FileInput';
 import TagInput from '../components/TagInput';
 
 export default function AddItem() {
+  usePageTitle('판다마켓: 상품 등록하기');
   const [values, setValues] = useState({
     imgFile: null,
     name: '',
