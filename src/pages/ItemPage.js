@@ -1,16 +1,16 @@
+import { useEffect, useState } from "react";
+import { getProducts } from "../api";
 import style from "../styles/ItemPage.module.css";
 import classNames from "classnames/bind";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import CardList from "../components/CardList";
 import Input from "../components/Input";
-import { useEffect, useRef, useState } from "react";
-import { getProducts } from "../api";
 
 const cn = classNames.bind(style);
 const PAGE_LIMIT = {
   BEST: 4,
-  ALL: 12,
+  ALL: 10,
 };
 const ORDER_STANDARD = {
   NEWEST: "recent",
