@@ -1,9 +1,5 @@
 @import "_variable.css";
 
-.container {
-  margin-top: 100px;
-}
-
 .section {
   margin-bottom: 40px;
 }
@@ -17,7 +13,12 @@
 .section-menu {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 12px;
+}
+
+.section-menu .section-title {
+  flex: 1;
 }
 
 .select-order {
@@ -33,6 +34,7 @@
   border: 1px solid var(--select-box-color);
   border-radius: 12px;
   background: url(../assets/ic_arrow_down.png) no-repeat right 20px center;
+  background-color: #fff;
   font-size: 16px;
   text-align: left;
   white-space: nowrap;
@@ -49,6 +51,7 @@
   left: 0;
   border: 1px solid var(--select-box-color);
   border-radius: 12px;
+  background-color: #fff;
   font-size: 16px;
 }
 

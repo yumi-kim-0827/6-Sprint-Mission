@@ -1,0 +1,40 @@
+.product-img {
+  width: 210px;
+  height: 210px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-desc {
+  margin-top: 16px;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+.product-price {
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.product-favorite {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.favorite-btn {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+  background-image: url(../assets/empty_heart.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.favorite-btn.on {
+  background-image: url(../assets/heart.png);
+}

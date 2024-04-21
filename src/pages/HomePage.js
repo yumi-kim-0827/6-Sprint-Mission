@@ -7,7 +7,7 @@ const cn = classNames.bind(style);
 const HomePage = () => {
   return (
     <Container className={cn("container")}>
-      <div>HomePage</div>
+      <div>home</div>
     </Container>
   );
 };
