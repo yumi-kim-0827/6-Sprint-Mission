@@ -7,7 +7,7 @@ export function TagInput ({name, onChange}) {
   const tagInput = useRef();
 
   const handleKeydown = (e) => {
-    if(e.key === 'Enter') {
+    if(e.key === 'Enter' && e.target.value !== "") {
       const nextValue = e.target.value;
       
       setTagArr((prevArr) => [...prevArr, nextValue]);
