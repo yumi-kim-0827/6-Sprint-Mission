@@ -1,6 +1,6 @@
 import "./ProductList.css";
-import HeartIcon from "../images/ic_heart.png";
-import SearchIcon from "../images/ic_search.png";
+import HeartIcon from "./images/ic_heart.png";
+import SearchIcon from "./images/ic_search.png";
 
 function ProductListItem({ item }) {
   return (
@@ -16,7 +16,7 @@ function ProductListItem({ item }) {
         <p className="Title">{item.name}</p>
         <p className="Price">{item.price}원</p>
         <div className="FavoriteCount">
-          <img src={HeartIcon}></img>
+          <img src={HeartIcon} alt="하트"></img>
           <p>{item.favoriteCount}</p>
         </div>
       </div>
@@ -30,7 +30,7 @@ function ProductList({ items }) {
       <div className="AllProductsMenu">
         <p className="AllProductsTitle">전체 상품</p>
         <div className="Search">
-          <img className="SearchIcon" src={SearchIcon}></img>
+          <img className="SearchIcon" src={SearchIcon} alt="돋보기"></img>
           <input
             className="SearchInput"
             placeholder="검색할 상품을 입력해주세요"
