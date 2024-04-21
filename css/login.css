@@ -51,7 +51,8 @@
   outline: 2px solid #3692ff;
 }
 
-#password-icon {
+#password-icon,
+#password-check-icon {
   position: absolute;
   top: 50px;
   right: 24px;
@@ -107,6 +108,22 @@
 .login__member-link {
   text-decoration: underline;
   color: #3182f6;
+}
+
+/* 유효성 검사 */
+.login__input.error {
+  outline: 2px solid var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 15px;
+  margin-top: -10px;
+  margin-bottom: 24px;
+}
+
+.login__submit:disabled {
+  background-color: var(--gray400);
 }
 
 /* Mobile */
