@@ -1,0 +1,56 @@
+.toggleMenu {
+  position: relative;
+}
+
+.iconButton {
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+  padding: 12px 20px 12px 20px;
+  border-radius: 12px;
+  gap: 10px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+ul.popup {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+ul.popup li {
+  padding: 15px 19px;
+  font-family: var(--noto-sans);
+}
+
+ul.popup li:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+ul.popup li.disabled {
+  background-color: #fff;
+  color: #c4c4c4;
+  user-select: none;
+  cursor: default;
+  border: 1px 1px 0px 1px;
+  height: 42px;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.toggleMenu ul.popup a:hover {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: #ffffff;
+}
+
+.newestBtn {
+  border-bottom: 1px solid #e5e7eb;
+}

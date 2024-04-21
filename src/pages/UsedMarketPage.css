@@ -1,0 +1,50 @@
+h2 {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 2%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+div.search-bar {
+  display: flex;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.search input {
+  border-radius: 12px;
+  padding: 9px 20px 9px 20px;
+  gap: 10px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.submit-btn {
+  border-radius: 8px;
+  padding: 12px 23px 12px 23px;
+  gap: 10px;
+  border: none;
+  background-color: #3692ff;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+h2.best-product {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
