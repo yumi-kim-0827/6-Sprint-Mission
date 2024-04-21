@@ -5,7 +5,7 @@ import "./ItemsPage.css";
 
 function ItemsPage() {
   return (
-    <div>
+    <div className="wrapper">
       <BestItems />
       <AllItems />
     </div>
