@@ -1,57 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { get_products } from "./api";
 import ProductElement from "./ProductElement";
 import IsLoading from "./IsLoading";
 import FailLoading from "./FailLoading";
 import "../css/bestProducts.css";
+import useLoading from "../hooks/loading";
+import NoProduct from "./NoProduct";
 
-const BestProducts = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [loadingError, setLoadingError] = useState(null);
+const BestProducts = ({ numOfItemsToShow }) => {
   const [bestProducts, setBestProducts] = useState([]);
-  const [numOfItemsToShow, setNumOfItemsToShow] = useState(4);
-  const showedBestProducts = bestProducts.slice(0, numOfItemsToShow)
+  const showedBestProducts = bestProducts.slice(0, numOfItemsToShow);
+  const [isLoading, loadingError, noResult, handleLoad] = useLoading();
 
-  const sortByLikes = (products) => {
-    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
-  };
-
-  const handleLoad = async () => {
-    let result;
-    try {
-      setLoadingError(null);
-      setIsLoading(true);
-      result = await get_products();
-    } catch (error) {
-      setLoadingError(error);
-      return;
-    } finally {
-      setIsLoading(false);
-    }
-    const { list } = result;
-    setBestProducts(sortByLikes(list));
+  const handleBestProductsLoad = async () => {
+    const result = await handleLoad({ orderBy: "favorite", pageSize: 4 });
+    setBestProducts(result.list);
   };
 
   useEffect(() => {
-    handleLoad();
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setNumOfItemsToShow(1);
-      } else if (window.innerWidth <= 1024) {
-        setNumOfItemsToShow(2);
-      } else {
-        setNumOfItemsToShow(4);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    handleBestProductsLoad();
   }, []);
 
   return (
@@ -62,10 +28,12 @@ const BestProducts = () => {
           <IsLoading />
         ) : loadingError ? (
           <FailLoading />
+        ) : noResult ? (
+          <NoProduct />
         ) : (
-          showedBestProducts.map((product) => {
-            return <ProductElement key={product.id} product={product} />;
-          })
+          showedBestProducts.map((product) => (
+            <ProductElement key={product.id} product={product} />
+          ))
         )}
       </div>
     </div>

@@ -1,0 +1,19 @@
+.page-nation {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.page-nation-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.page-nation-buttons button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+  border: 1px solid var(--gray200);
+  background-color: white;
+  cursor: pointer;
+}

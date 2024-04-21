@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main: #3692ff;
+    --error: #f74747;
+    --gray50: #f7f7f8;
+    --gray100: #e8ebed;
+    --gray200: #e5e7eb;
+    --gray400: #9ea4a8;
+    --gray500: #72787f;
+    --gray600: #454c53;
+    --gray700: #374151;
+    --gray800: #26282b;
+    --gray900: #1b1d1f;
+    --btn1: #3692ff;
+    --btn2: #1967d6;
+    --btn3: #1251aa;
+    --btn4: #9ca3af;
+    --bannerbg: #cfe5ff;
+    --coolGray800: #1F2937;
+    --coolGray100: #F3F4F6;
+
+}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+html{
+    font-size:62.5%;
+}
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    overflow-x:hidden;
+}
+
+/* 판다마켓 로고 */
+header{
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+#Panda-market-logo {
+    width: 39.6rem;
+    height: 13.2rem;
+   
+}
+
+/* 메인 */
+main{
+    display: flex;
+    justify-content: center;
+}
+.login-content{
+    width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap:2.4rem;
+}
+
+/* 이메일 아이디 로그인 버튼 */
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.login-form input {
+    margin: 1.6rem 0 2.4rem 0;
+    background-color: var(--coolGray100);
+    width: 64rem;
+    height: 5.6rem;
+    border-radius: 1.2rem;
+    border: none;
+    padding-left: 2.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    text-align: left;
+}
+.login-form input:focus{
+    outline-color: var(--btn1);
+}
+.login-form label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.1rem;
+    text-align: left;
+    color: var(--coolGray800);
+}
+.user-input{
+    position: relative;
+}
+.password-visible-btn{
+    width: 2.4rem;
+    height: 2.4rem;
+    position: absolute;
+    top: 46%;
+    right: 2.4rem;
+    cursor: pointer;
+    
+}
+
+.login-form button {
+    padding: 1.6rem 0 1.6rem 0;
+    border-radius: 4rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    background-color: var(--btn4);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.login-form button:hover{
+    background-color: var(--btn1);
+
+}
+/* 간편 로그인 */
+.login-easy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6F2FF;
+    padding: 1.6rem 2.3rem 1.6rem 2.3rem;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.sns-icon img{
+    width: 4.2rem;
+    height: 4.2rem;
+}
+.sns-icon img:first-child{
+    margin-right: 1.6rem;
+}
+
+/* 처음이신가요? */
+.login-first{
+    text-align: center;
+}
+.login-first span {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    text-align: left;
+    color: var(--coolGray800);
+
+}
+.login-first span {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--coolGray800);
+
+}
+.login-first a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #3182F6;
+    
+}
+
+@media(min-width: 375px) and (max-width: 767px){
+    header {
+        padding: 2.4rem 0rem;
+        text-align: center;
+    }
+    #Panda-market-logo {
+        width: 19.8rem;
+        height: 6.6rem;
+       
+    }
+    main{
+        padding: 0px 1.6rem;
+    }
+    .login-content {
+        width: 100%;
+        max-width: 40rem;
+    }
+
+    .login-form label {
+        font-size: 1.4rem;
+        line-height: 1.67rem;
+        
+    }
+
+    .login-form input {
+        margin: 0.8px 0 1.6rem 0;
+        width: 100%;
+        height: 5.6rem;
+      
+    }
+
+    .login-form button {
+        padding: 1.6rem 12.4rem;
+        
+    }
+
+}
