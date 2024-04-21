@@ -1,0 +1,76 @@
+@import "./reset.css";
+@import "./common.css";
+@import "../assets/fonts/index.css";
+
+.fileInputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.imageAddButton {
+  font-family: Pretendard;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  size: 16px;
+  line-height: 24px;
+  color: var(--panda-gray-color);
+  width: 282px;
+  height: 282px;
+  border-radius: 14px;
+  background-color: var(--cool-gray-100);
+}
+
+.imagePreview {
+  display: flex;
+  width: 282px;
+  height: 282px;
+  position: relative;
+}
+
+.imagePreviewImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+}
+
+.imagePreviewDeleteBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  border: none;
+  background-color: var(--brand-blue);
+  color: var(--button-font-color);
+  font-family: Pretendard;
+  font-weight: 700;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .imagePreview {
+    width: 162px;
+    height: 162px;
+  }
+
+  .imageAddButton {
+    width: 162px;
+    height: 162px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .imagePreview {
+    width: 168px;
+    height: 168px;
+  }
+
+  .imageAddButton {
+    width: 168px;
+    height: 168px;
+  }
+}
