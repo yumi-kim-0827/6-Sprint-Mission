@@ -12,3 +12,8 @@
   color: white;
   cursor: pointer;
 }
+
+.Button.disable {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}

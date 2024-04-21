@@ -60,3 +60,24 @@ input[type="file"] {
   top: 10px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .ImgInput__wrapper {
+    width: 162px;
+    height: 162px;
+  }
+  .ImgInput__preview_wrapper {
+    width: 162px;
+    height: 162px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .ImgInput__wrapper {
+    width: 168px;
+    height: 168px;
+  }
+  .ImgInput__preview_wrapper {
+    width: 168px;
+    height: 168px;
+  }
+}

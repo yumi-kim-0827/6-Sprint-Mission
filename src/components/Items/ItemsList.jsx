@@ -62,8 +62,14 @@ const ItemsList = () => {
       setData(newData.list);
       setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
     };
+
+    console.log("data request");
     loadData();
   }, [displaySize]);
+
+  useEffect(() => {
+    console.log("data Change!!!");
+  }, [data]);
 
   // 페이지 및 정렬 변경 시 데이터 로드
   useEffect(() => {

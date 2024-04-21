@@ -1,0 +1,21 @@
+.Tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f9fafb;
+  padding: 12px 12px 12px 16px;
+  border-radius: 26px;
+  white-space: nowrap;
+}
+
+.Tag button {
+  background-color: #9ca3af;
+  border: none;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
