@@ -10,11 +10,16 @@ const cn = classNames.bind(style);
 
 const ItemPage = () => {
   const [order, setOrder] = useState();
+  const [isActive, setActive] = useState(false);
 
   // TODO
-  function handleOrderClick() {
+  const handleOrderClick = () => {
     setOrder();
-  }
+  };
+
+  const handleToggle = () => {
+    setActive(!isActive);
+  };
 
   return (
     <Container className={cn("container")}>
@@ -38,10 +43,11 @@ const ItemPage = () => {
             isActive="on"
             href="/additem"
           />
-          {/* TODO */}
           <div className={cn("select-order")}>
-            <button className={cn("select-btn")}>최신순</button>
-            <ul className={cn("order-list")}>
+            <button onClick={handleToggle} className={cn("select-btn")}>
+              최신순
+            </button>
+            <ul className={cn("order-list", isActive ? "on" : "")}>
               <li className={cn("order-item")}>
                 <button type="button" onClick={handleOrderClick}>
                   최신순

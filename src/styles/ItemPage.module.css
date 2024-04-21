@@ -52,6 +52,10 @@
   font-size: 16px;
 }
 
+.order-list.on {
+  display: block;
+}
+
 .order-item {
   height: 44px;
   text-align: center;
