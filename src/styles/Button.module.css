@@ -9,6 +9,10 @@
   cursor: pointer;
   transition: 0.3s;
   border: 0px;
+  min-width: 88px;
+}
+.disabled {
+  background-color: var(--gray400);
 }
 .roundedSm {
   border-radius: 8px;

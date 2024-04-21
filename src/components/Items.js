@@ -3,29 +3,26 @@ import { FaSistrix } from 'react-icons/fa6';
 import { useState, useMemo, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa6';
-import ProductList from './ProductList';
 import { getProducts } from '../api';
 import styles from '../styles/Button.module.css';
+import ProductList from './ProductList';
+import PagenationBar from './PaginationBar';
 
 const BestListBox = styled.div`
   margin-bottom: 40px;
 `;
 const AllListHead = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 3fr 2fr 1fr 1fr;
   gap: 24px;
   align-items: center;
   margin-bottom: 24px;
 
-  h2 {
-    grid-column: 1/3;
-  }
-
-  @media (max-width: 767px) {
-    grid-template-columns: repeat(5, 1fr);
+  @media (max-width: 1280px) {
+    grid-template-columns: 2fr 1fr;
 
     h2 {
-      grid-column: 1;
+      order: -2;
     }
   }
 `;
@@ -34,10 +31,9 @@ const SearchBox = styled.div`
   background-color: var(--gray100);
   border-radius: 12px;
   padding: 9px 18px;
-  grid-column: 4/6;
 
-  @media (max-width: 767px) {
-    grid-column: 2/4;
+  @media (max-width: 1280px) {
+    order: 0;
   }
 `;
 
@@ -47,6 +43,12 @@ const Input = styled.input`
   background-color: transparent;
   color: var(--gray400);
   min-width: 175px;
+`;
+
+const AddItemBox = styled.div`
+  @media (max-width: 1280px) {
+    order: -1;
+  }
 `;
 
 const SelectWrapper = styled.div`
@@ -67,6 +69,10 @@ const SelectButton = styled.button`
   line-height: 1;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1280px) {
+    order: -1;
+  }
 `;
 
 const DropdownMenu = styled.ul`
@@ -93,15 +99,20 @@ const DropdownItem = styled.li`
 `;
 
 function Items() {
-  const [order, setOrder] = useState('createdAt');
+  const [order, setOrder] = useState('recent');
   const [items, setItems] = useState([]);
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('createdAt');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => b[order] - a[order]);
-  }, [items, order]);
+    let filteredItems = items.filter((item) => {
+      // 필터링을 위해 상품명을 소문자로 변환하여 검색어와 비교합니다.
+      return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    // 필터된 상품들을 정렬합니다.
+    return filteredItems.sort((a, b) => b[order] - a[order]);
+  }, [items, order, searchTerm]);
 
   // 서버에서 정렬한 데이터 불러오기
   const handleLoad = async (orderQuery) => {
@@ -111,7 +122,7 @@ function Items() {
 
   // 좋아요순으로 데이터 불러오기
   const handleLoadFavorites = async () => {
-    const favoriteProducts = await getProducts('favoriteCount');
+    const favoriteProducts = await getProducts('favorite');
     setFavoriteItems(favoriteProducts.list.slice(0, 4));
   };
 
@@ -122,7 +133,6 @@ function Items() {
 
   const handleSortChange = (option) => {
     setOrder(option);
-    setSelectedOption(option);
   };
 
   return (
@@ -135,24 +145,31 @@ function Items() {
         <h2>전체 상품</h2>
         <SearchBox>
           <FaSistrix />
-          <Input placeholder="검색할 상품을 입력해주세요" />
+          <Input
+            placeholder="검색할 상품을 입력해주세요"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </SearchBox>
-        <Link to="/additem" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
-          상품 등록하기
-        </Link>
+        <AddItemBox>
+          <Link to="/additem" className={`${styles[`btn-primary`]} ${styles.roundedSm}`}>
+            상품 등록하기
+          </Link>
+        </AddItemBox>
         <SelectWrapper>
           <SelectButton onClick={() => setDropdownOpen(!dropdownOpen)}>
-            {selectedOption === 'createdAt' ? '최신순' : '좋아요순'} <FaCaretDown />
+            {order === 'createdAt' ? '최신순' : '좋아요순'} <FaCaretDown />
           </SelectButton>
           {dropdownOpen && (
             <DropdownMenu>
-              <DropdownItem onClick={() => handleSortChange('createdAt')}>최신순</DropdownItem>
-              <DropdownItem onClick={() => handleSortChange('favoriteCount')}>좋아요순</DropdownItem>
+              <DropdownItem onClick={() => handleSortChange('recent')}>최신순</DropdownItem>
+              <DropdownItem onClick={() => handleSortChange('favorite')}>좋아요순</DropdownItem>
             </DropdownMenu>
           )}
         </SelectWrapper>
       </AllListHead>
       <ProductList items={sortedItems} />
+      <PagenationBar />
     </>
   );
 }
