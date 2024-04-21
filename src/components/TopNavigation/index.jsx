@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import pandoLogo from 'assets/logos/panda-logo.png';
+import pandaLogo from 'assets/logos/panda-logo.png';
 import TextLogo from 'assets/logos/text-logo.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
 import './style.css';
 
 const TopNavigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,14 +28,14 @@ const TopNavigation = () => {
     <header>
       <div className="leftContainer">
         <Link to="/">
-          <img src={isMobile ? TextLogo : pandoLogo} alt="판다마켓 로고" />
+          <img src={isMobile ? TextLogo : pandaLogo} alt="판다마켓 로고" />
         </Link>
         <nav>
           <ul className="navBar">
             <li>
               <Link
                 to="/board"
-                className={location.pathname === '/board' ? 'activ-nav' : ''}
+                className={location.pathname === '/board' ? 'active-nav' : ''}
               >
                 자유게시판
               </Link>
@@ -42,7 +43,12 @@ const TopNavigation = () => {
             <li>
               <Link
                 to="/items"
-                className={location.pathname === '/items' ? 'activ-nav' : ''}
+                className={
+                  location.pathname === '/items' ||
+                  location.pathname === '/addItem'
+                    ? 'active-nav'
+                    : ''
+                }
               >
                 중고마켓
               </Link>
@@ -50,9 +56,7 @@ const TopNavigation = () => {
           </ul>
         </nav>
       </div>
-      <Link to="/login">
-        <Button title="로그인" />
-      </Link>
+      <Button title="로그인" onClick={() => navigate('/login')} />
     </header>
   );
 };

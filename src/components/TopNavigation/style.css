@@ -31,13 +31,13 @@ header {
   }
 }
 
-.activ-nav {
+.active-nav {
   color: var(--blue-primary);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .navBar {
     padding-left: 20px;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }

@@ -1,9 +1,9 @@
-.image-comtainer {
+.image-container {
   position: relative;
   width: 100%;
 }
 
-.image-comtainer::after {
+.image-container::after {
   display: block;
   content: '';
   padding-bottom: 100%;

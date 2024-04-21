@@ -2,25 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './normalize.css';
-import App from 'App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ItemsPage from 'pages/ItemsPage';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/items',
-    element: <ItemsPage />,
-  },
-  {
-    path: '/*',
-    element: <h1>미구현 페이지 입니다.</h1>,
-  },
-]);
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
