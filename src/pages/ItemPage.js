@@ -3,38 +3,61 @@ import classNames from "classnames/bind";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import CardList from "../components/CardList";
-import mock from "../mock.json";
 import Input from "../components/Input";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getProducts } from "../api";
 
 const cn = classNames.bind(style);
+const PAGE_LIMIT = {
+  BEST: 4,
+  ALL: 12,
+};
+const ORDER_STANDARD = {
+  NEWEST: "recent",
+  BEST: "favorite",
+};
 
 const ItemPage = () => {
-  const [order, setOrder] = useState("createdAt");
-  const [items, setItems] = useState([]);
+  const [order, setOrder] = useState(ORDER_STANDARD.NEWEST);
+  const [prods, setProds] = useState([]);
+  const [bestProds, setBestProds] = useState([]);
   const [isActive, setActive] = useState(false);
 
-  const sortedProds = mock.list.sort((a, b) => b[order] - a[order]);
-  const bestProds = mock.list.sort((a, b) => b.favoriteCount - a.favoriteCount);
-
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleBestClick = () => setOrder("favoriteCount");
-
-  const handleLoadClick = async () => {
-    const { items } = await getProducts();
-    setItems(items);
-  };
+  const handleNewestClick = () => setOrder(ORDER_STANDARD.NEWEST);
+  const handleBestClick = () => setOrder(ORDER_STANDARD.BEST);
 
   const handleToggle = () => {
     setActive(!isActive);
   };
 
+  const handleLoad = async (queryObj) => {
+    const prods = await getProducts(queryObj);
+    setProds(prods);
+  };
+
+  const handleBestLoad = async (queryObj) => {
+    const prods = await getProducts(queryObj);
+    setBestProds(prods);
+  };
+
+  useEffect(() => {
+    handleBestLoad({
+      page: 1,
+      pageSize: PAGE_LIMIT.BEST,
+      orderBy: ORDER_STANDARD.BEST,
+    });
+    handleLoad({
+      page: 1,
+      pageSize: PAGE_LIMIT.ALL,
+      orderBy: order,
+    });
+  }, [order]);
+
   return (
     <Container className={cn("container")}>
       <section className={cn("section")}>
         <h2 className={cn("section-title")}>베스트 상품</h2>
-        <CardList products={bestProds} />
+        <CardList isBest={true} products={bestProds} />
       </section>
       <section className={cn("section")}>
         <div className={cn("section-menu")}>
@@ -70,7 +93,7 @@ const ItemPage = () => {
             </ul>
           </div>
         </div>
-        <CardList products={sortedProds} />
+        <CardList products={prods} />
       </section>
     </Container>
   );

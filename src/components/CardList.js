@@ -4,16 +4,17 @@ import Card from "./Card";
 
 const cn = classNames.bind(style);
 
-const CardList = ({ products }) => {
+const CardList = ({ isBest, products }) => {
   return (
-    <ul className={cn("card-list")}>
-      {products.map((product) => {
-        return (
-          <li key={product.id}>
-            <Card product={product} />
-          </li>
-        );
-      })}
+    <ul className={cn("card-list", isBest ? "best-prods" : "all-prods")}>
+      {products &&
+        products.map((product) => {
+          return (
+            <li key={product.id}>
+              <Card product={product} />
+            </li>
+          );
+        })}
     </ul>
   );
 };
