@@ -1,0 +1,67 @@
+.AddItemForm {
+  margin: 0 auto;
+  width: 1200px;
+  gap: 24px;
+}
+
+.AddItemHeader {
+  margin-top: 94px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.AddItemHeader h2 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33.41px;
+  color: #1f2937;
+}
+
+.AddItemHeader button {
+  width: 88px;
+  background-color: #9ca3af;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px 20px 12px 20px;
+}
+
+.AddItemWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.AddItemWrapper h2 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.48px;
+  color: #1f2937;
+}
+
+input {
+  border: none;
+  border-radius: 12px;
+  height: 56px;
+  width: 100%;
+  background-color: #f3f4f6;
+  padding: 16px 24px;
+}
+
+textarea {
+  border: none;
+  border-radius: 12px;
+  height: 200px;
+  width: 100%;
+  background-color: #f3f4f6;
+  padding: 16px 24px;
+}
+
+input ::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9ca3af;
+}
