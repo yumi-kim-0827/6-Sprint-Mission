@@ -1,11 +1,8 @@
 import styles from "./market.module.scss";
 import { useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
-import classNames from "classnames/bind";
 import { Button } from "components/Button";
 import { Input } from "components/Input";
-
-const cn = classNames.bind(styles);
 
 export default function AddItemForm() {
   const [imgFile, setImgFile] = useState(null);
@@ -14,7 +11,7 @@ export default function AddItemForm() {
   const [price, setPrice] = useState(0);
   const [currentTag, setCurrentTag] = useState("");
   const [tagList, setTagList] = useState([]);
-  const [isActivate, setIsActivate] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const onChange = (e) => {
     const { name, value, files } = e.target;
@@ -48,9 +45,9 @@ export default function AddItemForm() {
       tagList.length > 0 &&
       imgFile !== null
     ) {
-      setIsActivate(true);
+      setIsActive(true);
     } else {
-      setIsActivate(false);
+      setIsActive(false);
     }
   }, [title, description, price, tagList, imgFile]);
 
@@ -58,9 +55,7 @@ export default function AddItemForm() {
     <div className={styles.add__item}>
       <header className={styles.header}>
         <h1>상품 등록하기</h1>
-        <Button.Submit className={cn({ [styles.activate]: isActivate })}>
-          등록
-        </Button.Submit>
+        <Button.Submit isActive={isActive}>등록</Button.Submit>
       </header>
 
       <form className={styles.add__item__form}>

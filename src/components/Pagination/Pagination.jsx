@@ -1,22 +1,14 @@
-import styles from "./Pagination.module.scss";
-import classNames from "classnames/bind";
 import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import { useAtom, useAtomValue } from "jotai";
 import { currentPageAtom, totalPagesAtom } from "contexts/atoms/page";
-
-const cn = classNames.bind(styles);
+import * as S from "./Pagination.style";
 
 function PageButton({ children, isFocus, onClick }) {
-  const btnClassName = cn({
-    [styles.pageBtn]: true,
-    [styles.focus]: isFocus,
-  });
-
   return (
-    <div className={btnClassName} onClick={onClick}>
+    <S.PageButton $isFocus={isFocus} onClick={onClick}>
       {children}
-    </div>
+    </S.PageButton>
   );
 }
 
@@ -39,7 +31,7 @@ export default function Pagination() {
   };
 
   return (
-    <div className={styles.pagination}>
+    <S.PaginationContainer>
       <PageButton onClick={handleLeftClick}>
         <img src={ArrowLeft} alt="left-arrow" />
       </PageButton>
@@ -55,6 +47,6 @@ export default function Pagination() {
       <PageButton onClick={handleRightClick}>
         <img src={ArrowRight} alt="right-arrow" />
       </PageButton>
-    </div>
+    </S.PaginationContainer>
   );
 }

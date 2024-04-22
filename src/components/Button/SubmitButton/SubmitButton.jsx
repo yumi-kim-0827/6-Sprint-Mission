@@ -1,12 +1,21 @@
-import styles from "../Button.module.scss";
+import styled from "styled-components";
+import { DefaultButton } from "../Button.style";
 
-export default function SubmitButton({ className, children }) {
+export default function SubmitButton({ isActive, children }) {
   return (
-    <button
-      type={styles.submitBtn}
-      className={`${styles.submitBtn} ${className}`}
-    >
+    <StyledSubmitButton type="submit" $isActive={isActive}>
       {children}
-    </button>
+    </StyledSubmitButton>
   );
 }
+
+const StyledSubmitButton = styled.button`
+  ${DefaultButton};
+  background-color: ${({ $isActive }) =>
+    $isActive ? "var(--blue)" : "var(--light-gray)"};
+
+  &:focus,
+  &:hover {
+    background-color: ${({ $isActive }) => $isActive && "var(--blue600)"};
+  }
+`;

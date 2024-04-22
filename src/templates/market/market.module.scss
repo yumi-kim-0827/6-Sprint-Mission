@@ -158,15 +158,6 @@
         font-size: 28px;
       }
     }
-
-    .activate {
-      background-color: var(--blue);
-
-      &:focus,
-      &:hover {
-        background-color: var(--blue600);
-      }
-    }
   }
 }
 

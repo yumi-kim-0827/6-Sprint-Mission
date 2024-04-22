@@ -2,9 +2,9 @@ import { orderAtom } from "contexts/atoms/order";
 import useDeviceState from "hooks/useDeviceState";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
-import styles from "../Input.module.scss";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
+import * as S from "./SelectInput.style";
 
 export default function SelectInput() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -30,23 +30,27 @@ export default function SelectInput() {
   }, []);
 
   return (
-    <div className={styles.dropdown} ref={dropdownRef}>
-      <div className={styles.dropdownBtn} onClick={toggleDropdown}>
+    <S.SelectInputContainer ref={dropdownRef}>
+      <S.SelectButtonContainer onClick={toggleDropdown}>
         {isMobileWidth ? (
           <img src={SortIcon} alt="sort-icon" />
         ) : (
-          <div className={styles.select}>
+          <S.SelectButton>
             <span>{order}</span>
             <img src={ArrowDownIcon} alt="arrow-down" />
-          </div>
+          </S.SelectButton>
         )}
-      </div>
+      </S.SelectButtonContainer>
       {isDropdownOpen && (
-        <ul className={styles.dropdown__contents}>
-          <li onClick={() => setOrder("최신순")}>최신순</li>
-          <li onClick={() => setOrder("좋아요순")}>좋아요순</li>
-        </ul>
+        <S.DropdownContentContainer>
+          <S.DropdwonContent onClick={() => setOrder("최신순")}>
+            최신순
+          </S.DropdwonContent>
+          <S.DropdwonContent onClick={() => setOrder("좋아요순")}>
+            좋아요순
+          </S.DropdwonContent>
+        </S.DropdownContentContainer>
       )}
-    </div>
+    </S.SelectInputContainer>
   );
 }

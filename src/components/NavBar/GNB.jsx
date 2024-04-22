@@ -1,21 +1,21 @@
 import SmallMainLogo from "assets/icon/main_logo_small.svg";
 import MainLogo from "assets/icon/main_logo.svg";
-import styles from "./NavBar.module.scss";
 import { useLocation } from "react-router-dom";
 import { Button } from "components/Button";
 import useDeviceState from "hooks/useDeviceState";
 import { NavLink } from "react-router-dom";
+import * as S from "./Navbar.style";
 
 export default function GNB() {
   const { pathname } = useLocation();
   const { isMobileWidth } = useDeviceState();
 
   return (
-    <nav className={styles.navbar}>
+    <S.NavbarContainer>
       <NavLink to="/">
         <img src={isMobileWidth ? SmallMainLogo : MainLogo} alt="main-logo" />
       </NavLink>
-      <div className={styles.menus}>
+      <S.NavbarLinkContainer>
         <NavLink
           to="/free-board"
           style={({ isActive }) => ({ color: isActive ? "var(--blue)" : "" })}
@@ -30,8 +30,8 @@ export default function GNB() {
         >
           중고마켓
         </NavLink>
-      </div>
+      </S.NavbarLinkContainer>
       <Button.Link to="/login">로그인</Button.Link>
-    </nav>
+    </S.NavbarContainer>
   );
 }

@@ -1,19 +1,16 @@
 import { addCommas } from "utils/commas";
-import styles from "../Input.module.scss";
 import { useEffect, useState } from "react";
-import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
+import * as S from "./FormInputs.style";
 
 export function FormInputMain({ name, value, onChange, placeholder }) {
   return (
-    <div className={styles.form__input}>
-      <input
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required
-      />
-    </div>
+    <S.FormInput
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required
+    />
   );
 }
 
@@ -27,29 +24,25 @@ export function NumberInput({ name, value: number, onChange, placeholder }) {
   }, [number]);
 
   return (
-    <div className={styles.form__input}>
-      <input
-        name={name}
-        placeholder={placeholder}
-        value={priceStr}
-        onChange={onChange}
-        required
-      />
-    </div>
+    <S.FormInput
+      name={name}
+      placeholder={placeholder}
+      value={priceStr}
+      onChange={onChange}
+      required
+    />
   );
 }
 
-export function FormTextarea({ name, content, onChange, placeholder }) {
+export function TextareaInput({ name, content, onChange, placeholder }) {
   return (
-    <div className={styles.form__textarea}>
-      <textarea
-        name={name}
-        placeholder={placeholder}
-        value={content}
-        onChange={onChange}
-        required
-      />
-    </div>
+    <S.TextareaInput
+      name={name}
+      placeholder={placeholder}
+      value={content}
+      onChange={onChange}
+      required
+    />
   );
 }
 
@@ -64,31 +57,30 @@ export function TagInput({
 }) {
   return (
     <>
-      <div className={styles.form__input}>
-        <input
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          onKeyUp={onKeyUp}
-        />
-      </div>
-      <div className={styles.tag__list}>
+      <S.FormInput
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onKeyUp={onKeyUp}
+      />
+
+      <S.TagList>
         {[...tagList].reverse().map((tag) => (
           <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
             {tag}
           </Tag>
         ))}
-      </div>
+      </S.TagList>
     </>
   );
 }
 
 function Tag({ children, onDelete }) {
   return (
-    <div className={styles.tag}>
+    <S.Tag>
       {children}
-      <XIcon fill="#9CA3AF" className={styles.icon} onClick={onDelete} />
-    </div>
+      <S.StyledXIcon onClick={onDelete} />
+    </S.Tag>
   );
 }

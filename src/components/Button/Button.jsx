@@ -1,5 +1,5 @@
-import styles from "./Button.module.scss";
+import { DefaultButton } from "./Button.style";
 
-export default function Button({ className, children }) {
-  return <div className={`${styles.button} ${className}`}>{children}</div>;
+export default function Button({ children }) {
+  return <DefaultButton>{children}</DefaultButton>;
 }
