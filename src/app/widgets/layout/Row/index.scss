@@ -1,0 +1,20 @@
+[data-widget="Row"]
+{
+	display: flex;
+	/* axis */
+	&.left-to-right
+	{
+		flex-direction: row;
+	}
+	&.right-to-left
+	{
+		flex-direction: row-reverse;
+	}
+
+	> *
+	{
+		text-wrap: nowrap;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}

@@ -1,12 +1,10 @@
-import React from "react";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import "./index.scss";
-
-export default function Showcase({ name, align, image, heading, subheading })
+export default function Showcase({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ name, src, align, heading, subheading })
 {
 	return (
-		<section data-widget={Showcase.name} class={align}>
-			<img src={image} alt={name}/>
+		<section {...widget(Showcase.name, { id, style, classes }, { $classes: [align] })}>
+			<img src={src} alt={name}/>
 			<div class="wrapper">
 				<p class="name">
 					{name}

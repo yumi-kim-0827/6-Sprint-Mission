@@ -1,24 +1,20 @@
 *
 {
-	color: inherit;
+	color: #374151;
+	font-family: Pretendard;
+	resize: none;
 	margin: 0px;
 	padding: 0px;
 	border: none;
 	outline: none;
 	transition: 250ms;
 	box-sizing: border-box;
-	text-decoration: none;
 	background-color: transparent;
 }
 :root
 {
 	--red: #F74747;
 	--blue: #3692FF;
-}
-#root
-{
-	color: #374151;
-	font-family: Pretendard;
 }
 /* viewport: pc */
 @media screen and (1200px <= width)
@@ -34,6 +30,11 @@
 	*
 	{
 		scrollbar-width: none;
+
+		&::-webkit-scrollbar
+		{
+			width: 0px;
+		}
 	}
 	.hide-on-tablet
 	{
@@ -46,6 +47,11 @@
 	*
 	{
 		scrollbar-width: none;
+
+		&::-webkit-scrollbar
+		{
+			width: 0px;
+		}
 	}
 	.hide-on-mobile
 	{

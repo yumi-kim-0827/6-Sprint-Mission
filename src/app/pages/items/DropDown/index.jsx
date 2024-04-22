@@ -1,8 +1,6 @@
-import React from "react";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import "./index.scss";
-
-export default function DropDown({ index, items })
+export default function DropDown({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ index, items })
 {
 	const [active, set_active] = React.useState(false);
 	const [indexing, set_indexing] = React.useState(index);
@@ -32,7 +30,7 @@ export default function DropDown({ index, items })
 	}
 
 	return (
-		<section data-widget={DropDown.name} onMouseEnter={$.onMouseEnter} onMouseLeave={$.onMouseLeave}>
+		<section {...widget(DropDown.name, { id, style, classes })} onMouseEnter={$.onMouseEnter} onMouseLeave={$.onMouseLeave}>
 			<div class="text">
 				{items[indexing].name}
 			</div>

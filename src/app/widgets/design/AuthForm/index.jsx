@@ -1,12 +1,13 @@
-import React from "react";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import "./index.scss";
+import Button from "@/app/widgets/design/Button";
 
-import Button from "app/widgets/Button";
-
-export default function AuthForm({ fields, children, onSubmit })
+/**
+  * @param {object} props
+  **/
+export default function AuthForm({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ fields = [], onSubmit = null })
 {
-	const [refs, set_refs] = React.useState(() =>
+	const [refs, setRefs] = React.useState(() =>
 	{
 		const state = {};
 
@@ -16,7 +17,7 @@ export default function AuthForm({ fields, children, onSubmit })
 		}
 		return state;
 	});
-	const [msgs, set_msgs] = React.useState(() =>
+	const [msgs, setMsgs] = React.useState(() =>
 	{
 		const state = {};
 
@@ -27,18 +28,8 @@ export default function AuthForm({ fields, children, onSubmit })
 		return state;
 	});
 
-	class $
+	class Widget
 	{
-		//
-		// getters
-		//
-		static get is_invalid()
-		{
-			return !Object.values(msgs).every((msg, index, array) => msg === "null");
-		}
-		//
-		// methods
-		//
 		static validate()
 		{
 			for (const [key, value] of Object.entries(fields))
@@ -57,12 +48,12 @@ export default function AuthForm({ fields, children, onSubmit })
 					msgs[key] = response ?? "null";	
 				}
 			}
-			set_msgs({ ...msgs });
+			setMsgs((msgs) => ({ ...msgs }));
 		}
 	}
 
 	return (
-		<form data-widget={AuthForm.name}>
+		<form {...widget(AuthForm.name, { id, style, classes })}>
 			<div class="fields">
 				{Object.keys(fields).map((key, index, array) =>
 				{
@@ -70,13 +61,13 @@ export default function AuthForm({ fields, children, onSubmit })
 						<div key={key} class="data">
 							<label for={fields[key].id}>{fields[key].alt}</label>
 							<div class="wrapper" data-msg={msgs[key]}>
-								<input {...fields[key]} id={key} required={true} validators={null} onBlur={(event) => $.validate()} onFocus={(event) => refs[key] = event.target} onChange={(event) => $.validate()}/>
+								<input {...fields[key]} id={key} required={true} validators={null} onBlur={(event) => Widget.validate()} onFocus={(event) => refs[key] = event.target} onChange={(event) => Widget.validate()}/>
 							</div>
 						</div>
 					);
 				})}
 			</div>
-			<Button disabled={$.is_invalid} onClick={onSubmit}>
+			<Button disabled={!Object.values(msgs).every((msg, index, array) => msg === "null")} onClick={onSubmit}>
 				{children}
 			</Button>
 		</form>

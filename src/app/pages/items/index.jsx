@@ -1,15 +1,14 @@
-import React from "react";
+import React from "react"; import "./index.scss"; import widget from "@/utilities/widget";
 
-import "./index.scss";
-
-import API from "api";
+import API from "@/api";
 
 import Product from "./Product";
 import DropDown from "./DropDown";
 import Pagination from "./Pagination";
 
-import Link from "app/widgets/Link";
-import Button from "app/widgets/Button";
+import Link from "@/app/widgets/design/Link";
+import Button from "@/app/widgets/design/Button";
+import Header from "@/app/widgets/design/Header";
 
 const limit = {
 	all:
@@ -22,7 +21,7 @@ const limit = {
 	},
 };
 
-export default function ItemsPage({ })
+export default function ItemsPage({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
 	const [query, set_query] = React.useState({});
 	const [filter, set_filter] = React.useState("");
@@ -91,26 +90,15 @@ export default function ItemsPage({ })
 	}
 
 	return (
-		<section data-widget={ItemsPage.name}>
-			<header>
-				<div class="container">
-					<Link href="/">
-						<img src={require("assets/icons/logo_face.svg").default} alt="판다마켓 로고" class="hide-on-mobile"/>
-						<img src={require("assets/icons/logo_text.svg").default} alt="판다마켓 글자"/>
-					</Link>
-					<div class="links">
-						<Link href="/posts">
-							자유게시판
-						</Link>
-						<Link href="/items" style={{ color: "var(--blue)"}}>
-							중고마켓
-						</Link>
-					</div>
-					<Button href="/signin">
-						로그인
-					</Button>
-				</div>
-			</header>
+		<section {...widget(ItemsPage.name, { id, style, classes })}>
+			<Header>
+				<Link href="/posts">
+					자유게시판
+				</Link>
+				<Link href="/items" style={{ "color": "var(--blue)" }}>
+					중고마켓
+				</Link>
+			</Header>
 			<main>
 				<div class="container">
 					<div class="divison">
@@ -133,10 +121,10 @@ export default function ItemsPage({ })
 							{viewport === "pc" ? "전체 상품" : "판매 중인 상품"}
 						</h1>
 						<div class="query">
-							<img src={require("assets/icons/search.svg").default}/>
+							<img src={require("@/assets/icons/search.svg").default}/>
 							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => set_filter((filter) => event.target.value)}/>
 						</div>
-						<Button>
+						<Button href="/additem">
 							상품 등록하기
 						</Button>
 						<DropDown class="dropdown" index={0} items={
