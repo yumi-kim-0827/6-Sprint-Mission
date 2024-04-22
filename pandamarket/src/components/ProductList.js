@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import styles from "../styles/productlist.module.css";
+import styles from "../styles/productList.module.css";
 
 function ProductList({ products }) {
   return (

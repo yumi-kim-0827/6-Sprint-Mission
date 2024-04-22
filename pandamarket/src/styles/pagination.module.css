@@ -1,4 +1,4 @@
-.pagenation {
+.pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -32,6 +32,19 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  border-radius: 100%;
+  border: 1px solid var(--gray100);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--gray100);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   border: 1px solid var(--gray100);
 }

@@ -19,6 +19,5 @@ export async function getBestProducts() {
     "https://panda-market-api.vercel.app/products?orderBy=favorite"
   );
   const body = await response.json();
-  const bestProducts = body.list.slice(0, 4);
-  return bestProducts;
+  return body;
 }

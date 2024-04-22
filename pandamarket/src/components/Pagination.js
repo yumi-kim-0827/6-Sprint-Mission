@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import styles from "../styles/pagenation.module.css";
+import styles from "../styles/pagination.module.css";
 
-function Pagenation({ productsPerPage, totalProducts, paginate }) {
+function Pagination({ productsPerPage, totalProducts, paginate }) {
   const pageNumbers = [];
   const [currentPage, setCurrentPage] = useState(1);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
+  // 전체 상품 수를 페이지 당 상품 수로 나누어 총 페이지 수 계산
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -12,6 +14,9 @@ function Pagenation({ productsPerPage, totalProducts, paginate }) {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
       paginate(currentPage - 1);
+      setIsButtonDisabled(false);
+    } else if (currentPage === 1) {
+      setIsButtonDisabled(true);
     }
   };
 
@@ -19,6 +24,9 @@ function Pagenation({ productsPerPage, totalProducts, paginate }) {
     if (currentPage < Math.ceil(totalProducts / productsPerPage)) {
       setCurrentPage(currentPage + 1);
       paginate(currentPage + 1);
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
     }
   };
 
@@ -27,11 +35,17 @@ function Pagenation({ productsPerPage, totalProducts, paginate }) {
     paginate(number);
   };
 
+
   return (
     <div>
       <nav>
-        <div className={styles.pagenation}>
-          <div className={styles["page-link"]} onClick={handlePrev}>
+        <div className={styles.pagination}>
+          <div
+            className={
+              currentPage === 1 ? styles["disabled"] : styles["page-link"]
+            }
+            onClick={handlePrev}
+          >
             {"<"}
           </div>
           {pageNumbers.map((number) => (
@@ -48,7 +62,12 @@ function Pagenation({ productsPerPage, totalProducts, paginate }) {
               </div>
             </div>
           ))}
-          <div className={styles["page-link"]} onClick={handleNext}>
+          <div
+            className={
+              currentPage === pageNumbers.length ? styles["disabled"] : styles["page-link"]
+            }
+            onClick={handleNext}
+          >
             {">"}
           </div>
         </div>
@@ -57,4 +76,4 @@ function Pagenation({ productsPerPage, totalProducts, paginate }) {
   );
 }
 
-export default Pagenation;
+export default Pagination;
