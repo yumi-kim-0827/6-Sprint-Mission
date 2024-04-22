@@ -1,19 +1,28 @@
-import React from 'react';
-import styles from '../styles/Nav.module.css';
+import React from 'react'
+import logoImage from '../assets/logo.svg';
 import Button from './Button';
-import pandaMarketLogo from '../assets/logo.svg'
+import styles from '../styles/Nav.module.css';
+import { Link, NavLink } from 'react-router-dom';
 
-export default function Nav() {
+function getLinkStyle({ isActive }) {
+  return {color: isActive ? "#3692FF" : undefined};
+}
+
+function Nav() {
   return (
-    <div className={styles.nav_container}>
+    <header className={styles.nav_wrap}>
       <div className={styles.nav_logo_box}>
-        <img className={styles.nav_logo} src={pandaMarketLogo} alt="판다마켓 로고" />
+        <Link to="/" aria-label='홈으로 이동'>
+          <img className={styles.nav_logo} src={logoImage} alt="로고 이미지" />
+        </Link>
       </div>
-      <div className={styles.nav_link}>
-        <a href>자유게시판</a>
-        <a href="/items">중고마켓</a>
-      </div>
+      <nav className={styles.nav_linkList}>
+        <NavLink to="/community" style={getLinkStyle}>자유게시판</NavLink>
+        <NavLink to="/items" style={getLinkStyle}>중고마켓</NavLink>
+      </nav>
       <Button>로그인</Button>
-    </div>
+    </header>
   )
 }
+
+export default Nav

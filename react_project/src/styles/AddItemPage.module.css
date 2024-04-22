@@ -1,0 +1,61 @@
+label {
+  margin: 20px 0 12px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.48px;
+  color: #1F2937;
+}
+
+input, textarea {
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border-style: none;
+  background-color: #F3F4F6;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24;
+  color: #9CA3AF;
+}
+
+textarea {
+  height: 200px;
+}
+
+.AddItemPage_wrap {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+}
+
+.AddItemPage_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addImage_box {
+  cursor: pointer;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #F3F4F6;
+  gap: 12px;
+}
+
+.addImage_box img {
+  width: 48px;
+  height: 48px;
+}
+
+.addImage_box p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9CA3AF;
+}

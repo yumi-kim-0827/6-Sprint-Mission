@@ -1,0 +1,19 @@
+.pagination_commonButton_box {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #E5E7EB;
+  border-radius: 40px;
+  padding: 12.5px;
+  background-color: #FFFFFF;
+}
+
+.pagination_commonButton_box:hover {
+  color: #FFFFFF;
+  background-color: #2F80ED;
+}
+
+.pagination_commonButton_img {
+  width: 100%;
+  height: 100%;
+}
