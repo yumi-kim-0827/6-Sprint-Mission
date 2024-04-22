@@ -1,10 +1,17 @@
+import { useState } from "react";
 import "./App.css";
-import { Items } from "../pages/items/index.jsx";
+import { Header } from "/src/widgets/header/index.jsx";
+import { Outlet } from "react-router-dom";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <>
-      <Items />
+      <Header isLogin={isLogin} onLogin={setIsLogin} />
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   );
 }

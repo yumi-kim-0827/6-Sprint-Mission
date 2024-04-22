@@ -1,9 +1,11 @@
 import "./header.scss";
-import "../../../shared/style/link.scss";
-import logoUrl from "../../../shared/asset/headerLogo.png";
-import { Button } from "../../../shared/ui/Button";
+import "/src/shared/style/link.scss";
+import logoUrl from "/src/shared/asset/headerLogo.png";
+import { Button } from "/src/shared/ui/Button";
+import { Link } from "react-router-dom";
+import loginUrl from "/src/shared/asset/login.png";
 
-export const Header = () => {
+export const Header = ({ isLogin, onLogin }) => {
   return (
     <header className="header">
       <div className="wrapper">
@@ -14,28 +16,36 @@ export const Header = () => {
               alt="Panda Market Main Logo"
               className="header__logo-image"
             />
-            <a href="/" className="link header__text">
+            <Link to="/" className="link header__text">
               판다마켓
-            </a>
+            </Link>
           </div>
           <div className="header__nav--wrap">
-            <a
-              href="/freeBoard"
+            <Link
+              to="/freeBoard"
               className="link header__nav header__nav--not-active"
             >
               자유게시판
-            </a>
-            <a href="/market" className="link header__nav header__nav--active">
+            </Link>
+            <Link to="/market" className="link header__nav header__nav--active">
               중고마켓
-            </a>
+            </Link>
           </div>
         </div>
-        <a href="/login" className="link">
+        {isLogin ? (
+          <img src={loginUrl} />
+        ) : (
+          // <Link to="/login" className="link">
           <Button
             classNames={["button--small", "button--blue", "button"]}
-            value={"로그인"}
+            onClick={() => {
+              onLogin(true);
+              console.log(isLogin);
+            }}
+            value="로그인"
           />
-        </a>
+          // </Link>
+        )}
       </div>
     </header>
   );

@@ -6,6 +6,14 @@ import "./Button.scss";
  * @param {Object}{string} value
  * @returns blueButton
  */
-export const Button = ({ classNames, value }) => {
-  return <button className={"button " + classNames.join(" ")}>{value}</button>;
+export const Button = ({ classNames, value, active = true, onClick }) => {
+  return (
+    <button
+      disabled={!active}
+      onClick={onClick}
+      className={"button " + classNames.join(" ")}
+    >
+      {value}
+    </button>
+  );
 };

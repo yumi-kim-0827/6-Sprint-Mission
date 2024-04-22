@@ -30,6 +30,7 @@
     line-height: 21.48px;
     text-align: center;
     font-size: 1.8rem;
+    color: #4b5563;
     &--wrap {
       margin-left: 50px;
       display: flex;
@@ -38,9 +39,6 @@
     }
     &--active {
       color: #3692ff;
-    }
-    &--not-active {
-      color: #4b5563;
     }
   }
 }
