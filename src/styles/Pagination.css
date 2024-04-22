@@ -1,0 +1,23 @@
+@import "./_variable.css";
+
+.page-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 40px 0;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--select-btn-color);
+  border-radius: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.page-btn.on {
+  background-color: #2f80ed;
+  color: #fff;
+}

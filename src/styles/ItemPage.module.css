@@ -63,7 +63,7 @@
 }
 
 .order-item:first-child {
-  border-bottom: 1px solid var(--select-box-color);
+  border-bottom: 1px solid var(--select-btn-color);
 }
 
 .order-item button {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getProducts } from "../api";
 import style from "../styles/ItemPage.module.css";
 import classNames from "classnames/bind";
@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import Button from "../components/Button";
 import CardList from "../components/CardList";
 import Input from "../components/Input";
+import Pagination from "../components/Pagination";
 
 const cn = classNames.bind(style);
 const PAGE_LIMIT = {
@@ -19,9 +20,13 @@ const ORDER_STANDARD = {
 
 const ItemPage = () => {
   const [order, setOrder] = useState(ORDER_STANDARD.NEWEST);
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
   const [prods, setProds] = useState([]);
   const [bestProds, setBestProds] = useState([]);
   const [isActive, setActive] = useState(false);
+
+  let pageArr = useRef([]);
 
   const handleNewestClick = () => setOrder(ORDER_STANDARD.NEWEST);
   const handleBestClick = () => setOrder(ORDER_STANDARD.BEST);
@@ -30,14 +35,29 @@ const ItemPage = () => {
     setActive(!isActive);
   };
 
-  const handleLoad = async (queryObj) => {
-    const prods = await getProducts(queryObj);
-    setProds(prods);
-  };
-
   const handleBestLoad = async (queryObj) => {
     const prods = await getProducts(queryObj);
-    setBestProds(prods);
+    setBestProds(prods.list);
+  };
+
+  const handleLoad = async (queryObj) => {
+    const prods = await getProducts(queryObj);
+    setProds(prods.list);
+    setPage(queryObj.page);
+    setTotalCount(prods.totalCount);
+  };
+
+  pageArr = Array.from(
+    { length: Math.ceil(totalCount / PAGE_LIMIT.ALL) },
+    (_, i) => ++i
+  );
+
+  const handleChangeLoad = () => {
+    handleLoad({
+      page: page,
+      pageSize: PAGE_LIMIT.ALL,
+      orderBy: order,
+    });
   };
 
   useEffect(() => {
@@ -47,11 +67,11 @@ const ItemPage = () => {
       orderBy: ORDER_STANDARD.BEST,
     });
     handleLoad({
-      page: 1,
+      page: page,
       pageSize: PAGE_LIMIT.ALL,
       orderBy: order,
     });
-  }, [order]);
+  }, [order, page]);
 
   return (
     <Container className={cn("container")}>
@@ -94,6 +114,12 @@ const ItemPage = () => {
           </div>
         </div>
         <CardList products={prods} />
+        <Pagination
+          page={page}
+          onClick={handleChangeLoad}
+          pageArr={pageArr}
+          setPage={setPage}
+        />
       </section>
     </Container>
   );
