@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Logo from "./assets/home/pandamarket.png";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -10,16 +9,24 @@ const Header = () => {
     navigate("/");
   };
 
+  const handleUsedMarketClick = () => {
+    navigate("/items");
+  };
+
   return (
     <HeaderContainer>
       <MenuContainer>
         <div onClick={() => navigate("/")}>
-          <img src={Logo} alt="판다마켓 홈" width="153" />
+          <img
+            src="/images/home/pandamarket.png"
+            alt="판다마켓 홈"
+            width="153"
+          />
         </div>
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
-          active={location.pathname === "/items"}
-          onClick={() => navigate("/items")}
+          active={location.pathname === "/additem"}
+          onClick={handleUsedMarketClick}
         >
           중고마켓
         </UsedMarket>
@@ -30,11 +37,13 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div`
+  font-family: Pretendard;
   position: sticky;
   top: 0px;
   max-width: 1920px;
   height: 70px;
   display: flex;
+  z-index: 9999;
   justify-content: space-between;
   align-items: center;
   padding: 0 200px;
@@ -69,7 +78,6 @@ const MenuContainer = styled.div`
 `;
 
 const FreeBoard = styled.div`
-  font-family: Pretendard;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
@@ -79,12 +87,11 @@ const FreeBoard = styled.div`
 `;
 
 const UsedMarket = styled.div`
-  font-family: Pretendard;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.48px;
   text-align: center;
-  color: #3692ff;
+  color: ${(props) => (props.active ? "#3692ff" : "#4b5563")};
   cursor: pointer;
 `;
 

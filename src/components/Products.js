@@ -2,29 +2,34 @@ import styled from "styled-components";
 import { fetchProducts } from "../api";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Pagination from "@mui/material/Pagination";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [sortBy, setSortBy] = useState("");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const [pageSize] = useState(10);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const productList = await fetchProducts();
 
-        let sortedProducts = [...productList];
+        let filteredProducts = productList.filter((product) =>
+          product.name.toLowerCase().includes(search.toLowerCase())
+        );
 
-        if (sortBy === "latest") {
-          sortedProducts = sortedProducts.sort(
-            (a, b) => b.createdAt - a.createdAt
-          );
-        } else if (sortBy === "likes") {
-          sortedProducts = sortedProducts.sort(
-            (a, b) => b.favoriteCount - a.favoriteCount
-          );
-        }
+        const sortByFunction =
+          sortBy === "latest"
+            ? (a, b) => b.createdAt - a.createdAt
+            : (a, b) => b.favoriteCount - a.favoriteCount;
 
+        let sortedProducts = [...productList].sort(sortByFunction);
+        filteredProducts = filteredProducts.sort(sortByFunction);
+        setTotal(filteredProducts.length);
         setProducts(sortedProducts.slice(0, 12));
 
         const bestSortedProducts = [...productList].sort(
@@ -36,10 +41,22 @@ const Product = () => {
       }
     };
     fetchData();
-  }, [sortBy]);
+  }, [sortBy, search, page]);
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handlePagination = (_, value) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setPage(value);
   };
 
   return (
@@ -57,6 +74,11 @@ const Product = () => {
       </BestProductContainer>
       <TotalTitle>상품</TotalTitle>
       <ButtonContainer>
+        <SearchInput
+          placeholder="   🔎 검색할 상품을 입력해주세요"
+          value={search}
+          onChange={handleSearchChange}
+        />
         <AddItemButton to="/additem">상품 등록하기</AddItemButton>
         <SortDropdown value={sortBy} onChange={handleSortChange}>
           <option value="latest">최신순</option>
@@ -73,6 +95,16 @@ const Product = () => {
           </ProductCard>
         ))}
       </TotalProductContainer>
+      <Pagination
+        count={Math.ceil(total / pageSize)}
+        page={page}
+        onChange={handlePagination}
+        color="primary"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      />
     </ProductContainer>
   );
 };
@@ -104,8 +136,7 @@ const BestProductContainer = styled.div`
 
 const TotalProductContainer = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   flex-wrap: wrap; 
   }
 `;
@@ -161,7 +192,7 @@ const TotalProductImage = styled.img`
 `;
 
 const ProductName = styled.h3`
-  margin: 0.5rem 0;
+  margin: 8px 0;
   width: 116px;
   height: 17px;
   font-size: 14px;
@@ -215,6 +246,22 @@ const TotalTitle = styled.h3`
   }
 `;
 
+const AddItemButton = styled(Link)`
+  width: 130px;
+  height: 19px;
+  padding: 12px 20px;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: #3692ff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.09px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+`;
+
 const SortDropdown = styled.select`
   width: 130px;
   height: 42px;
@@ -230,26 +277,20 @@ const SortDropdown = styled.select`
   text-align: left;
 `;
 
-const AddItemButton = styled(Link)`
-  width: 130px;
-  height: 19px;
-  padding: 12px 20px 12px 20px;
-  gap: 10px;
-  border-radius: 12px;
-  background-color: #3692ff;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 19.09px;
-  text-align: center;
-  color: #ffffff;
-  text-decoration: none;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   margin-left: auto;
   gap: 12px;
+`;
+
+const SearchInput = styled.input`
+  width: 250px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 1);
+  background-color: #f9f9f9;
+  font-weight: 400;
+  font-size: 16px;
 `;
 
 export default Product;
