@@ -1,16 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
-import "./index.css";
 import Button from "../Button";
+import { PAGES } from "../../constants/paths";
+import "./index.css";
 
 function Header() {
-  const navigationList = [
-    { link: "/", name: "자유게시판" },
-    { link: "/items", name: "중고마켓" },
-  ];
+  const navigationList = Object.values(PAGES);
 
   const location = useLocation();
-  const isThisPage = (link) => {
-    return location.pathname === link;
+
+  const isCurrentPage = (link, otherNavLinks) => {
+    const currentLink = location.pathname;
+    if (currentLink !== link && otherNavLinks)
+      return otherNavLinks.includes(currentLink);
+    return currentLink === link;
   };
 
   return (
@@ -30,16 +32,19 @@ function Header() {
         </a>
         <nav className="header-menu">
           <ul className="header-menu-container">
-            {navigationList.map((navigation) => (
-              <li
-                className={`header-menu-item ${
-                  isThisPage(navigation.link) && "selected"
-                }`}
-                key={navigation.link}
-              >
-                <Link to={navigation.link}>{navigation.name}</Link>
-              </li>
-            ))}
+            {navigationList.map(
+              ({ link, otherNavLinks, navName }) =>
+                navName && (
+                  <li
+                    className={`header-menu-item ${
+                      isCurrentPage(link, otherNavLinks) && "selected"
+                    }`}
+                    key={link}
+                  >
+                    <Link to={link}>{navName}</Link>
+                  </li>
+                )
+            )}
           </ul>
         </nav>
         <Button to="/signin">로그인</Button>

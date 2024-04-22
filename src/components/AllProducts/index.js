@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../api/product";
+import { getProducts } from "../../api";
 import ProductCard from "../ProductCard";
 import Button from "../Button";
 import DropDown from "../DropDown";
+import { PAGES } from "../../constants/paths";
 import "./index.css";
 
 const ORDERS = [
   {
     id: 0,
-    query: "recent",
-    text: "최신순",
+    orderBy: "recent",
+    label: "최신순",
   },
   {
     id: 1,
-    query: "favorite",
-    text: "좋아요순",
+    orderBy: "favorite",
+    label: "좋아요순",
   },
 ];
 
@@ -23,7 +24,7 @@ function AllProducts() {
 
   const [order, setOrder] = useState(ORDERS[0]);
 
-  const onOptionClick = (option) => {
+  const onSelectOrderOption = (option) => {
     setOrder(option);
   };
 
@@ -33,7 +34,7 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    loadProducts(order.query);
+    loadProducts(order.orderBy);
   }, [order]);
 
   return (
@@ -50,12 +51,12 @@ function AllProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </div>
-          <Button to="/addItem">상품 등록하기</Button>
+          <Button to={PAGES.addProduct.link}>상품 등록하기</Button>
           <div>
             <DropDown
               options={ORDERS}
               selectedOption={order}
-              onOptionClick={onOptionClick}
+              onSelectOption={onSelectOrderOption}
             />
           </div>
         </div>
