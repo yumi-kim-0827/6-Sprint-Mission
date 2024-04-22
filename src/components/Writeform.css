@@ -1,0 +1,22 @@
+*{
+    font-family: "Pretendard";
+    line-height: 33.41px;
+}
+.writeform{
+    padding-top: 12px;
+    margin-left: 360px;
+    margin-right: 360px;
+}
+.상품등록하기{
+    font-weight: 700;
+    font-size: 28px;
+}
+.submitbar{
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    font-weight: 700;
+    font-size: 18px;
+    color: #1F2937;
+}
