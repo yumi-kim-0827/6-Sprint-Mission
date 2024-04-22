@@ -14,11 +14,14 @@ export default function AddItem() {
   return (
     <div className={styles.container}>
       <ProductSubmitButton {...{ values, setValues }} />
-      <ImageUpload {...{ values, setValues }} />
-      <NameInput {...{ values, setValues }} />
-      <DescriptionInput {...{ values, setValues }} />
-      <PriceInput {...{ values, setValues }} />
-      <TagInput {...{ values, setValues }} />
+      <ImageUpload preview={values.preview} setValues={setValues} />
+      <NameInput productName={values.productName} setValues={setValues} />
+      <DescriptionInput
+        productDescription={values.productDescription}
+        setValues={setValues}
+      />
+      <PriceInput price={values.price} setValues={setValues} />
+      <TagInput tags={values.tags} setValues={setValues} />
     </div>
   );
 }

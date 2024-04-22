@@ -2,9 +2,9 @@ import styles from "./ImageUpload.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
 import { useRef } from "react";
 
-const ImageUpload = ({ values, setValues }) => {
+const ImageUpload = ({ preview, setValues }) => {
   const fileInputRef = useRef(null);
-  const isPreview = values.preview !== skeleton;
+  const isPreview = preview !== skeleton;
   const getFile = inputRef => inputRef.current.files[0];
 
   const handleCloseClick = () =>
@@ -31,7 +31,7 @@ const ImageUpload = ({ values, setValues }) => {
       <div className={styles.containerImg}>
         {isPreview ? (
           <div className={styles.preview}>
-            <img src={values.preview} alt="상품 미리보기 이미지" />
+            <img src={preview} alt="상품 미리보기 이미지" />
             <button
               className={styles.btnCloseActive}
               onClick={handleCloseClick}
@@ -42,7 +42,7 @@ const ImageUpload = ({ values, setValues }) => {
             className={styles.preview}
             onClick={() => fileInputRef.current.click()}
           >
-            <img src={values.preview} alt="상품 이미지 추가 버튼" />
+            <img src={preview} alt="상품 이미지 추가 버튼" />
             <input
               type="file"
               accept="image/*"
