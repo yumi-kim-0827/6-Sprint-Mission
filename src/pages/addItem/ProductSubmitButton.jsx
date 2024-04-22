@@ -1,10 +1,10 @@
 import styles from "./ProductSubmitButton.module.css";
 import { createFormData } from "../../utils/createFormData";
 import { initialFormState } from "../../utils/initialFormState";
-import { useValidation } from "../../hooks/useValidation";
+import { useAddItemFormValidation } from "./useAddItemFormValidation";
 
 const SubmitButton = ({ values, setValues }) => {
-  const isButtonEnabled = useValidation(values);
+  const isButtonEnabled = useAddItemFormValidation(values);
 
   const handleSubmit = () => {
     createFormData({ ...values });
