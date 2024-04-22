@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./components/common/Nav";
-import "./App.css";
+import "./Layout.css";
 
-function App() {
+function Layout() {
   return (
     <>
       <Nav />
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default Layout;
