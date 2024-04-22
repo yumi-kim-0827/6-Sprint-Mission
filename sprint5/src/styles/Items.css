@@ -1,0 +1,90 @@
+.items-container {
+  display: flex;
+}
+
+.items-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.pagination-buttons {
+  margin-bottom: 50px;
+}
+
+.product-menu-title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.all-product-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.all-product-menu-items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-product-button {
+  width: 133px;
+  height: 42px;
+  border: none;
+  background: #3692ff;
+  border-radius: 8px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.search-input {
+  width: 325px;
+  height: 42px;
+  border: none;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding-left: 44px;
+  background-image: url("../assets/ic_search.svg");
+  background-repeat: no-repeat;
+  background-position: 16px;
+}
+
+.search-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.paginationButtons {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .items-wrapper {
+    width: 100%;
+    margin: 0 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .items-wrapper {
+    width: 100%;
+    margin: 0 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .items-wrapper {
+    width: auto;
+    margin: 0 auto;
+  }
+}

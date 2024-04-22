@@ -1,11 +1,15 @@
 import React from "react";
-import Items from "./itmes.js";
+import Items from "../pages/Items";
+import { Routes, Route } from "react-router-dom";
+import AddItem from "../pages/AddItem";
+import "../styles/App.css";
 
 function App() {
   return (
-    <div>
-      <Items />
-    </div>
+    <Routes>
+      <Route path="/items" element={<Items />} />
+      <Route path="/additem" element={<AddItem />} />
+    </Routes>
   );
 }
 
