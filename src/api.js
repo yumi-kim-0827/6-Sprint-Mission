@@ -1,4 +1,4 @@
-const BASE_URL = `https://panda-market-api.vercel.app/products`;
+const apiUrl = process.env.REACT_APP_BASE_URL;
 
 export async function getProduct({ orderBy = "recent", page = 1, pageSize = 10 }) {
   try {
@@ -6,7 +6,7 @@ export async function getProduct({ orderBy = "recent", page = 1, pageSize = 10 }
     if (orderBy !== "recent" && orderBy !== "favorite") {
       query = `keyword=${orderBy}`;
     }
-    const response = await fetch(`${BASE_URL}?&page=${page}&pageSize=${pageSize}&${query}`);
+    const response = await fetch(`${apiUrl}?&page=${page}&pageSize=${pageSize}&${query}`);
     return response.json();
   } catch (error) {
     console.error(`${error} : error`);
@@ -15,7 +15,7 @@ export async function getProduct({ orderBy = "recent", page = 1, pageSize = 10 }
 
 export async function getBestProduct() {
   try {
-    const response = await fetch(`${BASE_URL}?orderBy=favorite&page=1`);
+    const response = await fetch(`${apiUrl}?orderBy=favorite&page=1`);
     return response.json();
   } catch (error) {
     console.error(`${error} : error`);
