@@ -1,6 +1,6 @@
-export const getData = async (order = "recent", page = 1) => {
+export const getData = async (order = "recent", page = 1, pageSize = 10) => {
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products?page=${page}&orderBy=${order}`
+    `https://panda-market-api.vercel.app/products?page=${page}&orderBy=${order}&pageSize=${pageSize}`
   );
   const result = await response.json();
   return result;

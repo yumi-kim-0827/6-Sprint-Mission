@@ -33,9 +33,16 @@
   color: #4b5563;
   font-weight: 500;
   font-size: 12px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
+  .Item {
+    width: 168px;
+    height: 248px;
+  }
   .imgWrapper {
     width: 168px;
     height: 168px;

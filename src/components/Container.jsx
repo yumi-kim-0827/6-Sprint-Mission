@@ -1,12 +1,11 @@
 import React from "react";
 import "../styles/Container.css";
-import Items from "./Items/Items.jsx";
-import Board from "./Board.jsx";
+import { Outlet } from "react-router-dom";
 
-const Container = ({ navSelected }) => {
+const Container = () => {
   return (
     <div className="Container">
-      {navSelected === "자유게시판" ? <Board /> : <Items />}
+      <Outlet />
     </div>
   );
 };

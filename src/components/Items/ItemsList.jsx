@@ -1,60 +1,106 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../../styles/Items/ItemsList.css";
+
+import { getData } from "../../apis/apis.js";
 
 import SearchBox from "./SearchBox.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
-// import Pagenation from "../Pagenation.jsx";
-
-import { getData } from "../../apis/apis.js";
-// import {
-//   calculateTotalPages,
-//   renderPageButtons,
-// } from "../../utils/PagenationUtils.js";
-
-// const PAGE_SIGE = 10;
+import Pagenation from "../Pagenation.jsx";
+import { formatCurrency } from "../../utils/utils.js";
 
 const ItemsList = () => {
   const [data, setData] = useState([]);
   const [order, setOrder] = useState("최신순");
-
-  const [page, setPage] = useState(1);
-  // const [totalPostCount, setTotalPostCount] = useState(0);
-  // const handlePrevPage = () => {
-  //   if (page > 1) {
-  //     setPage((prevPage) => prevPage - 1);
-  //   }
-  // };
-  // const handleNextPage = () => {
-  //   const totalPages = calculateTotalPages(totalPostCount, PAGE_SIGE);
-  //   if (page < totalPages) {
-  //     setPage((prevPage) => prevPage - 1);
-  //   }
-  // };
-
-  const orderHandler = (orderText) => {
-    setOrder(orderText);
-  };
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [displaySize, setDisplaySize] = useState("desktop");
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   useEffect(() => {
-    const loadData = async () => {
-      const data = await getData();
-      setData(data.list);
-      // setTotalPostCount(data.totalCount);
+    // 데이터가 처음 로드될 때 브라우저 사이즈를 체크해서 스테이트 변경
+    (function () {
+      if (window.innerWidth < 1199 && window.innerWidth > 768) {
+        setDisplaySize("tablet");
+        setItemsPerPage(6);
+      } else if (window.innerWidth < 767) {
+        setDisplaySize("mobile");
+        setItemsPerPage(4);
+      } else {
+        setDisplaySize("desktop");
+        setItemsPerPage(10);
+      }
+    })();
+
+    // window.innerWidth에 따라서 displaySize, itemsPerPage state 변경
+    const resizeHandler = () => {
+      if (window.innerWidth < 1199 && window.innerWidth > 768) {
+        setDisplaySize("tablet");
+        setItemsPerPage(6);
+      } else if (window.innerWidth < 767) {
+        setDisplaySize("mobile");
+        setItemsPerPage(4);
+      } else {
+        setDisplaySize("desktop");
+        setItemsPerPage(10);
+      }
     };
-    loadData();
+    window.addEventListener("resize", resizeHandler);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
   }, []);
 
+  // DisplaySize State가 변할 때 마다 itemsPerPage를 변경해서 API 호출
+  useEffect(() => {
+    const orderText = order === "최신순" ? "recent" : "favorite";
+    setCurrentPage(1);
+    const loadData = async () => {
+      const newData = await getData(orderText, currentPage, itemsPerPage);
+      setData(newData.list);
+      setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
+    };
+
+    console.log("data request");
+    loadData();
+  }, [displaySize]);
+
+  useEffect(() => {
+    console.log("data Change!!!");
+  }, [data]);
+
+  // 페이지 및 정렬 변경 시 데이터 로드
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
     const loadData = async () => {
-      const data = await getData(orderText, page);
-      setData(data.list);
-      // setTotalPostCount(data.totalCount);
+      const newData = await getData(orderText, currentPage, itemsPerPage);
+      setData(newData.list);
+      setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
     };
     loadData();
-  }, [order, page]);
+  }, [order, currentPage]);
+
+  // 최신순, 좋아요순 정렬
+  const orderChangeHandler = (orderText) => {
+    setOrder(orderText);
+    // 정렬이 바뀌면 현재 페이지를 1로 바꿈
+    setCurrentPage(1);
+  };
+
+  // 페이지네이션 클릭 핸들러
+  const handlePagePrevBtn = () => {
+    if (currentPage === 1) return;
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+  const handlePageNextBtn = () => {
+    if (currentPage === totalPages) return;
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+  const handlePageBtn = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="ItemsList__wrapper">
@@ -63,33 +109,36 @@ const ItemsList = () => {
         <div className={"ItemsList__menu_bar__right"}>
           <SearchBox />
           <div className="ItemsList__menu_bar__button_wrapper">
-            <Button text={"상품 등록하기"} />
+            <Link to={"additem"}>
+              <Button text={"상품 등록하기"} />
+            </Link>
           </div>
-          <DropdownOrder order={order} orderHandler={orderHandler} />
+          <DropdownOrder
+            order={order}
+            orderChangeHandler={orderChangeHandler}
+            displaySize={displaySize}
+          />
         </div>
       </div>
       <div className="ItemsList__itemsWrapper">
-        {data.length === 0 ? (
-          <></>
-        ) : (
-          data.map((item) => (
-            <Item
-              key={item.id}
-              imgSrc={item.images[0]}
-              name={item.name}
-              price={item.price}
-              favoriteCount={item.favoriteCount}
-            />
-          ))
-        )}
+        {data?.map((item) => (
+          <Item
+            key={item.id}
+            imgSrc={item.images[0]}
+            name={item.name}
+            price={formatCurrency(item.price)}
+            favoriteCount={item.favoriteCount}
+          />
+        ))}
       </div>
       <div className="ItemsList__pagination_wrapper">
-        {/* <Pagenation
-          totalPostCount={totalPostCount}
-          page={page}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-        /> */}
+        <Pagenation
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handlePageBtn={handlePageBtn}
+          handlePagePrevBtn={handlePagePrevBtn}
+          handlePageNextBtn={handlePageNextBtn}
+        />
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import "../../styles/Items/DropdownOrder.css";
 import ICON_DOWN from "../../assets/icon_down.svg";
+import ICON_SORT from "../../assets/icon_sort.svg";
 import { useState } from "react";
 
-const DropdownOrder = ({ order, orderHandler }) => {
+const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleMouseEnter = () => {
@@ -13,7 +14,7 @@ const DropdownOrder = ({ order, orderHandler }) => {
   };
 
   const clickHandler = (orderText) => {
-    orderHandler(orderText);
+    orderChangeHandler(orderText);
   };
 
   return (
@@ -23,12 +24,22 @@ const DropdownOrder = ({ order, orderHandler }) => {
       onMouseLeave={handleMouseLeave}
     >
       <div className={"DropdownOrder"}>
-        {order}
-        <img src={ICON_DOWN} alt={"내리기 아이콘"} />
+        {displaySize === "mobile" ? (
+          <img src={ICON_SORT} style={{ width: "24px", height: "24px" }} />
+        ) : (
+          <>
+            {order}
+            <img src={ICON_DOWN} alt={"내리기 아이콘"} />
+          </>
+        )}
       </div>
       <div className={"DropdownList"}>
         <div
-          className={["DropdownWrapper", showDropdown ? "show" : ""].join(" ")}
+          className={[
+            "DropdownWrapper",
+            showDropdown ? "show" : "",
+            displaySize === "mobile" ? "mobile" : "",
+          ].join(" ")}
         >
           <ul>
             <li
