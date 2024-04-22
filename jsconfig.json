@@ -24,14 +24,14 @@
       "~components/*": [
         "src/components/*"
       ],
-      "~service/*": [
-        "src/service/*"
-      ],
       "~apis/*": [
         "src/apis/*"
       ],
-      "~AddItem/*": [
-        "src/pages/AddItem/*"
+      "~hook/*": [
+        "src/hook/*"
+      ],
+      "~Context/*": [
+        "src/hook/Context/*"
       ]
     }
   }

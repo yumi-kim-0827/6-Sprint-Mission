@@ -1,15 +1,15 @@
-import Header from "~components/Index/Header";
-import Banner from "~components/Index/Banner";
-import Main from "~components/Index/Main";
-import Footer from "~components/Index/Footer";
-import BannerBottom from "~components/Index/BannerBottom";
+import Header from "~pages/Home/Header";
+import Banner from "~pages/Home/Banner";
+import MainSection from "~pages/Home/MainSection";
+import Footer from "~pages/Home/Footer";
+import BannerBottom from "~pages/Home/BannerBottom";
 
 function Home() {
   return (
     <div>
       <Header />
       <Banner />
-      <Main />
+      <MainSection />
       <BannerBottom />
       <Footer />
     </div>
