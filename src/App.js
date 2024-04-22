@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import freewriter from "./pages";
+import market from "./pages";
+import login from "./pages";
+import pandamarket from "./pages";
+import Header from "./componenets/Header/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+
+      <div>
+        <Routes>
+          <Route exact path="/pandamarket" component={pandamarket} />
+          <Route exact path="/freewirter" component={freewriter} />
+          <Route exact path="/items" component={market} />
+          <Route exact path="/login" component={login} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
