@@ -1,0 +1,39 @@
+.add-item-page {
+  padding: 2.4rem 0 17rem;
+}
+
+.add-item-page .title-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-item-page button {
+  font-size: var(--font-16);
+  font-weight: 600;
+  color: var(--white);
+  padding: 1.15rem 3rem;
+  border-radius: 0.8rem;
+  background-color: var(--blue);
+}
+
+.add-item-page button:disabled {
+  background-color: var(--gray-400);
+}
+
+.input-form {
+  margin: 1.6rem 0 0;
+  display: grid;
+  gap: 2.4rem;
+}
+
+.input-wrapper {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.input-wrapper label {
+  color: var(--gray-800);
+  font-size: var(--font-18);
+  font-weight: 700;
+}
