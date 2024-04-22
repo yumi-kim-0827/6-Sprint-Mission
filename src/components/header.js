@@ -1,10 +1,11 @@
 import MainLogo from "../assets/icon/main_logo.svg";
 import SmallMainLogo from "../assets/icon/main_logo_small.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../style/header.css";
 import LinkButton from "../common/Button";
 
 export default function NavBar() {
+  const location = useLocation();
   return (
     <nav className="navvar">
       <Link to="/">
@@ -15,8 +16,15 @@ export default function NavBar() {
         <Link to="/">
           <span>자유게시판</span>
         </Link>
-        <Link to="/">
-          <span className="focus">중고마켓</span>
+        <Link
+          to="/items"
+          className={
+            location.pathname === "/items" || location.pathname === "/additem"
+              ? "focus"
+              : ""
+          }
+        >
+          <span>중고마켓</span>
         </Link>
       </div>
       <LinkButton to="/">로그인</LinkButton>
