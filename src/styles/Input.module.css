@@ -30,3 +30,19 @@
   left: 16px;
   background-image: url(../assets/ic_search.png);
 }
+
+@media (max-width: 745px) {
+  .search-input {
+    width: 242px;
+  }
+}
+
+@media (max-width: 375px) {
+  .all-prods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .best-prods {
+    grid-template-columns: 1fr;
+  }
+}

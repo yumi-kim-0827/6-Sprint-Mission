@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import style from "../styles/Nav.module.css";
 import classNames from "classnames/bind";
-import logoImg from "../assets/logo.png";
 import Button from "./Button";
 
 const cn = classNames.bind(style);
@@ -16,12 +15,11 @@ const Nav = () => {
   return (
     <>
       <nav className={cn("nav")}>
-        <h1 className={cn("logo")}>
-          <Link to="/">
-            <img src={logoImg} alt="판다마켓 로고" />
+        <Link to="/">
+          <h1 className={cn("logo")}>
             <span className="sr-only">판다마켓</span>
-          </Link>
-        </h1>
+          </h1>
+        </Link>
         <ul className={cn("nav_list")}>
           <li>
             <NavLink to="/board" style={getLinkStyle}>

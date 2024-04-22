@@ -83,13 +83,14 @@ const ItemPage = () => {
         <div className={cn("section-menu")}>
           <h2 className={cn("section-title")}>전체 상품</h2>
           <Input
-            iconClass={"search-icon"}
-            inputClass={"search-input"}
+            iconClass={cn("search-icon")}
+            inputClass={cn("search-input")}
             type={"text"}
             name={"search"}
             placeholder={"검색할 상품을 입력해주세요"}
           />
           <Button
+            className={cn("add-btn")}
             isLink={true}
             text="상품 등록하기"
             isActive="on"

@@ -4,3 +4,15 @@
   height: 100vh;
   margin: 100px auto 0 auto;
 }
+
+@media (max-width: 745px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 16px;
+  }
+}
