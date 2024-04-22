@@ -7,6 +7,7 @@ export default function AddItem() {
   const [imageSrc, setImageSrc] = useState("");
   const [isAllInputFilled, setIsAllInputFilled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [inputPrice, setInputPrice] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -27,6 +28,17 @@ export default function AddItem() {
       (input) => input.value.trim() !== ""
     );
     setIsAllInputFilled(isFilled);
+  };
+
+  function Commas(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const handlePriceChange = (e) => {
+    const price = e.target.value.replace(/,/g, "");
+    const formattedPrice = Commas(price);
+    console.log(formattedPrice);
+    setInputPrice(formattedPrice);
   };
 
   return (
@@ -101,8 +113,12 @@ export default function AddItem() {
       <div className="add-price flexcolumn margin-bottom10">
         <p>판매가격</p>
         <input
+          value={inputPrice}
           placeholder="판매 가격을 입력해주세요."
-          onChange={handleInputChange}
+          onChange={(e) => {
+            handleInputChange(e);
+            handlePriceChange(e);
+          }}
         />
       </div>
       <div className="add-tag flexcolumn margin-bottom10">
