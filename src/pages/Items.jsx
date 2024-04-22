@@ -8,8 +8,8 @@ import '../styles/ItemsPage.css';
 const LIMIT = 10;
 
 export default function Items() {
-  const [items, setItems] = useState([]);
   usePageTitle('판다마켓: 중고마켓');
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchItems = async options => {
