@@ -8,7 +8,8 @@ import iconArrow from "../../../assets/icon-arrow.svg";
 
 export default function NavOnSaleProducts() {
   const [toggleDropDown, setToggleDropDown] = useState(false);
-  const isTb = useItemCount() === 2;
+  const isTablet = useItemCount() === 6;
+  const pc = useItemCount() === 10;
 
   const handleDropDownClick = () => {
     setToggleDropDown(!toggleDropDown);
@@ -35,8 +36,8 @@ export default function NavOnSaleProducts() {
           className="dropDownBtn-onSaleProducts"
           onClick={handleDropDownClick}
         >
-          {isTb ? (
-            <div className="">
+          {isTablet || pc ? (
+            <div className="dropDownBtn-tablet">
               <span>{sortOrder}</span>
               <img src={iconArrow} alt="화살표 아이콘" />
             </div>

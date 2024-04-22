@@ -14,11 +14,14 @@ export default function Main() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const res = await fetch(`https://panda-market-api.vercel.app/products`);
+      const res = await fetch(
+        `https://panda-market-api.vercel.app/products?orderBy=favorite`
+      );
       const data = await res.json();
 
       setItems(data.list);
       setTotalCount(data.totalCount);
+      console.log("data:", data);
     };
     fetchItems();
   }, []);

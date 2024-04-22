@@ -1,23 +1,8 @@
 .container-item-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
-}
-.container-item-card.mb {
-  width: 168px;
-}
-
-.container-item-card.tb {
-  width: 221px;
-}
-
-.container-item-card.pc {
-  width: 221px;
-}
-
-.container-item-card.best {
-  width: 343px;
-  height: 467px;
 }
 
 .image-container {
@@ -26,11 +11,6 @@
   align-items: center;
   overflow: hidden;
   border-radius: 20px;
-  height: 343px;
-}
-
-.image-container.mb {
-  height: 168px;
 }
 
 .image-container.best {
@@ -43,7 +23,7 @@
 }
 
 .image-item-card {
-  height: 100%;
+  width: 100%;
 }
 
 .info-item-card {
@@ -78,13 +58,4 @@
   font-weight: 500;
   line-height: 14px;
   color: #4b5563;
-}
-
-@media (min-width: 1024px) {
-  .container-item-card {
-    display: flex;
-    flex-direction: column;
-    width: 282px;
-    gap: 16px;
-  }
 }

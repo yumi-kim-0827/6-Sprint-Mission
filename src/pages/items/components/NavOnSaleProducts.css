@@ -36,6 +36,7 @@
   height: 42px;
   width: 294px;
   padding-left: 44px;
+  margin: 0;
   grid-area: c;
   font-family: Pretendard;
   font-size: 16px;
@@ -52,6 +53,7 @@
 .dropDownBtn-onSaleProducts {
   grid-area: d;
   text-align: right;
+  cursor: pointer;
 }
 
 .dropDownMenu-onSaleProducts {
@@ -91,11 +93,15 @@
   .nav-onSaleProducts {
     display: flex;
   }
+  .nav-onSaleProducts p {
+    width: 166px;
+  }
   .input-onSaleProducts {
     width: 242px;
+    margin: 0;
   }
   .searchIcon {
-    left: 184px;
+    left: 192px;
   }
   .dropDownBtn-onSaleProducts {
     width: 120px;
@@ -104,8 +110,40 @@
     border-radius: 12px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
   }
   .dropDownMenu-onSaleProducts {
     margin-top: 46px;
+    width: 120px;
+    height: 88px;
+  }
+  .dropDownMenu-onSaleProducts li {
+    padding: 9px;
+  }
+  .dropDownBtn-tablet {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dropDownBtn-onSaleProducts {
+    width: 130px;
+  }
+  .dropDownMenu-onSaleProducts {
+    width: 130px;
+  }
+  .nav-onSaleProducts {
+    margin-bottom: 24px;
+    display: flex;
+  }
+  .nav-onSaleProducts p {
+    flex: 1 1 auto;
+  }
+  .input-onSaleProducts {
+    width: 325px;
+  }
+  .searchIcon {
+    left: 612px;
   }
 }
