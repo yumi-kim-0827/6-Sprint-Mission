@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
+import debounce from "./common/debounce";
 
-function BestProducts({ item }) {
-  const { name, price, favoriteCount, images } = item;
+function BestProduct({ name, price, favoriteCount, images }) {
   const formatedPrice = price.toLocaleString();
 
   return (
@@ -20,19 +20,46 @@ function BestProducts({ item }) {
 }
 
 const ShowBestProducts = ({ products }) => {
+  const [width, setWidth] = useState(4);
+
+  const handlePageSize = (width) => {
+    if (width >= 1200) {
+      return 4;
+    } else if (width >= 768 && width <= 1199) {
+      return 2;
+    } else if (width >= 380 && width <= 767) {
+      return 1;
+    }
+  };
+
+  const handleResize = debounce(() => {
+    setWidth(window.innerWidth);
+  }, 50);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    setWidth(window.innerWidth);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <main className="Main">
-      <h2>베스트 상품</h2>
+      <div className="best">
+        <h2>베스트 상품</h2>
+      </div>
+
       <ul className="BestProductsList">
         {products
           .map((item) => {
             return (
               <li key={item.id}>
-                <BestProducts item={item} />
+                <BestProduct {...item} />
               </li>
             );
           })
-          .slice(0, 4)}
+          .slice(0, handlePageSize(width))}
       </ul>
     </main>
   );

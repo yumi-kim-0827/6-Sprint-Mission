@@ -139,6 +139,7 @@
   .top .home-top button {
     width: 154px;
     padding: 16px 20px 16px 20px;
+    margin: 0 auto;
   }
   .top .img-top img {
     width: 626px;
