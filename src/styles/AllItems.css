@@ -1,0 +1,11 @@
+* {
+	/* 텍스트 왼쪽 정렬 */
+}
+
+.all-items-title {
+	/* 베스트 상품 제목  */
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.all-items-section {}
