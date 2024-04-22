@@ -1,13 +1,18 @@
 import "../style/additem.css";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ic_x_gray from "../assets/icon/ic_x_gray.svg";
 import ic_x_blue from "../assets/icon/ic_x_blue.svg";
 
 export default function AddItem() {
   const [imageSrc, setImageSrc] = useState("");
   const [isAllInputFilled, setIsAllInputFilled] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [inputPrice, setInputPrice] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputDes, setInputDes] = useState("");
+  const [tags, setTags] = useState([]);
+  const [inputTag, setInputTag] = useState("");
+  const [imageHovered, setImageHovered] = useState(false); // 이미지 hover 상태
+  const [tagHovered, setTagHovered] = useState(Array(10).fill(false)); // 태그 hover 상태 배열 초기화
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -20,16 +25,6 @@ export default function AddItem() {
     }
   };
 
-  const handleInputChange = (e) => {
-    const inputs = document.querySelectorAll(
-      "input:not(#imageInput), textarea"
-    );
-    const isFilled = Array.from(inputs).every(
-      (input) => input.value.trim() !== ""
-    );
-    setIsAllInputFilled(isFilled);
-  };
-
   function Commas(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -37,8 +32,57 @@ export default function AddItem() {
   const handlePriceChange = (e) => {
     const price = e.target.value.replace(/,/g, "");
     const formattedPrice = Commas(price);
-    console.log(formattedPrice);
     setInputPrice(formattedPrice);
+    handleInputChange();
+  };
+
+  const handleInputChange = useCallback(() => {
+    const isFilled =
+      inputName.trim() !== "" &&
+      inputDes.trim() !== "" &&
+      inputPrice.trim() !== "" &&
+      tags.length > 0;
+    setIsAllInputFilled(isFilled);
+  }, [inputName, inputDes, inputPrice, tags]);
+
+  useEffect(() => {
+    // handleInputChange를 이용하여 등록버튼을 활성화 비활성화 했을때 tag쪽만 제대로 작동을 안해서 이부분만 useEffect
+    handleInputChange();
+  }, [tags]);
+
+  const handleNameChange = (e) => {
+    setInputName(e.target.value);
+    handleInputChange();
+  };
+
+  const handleDesChange = (e) => {
+    setInputDes(e.target.value);
+    handleInputChange();
+  };
+
+  const handleTagInputKeyDown = (e) => {
+    if (e.key === "Enter" && inputTag.trim() !== "") {
+      const newTag = inputTag.trim();
+      if (!tags.includes(newTag)) {
+        // 중복된 태그가 아닌 경우에만 추가
+        setTags([...tags, newTag]);
+        setInputTag("");
+        handleInputChange();
+      } else {
+        alert("이미 추가된 태그입니다.");
+      }
+    }
+  };
+
+  const handleTagDelete = (index) => {
+    const updatedTags = [...tags];
+    updatedTags.splice(index, 1);
+    setTags(updatedTags);
+    handleInputChange();
+  };
+
+  const handleImageDelete = () => {
+    setImageSrc("");
   };
 
   return (
@@ -70,24 +114,14 @@ export default function AddItem() {
                 {imageSrc && (
                   <>
                     <img src={imageSrc} className="handleImage" alt="add img" />
-                    {isHovered ? (
-                      <img
-                        src={ic_x_blue}
-                        alt="delete img"
-                        onClick={() => setImageSrc("")}
-                        className="delete-btn"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                      />
-                    ) : (
-                      <img
-                        src={ic_x_gray}
-                        alt="delete img"
-                        className="delete-btn"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                      />
-                    )}
+                    <img
+                      src={imageHovered ? ic_x_blue : ic_x_gray}
+                      alt="delete img"
+                      className="delete-btn-img"
+                      onClick={handleImageDelete}
+                      onMouseEnter={() => setImageHovered(true)}
+                      onMouseLeave={() => setImageHovered(false)}
+                    />
                   </>
                 )}
               </div>
@@ -99,15 +133,17 @@ export default function AddItem() {
         <p>상품명</p>
         <input
           type="text"
+          value={inputName}
           placeholder="상품명을 입력해주세요."
-          onChange={handleInputChange}
+          onChange={handleNameChange} // 상품명 입력 요소의 값이 변경될 때 호출되는 핸들러
         />
       </div>
       <div className="add-text flexcolumn margin-bottom10">
         <p>상품 소개</p>
         <textarea
+          value={inputDes}
           placeholder="상품 소개를 입력해주세요."
-          onChange={handleInputChange}
+          onChange={handleDesChange} // 상품 소개 입력 요소의 값이 변경될 때 호출되는 핸들러
         ></textarea>
       </div>
       <div className="add-price flexcolumn margin-bottom10">
@@ -115,18 +151,41 @@ export default function AddItem() {
         <input
           value={inputPrice}
           placeholder="판매 가격을 입력해주세요."
-          onChange={(e) => {
-            handleInputChange(e);
-            handlePriceChange(e);
-          }}
+          onChange={handlePriceChange} // 판매 가격 입력 요소의 값이 변경될 때 호출되는 핸들러
         />
       </div>
+
       <div className="add-tag flexcolumn margin-bottom10">
         <p>태그</p>
         <input
           placeholder="태그를 입력해주세요."
-          onChange={handleInputChange}
+          value={inputTag}
+          onChange={(e) => setInputTag(e.target.value)}
+          onKeyDown={handleTagInputKeyDown}
         />
+      </div>
+      <div className="tags flexrow">
+        {tags.map((tag, index) => (
+          <div key={index} className="tag">
+            <p>{tag}</p>
+            <img
+              src={tagHovered[index] ? ic_x_blue : ic_x_gray}
+              alt="delete img"
+              className="delete-btn-tag"
+              onClick={() => handleTagDelete(index)}
+              onMouseEnter={() => {
+                let newTagHovered = [...tagHovered];
+                newTagHovered[index] = true;
+                setTagHovered(newTagHovered);
+              }}
+              onMouseLeave={() => {
+                let newTagHovered = [...tagHovered];
+                newTagHovered[index] = false;
+                setTagHovered(newTagHovered);
+              }}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
