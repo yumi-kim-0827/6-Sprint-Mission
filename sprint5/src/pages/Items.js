@@ -5,6 +5,7 @@ import Products from "../components/Products";
 import { getBestProducts, getProducts } from "../components/Api";
 import DropdownContainer from "../components/DropdownContainer";
 import PaginationButton from "../components/PaginationButton";
+import "../styles/Items.css";
 
 const getLimit = () => {
   const width = window.innerWidth;
@@ -94,36 +95,48 @@ function Items() {
   return (
     <div>
       <Navbar />
-      <h1>베스트 상품</h1>
-      <Products items={bestItems} />
-      <div>
-        <h1>전체 상품</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            name="keyword"
-            value={keyword}
-            onChange={handleKeywordChange}
-            placeholder="검색할 상품을 입력해주세요"
-          />
-          <button type="submit">검색</button>
-        </form>
-        <Link to={"/additem"}>
-          <button>상품 등록하기</button>
-        </Link>
+      <main className="items-container">
+        <section className="items-wrapper">
+          <h1 className="product-menu-title">베스트 상품</h1>
+          <Products items={bestItems} type="best" />
+          <div>
+            <div className="all-product-menu">
+              <h1 className="product-menu-title">전체 상품</h1>
+              <div className="all-product-menu-items">
+                {" "}
+                <form onSubmit={handleSubmit}>
+                  <input
+                    className="search-input"
+                    name="keyword"
+                    value={keyword}
+                    onChange={handleKeywordChange}
+                    placeholder="검색할 상품을 입력해주세요"
+                  />
+                  <button type="submit" style={{ display: "none" }}>
+                    검색
+                  </button>
+                </form>
+                <Link to={"/additem"}>
+                  <button className="add-product-button">상품 등록하기</button>
+                </Link>
+                <DropdownContainer
+                  onNewestClick={handleNewestClick}
+                  onBestClick={handleBestClick}
+                />
+              </div>
+            </div>
 
-        <DropdownContainer
-          onNewestClick={handleNewestClick}
-          onBestClick={handleBestClick}
-        />
-        <Products items={items} />
-        <div>
-          <PaginationButton
-            totalPageNum={totalPages}
-            activePageNum={page}
-            onPageChange={onPageChange}
-          />
-        </div>
-      </div>
+            <Products items={items} type="all" />
+          </div>
+          <div className="pagination-buttons">
+            <PaginationButton
+              totalPageNum={totalPages}
+              activePageNum={page}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
