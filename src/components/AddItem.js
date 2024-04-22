@@ -5,36 +5,35 @@ import ic_x_blue from "../assets/icon/ic_x_blue.svg";
 
 export default function AddItem() {
   const [imageSrc, setImageSrc] = useState("");
-  const [filled, setFilled] = useState(false);
+  const [isAllInputFilled, setIsAllInputFilled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0]; // 선택한 파일
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setImageSrc(event.target.result); // 이미지를 URL로 변환하여 상태 업데이트
+        setImageSrc(event.target.result);
       };
-      reader.readAsDataURL(file); // 파일을 읽어서 URL로 변환
+      reader.readAsDataURL(file);
     }
   };
 
   const handleInputChange = (e) => {
-    // 모든 input과 textarea가 채워졌는지 확인
     const inputs = document.querySelectorAll(
       "input:not(#imageInput), textarea"
     );
     const isFilled = Array.from(inputs).every(
       (input) => input.value.trim() !== ""
     );
-    setFilled(isFilled);
+    setIsAllInputFilled(isFilled);
   };
 
   return (
     <>
       <div className="add-header flexrow margin-bottom10">
         <p>상품 등록하기</p>
-        <button className={filled ? "filled" : ""}>등록</button>
+        <button className={isAllInputFilled ? "filled" : ""}>등록</button>
       </div>
       <div className="flexcolumn margin-bottom10">
         <div>
@@ -42,10 +41,9 @@ export default function AddItem() {
           <div className="flexrow">
             <div className="add-img">
               <label className="input-img-btn" htmlFor="imageInput">
-                <span style={{ fontSize: "40px" }}>+</span>
+                <span className="input-img-text">+</span>
                 <br />
                 <span>이미지 등록</span>
-                {/* 파일 선택 input */}
                 <input
                   id="imageInput"
                   type="file"
@@ -60,7 +58,7 @@ export default function AddItem() {
                 {imageSrc && (
                   <>
                     <img src={imageSrc} className="handleImage" alt="add img" />
-                    {isHovered && (
+                    {isHovered ? (
                       <img
                         src={ic_x_blue}
                         alt="delete img"
@@ -69,8 +67,7 @@ export default function AddItem() {
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       />
-                    )}
-                    {!isHovered && (
+                    ) : (
                       <img
                         src={ic_x_gray}
                         alt="delete img"
