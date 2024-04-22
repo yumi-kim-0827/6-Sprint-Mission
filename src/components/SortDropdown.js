@@ -1,15 +1,24 @@
+import paginationStore from "../store/paginationStore";
+
 export default function SortDropdown({
-  sortProductsByDate,
-  sortProductsByLike,
-  allProducts,
+  setSortContent,
+  setOrderBy,
+  sortOptions,
 }) {
+  // 최신순, 좋아요순으로 바꿀 시 페이지를 1페이지로 이동시키기 위한 setter입니다.
+  const setCurrentPage = paginationStore((state) => state.setCurrentPage);
+
   // props를 받아 구현하였습니다.
   const handleDateSort = () => {
-    sortProductsByDate(allProducts);
+    setSortContent(sortOptions.NEWEST);
+    setOrderBy("recent");
+    setCurrentPage(1);
   };
 
   const handleLikeSort = () => {
-    sortProductsByLike(allProducts);
+    setSortContent(sortOptions.LIKE);
+    setOrderBy("favorite");
+    setCurrentPage(1);
   };
 
   return (

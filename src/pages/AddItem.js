@@ -1,13 +1,13 @@
-import Navbar from "../components/Navbar";
+import { Navbar, ProductForm } from "../components";
 
 // 상품 등록 페이지입니다.
 export default function AddItem() {
   return (
     <>
       <Navbar />
-      <h1 className="flex items-center justify-center">
-        상품 등록 페이지입니다
-      </h1>
+      <main>
+        <ProductForm />
+      </main>
     </>
   );
 }
