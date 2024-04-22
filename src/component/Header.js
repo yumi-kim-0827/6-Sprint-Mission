@@ -1,22 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LogoImg from "../images/logo.png";
 import "../css/common.css";
+
+function getLink({ isActive }) {
+  return {
+    color: isActive ? "#3182f6" : undefined,
+  };
+}
 
 function Header() {
   return (
     <div>
       <header>
         <div className="head_area">
-          <Link to="/AddItem" id="logo">
+          <Link to="/" id="logo">
             <img src={LogoImg} alt="로고 이미지" />
           </Link>
           <nav>
-            <Link to="/Board">자유게시판</Link>
-            <Link to="/" className="active">
+            <NavLink to="/Board" style={getLink}>
+              자유게시판
+            </NavLink>
+            <NavLink to="/Product" style={getLink}>
               중고마켓
-            </Link>
+            </NavLink>
           </nav>
-          <Link to="/login" id="login">
+          <Link to="/Login" id="login">
             로그인
           </Link>
         </div>

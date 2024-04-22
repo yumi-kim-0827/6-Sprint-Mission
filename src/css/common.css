@@ -75,9 +75,6 @@ body {
   line-height: 1;
   font-weight: 500;
 }
-.head_area nav a.active {
-  color: var(--blue);
-}
 .head_area #login {
   padding: 14px 43px;
   background: var(--blue);
