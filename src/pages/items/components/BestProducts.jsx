@@ -1,6 +1,6 @@
-import ItemCard from "../../components/ItemCard";
+import ItemCard from "../../../components/ItemCard";
 import "./BestProducts.css";
-import useItemCount from "../../hooks/useItemCount";
+import useItemCount from "./useItemCount";
 
 export default function BestProducts({ items }) {
   let count = useItemCount();

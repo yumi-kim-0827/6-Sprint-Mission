@@ -1,5 +1,5 @@
-import BestProducts from "./BestProducts";
-import OnSaleProducts from "./OnSaleProducts";
+import BestProducts from "./components/BestProducts";
+import OnSaleProducts from "./components/OnSaleProducts";
 
 export default function Items({ items }) {
   return (
