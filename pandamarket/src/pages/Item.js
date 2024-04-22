@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import AllProductsSection from "../components/item/AllProductsSection.js";
+import AllProductsSection from "../components/item/allProducts/AllProductsSection.js";
 import BestProductsSection from "../components/item/BestProductsSection.js";
-import PageNation from "../components/item/PageNation.js";
 
-function Item() {
+function Item({ onChangeLogin }) {
   const [size, setSize] = useState({
     width: window.innerWidth,
     innerHeight: window.innerHeight,
@@ -27,8 +26,7 @@ function Item() {
   return (
     <>
       <BestProductsSection size={size} />
-      <AllProductsSection size={size} />
-      <PageNation />
+      <AllProductsSection size={size} onChangeLogin={onChangeLogin} />
     </>
   );
 }

@@ -1,28 +1,37 @@
-import { useEffect, useState } from "react";
-import Button from "../Button";
-import "../item/AllProductsSection.css";
-import ProductCard from "./ProductCard";
-import { getProductsInfo } from "./api";
+import { useEffect, useRef, useState } from "react";
+import Button from "../../Button";
+import PageNationBar from "../allProducts/pagenation/PageNationBar";
+import "../allProducts/AllProductsSection.css";
+import ProductCard from "../ProductCard";
+import { getProductsInfo } from "../api";
 import { Link } from "react-router-dom";
 
-function AllProductsSection({ size }) {
+function AllProductsSection({ size, onChangeLogin }) {
   const [allProducts, setAllProducts] = useState([]);
   const [order, setOrder] = useState("recent");
   const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState("1");
+  const productCount = useRef(0);
 
   //페이지 사이즈 확인
   let pageSize = 0;
+  let pageCount = 0;
   if (size.width >= 1200) {
     pageSize = 10;
+    pageCount = Math.ceil(productCount.current / pageSize);
   } else if (size.width >= 768) {
     pageSize = 6;
+    pageCount = Math.ceil(productCount.current / pageSize);
   } else if (size.width >= 375) {
     pageSize = 4;
+    pageCount = Math.ceil(productCount.current / pageSize);
   }
+  console.log(pageCount);
   // 서버에서 배열 받아옴
   const handleLoad = async (query) => {
-    const { list } = await getProductsInfo(query);
+    const { list, totalCount } = await getProductsInfo(query);
     setAllProducts(list);
+    productCount.current = totalCount;
   };
 
   const handleKeywordChange = (e) => {
@@ -31,8 +40,13 @@ function AllProductsSection({ size }) {
   };
   // keyword가 set될때 마다 get요청을 보내서 문제
   useEffect(() => {
-    handleLoad({ pageSize: pageSize, orderBy: order, keyword: keyword });
-  }, [order, pageSize, keyword]);
+    handleLoad({
+      page: page,
+      pageSize: pageSize,
+      orderBy: order,
+      keyword: keyword,
+    });
+  }, [page, order, pageSize, keyword]);
 
   function DropDown() {
     const sort = {
@@ -68,7 +82,7 @@ function AllProductsSection({ size }) {
             name="keyword"
           ></input>
           <Link to="/additem">
-            <Button>상품등록하기</Button>
+            <Button onClick={onChangeLogin}>상품등록하기</Button>
           </Link>
           <DropDown />
         </div>
@@ -79,6 +93,12 @@ function AllProductsSection({ size }) {
           <ProductCard key={product.id} product={product} category="all" />
         ))}
       </div>
+
+      <PageNationBar
+        changePage={setPage}
+        pageCount={pageCount}
+        activePage={page}
+      />
     </div>
   );
 }

@@ -4,7 +4,8 @@ import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.png";
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-function Navigation() {
+import Frame from "../assets/Frame.png";
+function Navigation({ isLogin }) {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -18,6 +19,10 @@ function Navigation() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, [isLogin]);
 
   let src = logo;
   if (width < 767) {
@@ -51,9 +56,13 @@ function Navigation() {
             </NavLink>
           </li>
         </div>
-        <Link to="/signIn">
-          <Button>로그인</Button>
-        </Link>
+        {isLogin ? (
+          <img src={Frame} alt="myInfo" />
+        ) : (
+          <Link to="/signIn">
+            <Button>로그인</Button>
+          </Link>
+        )}
       </nav>
       <hr />
     </>

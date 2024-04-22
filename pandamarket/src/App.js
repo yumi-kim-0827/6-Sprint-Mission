@@ -6,26 +6,33 @@ import FreeBoard from "./pages/FreeBoard";
 import Navigation from "./components/Navigation";
 import SignIn from "./pages/SignIn";
 import AddItem from "./pages/AddItem";
+import { useState } from "react";
 
-function Layout() {
+function Layout({ isLogin }) {
   return (
     <>
-      <Navigation />
+      <Navigation isLogin={isLogin} />
       <Outlet />
     </>
   );
 }
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
+  const onChangeLogin = () => {
+    console.log(isLogin);
+    setIsLogin(true);
+  };
   return (
     <Routes path="/">
       <Route index element={<Main />} />
-      <Route element={<Layout />}>
-        <Route path="items" element={<Item />} />
+      <Route element={<Layout isLogin={isLogin} />}>
+        <Route path="items" element={<Item onChangeLogin={onChangeLogin} />} />
         <Route path="freeboard" element={<FreeBoard />} />
+        <Route path="additem" element={<AddItem />} />
       </Route>
       <Route path="signIn" element={<SignIn />} />
-      <Route path="additem" element={<AddItem />} />
     </Routes>
   );
 }
