@@ -9,9 +9,10 @@ const Header = () => {
   const handleLoginClick = () => {
     navigate("/login");
   };
-
   const isUsedMarketActive =
-    location.pathname === "/items" || location.pathname === "/additem";
+    location.pathname === "/items" ||
+    location.pathname === "/additem" ||
+    /^\/items\/\d+$/.test(location.pathname);
 
   return (
     <HeaderContainer>

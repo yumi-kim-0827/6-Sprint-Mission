@@ -1,8 +1,8 @@
 import { instance } from "./Axios";
 
-export const getProducts = async () => {
+export const getProductById = async (productId) => {
   try {
-    const response = await instance.get("/products", {
+    const response = await instance.get(`/products/${productId}`, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -12,6 +12,5 @@ export const LoginUser = async (data) => {
     window.location.href = "/items";
   } catch (error) {
     console.error("로그인 실패:", error);
-    throw error;
   }
 };
