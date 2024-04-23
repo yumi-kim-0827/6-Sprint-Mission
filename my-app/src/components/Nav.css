@@ -1,0 +1,82 @@
+nav {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: white;
+  border-bottom: 1px #dfdfdf solid;
+}
+.logoImg {
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  cursor: pointer;
+  width: 153px;
+  height: 51px;
+}
+.boardMenu,
+.marketMenu {
+  display: inline-block;
+  margin: 24px 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.logoCategoryDiv {
+  position: relative;
+  width: auto;
+}
+.category {
+  position: absolute;
+  left: 5px;
+}
+.marketMenu {
+  color: #3692ff;
+}
+.boardMenu {
+  margin-left: 385px;
+}
+.loginButton {
+  position: absolute;
+  right: 200px;
+  top: 11.5px;
+  cursor: pointer;
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  padding: 12px auto;
+  gap: 10px;
+  background-color: #3692ff;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: 0;
+}
+/*tablet*/
+@media (max-width: 1199px) {
+  .logoImg {
+    left: 24px;
+  }
+  .loginButton {
+    right: 24px;
+  }
+  .category {
+    left: -180px;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  .logoImg {
+    left: 16px;
+  }
+  .loginButton {
+    right: 16px;
+  }
+  .category {
+    left: -200px;
+  }
+  .boardMenu {
+    margin-right: 3px;
+  }
+}
