@@ -57,11 +57,18 @@ function ProductTag({ name, value, onChange, clearProductTag }) {
       e.preventDefault();
       const tagValue = e.target.value;
       if (tagValue !== "") {
-        onChange(name, tagValue);
-        const newTagArr = [...tagArr, tagValue];
-        setTagArr(newTagArr);
-        if (inputRef) {
-          inputRef.current.value = "";
+        if (tagArr.includes(tagValue)) {
+          alert("동일한 태그는 입력할 수 없습니다.");
+          if (inputRef.current) {
+            inputRef.current.value = "";
+          }
+        } else {
+          onChange(name, tagValue);
+          const newTagArr = [...tagArr, tagValue];
+          setTagArr(newTagArr);
+          if (inputRef.current) {
+            inputRef.current.value = "";
+          }
         }
       }
     }
@@ -88,9 +95,9 @@ function ProductTag({ name, value, onChange, clearProductTag }) {
         ref={inputRef}
       />
       <div className="show-tag">
-        {tagArr.map((tag, idx) => {
+        {tagArr.map((tag) => {
           return (
-            <p key={idx}>
+            <p key={tag}>
               {`# ${tag}`}
               <img src={tagdelete} alt="태그 삭제 버튼" onClick={handleDeleteTag} />
             </p>
@@ -143,7 +150,6 @@ const AddItems = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("성공");
   };
 
   useEffect(() => {
