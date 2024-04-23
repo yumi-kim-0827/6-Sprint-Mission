@@ -1,24 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './styles/App.css';
+
 import Main from './Main';
-import Header from './components/Header';
 import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
 import AddItem from './pages/AddItem';
+import Edit from './pages/Edit';
+import ItemDetails from './pages/ItemDetails';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Main />}>
-            <Route path='/items' element={<Items />} />
-            <Route path='/additem' element={<AddItem />} />
-            <Route path='/freeboard' element={<FreeBoard />} />
-          </Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path='/' element={<Main />}>
+          <Route path='/items' element={<Items />} />
+          <Route path='/additem' element={<AddItem />} />
+          <Route path='/items/:id' element={<ItemDetails />} />
+          <Route path='/items/:id/edit' element={<Edit />} />
+          <Route path='/freeboard' element={<FreeBoard />} />
+        </Route>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
