@@ -1,87 +1,80 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
-import styles from "../styles/additem.module.css";
-import FileInput from "../components/FileInput";
+import React, { useState } from 'react'
+import styles from '../styles/additem.module.css'
+import FileInput from '../components/FileInput'
 
 const INITIAL_VALUES = {
-  title: "",
-  content: "",
-  price: "",
+  title: '',
+  content: '',
+  price: '',
   imgFile: null,
-};
+}
 
 function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
-  const [values, setValues] = useState(initialValues);
-  const [tags, setTags] = useState([]);
-  const [inputTag, setInputTag] = useState("");
+  const [values, setValues] = useState(initialValues)
+  const [tags, setTags] = useState([])
+  const [inputTag, setInputTag] = useState('')
 
   // input 값 받아오기
   const handleTagInput = (e) => {
-    setInputTag(e.target.value);
-  };
+    setInputTag(e.target.value)
+  }
 
   const inputKeyDown = (e) => {
-    if (e.key === "Enter" && inputTag) {
+    if (e.key === 'Enter' && inputTag) {
       if (!tags.includes(inputTag)) {
         //동일한 이름 태그 중복 안 되게
-        setTags([...tags, inputTag]);
+        setTags([...tags, inputTag])
       }
-      setInputTag("");
-      e.preventDefault(); // 엔터 눌렀을 때 폼 제출하지 않도록 막기
+      setInputTag('')
+      e.preventDefault() // 엔터 눌렀을 때 폼 제출하지 않도록 막기
     }
-  };
+  }
 
   const removeTag = (removeTagIndex) => {
-    const newTags = tags.filter((tag, index) => index !== removeTagIndex);
-    setTags(newTags);
-  };
+    const newTags = tags.filter((tag, index) => index !== removeTagIndex)
+    setTags(newTags)
+  }
 
   // input 입력할 때마다 새로운 값 반영하기
   const handleChange = (name, value) => {
-    if (name === "price") {
+    const formatPrice = (value) => {
       // 숫자와 콤마(,)만을 허용 (문자열 입력 못하게)
-      const numericValue = value.replace(/[^0-9,]/g, "");
-
+      const numericValue = value.replace(/[^0-9,]/g, '')
       // 콤마를 제거한 후 다시 콤마 추가
-      const rawNumbers = numericValue.replace(/,/g, "");
-      const formattedValue = rawNumbers.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: formattedValue,
-      }));
-    } else {
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: value,
-      }));
+      const rawNumbers = numericValue.replace(/,/g, '')
+      return rawNumbers.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
-  };
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: name === 'price' ? formatPrice(value) : value,
+    }))
+  }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    handleChange(name, value);
-  };
+    const { name, value } = e.target
+    handleChange(name, value)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", values.title);
-    formData.append("content", values.content);
-    formData.append("price", values.price);
-    formData.append("imgFile", values.imgFile);
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append('title', values.title)
+    formData.append('content', values.content)
+    formData.append('price', values.price)
+    formData.append('imgFile', values.imgFile)
 
-    setValues(INITIAL_VALUES);
-  };
+    setValues(INITIAL_VALUES)
+  }
   return (
     <div className={styles.container}>
-      <div className={styles["add-item-nav"]}>
-        <h3 className={styles["additem-title"]}>상품 등록하기</h3>
+      <div className={styles['add-item-nav']}>
+        <h3 className={styles['additem-title']}>상품 등록하기</h3>
         <button
           className={
             !values.title || !values.content || !values.price
-              ? styles["button-disabled"]
-              : styles["button-abled"]
+              ? styles['button-disabled']
+              : styles['button-abled']
           }
           disabled={!values.title || !values.content || !values.price}
           onClick={handleSubmit}
@@ -140,14 +133,14 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
               <img
                 src="/assets/icon_tag_remove.png"
                 onClick={() => removeTag(index)}
-                className={styles["tag-remove"]}
+                className={styles['tag-remove']}
               />
             </div>
           ))}
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default AddItem;
+export default AddItem
