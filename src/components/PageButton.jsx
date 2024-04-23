@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./PageButton.css";
 
 const PageButton = ({ handlePageNum, handlePage }) => {
-  let pageArr = [];
-  const [buttonNum, setButtonNum] = useState();
-  for (let i = 1; i <= handlePageNum(); i++) {
-    pageArr.push(i);
-  }
+  const [buttonNum, setButtonNum] = useState(0);
+  const pageNum = handlePageNum();
+
+  const pageArr = useMemo(() => {
+    return Array.from({ length: pageNum }, (_, i) => i + 1);
+  }, [pageNum]);
+
   const getButtonValue = (e) => {
     const value = e.target.value;
     setButtonNum(value);
