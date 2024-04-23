@@ -9,6 +9,12 @@ const SelectOrderButton = ({ handleSelectOption, currentOrder }) => {
     setShowSelectBox(!showSelectBox);
   };
 
+  //정렬 선택
+  const handleOrderButton = (e) => {
+    handleSelectOption(e.target.value);
+    setShowSelectBox(false);
+  };
+
   return (
     <div className="product-sort-select">
       <button className="product-sort-select-btn" onClick={handleSelectButton}>
@@ -16,20 +22,10 @@ const SelectOrderButton = ({ handleSelectOption, currentOrder }) => {
       </button>
       {showSelectBox && (
         <ul className="product-sort-select-option-list">
-          <li
-            onClick={() => {
-              handleSelectOption("recent");
-              setShowSelectBox(false);
-            }}
-          >
+          <li value="recent" onClick={handleOrderButton}>
             최신순
           </li>
-          <li
-            onClick={() => {
-              handleSelectOption("favorite");
-              setShowSelectBox(false);
-            }}
-          >
+          <li value="favorite" onClick={handleOrderButton}>
             좋아요순
           </li>
         </ul>

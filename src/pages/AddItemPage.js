@@ -4,7 +4,6 @@ import "../css/additemPage.css";
 import AddItemForm from "../component/AddItemForm";
 
 const AddItemPage = () => {
-  
   //버튼 상태
   const [enrollButtonDisable, setEnrollButtonDisable] = useState(true);
 
@@ -19,14 +18,13 @@ const AddItemPage = () => {
 
   //등록 버튼 활성화 검사
   useEffect(() => {
-    const completeFormCheck =
+    if (
       values.images &&
       values.name &&
       values.description &&
       values.price &&
-      values.tags.length;
-
-    if (completeFormCheck) {
+      values.tags.length
+    ) {
       setEnrollButtonDisable(false);
     } else {
       setEnrollButtonDisable(true);
