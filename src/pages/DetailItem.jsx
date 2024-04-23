@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getDetailProduct } from "../api";
 import "./DetailItem.css";
 import ShowDetail from "../components/ShowDetail";
+import HandleComment from "../components/HandleComment";
 
 const DetailItem = () => {
   const { Id } = useParams();
@@ -17,7 +18,12 @@ const DetailItem = () => {
     handleDetailLoad(Id);
   }, []);
 
-  return <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>;
+  return (
+    <>
+      <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>
+      <HandleComment />
+    </>
+  );
 };
 
 export default DetailItem;
