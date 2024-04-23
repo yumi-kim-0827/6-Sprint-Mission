@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { GNB } from "../components/GNB";
-import { Logo } from "./Logo";
+import { Logo } from "../components/Logo";
 
 export function Header() {
   
@@ -7,11 +8,11 @@ export function Header() {
     <header className="header">
       <div className="header-wrap">
         <div className="section-header">
-          <Logo>판다마켓</Logo>
+          <Link to="/"><Logo>판다마켓</Logo></Link>
           <GNB/>
         </div>
         <div>
-          <a href="/signin.html" className="btn-login btn-small">로그인</a>
+          <Link to="/signin" className="btn-login btn-small">로그인</Link>
         </div>
       </div>
     </header>
