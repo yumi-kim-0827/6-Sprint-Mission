@@ -5,3 +5,11 @@ export function registerValidation({ productName, productIntro, productPrice, pr
     return true;
   }
 }
+
+export function commentValidation(comment) {
+  if (comment !== "") {
+    return false;
+  } else {
+    return true;
+  }
+}
