@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./Header.css";
 import longlogo from "../assets/long_logo.png";
 import shortlogo from "../assets/short_logo.png";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useParams } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
 
-  const isItemPage = location.pathname === "/Items" || location.pathname === "/additems";
+  const isItemPage = location.pathname.startsWith("/Items") || location.pathname === "/additems";
 
   return (
     <>
