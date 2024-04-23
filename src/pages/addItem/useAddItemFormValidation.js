@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useAddItemFormValidation = ({
   productName,
@@ -8,19 +8,16 @@ export const useAddItemFormValidation = ({
 }) => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
-  const isAllValid = useCallback(() => {
+  useEffect(() => {
     const isEmpty = value => value.trim() === "";
-    return (
+    const isAllValid =
       !isEmpty(productName) &&
       !isEmpty(productDescription) &&
       !isEmpty(price) &&
-      tags.length > 0
-    );
-  }, [productName, productDescription, price, tags]);
+      tags.length > 0;
 
-  useEffect(() => {
-    setIsButtonEnabled(isAllValid());
-  }, [isAllValid]);
+    setIsButtonEnabled(isAllValid);
+  }, [productName, productDescription, price, tags]);
 
   return isButtonEnabled;
 };
