@@ -8,9 +8,7 @@ const get_products = async ({
 }) => {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
   const response = await fetch(panda_market_backend_api + `products?${query}`);
-  if (!response.ok) {
-    throw new Error("데이터를 불러오는데 실패했습니다");
-  }
+
   if (response.status >= 400 && response.status < 600) {
     throw new Error("서버 에러가 발생했습니다");
   }

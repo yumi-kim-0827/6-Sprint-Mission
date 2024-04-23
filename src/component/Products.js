@@ -2,18 +2,17 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductElement from "./ProductElement";
-import IsLoading from "./IsLoading";
-import FailLoading from "./FailLoading";
 import "../css/products.css";
 import useLoading from "../hooks/loading";
 import SelectOrderButton from "./SelectOrderButton";
 import PageNav from "./PageNav";
-import NoProduct from "./NoProduct";
+import LoadingMessage from "./LoadingMessage";
 
 const Products = ({ numOfItemsToShow }) => {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("recent");
-  const [isLoading, loadingError, noResult, handleLoad] = useLoading();
+  const [isLoading, loadingError,noResult, handleLoad] = useLoading();
+  const loadingMessage = isLoading || loadingError||noResult;
   const [search, setSearch] = useState("");
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,9 +21,15 @@ const Products = ({ numOfItemsToShow }) => {
 
   //페이지네이션 숫자 설정
   const settingPageNumbers = (totalPageCount) => {
+    if(totalPageCount===0){
+      return;
+    }
     //5번까지 없을 경우
     if (totalPageCount < 5) {
-      const firstPageNumbers = Array.from({ length: totalPageCount }, (_, index) => index + 1);
+      const firstPageNumbers = Array.from(
+        { length: totalPageCount },
+        (_, index) => index + 1
+      );
       setPageNumbers(firstPageNumbers);
     }
     //현재 페이지가 화면이 커지면서 사라지는 경우
@@ -73,7 +78,10 @@ const Products = ({ numOfItemsToShow }) => {
       // 페이지 번호가 넘어갔는데 5개 페이지가 안 나오는 경우
       if (pageNumbers[4] + 5 > totalPageCount) {
         const nextPageCount = totalPageCount - pageNumbers[4];
-        const nextPageNumbers = Array.from({ length: nextPageCount }, (_, index) => pageNumbers[4] + index);
+        const nextPageNumbers = Array.from(
+          { length: nextPageCount },
+          (_, index) => pageNumbers[4] + index
+        );
         setPageNumbers(nextPageNumbers);
       } else {
         //5개 페이지가 나오는 경우
@@ -112,7 +120,7 @@ const Products = ({ numOfItemsToShow }) => {
 
   useEffect(() => {
     handleProductsLoad();
-  }, [order, currentPage, numOfItemsToShow, search]);
+  }, [order,currentPage, numOfItemsToShow, search]);
 
   return (
     <div className="products-section">
@@ -136,12 +144,8 @@ const Products = ({ numOfItemsToShow }) => {
         </div>
       </div>
       <div className="products-content">
-        {isLoading ? (
-          <IsLoading />
-        ) : loadingError ? (
-          <FailLoading loadingError={loadingError} />
-        ) : noResult ? (
-          <NoProduct />
+        {loadingMessage ? (
+          <LoadingMessage isLoading={isLoading} loadingError={loadingError} noResult={noResult}/>
         ) : (
           products.map((product) => (
             <ProductElement key={product.id} product={product} />

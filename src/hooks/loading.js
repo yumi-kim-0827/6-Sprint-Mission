@@ -11,12 +11,13 @@ export default function useLoading() {
     try {
       setLoadingError(null);
       setIsLoading(true);
+      setNoResult(false);
       result = await get_products(...arg);
       if(result.totalCount===0){setNoResult(true)}
       return result;
     } catch (error) {
       setLoadingError(error);
-      return;
+      return null;
     } finally {
       setIsLoading(false);
     }
