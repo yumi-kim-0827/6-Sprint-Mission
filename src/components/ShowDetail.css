@@ -57,6 +57,7 @@
   font-size: 16px;
   font-weight: 400;
   color: var(--product-item-name-color);
+  padding: 0 0 20px 0;
 }
 
 .show-item-details .show-item-details__tags {
