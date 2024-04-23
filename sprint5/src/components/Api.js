@@ -13,9 +13,9 @@ export async function getProducts(
   return data;
 }
 
-export async function getBestProducts(order) {
+export async function getBestProducts(order = "favorite") {
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products?${order}`
+    `https://panda-market-api.vercel.app/products?orderBy=${order}`
   );
 
   const data = await response.json();
