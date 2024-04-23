@@ -10,8 +10,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/items" index element={<Items />} />
-          <Route path=":itemId" element={<ItemsDetail />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/items/:id" element={<ItemsDetail />} />
 
           <Route path="/additem" element={<AddItem />} />
         </Routes>

@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import styles from "../styles/bestproductlist.module.css";
+import { Link } from "react-router-dom";
 
 function BestProductList({ products }) {
   return (
     <div className={styles.products}>
       {products.map((product) => (
-        <div key={product.id} className={styles.product}>
+        <Link key={product.id} className={styles.product} to={`/items/${product.id}`}>
           <img
             src={product.images[0]}
             alt={product.name}
@@ -20,7 +21,7 @@ function BestProductList({ products }) {
               {product.favoriteCount}
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

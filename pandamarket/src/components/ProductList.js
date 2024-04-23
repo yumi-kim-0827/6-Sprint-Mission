@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import styles from "../styles/productList.module.css";
+import { Link } from "react-router-dom";
 
 function ProductList({ products }) {
   return (
     <div className={styles.products}>
       {/* products는 map을 통해 배열 내의 각 상품을 순회하면서 상품 정보 렌더링 */}
       {products.map((product) => (
-        <div key={product.id} className={styles.product}>
+        <Link key={product.id} className={styles.product} to={`/items/${product.id}`}>
           <img
             src={product.images[0]}
             alt={product.name}
@@ -21,7 +22,7 @@ function ProductList({ products }) {
               {product.favoriteCount}
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
