@@ -4,7 +4,7 @@ import HomePage from "./pages/homePage/HomePage.jsx";
 import Layout from "./Layout.js";
 import { useEffect, useState } from "react";
 import AddItem from "./pages/addItem/AddItem.jsx";
-import LoginContext from "./contexts/LoginContext.js";
+import AuthContext from "./contexts/AuthContext.js";
 import Board from "./pages/board/Board.jsx";
 
 export default function Main() {
@@ -15,7 +15,9 @@ export default function Main() {
   useEffect(() => {
     const fetchItems = async () => {
       const res = await fetch(
-        `https://panda-market-api.vercel.app/products?orderBy=favorite`
+        //page : offset, pageSize : limit
+        //offset은 시작 위치, limit은 조회 갯수
+        `https://panda-market-api.vercel.app/products`
       );
       const data = await res.json();
 
@@ -27,7 +29,7 @@ export default function Main() {
   }, []);
 
   return (
-    <LoginContext.Provider value={isLogin}>
+    <AuthContext.Provider value={isLogin}>
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -38,6 +40,6 @@ export default function Main() {
           </Route>
         </Routes>
       </Router>
-    </LoginContext.Provider>
+    </AuthContext.Provider>
   );
 }
