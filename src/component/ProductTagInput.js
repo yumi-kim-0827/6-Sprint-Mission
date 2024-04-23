@@ -1,30 +1,28 @@
 import React from "react";
 
-const ProductInfoInput = ({
+const ProductTagInput = ({
   label,
   placeholder,
   value,
   onChange,
   id,
   name,
-  type = "text",
   onSubmit = null,
   onKeyDown = null,
 }) => {
   return (
-    //일반
-    <div className="one-line-input additem-input">
-      <label htmlFor={id}>{label}</label>
+    <form onSubmit={onSubmit} className="one-line-input additem-input">
+      <label htmlFor="ProductTag">{label}</label>
       <input
         id={id}
         name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        type={type}
+        onKeyDown={onKeyDown}
       />
-    </div>
+    </form>
   );
 };
 
-export default ProductInfoInput;
+export default ProductTagInput;

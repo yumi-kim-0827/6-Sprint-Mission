@@ -149,6 +149,9 @@
   line-height: 2.4rem;
   margin-right: 0.8rem;
 }
+.tag-element img{
+  cursor: pointer;
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .image-input-content {
