@@ -1,7 +1,6 @@
-import { useEffect, useReducer, useRef, createContext, useContext } from 'react';
+import { useEffect, useReducer, useRef, createContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import useFetchItems from './hooks/useFetchItems';
-
 import './styles/App.css';
 
 import Main from './Main';

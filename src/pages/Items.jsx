@@ -6,8 +6,8 @@ import { useContext } from 'react';
 import { ItemStateContext } from '../App';
 
 export default function Items() {
-  const data = useContext(ItemStateContext);
   usePageTitle('판다마켓: 중고마켓');
+  const data = useContext(ItemStateContext);
   const items = Array.isArray(data) ? data : [];
 
   const getBestItems = () => {
