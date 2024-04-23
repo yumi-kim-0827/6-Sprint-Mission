@@ -15,6 +15,8 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
   const [tags, setTags] = useState([])
   const [inputTag, setInputTag] = useState('')
 
+  const isDisabled = !values.title || !values.content || !values.price
+
   // input 값 받아오기
   const handleTagInput = (e) => {
     setInputTag(e.target.value)
@@ -72,11 +74,9 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
         <h3 className={styles['additem-title']}>상품 등록하기</h3>
         <button
           className={
-            !values.title || !values.content || !values.price
-              ? styles['button-disabled']
-              : styles['button-abled']
+            isDisabled ? styles['button-disabled'] : styles['button-abled']
           }
-          disabled={!values.title || !values.content || !values.price}
+          disabled={isDisabled}
           onClick={handleSubmit}
         >
           등록
