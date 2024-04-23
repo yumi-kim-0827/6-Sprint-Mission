@@ -51,7 +51,11 @@ function AllItemList({
       <div className="all-item-grid">
         {items.map((item) => {
           return (
-            <Link to={`/items/${item.id}`} key={item.id}>
+            <Link
+              to={`/items/${item.id}`}
+              key={item.id}
+              className="item-container"
+            >
               <div key={item.id} className="item-container">
                 <AllItem item={item} className={className} />
               </div>

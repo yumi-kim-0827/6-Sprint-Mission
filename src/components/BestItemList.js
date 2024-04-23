@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/BestItemList.css";
 import { AllItem } from "./AllItemList";
 
@@ -8,9 +9,15 @@ function BestItemList({ items }) {
       <div className="best-item-grid">
         {items.map((item) => {
           return (
-            <div key={item.id}>
-              <AllItem item={item} />
-            </div>
+            <Link
+              to={`/items/${item.id}`}
+              key={item.id}
+              className="item-container"
+            >
+              <div key={item.id}>
+                <AllItem item={item} />
+              </div>
+            </Link>
           );
         })}
       </div>
