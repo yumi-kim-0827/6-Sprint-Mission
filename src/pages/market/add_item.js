@@ -1,10 +1,14 @@
-import GNB from "components/layouts/GNB";
-import React from "react";
+import MainLayout from "components/Layout";
+import GNB from "components/Navbar";
+import AddItemForm from "templates/market/AddItemForm";
 
-export default function AddItem() {
+export default function AddItemPage() {
   return (
     <>
       <GNB />
+      <MainLayout>
+        <AddItemForm />
+      </MainLayout>
     </>
   );
 }

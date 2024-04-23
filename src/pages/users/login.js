@@ -1,5 +1,4 @@
-import GNB from "components/layouts/GNB";
-import React from "react";
+import GNB from "components/Navbar";
 
 export default function Login() {
   return (

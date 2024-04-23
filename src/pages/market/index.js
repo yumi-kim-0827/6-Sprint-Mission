@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import GNB from "components/layouts/GNB";
-import BestProducts from "components/market/BestProducts";
-import Pagination from "components/commons/Pagination";
-import { MarketLayout } from "components/layouts/Layout";
-import AllProducts from "components/market/AllProducts";
+import GNB from "components/Navbar";
+import MainLayout from "components/Layout";
+import Pagination from "components/Pagination";
+import AllProducts from "templates/market/AllProducts";
+import BestProducts from "templates/market/BestProducts";
 
 export default function MarketMainPage() {
   return (
     <>
       <GNB />
-      <MarketLayout>
+      <MainLayout>
         <BestProducts />
         <AllProducts />
         <Pagination />
-      </MarketLayout>
+      </MainLayout>
     </>
   );
 }
