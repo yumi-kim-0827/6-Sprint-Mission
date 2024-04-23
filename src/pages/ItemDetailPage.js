@@ -9,7 +9,6 @@ export default function ItemDetailPage() {
   const handLoadItem = async () => {
     const itemDetail = await getItem(itemId);
     setItem(itemDetail);
-    console.log(itemDetail);
   };
 
   useEffect(() => {
