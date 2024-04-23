@@ -13,7 +13,7 @@ export default function AddItem() {
 
   return (
     <div className={styles.container}>
-      <ProductSubmitButton {...{ values, setValues }} />
+      <ProductSubmitButton values={values} setValues={setValues} />
       <ImageUpload preview={values.preview} setValues={setValues} />
       <NameInput productName={values.productName} setValues={setValues} />
       <DescriptionInput
