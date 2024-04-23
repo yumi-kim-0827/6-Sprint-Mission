@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AddItems.css";
 import fileplus from "../assets/file-plus.png";
 import tagdelete from "../assets/tag-delete.png";
+import { registerValidation } from "../components/common/validation";
 
 function ProductImg({ name, value, onChange }) {
   const [preview, setPreview] = useState();
@@ -48,7 +49,7 @@ function ProductImg({ name, value, onChange }) {
   );
 }
 
-function ProductTag({ name, value, onChange, clearProductTag }) {
+function ProductTag({ name, onChange, clearProductTag }) {
   const [tagArr, setTagArr] = useState([]);
   const inputRef = useRef();
 
@@ -153,18 +154,9 @@ const AddItems = () => {
   };
 
   useEffect(() => {
-    if (
-      productValues.productName !== "" &&
-      productValues.productIntro !== "" &&
-      productValues.productPrice !== "" &&
-      productValues.productTag.length !== 0
-    ) {
-      buttonRef.current.disabled = false;
-      buttonRef.current.classList.add("active");
-    } else {
-      buttonRef.current.disabled = true;
-      buttonRef.current.classList.remove("active");
-    }
+    const isValidInput = registerValidation({ ...productValues });
+    buttonRef.current.disabled = isValidInput;
+    buttonRef.current.classList.toggle("active", !isValidInput);
   }, [productValues]);
 
   return (
@@ -211,12 +203,7 @@ const AddItems = () => {
           value={productValues.productPrice}
         />
       </div>
-      <ProductTag
-        name="productTag"
-        value={productValues.productIag}
-        onChange={handleChange}
-        clearProductTag={clearProductTag}
-      />
+      <ProductTag name="productTag" onChange={handleChange} clearProductTag={clearProductTag} />
     </form>
   );
 };
