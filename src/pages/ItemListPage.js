@@ -6,7 +6,7 @@ import BestItemList from "../components/BestItemList";
 import { AllItemList } from "../components/AllItemList";
 import Pagination from "../components/Pagination";
 
-function ItemPage() {
+function ItemListPage() {
   const [allItems, setAllItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
   const [order, setOrder] = useState("recent");
@@ -72,4 +72,4 @@ function ItemPage() {
   );
 }
 
-export default ItemPage;
+export default ItemListPage;
