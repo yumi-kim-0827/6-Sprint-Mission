@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from 'react';
 import usePageTitle from '../hooks/usePageTitle';
 import BestItems from '../components/BestItems';
 import ItemsForSale from '../components/ItemsForSale';
-import { getItems } from '../services/api';
 import '../styles/ItemsPage.css';
+import useFetchItems from '../hooks/useFetchItems';
 
 const LIMIT = 10;
 
 export default function Items() {
   usePageTitle('판다마켓: 중고마켓');
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    const fetchItems = async options => {
-      try {
-        const { list } = await getItems(options);
-        setItems(list);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
-
-    fetchItems({ offset: 0, limit: LIMIT });
-  }, []);
+  const { items, loading, error } = useFetchItems({ offset: 0, limit: LIMIT });
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error occurred!</div>;
 
   const getBestItems = () => {
     const sortedItems = [...items];
