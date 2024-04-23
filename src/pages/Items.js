@@ -11,7 +11,6 @@ function App() {
   const [bestProducts, setBestProducts] = useState([]);
   const [selectValue, setSelectValue] = useState("최신순");
   const [totalCount, setTotalCount] = useState();
-  const [bestItemPage, setBestItemPage] = useState(4);
   const [width, setWidth] = useState();
   const [order, setOrder] = useState({
     orderBy: "recent",
@@ -90,8 +89,8 @@ function App() {
   useEffect(() => {
     handleBestLoad();
     getTotalCount();
-    handleResize();
     window.addEventListener("resize", handleResize);
+    handleResize();
     return () => {
       window.removeEventListener("resize", handleResize);
     };
