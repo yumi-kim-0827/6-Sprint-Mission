@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import BaseInput from "./BaseInput";
 import DeleteButton from "./DeleteButton";
-import { Input } from "./Input";
+import BaseIcon from "./BaseIcon";
 
 import plus from "../assets/icon/plus.svg";
 
@@ -33,9 +34,9 @@ const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
   return (
     <StyledImgInput className={className} icon={icon}>
       <label>
-        <i></i>
+        <ImageInputIcon src={plus} />
         <p>{placeholder}</p>
-        <Input
+        <BaseInput
           type="file"
           accept="image/*"
           onChange={handleUploadFile}
@@ -80,14 +81,6 @@ const StyledImgInput = styled.div`
       font-size: 16px;
       color: #9ca3af;
     }
-
-    i {
-      display: block;
-      width: 48px;
-      height: 48px;
-      //   background-image: url(${(props) => props.icon});
-      background-image: url(${plus});
-    }
   }
 
   img {
@@ -105,6 +98,11 @@ const StyledImgInput = styled.div`
       height: 282px;
     }
   }
+`;
+
+const ImageInputIcon = styled(BaseIcon)`
+  width: 48px;
+  height: 48px;
 `;
 
 const Preview = styled.div`

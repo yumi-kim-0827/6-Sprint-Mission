@@ -9,7 +9,7 @@ import IconTwitter from "../assets/icon/twitter.svg";
 import IconYoutube from "../assets/icon/youtube.svg";
 import IconInstagram from "../assets/icon/insta.svg";
 
-const Footer = () => {
+const AppLayoutFooter = () => {
   return (
     <StyledFooter className="footer">
       <FooterInner>
@@ -109,4 +109,4 @@ const SocialLinks = styled.div`
   }
 `;
 
-export default Footer;
+export default AppLayoutFooter;

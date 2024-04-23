@@ -1,24 +1,21 @@
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-import Button from "./Button";
+import BaseButton from "./BaseButton";
 
 import logo from "../assets/img/panda-logo.svg";
 import logoTypo from "../assets/img/panda-logo-typo.svg";
 
-function Navbar() {
+function AppLayoutNavbar() {
   const { pathname } = useLocation();
 
   return (
-    <StyledNavbar className="Navbar">
-      <NavLink to="/" className="Navbar__logo-section">
-        <img src={logo} className="Navbar__logo" alt="판다마켓" />
-        <img src={logoTypo} className="Navbar__logo-typo" alt="판다마켓" />
+    <StyledNavbar>
+      <NavLink to="/">
+        <StyledNavLogo src={logo} alt="판다마켓" />
+        <StyledNavLogoTypo src={logoTypo} alt="판다마켓" />
       </NavLink>
-      <StyledNavLink
-        to="/community"
-        className={({ isActive }) => isActive && "active"}
-      >
+      <StyledNavLink to="/community" activeClassName="active">
         자유게시판
       </StyledNavLink>
       <StyledNavLink
@@ -29,10 +26,8 @@ function Navbar() {
       >
         중고마켓
       </StyledNavLink>
-      <NavLink to="/login" className="Navbar__login">
-        <Button size="small" className="Navbar__button">
-          로그인
-        </Button>
+      <NavLink to="/login">
+        <NavLoginButton size="small">로그인</NavLoginButton>
       </NavLink>
     </StyledNavbar>
   );
@@ -51,40 +46,35 @@ const StyledNavbar = styled.nav`
   background-color: #fff;
   z-index: 2;
 
-  .Navbar__logo {
-    display: none;
-  }
-
-  .Navbar__logo-typo {
-    margin-right: 8px;
-  }
-
-  .Navbar__login {
+  a:last-of-type {
     margin-left: auto;
-  }
-
-  .Navbar__button {
-    width: 88px;
-    height: 42px;
   }
 
   @media screen and (min-width: 768px) {
     gap: 0px;
     padding: 0 24px;
-
-    .Navbar__logo {
-      display: block;
-      margin-right: 20px;
-    }
-
-    .Navbar__logo-typo {
-      display: none;
-    }
   }
 
   @media screen and (min-width: 1200px) {
     gap: 0px;
     padding: 0 200px;
+  }
+`;
+
+const StyledNavLogo = styled.img`
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-right: 20px;
+  }
+`;
+
+const StyledNavLogoTypo = styled.img`
+  margin-right: 8px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `;
 
@@ -104,4 +94,9 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export default Navbar;
+const NavLoginButton = styled(BaseButton)`
+  width: 88px;
+  height: 42px;
+`;
+
+export default AppLayoutNavbar;

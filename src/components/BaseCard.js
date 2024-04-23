@@ -4,7 +4,10 @@ import styled from "styled-components";
 const BaseCard = ({ className, src, alt, title, text }) => {
   return (
     <StyledCard className={className}>
-      <img src={src} alt={alt} />
+      <SquareImage>
+        {" "}
+        <img src={src} alt={alt} />
+      </SquareImage>
       <p>{title}</p>
       <p>{text}</p>
     </StyledCard>
@@ -15,13 +18,11 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 16px;
+  border-radius: 15%;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 15%;
-    margin: 16px 0;
   }
 
   p:first-of-type {
@@ -34,6 +35,18 @@ const StyledCard = styled.div`
     font-weight: 700;
     font-size: 16px;
     color: #1f2937;
+  }
+`;
+
+const SquareImage = styled.div`
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
