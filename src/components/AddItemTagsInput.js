@@ -29,7 +29,7 @@ function AddItemTagsInput({ onChange, name, value, onClearClick }) {
         onKeyDown={handleTagChange}
       />
       <div className="tags-container">
-        {value.map((tag, index, arr) => {
+        {value.map((tag, index) => {
           return (
             <div key={index} className="tag-container">
               <p className="tag">{tag}</p>
