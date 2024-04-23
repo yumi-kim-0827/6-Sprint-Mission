@@ -46,13 +46,13 @@
   cursor: pointer;
 }
 
-.inquire-container .inquire-container__register-btn--active {
+.inquire-container .inquire-container__register-btn.active {
   background-color: var(--blue);
 }
-.inquire-container .inquire-container__register-btn--active:hover {
+.inquire-container .inquire-container__register-btn.active:hover {
   background-color: var(--hover-blue);
 }
-.inquire-container .inquire-container__register-btn--active:active {
+.inquire-container .inquire-container__register-btn.active:active {
   background-color: var(--click-blue);
 }
 
