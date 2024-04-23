@@ -40,9 +40,9 @@ const AddItemForm = ({
     addTagList(tag);
     setTag("");
   };
-  //태그 스페이스비 누르면 입력
+  // 태그 스페이스비 누르면 입력
   const handleKeyDown = (e) => {
-    if (e.keyCode === 32) {
+    if (e.key === " ") {
       addTagList(tag);
       setTag("");
     }
