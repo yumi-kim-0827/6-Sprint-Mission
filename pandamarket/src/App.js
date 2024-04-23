@@ -1,8 +1,7 @@
-import {Header, Footer} from './components'
-import Main from "./pages/Main";
-import Items from "./pages/Items";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import AddItem from './pages/AddItem';
+import { Header, Footer } from './components'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { AddItem, Items, ItemsDetail, Main } from './pages'
+
 
 function App() {
   return (
@@ -11,13 +10,15 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/items" element={<Items />} />
-          <Route path="/additem" element={<AddItem />} />          
+          <Route path="/items" index element={<Items />} />
+          <Route path=":itemId" element={<ItemsDetail />} />
+
+          <Route path="/additem" element={<AddItem />} />
         </Routes>
         <Footer />
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
