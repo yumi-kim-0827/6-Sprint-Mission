@@ -1,9 +1,99 @@
-*,
-html {
+import { createGlobalStyle } from "styled-components";
+
+import PretendardThin from "../assets/fonts/Pretendard-Thin.woff";
+import PretendardLight from "../assets/fonts/Pretendard-Light.woff";
+import PretendardRegular from "../assets/fonts/Pretendard-Regular.woff";
+import PretendardMedium from "../assets/fonts/Pretendard-Medium.woff";
+import PretendardBold from "../assets/fonts/Pretendard-Bold.woff";
+
+const GlobalStyle = createGlobalStyle`
+:root {
+  --color-blue: #3692ff;
+  --color-red: #f74747;
+  --color-gray-50: #f7f7f8;
+  --color-gray-100: #e8ebed;
+  --color-gray-200: #e5e7eb;
+  --color-gray-400: #9ea4a8;
+  --color-gray-500: #72787f;
+  --color-gray-600: #454c53;
+  --color-gray-800: #26282b;
+  --color-gray-900: #1b1d1f;
+  --color-cool-gray-100: #f3f4f6;
+  --color-cool-gray-400: #9ca3af;
+  --color-cool-gray-500: #6b7280;
+  --color-cool-gray-600: #4b5563;
+  --color-cool-gray-800: #1f2937;
+}
+
+button i {
+  pointer-events: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(${PretendardThin}) format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(${PretendardLight}) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(${PretendardRegular}) format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(${PretendardMedium}) format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url(${PretendardBold}) format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;  
   box-sizing: border-box;
 }
 
-html,
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif ;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+html, 
 body,
 div,
 span,
@@ -88,11 +178,11 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   text-decoration: none;
   color: inherit;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -192,3 +282,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+`;
+
+export default GlobalStyle;
