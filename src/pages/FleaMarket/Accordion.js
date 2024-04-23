@@ -2,7 +2,30 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import arrow from "../../assets/arrowDown.svg";
 
-const StyledAccordian = styled.div``;
+function Accordion({ handleRecent, handleFavorite }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <StyledAccordion>
+      <StyledButton onClick={toggleOpen}>
+        <Text>최신순</Text>
+        <ArrowDown src={arrow} alt="아래 화살표" />
+      </StyledButton>
+      {isOpen && (
+        <AccList>
+          <AccEle onClick={handleRecent}>최신순</AccEle>
+          <AccEle onClick={handleFavorite}>좋아요순</AccEle>
+        </AccList>
+      )}
+    </StyledAccordion>
+  );
+}
+
+const StyledAccordion = styled.div``;
 
 const StyledButton = styled.div`
   display: flex;
@@ -51,27 +74,4 @@ const AccEle = styled.li`
   }
 `;
 
-function Accordian({ handleRecent, hanldeFavorite }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <StyledAccordian>
-      <StyledButton onClick={toggleOpen}>
-        <Text>최신순</Text>
-        <ArrowDown src={arrow} alt="아래 화살표" />
-      </StyledButton>
-      {isOpen && (
-        <AccList>
-          <AccEle onClick={handleRecent}>최신순</AccEle>
-          <AccEle onClick={hanldeFavorite}>좋아요순</AccEle>
-        </AccList>
-      )}
-    </StyledAccordian>
-  );
-}
-
-export default Accordian;
+export default Accordion;

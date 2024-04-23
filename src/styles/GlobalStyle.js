@@ -5,7 +5,9 @@ const GlobalStyle = createGlobalStyle`
     --main-color: #3692ff;
     --nav-text-color: #4B5563;
     --main-text-color: #1F2937;
-    --input-color: #9CA3AF;
+    --placeholder-color: #9CA3AF;
+    --input-background-color: #F3F4F6;
+
   }
 
   @font-face {
@@ -41,13 +43,19 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  input {
+  input, textarea {
     border: none;
   }
 
+  textarea:focus,
   input:focus {
     outline: none;
   }
+
+  textarea {
+    resize: none;
+  }
+
 
   h1 {
     font-family: 'ROKAF Sans';
