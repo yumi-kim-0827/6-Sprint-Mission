@@ -1,18 +1,13 @@
-import React from "react";
+
+import React, { useContext } from "react";
 import "../style/Header.css";
-import logo from "../img/panda.png";
+import { LoginContext } from "../context/LoginContext";
+import NavigationBar from "./NavigationBar";
 
 const Header = () => {
-  return (
-    <div className="navi">
-      <div className="leftBtn">
-        <img className="logo" src={logo} />
-        <p>자유게시판</p>
-        <p id="presentPage">중고마켓</p>
-      </div>
-      <button className="loginBtn">로그인</button>
-    </div>
-  );
+  const isLogin = useContext(LoginContext);
+  return <NavigationBar isLogin={isLogin} />;
+
 };
 
 export default Header;

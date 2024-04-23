@@ -1,33 +1,35 @@
 import React from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
 
-const Button = ({ children, params }) => {
-  const navigation = useNavigate();
-  const Click = () => {
-    if (children === "<") {
-      navigation(`/items/${parseInt(params.id) - 1}`);
-    } else if (children === ">") {
-      navigation(`/items/${parseInt(params.id) + 1}`);
-    } else {
-      navigation(`/items/${children}`);
-    }
-  };
+import "../style/Button.css";
+
+const Button = ({ children, type = "", width, height, onClick }) => {
   return (
     <button
-      onClick={Click}
+      onClick={onClick}
       style={{
-        backgroundColor: params?.id === children ? "#2F80ED" : "#FFFFFF",
         cursor: "pointer",
-        width: "40px",
-        height: "40px",
-        borderRadius: "40px",
-        border: "1px solid #E5E7EB",
-        color: params?.id === children ? "#FFFFFFFF" : "#6B7280",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        border: "none",
+        width: width,
+        height: height,
       }}
+      className={
+        type === "default"
+          ? ["btn", " none"].join("")
+          : type === "fill"
+          ? ["btn", " fill"].join("")
+          : type === "cancel"
+          ? ["btn", " cancel"].join("")
+          : "btn"
+      }
+
     >
       {children}
     </button>
   );
 };
+
 export default Button;
 

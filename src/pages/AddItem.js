@@ -1,7 +1,10 @@
-import React from "react";
+
+import RegisterItem from "../components/RegisterItem";
 
 const AddItem = () => {
-  return <div>빈페이지 입니다.</div>;
+  return <RegisterItem />;
 };
 
 export default AddItem;
+
+

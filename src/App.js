@@ -1,17 +1,22 @@
 import "./style/App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Item from "./pages/Item";
-import AddItem from "./pages/AddItem";
+
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import { useState } from "react";
+import { LoginContext } from "./context/LoginContext";
+
+
 function App() {
+  const [login, setLogin] = useState(true);
   return (
-    <BrowserRouter>
+
+    <LoginContext.Provider value={login}>
       <div className="App">
-        <Routes>
-          <Route path="/items/:id" element={<Item />} />
-          <Route path="/additem" element={<AddItem />} />
-        </Routes>
+        <Header />
+        <Outlet />
       </div>
-    </BrowserRouter>
+    </LoginContext.Provider>
+
   );
 }
 
