@@ -27,7 +27,6 @@ function AddItemFileInput({ onChange, name }) {
     return () => {
       // 정리함수
       if (preview) {
-        setPreview(null);
         URL.revokeObjectURL(preview);
       }
     };
