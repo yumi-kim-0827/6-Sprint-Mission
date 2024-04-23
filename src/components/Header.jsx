@@ -24,8 +24,8 @@ const Header = () => {
           </div>
         </Link>
         <div className="Header__gnb">
-          <NavLink to={"/board"}>자유게시판</NavLink>
-          <NavLink to={"/items"}>중고마켓</NavLink>
+          <NavLink to="/board">자유게시판</NavLink>
+          <NavLink to="/items">중고마켓</NavLink>
         </div>
         <div className="Header__buttonWrapper">
           <Button text="로그인" />

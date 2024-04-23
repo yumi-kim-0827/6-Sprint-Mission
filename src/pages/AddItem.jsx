@@ -81,19 +81,19 @@ const AddItem = () => {
         <div className="AddItem__Header">
           <h1>상품 등록하기</h1>
           <div className="AddItem__Header__button_wrapper">
-            <Button text={"등록"} type={"submit"} disable={!canSubmit} />
+            <Button text="등록" type="submit" disable={!canSubmit} />
           </div>
         </div>
 
-        <div className={"form__input_wrapper"}>
+        <div className="form__input_wrapper">
           <h1 className="form__input_title">상품 이미지</h1>
           <ImgInput
-            name={"imgFile"}
+            name="imgFile"
             value={values.imgFile}
             onChange={handleValueChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
+        <div className="form__input_wrapper">
           <h1 className="form__input_title">상품명</h1>
           <input
             name="title"
@@ -102,7 +102,7 @@ const AddItem = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
+        <div className="form__input_wrapper">
           <h1 className="form__input_title">상품 소개</h1>
           <textarea
             name="description"
@@ -111,7 +111,7 @@ const AddItem = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
+        <div className="form__input_wrapper">
           <h1 className="form__input_title">판매가격</h1>
           <input
             name="price"
@@ -120,7 +120,7 @@ const AddItem = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
+        <div className="form__input_wrapper">
           <h1 className="form__input_title">태그</h1>
           <input
             name="productTags"

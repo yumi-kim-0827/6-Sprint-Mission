@@ -4,7 +4,7 @@ import "../styles/Button.css";
 const Button = ({ text, type = "", disable }) => {
   return (
     <button
-      className={["Button", `${disable ? "disable" : "enable"}`].join(" ")}
+      className={`Button ${disable ? "disable" : "enable"}`}
       type={type}
       disabled={disable}
     >

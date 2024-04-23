@@ -19,27 +19,25 @@ const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
 
   return (
     <div
-      className={"DropdownOrderWrapper"}
+      className="DropdownOrderWrapper"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={"DropdownOrder"}>
+      <div className="DropdownOrder">
         {displaySize === "mobile" ? (
           <img src={ICON_SORT} style={{ width: "24px", height: "24px" }} />
         ) : (
           <>
             {order}
-            <img src={ICON_DOWN} alt={"내리기 아이콘"} />
+            <img src={ICON_DOWN} alt="내리기 아이콘" />
           </>
         )}
       </div>
-      <div className={"DropdownList"}>
+      <div className="DropdownList">
         <div
-          className={[
-            "DropdownWrapper",
-            showDropdown ? "show" : "",
-            displaySize === "mobile" ? "mobile" : "",
-          ].join(" ")}
+          className={`DropdownWrapper ${showDropdown ? "show" : ""} ${
+            displaySize === "mobile" ? "mobile" : ""
+          }`}
         >
           <ul>
             <li

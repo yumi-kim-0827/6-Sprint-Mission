@@ -35,7 +35,7 @@ const ImgInput = ({ name, value, onChange }) => {
         <label htmlFor="imgFile">
           <img
             src={ICON_PLUS}
-            alt={"이미지 첨부 아이콘"}
+            alt="이미지 첨부 아이콘"
             style={{ width: "48px" }}
           />
           이미지 등록
@@ -47,11 +47,7 @@ const ImgInput = ({ name, value, onChange }) => {
           ref={imgInputRef}
         />
       </div>
-      <div
-        className={["ImgInput__preview_wrapper", preview ? "show" : ""].join(
-          " "
-        )}
-      >
+      <div className={`ImgInput__preview_wrapper ${preview ? "show" : ""}`}>
         <img className="preview_img" src={preview} alt="이미지 미리보기" />
         <button
           className="preview_cancel_button"

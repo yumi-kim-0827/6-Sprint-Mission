@@ -5,9 +5,7 @@ const PageButton = ({ page, currentPage, handlePage }) => {
   return (
     <div
       onClick={handlePage}
-      className={["PageButton", currentPage === page ? "isActive" : ""].join(
-        " "
-      )}
+      className={`PageButton ${currentPage === page ? "isActive" : ""}`}
     >
       {page}
     </div>
