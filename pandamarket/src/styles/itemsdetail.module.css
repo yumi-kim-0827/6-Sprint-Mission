@@ -94,7 +94,7 @@
 .button-disabled {
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
-  width: 100px;
+  width: 80px;
   height: 48px;
   font-size: 16px;
   background-color: var(--btn4);
@@ -116,6 +116,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  margin: 3rem auto 0;
 }
 
 .backimg {
@@ -150,4 +151,47 @@
   font-size: 12px;
   color: var(--btn4);
   margin: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    width: 100%;
+  }
+  .item-img {
+    width: 340px;
+    height: 340px;
+  }
+  .question {
+    margin: auto 1rem;
+  }
+  .comments {
+    margin: auto 1rem;
+  }
+  
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 2rem 2rem;
+  }
+  .item-img {
+    width: 343px;
+    height: 343px;
+  }
+  .question {
+    margin: auto 1rem;
+  }
+  .comments {
+    margin: auto 1rem;
+  }
+  .favoriteCount {
+    margin-top: 1rem;
+  }
 }
