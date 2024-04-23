@@ -1,0 +1,12 @@
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.product-register-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33.41px;
+}
