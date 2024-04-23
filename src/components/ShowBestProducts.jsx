@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
 import debounce from "./common/debounce";
+import { Link } from "react-router-dom";
 
 function BestProduct({ name, price, favoriteCount, images }) {
   const formatedPrice = price.toLocaleString();
@@ -55,7 +56,9 @@ const ShowBestProducts = ({ products }) => {
           .map((item) => {
             return (
               <li key={item.id}>
-                <BestProduct {...item} />
+                <Link to={`/Items/${item.id}`}>
+                  <BestProduct {...item} />
+                </Link>
               </li>
             );
           })

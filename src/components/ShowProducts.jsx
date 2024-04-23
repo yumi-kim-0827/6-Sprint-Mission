@@ -44,7 +44,9 @@ const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
         {products.map((item) => {
           return (
             <li key={item.id}>
-              <Product {...item} />
+              <Link to={`/Items/${item.id}`}>
+                <Product {...item} />
+              </Link>
             </li>
           );
         })}
