@@ -34,17 +34,8 @@ function validateNickname(nickname) {
   }
 }
 
-function checkPasswordMatch() {
-  if (passwordInput.value !== passwordInput2.value) {
-    showError(passwordInput2, passwordMismatchMessage);
-  } else {
-    hideError(passwordInput2, passwordMismatchMessage);
-  }
-  upadateSigninButton();
-}
 
-passwordInput.addEventListener('input',checkPasswordMatch);
-passwordInput2.addEventListener('input',checkPasswordMatch);
+
 
 
 emailInput.addEventListener('focusout',function() {
@@ -65,6 +56,17 @@ passwordInput.addEventListener('focusout',function() {
   updateLoginButton();
 });
 
+
+function checkPasswordMatch2() {
+  if (passwordInput.value !== passwordInput2.value) {
+    showError(passwordInput2, passwordMismatchMessage);
+  } else {
+    hideError(passwordInput2, passwordMismatchMessage);
+  }
+  upadateSigninButton();
+}
+
+passwordInput2.addEventListener('input',checkPasswordMatch2);
 
 //버튼 활성화 여부
 function updateLoginButton(){
