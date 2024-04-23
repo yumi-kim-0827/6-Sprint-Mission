@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getDetailProduct } from "../api";
 import "./DetailItem.css";
 import ShowDetail from "../components/ShowDetail";
@@ -24,10 +24,12 @@ const DetailItem = () => {
       <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>
       <HandleComment />
       <div className="return-to-items-btn-container">
-        <button className="return-to-items-btn-container__btn">
-          <span>목록으로 돌아가기</span>
-          <img src={returnlist} alt="목록으로 돌아가기 버튼" />
-        </button>
+        <Link to={"/Items"}>
+          <button className="return-to-items-btn-container__btn">
+            <span>목록으로 돌아가기</span>
+            <img src={returnlist} alt="목록으로 돌아가기 버튼" />
+          </button>
+        </Link>
       </div>
     </>
   );
