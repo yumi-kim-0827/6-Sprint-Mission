@@ -14,6 +14,7 @@
 .item-for-sale__img-wrap {
   width: 16.8rem;
   height: 16.8rem;
+  cursor: pointer;
 }
 
 .item-for-sale__img {
@@ -26,6 +27,7 @@
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.671rem;
+  cursor: pointer;
 }
 
 .item-for-sale__price {

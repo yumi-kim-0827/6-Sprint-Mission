@@ -14,6 +14,7 @@
 .item__img__wrap {
   width: 34.3rem;
   height: 34.3rem;
+  cursor: pointer;
 }
 
 .item__img {
@@ -26,6 +27,7 @@
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.671rem;
+  cursor: pointer;
 }
 
 .item__price {
