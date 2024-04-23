@@ -2,15 +2,13 @@ import usePageTitle from '../hooks/usePageTitle';
 import BestItems from '../components/BestItems';
 import ItemsForSale from '../components/ItemsForSale';
 import '../styles/ItemsPage.css';
-import useFetchItems from '../hooks/useFetchItems';
-
-const LIMIT = 10;
+import { useContext } from 'react';
+import { ItemStateContext } from '../App';
 
 export default function Items() {
+  const data = useContext(ItemStateContext);
   usePageTitle('판다마켓: 중고마켓');
-  const { items, loading, error } = useFetchItems({ offset: 0, limit: LIMIT });
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error occurred!</div>;
+  const items = Array.isArray(data) ? data : [];
 
   const getBestItems = () => {
     const sortedItems = [...items];
