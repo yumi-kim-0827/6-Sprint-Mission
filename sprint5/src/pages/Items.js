@@ -27,8 +27,8 @@ function Items() {
   const [keyword, setKeyword] = useState("");
   const [bestItems, setBestItems] = useState([]);
 
-  const handleLoad = async (page, limit, order, keyword) => {
-    const products = await getProducts(page, limit, order, keyword);
+  const handleLoad = async ({ page, limit, order, keyword }) => {
+    const products = await getProducts({ page, limit, order, keyword });
 
     setItems(products.list);
     setTotalPages(Math.ceil(products.totalCount / limit));
@@ -60,11 +60,11 @@ function Items() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLoad(page, limit, order, keyword);
+    await handleLoad({ page, limit, order, keyword });
   };
 
   useEffect(() => {
-    handleLoad(page, limit, order, keyword);
+    handleLoad({ page, limit, order, keyword });
   }, [page, limit, order]);
 
   useEffect(() => {

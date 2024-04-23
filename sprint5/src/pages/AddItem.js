@@ -37,7 +37,7 @@ function AddItem() {
 
   const handleAddTag = () => {
     if (values.currentTag.trim() !== "" && !tags.includes(values.currentTag)) {
-      setTags([...tags, values.currentTag.trim()]);
+      setTags((prev) => [...prev, values.currentTag.trim()]);
       setValues((prevValues) => ({
         ...prevValues,
         currentTag: "",
@@ -67,6 +67,7 @@ function AddItem() {
               isButtonActive ? "activeAddButton" : ""
             }`}
             disabled={!isButtonActive}
+            type="submit"
           >
             등록
           </button>
