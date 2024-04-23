@@ -40,6 +40,18 @@ function ItemPage() {
   useEffect(() => {
     handLoadAllItemList({ order, page, pageSize, keyword });
     handLoadBestItemList();
+
+    const handleWindowResize = () => {
+      const windowWidth = window.innerWidth;
+      const pageSize = windowWidth <= 767 ? 4 : windowWidth <= 1199 ? 6 : 10;
+      setPageSize(pageSize);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, [order, page, pageSize, keyword]);
 
   return (
