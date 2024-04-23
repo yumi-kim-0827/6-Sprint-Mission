@@ -21,3 +21,12 @@ export async function getBestProduct() {
     console.error(`${error} : error`);
   }
 }
+
+export async function getDetailProduct(id) {
+  try {
+    const response = await fetch(`${apiUrl}/${id}`);
+    return response.json();
+  } catch (error) {
+    console.error(`${error} : error`);
+  }
+}
