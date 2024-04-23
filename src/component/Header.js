@@ -8,14 +8,8 @@ const Header = () => {
   const location = useLocation();
 
   const currentPageBlueColor = (paths) => {
-    for (let path of paths) {
-      if (path === location.pathname) {
-        return { color: "#3692FF" };
-      }
-    }
+    return paths.some(path => path === location.pathname) ? { color: "#3692FF" } : null;
   };
-  //additem 페이지에도 중고마켓 글자를 파랗게 하는 요구 사항을 위해
-  // 이런 코드를 작성했는데 괜찮은 코드인가요
 
   return (
     <header>
@@ -40,7 +34,7 @@ const Header = () => {
           </NavLink>
         </div>
         {location.pathname === "/additem" ? (
-          <img src={userIcon} className="user-icon"/>
+          <img src={userIcon} className="user-icon" alt="유저 아이콘"/>
         ) : (
           <Link to="/" className="login-btn">
             로그인

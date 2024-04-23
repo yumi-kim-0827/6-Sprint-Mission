@@ -24,10 +24,7 @@ const Products = ({ numOfItemsToShow }) => {
   const settingPageNumbers = (totalPageCount) => {
     //5번까지 없을 경우
     if (totalPageCount < 5) {
-      const firstPageNumbers = [];
-      for (let i = 1; i <= totalPageCount; i++) {
-        firstPageNumbers.push(i);
-      }
+      const firstPageNumbers = Array.from({ length: totalPageCount }, (_, index) => index + 1);
       setPageNumbers(firstPageNumbers);
     }
     //현재 페이지가 화면이 커지면서 사라지는 경우
@@ -76,10 +73,7 @@ const Products = ({ numOfItemsToShow }) => {
       // 페이지 번호가 넘어갔는데 5개 페이지가 안 나오는 경우
       if (pageNumbers[4] + 5 > totalPageCount) {
         const nextPageCount = totalPageCount - pageNumbers[4];
-        const nextPageNumbers = [];
-        for (let i = 0; i < nextPageCount; i++) {
-          nextPageNumbers.push(pageNumbers[4] + i);
-        }
+        const nextPageNumbers = Array.from({ length: nextPageCount }, (_, index) => pageNumbers[4] + index);
         setPageNumbers(nextPageNumbers);
       } else {
         //5개 페이지가 나오는 경우
