@@ -38,8 +38,8 @@ export default function AddItemPage() {
     }));
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = ({ target }) => {
+    const { name, value } = target;
     handleChange(name, value);
   };
 
