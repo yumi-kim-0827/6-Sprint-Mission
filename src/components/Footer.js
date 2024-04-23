@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 import ALinkImageButton from "./ALinkImageButton";
 
-import styled from "styled-components";
 import IconFacebook from "../assets/icon/facebook.svg";
 import IconTwitter from "../assets/icon/twitter.svg";
 import IconYoutube from "../assets/icon/youtube.svg";
@@ -10,19 +12,13 @@ import IconInstagram from "../assets/icon/insta.svg";
 const Footer = () => {
   return (
     <StyledFooter className="footer">
-      <div className="footer-inner">
-        <div className="footer-inner__codeit">
-          <span>@codeit - 2024</span>
-        </div>
-        <div className="footer-inner__center">
-          <span>
-            <a href="/privacy">Privacy Policy</a>
-          </span>
-          <span>
-            <a href="/faq">FAQ</a>
-          </span>
-        </div>
-        <div className="footer-inner__sns">
+      <FooterInner>
+        <CopyrightInfo>@codeit - 2024</CopyrightInfo>
+        <MenuLinks>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/faq">FAQ</Link>
+        </MenuLinks>
+        <SocialLinks>
           <ALinkImageButton
             href="https://facebook.com"
             src={IconFacebook}
@@ -43,8 +39,8 @@ const Footer = () => {
             src={IconInstagram}
             alt="인스타"
           />
-        </div>
-      </div>
+        </SocialLinks>
+      </FooterInner>
     </StyledFooter>
   );
 };
@@ -55,59 +51,62 @@ const StyledFooter = styled.footer`
   width: 100vw;
   min-height: 160px;
   background-color: var(--color-gray-900);
+`;
+
+const FooterInner = styled.div`
+  display: grid;
+  grid-template-areas:
+    "MenuLinks SocialLinks"
+    "CopyrightInfo CopyrightInfo";
+  width: 100%;
+  padding: 32px 16px;
   font-weight: 400;
   font-size: 16px;
   line-height: 19.09px;
   color: #fff;
 
-  .footer-inner {
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
+    padding: 32px 108px;
+  }
+
+  @media screen and (min-width: 1200px) {
     max-width: 1520px;
     padding: 32px 200px;
   }
+`;
 
-  .footer-inner__center {
-    display: flex;
-    gap: 30px;
+const CopyrightInfo = styled.div`
+  grid-area: CopyrightInfo;
+  margin-top: 60px;
+  opacity: 0.5;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
   }
 
-  .footer-inner__sns {
-    display: flex;
-    gap: 12px;
-  }
-
-  /* tablet */
-  @media screen and (max-width: 1199px) {
-    .footer-inner {
-      padding: 32px 108px;
-    }
-
-    .footer-inner__codeit {
-      opacity: 0.5;
-    }
-  }
-
-  /* mobile */
-  @media screen and (max-width: 767px) {
-    .footer-inner {
-      display: grid;
-      grid-template-areas:
-        "cen sns"
-        "codeit codeit";
-      padding: 32px 16px;
-    }
-    .footer-inner__codeit {
-      grid-area: codeit;
-      margin-top: 60px;
-    }
-    .footer-inner__center {
-      grid-area: cen;
-    }
-    .footer-inner__sns {
-      grid-area: sns;
-    }
+  @media screen and (min-width: 1200px) {
+    opacity: 1;
   }
 `;
+
+const MenuLinks = styled.div`
+  grid-area: MenuLinks;
+  display: flex;
+  gap: 30px;
+`;
+
+const SocialLinks = styled.div`
+  grid-area: SocialLinks;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
+
 export default Footer;

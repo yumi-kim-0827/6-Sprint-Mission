@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import ItemFormGroup from "../components/ItemFormGroup";
-import Button from "../components/Button";
-import DeleteIconButton from "../components/DeleteIconButton";
+import BaseButton from "../components/BaseButton";
+import DeleteButton from "../components/DeleteButton";
 
 const TAG_LIMIT = 7;
 
@@ -97,10 +97,7 @@ const AddItemPage = () => {
             {tags.map((tag) => (
               <TagEl>
                 <p>{tag}</p>
-                <DeleteIconButton
-                  key={tag}
-                  onClick={() => handleDeleteTag(tag)}
-                />
+                <DeleteButton key={tag} onClick={() => handleDeleteTag(tag)} />
               </TagEl>
             ))}
           </TagBox>
@@ -143,7 +140,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(BaseButton)`
   position: absolute;
   top: 0;
   right: 0;

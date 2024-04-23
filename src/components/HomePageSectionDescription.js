@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import MultiLineText from "./MultiLineText";
 
-const SectionDescription = ({ badgeText, title, content }) => {
+const HomePageSectionDescription = ({ badgeText, title, content }) => {
   return (
     <StyledDiv>
       {badgeText && (
@@ -89,4 +89,4 @@ const SectionContent = styled(MultiLineText)`
   }
 `;
 
-export default SectionDescription;
+export default HomePageSectionDescription;

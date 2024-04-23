@@ -17,8 +17,8 @@ function AppRoutes() {
         <Route path="additem" element={<AddItemPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="/login" element={<LogIn />} />
-      <Route path="/signup" element={<SignUp />} />
+      {/* <Route path="/login" element={<LogIn />} /> */}
+      {/* <Route path="/signup" element={<SignUp />} /> */}
     </Routes>
   );
 }

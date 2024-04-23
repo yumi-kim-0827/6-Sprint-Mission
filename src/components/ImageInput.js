@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import DeleteIconButton from "./DeleteIconButton";
+import DeleteButton from "./DeleteButton";
 import { Input } from "./Input";
 
 import plus from "../assets/icon/plus.svg";
@@ -45,7 +45,7 @@ const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
       {previewImg && (
         <Preview>
           <img alt={previewImg} src={previewImg} />
-          <DeleteIconButton onClick={handleDeleteFile} />
+          <DeleteButton onClick={handleDeleteFile} />
         </Preview>
       )}
     </StyledImgInput>
