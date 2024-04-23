@@ -11,8 +11,8 @@ export default function AddItem() {
   const [inputDes, setInputDes] = useState("");
   const [tags, setTags] = useState([]);
   const [inputTag, setInputTag] = useState("");
-  const [imageHovered, setImageHovered] = useState(false); // 이미지 hover 상태
-  const [tagHovered, setTagHovered] = useState(Array(10).fill(false)); // 태그 hover 상태 배열 초기화
+  const [imageHovered, setImageHovered] = useState(false);
+  const [tagHovered, setTagHovered] = useState(Array(10).fill(false));
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -46,7 +46,6 @@ export default function AddItem() {
   }, [inputName, inputDes, inputPrice, tags]);
 
   useEffect(() => {
-    // handleInputChange를 이용하여 등록버튼을 활성화 비활성화 했을때 tag쪽만 제대로 작동을 안해서 이부분만 useEffect
     handleInputChange();
   }, [tags]);
 
@@ -64,7 +63,6 @@ export default function AddItem() {
     if (e.key === "Enter" && inputTag.trim() !== "") {
       const newTag = inputTag.trim();
       if (!tags.includes(newTag)) {
-        // 중복된 태그가 아닌 경우에만 추가
         setTags([...tags, newTag]);
         setInputTag("");
         handleInputChange();
@@ -135,7 +133,7 @@ export default function AddItem() {
           type="text"
           value={inputName}
           placeholder="상품명을 입력해주세요."
-          onChange={handleNameChange} // 상품명 입력 요소의 값이 변경될 때 호출되는 핸들러
+          onChange={handleNameChange}
         />
       </div>
       <div className="add-text flexcolumn margin-bottom10">
@@ -143,7 +141,7 @@ export default function AddItem() {
         <textarea
           value={inputDes}
           placeholder="상품 소개를 입력해주세요."
-          onChange={handleDesChange} // 상품 소개 입력 요소의 값이 변경될 때 호출되는 핸들러
+          onChange={handleDesChange}
         ></textarea>
       </div>
       <div className="add-price flexcolumn margin-bottom10">
@@ -151,7 +149,7 @@ export default function AddItem() {
         <input
           value={inputPrice}
           placeholder="판매 가격을 입력해주세요."
-          onChange={handlePriceChange} // 판매 가격 입력 요소의 값이 변경될 때 호출되는 핸들러
+          onChange={handlePriceChange}
         />
       </div>
 
