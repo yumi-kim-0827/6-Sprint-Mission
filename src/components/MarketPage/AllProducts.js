@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./AllProducts.css";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 
 function getAllProducts(productsList, n, sortBy) {
   let sortedProducts = [...productsList];
@@ -33,7 +34,8 @@ function AllProducts({ products }) {
             type="text"
             placeholder="검색할 상품을 입력하세요"
           />
-          <button className="add-product-button">상품 등록하기</button>
+          {/* <button className="add-product-button">상품 등록하기</button> */}
+          <Link to="/additem" className="add-product-button">상품 등록하기</Link>
           <div className="dropdown">
             <select id="sort-by" onChange={handleSortChange}>
               <option value="latest">최신순</option>
