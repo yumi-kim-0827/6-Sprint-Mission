@@ -2,7 +2,6 @@ import React from "react";
 import noninquiry from "../assets/no-inquiry.png";
 import profile from "../assets/profile.png";
 import "./HandleComment.css";
-import returnlist from "../assets/return.png";
 
 const mockData = [
   {
@@ -60,12 +59,6 @@ const HandleComment = () => {
             <p>아직 문의가 없습니다.</p>
           </div>
         )}
-      </div>
-      <div className="return-to-items-btn-container">
-        <button className="return-to-items-btn-container__btn">
-          <span>목록으로 돌아가기</span>
-          <img src={returnlist} alt="목록으로 돌아가기 버튼" />
-        </button>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { getDetailProduct } from "../api";
 import "./DetailItem.css";
 import ShowDetail from "../components/ShowDetail";
 import HandleComment from "../components/HandleComment";
+import returnlist from "../assets/return.png";
 
 const DetailItem = () => {
   const { Id } = useParams();
@@ -22,6 +23,12 @@ const DetailItem = () => {
     <>
       <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>
       <HandleComment />
+      <div className="return-to-items-btn-container">
+        <button className="return-to-items-btn-container__btn">
+          <span>목록으로 돌아가기</span>
+          <img src={returnlist} alt="목록으로 돌아가기 버튼" />
+        </button>
+      </div>
     </>
   );
 };
