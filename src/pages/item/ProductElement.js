@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/productElement.css";
-import favoriteCountIcon from "../image/favorite_count_icon.png";
+import "./productElement.css";
+import favoriteCountIcon from "../../image/favorite_count_icon.png";
 
 const ProductElement = ({ product }) => {
   return (

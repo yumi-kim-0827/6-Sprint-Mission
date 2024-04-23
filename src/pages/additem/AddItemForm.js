@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ProductImageInput from "./ProductImageInput";
 import ProductInfoInput from "./ProductInfoInput";
-import deleteTagButton from "../image/ic_X_for_tag.png";
-import "../css/additemForm.css";
+import deleteTagButton from "../../image/ic_X_for_tag.png";
+import "./additemForm.css";
 import ProductTagInput from "./ProductTagInput";
 import ProductDescribeInput from "./ProductDescribeInput";
 

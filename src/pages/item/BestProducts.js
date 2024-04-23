@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ProductElement from "./ProductElement";
-import "../css/bestProducts.css";
-import useLoading from "../hooks/loading";
-import LoadingMessage from "./LoadingMessage";
+import "./bestProducts.css";
+import useLoading from "../../hooks/loading";
+import LoadingMessage from "../../component/LoadingMessage";
 
 const BestProducts = ({ numOfItemsToShow }) => {
   const [bestProducts, setBestProducts] = useState([]);

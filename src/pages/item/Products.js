@@ -2,17 +2,17 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductElement from "./ProductElement";
-import "../css/products.css";
-import useLoading from "../hooks/loading";
-import SelectOrderButton from "./SelectOrderButton";
-import PageNav from "./PageNav";
-import LoadingMessage from "./LoadingMessage";
+import "./products.css";
+import useLoading from "../../hooks/loading";
+import SelectOrderButton from "../../component/SelectOrderButton";
+import PageNav from "../../component/PageNav";
+import LoadingMessage from "../../component/LoadingMessage";
 
 const Products = ({ numOfItemsToShow }) => {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState("recent");
-  const [isLoading, loadingError,noResult, handleLoad] = useLoading();
-  const loadingMessage = isLoading || loadingError||noResult;
+  const [isLoading, loadingError, noResult, handleLoad] = useLoading();
+  const loadingMessage = isLoading || loadingError || noResult;
   const [search, setSearch] = useState("");
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +21,7 @@ const Products = ({ numOfItemsToShow }) => {
 
   //페이지네이션 숫자 설정
   const settingPageNumbers = (totalPageCount) => {
-    if(totalPageCount===0){
+    if (totalPageCount === 0) {
       return;
     }
     //5번까지 없을 경우
@@ -120,7 +120,7 @@ const Products = ({ numOfItemsToShow }) => {
 
   useEffect(() => {
     handleProductsLoad();
-  }, [order,currentPage, numOfItemsToShow, search]);
+  }, [order, currentPage, numOfItemsToShow, search]);
 
   return (
     <div className="products-section">
@@ -145,7 +145,11 @@ const Products = ({ numOfItemsToShow }) => {
       </div>
       <div className="products-content">
         {loadingMessage ? (
-          <LoadingMessage isLoading={isLoading} loadingError={loadingError} noResult={noResult}/>
+          <LoadingMessage
+            isLoading={isLoading}
+            loadingError={loadingError}
+            noResult={noResult}
+          />
         ) : (
           products.map((product) => (
             <ProductElement key={product.id} product={product} />

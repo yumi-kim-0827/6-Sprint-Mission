@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "../css/additemPage.css";
-import AddItemForm from "../component/AddItemForm";
+import "./additemPage.css";
+import AddItemForm from "./AddItemForm";
 
 const AddItemPage = () => {
   //버튼 상태
