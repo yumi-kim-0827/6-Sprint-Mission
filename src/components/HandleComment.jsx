@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import noninquiry from "../assets/no-inquiry.png";
 import profile from "../assets/profile.png";
 import "./HandleComment.css";
+import { commentValidation } from "./common/validation";
 
 const mockData = [
   {
@@ -25,17 +26,35 @@ const mockData = [
 ];
 
 const HandleComment = () => {
+  const [comment, setComment] = useState("");
+  const buttonRef = useRef();
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setComment(value);
+  };
+
+  useEffect(() => {
+    const isValidComment = commentValidation(comment);
+    console.log(comment);
+    buttonRef.current.disabled = isValidComment;
+    buttonRef.current.classList.toggle("active", !isValidComment);
+  }, [comment]);
+
   return (
     <div className="wrapper">
       <div className="inquire-container">
         <label htmlFor="inquire-area">문의하기</label>
         <textarea
+          onChange={handleChange}
           className="inquire-container__inquire-area"
           name="inquire-area"
           id="inquire-area"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
         ></textarea>
-        <button className="inquire-container__register-btn">등록</button>
+        <button ref={buttonRef} disabled className="inquire-container__register-btn">
+          등록
+        </button>
       </div>
       <div className="comment-container">
         {mockData.length !== 0 ? (
