@@ -1,10 +1,15 @@
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 const ProductCard = ({ product, showLikes = false }) => {
   const { name, price, images, favoriteCount } = product;
+  const navigate = useNavigate();
+
+  const handleProductClick = () => {
+    navigate(`/items/${product.id}`);
+  };
 
   return (
-    <ProductCardWrapper>
+    <ProductCardWrapper onClick={handleProductClick}>
       <ProductImage src={images[0]} alt={name} />
       <ProductName>{name}</ProductName>
       <ProductPrice>{price}원</ProductPrice>
@@ -25,7 +30,7 @@ const ProductCardWrapper = styled.div`
   padding: 0.5rem;
   text-align: center;
   object-fit: cover;
-
+  cursor: pointer;
   
 `;
 
