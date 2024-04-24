@@ -42,9 +42,9 @@ const BestItemsList = () => {
   }, []);
 
   return (
-    <div className="BestItemsList">
-      <h1 className="BestItemsList__title">베스트 상품</h1>
-      <div className="BestItemsList__wrapper">
+    <div className="bestItemsList">
+      <h1 className="bestItemsList__title">베스트 상품</h1>
+      <div className="bestItemsList__wrapper">
         {data?.slice(0, displayedItems).map((item) => (
           <BestItem
             key={item.id}

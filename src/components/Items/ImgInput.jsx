@@ -30,8 +30,8 @@ const ImgInput = ({ name, value, onChange }) => {
   }, [value]);
 
   return (
-    <div className="ImgInput">
-      <div className="ImgInput__wrapper">
+    <div className="imgInput">
+      <div className="imgInput__wrapper">
         <label htmlFor="imgFile">
           <img
             src={ICON_PLUS}
@@ -47,10 +47,14 @@ const ImgInput = ({ name, value, onChange }) => {
           ref={imgInputRef}
         />
       </div>
-      <div className={`ImgInput__preview_wrapper ${preview ? "show" : ""}`}>
-        <img className="preview_img" src={preview} alt="이미지 미리보기" />
+      <div className={`imgInput__preview-wrapper ${preview ? "show" : ""}`}>
+        <img
+          className="imgInput__preview-img"
+          src={preview}
+          alt="이미지 미리보기"
+        />
         <button
-          className="preview_cancel_button"
+          className="imgInput__preview-cancel-btn"
           type="button"
           onClick={handleClearClick}
         >

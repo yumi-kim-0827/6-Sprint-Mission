@@ -3,10 +3,14 @@ import "../../styles/Items/SearchBox.css";
 
 const SearchBox = () => {
   return (
-    <div className="SearchBox">
-      <input type="text" placeholder="검색할 상품을 입력해주세요." />
+    <div className="searchBox">
+      <input
+        className="searchBox__input"
+        type="text"
+        placeholder="검색할 상품을 입력해주세요."
+      />
       <img
-        className="SearchBox__icon"
+        className="searchBox__img"
         src={ICON_MAGNIFYING}
         alt="돋보기 아이콘"
       />

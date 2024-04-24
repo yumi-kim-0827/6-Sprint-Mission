@@ -1,81 +1,79 @@
-.Header {
-  width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #dfdfdf;
-  height: 70px;
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
   z-index: 9999;
-}
-
-.Header__wrapper {
   width: 100%;
-  margin: 0 200px;
+  height: 70px;
+  border-bottom: 1px solid #dfdfdf;
+  background-color: white;
+}
+.header__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin: 0 200px;
 }
-
-.Header__logoWrapper {
+.header__logo-wrapper {
   display: flex;
   align-items: center;
   margin-right: 20px;
 }
 
-.Header__logo_mark {
+.logo--mark {
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
 
-.Header__logo_text {
+.logo--text {
   width: 103px;
 }
 
-.Header__gnb {
-  flex: 1;
-  text-wrap: nowrap;
+.header__gnb-wrapper {
   display: flex;
+  flex: 1;
   gap: 20px;
+  text-wrap: nowrap;
 }
 
-.Header__gnb a {
+.header__gnb-wrapper a {
   display: inline-block;
+  border: none;
+  background-color: transparent;
   font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
   color: #4b5563;
   cursor: pointer;
-  background-color: transparent;
-  border: none;
-  text-decoration: none;
 }
 
-.Header__gnb a.active {
+.header__gnb-wrapper a.active {
   color: #3692ff;
 }
 
-.Header__buttonWrapper {
+.header__btn-wrapper {
   width: 88px;
   height: 42px;
   margin-left: 20px;
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-  .Header__wrapper {
+  .header__wrapper {
     margin: 0 24px;
   }
 }
 @media screen and (max-width: 767px) {
-  .Header__wrapper {
+  .header__wrapper {
     margin: 0 16px;
   }
-  .Header__logo_mark {
+  .logo--mark {
     display: none;
   }
-  .Header__gnb {
-    gap: 8px;
+  .header__gnb-wrapper {
     justify-content: center;
+    gap: 8px;
   }
 }

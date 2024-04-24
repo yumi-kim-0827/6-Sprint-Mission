@@ -19,11 +19,11 @@ const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
 
   return (
     <div
-      className="DropdownOrderWrapper"
+      className="dropdownOrder__wrapper"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="DropdownOrder">
+      <div className="dropdownOrder">
         {displaySize === "mobile" ? (
           <img src={ICON_SORT} style={{ width: "24px", height: "24px" }} />
         ) : (
@@ -33,29 +33,27 @@ const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
           </>
         )}
       </div>
-      <div className="DropdownList">
-        <div
-          className={`DropdownWrapper ${showDropdown ? "show" : ""} ${
-            displaySize === "mobile" ? "mobile" : ""
-          }`}
-        >
-          <ul>
-            <li
-              onClick={() => {
-                clickHandler("최신순");
-              }}
-            >
-              최신순
-            </li>
-            <li
-              onClick={() => {
-                clickHandler("좋아요순");
-              }}
-            >
-              좋아요순
-            </li>
-          </ul>
-        </div>
+      <div
+        className={`dropDownOrder__list-wrapper ${showDropdown ? "show" : ""} ${
+          displaySize === "mobile" ? "mobile" : ""
+        }`}
+      >
+        <ul>
+          <li
+            onClick={() => {
+              clickHandler("최신순");
+            }}
+          >
+            최신순
+          </li>
+          <li
+            onClick={() => {
+              clickHandler("좋아요순");
+            }}
+          >
+            좋아요순
+          </li>
+        </ul>
       </div>
     </div>
   );

@@ -103,12 +103,12 @@ const ItemsList = () => {
   };
 
   return (
-    <div className="ItemsList__wrapper">
-      <div className="ItemsList__menu_bar">
-        <h1 className="ItemsList__menu_bar__title">전체 상품</h1>
-        <div className="ItemsList__menu_bar__right">
+    <div className="itemsList">
+      <div className="itemsList__menu-bar">
+        <h1 className="itemsList__menu-bar__title">전체 상품</h1>
+        <div className="itemsList__menu-bar__right">
           <SearchBox />
-          <div className="ItemsList__menu_bar__button_wrapper">
+          <div className="itemsList__menu-bar__btn-wrapper">
             <Link to="additem">
               <Button text="상품 등록하기" />
             </Link>
@@ -120,7 +120,7 @@ const ItemsList = () => {
           />
         </div>
       </div>
-      <div className="ItemsList__itemsWrapper">
+      <div className="itemsList__items-wrapper">
         {data?.map((item) => (
           <Item
             key={item.id}
@@ -131,7 +131,7 @@ const ItemsList = () => {
           />
         ))}
       </div>
-      <div className="ItemsList__pagination_wrapper">
+      <div className="itemsList__pagination-wrapper">
         <Pagenation
           totalPages={totalPages}
           currentPage={currentPage}

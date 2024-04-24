@@ -5,7 +5,7 @@ import "../styles/Items/Items.css";
 
 const Items = () => {
   return (
-    <div className="Items">
+    <div className="items">
       <Helmet>
         <title>판다마켓 - 중고마켓</title>
       </Helmet>

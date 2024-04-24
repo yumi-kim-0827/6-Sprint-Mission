@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 
 const HomePage = () => {
   return (
-    <div className="HomePage">
+    <div className="homePage__wrapper">
       <Helmet>
         <title>판다마켓</title>
       </Helmet>
