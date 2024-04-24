@@ -139,6 +139,7 @@ export default function AddItem() {
       <div className="add-text flexcolumn margin-bottom10">
         <p>상품 소개</p>
         <textarea
+          className="add-des"
           value={inputDes}
           placeholder="상품 소개를 입력해주세요."
           onChange={handleDesChange}

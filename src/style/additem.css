@@ -20,7 +20,7 @@ div input {
     border: none;
 }
 
-textarea {
+.add-des {
     background-color: #F3F4F6;
     border-radius: 10px;
     font-size: 16px;
@@ -28,6 +28,7 @@ textarea {
     padding: 16px 24px;
     width: 100%;
     border: none;
+    resize: none;
     height: 200px;
 }
 

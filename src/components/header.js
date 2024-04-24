@@ -19,7 +19,8 @@ export default function NavBar() {
         <Link
           to="/items"
           className={
-            location.pathname === "/items" || location.pathname === "/additem"
+            location.pathname.startsWith("/items") ||
+            location.pathname === "/additem"
               ? "focus"
               : ""
           }

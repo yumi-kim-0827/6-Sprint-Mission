@@ -25,7 +25,7 @@ export default function BestMarket() {
         const data = await getMarketData({ page: 1, size, order: "favorite" });
         setBestData(data.list);
       } catch (error) {
-        console.error("Error fetching best data:", error);
+        console.error(error);
       }
     };
 
@@ -37,7 +37,7 @@ export default function BestMarket() {
       <h1 className="best-title">베스트 상품</h1>
       <div className="cards">
         {bestData.map((item) => (
-          <Link to={`/product/${item.id}`} key={item.id}>
+          <Link to={`/items/${item.id}`} key={item.id}>
             <div className="card">
               <img className="best-img" src={item.images[0]} alt={item.name} />
               <p className="best-name">{item.name}</p>
