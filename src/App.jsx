@@ -7,7 +7,7 @@ import AddItem from "./pages/addItem/AddItem.jsx";
 import AuthContext from "./contexts/AuthContext.js";
 import Board from "./pages/board/Board.jsx";
 
-export default function Main() {
+export default function App() {
   const [isLogin, setIsLogin] = useState(false);
 
   return (
