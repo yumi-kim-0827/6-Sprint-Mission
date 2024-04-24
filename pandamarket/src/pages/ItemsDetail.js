@@ -2,26 +2,42 @@
 import { Link, useParams } from 'react-router-dom'
 import styles from '../styles/itemsdetail.module.css'
 import { useEffect, useState } from 'react'
-import { getProductsDetail } from '../api/api'
+import { getProductsComments, getProductsDetail } from '../api/api'
+import { CommentNotFound } from '../components'
 
 function ItemsDetail() {
   const { id } = useParams()
   const [item, setItem] = useState(null)
+  const [comments, setComments] = useState(null)
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
         const data = await getProductsDetail(id)
         setItem(data)
-        console.log(setItem)
       } catch (error) {
         console.error('상품 정보를 가져오는데 실패했습니다', error)
       }
     }
     fetchItem()
+
+    const fetchComments = async () => {
+      try {
+        const comments = await getProductsComments(id)
+        setComments(comments)
+        console.log(comments)
+      } catch (error) {
+        console.log('댓글을 가져오는데 실패했습니다', error)
+      }
+    }
+    fetchComments()
   }, [id])
 
   if (!item) {
+    return <div>Loading...</div>
+  }
+
+  if (!comments) {
     return <div>Loading...</div>
   }
 
@@ -74,21 +90,31 @@ function ItemsDetail() {
         <button className={styles['button-disabled']}>등록</button>
       </div>
 
-      <div className={styles.comments}>
-        <div className={styles.user}>
-          <img src={require('../assets/icon_profile.png')} className={styles.userimg} />
-          <div className={styles['user-info']}>
-            <p className={styles.nickname}>유저네임</p>
-            <p className={styles.time}>시간 전</p>
-          </div>
+      {comments.length === 0 ? (
+        <CommentNotFound />
+      ) : (
+        <div className={styles.comments}>
+          {comments.map((comment, index) => (
+            <div key={index} className={styles.user}>
+              <img src={comment.writer.image} className={styles.userimg} />
+              <div className={styles['user-info']}>
+                <p className={styles.nickname}>{comment.writer.nickname}</p>
+                <p className={styles.time}>시간 전</p>
+              </div>
+              <p>{comment.content}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      )}
 
       <div className={styles.backtolist}>
         <Link to={'/items'}>
           <button className={styles.back}>
             목록으로 돌아가기
-            <img src={require('../assets/icon_back.png')} className={styles.backimg} />
+            <img
+              src={require('../assets/icon_back.png')}
+              className={styles.backimg}
+            />
           </button>
         </Link>
       </div>

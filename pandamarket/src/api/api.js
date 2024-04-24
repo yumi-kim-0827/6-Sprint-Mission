@@ -29,3 +29,12 @@ export async function getProductsDetail(id) {
   const data = await response.json()
   return data
 }
+
+export async function getProductsComments(id) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/products/${id}/comments?limit=5`
+  )
+  const comments = await response.json()
+  return comments.list
+}
+
