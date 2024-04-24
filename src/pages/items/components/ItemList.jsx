@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import useItemCount from "./useItemCount";
+import getProducts from "../../../api/getProducts";
 
-export const ItemList = ({ items }) => {
+export const ItemList = () => {
   const maxVisibleItems = useItemCount();
+  const [items, setItems] = useState([]);
+  const [pageSize, setPageSize] = useState(10);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts({ pageSize });
+      setItems(data.list);
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="cards-container">
