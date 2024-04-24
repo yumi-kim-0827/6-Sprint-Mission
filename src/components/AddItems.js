@@ -34,7 +34,9 @@ const AddItem = () => {
   };
 
   const handleTagRemove = (indexToRemove) => {
-    setTags(tags.filter((_, index) => index !== indexToRemove));
+    setTags((prevTags) =>
+      prevTags.filter((_, index) => index !== indexToRemove)
+    );
   };
 
   const isFormValid = () => {
