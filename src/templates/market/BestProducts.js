@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./market.module.scss";
 import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
-import getProductsData from "apis/getProductsData";
+import { getProductsData } from "apis/get";
 import Loading from "components/Loading";
 import useAsync from "hooks/useAsync";
 import Card from "components/Card";

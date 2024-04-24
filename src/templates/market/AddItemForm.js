@@ -108,7 +108,10 @@ export default function AddItemForm() {
             onChange={onChange}
             onKeyUp={handleTagKeyUp}
           />
-          <TagList tagList={tagList} handleTagDelete={handleTagDelete} />
+          <TagList
+            tagList={[...tagList].reverse()}
+            handleTagDelete={handleTagDelete}
+          />
         </div>
       </form>
     </div>

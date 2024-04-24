@@ -4,7 +4,7 @@ import Tag from "../Tag";
 export default function TagList({ tagList, handleTagDelete }) {
   return (
     <StyledTagList>
-      {[...tagList].reverse().map((tag) => (
+      {tagList.map((tag) => (
         <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
           {tag}
         </Tag>
