@@ -7,7 +7,7 @@ const ProductDetailStyle = {
     width: 100%;
     height: 100%;
     flex-direction: row;
-    padding: 50px 140px;
+    padding: 30px 140px;
     border-bottom: 1px solid #e5e7ebcc;
 
     //모바일
@@ -18,6 +18,8 @@ const ProductDetailStyle = {
       font-weight: 600;
       line-height: 38.19px;
       text-align: left;
+      display: flex;
+      flex-direction: column;
     }
     //테블릿
     @media (max-width: 1200px) {
@@ -33,12 +35,14 @@ const ProductDetailStyle = {
   ProductImageContainer: styled.div`
     width: 100%;
     max-width: 600px;
+    margin-right: 15px;
   `,
 
   ProductImage: styled.img`
     width: 486px;
     height: 486px;
     border-radius: 16px;
+
     border: 0.3px solid #ccc;
 
     @media (max-width: 1023px) {
@@ -47,8 +51,8 @@ const ProductDetailStyle = {
     }
 
     @media (max-width: 767px) {
-      width: 343px;
-      height: 343px;
+      width: 100%;
+      height: 345px;
     }
   `,
 
@@ -59,6 +63,9 @@ const ProductDetailStyle = {
   gap: 0px;
   justify: space-between;
   opacity: 0px;
+  @media (max-width: 767px) {
+    margin-top:15px;
+  }
   
 `,
   TagTitle: styled.div`
@@ -148,6 +155,14 @@ const ProductDetailStyle = {
     font-family: Pretendard;
     font-size: 17px;
     font-weight: 700;
+    //모바일
+    @media (max-width: 767px) {
+      padding: 5px 15px;
+    }
+    //테블릿
+    @media (max-width: 1200px) {
+      padding: 1px 15px;
+    }
   `,
   TagText: styled.span`
     font-size: 16px;
@@ -190,32 +205,66 @@ const ProductDetailStyle = {
     width: 100%;
     height: 100%;
     flex-direction: column;
-    padding: 30px 140px;
+    padding-top: 30px;
+    padding-left: 140px;
+    padding-right: 140px;
+    @media (max-width: 767px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    @media (max-width: 1200px) {
+      padding: 20px 30px;
+    }
   `,
-  InputText: styled.input`
+  InputText: styled.textarea`
     width: 100%;
     height: 104px;
     margin-top: 20px;
     background: #f3f4f6;
     border-radius: 12px;
     border: 0.5px solid #ccc;
-    padding: 0px 15px 30px;
+    padding: 15px 30px;
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
     text-align: start;
     font-color: #9ca3af;
     margin-bottom: 20px;
+    resize: none;
 
     &:focus {
       border: 1px solid #3692ff;
       outline: none;
     }
+
+    //모바일
+    @media (max-width: 767px) {
+      width: 100%;
+      height: 104px;
+      padding: 16px 24px 16px 24px;
+      border-radius: 12px;
+      font-family: Pretendard;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      margin-bottom: 0px;
+    }
+    //테블릿
+    @media (max-width: 1200px) {
+      padding: 20px 30px;
+      width: 100%;
+      height: 104px;
+      padding: 16px 24px 16px 24px;
+      border-radius: 12px;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 0px;
+    }
   `,
 
   SubmitButton: styled.button`
-    display: flex;
-    flex-direction: 
     justify-content: center;
     align-items: center;
     width: 74px;
@@ -224,11 +273,27 @@ const ProductDetailStyle = {
     gap: 10px;
     border: none;
     border-radius: 15px;
-    background: #9CA3AF;
-    color: #FFFFFF;
+    background: #9ca3af;
+    color: #ffffff;
     font-family: Pretendard;
     font-size: 15px;
     font-weight: 500;
+    cursor: pointer;
+  `,
+  ButtonContainer: styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0px 140px;
+    //모바일
+    @media (max-width: 767px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    //테블릿
+    @media (max-width: 1200px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   `,
 };
 

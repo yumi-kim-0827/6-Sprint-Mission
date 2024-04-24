@@ -2,11 +2,11 @@ import { instance } from "./Axios";
 
 export const LoginUser = async (data) => {
   try {
-    const response = await instance.post("/auth/signIn", JSON.stringify(data), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await instance.post(
+      "/auth/signIn",
+      JSON.stringify(data),
+      {}
+    );
     const { accessToken } = response.data;
     localStorage.setItem("accessToken", accessToken);
     window.location.href = "/items";

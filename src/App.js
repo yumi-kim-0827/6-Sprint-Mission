@@ -5,7 +5,7 @@ import Product from "./components/Products";
 import AddItem from "./components/AddItem";
 import GlobalStyle from "./css/GlobalStyle";
 import LoginPage from "./pages/LoginPage";
-import ProductDetail from "./components/ProductDetail";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/items" element={<Product />} />
         <Route path="/additem" element={<AddItem />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/items/:productId" element={<ProductDetail />} />
+        <Route path="/items/:productId" element={<ProductDetailPage />} />
       </Routes>
     </Router>
   );
