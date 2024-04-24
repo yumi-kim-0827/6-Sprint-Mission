@@ -2,14 +2,14 @@
   box-sizing: border-box;
 }
 
-.add-item-section {
+.add-item-form-section {
   padding-top: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.add-item-section-header {
+.add-item-form-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,8 +22,8 @@
   }
 }
 
-.add-item-button {
-  background-color: #9ca3af;
+.add-item-form-upload-button {
+  background-color: #3692FF;
   padding: 12px 20px;
   border-radius: 8px;
   border: none;
@@ -33,24 +33,34 @@
   cursor: pointer;
 }
 
-.add-item-preview-wrapper{
+.add-item-form-upload-button:disabled{
+  background-color: #9ca3af;
+  cursor: auto;
+}
+
+/* .add-item-form-upload-button:hover{
+  background-color: #3692FF;
+  cursor: pointer;
+} */
+
+.add-item-img-input-wrapper{
   display: flex;
   align-items: center;
 }
 
-.preview-img-wrapper{
+.preview-item-img-wrapper{
   position: relative;
 }
 
-.add-item-preview-img{
+.preview-item-img{
   width: 282px;
   height: 282px;
   border-radius: 12px;
   margin-left: 24px;
 }
 
-.add-item-preview-img-delete-button{
-  background-color: #3692ff;
+.preview-img-delete-button{
+  background-color: #9CA3AF;
   color: #fff;
   font-weight: 700;
   position: absolute;
@@ -60,6 +70,11 @@
   height: 24px;
   border-radius: 9999px;
   border: none;
+}
+
+.preview-img-delete-button:hover{
+  background-color: #3692FF;
+  cursor: pointer;
 }
 
 .add-item-form {
@@ -95,6 +110,10 @@ input::file-selector-button {
 .add-item-img-input {
   width: 282px;
   height: 282px;
+}
+
+.add-item-img-input:hover{
+  cursor: pointer;
 }
 
 .item-description {

@@ -31,7 +31,7 @@ function FileInput({ name, value, onChange }) {
   }, [value]); // 파일을 선택할 때마다 미리보기 주소를 바꾼다.
 
   return (
-    <div className="add-item-preview-wrapper">
+    <div className="add-item-img-input-wrapper">
       <input
         type="file"
         accept="image/png, image/jpeg"
@@ -41,11 +41,23 @@ function FileInput({ name, value, onChange }) {
         ref={inputRef}
         className="add-item-img-input"
       />
-      <div className="preview-img-wrapper">
-      {value && <img src={preview} alt="미리보기 이미지" className="add-item-preview-img" />}
-      {value && <button onClick={handleClearClick} className="add-item-preview-img-delete-button">X</button>}
+      <div className="preview-item-img-wrapper">
+        {value && (
+          <img
+            src={preview}
+            alt="미리보기 이미지"
+            className="preview-item-img"
+          />
+        )}
+        {value && (
+          <button
+            onClick={handleClearClick}
+            className="preview-img-delete-button"
+          >
+            X
+          </button>
+        )}
       </div>
-      
     </div>
   );
 }
