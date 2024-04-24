@@ -1,9 +1,9 @@
 # sprint 7
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](./exampleImage/sprint7.png)
+![alt text](./exampleImage/sprint7-1.png)
+![alt text](./exampleImage/sprint7-2.png)
+![alt text](./exampleImage/sprint7-3.png)
 
 ## 체크리스트 [기본]
 
@@ -42,7 +42,6 @@ response 로 받은 아래의 데이터로 화면을 구현합니다.
 https://panda-market-api.vercel.app/docs/#/
 
 ## 피드백
-1. Intl 객체 유틸함수로 분리
 2. 상수 Upper Snake case
 3. dataState 옵셔널 체이닝 연산자 사용
 4. router 변수 app의 .route로 분리
