@@ -23,6 +23,7 @@ export const BackToListButton = styled.button`
   width: 24rem;
   height: 4.8rem;
   background-color: var(--btn1);
+  cursor: pointer;
 
   border-radius: 4rem;
   border: none;
@@ -40,21 +41,6 @@ export const BackToListButton = styled.button`
 `;
 
 
-
-export const InquirySection = styled.div`
-  width: 100%;
-  min-height: 22.1rem;
-  margin-bottom: 2.4rem;
-  border-top: 0.1rem solid var(--gray200);
-  padding-top: 2.4rem;
-  background-color: blue;
-
-  @media (min-width: 375px) and (max-width: 768px) {
-    min-height: 21.3rem;
-    padding-top: 1.6rem;
-    margin-bottom: 1.6rem;
-  }
-`;
 export const CommentSection = styled.div`
   width: 100%;
   min-height: 37.8rem;
