@@ -7,13 +7,14 @@ import "./ImageList.scss";
 export function ImageList({ onChange }) {
   const [images, setImages] = useState([]);
 
-  const fileRef = useRef();
+  let fileRef = useRef(null);
 
   const handleFileSelect = () => {
     const newFile = Array.from(fileRef.current.files).map((v) =>
       URL.createObjectURL(v)
     );
     setImages((prevImages) => [...prevImages, newFile]);
+    fileRef = null;
   };
 
   const handleDelete = (src) => {
