@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import BaseCard from "./BaseCard";
 import CardFavorites from "./CardFavorites";
-import { Link } from "react-router-dom";
 
 function ItemPageCard({ item, className }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -27,7 +27,7 @@ function ItemPageCard({ item, className }) {
           text={formattedPrice}
         />
       </Link>
-      <CardFavorites
+      <Favorites
         isFavorite={isFavorite}
         favoriteCount={favoriteCount}
         onClick={handleFavoriteClick}
@@ -40,6 +40,14 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`;
+
+const Favorites = styled(CardFavorites)`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 42px;
+  height: 16px;
 `;
 
 export default ItemPageCard;

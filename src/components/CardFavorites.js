@@ -10,31 +10,20 @@ const CardFavorites = ({ isFavorite, favoriteCount, onClick, className }) => {
   const getFavoriteIcon = isFavorite ? heartActiveIcon : heartIcon;
 
   return (
-    <StyledFavoriteSection className={className}>
-      <button onClick={onClick}>
-        <BaseIcon src={getFavoriteIcon} />
-      </button>
+    <StyledFavorite className={className} onClick={onClick}>
+      <BaseIcon src={getFavoriteIcon} />
       {isFavorite ? favoriteCount + 1 : favoriteCount}
-    </StyledFavoriteSection>
+    </StyledFavorite>
   );
 };
 
-const StyledFavoriteSection = styled.span`
-  display: flex;
-  align-items: center;
-  gap: 4px;
+const StyledFavorite = styled.button`
+  padding: 0;
+  background-color: transparent;
   font-weight: 500;
   font-size: 12px;
   color: #4b5563;
-
-  button {
-    display: flex;
-    width: 16px;
-    height: 16px;
-    padding: 0;
-    background-color: transparent;
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   i {
     width: 16px;

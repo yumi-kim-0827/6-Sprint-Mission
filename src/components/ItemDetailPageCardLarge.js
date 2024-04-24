@@ -153,9 +153,12 @@ const TagBox = styled.div`
 
 const StyledCardFavorites = styled(CardFavorites)`
   display: flex;
-  justify-content: center;
-  margin: 16px;
+  align-items: center;
+  gap: 4px;
+  width: auto;
   height: 32px;
+  margin-bottom: 16px;
+  padding: 0 16px;
   border: 1px solid var(--color-cool-gray-200);
   border-radius: 35px;
   font-weight: 500;
