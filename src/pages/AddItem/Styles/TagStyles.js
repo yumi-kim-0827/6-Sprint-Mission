@@ -30,4 +30,5 @@ export const CloseIconSpan = styled(CloseIcon)`
   height: 20px;
   fill: var(--placeholder-color);
   margin-top: 2px;
+  cursor: pointer;
 `;
