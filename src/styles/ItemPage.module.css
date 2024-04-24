@@ -1,0 +1,114 @@
+@import "_variable.css";
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+.section-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-menu .section-title {
+  flex: 1;
+}
+
+.select-order {
+  position: relative;
+  width: 130px;
+  height: 44px;
+}
+
+.select-btn {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border: 1px solid var(--select-box-color);
+  border-radius: 12px;
+  background: url(../assets/ic_arrow_down.png) no-repeat right 20px center;
+  background-color: #fff;
+  font-size: 16px;
+  text-align: left;
+}
+
+.order-list {
+  display: none;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  margin-top: 4px;
+  border: 1px solid var(--select-box-color);
+  border-radius: 12px;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.order-list.on {
+  display: block;
+}
+
+.order-item {
+  height: 44px;
+  text-align: center;
+  line-height: 42px;
+}
+
+.order-item:first-child {
+  border-bottom: 1px solid var(--select-btn-color);
+}
+
+.order-item button {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 375px) {
+  .section-menu {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .section-title {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .add-btn {
+    grid-column: 4 / 6;
+    grid-row: 1 / 2;
+  }
+
+  .search-input {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .select-order {
+    grid-column: 5 / 6;
+    grid-row: 2 / 3;
+  }
+
+  .select-order {
+    width: 42px;
+    height: 42px;
+  }
+
+  .select-btn {
+    background-image: url(../assets/btn_sort.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 0;
+  }
+}
