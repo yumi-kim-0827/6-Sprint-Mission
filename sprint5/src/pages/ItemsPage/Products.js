@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Products.css";
-import favoriteIcon from "../assets/favorite-icon.svg";
+import "./Products.css";
+import favoriteIcon from "../../assets/favorite-icon.svg";
 
 function ProductListItem({ item, imageStyle }) {
   const { images, name, price, favoriteCount } = item;

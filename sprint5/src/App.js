@@ -1,8 +1,8 @@
 import React from "react";
-import Items from "../pages/Items";
+import Items from "./pages/ItemsPage/Items";
 import { Routes, Route } from "react-router-dom";
-import AddItem from "../pages/AddItem";
-import "../styles/App.css";
+import AddItem from "./pages/AddItemPage/AddItem";
+import "./styles/global.css";
 
 function App() {
   return (

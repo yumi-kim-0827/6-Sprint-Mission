@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Products from "../components/Products";
-import { getBestProducts, getProducts } from "../components/Api";
-import DropdownContainer from "../components/DropdownContainer";
-import PaginationButton from "../components/PaginationButton";
-import "../styles/Items.css";
+import Navbar from "../../components/Layout/Navbar";
+import Products from "./Products";
+import { getBestProducts, getProducts } from "../../api/Api";
+import DropdownContainer from "../../components/UI/DropdownContainer";
+import PaginationButton from "../../components/UI/PaginationButton";
+import "./Items.css";
 
 const getLimit = () => {
   const width = window.innerWidth;

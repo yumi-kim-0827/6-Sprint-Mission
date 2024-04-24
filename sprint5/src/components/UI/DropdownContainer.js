@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../styles/DropdownContainer.css";
-import SortIcon from "../assets/ic_sort.svg";
+import "./DropdownContainer.css";
+import SortIcon from "../../assets/ic_sort.svg";
 
 const DropdownContainer = ({ onNewestClick, onBestClick }) => {
   const [isDropdownView, setDropdownView] = useState(false);

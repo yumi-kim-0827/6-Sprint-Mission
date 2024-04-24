@@ -1,9 +1,9 @@
 // AddItem.js
 import React, { useState } from "react";
-import ImageInput from "./ImageInput";
-import deleteTagIcon from "../assets/tag_x.svg";
-import "../styles/AddItem.css";
-import Navbar from "../components/Navbar";
+import ImageInput from "../../components/UI/ImageInput";
+import deleteTagIcon from "../../assets/tag_x.svg";
+import "./AddItem.css";
+import Navbar from "../../components/Layout/Navbar";
 
 function AddItem() {
   const [values, setValues] = useState({
