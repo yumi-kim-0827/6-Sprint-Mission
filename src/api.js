@@ -30,3 +30,12 @@ export async function getDetailProduct(id) {
     console.error(`${error} : error`);
   }
 }
+
+export async function getProductComment(id) {
+  try {
+    const response = await fetch(`${apiUrl}/${id}/comments?limit=10`);
+    return response.json();
+  } catch (error) {
+    console.error(`${error} : error`);
+  }
+}
