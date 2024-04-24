@@ -34,3 +34,18 @@ export async function getProductData(productId) {
   const body = await response.json();
   return body;
 }
+
+// 상품에 대한 문의사항을 받습니다.
+export async function getProductComments(productId, { limit = 3 }) {
+  const query = new URLSearchParams({
+    limit,
+  }).toString();
+  const url = `${PRODUCTS_URL}/${productId}/comments?${query}`;
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("상품을 불러오는 데 실패했습니다.");
+  }
+  const body = await response.json();
+  return body;
+}
