@@ -1,14 +1,18 @@
 import "./ItemCard.css";
 import likeIcon from "../../../assets/icon-like-heart.svg";
+import { Link } from "react-router-dom";
 
-export default function ItemCard({ item, best, mobile, tablet, pc }) {
+export default function ItemCard({ item, best, pc }) {
   const isPc = pc && "pc";
   const isBest = best && "best";
 
   return (
     <>
       {item ? (
-        <div className={`container-item-card ${isBest}  ${isPc}`}>
+        <Link
+          to={`/products/${item.id}`}
+          className={`container-item-card ${isBest}  ${isPc}`}
+        >
           <div className={`image-container ${isBest}  ${isPc}`}>
             <img
               className={`image-item-card`}
@@ -24,7 +28,7 @@ export default function ItemCard({ item, best, mobile, tablet, pc }) {
               {item.favoriteCount}
             </div>
           </div>
-        </div>
+        </Link>
       ) : (
         <p>Loading...</p>
       )}
