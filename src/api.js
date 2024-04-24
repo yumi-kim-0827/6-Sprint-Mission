@@ -1,21 +1,26 @@
 import inctance from "./api/axioxInstance";
 
-export async function getProduct({ orderBy = "recent", page = 1, pageSize = 10 }) {
+export async function getProduct({ orderBy = "recent", page, pageSize, keyword = "" }) {
   try {
-    let query = `orderBy=${orderBy}`;
-    if (orderBy !== "recent" && orderBy !== "favorite") {
-      query = `keyword=${orderBy}`;
-    }
-    const response = await inctance.get(`?&page=${page}&pageSize=${pageSize}&${query}`);
+    const response = await inctance.get(`?&page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`);
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
   }
 }
 
-export async function getBestProduct() {
+export async function getBestProduct(pageSize) {
   try {
-    const response = await inctance.get(`?orderBy=favorite&page=1`);
+    const response = await inctance.get(`?orderBy=favorite&page=1&pageSize=${pageSize}`);
+    return response.data;
+  } catch (error) {
+    console.error(`${error} : error`);
+  }
+}
+
+export async function getTotalCount() {
+  try {
+    const response = await inctance.get();
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
