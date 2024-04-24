@@ -41,9 +41,7 @@ const Pagenation = ({
       <div className="pagenation__prev-btn" onClick={handlePagePrevBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>
-      <div className="pagenation__page-btn">
-        {createPagenation(totalPages).map((item) => item)}
-      </div>
+      <div className="pagenation__page-btn">{createPagenation(totalPages)}</div>
       <div className="pagenation__next-btn" onClick={handlePageNextBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>

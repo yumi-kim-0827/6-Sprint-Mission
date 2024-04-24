@@ -27,6 +27,7 @@
   background-color: #f3f4f6;
 }
 .addItem__input__title {
+  display: block;
   margin-bottom: 12px;
   font-weight: 700;
   font-size: 18px;

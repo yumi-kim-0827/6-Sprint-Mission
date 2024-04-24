@@ -13,10 +13,6 @@ const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
     setShowDropdown(false);
   };
 
-  const clickHandler = (orderText) => {
-    orderChangeHandler(orderText);
-  };
-
   return (
     <div
       className="dropdownOrder__wrapper"
@@ -39,20 +35,8 @@ const DropdownOrder = ({ order, orderChangeHandler, displaySize }) => {
         }`}
       >
         <ul>
-          <li
-            onClick={() => {
-              clickHandler("최신순");
-            }}
-          >
-            최신순
-          </li>
-          <li
-            onClick={() => {
-              clickHandler("좋아요순");
-            }}
-          >
-            좋아요순
-          </li>
+          <li onClick={() => orderChangeHandler("최신순")}>최신순</li>
+          <li onClick={() => orderChangeHandler("좋아요순")}>좋아요순</li>
         </ul>
       </div>
     </div>

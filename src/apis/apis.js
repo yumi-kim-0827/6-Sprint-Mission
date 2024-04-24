@@ -1,4 +1,4 @@
-export const getData = async (order = "recent", page = 1, pageSize = 10) => {
+export const fetchItems = async (order = "recent", page = 1, pageSize = 10) => {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?page=${page}&orderBy=${order}&pageSize=${pageSize}`
   );
@@ -6,7 +6,7 @@ export const getData = async (order = "recent", page = 1, pageSize = 10) => {
   return result;
 };
 
-export const getFavoriteData = async () => {
+export const fetchTopFourBestItems = async () => {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?orderBy=favorite`
   );

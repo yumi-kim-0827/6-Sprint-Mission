@@ -22,7 +22,9 @@ const Header = () => {
           <NavLink to="/items">중고마켓</NavLink>
         </div>
         <div className="header__btn-wrapper">
-          <Button text="로그인" />
+          <Button>
+            로그인
+          </Button>
         </div>
       </div>
     </header>

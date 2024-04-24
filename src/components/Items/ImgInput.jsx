@@ -4,7 +4,7 @@ import ICON_PLUS from "../../assets/icon_plus.svg";
 import ICON_CANCEL from "../../assets/icon_cancel.svg";
 
 const ImgInput = ({ name, value, onChange }) => {
-  const [preview, setPreview] = useState();
+  const [preview, setPreview] = useState(null);
   const imgInputRef = useRef();
   const handleChange = (e) => {
     const nextValue = e.target.files[0];
@@ -24,7 +24,7 @@ const ImgInput = ({ name, value, onChange }) => {
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
+      setPreview(null);
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);

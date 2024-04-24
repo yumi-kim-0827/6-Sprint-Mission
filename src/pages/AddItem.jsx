@@ -82,12 +82,14 @@ const AddItem = () => {
         <div className="addItem__header">
           <h1 className="addItem__header__title">상품 등록하기</h1>
           <div className="addItem__header__btn-wrapper">
-            <Button text="등록" type="submit" disable={!canSubmit} />
+            <Button type="submit" disable={!canSubmit}>
+              등록
+            </Button>
           </div>
         </div>
 
         <div className="addItem__input-wrapper">
-          <h1 className="addItem__input__title">상품 이미지</h1>
+          <label className="addItem__input__title">상품 이미지</label>
           <ImgInput
             name="imgFile"
             value={values.imgFile}
@@ -95,8 +97,11 @@ const AddItem = () => {
           />
         </div>
         <div className="addItem__input-wrapper">
-          <h1 className="addItem__input__title">상품명</h1>
+          <label className="addItem__input__title" htmlFor="title">
+            상품명
+          </label>
           <input
+            id="title"
             name="title"
             type="text"
             placeholder="상품명을 입력해주세요"
@@ -104,8 +109,11 @@ const AddItem = () => {
           />
         </div>
         <div className="addItem__input-wrapper">
-          <h1 className="addItem__input__title">상품 소개</h1>
+          <label className="addItem__input__title" htmlFor="description">
+            상품 소개
+          </label>
           <textarea
+            id="description"
             className="addItem__textarea"
             name="description"
             placeholder="상품 소개를 입력해주세요"
@@ -114,8 +122,11 @@ const AddItem = () => {
           />
         </div>
         <div className="addItem__input-wrapper">
-          <h1 className="addItem__input__title">판매가격</h1>
+          <label className="addItem__input__title" htmlFor="price">
+            판매가격
+          </label>
           <input
+            id="price"
             name="price"
             type="number"
             placeholder="판매 가격을 입력해주세요"
@@ -123,8 +134,11 @@ const AddItem = () => {
           />
         </div>
         <div className="addItem__input-wrapper">
-          <h1 className="addItem__input__title">태그</h1>
+          <label className="addItem__input__title" htmlFor="productTags">
+            태그
+          </label>
           <input
+            id="productTags"
             name="productTags"
             type="text"
             placeholder="태그를 입력해주세요"

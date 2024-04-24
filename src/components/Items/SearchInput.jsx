@@ -1,7 +1,7 @@
 import ICON_MAGNIFYING from "../../assets/icon_magnifying_glass.svg";
-import "../../styles/Items/SearchBox.css";
+import "../../styles/Items/SearchInput.css";
 
-const SearchBox = () => {
+const SearchInput = () => {
   return (
     <div className="searchBox">
       <input
@@ -18,4 +18,4 @@ const SearchBox = () => {
   );
 };
 
-export default SearchBox;
+export default SearchInput;
