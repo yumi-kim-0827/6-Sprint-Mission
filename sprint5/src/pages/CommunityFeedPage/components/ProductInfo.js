@@ -1,7 +1,7 @@
 import React from "react";
 
-function ProductInfo() {
-  const { images, name, price, description, tags, favoriteCount } = item;
+function ProductInfo(product) {
+  const { images, name, price, description, tags, favoriteCount } = product;
 
   const formatPriceWithCommas = (price) => {
     return price.toLocaleString("en-US");
