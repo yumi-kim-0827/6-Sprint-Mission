@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../common/Button";
+import DefaultButton from "../common/DefaultButton";
 import logo from "../assets/pandaLogo.svg";
 import logoWithoutPanda from "../assets/logo.svg";
 import profile from "../assets/profileIcon.svg";
@@ -27,7 +27,7 @@ function Nav() {
         <img src={profile} alt="프로필 아이콘" />
       ) : (
         <Link to="/login">
-          <Button>로그인</Button>
+          <StyledButton>로그인</StyledButton>
         </Link>
       )}
     </StyledNav>
@@ -94,6 +94,10 @@ const StyledNavLink = styled(NavLink)`
       margin-left: 35px;
     }
   }
+`;
+
+const StyledButton = styled(DefaultButton)`
+  background-color: var(--main-color);
 `;
 
 export default Nav;

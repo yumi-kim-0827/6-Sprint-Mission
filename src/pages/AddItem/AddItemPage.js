@@ -46,9 +46,9 @@ function AddItemPage(props) {
     <S.Wrapper>
       <S.Header>
         <S.HeaderTitle>상품 등록하기</S.HeaderTitle>
-        <S.SubmitButton type="button" disabled={isFormValid()}>
+        <S.StyledButton type="button" disabled={isFormValid()}>
           등록
-        </S.SubmitButton>
+        </S.StyledButton>
       </S.Header>
       <S.Main>
         <div>
