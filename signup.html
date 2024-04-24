@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 판다마켓</title>
-    <link rel="stylesheet" href="./style_signin.css"/>
+    <link rel="stylesheet" href="./style_signup.css"/>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -15,38 +15,47 @@
         <img id="logo" src="Image/판다 얼굴@3x.png">
         <a href="/"><div class="name">판다마켓</div></a>
     </div>
-    <form>
+    <div class="container">
         <div class="input">
             <label for = "email_input">이메일</label>
-            <input type="text" name="email_input" placeholder="이메일을 입력해 주세요" required>
+            <input type="text" id="email_input"name="email_input" placeholder="이메일을 입력해 주세요" required>
+            <p id ="emailErrorMessage" class="error_message">
+                잘못된 이메일 형식입니다
+            </p>
         </div>
         <div class="input">
             <label for = "nickname_input">닉네임</label>
-            <input type="text" name="nickname_input" placeholder="닉네임을 입력해 주세요" required>
+            <input type="text" id="nickname"name="nickname_input" placeholder="닉네임을 입력해 주세요" required>
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호</label>
-            <input type="text" name="pw_input" placeholder="비밀번호를 입력해 주세요" required>
+            <div class="input-wrapper">
+                <input type="text" id="pw_input" class="pw_input" placeholder="비밀번호를 입력하세요" required>
+                <img src ="Image/btn_visibility_off.png" alt = "비밀번호 숨김" class = "toggle-password">
+            </div>
+            <p id="passwordErrorMessage" class="error_message">
+                비밀번호를 8자 이상 입력해주세요
+            </p>
         </div>
         <div class="input">
             <label for = "pw_input">비밀번호 확인</label>
-            <input type="text" name="pw_input" placeholder="비밀번호를 다시 한 번 입력해 주세요" required>
+            <input type="text" id="pw_input2" name="pw_input_verify" placeholder="비밀번호를 다시 한 번 입력해 주세요" required>
+            <p id="passwordMismatchError"class="error_message">
+                비밀번호가 일치하지 않습니다
+            </p>
         </div>
         <div class="signinButton">회원가입</div>
         <div class="easyloginbox">
-            <div class="easylogin_wrapper">
                 <div class="easylogin">간편 로그인하기</div>
                 <div class="image">
                     <a href="https://www.google.com/"><img src="Image/google.png"></a>
                     <a href="https://www.kakaocorp.com/page/"><img src="Image/kakao.png"></a>
                 </div>               
-            </div>
-            
         </div>
         <div class="auth-switch">
             <span class="p">이미 회원이신가요?</span> 
-            <a href="/login.html">로그인</a></div>
-    </form>
-    
+            <a href="login.html">로그인</a></div>
+    </div>
+    <script src="./auth.js"></script>
 </body>
 </html>
