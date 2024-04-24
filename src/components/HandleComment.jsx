@@ -3,6 +3,7 @@ import noninquiry from "../assets/no-inquiry.png";
 import "./HandleComment.css";
 import { commentValidation } from "./common/validation";
 import { getProductComment } from "../api";
+import hamburger from "../assets/hamburger-icon.png";
 
 const HandleComment = ({ id }) => {
   const [comment, setComment] = useState("");
@@ -63,7 +64,10 @@ const HandleComment = ({ id }) => {
           comments.map((comment) => {
             return (
               <div className="comment" key={comment.id}>
-                <p className="comment__content">{comment.content}</p>
+                <div className="comment-top">
+                  <p className="comment-top__content">{comment.content}</p>
+                  <img className="comment-top__img" src={hamburger} alt="제품 상세 페이지 댓글 수정 버튼" />
+                </div>
                 <div className="profile">
                   <img className="profile__img" src={comment.writer.image} alt="프로필 이미지" />
                   <div className="profile-info">

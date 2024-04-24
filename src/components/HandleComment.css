@@ -44,6 +44,7 @@
   margin-left: auto;
   color: #fff;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .inquire-container .inquire-container__register-btn.active {
@@ -69,10 +70,21 @@
   border-bottom: solid 1px var(--gray200);
 }
 
-.comment .comment__content {
+.comment .comment-top {
+  display: flex;
+  align-items: center;
+}
+
+.comment .comment-top__content {
   font-size: 16px;
   font-weight: 400;
   color: var(--product-item-name-color);
+}
+.comment .comment-top__img {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 .comment .profile {
