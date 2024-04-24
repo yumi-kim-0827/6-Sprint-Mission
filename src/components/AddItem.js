@@ -30,7 +30,7 @@ export default function AddItem() {
   }
 
   const handlePriceChange = (e) => {
-    const price = e.target.value.replace(/,/g, "");
+    const price = e.target.value.replace(/\D/g, "");
     const formattedPrice = Commas(price);
     setInputPrice(formattedPrice);
     handleInputChange();
