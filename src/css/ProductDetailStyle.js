@@ -8,7 +8,6 @@ const ProductDetailStyle = {
     height: 100%;
     flex-direction: row;
     padding: 30px 140px;
-    border-bottom: 1px solid #e5e7ebcc;
 
     //모바일
     @media (max-width: 767px) {
@@ -208,6 +207,7 @@ const ProductDetailStyle = {
     padding-top: 30px;
     padding-left: 140px;
     padding-right: 140px;
+
     @media (max-width: 767px) {
       padding-left: 5px;
       padding-right: 5px;

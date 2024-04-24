@@ -70,6 +70,7 @@ const ProductDetail = () => {
           </LikeCount>
         </ProductInfoContainer>
       </ProductDetailContainer>
+      <Divider />
       <InputComments />
       <CommentList />
     </>
@@ -77,4 +78,10 @@ const ProductDetail = () => {
 };
 
 const Logo = styled.img``;
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 16px 0;
+`;
 export default ProductDetail;
