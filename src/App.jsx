@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Items from "./pages/items/Items.jsx";
-import HomePage from "./pages/homePage/HomePage.jsx";
+import Items from "./pages/Items/Items.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
 import Layout from "./Layout.js";
 import { useState } from "react";
-import AddItem from "./pages/addItem/AddItem.jsx";
+import AddItem from "./pages/AddItem/AddItem.jsx";
 import AuthContext from "./contexts/AuthContext.js";
-import Board from "./pages/board/Board.jsx";
-import ItemDetail from "./pages/items/ItemDetail.jsx";
+import FreeBoard from "./pages/FreeBoard/FreeBoard.jsx";
+import ItemDetail from "./pages/ItemDetail/ItemDetail.jsx";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -19,7 +19,7 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="/items" element={<Items />} />
             <Route path="/products/:id" element={<ItemDetail />} />
-            <Route path="/board" element={<Board />} />
+            <Route path="/freeboard" element={<FreeBoard />} />
             <Route path="/additem" element={<AddItem />} />
           </Route>
         </Routes>

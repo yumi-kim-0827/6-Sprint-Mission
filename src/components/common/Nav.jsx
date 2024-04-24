@@ -21,8 +21,8 @@ export default function Nav() {
           </div>
           <div className="nav-pages">
             <Link
-              to="/board"
-              className={`board-btn ${pathname === "/board" && "active"}`}
+              to="/freeboard"
+              className={`board-btn ${pathname === "/freeboard" && "active"}`}
             >
               자유게시판
             </Link>
