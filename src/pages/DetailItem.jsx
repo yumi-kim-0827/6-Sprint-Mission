@@ -22,7 +22,7 @@ const DetailItem = () => {
   return (
     <>
       <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>
-      <HandleComment />
+      <HandleComment id={Id} />
       <div className="return-to-items-btn-container">
         <Link to={"/Items"}>
           <button className="return-to-items-btn-container__btn">
