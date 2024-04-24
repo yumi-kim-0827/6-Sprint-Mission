@@ -42,7 +42,6 @@ response 로 받은 아래의 데이터로 화면을 구현합니다.
 https://panda-market-api.vercel.app/docs/#/
 
 ## 피드백
-2. 상수 Upper Snake case
 3. dataState 옵셔널 체이닝 연산자 사용
 4. router 변수 app의 .route로 분리
 5. useRef에서 setImage처리 후 current값 초기화 처리

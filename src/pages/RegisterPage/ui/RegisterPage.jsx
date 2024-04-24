@@ -1,16 +1,16 @@
 import { RegisterHeader } from "../../../entities";
 import { ImageList } from "../../../widgets/ImageList";
-import { PLACEHOLDERLISTFORREGISTER } from "/src/shared/constants/constants";
+import { PLACEHOLDER_LIST_FOR_REGISTER } from "/src/shared/constants/constants";
 import { ItemInput } from "../../../entities/ItemInput";
 import { useEffect, useState } from "react";
 
 import "./RegisterPage.scss";
 import { TagList } from "../../../entities/TagList";
-import { FORMDATA } from "../../../shared/constants/constants";
+import { FORM_DATA } from "../../../shared/constants/constants";
 
 export function RegisterPage() {
   const [tags, setTags] = useState(null);
-  const [file, setFile] = useState(FORMDATA);
+  const [file, setFile] = useState(FORM_DATA);
 
   let active =
     file.title && file.description && file.price && file.image && file.tags;
@@ -53,9 +53,9 @@ export function RegisterPage() {
           {/*active 로직 들어가야 함*/}
           <ImageList onChange={setFile} />
           <div className="register__inputList">
-            {PLACEHOLDERLISTFORREGISTER.map(
+            {PLACEHOLDER_LIST_FOR_REGISTER.map(
               (v, index) =>
-                index !== PLACEHOLDERLISTFORREGISTER.length - 1 && (
+                index !== PLACEHOLDER_LIST_FOR_REGISTER.length - 1 && (
                   <ItemInput
                     name={v[3]}
                     value={v[0]}
@@ -69,23 +69,23 @@ export function RegisterPage() {
             <div className="register__Tags">
               <ItemInput
                 name={
-                  PLACEHOLDERLISTFORREGISTER[
-                    PLACEHOLDERLISTFORREGISTER.length - 1
+                  PLACEHOLDER_LIST_FOR_REGISTER[
+                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
                   ][3]
                 }
                 value={
-                  PLACEHOLDERLISTFORREGISTER[
-                    PLACEHOLDERLISTFORREGISTER.length - 1
+                  PLACEHOLDER_LIST_FOR_REGISTER[
+                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
                   ][0]
                 }
                 placeholder={
-                  PLACEHOLDERLISTFORREGISTER[
-                    PLACEHOLDERLISTFORREGISTER.length - 1
+                  PLACEHOLDER_LIST_FOR_REGISTER[
+                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
                   ][1]
                 }
                 type={
-                  PLACEHOLDERLISTFORREGISTER[
-                    PLACEHOLDERLISTFORREGISTER.length - 1
+                  PLACEHOLDER_LIST_FOR_REGISTER[
+                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
                   ][2]
                 }
                 key={-1}

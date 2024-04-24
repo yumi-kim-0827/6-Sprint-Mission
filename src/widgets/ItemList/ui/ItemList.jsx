@@ -6,10 +6,10 @@ import { ItemListHeader } from "/src/entities/index.jsx";
 import "./ItemList.scss";
 import { PageList } from "/src/widgets/PageList/index.jsx";
 import { useCustomMediaQuery } from "/src/shared/hooks/useCustomMediaQuery.jsx";
-import { INITIALVALUE } from "../../../shared/constants/constants";
+import { INITIAL_VALUE } from "../../../shared/constants/constants";
 
 export const ItemList = () => {
-  const [dataState, setDataState] = useState(INITIALVALUE);
+  const [dataState, setDataState] = useState(INITIAL_VALUE);
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);

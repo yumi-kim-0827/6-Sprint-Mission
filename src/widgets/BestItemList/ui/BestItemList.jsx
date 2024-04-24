@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { getDatum } from "/src/shared/api/api";
 import { ItemCard } from "/src/entities/ItemCard/ItemCard";
-import { INITIALVALUE } from "../../../shared/constants/constants";
+import { INITIAL_VALUE } from "../../../shared/constants/constants";
 
 import "./BestItemList.scss";
 
 export const BestItemList = () => {
-  const [dataState, setDataState] = useState(INITIALVALUE);
+  const [dataState, setDataState] = useState(INITIAL_VALUE);
   const [items, setItems] = useState([]);
   const order = "favorite";
 
