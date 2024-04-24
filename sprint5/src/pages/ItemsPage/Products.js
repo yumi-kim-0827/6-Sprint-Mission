@@ -8,7 +8,6 @@ function ProductListItem({ item, imageStyle }) {
   const formatPriceWithCommas = (price) => {
     return price.toLocaleString("en-US");
   };
-  console.log(imageStyle);
   return (
     <div className="ProductListItem ">
       <img className={` ${imageStyle}`} src={images} alt={imageStyle} />
