@@ -120,3 +120,30 @@ input::file-selector-button {
   height: 200px;
 }
 
+.tag-input-wrapper{
+  margin-bottom: 30px;
+}
+
+.tag-input-wrapper ul{
+  display: flex;
+}
+
+.tag-input-wrapper ul li{
+  margin-right: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+  border-radius: 26px;
+  background-color: #f9fafb;
+  padding: 12px 12px;
+}
+
+.tag-input-wrapper ul li button{
+  width: 20px;
+  height: 20px;
+  background-color: #9CA3AF;
+  color: #fff;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
