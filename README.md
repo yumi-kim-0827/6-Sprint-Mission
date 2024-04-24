@@ -42,12 +42,6 @@ response 로 받은 아래의 데이터로 화면을 구현합니다.
 https://panda-market-api.vercel.app/docs/#/
 
 ## 피드백
-5. useRef에서 setImage처리 후 current값 초기화 처리
-6. key index 처리 (고유한 값)
-7. ImageCard type 처리
-8. 템플릿 리터럴
-9.  배열로 구현된 부분 객체로 처리할 수 있으면 객체로 처리(가독성)
-
 ## 개인적으로 적용해볼 것
 
 Styled Component

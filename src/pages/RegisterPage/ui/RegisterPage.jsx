@@ -80,7 +80,10 @@ export function RegisterPage() {
                 onKeyPress={(e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-                    const newValue = e.target.value;
+                    const newValue = {
+                      id: crypto.randomUUID(),
+                      value: e.target.value,
+                    };
                     e.target.value = "";
                     setTags((prevTag) =>
                       prevTag ? [...prevTag, newValue] : [newValue]
