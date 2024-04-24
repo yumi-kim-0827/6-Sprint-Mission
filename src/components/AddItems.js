@@ -317,11 +317,11 @@ const ItemDescriptionTitle = styled.h3`
 const StyledTextarea = styled.textarea`
   width: 100%;
   height: 200px;
-  background-color: #f3f4f6;
   padding: 15px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
   resize: none;
+  background-color: #f3f4f6;
   font-family: auto;
 `;
 
