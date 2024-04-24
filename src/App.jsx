@@ -7,7 +7,6 @@ import Main from './Main';
 import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
 import AddItem from './pages/AddItem';
-import Edit from './pages/Edit';
 import ItemDetails from './pages/ItemDetails';
 import NotFound from './pages/NotFound';
 
@@ -75,10 +74,10 @@ export default function App() {
         <ItemDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
           <Routes>
             <Route path='/' element={<Main />}>
+              <Route index element={<Items />} />
               <Route path='/items' element={<Items />} />
+              <Route path='/items/:id' element={<ItemDetails />} />
               <Route path='/additem' element={<AddItem />} />
-              <Route path='/itemdetails/:id' element={<ItemDetails />} />
-              <Route path='/edit/:id' element={<Edit />} />
               <Route path='/freeboard' element={<FreeBoard />} />
             </Route>
             <Route path='*' element={<NotFound />} />
