@@ -22,16 +22,18 @@ const ProductDetailPage = () => {
     fetchProduct();
   }, [productId]);
 
-  if (!product) {
-    return <div>로딩 중...입니다</div>;
-  }
-
   return (
     <>
-      <ProductDetail product={product} />
-      <Divider />
-      <InputComments />
-      <CommentList />
+      {product ? (
+        <>
+          <ProductDetail product={product} />
+          <Divider />
+          <InputComments />
+          <CommentList />
+        </>
+      ) : (
+        <div>로딩 중...입니다</div>
+      )}
     </>
   );
 };

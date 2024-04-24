@@ -27,6 +27,7 @@ const CommentList = () => {
     };
     fetchComments();
   }, [productId]);
+
   function formatTimeSince(dateString) {
     const now = new Date();
     const updatedAt = new Date(dateString);
