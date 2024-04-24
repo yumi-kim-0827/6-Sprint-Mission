@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { fetchProducts } from "../api";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
