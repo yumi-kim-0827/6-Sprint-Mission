@@ -5,18 +5,14 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLoginClick = () => {
-    navigate("/");
-  };
-
-  const handleUsedMarketClick = () => {
-    navigate("/items");
+  const handleNavigate = (path) => {
+    navigate(path);
   };
 
   return (
     <HeaderContainer>
       <MenuContainer>
-        <div onClick={() => navigate("/")}>
+        <div onClick={() => handleNavigate("/")}>
           <img
             src="/images/home/pandamarket.png"
             alt="판다마켓 홈"
@@ -26,12 +22,12 @@ const Header = () => {
         <FreeBoard>자유게시판</FreeBoard>
         <UsedMarket
           active={location.pathname === "/additem"}
-          onClick={handleUsedMarketClick}
+          onClick={() => handleNavigate("/items")}
         >
           중고마켓
         </UsedMarket>
       </MenuContainer>
-      <GoLogin onClick={handleLoginClick}>로그인</GoLogin>
+      <GoLogin onClick={() => handleNavigate("/")}>로그인</GoLogin>
     </HeaderContainer>
   );
 };
