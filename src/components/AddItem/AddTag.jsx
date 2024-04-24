@@ -25,16 +25,14 @@ const AddTag = ({ tags, setTags }) => {
         id="tag_input_id"
         className="tag_input"
         type="text"
-        onKeyUp={(e) => {
-          addTags(e);
-        }}
+        onKeyUp={addTags}
         placeholder="태그를 입력해주세요"
         maxLength={12}
       />
 
       <Tags id="tags">
         {tags.map((tag, index) => (
-          <Tag key={index}>
+          <Tag key={tag}>
             <span className="tag_title">{tag}</span>
             <CloseIcon onClick={() => removeTags(index)}>
               <img src={closeIcon} alt="태그 닫기" />

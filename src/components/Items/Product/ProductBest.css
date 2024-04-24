@@ -10,56 +10,10 @@
   margin-bottom: 40px;
 }
 
-.best_wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.best_img {
-  width: 282px;
-  height: 282px;
-  border-radius: 1rem;
-  object-fit: cover;
-  overflow: hidden;
-}
-
-.best_name {
-  color: #1f2937;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.best_price {
-  color: #1f2937;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.best_heart {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.best_heart_icon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.best_heart_count {
-  color: #4b5563;
-  font-size: 12px;
-  font-weight: 500;
-}
-
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Tablet Size================================================================================================================================= */
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
-  .best_img {
-    width: 336px;
-    height: 336px;
-  }
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -68,10 +22,5 @@
 @media (max-width: 767px) {
   .best_content {
     justify-content: center;
-  }
-
-  .best_img {
-    width: 343px;
-    height: 343px;
   }
 }

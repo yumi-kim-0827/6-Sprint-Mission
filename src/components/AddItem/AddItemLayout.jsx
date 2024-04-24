@@ -37,15 +37,14 @@ const AddItemLayout = () => {
 
   // 콤마 제거하고 배열에 추가
   const priceChangeHandler = (e) => {
-    let price = e.target.value;
-    price = Number(price.replaceAll(",", ""));
+    const price = Number(e.target.value.replaceAll(",", ""));
 
     const { name } = e.target;
     handleChange(name, price);
   };
 
   // 상품명, 상품 설명, 상품 가격, 상품 태그에 값이 있는지 화인
-  const isDone = !!(
+  const isValidForm = !!(
     values.title &&
     values.description &&
     values.price &&
@@ -62,7 +61,7 @@ const AddItemLayout = () => {
       <form className="add_form" onSubmit={handleSubmit}>
         <div className="add_top">
           <span className="add_top_title">상품 등록하기</span>
-          <button type="submit" className="add_top_btn" disabled={!isDone}>
+          <button type="submit" className="add_top_btn" disabled={!isValidForm}>
             등록
           </button>
         </div>

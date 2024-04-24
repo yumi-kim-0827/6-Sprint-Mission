@@ -4,8 +4,9 @@ import iconHeart from "../../../assets/images/items/ic_heart.svg";
 
 import { useState, useEffect } from "react";
 
-import { getProducts } from "../../../api/ItemsApi";
+import { getProducts } from "../../../api/product.api";
 import { Desktop, Mobile, Tablet } from "../../MediaQuery";
+import Product from "./Product";
 
 const ProductBest = () => {
   const [products, setProducts] = useState([]);
@@ -21,84 +22,24 @@ const ProductBest = () => {
 
   return (
     <>
-      <Desktop>
-        <span className="best_title">베스트 상품</span>
-        <div className="best_content">
+      <span className="best_title">베스트 상품</span>
+      <div className="best_content">
+        <Desktop>
           {products.slice(0, 4).map((product) => (
-            <div className="best_wrap" key={product.id}>
-              <img
-                className="best_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="best_name">{product.name} 팝니다</div>
-              <div className="best_price">{product.price}원</div>
-              <div className="best_heart">
-                <img
-                  className="best_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="best_heart_count">
-                  {product.favoriteCount}
-                </span>
-              </div>
-            </div>
+            <Product product={product} key={product.id} />
           ))}
-        </div>
-      </Desktop>
-      <Tablet>
-        <span className="best_title">베스트 상품</span>
-        <div className="best_content">
+        </Desktop>
+        <Tablet>
           {products.slice(0, 2).map((product) => (
-            <div className="best_wrap" key={product.id}>
-              <img
-                className="best_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="best_name">{product.name}</div>
-              <div className="best_price">{product.price}원</div>
-              <div className="best_heart">
-                <img
-                  className="best_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="best_heart_count">
-                  {product.favoriteCount}
-                </span>
-              </div>
-            </div>
+            <Product product={product} key={product.id} />
           ))}
-        </div>
-      </Tablet>
-      <Mobile>
-        <span className="best_title">베스트 상품</span>
-        <div className="best_content">
+        </Tablet>
+        <Mobile>
           {products.slice(0, 1).map((product) => (
-            <div className="best_wrap" key={product.id}>
-              <img
-                className="best_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="best_name">{product.name}</div>
-              <div className="best_price">{product.price}원</div>
-              <div className="best_heart">
-                <img
-                  className="best_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="best_heart_count">
-                  {product.favoriteCount}
-                </span>
-              </div>
-            </div>
+            <Product product={product} key={product.id} />
           ))}
-        </div>
-      </Mobile>
+        </Mobile>
+      </div>
     </>
   );
 };

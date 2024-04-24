@@ -2,17 +2,15 @@ import styled from "styled-components";
 import closeIcon from "../../assets/images/icon/ic_X.svg";
 
 const AddItemImage = ({ value, preview, onClearClick }) => {
+  if (!value) return;
+
   return (
-    <>
-      {value && (
-        <PreviewImageWrap>
-          <PreviewImage src={preview} alt="이미지 미리보기" />
-          <CloseIcon onClick={onClearClick}>
-            <img src={closeIcon} alt="" />
-          </CloseIcon>
-        </PreviewImageWrap>
-      )}
-    </>
+    <PreviewImageWrap>
+      <PreviewImage src={preview} alt="이미지 미리보기" />
+      <CloseIcon onClick={onClearClick}>
+        <img src={closeIcon} alt="" />
+      </CloseIcon>
+    </PreviewImageWrap>
   );
 };
 
