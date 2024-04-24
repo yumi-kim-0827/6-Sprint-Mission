@@ -9,14 +9,12 @@
   font-weight: 600;
   gap: 10px;
   line-height: 19.09px;
-  width: 88px;
   height: 42px;
-  position: relative;
-  top: -950px;
-  right: -1120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .register-button.active {
   background-color: #3692ff;
-  cursor: pointer;
 }
