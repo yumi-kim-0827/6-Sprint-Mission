@@ -21,7 +21,10 @@ const DetailItem = () => {
 
   return (
     <>
-      <div className="show-detail-page">{detailItem !== undefined && <ShowDetail {...detailItem} />}</div>
+      <div className="show-detail-page">
+        {detailItem !== undefined && <ShowDetail {...detailItem} />}
+        <div className="underline"></div>
+      </div>
       <HandleComment id={Id} />
       <div className="return-to-items-btn-container">
         <Link to={"/Items"}>
