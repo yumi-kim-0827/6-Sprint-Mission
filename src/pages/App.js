@@ -5,6 +5,7 @@ import BoardPage from "./BoardPage";
 import AddItemPage from "./AddItem/AddItemPage";
 import FleaMarketPage from "./FleaMarket/FleaMarketPage";
 import LoginPage from "./LoginPage";
+import NotFoundPage from "./NotFoundPage";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
@@ -21,6 +22,7 @@ function App() {
             <Route path="fleamarket" element={<FleaMarketPage />} />
             <Route path="additem" element={<AddItemPage />} />
             <Route path="login" element={<LoginPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </Router>
