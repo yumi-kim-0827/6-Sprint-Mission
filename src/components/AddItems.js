@@ -10,7 +10,7 @@ const AddItem = () => {
     productPrice: "",
     productImage: "",
   });
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState([]);
   const [currentTag, setCurrentTag] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const navigate = useNavigate();
