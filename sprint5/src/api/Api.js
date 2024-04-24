@@ -36,3 +36,18 @@ export const getProductInfo = async (productID) => {
     throw new Error(error.message);
   }
 };
+
+export const getComments = async (productID) => {
+  try {
+    const response = await fetch(
+      `https://panda-market-api.vercel.app/products/${productID}/comments?limit=10`
+    );
+    if (!response.ok) {
+      throw new Error("댓글 정보를 가져오는데 실패했습니다.");
+    }
+    const data = await response.json();
+    return data.list;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

@@ -1,6 +1,7 @@
 import React from "react";
 
 function CommentSection({ comments }) {
+  console.log(comments);
   return (
     <section>
       <p>문의하기</p>
@@ -10,14 +11,13 @@ function CommentSection({ comments }) {
       </div>
       <div>
         {comments.map((comment) => (
-          <div key={id}>
+          <div key={comment.id}>
             <div>
               <p>{comment.content}</p>
-              <img />
             </div>
             <div>
-              <p>{comment.image}</p>
-              <p>{comment.nickname}</p>
+              <img src={comment.writer.image} />
+              <p>{comment.writer.nickname}</p>
               <p>{comment.updatedAt}</p>
             </div>
           </div>
