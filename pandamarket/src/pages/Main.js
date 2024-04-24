@@ -26,7 +26,7 @@ function Main() {
             </button>
           </div>
           <img
-            src="/assets/img_home_top.png"
+            src={require('../assets/img_home_top.png')}
             className={styles.home_img1}
             alt="메인이미지1"
           />
@@ -36,7 +36,7 @@ function Main() {
       <main>
         <div className={styles.para}>
           <img
-            src="/assets/img_home_01.png"
+            src={require('../assets/img_home_01.png')}
             alt="home1"
             className={styles.imgs}
           />
@@ -70,14 +70,14 @@ function Main() {
             </p>
           </div>
           <img
-            src="/assets/img_home_02.png"
+            src={require('../assets/img_home_02.png')}
             alt="home1"
             className={styles.imgs}
           />
         </div>
         <div className={styles.para}>
           <img
-            src="/assets/img_home_03.png"
+            src={require('../assets/img_home_03.png')}
             alt="home1"
             className={styles.imgs}
           />
@@ -106,7 +106,7 @@ function Main() {
             </h2>
           </div>
           <img
-            src="/assets/img_home_bottom.png"
+            src={require('../assets/img_home_bottom.png')}
             className={styles.home_img2}
             alt="메인이미지2"
           />

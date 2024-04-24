@@ -16,7 +16,7 @@ function BestProductList({ products }) {
           <div className={styles.name}>{product.name}</div>
           <div className={styles.price}>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           <div className={styles.favoritecount}>
-            <img src="/assets/icon_favorite.png"></img>
+            <img src={require('../assets/icon_favorite.png')}></img>
             <div className={styles["favoritecount-number"]}>
               {product.favoriteCount}
             </div>

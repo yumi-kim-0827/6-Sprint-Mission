@@ -174,7 +174,7 @@ function Items() {
           <div className={styles['all-products-sub-nav']}>
             <h3 className={styles['products-name']}>전체 상품</h3>
             <div className={styles.search}>
-              <img src="/assets/icon_search.png" />
+              <img src={require('../assets/icon_search.png')} />
               <input
                 className={styles['search-input']}
                 placeholder="검색할 상품을 입력해주세요"
@@ -187,13 +187,13 @@ function Items() {
             <div className={styles.dropdown} onClick={toggleDropdown}>
               <picture>
                 <source
-                  srcset="assets/icon_order.png"
+                  srcset={require('../assets/icon_order.png')}
                   media="all and (max-width: 768px)"
                 />
                 <span className={styles.valueName}>
                   {selectOptions.find((option) => option.value === order).label}
                 </span>
-                <img src="assets/icon_dropdown.png" />
+                <img src={require('../assets/icon_dropdown.png')} />
               </picture>
               {isDropdownView && (
                 <ul className={styles.dropdownMenu}>

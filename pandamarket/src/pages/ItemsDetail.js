@@ -37,7 +37,7 @@ function ItemsDetail() {
           <div className={styles['detail-nav']}>
             <p className={styles['detail-name']}>{item.name}</p>
             <img
-              src="/assets/icon_optionbar.png"
+              src={require('../assets/icon_optionbar.png')}
               className={styles.navimg}
             ></img>
           </div>
@@ -57,7 +57,7 @@ function ItemsDetail() {
             ))}
           </div>
           <div className={styles.favoriteCount}>
-            <img src="/assets/icon_favorite.png" />
+            <img src={require('../assets/icon_favorite.png')} />
             {item.favoriteCount}
           </div>
         </div>
@@ -76,7 +76,7 @@ function ItemsDetail() {
 
       <div className={styles.comments}>
         <div className={styles.user}>
-          <img src="/assets/icon_profile.png" className={styles.userimg} />
+          <img src={require('../assets/icon_profile.png')} className={styles.userimg} />
           <div className={styles['user-info']}>
             <p className={styles.nickname}>유저네임</p>
             <p className={styles.time}>시간 전</p>
@@ -88,7 +88,7 @@ function ItemsDetail() {
         <Link to={'/items'}>
           <button className={styles.back}>
             목록으로 돌아가기
-            <img src="/assets/icon_back.png" className={styles.backimg} />
+            <img src={require('../assets/icon_back.png')} className={styles.backimg} />
           </button>
         </Link>
       </div>

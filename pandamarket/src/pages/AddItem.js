@@ -131,7 +131,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
             <div key={index} className={styles.tag}>
               {tag}
               <img
-                src="/assets/icon_tag_remove.png"
+                src={require('../assets/icon_tag_remove.png')}
                 onClick={() => removeTag(index)}
                 className={styles['tag-remove']}
               />

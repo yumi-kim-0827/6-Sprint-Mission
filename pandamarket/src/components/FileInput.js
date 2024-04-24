@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/fileinput.module.css";
+import previewImg from '../assets/icon_placeholder.png'
 
 function FileInput({ name, value, initialPreview, onChange }) {
   const [preview, setPreview] = useState(initialPreview);
@@ -42,7 +43,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
         <img
           name={name}
           className={styles[`"fileinput-preview" ${preview ? "selected" : ""}`]}
-          src={preview || "/assets/icon_placeholder.png"}
+          src={preview || previewImg}
           alt="이미지 미리보기"
           onClick={handleImageClick}
         />
@@ -59,7 +60,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
           className={styles["fileinput-clear-button"]}
           onClick={handleClearClick}
         >
-          <img src="/assets/icon_reset.png" alt="선택해제" />
+          <img src={require('../assets/icon_reset.png')} alt="선택해제" />
         </button>
       )}
     </div>
