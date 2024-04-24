@@ -11,7 +11,6 @@ const AddItem = () => {
     title: "",
     description: "",
     price: "",
-    isTagsEmpty: true,
     imgFile: null,
   });
 

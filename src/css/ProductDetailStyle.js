@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ProductDetailStyle = {
   ProductDetailContainer: styled.div`
@@ -273,12 +273,20 @@ const ProductDetailStyle = {
     gap: 10px;
     border: none;
     border-radius: 15px;
-    background: #9ca3af;
+    background: #3692ff;
     color: #ffffff;
     font-family: Pretendard;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+
+    ${(props) =>
+      props.disabled &&
+      css`
+        background-color: #9ca3af;
+        color: #ffffff;
+        cursor: not-allowed;
+      `}
   `,
   ButtonContainer: styled.div`
     display: flex;
