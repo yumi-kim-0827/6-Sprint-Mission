@@ -1,32 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import noninquiry from "../assets/no-inquiry.png";
-import profile from "../assets/profile.png";
 import "./HandleComment.css";
 import { commentValidation } from "./common/validation";
+import { getProductComment } from "../api";
 
-const mockData = [
-  {
-    id: "상큼한판다",
-    profile: profile,
-    time: "1시간 전",
-    comment: "혹시 사용기간이 어떻게 되실까요?",
-  },
-  {
-    id: "똑똑한판다",
-    profile: profile,
-    time: "1시간 전",
-    comment: "색상이 어떻게 되는지 궁금해요!",
-  },
-  {
-    id: "강인한판다",
-    profile: profile,
-    time: "1시간 전",
-    comment: "상세 잔기스 사진 있을까요?",
-  },
-];
-
-const HandleComment = () => {
+const HandleComment = ({ id }) => {
   const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
   const buttonRef = useRef();
 
   const handleChange = (e) => {
@@ -34,12 +14,20 @@ const HandleComment = () => {
     setComment(value);
   };
 
+  const handleCommentLoad = async (id) => {
+    const { list } = await getProductComment(id);
+    setComments(list);
+  };
+
   useEffect(() => {
     const isValidComment = commentValidation(comment);
-    console.log(comment);
     buttonRef.current.disabled = isValidComment;
     buttonRef.current.classList.toggle("active", !isValidComment);
   }, [comment]);
+
+  useEffect(() => {
+    handleCommentLoad(id);
+  }, []);
 
   return (
     <div className="wrapper">
@@ -57,16 +45,16 @@ const HandleComment = () => {
         </button>
       </div>
       <div className="comment-container">
-        {mockData.length !== 0 ? (
-          mockData.map((data) => {
+        {comments.length !== 0 ? (
+          comments.map((comment) => {
             return (
-              <div className="comment" key={data.id}>
-                <p className="comment__content">{data.comment}</p>
+              <div className="comment" key={comment.id}>
+                <p className="comment__content">{comment.content}</p>
                 <div className="profile">
-                  <img className="profile__img" src={data.profile} alt="프로필 이미지" />
+                  <img className="profile__img" src={comment.writer.image} alt="프로필 이미지" />
                   <div className="profile-info">
-                    <span className="profile__id">{data.id}</span>
-                    <span className="profile__time">{data.time}</span>
+                    <span className="profile__id">{comment.writer.nickname}</span>
+                    <span className="profile__time">{comment.createdAt}</span>
                   </div>
                 </div>
               </div>
