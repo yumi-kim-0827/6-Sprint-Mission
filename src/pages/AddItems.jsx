@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./AddItems.css";
 import fileplus from "../assets/file-plus.png";
 import tagdelete from "../assets/tag-delete.png";
@@ -13,13 +13,13 @@ function ProductImg({ name, value, onChange }) {
     onChange(name, nextImg);
   };
 
-  const handleClearClick = () => {
-    const inputNode = inputRef;
+  const handleClearClick = useCallback(() => {
+    const inputNode = inputRef.current;
     if (inputNode) {
       inputNode.value = "";
       onChange(name, null);
     }
-  };
+  }, [name, onChange]);
 
   useEffect(() => {
     if (!value) return;
