@@ -45,27 +45,27 @@ function ItemsDetail() {
     const date = new Date(time)
     const now = Date.now()
 
-    const milliSeconds = now - date;
+    const milliSeconds = now - date
 
-    const seconds = milliSeconds / 1000;
-    const minutes = seconds / 60;
-    const hours = minutes / 60;
-    const days = hours / 24;
-    const months = days / 30;
-    const years = months / 12;
+    const seconds = milliSeconds / 1000
+    const minutes = seconds / 60
+    const hours = minutes / 60
+    const days = hours / 24
+    const months = days / 30
+    const years = months / 12
 
     if (seconds < 60) {
-      return "방금 전";
+      return '방금 전'
     } else if (minutes < 60) {
-      return `${Math.floor(minutes)}분 전`;
+      return `${Math.floor(minutes)}분 전`
     } else if (hours < 24) {
-      return `${Math.floor(hours)}시간 전`;
+      return `${Math.floor(hours)}시간 전`
     } else if (days < 30) {
-      return `${Math.floor(days)}일 전`;
+      return `${Math.floor(days)}일 전`
     } else if (months < 12) {
-      return `${Math.floor(months)}달 전`;
+      return `${Math.floor(months)}달 전`
     } else {
-      return `${Math.floor(years)}년 전`;
+      return `${Math.floor(years)}년 전`
     }
   }
 
@@ -123,12 +123,21 @@ function ItemsDetail() {
         <div className={styles.comments}>
           {comments.map((comment, index) => (
             <>
-              <p>{comment.content}</p>
+              <div className={styles.usernav}>
+                <p>{comment.content}</p>
+                <img
+                  src={require('../assets/icon_optionbar.png')}
+                  className={styles.navimg}
+                ></img>
+              </div>
+
               <div key={index} className={styles.user}>
                 <img src={comment.writer.image} className={styles.userimg} />
                 <div className={styles['user-info']}>
                   <p className={styles.nickname}>{comment.writer.nickname}</p>
-                  <p className={styles.time}>{displayTime(comment.createdAt)}</p>
+                  <p className={styles.time}>
+                    {displayTime(comment.createdAt)}
+                  </p>
                 </div>
               </div>
               <div className={styles['border-bottom']}></div>
