@@ -4,10 +4,30 @@ export const INITIAL_VALUE = {
 };
 
 export const PLACEHOLDER_LIST_FOR_REGISTER = [
-  ["상품명", "상품명을 입력해주세요", "text", "title"],
-  ["상품 소개", "상품 소개를 입력해주세요", "textarea", "description"],
-  ["판매가격", "판매 가격을 입력해주세요", "number", "price"],
-  ["태그", "태그를 입력해주세요", "text", "tags"],
+  {
+    value: "상품명",
+    placeholder: "상품명을 입력해주세요",
+    type: "text",
+    name: "title",
+  },
+  {
+    value: "상품 소개",
+    placeholder: "상품 소개를 입력해주세요",
+    type: "textarea",
+    name: "description",
+  },
+  {
+    value: "판매가격",
+    placeholder: "판매 가격을 입력해주세요",
+    type: "number",
+    name: "price",
+  },
+  {
+    value: "태그",
+    placeholder: "태그를 입력해주세요",
+    type: "text",
+    name: "tags",
+  },
 ];
 
 export const FORM_DATA = {

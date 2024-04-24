@@ -1,12 +1,17 @@
 import { RegisterHeader } from "../../../entities";
 import { ImageList } from "../../../widgets/ImageList";
-import { PLACEHOLDER_LIST_FOR_REGISTER } from "/src/shared/constants/constants";
 import { ItemInput } from "../../../entities/ItemInput";
 import { useEffect, useState } from "react";
 
 import "./RegisterPage.scss";
 import { TagList } from "../../../entities/TagList";
-import { FORM_DATA } from "../../../shared/constants/constants";
+import {
+  FORM_DATA,
+  PLACEHOLDER_LIST_FOR_REGISTER,
+} from "../../../shared/constants/constants";
+
+const tagPlaceholder =
+  PLACEHOLDER_LIST_FOR_REGISTER[PLACEHOLDER_LIST_FOR_REGISTER.length - 1];
 
 export function RegisterPage() {
   const [tags, setTags] = useState(null);
@@ -53,13 +58,13 @@ export function RegisterPage() {
           <ImageList onChange={setFile} />
           <div className="register__inputList">
             {PLACEHOLDER_LIST_FOR_REGISTER.map(
-              (v, index) =>
+              (list, index) =>
                 index !== PLACEHOLDER_LIST_FOR_REGISTER.length - 1 && (
                   <ItemInput
-                    name={v[3]}
-                    value={v[0]}
-                    placeholder={v[1]}
-                    type={v[2]}
+                    name={list.name}
+                    value={list.value}
+                    placeholder={list.placeholder}
+                    type={list.type}
                     key={index}
                     onChange={handleInputChange}
                   />
@@ -67,26 +72,10 @@ export function RegisterPage() {
             )}
             <div className="register__Tags">
               <ItemInput
-                name={
-                  PLACEHOLDER_LIST_FOR_REGISTER[
-                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
-                  ][3]
-                }
-                value={
-                  PLACEHOLDER_LIST_FOR_REGISTER[
-                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
-                  ][0]
-                }
-                placeholder={
-                  PLACEHOLDER_LIST_FOR_REGISTER[
-                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
-                  ][1]
-                }
-                type={
-                  PLACEHOLDER_LIST_FOR_REGISTER[
-                    PLACEHOLDER_LIST_FOR_REGISTER.length - 1
-                  ][2]
-                }
+                name={tagPlaceholder.name}
+                value={tagPlaceholder.value}
+                placeholder={tagPlaceholder.placeholder}
+                type={tagPlaceholder.type}
                 key={-1}
                 onKeyPress={(e) => {
                   if (e.key === "Enter") {
