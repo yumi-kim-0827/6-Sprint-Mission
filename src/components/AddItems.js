@@ -27,7 +27,7 @@ const AddItem = () => {
       const newTag = currentTag.trim();
 
       if (newTag !== "") {
-        setTags([...tags, newTag]);
+        setTags((prevTags) => [...prevTags, newTag]);
         setCurrentTag("");
       }
     }
