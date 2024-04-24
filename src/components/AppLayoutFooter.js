@@ -9,6 +9,17 @@ import IconTwitter from "../assets/icon/twitter.svg";
 import IconYoutube from "../assets/icon/youtube.svg";
 import IconInstagram from "../assets/icon/insta.svg";
 
+const SNS_LIST = [
+  { name: "facebook", href: "http://www.facebook.com", icon: IconFacebook },
+  { name: "twitter", href: "http://www.twitter.com", icon: IconTwitter },
+  { name: "youtube", href: "http://www.youtube.com", icon: IconYoutube },
+  {
+    name: "instagram",
+    href: "http://www.instagram.com",
+    icon: IconInstagram,
+  },
+];
+
 const AppLayoutFooter = () => {
   return (
     <StyledFooter className="footer">
@@ -19,26 +30,9 @@ const AppLayoutFooter = () => {
           <Link href="/faq">FAQ</Link>
         </MenuLinks>
         <SocialLinks>
-          <ALinkImageButton
-            href="https://facebook.com"
-            src={IconFacebook}
-            alt="페이스북"
-          />
-          <ALinkImageButton
-            href="https://twitter.com/?lang=ko"
-            src={IconTwitter}
-            alt="트위터"
-          />
-          <ALinkImageButton
-            href="https://www.youtube.com/"
-            src={IconYoutube}
-            alt="유튜브"
-          />
-          <ALinkImageButton
-            href="https://www.instagram.com/"
-            src={IconInstagram}
-            alt="인스타"
-          />
+          {SNS_LIST.map(({ name, href, icon }) => (
+            <ALinkImageButton key={name} href={href} src={icon} />
+          ))}
         </SocialLinks>
       </FooterInner>
     </StyledFooter>
