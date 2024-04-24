@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import searchicon from "../assets/search-icon.png";
 import "./ShowProducts.css";
 import likeicon from "../assets/like-icon.png";

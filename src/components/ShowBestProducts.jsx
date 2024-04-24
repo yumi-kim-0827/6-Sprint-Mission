@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ShowBestProducts.css";
 import likeicon from "../assets/like-icon.png";
-import debounce from "./common/debounce";
 import { Link } from "react-router-dom";
 
 function BestProduct({ name, price, favoriteCount, images }) {
@@ -21,30 +20,6 @@ function BestProduct({ name, price, favoriteCount, images }) {
 }
 
 const ShowBestProducts = ({ products }) => {
-  const [width, setWidth] = useState(4);
-
-  const handlePageSize = (width) => {
-    if (width >= 1200) {
-      return 4;
-    } else if (width >= 768 && width <= 1199) {
-      return 2;
-    } else if (width >= 380 && width <= 767) {
-      return 1;
-    }
-  };
-
-  const handleResize = debounce(() => {
-    setWidth(window.innerWidth);
-  }, 50);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    setWidth(window.innerWidth);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <main className="Main">
       <div className="best">
@@ -52,17 +27,15 @@ const ShowBestProducts = ({ products }) => {
       </div>
 
       <ul className="BestProductsList">
-        {products
-          .map((item) => {
-            return (
-              <li key={item.id}>
-                <Link to={`/Items/${item.id}`}>
-                  <BestProduct {...item} />
-                </Link>
-              </li>
-            );
-          })
-          .slice(0, handlePageSize(width))}
+        {products.map((item) => {
+          return (
+            <li key={item.id}>
+              <Link to={`/Items/${item.id}`}>
+                <BestProduct {...item} />
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </main>
   );
