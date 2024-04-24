@@ -25,3 +25,14 @@ export async function getItem(id) {
   const body = await response.json();
   return body;
 }
+
+export async function getItemComments(id, limit = 10) {
+  const response = await fetch(
+    `https://panda-market-api.vercel.app/products/${id}/comments?limit=${limit}`
+  );
+  if (!response.ok) {
+    throw new Error("상품 댓글을 불러오는 데 실패했습니다.");
+  }
+  const body = await response.json();
+  return body;
+}

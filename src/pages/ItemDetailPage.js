@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getItem } from "../services/api";
+import { getItem, getItemComments } from "../services/api";
 import styled from "styled-components";
 import ItemDetail from "../components/ItemDetail";
+import ItemComments from "../components/ItemComments";
 
 const DetailContainer = styled.section`
   display: flex;
@@ -14,14 +15,22 @@ const DetailContainer = styled.section`
 export default function ItemDetailPage() {
   const { itemId } = useParams();
   const [item, setItem] = useState({});
+  const [comments, setComments] = useState([]);
+  const [limit, setLimit] = useState(10); // 페이지 당 댓글 수
 
-  const handLoadItem = async () => {
+  const handleLoadItem = async () => {
     const itemDetail = await getItem(itemId);
     setItem(itemDetail);
   };
 
+  const handleLoadComments = async () => {
+    const { list } = await getItemComments(itemId, limit);
+    setComments(list);
+  };
+
   useEffect(() => {
-    handLoadItem(itemId);
+    handleLoadItem(itemId);
+    handleLoadComments(itemId);
   }, [itemId]);
 
   return (
@@ -30,6 +39,7 @@ export default function ItemDetailPage() {
         <DetailContainer>
           <ItemDetail item={item} />
         </DetailContainer>
+        <ItemComments comments={comments} />
       </main>
     </>
   );
