@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Nav.css";
 import logo from "../../assets/logo-panda.svg";
 import { useContext } from "react";
-import LoginContext from "../../contexts/LoginContext";
+import LoginContext from "../../contexts/AuthContext";
 import LoginIcon from "../../assets/icon-login.svg";
 
 export default function Nav() {
