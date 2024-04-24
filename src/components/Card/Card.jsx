@@ -4,10 +4,10 @@ import HeartIcon from "assets/icon/ic_heart.svg";
 import * as S from "./Card.style";
 
 export default function Card({ data }) {
-  const { images = [], name: title, price, favoriteCount } = data;
+  const { id, images = [], name: title, price, favoriteCount } = data;
 
   return (
-    <Link>
+    <Link to={`/items/${id}`}>
       <S.CardContainer>
         <S.ProductImg src={images[0]} alt="product-img" />
         <S.CardTitle>{title}</S.CardTitle>

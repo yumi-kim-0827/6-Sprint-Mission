@@ -7,6 +7,7 @@ import FAQ from "pages/supply/FAQ";
 import Privacy from "pages/supply/Privacy";
 import FreeBoard from "pages/supply/FreeBoard";
 import AddItemPage from "pages/market/AddItem";
+import ItemPage from "pages/market/Item";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/items" element={<MarketMainPage />} />
+        <Route path="/items/:productId" element={<ItemPage />} />
         <Route path="/free-board" element={<FreeBoard />} />
         <Route path="/additem" element={<AddItemPage />} />
         <Route path="/faq" element={<FAQ />} />
