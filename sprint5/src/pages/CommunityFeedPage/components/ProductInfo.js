@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductInfo(product) {
+function ProductInfo({ product }) {
   const { images, name, price, description, tags, favoriteCount } = product;
 
   const formatPriceWithCommas = (price) => {
