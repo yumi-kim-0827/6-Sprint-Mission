@@ -79,9 +79,8 @@ function ItemsDetail() {
         </div>
       </div>
 
-      <div className={styles['border-bottom']}></div>
-
       <div className={styles.question}>
+        <div className={styles['border-bottom']}></div>
         <h5>문의하기</h5>
         <textarea
           className={styles['question-input']}
@@ -95,14 +94,17 @@ function ItemsDetail() {
       ) : (
         <div className={styles.comments}>
           {comments.map((comment, index) => (
-            <div key={index} className={styles.user}>
-              <img src={comment.writer.image} className={styles.userimg} />
-              <div className={styles['user-info']}>
-                <p className={styles.nickname}>{comment.writer.nickname}</p>
-                <p className={styles.time}>시간 전</p>
-              </div>
+            <>
               <p>{comment.content}</p>
-            </div>
+              <div key={index} className={styles.user}>
+                <img src={comment.writer.image} className={styles.userimg} />
+                <div className={styles['user-info']}>
+                  <p className={styles.nickname}>{comment.writer.nickname}</p>
+                  <p className={styles.time}>시간 전</p>
+                </div>
+              </div>
+              <div className={styles['border-bottom']}></div>
+            </>
           ))}
         </div>
       )}
