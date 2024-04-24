@@ -16,4 +16,16 @@ const get_products = async ({
   return products;
 };
 
-export { get_products };
+const get_product = async ({
+  productId,
+}) => {
+  const response = await fetch(panda_market_backend_api + `products/${productId}`);
+
+  if (response.status >= 400 && response.status < 600) {
+    throw new Error("서버 에러가 발생했습니다");
+  }
+  const products = await response.json();
+  return products;
+};
+
+export { get_products, get_product };

@@ -4,11 +4,21 @@ import panda_market_logo from "../image/panda_market_home_logo.png";
 import "../css/header.css";
 import userIcon from "../image/ic_user.png";
 
+const SecondhandMarketPaths = ["/items", "/additem"];
+
 const Header = () => {
   const location = useLocation();
 
   const currentPageBlueColor = (paths) => {
-    return paths.some(path => path === location.pathname) ? { color: "#3692FF" } : null;
+    return paths.some((path) => {
+      if (path === "/items") {
+        return location.pathname.startsWith("/items");
+      } else {
+        return path === location.pathname;
+      }
+    })
+      ? { color: "#3692FF" }
+      : null;
   };
 
   return (
@@ -27,14 +37,14 @@ const Header = () => {
           </NavLink>
           <NavLink
             to="/items"
-            style={currentPageBlueColor(["/items", "/additem"])}
+            style={currentPageBlueColor(SecondhandMarketPaths)}
             className="navLink"
           >
             중고마켓
           </NavLink>
         </div>
         {location.pathname === "/additem" ? (
-          <img src={userIcon} className="user-icon" alt="유저 아이콘"/>
+          <img src={userIcon} className="user-icon" alt="유저 아이콘" />
         ) : (
           <Link to="/" className="login-btn">
             로그인
