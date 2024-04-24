@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductInfo from "./components/ProductInfo";
+import CommentSection from "./components/CommentSection";
 import { getProductInfo } from "../../api/Api";
 
 function useProductData(productID) {
@@ -45,6 +46,7 @@ function CommunityFeedPage() {
   return (
     <section>
       {product && <ProductInfo product={product} />}
+      <CommentSection comments={comments} />
       <button>목록으로 돌아가기</button>
     </section>
   );
