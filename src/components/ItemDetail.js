@@ -6,7 +6,7 @@ const ItemImg = styled.img`
   border-radius: 12px;
 `;
 
-const DescriptionContainer = styled.div`
+export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
