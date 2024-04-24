@@ -5,7 +5,7 @@ import favoriteCountIcon from "../../image/favorite_count_icon.png";
 
 const ProductElement = ({ product }) => {
   return (
-    <Link to="/">
+    <Link to={`/items/${product.id}`}>
       <div className="product-element-section">
         <div className="product-element-image">
           <img src={product.images[0]} alt="상품 이미지"></img>
