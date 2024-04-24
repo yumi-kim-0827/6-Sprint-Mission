@@ -19,6 +19,20 @@ const HandleComment = ({ id }) => {
     setComments(list);
   };
 
+  const handleTimeAgo = (time) => {
+    const currentTime = new Date().getTime();
+    const agoTime = Math.floor((currentTime - new Date(time).getTime()) / (1000 * 60 * 60));
+    const agoDay = Math.floor(agoTime / 24);
+    const agoYear = Math.floor(agoDay / 365);
+    if (agoTime < 24) {
+      return `${agoTime}시간 전`;
+    } else if (agoTime >= 24) {
+      return `${agoDay}일 전`;
+    } else if (agoDay >= 365) {
+      return `${agoYear}년 전`;
+    }
+  };
+
   useEffect(() => {
     const isValidComment = commentValidation(comment);
     buttonRef.current.disabled = isValidComment;
@@ -54,7 +68,7 @@ const HandleComment = ({ id }) => {
                   <img className="profile__img" src={comment.writer.image} alt="프로필 이미지" />
                   <div className="profile-info">
                     <span className="profile__id">{comment.writer.nickname}</span>
-                    <span className="profile__time">{comment.createdAt}</span>
+                    <span className="profile__time">{handleTimeAgo(comment.createdAt)}</span>
                   </div>
                 </div>
               </div>
