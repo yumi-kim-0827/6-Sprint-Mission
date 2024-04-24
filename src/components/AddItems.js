@@ -75,12 +75,14 @@ const AddItem = () => {
 
   return (
     <AddItemContainer>
-      <AddItemHeader>
-        <AddItemTitle>상품 등록하기</AddItemTitle>
-        <AddItemsButton type="submit" disabled={!isFormValid()}>
-          등록
-        </AddItemsButton>
-      </AddItemHeader>
+      <form onSubmit={handleSubmit}>
+        <AddItemHeader>
+          <AddItemTitle>상품 등록하기</AddItemTitle>
+          <AddItemsButton type="submit" disabled={!isFormValid()}>
+            등록
+          </AddItemsButton>
+        </AddItemHeader>
+      </form>
       <form onSubmit={handleSubmit}>
         <AddImgContainer>
           <ItemImgTitle>상품 이미지</ItemImgTitle>
