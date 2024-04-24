@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "pages/home";
-import Login from "pages/users/login";
-import Signup from "pages/users/signup";
+import Home from "pages/Home";
+import Login from "pages/users/Login";
+import Signup from "pages/users/Signup";
 import MarketMainPage from "pages/market";
-import FAQ from "pages/supply/faq";
-import Privacy from "pages/supply/privacy";
-import FreeBoard from "pages/supply/free_board";
-import AddItemPage from "pages/market/add_item";
+import FAQ from "pages/supply/FAQ";
+import Privacy from "pages/supply/Privacy";
+import FreeBoard from "pages/supply/FreeBoard";
+import AddItemPage from "pages/market/AddItem";
 
 export default function AppRoutes() {
   return (

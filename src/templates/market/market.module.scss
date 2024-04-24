@@ -6,18 +6,18 @@
   margin-top: 24px;
 
   .header__title {
-    font-weight: 700;
+    margin-bottom: 16px;
     font-size: 20px;
+    font-weight: 700;
     line-height: 28px;
     color: var(--dark-gray800);
-    margin-bottom: 16px;
   }
 
   .cards {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 24px;
     position: relative;
+    grid-template-columns: 1fr;
 
     @media (min-width: $min-tablet-width) {
       grid-template-columns: repeat(2, 1fr);
@@ -34,8 +34,8 @@
 .all__products {
   .header {
     .title {
-      font-weight: 700;
       font-size: 20px;
+      font-weight: 700;
       line-height: 28px;
       color: var(--dark-gray800);
     }
@@ -52,10 +52,10 @@
 
     .header {
       display: grid;
+      margin-bottom: 16px;
       grid-template-columns: 1fr calc(133px - 42px) 42px;
       grid-template-rows: repeat(2, auto);
       row-gap: 8px;
-      margin-bottom: 16px;
 
       .title {
         align-self: center;
@@ -66,9 +66,9 @@
       }
 
       .searchInput {
+        margin-right: 8px;
         grid-column: 1 / span 2;
         grid-row: 2;
-        margin-right: 8px;
       }
     }
 
@@ -81,9 +81,9 @@
     }
 
     .noItems {
-      text-align: center;
-      color: var(--cool-gray800);
       min-height: 500px;
+      color: var(--cool-gray800);
+      text-align: center;
     }
   }
 }
@@ -100,9 +100,9 @@
       column-gap: 12px;
 
       .title {
-        grid-column: 1;
-        margin-bottom: 0;
         align-self: center;
+        margin-bottom: 0;
+        grid-column: 1;
       }
 
       .button {
@@ -110,9 +110,9 @@
       }
 
       .searchInput {
+        margin-right: 0;
         grid-column: 2;
         grid-row: 1;
-        margin-right: 0;
       }
 
       .selectInput {
@@ -150,8 +150,8 @@
     justify-content: space-between;
 
     h1 {
-      font-weight: 700;
       font-size: 20px;
+      font-weight: 700;
       color: var(--cool-gray800);
 
       @media (min-width: $min-tablet-width) {
@@ -162,10 +162,10 @@
 }
 
 @mixin formLabel {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--cool-gray800);
   margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cool-gray800);
 
   @media (min-width: $min-tablet-width) {
     font-size: 18px;

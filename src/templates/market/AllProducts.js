@@ -26,7 +26,7 @@ export default function AllProducts() {
   const orderState = useAtomValue(orderAtom);
   const currentPage = useAtomValue(currentPageAtom);
   const setTotalPages = useSetAtom(totalPagesAtom);
-  const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
+  const { isLoading, getProductsDataAsync } = useAsync(getProductsData);
   const { deviceState } = useDeviceState();
   useResetPage([deviceState, keyword]);
 

@@ -14,5 +14,5 @@ export default function useAsync(asyncFunction) {
     }
   };
 
-  return [pending, wrappedFunction];
+  return { pending, wrappedFunction };
 }

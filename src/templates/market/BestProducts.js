@@ -16,7 +16,7 @@ const DEVICE_PRODUCT_COUNT = {
 export default function BestProducts() {
   const { deviceState } = useDeviceState();
   const [renderDataList, setRenderDataList] = useState([]);
-  const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
+  const { isLoading, getProductsDataAsync } = useAsync(getProductsData);
 
   useEffect(() => {
     (async () => {
