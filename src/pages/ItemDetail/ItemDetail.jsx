@@ -1,21 +1,44 @@
-import { useEffect, useState } from "react";
 import ItemDetailStyles from "./ItemDetail.module.css";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import getProductDetail from "../../api/getProductDetail";
+import getProductDetailComments from "../../api/getProductDetailComments";
 
 const ItemDetail = () => {
-  const [item, setItem] = useState({});
-  const path = useLocation();
-  const pathId = path.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
+  const pathId = useLocation().pathname.split("/").pop();
 
   useEffect(() => {
-    getProductDetail(pathId).then(data => setItem(data));
-  }, []);
+    (async () => {
+      setLoading(true);
+      try {
+        const data = await getProductDetail(pathId);
+        setProduct(data);
+        console.log("data:", data);
+        const comments = await getProductDetailComments(pathId);
+        console.log("comments:", comments);
+      } catch (error) {
+        console.error(error);
+        alert("Failed to load data. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [pathId]);
+
   return (
     <div className={ItemDetailStyles.container}>
-      <h2>Name: {item.name}</h2>
-      <p>Description: {item.description}</p>
-      <p>Price: {item.price}</p>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <h2>Name: {product.name}</h2>
+          <p>Description: {product.description}</p>
+          <p>Price: {product.price}</p>
+        </>
+      )}
+      ;
     </div>
   );
 };
