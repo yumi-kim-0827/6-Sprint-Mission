@@ -1,2 +1,7 @@
+import TagMain from "./Tag";
+import ProductTag from "./ProductTag";
 export { default as TagList } from "./TagList";
-export { default } from "./Tag";
+
+export const Tag = Object.assign(TagMain, {
+  Product: ProductTag,
+});

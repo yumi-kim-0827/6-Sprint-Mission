@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FormInput = styled.input`
   width: 100%;
   height: 56px;
-  background-color: var(--input-bg);
+  background-color: var(--cool-gray300);
   outline: none;
   border: none;
   border-radius: 12px;
@@ -21,7 +21,7 @@ export const TextareaInput = styled.textarea`
   border-radius: 12px;
   outline: none;
   border: none;
-  background-color: var(--input-bg);
+  background-color: var(--cool-gray300);
   padding: 16px 24px;
   &::placeholder {
     color: var(--light-gray);

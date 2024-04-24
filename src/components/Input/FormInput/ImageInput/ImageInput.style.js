@@ -2,11 +2,11 @@ import styled, { css } from "styled-components";
 import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
 import { DEVICE } from "styles/variables";
 
-const ImageBlock = css`
+export const ImageBlock = css`
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
-  background-color: var(--input-bg);
+  background-color: var(--cool-gray300);
   border: none;
   outline: none;
   display: flex;

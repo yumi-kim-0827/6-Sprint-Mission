@@ -1,16 +1,7 @@
 import styled from "styled-components";
-import Tag from "../Tag";
 
-export default function TagList({ tagList, handleTagDelete }) {
-  return (
-    <StyledTagList>
-      {tagList.map((tag) => (
-        <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
-          {tag}
-        </Tag>
-      ))}
-    </StyledTagList>
-  );
+export default function TagList({ children }) {
+  return <StyledTagList>{children}</StyledTagList>;
 }
 
 const StyledTagList = styled.div`

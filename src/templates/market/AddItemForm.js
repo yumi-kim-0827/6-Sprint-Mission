@@ -4,6 +4,7 @@ import { removeCommas } from "utils/commas";
 import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { TagList } from "components/Tag";
+import { Tag } from "components/Tag";
 
 export default function AddItemForm() {
   const [imgFile, setImgFile] = useState(null);
@@ -108,10 +109,13 @@ export default function AddItemForm() {
             onChange={onChange}
             onKeyUp={handleTagKeyUp}
           />
-          <TagList
-            tagList={[...tagList].reverse()}
-            handleTagDelete={handleTagDelete}
-          />
+          <TagList>
+            {[...tagList].reverse().map((tag) => (
+              <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
+                {tag}
+              </Tag>
+            ))}
+          </TagList>
         </div>
       </form>
     </div>
