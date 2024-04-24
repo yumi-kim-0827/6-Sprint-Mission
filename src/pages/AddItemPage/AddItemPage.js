@@ -33,12 +33,16 @@ function AddItemPage() {
   return (
     <div className="add-item-section">
       <form onSubmit={handleSubmit} className="add-item-form">
+
         <div className="add-item-section-header">
           <h1>상품 등록하기</h1>
           <button type="submit" className="add-item-button">등록</button>
         </div>
 
+
+        <label htmlFor="img">상품 이미지</label>
         <FileInput name='imgFile' value={values.imgFile} onChange={handleChange} />
+
         <label htmlFor="img">상품명</label>
         <input name="title" id="img" value={values.title} placeholder="상품명을 입력해주세요" onChange={handleInputChange} />
 
