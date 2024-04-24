@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductElement from "./ProductElement";
 import "./bestProducts.css";
-import useLoading from "../../hooks/loading";
+import {useLoading} from "../../hooks/loading";
 import LoadingMessage from "../../component/LoadingMessage";
 
 const BestProducts = ({ numOfItemsToShow }) => {

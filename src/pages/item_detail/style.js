@@ -39,23 +39,15 @@ export const BackToListButton = styled.button`
   font-family: Pretendard;
 `;
 
-export const ProductInfoSection = styled.div`
-  width: 100%;
-  min-height: 41.8rem;
-  background-color: red;
-  margin-bottom: 2.4rem;
 
-  @media (min-width: 375px) and (max-width: 768px) {
-    min-height: 74.4rem;
-  }
-`;
+
 export const InquirySection = styled.div`
   width: 100%;
   min-height: 22.1rem;
   margin-bottom: 2.4rem;
   border-top: 0.1rem solid var(--gray200);
   padding-top: 2.4rem;
-  background-color:blue;
+  background-color: blue;
 
   @media (min-width: 375px) and (max-width: 768px) {
     min-height: 21.3rem;

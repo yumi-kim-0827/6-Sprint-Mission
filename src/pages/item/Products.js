@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductElement from "./ProductElement";
 import "./products.css";
-import useLoading from "../../hooks/loading";
+import {useLoading} from "../../hooks/loading";
 import SelectOrderButton from "../../component/SelectOrderButton";
 import PageNav from "../../component/PageNav";
 import LoadingMessage from "../../component/LoadingMessage";

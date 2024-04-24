@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { get_products } from "../api/api";
+import { get_product, get_products } from "../api/api";
 
-export default function useLoading() {
+export function useLoading() {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   const [noResult,setNoResult] =useState(false);
@@ -24,4 +24,26 @@ export default function useLoading() {
   };
 
   return [isLoading, loadingError,noResult, handleLoad];
+}
+
+export function useProductLoading() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState(null);
+
+  const handleLoad = async (...arg) => {
+    let result;
+    try {
+      setLoadingError(null);
+      setIsLoading(true);
+      result = await get_product(...arg);
+      return result;
+    } catch (error) {
+      setLoadingError(error);
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return [isLoading, loadingError, handleLoad];
 }
