@@ -1,27 +1,58 @@
-# sprint 6
+# sprint 7
 
-![alt text](desktop-1.png) 
-![alt text](desktop-2.png) 
-![alt text](desktop.png)
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
 ## 체크리스트 [기본]
-### 상품 등록
 
-상품 등록 페이지 주소는 “/additem” 입니다.
+## 상품 상세
 
-페이지 주소가 “/additem” 일때 상단네비게이션바의 '중고마켓' 버튼의 색상은 “3692FF”입니다.
+"/products/{productId}" GET method 활용
 
-상품 이미지는 최대 한개 업로드가 가능합니다.
+상품 상세 페이지 주소는 “/items/{productId}” 입니다.
 
-각 input의 placeholder 값을 정확히 입력해주세요.
+response 로 받은 아래의 데이터로 화면을 구현합니다.
 
-이미지를 제외하고 input 에 모든 값을 입력하면 ‘등록' 버튼이 활성화 됩니다.
+=>  favoriteCount : 하트 개수
+=>  images : 상품 이미지
+=>  tags : 상품태그
+=>  name : 상품 이름
+=>  description : 상품 설명
 
-API를 통한 상품 등록은 추후 미션에서 적용합니다.
+목록으로 돌아가기 버튼을 클릭하면 중고마켓 페이지 주소인 “/items” 으로 이동합니다
 
-## 체크리스트 [심화]
-### 상품 등록
+## 상품 문의 댓글
 
-이미지 안의 X 버튼을 누르면 이미지가 삭제됩니다.
+"/products/{productId}/comments" GET method 활용
 
-추가된 태그 안의 X 버튼을 누르면 해당 태그는 삭제됩니다.
+문의하기에 내용을 입력하면 등록 버튼의 색상은 “3692FF”로 변합니다.
+
+response 로 받은 아래의 데이터로 화면을 구현합니다.
+
+=>  image : 작성자 이미지
+=>  nickname : 작성자 닉네임
+=>  content : 작성자가 남긴 문구
+=>  description : 상품 설명
+=>  updatedAt : 문의글 마지막 업데이트 시간
+
+## 백엔드 API 주소
+
+https://panda-market-api.vercel.app/docs/#/
+
+## 피드백
+1. Intl 객체 유틸함수로 분리
+2. 상수 Upper Snake case
+3. dataState 옵셔널 체이닝 연산자 사용
+4. router 변수 app의 .route로 분리
+5. useRef에서 setImage처리 후 current값 초기화 처리
+6. key index 처리 (고유한 값)
+7. ImageCard type 처리
+8. 템플릿 리터럴
+9. const 선언
+10. 배열로 구현된 부분 객체로 처리할 수 있으면 객체로 처리(가독성)
+
+## 개인적으로 적용해볼 것
+
+Styled Component
