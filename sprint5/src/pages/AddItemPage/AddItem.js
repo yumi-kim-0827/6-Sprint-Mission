@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ImageInput from "../../components/UI/ImageInput";
 import deleteTagIcon from "../../assets/tag_x.svg";
 import "./AddItem.css";
-import Navbar from "../../components/Layout/Navbar";
 
 function AddItem() {
   const [values, setValues] = useState({
@@ -58,7 +57,6 @@ function AddItem() {
 
   return (
     <div>
-      <Navbar />
       <form className="addItemForm">
         <div className="formTitle">
           <h1>상품 등록하기</h1>

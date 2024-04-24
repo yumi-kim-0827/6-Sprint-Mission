@@ -1,15 +1,26 @@
 import React from "react";
 import Items from "./pages/ItemsPage/Items";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddItem from "./pages/AddItemPage/AddItem";
+import Navbar from "./components/Layout/Navbar";
+import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import "./styles/global.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/items" element={<Items />} />
-      <Route path="/additem" element={<AddItem />} />
-    </Routes>
+    <BrowserRouter>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/items">
+            <Route index element={<Items />} />
+            <Route path=":productID" element={<CommunityFeedPage />} />
+          </Route>
+
+          <Route path="/additem" element={<AddItem />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

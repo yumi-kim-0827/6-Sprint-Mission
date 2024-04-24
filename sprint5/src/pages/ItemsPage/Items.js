@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Layout/Navbar";
 import Products from "./Products";
 import { getBestProducts, getProducts } from "../../api/Api";
 import DropdownContainer from "../../components/UI/DropdownContainer";
@@ -94,7 +93,6 @@ function Items() {
 
   return (
     <div>
-      <Navbar />
       <main className="items-container">
         <section className="items-wrapper">
           <h1 className="product-menu-title">베스트 상품</h1>
