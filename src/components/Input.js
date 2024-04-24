@@ -28,10 +28,17 @@ const Input = ({
   );
 };
 
-const TextAreaInput = ({ label = "", placeholder = "", onChange, value }) => {
+const TextAreaInput = ({
+  label = "",
+  placeholder = "",
+  onChange,
+  value,
+  className,
+}) => {
   return (
     <>
       <TextAreaEl
+        className={className}
         id={label}
         name={label}
         placeholder={placeholder}
@@ -45,8 +52,8 @@ const TextAreaInput = ({ label = "", placeholder = "", onChange, value }) => {
 const InputEl = styled.input`
   position: relative;
   width: 100%;
-  height: 56px;
-  padding: 16px;
+  // height: 56px;
+  // padding: 16px;
   border-radius: 12px;
   background-color: var(--color-cool-gray-100);
 

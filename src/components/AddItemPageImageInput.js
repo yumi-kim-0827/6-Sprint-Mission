@@ -7,7 +7,12 @@ import BaseIcon from "./BaseIcon";
 
 import plus from "../assets/icon/plus.svg";
 
-const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
+const AddItemPageImageInput = ({
+  className,
+  placeholder,
+  value,
+  icon = { plus },
+}) => {
   const [postImg, setPostImg] = useState([]);
   const [previewImg, setPreviewImg] = useState("");
 
@@ -116,4 +121,4 @@ const Preview = styled.div`
   }
 `;
 
-export default ImageInput;
+export default AddItemPageImageInput;

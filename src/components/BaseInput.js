@@ -9,6 +9,7 @@ const BaseInput = ({
   value,
   onChange,
   onBlur,
+  onKeyDown,
   accept = null,
   autoComplete = "off",
   ...rest
@@ -23,6 +24,7 @@ const BaseInput = ({
       value={value}
       onChange={onChange}
       onBlur={onBlur}
+      onKeyDown={onKeyDown}
       accept={accept}
       autoComplete={autoComplete}
     />

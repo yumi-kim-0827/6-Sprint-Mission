@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+import SquareImage from "./SquareImage";
+
 const BaseCard = ({ className, src, alt, title, text }) => {
   return (
     <StyledCard className={className}>
-      <SquareImage>
-        {" "}
-        <img src={src} alt={alt} />
-      </SquareImage>
+      <SquareImage src={src} alt={alt} />
       <p>{title}</p>
       <p>{text}</p>
     </StyledCard>
@@ -35,18 +34,6 @@ const StyledCard = styled.div`
     font-weight: 700;
     font-size: 16px;
     color: #1f2937;
-  }
-`;
-
-const SquareImage = styled.div`
-  width: 100%;
-  aspect-ratio: 1;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 `;
 

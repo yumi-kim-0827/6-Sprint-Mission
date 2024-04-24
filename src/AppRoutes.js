@@ -7,6 +7,7 @@ import AppLayout from "./components/AppLayout";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AddItemPage from "./pages/AddItemPage";
+import ItemDetailPage from "./pages/ItemDetailPage";
 
 function AppRoutes() {
   return (
@@ -14,11 +15,12 @@ function AppRoutes() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="items" element={<ItemPage />} />
+        <Route path="items/:id" element={<ItemDetailPage />} />
         <Route path="additem" element={<AddItemPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      {/* <Route path="/login" element={<LogIn />} /> */}
-      {/* <Route path="/signup" element={<SignUp />} /> */}
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 }
