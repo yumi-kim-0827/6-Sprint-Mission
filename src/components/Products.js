@@ -18,17 +18,19 @@ const Product = () => {
       try {
         const productList = await fetchProducts();
 
-        let filteredProducts = productList.filter((product) =>
-          product.name.toLowerCase().includes(search.toLowerCase())
-        );
-
         const sortByFunction =
           sortBy === "latest"
             ? (a, b) => b.createdAt - a.createdAt
             : (a, b) => b.favoriteCount - a.favoriteCount;
 
+        const filteredProducts = productList
+          .filter((product) =>
+            product.name.toLowerCase().includes(search.toLowerCase())
+          )
+          .sort(sortByFunction);
+
         let sortedProducts = [...productList].sort(sortByFunction);
-        filteredProducts = filteredProducts.sort(sortByFunction);
+
         setTotal(filteredProducts.length);
         setProducts(sortedProducts.slice(0, 12));
 
