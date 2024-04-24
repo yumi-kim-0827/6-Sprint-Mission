@@ -32,7 +32,7 @@ export default function ImageInput({ name, value, onChange }) {
 
   return (
     <S.ImageInputContainer>
-      <S.ImageInput onClick={handleClick}>
+      <S.ImageInput onClick={handleClick} radius={12}>
         <input
           name={name}
           onChange={onChange}
@@ -43,7 +43,13 @@ export default function ImageInput({ name, value, onChange }) {
         <img src={PlusIcon} alt="img-file" />
         <h1>이미지 등록</h1>
       </S.ImageInput>
-      {preview && <PreviewImage url={preview} onDelete={handleImgFileDelete} />}
+      {preview && (
+        <PreviewImage
+          url={preview}
+          onDelete={handleImgFileDelete}
+          radius={12}
+        />
+      )}
     </S.ImageInputContainer>
   );
 }

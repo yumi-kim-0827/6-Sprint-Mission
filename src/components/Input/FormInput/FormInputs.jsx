@@ -34,13 +34,20 @@ export function NumberInput({ name, value: number, onChange, placeholder }) {
   );
 }
 
-export function TextareaInput({ name, content, onChange, placeholder }) {
+export function TextareaInput({
+  name,
+  content,
+  onChange,
+  placeholder,
+  height,
+}) {
   return (
     <S.TextareaInput
       name={name}
       placeholder={placeholder}
       value={content}
       onChange={onChange}
+      height={height}
       required
     />
   );

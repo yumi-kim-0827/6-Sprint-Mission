@@ -17,7 +17,7 @@ export const FormInput = styled.input`
 
 export const TextareaInput = styled.textarea`
   width: 100%;
-  height: 200px;
+  height: ${({ height = 200 }) => height}px;
   border-radius: 12px;
   outline: none;
   border: none;

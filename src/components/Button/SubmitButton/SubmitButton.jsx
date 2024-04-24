@@ -3,7 +3,7 @@ import { DefaultButton } from "../Button.style";
 
 export default function SubmitButton({ isActive, children }) {
   return (
-    <StyledSubmitButton type="submit" $isActive={isActive}>
+    <StyledSubmitButton type="submit" $isActive={isActive} disabled={isActive}>
       {children}
     </StyledSubmitButton>
   );
