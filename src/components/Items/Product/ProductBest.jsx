@@ -1,7 +1,5 @@
 import "./ProductBest.css";
 
-import iconHeart from "../../../assets/images/items/ic_heart.svg";
-
 import { useState, useEffect } from "react";
 
 import { getProducts } from "../../../api/product.api";

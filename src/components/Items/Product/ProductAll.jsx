@@ -16,7 +16,7 @@ const ProductAll = () => {
   const [products, setProducts] = useState([]);
 
   const handleLoad = async (orderQuery) => {
-    const { list } = await getProducts(orderQuery);
+    const { list } = await getProducts({ orderBy: orderQuery });
     setProducts(list);
   };
 
