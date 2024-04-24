@@ -42,14 +42,11 @@ response 로 받은 아래의 데이터로 화면을 구현합니다.
 https://panda-market-api.vercel.app/docs/#/
 
 ## 피드백
-3. dataState 옵셔널 체이닝 연산자 사용
-4. router 변수 app의 .route로 분리
 5. useRef에서 setImage처리 후 current값 초기화 처리
 6. key index 처리 (고유한 값)
 7. ImageCard type 처리
 8. 템플릿 리터럴
-9. const 선언
-10. 배열로 구현된 부분 객체로 처리할 수 있으면 객체로 처리(가독성)
+9.  배열로 구현된 부분 객체로 처리할 수 있으면 객체로 처리(가독성)
 
 ## 개인적으로 적용해볼 것
 

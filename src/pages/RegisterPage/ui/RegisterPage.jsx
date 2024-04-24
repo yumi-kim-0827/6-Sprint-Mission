@@ -12,7 +12,7 @@ export function RegisterPage() {
   const [tags, setTags] = useState(null);
   const [file, setFile] = useState(FORM_DATA);
 
-  let active =
+  const active =
     file.title && file.description && file.price && file.image && file.tags;
 
   const handleDelete = (value) => {
@@ -50,7 +50,6 @@ export function RegisterPage() {
       <main className="register">
         <form className="register__content" onSubmit={handleSubmit}>
           <RegisterHeader active={active} />
-          {/*active 로직 들어가야 함*/}
           <ImageList onChange={setFile} />
           <div className="register__inputList">
             {PLACEHOLDER_LIST_FOR_REGISTER.map(
