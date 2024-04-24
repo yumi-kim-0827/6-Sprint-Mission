@@ -4,15 +4,11 @@ import { getItem } from "../services/api";
 import styled from "styled-components";
 import ItemDetail from "../components/ItemDetail";
 
-const DetailContainer = styled.div`
+const DetailContainer = styled.section`
   display: flex;
   gap: 24px;
   width: 100%;
   height: 486px;
-
-  img {
-    aspect-ratio: 1;
-  }
 `;
 
 export default function ItemDetailPage() {
@@ -32,7 +28,6 @@ export default function ItemDetailPage() {
     <>
       <main>
         <DetailContainer>
-          <img src={item.images} alt="상품 사진" />
           <ItemDetail item={item} />
         </DetailContainer>
       </main>
