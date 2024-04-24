@@ -1,9 +1,11 @@
-import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function HomePage(props) {
   return (
     <div>
-      <h1>메인 페이지</h1>
+      <Helmet>
+        <title>메인 페이지</title>
+      </Helmet>
     </div>
   );
 }

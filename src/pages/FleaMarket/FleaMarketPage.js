@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Helmet } from 'react-helmet';
 import { styled } from "styled-components";
 import BestProducts from "./BestProducts";
 import AllProducts from "./AllProducts";
@@ -72,6 +73,9 @@ function FleaMarketPage() {
 
   return (
     <>
+      <Helmet>
+        <title>중고마켓</title>
+      </Helmet>
       {(bestProductsError?.message || allProductsError?.message) ? (
         <ErrorContainer>
           {bestProductsError?.message || allProductsError?.message}
