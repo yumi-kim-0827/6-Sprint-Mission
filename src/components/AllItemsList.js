@@ -142,19 +142,25 @@ export default function AllItemsList() {
           data.list.map((post) => {
             return (
               <li key={post.id}>
-                <img
-                  src={post.images[0]}
-                  alt={post.name}
-                  className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
-                />
-                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
-                  {post.name} 팝니다
-                </p>
-                <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                  {formatNumber(post.price)}원
-                </p>
-                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                <Link to={`/items/${post.id}`} state={{ post }}>
+                  <img
+                    src={post.images[0]}
+                    alt={post.name}
+                    className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
+                    {post.name} 팝니다
+                  </p>
+                  <p className="text-sm font-bold text-[var(--cool-gray800)]">
+                    {formatNumber(post.price)}원
+                  </p>
+                  <img
+                    src={favoriteIcon}
+                    alt="favoriteicon"
+                    className="inline"
+                  />
+                  <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                </Link>
               </li>
             );
           })}
