@@ -1,3 +1,7 @@
+.detail-page-wrapper {
+  margin-bottom: 250px;
+}
+
 /* ItemDetailSection Components */
 hr {
   border: 1px solid var(--gray-200);
@@ -5,8 +9,10 @@ hr {
 }
 
 .item-detail-section {
+  width: 100%;
   margin: 24px 0;
   display: flex;
+  justify-content: space-between;
   gap: 40px;
   color: var(--gray-900);
 
@@ -97,6 +103,7 @@ hr {
   font-weight: 600;
   font-size: 18px;
   border-radius: 40px;
+  margin: 40px 0;
 }
 
 /* Comment Section */

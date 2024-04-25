@@ -11,7 +11,7 @@ function ItemDetailPage() {
   };
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper detail-page-wrapper">
       <ItemDetailSection />
       <CommentSection />
       <button onClick={goBackPage} className="btn-primary back-icon">
