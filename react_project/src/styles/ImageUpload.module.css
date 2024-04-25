@@ -1,0 +1,55 @@
+.ImagesUpload_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ImageUpload_title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.48px;
+  color: #1F2937;
+}
+
+.ImageUpload_container {
+  display: flex;
+  gap: 8px;
+}
+
+.ImageUpload_label {
+  cursor: pointer;
+  width: 282px;
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F4F6;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.hiddenImage_container {
+  position: relative;
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+}
+
+.hiddenImage_closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.hiddenImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
