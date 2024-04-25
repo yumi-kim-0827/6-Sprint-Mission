@@ -10,9 +10,20 @@ export default function AddItem() {
     imgFile: null,
     name: '',
     description: '',
-    price: '',
   });
   const [tagList, setTagList] = useState([]);
+  const [price, setPrice] = useState('');
+
+  const addComma = price => {
+    let returnString = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return returnString;
+  };
+
+  const handlePriceChange = e => {
+    const { value } = e.target;
+    let str = value.replaceAll(',', '');
+    setPrice(str);
+  };
 
   const handleChange = (name, value) => {
     setValues(prevValues => ({
@@ -86,10 +97,10 @@ export default function AddItem() {
         판매가격
         <input
           name='price'
-          value={values.price}
+          value={addComma(price) || ''}
           type='text'
           placeholder='판매 가격을 입력해주세요'
-          onChange={handleInputChange}
+          onChange={handlePriceChange}
           className='add-item-form__price-input'
         />
       </label>
