@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../style/product.css";
 import HeartIcon from "../assets/icon/ic_heart.svg";
 import { getProductData, getProductCommentData } from "./API";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Commas from "../util/Commas";
 import TimeString from "../util/times";
 import reply_empty from "../assets/img/img_reply_empty.svg";
@@ -104,8 +104,12 @@ export default function Product() {
               </div>
             )}
             <div className="back-container">
-              <button className="back-btn">목록으로 돌아가기</button>
-              <img src={ic_back} alt="back to items" className="back img" />
+              <div>
+                <Link to="/items" className="back-btn">
+                  목록으로 돌아가기
+                </Link>
+                <img src={ic_back} alt="back to items" className="back-img" />
+              </div>
             </div>
           </div>
         </div>
