@@ -10,12 +10,12 @@ const MultiLineText = ({ className, children, isWrap }) => {
     <>
       <Text
         className={`${className} ${isWrap ? "text-wrap" : "text-nowrap"}`}
-        isWrap={isWrap}
+        $isWrap={isWrap}
       >
         {text}
       </Text>
       {isWrap === "all" && (
-        <Text className={`${className} text-nowrap`} isWrap={false}>
+        <Text className={`${className} text-nowrap`} $isWrap={false}>
           {text}
         </Text>
       )}
@@ -24,7 +24,7 @@ const MultiLineText = ({ className, children, isWrap }) => {
 };
 
 const Text = styled.p`
-  white-space: ${({ isWrap }) => (isWrap ? "pre-wrap" : "nowrap")};
+  white-space: ${({ $isWrap }) => ($isWrap ? "pre-wrap" : "nowrap")};
 `;
 
 export default MultiLineText;

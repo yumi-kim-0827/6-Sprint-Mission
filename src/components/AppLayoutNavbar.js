@@ -15,9 +15,7 @@ function AppLayoutNavbar() {
         <StyledNavLogo src={logo} alt="판다마켓" />
         <StyledNavLogoTypo src={logoTypo} alt="판다마켓" />
       </NavLink>
-      <StyledNavLink to="/community" activeClassName="active">
-        자유게시판
-      </StyledNavLink>
+      <StyledNavLink to="/community">자유게시판</StyledNavLink>
       <StyledNavLink
         to="/items"
         className={

@@ -9,8 +9,14 @@ import heartActiveIcon from "../assets/icon/heart-active.svg";
 const CardFavorites = ({ isFavorite, favoriteCount, onClick, className }) => {
   const getFavoriteIcon = isFavorite ? heartActiveIcon : heartIcon;
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <StyledFavorite className={className} onClick={onClick}>
+    <StyledFavorite className={className} onClick={handleClick}>
       <BaseIcon src={getFavoriteIcon} />
       {isFavorite ? favoriteCount + 1 : favoriteCount}
     </StyledFavorite>

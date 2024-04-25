@@ -5,7 +5,7 @@ import arrowRightIcon from "../assets/icon/arrow-right.svg";
 import arrowLeftIcon from "../assets/icon/arrow-left.svg";
 
 const Pagination = ({
-  className,
+  className = "",
   currentPage,
   totalPages,
   goToPrevPage,
@@ -17,7 +17,7 @@ const Pagination = ({
       <button
         key={i + 1}
         onClick={() => goToPage(i + 1)}
-        className={i + 1 === currentPage && "active"}
+        className={i + 1 === currentPage ? "active" : ""}
       >
         {i + 1}
       </button>

@@ -48,8 +48,6 @@ const ItemDetailPage = () => {
     fetchItemComments();
   }, [id]);
 
-  console.log(comments);
-
   return (
     <>
       {product && (
@@ -57,7 +55,9 @@ const ItemDetailPage = () => {
           <ItemDetailPageCardLarge data={product} />
           <CommentInputBox title="문의하기" />
           {comments.length > 0 ? (
-            comments.map((comment) => <Comment data={comment} />)
+            comments.map((comment) => (
+              <Comment key={comment.id} data={comment} />
+            ))
           ) : (
             <EmptyCommentImageSection />
           )}

@@ -26,7 +26,7 @@ const ItemDetailPageCardLarge = ({ data }) => {
           <p>상품태그</p>
           <TagBox>
             {tags.map((tag) => (
-              <BaseTag tag={tag} />
+              <BaseTag key={tag} tag={tag} />
             ))}
           </TagBox>
         </StyledCardTags>

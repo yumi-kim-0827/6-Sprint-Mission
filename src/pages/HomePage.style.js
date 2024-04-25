@@ -106,10 +106,10 @@ export const BannerDescription = styled(MultiLineText)`
   }
 
   @media screen and (min-width: 768px) {
-    :first-of-type &.text-nowrap {
+    &:first-of-type &.text-nowrap {
       display: block;
     }
-    :first-of-type &.text-wrap {
+    &:first-of-type &.text-wrap {
       display: none;
     }
 
@@ -124,10 +124,10 @@ export const BannerDescription = styled(MultiLineText)`
     align-items: flex-start;
     text-align: left;
 
-    :first-of-type .text-nowrap {
+    &:first-of-type .text-nowrap {
       display: none;
     }
-    :last-of-type.text-wrap {
+    &:last-of-type.text-wrap {
       display: block;
     }
   }

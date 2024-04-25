@@ -29,8 +29,23 @@ export const FormContainer = styled.div`
 `;
 
 export const SocialLogin = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 400px;
+  height: 74px;
+  padding: 16px 23px;
+  margin-top: 24px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  color: var(--color-cool-gray-800);
+
+  span {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-cool-gray-800);
+  }
 
   > div {
     display: flex;
@@ -38,23 +53,7 @@ export const SocialLogin = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 640px;
     max-width: 640px;
-    height: 74px;
-    padding: 16px 23px;
-    margin-top: 24px;
-    background-color: #e6f2ff;
-    border-radius: 8px;
-    color: var(--color-cool-gray-800);
-
-    span {
-      font-weight: 500;
-      font-size: 16px;
-      color: var(--color-cool-gray-800);
-    }
   }
 `;
 
