@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 import likeIcon from "../../shared/asset/ic_heart.png";
 import { formatPrice } from "../../shared/util/util";
 import "./ItemCard.scss";
 
 export const ItemCard = ({ item, cardType }) => {
-  const { images, price, name, favoriteCount } = item;
+  const { images, price, name, favoriteCount, id } = item;
+
   return (
-    <div className="card">
+    <Link className="card" to={`/products/${id}`}>
       <img
         src={images}
         alt={name}
@@ -17,6 +19,6 @@ export const ItemCard = ({ item, cardType }) => {
         <img src={likeIcon} alt="like button" />
         <p className="card__favoriteCount">{favoriteCount}</p>
       </div>
-    </div>
+    </Link>
   );
 };

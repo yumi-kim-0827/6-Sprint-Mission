@@ -3,6 +3,11 @@ export const INITIAL_VALUE = {
   errorMessage: null,
 };
 
+export const INITIAL_PRODUCT_INFO = {
+  info: null,
+  comments: null,
+};
+
 export const PLACEHOLDER_LIST_FOR_REGISTER = [
   {
     value: "상품명",

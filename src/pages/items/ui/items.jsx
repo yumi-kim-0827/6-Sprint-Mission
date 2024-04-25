@@ -1,4 +1,4 @@
-import { BestItemList } from "/src/widgets/BestItemList/index.jsx";
+import { BestItemList } from "../../../widgets/BestItemList";
 import { ItemList } from "/src/widgets/ItemList/index.jsx";
 
 import "./items.scss";

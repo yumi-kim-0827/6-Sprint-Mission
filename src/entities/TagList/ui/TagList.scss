@@ -1,5 +1,6 @@
 .TagList {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   &__card {
     background: #f9fafb;

@@ -26,8 +26,10 @@ export const getProduct = async ({ productId = null }) => {
   return data;
 };
 
-export const getComments = async ({ productId = null }) => {
-  const response = await fetch(BASE_URL + `/products/${productId}/comments`);
+export const getComments = async ({ productId = null, limit }) => {
+  const response = await fetch(
+    BASE_URL + `/products/${productId}/comments?limit=${limit}`
+  );
   if (!response.ok) {
     throw new Error(`${productId}의 comments 데이터를 가져오지 못했습니다.`);
   }
