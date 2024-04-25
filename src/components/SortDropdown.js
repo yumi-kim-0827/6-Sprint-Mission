@@ -9,16 +9,18 @@ export default function SortDropdown({
   const setCurrentPage = paginationStore((state) => state.setCurrentPage);
 
   // props를 받아 구현하였습니다.
-  const handleDateSort = () => {
-    setSortContent(sortOptions.NEWEST);
-    setOrderBy("recent");
+  const handleSort = (sortContentValue, orderBy) => {
+    setSortContent(sortContentValue);
+    setOrderBy(orderBy);
     setCurrentPage(1);
   };
 
+  const handleDateSort = () => {
+    handleSort(sortOptions.NEWEST, "recent");
+  };
+
   const handleLikeSort = () => {
-    setSortContent(sortOptions.LIKE);
-    setOrderBy("favorite");
-    setCurrentPage(1);
+    handleSort(sortOptions.LIKE, "favorite");
   };
 
   return (
