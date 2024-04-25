@@ -4,6 +4,12 @@ import arrowTurn from "../assets/arrow-turn.svg";
 import kebabIcon from "../assets/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  DARK_GRAY,
+  GRAY_200,
+  INPUT_COLOR,
+  PRIMARY_COLOR,
+} from "../constants/color";
 
 export default function ItemComments({ comments }) {
   const [comment, setComment] = useState("");
@@ -62,7 +68,7 @@ export default function ItemComments({ comments }) {
 }
 
 const CommentInputContainer = styled(DescriptionContainer)`
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid ${GRAY_200};
   margin-top: 24px;
   position: relative;
   padding-bottom: 58px;
@@ -77,7 +83,7 @@ const CommentInputContainer = styled(DescriptionContainer)`
 const CommentInput = styled.input`
   position: relative;
   border-radius: 12px;
-  background-color: #f3f4f6;
+  background-color: ${INPUT_COLOR};
   border: none;
   outline: none;
   height: 104px;
@@ -90,7 +96,7 @@ const CommentInput = styled.input`
     left: 24px;
     font-size: 16px;
     font-weight: 400;
-    color: #9ca3af;
+    color: ${DARK_GRAY}
     white-space: pre-wrap;
 
     @media (min-width: 375px) and (max-width: 767px) {
@@ -100,13 +106,13 @@ const CommentInput = styled.input`
 
   &:placeholder-shown {
     button {
-      background-color: #3692ff;
+      background-color: ${PRIMARY_COLOR};
     }
   }
 `;
 
 const CommentButton = styled.button`
-  background-color: ${({ comment }) => (comment ? "#3692ff" : "#9ca3af")};
+  background-color: ${({ comment }) => (comment ? PRIMARY_COLOR : DARK_GRAY)};
   border: none;
   border-radius: 8px;
   color: #ffffff;
@@ -121,7 +127,7 @@ const CommentButton = styled.button`
 `;
 
 const Comment = styled.div`
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid ${GRAY_200};
   margin-top: 24px;
   display: flex;
   flex-direction: column;
@@ -158,7 +164,7 @@ const WriterInfoContainer = styled.div`
 const CommentUpdatedAt = styled.span`
   font-size: 12px;
   font-weight: 400;
-  color: #9ca3af;
+  color: ${DARK_GRAY};
 `;
 
 const ItemListButtonContainer = styled.div`
@@ -175,7 +181,7 @@ const ItemListButtonContainer = styled.div`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #3692ff;
+  background-color: ${PRIMARY_COLOR};
 
   img {
     width: 19px;
