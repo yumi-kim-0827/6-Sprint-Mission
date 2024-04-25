@@ -18,7 +18,7 @@ function Nav() {
         <StyledNavLink to="/board">자유게시판</StyledNavLink>
         <StyledNavLink
           to="/fleamarket"
-          className={pathname === "/additem" ? "active" : ""}
+          $isActive={pathname === "/additem" ? true : false}
         >
           중고마켓
         </StyledNavLink>
@@ -44,7 +44,6 @@ const StyledNav = styled.div`
   @media ${(props) => props.theme.mobile} {
     padding: 16px 21px;
   }
-
   @media ${(props) => props.theme.tablet} {
     padding: 10px 24px;
   }
@@ -69,15 +68,11 @@ const StyledNavLink = styled(NavLink)`
   font-size: 18px;
   font-weight: 700;
   line-height: 21.48px;
-  color: var(--nav-text-color);
+  color: ${({ $isActive }) => $isActive ? 'var(--main-color)' : 'var(--nav-text-color)'};
   margin-left: 47px;
 
   &:not(:first-of-type) {
     margin-left: 39px;
-  }
-
-  &.active {
-    color: var(--main-color);
   }
 
   @media ${(props) => props.theme.mobile} {
@@ -86,7 +81,6 @@ const StyledNavLink = styled(NavLink)`
     &:not(:first-of-type) {
       margin-left: 8px;
     }
-
   @media ${(props) => props.theme.tablet} {
     margin-left: 39px;
 
