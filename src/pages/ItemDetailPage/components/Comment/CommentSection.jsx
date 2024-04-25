@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getComments } from "../../../../services/api";
 import CommentList from "./CommentList";
-import AddComment from "./AddComent";
+import AddComment from "./AddComment";
 
 function CommentSection() {
   const [commentList, setCommentList] = useState([]);
