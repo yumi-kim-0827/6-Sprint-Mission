@@ -1,5 +1,5 @@
-import iconLogo from "../assets/Group 19@3x.png";
-import textLogo from "../assets/logo@3x.png";
+import iconLogo from "../assets/logo_icon.svg";
+import textLogo from "../assets/logo_text.svg";
 import "./Nav.css";
 import { Link, NavLink } from "react-router-dom";
 

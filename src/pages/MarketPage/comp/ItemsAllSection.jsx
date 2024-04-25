@@ -1,7 +1,7 @@
 import getItems from "../../../api/getItems";
 import { useEffect, useState } from "react";
 import SearchItem from "../../../components/SearchItem";
-import EnterItem from "../../../components/EnterItem";
+import EnterItemButton from "../../../components/EnterItemButton";
 import DropdownSort from "../../../components/DropdownSort";
 import ArrowDown from "../../../assets/ic_arrow_down.svg";
 import PagiNationBar from "../../../components/PagiNationBar";
@@ -53,7 +53,7 @@ function ItemsAllSection() {
           <div className="content-label">전체 상품</div>
           <div className="control-box">
             <SearchItem />
-            <EnterItem />
+            <EnterItemButton />
             <div className="dropdown-box">
               <button className="dropdown-button" onClick={toggleDropdown}>
                 {order === "recent" ? "최신순" : "좋아요순"}

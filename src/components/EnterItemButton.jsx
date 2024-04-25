@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function EnterItem() {
+function EnterItemButton() {
   return (
     <div className="enterButton-box">
       <Link to="additem">
@@ -10,4 +10,4 @@ function EnterItem() {
   );
 }
 
-export default EnterItem;
+export default EnterItemButton;
