@@ -3,12 +3,13 @@ import UserProfile from "./UserProfile";
 import styled from "styled-components";
 
 const Comment = ({ data }) => {
-  const { image, nickname, contents, updatedAt } = data;
+  const { writer, content, createdAt } = data;
+  const { image, nickname } = writer;
 
   return (
     <CommentWrapper>
-      <CommentBody>{contents}</CommentBody>
-      <UserProfile image={image} nickname={nickname} updatedAt={updatedAt} />
+      <CommentBody>{content}</CommentBody>
+      <UserProfile image={image} nickname={nickname} updatedAt={createdAt} />
     </CommentWrapper>
   );
 };

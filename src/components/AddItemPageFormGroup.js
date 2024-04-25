@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import AddItemPageImageInput from "./AddItemPageImageInput";
-import { TextAreaInput } from "./Input";
 import BaseInput from "./BaseInput";
+import BaseTextArea from "./BaseTextArea";
 
 const AddItemPageFormGroup = ({
   label,
@@ -38,7 +38,7 @@ const AddItemPageFormGroup = ({
       break;
     case "description":
       InputComponent = (
-        <TextAreaInput
+        <BaseTextArea
           label={label}
           placeholder={placeholder}
           onChange={onChange}

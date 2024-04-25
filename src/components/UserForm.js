@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Input } from "./Input";
-import Button from "./Button";
+import BaseButton from "./BaseButton";
+import BaseInput from "./BaseInput";
+import BaseIcon from "./BaseIcon";
 
 import eyeIcon from "../assets/icon/eye.svg";
 import eyeOffIcon from "../assets/icon/eye-off.svg";
@@ -33,15 +34,15 @@ const UserFormGroup = ({ label, placeholder, className }) => {
   return (
     <StyledUserFormGroup className={className}>
       <label htmlFor={label}>{labelName}</label>
-      <div className="user-form__input-box">
-        <Input label={label} type={type} placeholder={placeholder} />
+      <StyledUserInputBox>
+        <BaseInput label={label} type={type} placeholder={placeholder} />
         {label.includes("password") && (
-          <button type="button" className="toggle-password-btn">
-            <i className="icon-eye hidden"></i>
-            <i className="icon-eye-off"></i>
+          <button type="button">
+            <BaseIcon src={eyeIcon} />
+            <BaseIcon src={eyeOffIcon} />
           </button>
         )}
-      </div>
+      </StyledUserInputBox>
       <p id={`${label}-error`} className="hidden"></p>
     </StyledUserFormGroup>
   );
@@ -59,44 +60,29 @@ const StyledUserFormGroup = styled.div`
     font-size: 14px;
   }
 
-  .user-form__input-box {
-    position: relative;
-  }
-
-  .toggle-password-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-  }
-
-  i.icon-eye,
-  i.icon-eye-off {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-size: 24px 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-  }
-
-  i.icon-eye {
-    background-image: url(${eyeIcon});
-  }
-
-  i.icon-eye-off {
-    background-image: url(${eyeOffIcon});
-  }
-
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
 
     label {
       font-size: 18px;
       line-height: 21.48px;
+    }
+  }
+`;
+
+const StyledUserInputBox = styled.div`
+  position: relative;
+
+  > button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+
+    > i:last-of-type {
+      display: none;
     }
   }
 `;
@@ -119,28 +105,21 @@ const UserForm = ({ type, isValidation = false }) => {
             placeholder="비밀번호를 다시 한 번 입력해주세요"
           />
         )}
-        <Button
-          className="user-form__btn"
-          size="large"
-          type="submit"
-          disabled={!isValidation}
-        >
+        <StyledSubmitBtn size="large" type="submit" disabled={!isValidation}>
           {buttonText}
-        </Button>
+        </StyledSubmitBtn>
       </StyledUserForm>
     </>
   );
 };
 
-const StyledUserForm = styled.form`
-  .user-form__btn {
-    width: 640px;
-  }
+const StyledUserForm = styled.form``;
+
+const StyledSubmitBtn = styled(BaseButton)`
+  width: 640px;
 
   @media screen and (max-width: 767px) {
-    .user-form__btn {
-      width: 100%;
-    }
+    width: 100%;
   }
 `;
 

@@ -28,9 +28,11 @@ export async function getItem(productId) {
   }
 }
 
-export async function getItemComments(productId) {
+export async function getItemComments(productId, limit = 3) {
   try {
-    const response = await fetch(`${BASE_URL}/products/${productId}/comments`);
+    const response = await fetch(
+      `${BASE_URL}/products/${productId}/comments?limit=${limit}`
+    );
     if (!response.ok) {
       throw new Error("상품 댓글을 가져오는 데 실패했습니다.");
     }
