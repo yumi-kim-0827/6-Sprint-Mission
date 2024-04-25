@@ -1,0 +1,66 @@
+main {
+  margin: 94px auto 0px;
+  width: 1200px;
+}
+
+.Add_registration {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Add_registration > h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.Add_registration button {
+  font-family: "pretendard";
+  width: 88px;
+  height: 42px;
+  border-radius: 8px;
+  color: white;
+  background-color: #9ca3af;
+  border: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form .inputTag {
+  font-family: "pretendard";
+  background-color: #f3f4f6;
+  border: none;
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  padding-left: 24px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+form .inputTextarea {
+  font-family: "pretendard";
+  background-color: #f3f4f6;
+  height: 200px;
+  border: none;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 24px;
+  padding-left: 24px;
+}
