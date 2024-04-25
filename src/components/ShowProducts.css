@@ -49,18 +49,54 @@
   background-color: var(--click-blue);
 }
 
-.Search-Group #select-category {
-  margin-left: 10px;
-  border: solid 1px #e5e7eb;
+.select-category {
+  position: relative;
+}
+
+.dropdown-menu {
   width: 130px;
   height: 42px;
-  padding: 10px;
+  border: solid 1px #e5e7eb;
   border-radius: 12px;
-  outline: none;
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   cursor: pointer;
 }
-.Search-Group #select-category option {
-  font-size: 16px;
+
+.dropdown-menu img {
+  width: 24px;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  width: 130px;
+  height: 84px;
+  border: solid 1px #e5e7eb;
+  border-radius: 12px;
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  cursor: pointer;
+  left: 10px;
+  top: 45px;
+  z-index: 2;
+}
+
+.dropdown-menu .mobileIcon {
+  display: none;
+}
+
+.dropdown-option .line {
+  width: 100%;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: -10px;
 }
 
 .ProductsList {
@@ -121,7 +157,7 @@
     align-items: center;
     padding: 0 auto;
     row-gap: 10px;
-    grid-template-columns: 120px 120px;
+    grid-template-columns: 255px 120px;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "product button"
@@ -140,8 +176,7 @@
     align-items: center;
   }
   .Search-Group div #search {
-    width: 240px;
-    padding-right: 20px;
+    width: 294px;
   }
   .Search-Group a {
     width: 10px;
@@ -151,9 +186,33 @@
     position: relative;
     right: 36px;
   }
-  .Search-Group #select-category {
+  .Search-Group .select-category {
     grid-area: select;
+    margin-left: 10px;
     width: 98px;
+  }
+  .Search-Group .select-category .dropdown-menu {
+    width: 50px;
+    margin-left: auto;
+  }
+  .Search-Group .select-category .dropdown-menu .dropdownIcon {
+    position: relative;
+    right: 10px;
+  }
+  .Search-Group .select-category .dropdown-menu .mobileIcon {
+    position: relative;
+    left: 10px;
+  }
+
+  .Search-Group .dropdown-menu p {
+    display: none;
+  }
+  .dropdown-menu .mobileIcon {
+    display: block;
+  }
+  .Search-Group .dropdown-option {
+    left: -32px;
+    top: 45px;
   }
   .ProductsList {
     display: grid;
