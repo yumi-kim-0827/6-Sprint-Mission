@@ -4,6 +4,7 @@
 
 .productItemContainer {
   display: flex;
+  width: fit-content;
   flex-direction: column;
   gap: 7px;
 }

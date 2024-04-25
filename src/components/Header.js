@@ -97,8 +97,8 @@ function Nav() {
 }
 
 function Header() {
-  const pathname = useLocation();
-  console.log(pathname);
+  const { pathname } = useLocation();
+
   return (
     <>
       <div className={styles.headerContainer}>
@@ -107,12 +107,12 @@ function Header() {
           <Nav />
         </div>
         <div>
-          {pathname === "additem" ? (
+          {pathname === "/additem" ? (
+            <img src={profileImg} alt="프로필 이미지" />
+          ) : (
             <Link to="/signin" className={styles.headerLoginButton}>
               로그인
             </Link>
-          ) : (
-            <img src={profileImg} alt="프로필 이미지" />
           )}
         </div>
       </div>

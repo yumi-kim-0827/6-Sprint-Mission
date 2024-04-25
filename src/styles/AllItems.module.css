@@ -71,6 +71,10 @@
   row-gap: 10px;
 }
 
+.allitemList > li {
+  width: fit-content;
+}
+
 .allitemListItemImage {
   width: 221px;
   height: 221px;
@@ -124,24 +128,18 @@
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .allitemList {
-    grid-template: repeat(2, 301px) / repeat(2, 221px);
+    grid-template: repeat(2, 248px) / repeat(2, 168px);
   }
 
   .allitemTitle {
     display: grid;
-    grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+    grid-template: repeat(2, auto) / 200px auto;
   }
 
   .allitemTitleContent {
+    width: fit-content;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-  }
-
-  .allitemTitleForm {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    display: grid;
-    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
 
   .allitemListItemImage {
@@ -150,6 +148,7 @@
   }
 
   .allitemTitleFormSearch {
+    width: 300px;
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
   }
@@ -157,11 +156,9 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
   }
+
   .SelectBox {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
-    width: 42px;
-    height: 42px;
-    background-image: url("../assets/images/itemsPage/selectBox.svg");
   }
 }

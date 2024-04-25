@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
-import { sortItems } from "../utils/sort";
+import { sortItemsByOrder } from "../utils/sort";
 import Products from "./Products";
 import { Link } from "react-router-dom";
 import styles from "../styles/AllItems.module.css";
@@ -31,7 +31,8 @@ function AllItems({ pageSize }) {
   const [loadingError, setLoadingError] = useState(null);
   const [keyword, setKeyword] = useState("");
 
-  const sortedItems = sortItems(items, order);
+  const sortedItems = sortItemsByOrder(items, order);
+  console.log(sortedItems);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

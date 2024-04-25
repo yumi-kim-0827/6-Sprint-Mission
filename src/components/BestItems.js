@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
 import Products from "./Products";
-import { sortItems } from "../utils/sort";
+import { sortItemsByOrder } from "../utils/sort";
 import styles from "../styles/BestItems.module.css";
 
 function BestItems({ pageSize }) {
@@ -22,7 +22,7 @@ function BestItems({ pageSize }) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
 
-  const sortedItems = sortItems(items, order);
+  const sortedItems = sortItemsByOrder(items, order);
 
   const handleLoad = async (options) => {
     let result;

@@ -19,9 +19,15 @@
   column-gap: 24px;
 }
 
+.bestitemList > li {
+  width: fit-content;
+}
+
 .bestitemListItemImage {
   display: inline-block;
   border: 1px black solid;
+  width: 282px;
+  height: 282px;
   border-radius: 16px;
 }
 
@@ -66,6 +72,11 @@
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .bestitemList {
-    grid-template: 1fr / 336px;
+    grid-template: 1fr / auto;
+  }
+
+  .bestitemListItemImage {
+    width: 343px;
+    height: 343px;
   }
 }
