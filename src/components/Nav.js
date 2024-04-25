@@ -75,6 +75,10 @@ const StyledNavLink = styled(NavLink)`
     margin-left: 39px;
   }
 
+  &.active {
+    color: var(--main-color);
+  }
+
   @media ${(props) => props.theme.mobile} {
     margin-left: 15px;
 
