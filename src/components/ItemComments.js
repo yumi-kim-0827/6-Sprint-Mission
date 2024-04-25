@@ -96,7 +96,7 @@ const CommentInput = styled.input`
     left: 24px;
     font-size: 16px;
     font-weight: 400;
-    color: ${DARK_GRAY}
+    color: ${DARK_GRAY};
     white-space: pre-wrap;
 
     @media (min-width: 375px) and (max-width: 767px) {

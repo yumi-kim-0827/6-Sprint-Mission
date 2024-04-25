@@ -35,8 +35,19 @@ export default function ItemDetail({ item }) {
   );
 }
 const ItemImg = styled.img`
-  aspect-ratio: 1;
   border-radius: 12px;
+  width: 486px;
+  height: 486px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 340px;
+    height: 340px;
+  }
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    width: 343px;
+    height: 343px;
+  }
 `;
 
 export const DescriptionContainer = styled.div`
