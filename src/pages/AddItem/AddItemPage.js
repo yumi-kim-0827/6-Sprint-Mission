@@ -5,31 +5,46 @@ import Tag from "./Tag";
 import * as S from "./Styles/AddItemPageStyles";
 
 function AddItemPage(props) {
-  const [value, setValue] = useState({
-    imgFile: null,
-    name: "",
-    introduce: "",
-    price: "",
-    tag: "",
-  });
+  const [image, setImage] = useState(null);
+  const [name, setName] = useState("");
+  const [introduce, setIntroduce] = useState("");
+  const [price, setPrice] = useState("");
+  const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
-
-  const handleChange = (name, value) => {
-    setValue((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
+  }
+
+  const handleChange = (name, value) => {
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+      case "introduce":
+        setIntroduce(value);
+        break;
+      case "price":
+        setPrice(value);
+        break;
+      case "tag":
+        setTag(value);
+        break;
+      case "image":
+        setImage(value);
+        break;
+      default:
+        break;
+    }
   };
 
   const isFormValid = () => {
-    const { name, introduce, price, tag } = value;
     return (
       name.trim() !== "" &&
       introduce.trim() !== "" &&
       price.trim() !== "" &&
-      tag.trim() !== ""
+      tags.length > 0
     );
   };
 
@@ -55,8 +70,8 @@ function AddItemPage(props) {
         <div>
           <S.Title>상품 이미지</S.Title>
           <FileInput
-            name="imgFile"
-            value={value.imgFile}
+            name="image"
+            value={image}
             onChange={handleChange}
             />
         </div>
@@ -65,24 +80,28 @@ function AddItemPage(props) {
           name="name"
           label="상품명"
           placeholder="상품명을 입력해주세요."
+          value={name}
           onChange={handleInputChange}
         />
         <InputForm
           name="introduce"
           label="상품 소개"
           placeholder="상품 소개를 입력해주세요."
+          value={introduce}
           onChange={handleInputChange}
         />
         <InputForm
           name="price"
           label="판매 가격"
           placeholder="판매 가격을 입력해주세요."
+          value={price}
           onChange={handleInputChange}
         />
         <InputForm
           name="tag"
           label="태그"
           placeholder="태그를 입력해주세요."
+          value={tag}
           onChange={handleInputChange}
           onKeyUp={(e) => AddTags(e)}
         />
