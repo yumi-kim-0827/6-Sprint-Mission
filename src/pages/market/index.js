@@ -1,8 +1,7 @@
 import GNB from "components/Navbar";
 import MainLayout from "components/Layout";
 import Pagination from "components/Pagination";
-import AllProducts from "templates/market/AllProducts";
-import BestProducts from "templates/market/BestProducts";
+import { AllProducts, BestProducts } from "templates/MarketMain";
 
 export default function MarketMainPage() {
   return (

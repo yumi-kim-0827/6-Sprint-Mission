@@ -55,7 +55,8 @@ export const ImageInput = styled.div`
 `;
 
 export const PreviewImage = styled.div`
-  ${ImageInputCard};
+  ${ImageCardCSS};
+  position: relative;
 
   img {
     width: 100%;
