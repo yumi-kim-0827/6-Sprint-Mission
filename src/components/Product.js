@@ -92,7 +92,7 @@ export default function Product() {
             <button className={isFilled ? "filled" : ""}>등록</button>
           </div>
           <div className="comment-container">
-            {productCommentData && (
+            {productCommentData ? (
               <div>
                 {productCommentData.list.map((comment) => (
                   <div key={comment.id} className="comments">
@@ -111,6 +111,11 @@ export default function Product() {
                     <hr />
                   </div>
                 ))}
+              </div>
+            ) : (
+              <div className="comment-empty-container">
+                <img src={inquiry_empty} alt="no comment" />
+                <p>아직 문의가 없습니다.</p>
               </div>
             )}
             <div className="back-container">

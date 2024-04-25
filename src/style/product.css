@@ -154,6 +154,8 @@ hr {
 .back-container {
     margin: 0 auto;
     width: 300px;
+    margin-top: 50px;
+    margin-bottom: 200px;
 }
 
 .back-container>div {
@@ -173,4 +175,16 @@ hr {
 .back-img {
     position: absolute;
     right: 70px;
+}
+
+.comment-empty-container {
+    margin: 0 auto;
+    width: 140px;
+    margin-bottom: 30px;
+}
+
+.comment-empty-container>p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #9ca9af;
 }
