@@ -20,9 +20,13 @@ const LoginForm = () => {
 
   const handleLogin = handleSubmit(async (data) => {
     try {
-      await LoginUser(data);
+      const response = await LoginUser(data);
+      const { accessToken } = response.data;
+      localStorage.setItem("accessToken", accessToken);
       console.log("로그인 성공");
-    } catch (error) {}
+    } catch (error) {
+      console.error("로그인 실패:", error);
+    }
   });
 
   return (
