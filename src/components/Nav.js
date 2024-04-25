@@ -1,19 +1,32 @@
+import { Link, NavLink } from "react-router-dom";
 import pandalogo from "../imgs/pandalogo.png";
 import "../styles/Nav.css";
+
+const getLickStyle = ({ isActive }) => {
+  return {
+    color: isActive ? "#3692FF" : undefined,
+  };
+};
 
 const Nav = () => {
   return (
     <div className="navbar">
       <div className="container_nav">
-        <a href="/">
-          <img src={pandalogo} />
-        </a>
+        <Link to="/">
+          <img src={pandalogo} alt="nav-logo" />
+        </Link>
         <ul className="nav_menu">
-          <a>자유게시판</a>
-          <a>중고마켓</a>
+          <NavLink className="navlink" to="/board" style={getLickStyle}>
+            자유게시판
+          </NavLink>
+          <NavLink className="navlink" to="/items" style={getLickStyle}>
+            중고마켓
+          </NavLink>
         </ul>
       </div>
-      <button>로그인</button>
+      <Link to="/login">
+        <button>로그인</button>
+      </Link>
     </div>
   );
 };
