@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
 
 function ProductListItem({ item, imageStyle }) {
   const { id, images, name, price, favoriteCount } = item;
-
+  console.log(images);
   const formatPriceWithCommas = (price) => {
     return price.toLocaleString("en-US");
   };

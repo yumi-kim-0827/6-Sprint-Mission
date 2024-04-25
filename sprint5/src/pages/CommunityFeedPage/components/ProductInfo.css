@@ -1,17 +1,18 @@
 .productInfo {
   display: flex;
   justify-content: center;
+  padding-bottom: 32px;
   border-bottom: solid 1px #e5e7eb;
 }
 
 .productInfo__img {
-  margin-top: 60px;
   width: 486px;
   height: 486px;
+  border-radius: 12px;
 }
 
 .productInfoItems {
-  margin: 65px 24px;
+  margin: -20px 24px;
 }
 
 .productInfoItems__name {

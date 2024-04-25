@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EmptyComment from "../../../assets/img_inquiry_empty.svg";
 import "./CommentSection.css";
 
 function CommentSection({ comments }) {
@@ -23,22 +24,33 @@ function CommentSection({ comments }) {
         </button>
       </form>
       <div className="commentContainer">
-        {comments.map((comment) => (
-          <div className="comment" key={comment.id}>
-            <div className="comment__content">
-              <p>{comment.content}</p>
-            </div>
-            <div className="commentInfo">
-              <img className="commentInfo__img" src={comment.writer.image} />
-              <div className="commentInfoItems">
-                <p className="commentInfo__nickname">
-                  {comment.writer.nickname}
-                </p>
-                <p className="commentInfo__updateAt">{comment.updatedAt}</p>
+        {comments.length === 0 ? (
+          <div className="comment--empty">
+            <img
+              className="comment--empty-Image"
+              src={EmptyComment}
+              alt="EmptyComment"
+            />
+            <p className="comment--empty-message">아직 문의가 없습니다.</p>
+          </div>
+        ) : (
+          comments.map((comment) => (
+            <div className="comment" key={comment.id}>
+              <div className="comment__content">
+                <p>{comment.content}</p>
+              </div>
+              <div className="commentInfo">
+                <img className="commentInfo__img" src={comment.writer.image} />
+                <div className="commentInfoItems">
+                  <p className="commentInfo__nickname">
+                    {comment.writer.nickname}
+                  </p>
+                  <p className="commentInfo__updateAt">{comment.updatedAt}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </section>
   );

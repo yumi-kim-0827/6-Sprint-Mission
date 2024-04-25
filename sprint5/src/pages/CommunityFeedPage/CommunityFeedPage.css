@@ -8,18 +8,19 @@
 
 .CommunitySection-wrapper {
   width: 1200px;
+  margin-top: 94px;
+  margin-bottom: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-bottom: 250px;
 }
 
 .CommunitySection__button {
   width: 240px;
   height: 48px;
-  margin-top: 40px;
+  margin-top: 24px;
   background: #3692ff;
   border-radius: 40px;
   border: none;

@@ -49,7 +49,25 @@
 }
 
 .commentContainer {
+  width: 100%;
   margin-top: 60px;
+}
+
+.comment--empty {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.comment--empty-message {
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9ca3af;
 }
 
 .comment {
