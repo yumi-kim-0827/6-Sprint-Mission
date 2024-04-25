@@ -1,16 +1,21 @@
 import React from "react";
 import heart from "../../../assets/ic_heart.png";
-import { FormatCurrencyWon } from "../../../utils/FormatCurrencyWon";
+import { formatCurrencyWon } from "../../../utils/formatCurrencyWon";
+import { Link } from "react-router-dom";
 
 function MakeItemCard({ item }) {
   return (
     <div className="items-box">
       <div className="image-box">
-        <img className="item-image" src={item.images} alt={item.name} />
+        <Link to={`/items/${item.id}`}>
+          <img className="item-image" src={item.images} alt={item.name} />
+        </Link>
       </div>
       <div className="description-box">
-        <p className="item-name">{item.name}</p>
-        <p className="item-price">{FormatCurrencyWon(item.price)}</p>
+        <p className="item-name">
+          <Link to={`/items/${item.id}`}>{item.name}</Link>
+        </p>
+        <p className="item-price">{formatCurrencyWon(item.price)}</p>
         <div className="likes-box">
           <a>
             <img src={heart} alt="like-button" />

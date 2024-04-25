@@ -1,7 +1,9 @@
 import iconLogo from "../assets/Group 19@3x.png";
 import textLogo from "../assets/logo@3x.png";
 import "./Nav.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+function activated(isActive) {}
 
 function Nav() {
   return (
@@ -15,9 +17,11 @@ function Nav() {
             <img className="text-logo" src={textLogo} alt="text-logo" />
           </Link>
         </div>
-        <NavMenuButtons></NavMenuButtons>
+        <NavMenuButtons />
         <div className="button-box">
-          <button className="button login-button">로그인</button>
+          <Link to="login">
+            <button className="button login-button">로그인</button>
+          </Link>
         </div>
       </nav>
     </header>
@@ -29,13 +33,19 @@ function NavMenuButtons() {
     <div className="menu-box">
       <div>
         <Link to="/feed">
-          <button className="menu-button">자유게시판</button>
+          <button className="menu-button">
+            <NavLink to="/feed" style={activated}>
+              자유게시판
+            </NavLink>
+          </button>
         </Link>
       </div>
       <div>
-        <Link to="/feed">
-          <button className="menu-button" style={{ color: "#3692FF" }}>
-            중고마켓
+        <Link to="/items">
+          <button className="menu-button">
+            <NavLink to="/items" style={activated}>
+              중고마켓
+            </NavLink>
           </button>
         </Link>
       </div>

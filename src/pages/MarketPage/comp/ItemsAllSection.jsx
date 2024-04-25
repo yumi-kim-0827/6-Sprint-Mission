@@ -1,4 +1,4 @@
-import { GetAllItems } from "../../../api/GetAllItems";
+import getItems from "../../../api/getItems";
 import { useEffect, useState } from "react";
 import SearchItem from "../../../components/SearchItem";
 import EnterItem from "../../../components/EnterItem";
@@ -7,31 +7,39 @@ import ArrowDown from "../../../assets/ic_arrow_down.svg";
 import PagiNationBar from "../../../components/PagiNationBar";
 import MakeItemList from "./MakeItemList";
 
-const PAGESIZE = 10;
+const PAGESIZE_MAX = 10;
 
 function ItemsAllSection() {
   const [order, setOrder] = useState("recent");
   const [items, setItems] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [pageNum, setPageNum] = useState([]);
+  const [pageNum, setPageNum] = useState("1");
+
+  const queryData = `products?page=${pageNum}&pageSize=${PAGESIZE_MAX}&orderBy=${order}`;
 
   const handleSortOption = (option) => {
     setOrder(option);
     setShowDropdown(false);
   };
 
-  const handleLoad = async (options) => {
-    const { list } = await GetAllItems(options);
-    setItems(list);
+  const handleLoad = async () => {
+    try {
+      const list = await getItems(queryData);
+      if (list && list.list) {
+        console.log(list);
+        setItems(list.list);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
-
+  console.log(items);
   const handleLoadPage = (NumOfPage) => {
-    handleLoad({ order, pageNum: NumOfPage, pageSize: PAGESIZE });
     setPageNum(NumOfPage);
   };
 
   useEffect(() => {
-    handleLoad({ order, pageNum: 1, pageSize: PAGESIZE });
+    handleLoad();
   }, [order, pageNum]);
 
   const toggleDropdown = () => {
@@ -56,7 +64,7 @@ function ItemsAllSection() {
                       : "arrow-down-image"
                   }
                   src={ArrowDown}
-                  alt="▼"
+                  alt="정렬버튼"
                 />
               </button>
               {showDropdown && (

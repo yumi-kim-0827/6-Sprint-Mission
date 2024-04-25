@@ -9,7 +9,7 @@ function SearchItem() {
         className="keywords"
         name="keyword"
         placeholder="검색할 상품을 입력해주세요"
-      ></input>
+      />
       <button className="search-button">
         <img src={searchIcon} className="search-icon" alt="search" />
       </button>

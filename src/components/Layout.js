@@ -1,7 +1,7 @@
 import Nav from "./Nav";
-import "./App.css";
+import "./Layout.css";
 
-function App({ children }) {
+function Layout({ children }) {
   return (
     <>
       <Nav />
@@ -10,4 +10,4 @@ function App({ children }) {
   );
 }
 
-export default App;
+export default Layout;
