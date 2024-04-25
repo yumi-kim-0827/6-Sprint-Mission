@@ -17,42 +17,39 @@ function ItemDetailSection() {
   }, []);
 
   return (
-    <>
-      <div className="item-detail-card">
-        <img
-          src={itemDetail.images}
-          alt={itemDetail.name}
-          className="item-detail-img"
-        />
-        <div className="item-details">
-          <div>
-            <h1 className="item-detail-name">{itemDetail.name}</h1>
-            <div className="item-detail-price">
-              {Number(itemDetail.price).toLocaleString()}원
-            </div>
-            <hr />
-            <h2>상품 소개</h2>
-            <div className="item-detail-description">
-              {itemDetail.description}
-            </div>
-            <h2>상품 태그</h2>
-            <div className="item-detail-tags">
-              {itemDetail.tags?.map((tag) => (
-                <nav key={itemDetail.id} className="item-detail-tag">
-                  #{tag}
-                </nav>
-              ))}
-            </div>
+    <div className="item-detail-section">
+      <img
+        src={itemDetail.images}
+        alt={itemDetail.name}
+        className="item-detail-img"
+      />
+      <div className="item-details">
+        <div>
+          <h1 className="item-detail-name">{itemDetail.name}</h1>
+          <div className="item-detail-price">
+            {Number(itemDetail.price).toLocaleString()}원
           </div>
-
-          <nav className="item-detail-favorite">
-            <img src={HeartIconUrl} />
-            {itemDetail.favoriteCount}
-          </nav>
+          <hr />
+          <h2>상품 소개</h2>
+          <div className="item-detail-description">
+            {itemDetail.description}
+          </div>
+          <h2>상품 태그</h2>
+          <div className="item-detail-tags">
+            {itemDetail.tags?.map((tag) => (
+              <nav key={itemDetail.id} className="item-detail-tag">
+                #{tag}
+              </nav>
+            ))}
+          </div>
         </div>
+
+        <nav className="item-detail-favorite">
+          <img src={HeartIconUrl} />
+          {itemDetail.favoriteCount}
+        </nav>
       </div>
-      <hr />
-    </>
+    </div>
   );
 }
 
