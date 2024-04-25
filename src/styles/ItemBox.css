@@ -1,12 +1,17 @@
-@import url("global.css");
 
 .item-box {
-  width: 200px;
+  width: 100%;
   margin: 0 auto;
+  border: 1px solid black;
 }
 .item-img-container {
-  width: 221px;
-  height: 221px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1; /* 정사각형으로 만들어 줌 */
+  margin-bottom: 16px;
 }
 .item-img {
   width: 100%;
