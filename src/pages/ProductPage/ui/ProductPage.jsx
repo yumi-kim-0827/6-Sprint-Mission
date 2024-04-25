@@ -6,6 +6,7 @@ import {
   INITIAL_VALUE,
 } from "../../../shared/constants/constants";
 import { ProductInfoSection } from "../../../widgets/ProductInfoSection";
+import { Main, MainContent } from "../../../shared/ui/MainContent";
 
 export const ProductPage = () => {
   const { productId } = useParams();
@@ -39,14 +40,15 @@ export const ProductPage = () => {
   }, [productId]);
 
   return (
-    <>
-      {
-        //   <div>{productInfo.info?.id}</div>
-        //   <div>{productInfo.comments?.list[0]?.id}</div>
-      }
-      {dataState?.isLoading && <span>로딩 중입니다.</span>}
-      <ProductInfoSection info={productInfo.info} />
-      {dataState?.errorMessage && <span>{dataState.errorMessage.message}</span>}
-    </>
+    <Main>
+      <MainContent>
+        {dataState?.isLoading && <span>로딩 중입니다.</span>}
+        <ProductInfoSection info={productInfo.info} />
+        {/* <ProductCommentsSection comments={productInfo.comments} /> */}
+        {dataState?.errorMessage && (
+          <span>{dataState.errorMessage.message}</span>
+        )}
+      </MainContent>
+    </Main>
   );
 };

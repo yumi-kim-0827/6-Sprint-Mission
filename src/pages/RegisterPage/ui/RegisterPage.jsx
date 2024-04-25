@@ -9,6 +9,7 @@ import {
   FORM_DATA,
   PLACEHOLDER_LIST_FOR_REGISTER,
 } from "../../../shared/constants/constants";
+import { Main, MainContent } from "../../../shared/ui/MainContent";
 
 const tagPlaceholder =
   PLACEHOLDER_LIST_FOR_REGISTER[PLACEHOLDER_LIST_FOR_REGISTER.length - 1];
@@ -18,7 +19,11 @@ export function RegisterPage() {
   const [file, setFile] = useState(FORM_DATA);
 
   const active =
-    file.title && file.description && file.price && file.image && file.tags;
+    file.title &&
+    file.description &&
+    file.price &&
+    file.image &&
+    file.tags.length !== 0;
 
   const handleDelete = (value) => {
     setTags((prevTags) =>
@@ -49,8 +54,8 @@ export function RegisterPage() {
 
   return (
     <>
-      <main className="register">
-        <form className="register__content" onSubmit={handleSubmit}>
+      <Main className="register">
+        <MainContent as="form" onSubmit={handleSubmit}>
           <RegisterHeader active={active} />
           <ImageList onChange={setFile} />
           <div className="register__inputList">
@@ -86,8 +91,8 @@ export function RegisterPage() {
               <TagList tags={tags} onDelete={handleDelete} />
             </div>
           </div>
-        </form>
-      </main>
+        </MainContent>
+      </Main>
     </>
   );
 }
