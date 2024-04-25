@@ -2,8 +2,15 @@ import styled from "styled-components";
 import { DescriptionContainer } from "./ItemDetail";
 import arrowTurn from "../assets/arrow-turn.svg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function ItemComments({ comments }) {
+  const [comment, setComment] = useState("");
+
+  const handleChangeComment = ({ target }) => {
+    setComment(target.value);
+  };
+
   return (
     <>
       <section>
@@ -12,8 +19,9 @@ export default function ItemComments({ comments }) {
           <CommentInput
             id="comment"
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+            onChange={handleChangeComment}
           />
-          <CommentButton>등록</CommentButton>
+          <CommentButton comment={comment}>등록</CommentButton>
         </CommentInputContainer>
         <CommentsContainer>
           {comments.length > 0 ? (
@@ -79,10 +87,16 @@ const CommentInput = styled.input`
     font-weight: 400;
     color: #9ca3af;
   }
+
+  &:placeholder-shown {
+    button {
+      background-color: #3692ff;
+    }
+  }
 `;
 
 const CommentButton = styled.button`
-  background-color: #9ca3af;
+  background-color: ${({ comment }) => (comment ? "#3692ff" : "#9ca3af")};
   border: none;
   border-radius: 8px;
   color: #ffffff;
