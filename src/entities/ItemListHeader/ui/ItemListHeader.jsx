@@ -3,7 +3,8 @@ import { Button } from "/src/shared/ui/Button.jsx";
 import { ToggleList } from "/src/shared/ui/ToggleList.jsx";
 import { Link } from "react-router-dom";
 
-import "../ItemListHeader.scss";
+import "./ItemListHeader.scss";
+import styled from "styled-components";
 
 export function ItemListHeader({ setOrderBy, setKeyword }) {
   const { isDesktop, isMobile } = useCustomMediaQuery();
@@ -15,7 +16,6 @@ export function ItemListHeader({ setOrderBy, setKeyword }) {
   const handleFavoriteSort = () => {
     setOrderBy("favorite");
   };
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     setKeyword(e.target["search"].value);

@@ -5,9 +5,11 @@ import {
   INITIAL_PRODUCT_INFO,
   INITIAL_VALUE,
 } from "../../../shared/constants/constants";
+import { ProductInfoSection } from "../../../widgets/ProductInfoSection";
 
 export const ProductPage = () => {
   const { productId } = useParams();
+  console.log(productId);
   const [productInfo, setProductInfo] = useState(INITIAL_PRODUCT_INFO);
   const [dataState, setDataState] = useState(INITIAL_VALUE);
 
@@ -20,10 +22,11 @@ export const ProductPage = () => {
       }));
       const info = await getProduct({ productId });
       const comments = await getComments({ productId, limit });
-      setProductInfo({
+      setProductInfo((prevProductInfo) => ({
+        ...prevProductInfo,
         info,
         comments,
-      });
+      }));
     } catch (error) {
       setDataState((prevState) => ({ ...prevState, errorMessage: error }));
     } finally {
@@ -37,10 +40,13 @@ export const ProductPage = () => {
 
   return (
     <>
-      {dataState?.errorMessage && <span>{dataState.errorMessage.message}</span>}
-      <div>{productInfo.info?.id}</div>
+      {
+        //   <div>{productInfo.info?.id}</div>
+        //   <div>{productInfo.comments?.list[0]?.id}</div>
+      }
       {dataState?.isLoading && <span>로딩 중입니다.</span>}
-      <div>{productInfo.comments?.list[0].id}</div>
+      <ProductInfoSection info={productInfo.info} />
+      {dataState?.errorMessage && <span>{dataState.errorMessage.message}</span>}
     </>
   );
 };

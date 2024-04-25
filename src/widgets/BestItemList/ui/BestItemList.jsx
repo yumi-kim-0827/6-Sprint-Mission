@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDatum } from "/src/shared/api/api";
-import { ItemCard } from "/src/entities/ItemCard/ItemCard";
+import { ItemCard } from "../../../entities/ItemCard/ui/ItemCard";
 import { INITIAL_VALUE } from "../../../shared/constants/constants";
 
 import "./BestItemList.scss";

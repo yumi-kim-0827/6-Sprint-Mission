@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDatum } from "/src/shared/api/api.jsx";
-import { ItemCard } from "/src/entities/ItemCard/ItemCard.jsx";
+import { ItemCard } from "/src/entities/ItemCard";
 import { ItemListHeader } from "/src/entities/index.jsx";
 
 import "./ItemList.scss";

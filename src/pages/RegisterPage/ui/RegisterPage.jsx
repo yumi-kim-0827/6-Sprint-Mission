@@ -14,7 +14,7 @@ const tagPlaceholder =
   PLACEHOLDER_LIST_FOR_REGISTER[PLACEHOLDER_LIST_FOR_REGISTER.length - 1];
 
 export function RegisterPage() {
-  const [tags, setTags] = useState(null);
+  const [tags, setTags] = useState([]);
   const [file, setFile] = useState(FORM_DATA);
 
   const active =
@@ -22,7 +22,7 @@ export function RegisterPage() {
 
   const handleDelete = (value) => {
     setTags((prevTags) =>
-      prevTags.length == 1 ? null : prevTags.filter((v) => v !== value)
+      prevTags.length == 1 ? [] : prevTags.filter((v) => v !== value)
     );
   };
 
@@ -44,10 +44,7 @@ export function RegisterPage() {
   };
 
   useEffect(() => {
-    setFile((prevFile) => ({
-      ...prevFile,
-      tags,
-    }));
+    setFile((prevFile) => ({ ...prevFile, tags }));
   }, [tags]);
 
   return (
@@ -80,14 +77,9 @@ export function RegisterPage() {
                 onKeyPress={(e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-                    const newValue = {
-                      id: crypto.randomUUID(),
-                      value: e.target.value,
-                    };
+                    const newValue = e.target.value;
                     e.target.value = "";
-                    setTags((prevTag) =>
-                      prevTag ? [...prevTag, newValue] : [newValue]
-                    );
+                    setTags((prevTag) => [...prevTag, newValue]);
                   }
                 }}
               ></ItemInput>
