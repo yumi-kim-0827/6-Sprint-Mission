@@ -12,6 +12,7 @@ export default function ItemDetails() {
   const params = useParams();
   const item = useItem(params.id);
   const [comments, setComments] = useState([]);
+  const [inquiryComment, setInquiryComment] = useState('');
   const itemId = params.id;
   const nav = useNavigate();
 
@@ -31,6 +32,16 @@ export default function ItemDetails() {
     nav(-1);
   };
 
+  const handleChange = e => {
+    setInquiryComment(e.target.value);
+  };
+
+  const isFormComplete = inquiryComment.trim() !== '';
+
+  const buttonStyle = {
+    backgroundColor: isFormComplete ? '#3692FF' : '#9CA3AF',
+  };
+
   if (!item) {
     return <div>데이터 로딩중...</div>;
   }
@@ -38,12 +49,19 @@ export default function ItemDetails() {
     <Container>
       <ItemDetailCard {...item} />
       <HorizontalLine></HorizontalLine>
-      <Form action=''>
+      <Form>
         <label htmlFor='comment'>
           문의하기
-          <TextArea placeholder='개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.' />
+          <TextArea
+            id='comment'
+            value={inquiryComment}
+            onChange={handleChange}
+            placeholder='개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.'
+          />
         </label>
-        <Button>등록</Button>
+        <Button type='submit' disabled={!isFormComplete} style={buttonStyle}>
+          등록
+        </Button>
       </Form>
       {comments.length === 0 ? (
         <EmptyComment>
