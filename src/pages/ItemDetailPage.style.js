@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ButtonWithIcon from "../components/ButtonWithIcon";
+import SquareImage from "../components/SquareImage";
 
 export const ItemDetailPageWrapper = styled.div`
   display: flex;
@@ -19,3 +20,16 @@ export const ToGoItemPageBtn = styled(ButtonWithIcon)`
   font-size: 18px;
   border-radius: 40px;
 `;
+
+export const EmptyCommentImageSection = styled.div`
+  margin: 0 auto;
+  width: 200px;
+
+  > p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #9ca3af;
+    text-align: center;
+  }
+`;
+export const EmptyCommentImage = styled(SquareImage)``;

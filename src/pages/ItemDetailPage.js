@@ -9,11 +9,21 @@ import Comment from "../components/Comment";
 import { getItem, getItemComments } from "../services/api.js";
 
 import IconBack from "../assets/icon/back.svg";
+import EmptyCommentImage from "../assets/img/Img_inquiry_empty.png";
+
+const EmptyCommentImageSection = () => {
+  return (
+    <S.EmptyCommentImageSection>
+      <S.EmptyCommentImage src={EmptyCommentImage} alt="댓글이 없습니다" />
+      <p>아직 댓글이 없습니다</p>
+    </S.EmptyCommentImageSection>
+  );
+};
 
 const ItemDetailPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [comments, setComments] = useState(null);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -38,13 +48,19 @@ const ItemDetailPage = () => {
     fetchItemComments();
   }, [id]);
 
+  console.log(comments);
+
   return (
     <>
       {product && (
         <S.ItemDetailPageWrapper>
           <ItemDetailPageCardLarge data={product} />
           <CommentInputBox title="문의하기" />
-          {comments && comments.map((comment) => <Comment data={comment} />)}
+          {comments.length > 0 ? (
+            comments.map((comment) => <Comment data={comment} />)
+          ) : (
+            <EmptyCommentImageSection />
+          )}
           <Link to="/items">
             <S.ToGoItemPageBtn src={IconBack}>
               목록으로 돌아가기

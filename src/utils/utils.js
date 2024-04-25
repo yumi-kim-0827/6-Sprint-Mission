@@ -14,3 +14,13 @@ export function getTimeAgo(updatedAt) {
     return `${days}일 전`;
   }
 }
+
+export function debounce(callback, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback.apply(this, args);
+    }, delay);
+  };
+}
