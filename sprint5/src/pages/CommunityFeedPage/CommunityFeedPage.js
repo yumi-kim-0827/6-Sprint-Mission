@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ProductInfo from "./components/ProductInfo";
 import CommentSection from "./components/CommentSection";
 import { getProductInfo, getComments } from "../../api/Api";
+import backIcon from "../../assets/ic_back.png";
+import "./CommunityFeedPage.css";
 
 function useProductData(productID) {
   const [product, setProduct] = useState(null);
@@ -72,10 +74,15 @@ function CommunityFeedPage() {
   }
 
   return (
-    <section>
-      {product && <ProductInfo product={product} />}
-      <CommentSection comments={comments} />
-      <button>목록으로 돌아가기</button>
+    <section className="CommunitySection">
+      <div className="CommunitySection-wrapper">
+        {product && <ProductInfo product={product} />}
+        <CommentSection comments={comments} />
+        <button className="CommunitySection__button">
+          <p>목록으로 돌아가기</p>
+          <img src={backIcon} alt="backIcon" />
+        </button>
+      </div>
     </section>
   );
 }

@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Products.css";
 import favoriteIcon from "../../assets/favorite-icon.svg";
+import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
 function ProductListItem({ item, imageStyle }) {
   const { id, images, name, price, favoriteCount } = item;
@@ -10,7 +16,7 @@ function ProductListItem({ item, imageStyle }) {
     return price.toLocaleString("en-US");
   };
   return (
-    <Link to={`/items/${id}`}>
+    <StyledLink to={`/items/${id}`}>
       <div className="ProductListItem ">
         <img className={` ${imageStyle}`} src={images} alt={imageStyle} />
         <div>
@@ -26,7 +32,7 @@ function ProductListItem({ item, imageStyle }) {
           </div>
         </div>
       </div>
-    </Link>
+    </StyledLink>
   );
 }
 function Products({ items, type }) {
