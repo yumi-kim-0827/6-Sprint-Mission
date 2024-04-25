@@ -1,7 +1,7 @@
 import React from "react";
 
 function LoginPage() {
-  return <div>로그인 임시 페이지입니다.</div>;
+  return <div>LoginPage</div>;
 }
 
 export default LoginPage;
