@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { DescriptionContainer } from "./ItemDetail";
 import arrowTurn from "../assets/arrow-turn.svg";
+import { Link } from "react-router-dom";
 
 const CommentInputContainer = styled(DescriptionContainer)`
   border-top: 1px solid #e5e7eb;
@@ -97,12 +98,6 @@ const ItemListButtonContainer = styled.div`
   justify-content: center;
   gap: 10px;
 
-  img {
-    width: 19px;
-    height: 16px;
-  }
-`;
-const ItemListButton = styled.button`
   width: 240px;
   height: 48px;
   border: none;
@@ -110,10 +105,16 @@ const ItemListButton = styled.button`
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
-  margin: 40px auto;
   cursor: pointer;
-
   background-color: #3692ff;
+
+  img {
+    width: 19px;
+    height: 16px;
+  }
+`;
+const ItemListButton = styled.div`
+  margin: 40px auto;
 `;
 
 export default function ItemComments({ comments }) {
@@ -148,10 +149,12 @@ export default function ItemComments({ comments }) {
             <p>댓글이 없습니다.</p>
           )}
           <ItemListButton>
-            <ItemListButtonContainer>
-              <span>목록으로 돌아가기</span>
-              <img src={arrowTurn} alt="돌아가기 아이콘" />
-            </ItemListButtonContainer>
+            <Link to="/items">
+              <ItemListButtonContainer>
+                <span>목록으로 돌아가기</span>
+                <img src={arrowTurn} alt="돌아가기 아이콘" />
+              </ItemListButtonContainer>
+            </Link>
           </ItemListButton>
         </CommentsContainer>
       </section>

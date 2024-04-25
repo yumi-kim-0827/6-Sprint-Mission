@@ -12,6 +12,9 @@ body {
   margin: 0;
   background-color: #ffffff;
 }
+a {
+  text-decoration-line: none;
+}
 
 #root {
   margin: 0 auto;
