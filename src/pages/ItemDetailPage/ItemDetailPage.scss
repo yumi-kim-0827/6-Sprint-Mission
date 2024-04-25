@@ -104,7 +104,7 @@ hr {
   width: 100%;
 }
 
-/* AddComment Components*/
+/* AddComment Components */
 .add-comment-title {
   font-size: 16px;
   font-weight: 600;
@@ -148,4 +148,43 @@ hr {
   padding: 12px 22px;
   margin: 16px 0;
   justify-content: right;
+}
+
+/* CommentList Components */
+.comment {
+  hr {
+    margin: 24px 0;
+  }
+
+  cursor: default;
+}
+
+.comment-content {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--gray-900);
+  margin-bottom: 24px;
+}
+
+.comment-writer {
+  display: flex;
+  gap: 8px;
+
+  .comment-writer-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .comment-writer-nickname {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .comment-writer-createdAt {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
 }

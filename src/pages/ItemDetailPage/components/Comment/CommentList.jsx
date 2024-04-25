@@ -1,9 +1,23 @@
 function CommentList({ comment }) {
+  const dateString = comment.createdAt.split("T")[0];
+
   return (
-    <div>
-      <img src={comment.writer.image} alt={comment.writer} />
-      {comment.nickname}
-      {comment.content}
+    <div className="comment">
+      <div className="comment-content">{comment.content}</div>
+      <div className="comment-writer">
+        <img
+          src={comment.writer.image}
+          alt={comment.writer.nickname}
+          className="comment-writer-avatar"
+        />
+        <div>
+          <div className="comment-writer-nickname">
+            {comment.writer.nickname}
+          </div>
+          <div className="comment-writer-createdAt">{dateString}</div>
+        </div>
+      </div>
+      <hr />
     </div>
   );
 }
