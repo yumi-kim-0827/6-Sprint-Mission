@@ -12,6 +12,8 @@ import ic_back from "../assets/icon/ic_back.svg";
 export default function Product() {
   const [productData, setProductData] = useState(null);
   const [productCommentData, setProductCommentData] = useState(null);
+  const [comment, setComment] = useState("");
+  const [isFilled, setIsFilled] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -37,6 +39,12 @@ export default function Product() {
     fetchData();
     fetchCommentData();
   }, [id]);
+
+  const handleCommentChange = (e) => {
+    const text = e.target.value;
+    setComment(text);
+    setIsFilled(text.trim().length > 0);
+  };
 
   return (
     <>
@@ -78,8 +86,10 @@ export default function Product() {
             <textarea
               className="add-comment-des"
               placeholder="개인정보를 고유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              value={comment}
+              onChange={handleCommentChange}
             />
-            <button>등록</button>
+            <button className={isFilled ? "filled" : ""}>등록</button>
           </div>
           <div className="comment-container">
             {productCommentData && (
@@ -94,7 +104,7 @@ export default function Product() {
                           {comment.writer.nickname}
                         </p>
                         <p className="comments-times">
-                          {TimeString(comment.createdAt)}
+                          {TimeString(comment.updatedAt)}
                         </p>
                       </div>
                     </div>
