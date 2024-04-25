@@ -1,54 +1,37 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { getItemsId } from '../services/api';
+import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import useItem from '../hooks/useItem';
 import ItemDetailCard from '../components/ItemDetailCard';
 import Comment from '../components/Comment';
 import ic_back from '../assets/ic_back.png';
-
-const mockComment = {
-  list: [
-    {
-      id: 5,
-      content: '상세 잔기스 사진 있을까요?',
-      createdAt: '2024-04-23T13:05:07.675Z',
-      updatedAt: '2024-04-23T13:05:07.675Z',
-      writer: {
-        id: 20,
-        nickname: '이용섭',
-        image:
-          'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/20/1713876617092/123123.png',
-      },
-    },
-    {
-      id: 4,
-      content: '색상이 어떻게 되는지 궁금해요!',
-      createdAt: '2024-04-23T13:04:49.873Z',
-      updatedAt: '2024-04-23T13:04:49.873Z',
-      writer: {
-        id: 20,
-        nickname: '이용섭',
-        image:
-          'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Sprint_Mission/user/20/1713876617092/123123.png',
-      },
-    },
-  ],
-  nextCursor: null,
-};
+import { getItemsComments } from '../api/getItemsComments';
 
 export default function ItemDetails() {
   const params = useParams();
-  const curItem = useItem(params.id);
-  const [comments, setComments] = useState(mockComment);
+  const item = useItem(params.id);
+  const [comments, setComments] = useState([]);
+  const itemId = params.id;
 
-  if (!curItem) {
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const data = await getItemsComments(itemId, 3);
+        setComments(data.list);
+      } catch (error) {
+        console.error('Failed to fetch items:', error);
+      }
+    };
+    fetchComments();
+  }, [itemId]);
+
+  if (!item) {
     return <div>데이터 로딩중...</div>;
   }
   return (
     <Container>
-      <ItemDetailCard {...curItem} />
+      <ItemDetailCard {...item} />
       <HorizontalLine></HorizontalLine>
       <Form action=''>
         <label htmlFor='comment'>
@@ -57,12 +40,12 @@ export default function ItemDetails() {
         </label>
         <Button>등록</Button>
       </Form>
-      {comments.list.map(comment => (
+      {comments.map(comment => (
         <Comment key={comment.id} {...comment} />
       ))}
       <BlueButton>
         <p>목록으로 돌아가기</p>
-        <img src={ic_back} alt='' />
+        <img src={ic_back} alt='뒤로 돌아가기' />
       </BlueButton>
     </Container>
   );
