@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { DescriptionContainer } from "./ItemDetail";
+import { DescriptionContainer, KebabIcon } from "./ItemDetail";
 import arrowTurn from "../assets/arrow-turn.svg";
+import kebabIcon from "../assets/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -28,9 +29,13 @@ export default function ItemComments({ comments }) {
             comments.map((comment) => {
               return (
                 <Comment key={comment.id}>
+                  <KebabIcon src={kebabIcon} />
                   <p>{comment.content}</p>
                   <WriterContainer>
-                    <img src={comment.writer?.image} alt="프로필 이미지" />
+                    <ProfileImg
+                      src={comment.writer?.image}
+                      alt="프로필 이미지"
+                    />
                     <WriterInfoContainer>
                       <span>{comment.writer?.nickname}</span>
                       <CommentUpdatedAt>{comment.updatedAt}</CommentUpdatedAt>
@@ -123,13 +128,13 @@ const Comment = styled.div`
   gap: 24px;
 `;
 
+const ProfileImg = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
 const CommentsContainer = styled(DescriptionContainer)`
   margin-bottom: 60px;
-
-  img {
-    width: 40px;
-    height: 40px;
-  }
 
   p {
     font-size: 16px;

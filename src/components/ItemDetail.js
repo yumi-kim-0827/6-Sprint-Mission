@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import heartIcon from "../assets/heart-icon.svg";
+import kebabIcon from "../assets/icon-kebab.svg";
 
 export default function ItemDetail({ item }) {
   return (
@@ -10,6 +11,7 @@ export default function ItemDetail({ item }) {
           <h1>{item.name}</h1>
           {/* <h2>{item.price.toLocaleString()}원</h2> 
         TypeError: Cannot read properties of undefined (reading 'toLocaleString') */}
+          <KebabIcon src={kebabIcon} />
           <h2>{item.price ? `${item.price.toLocaleString()}원` : ""}</h2>
         </TitleContainer>
         <ContentContainer>
@@ -41,6 +43,7 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 
   h1 {
     font-size: 24px;
@@ -121,4 +124,15 @@ const HeartContainer = styled.div`
   }
 `;
 
-const ItemDescriptionContainer = styled(DescriptionContainer)``;
+const ItemDescriptionContainer = styled(DescriptionContainer)`
+  h3 {
+    color: #4b5563;
+  }
+`;
+
+export const KebabIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+`;
