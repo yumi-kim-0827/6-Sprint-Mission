@@ -94,12 +94,14 @@ const ImgContainer = styled.div`
 const TextWrap = styled.div`
   width: 340px;
   position: relative;
+
   @media (min-width: 768px) {
     margin-left: 16px;
     top: 3px;
   }
 
   @media (min-width: 1199px) {
+    width: 690px;
     margin-left: 24px;
   }
 `;
