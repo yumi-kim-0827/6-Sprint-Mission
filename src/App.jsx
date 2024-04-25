@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 
-import Main from './Main';
+import Home from './Home';
 import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
 import AddItem from './pages/AddItem';
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Main />}>
+        <Route path='/' element={<Home />}>
           <Route index element={<Items />} />
           <Route path='/items' element={<Items />} />
           <Route path='/items/:id' element={<ItemDetails />} />
