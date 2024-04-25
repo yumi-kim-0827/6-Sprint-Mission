@@ -116,10 +116,11 @@ const UserForm = ({ type, isValidation = false }) => {
 const StyledUserForm = styled.form``;
 
 const StyledSubmitBtn = styled(BaseButton)`
-  width: 640px;
+  width: 100%;
+  max-width: 640px;
 
   @media screen and (max-width: 767px) {
-    width: 100%;
+    max-width: 400px;
   }
 `;
 
