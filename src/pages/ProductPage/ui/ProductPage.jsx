@@ -43,7 +43,7 @@ export const ProductPage = () => {
     <Main>
       <MainContent>
         {dataState?.isLoading && <span>로딩 중입니다.</span>}
-        <ProductInfoSection info={productInfo.info} />
+        {productInfo?.info && <ProductInfoSection info={productInfo.info} />}
         {/* <ProductCommentsSection comments={productInfo.comments} /> */}
         {dataState?.errorMessage && (
           <span>{dataState.errorMessage.message}</span>
