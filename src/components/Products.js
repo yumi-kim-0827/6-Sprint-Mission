@@ -66,12 +66,14 @@ const Product = () => {
       <BestTitle>베스트 상품</BestTitle>
       <BestProductContainer>
         {bestProducts.map((product) => (
-          <ProductCard key={product.id}>
-            <BestProductImage src={product.images[0]} alt={product.name} />
-            <ProductName>{product.name} 팝니다</ProductName>
-            <ProductPrice>{product.price.toLocaleString()}원</ProductPrice>
-            <ProductLikes> 🤍{product.favoriteCount}</ProductLikes>
-          </ProductCard>
+          <StyledLink to={`/items/${product.id}`} key={product.id}>
+            <ProductCard>
+              <BestProductImage src={product.images[0]} alt={product.name} />
+              <ProductName>{product.name} 팝니다</ProductName>
+              <ProductPrice>{product.price.toLocaleString()}원</ProductPrice>
+              <ProductLikes> 🤍{product.favoriteCount}</ProductLikes>
+            </ProductCard>
+          </StyledLink>
         ))}
       </BestProductContainer>
       <TotalTitle>상품</TotalTitle>
@@ -89,12 +91,14 @@ const Product = () => {
       </ButtonContainer>
       <TotalProductContainer>
         {products.map((product) => (
-          <ProductCard key={product.id}>
-            <TotalProductImage src={product.images[0]} alt={product.name} />
-            <ProductName>{product.name}</ProductName>
-            <ProductPrice>{product.price.toLocaleString()}원</ProductPrice>
-            <ProductLikes> 🤍 {product.favoriteCount}</ProductLikes>
-          </ProductCard>
+          <StyledLink to={`/items/${product.id}`} key={product.id}>
+            <ProductCard>
+              <TotalProductImage src={product.images[0]} alt={product.name} />
+              <ProductName>{product.name}</ProductName>
+              <ProductPrice>{product.price.toLocaleString()}원</ProductPrice>
+              <ProductLikes> 🤍 {product.favoriteCount}</ProductLikes>
+            </ProductCard>
+          </StyledLink>
         ))}
       </TotalProductContainer>
       <Pagination
@@ -165,6 +169,11 @@ const ProductContainer = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000000;
 `;
 
 const ProductCard = styled.div`
