@@ -5,7 +5,6 @@ import { getProductData, getProductCommentData } from "./API";
 import { Link, useParams } from "react-router-dom";
 import Commas from "../util/Commas";
 import TimeString from "../util/times";
-import reply_empty from "../assets/img/img_reply_empty.svg";
 import inquiry_empty from "../assets/img/img_inquiry_empty.svg";
 import ic_back from "../assets/icon/ic_back.svg";
 
