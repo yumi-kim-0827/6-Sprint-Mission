@@ -10,7 +10,7 @@
 }
 
 .item_wrap {
-  max-height: 486px;
+  min-height: 486px;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 486px 1fr;
@@ -101,10 +101,12 @@
   font-weight: 500;
   color: #4b5563;
 }
+
 .item_tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding-bottom: 14px;
 }
 
 .item_tag {

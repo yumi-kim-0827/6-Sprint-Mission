@@ -9,13 +9,13 @@ import Product from "./Product";
 const ProductBest = () => {
   const [products, setProducts] = useState([]);
 
-  const handleLoad = async ({ orderBy }) => {
-    const { list } = await getProducts({ orderBy });
+  const handleLoad = async (query) => {
+    const { list } = await getProducts(query);
     setProducts(list);
   };
 
   useEffect(() => {
-    handleLoad({ orderBy: "favorite" });
+    handleLoad({ orderBy: "favorite", page: 1, pageSize: 4 });
   }, []);
 
   return (

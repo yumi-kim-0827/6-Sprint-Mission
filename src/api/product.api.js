@@ -1,16 +1,19 @@
-const BASE_URL = "https://panda-market-api.vercel.app";
+import instance from "./Axios";
 
 export async function getProducts({
   orderBy = "recent",
   page = 1,
   pageSize = 10,
 }) {
-  const query = `orderBy=${orderBy}&page=${page}`;
+  const query = `orderBy=${orderBy}&page=${page}&pageSize=${pageSize}`;
   // console.log(query);
   try {
-    const response = await fetch(`${BASE_URL}/products?${query}`);
+    const response = await instance.get(`/products?${query}`);
 
-    const body = await response.json();
+    const body = response.data;
+
+    // console.log(body);
+
     return body;
   } catch (error) {
     console.error("API 오류 \n", error);
@@ -18,17 +21,21 @@ export async function getProducts({
 }
 
 export async function getProductId({ productId }) {
-  const response = await fetch(`${BASE_URL}/products/${productId}`);
-  const body = await response.json();
+  const response = await instance.get(`/products/${productId}`);
+  const body = response.data;
+
   // console.log(body);
+
   return body;
 }
 
 export async function getComment({ productId, limit = 3 }) {
-  const response = await fetch(
-    `${BASE_URL}/products/${productId}/comments?limit=${limit}`
+  const response = await instance.get(
+    `/products/${productId}/comments?limit=${limit}`
   );
-  const body = await response.json();
+  const body = response.data;
+
   // console.log(body);
+
   return body;
 }
