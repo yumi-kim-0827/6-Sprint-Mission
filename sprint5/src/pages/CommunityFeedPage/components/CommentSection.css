@@ -6,6 +6,7 @@
 }
 
 .commentInput__textarea {
+  font-family: "Pretendard";
   resize: none;
   width: 1200px;
   height: 104px;
@@ -34,10 +35,17 @@
   right: 0;
   bottom: -60px;
   padding: 12px 23px;
-  background: #9ca3af;
+  background: #3692ff;
   border-radius: 8px;
   border: none;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.commentInput__Button:disabled {
+  background-color: #9ca3af;
+  color: #ffffff;
+  cursor: not-allowed;
 }
 
 .commentContainer {

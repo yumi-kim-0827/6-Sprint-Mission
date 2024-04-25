@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ProductInfo from "./components/ProductInfo";
 import CommentSection from "./components/CommentSection";
 import { getProductInfo, getComments } from "../../api/Api";
@@ -53,6 +53,11 @@ function useCommentData(productID) {
 
 function CommunityFeedPage() {
   const { productID } = useParams();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/items");
+  };
+
   const {
     product,
     loading: productLoading,
@@ -78,7 +83,7 @@ function CommunityFeedPage() {
       <div className="CommunitySection-wrapper">
         {product && <ProductInfo product={product} />}
         <CommentSection comments={comments} />
-        <button className="CommunitySection__button">
+        <button className="CommunitySection__button" onClick={handleClick}>
           <p>목록으로 돌아가기</p>
           <img src={backIcon} alt="backIcon" />
         </button>
