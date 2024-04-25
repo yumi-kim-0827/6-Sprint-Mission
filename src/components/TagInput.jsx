@@ -4,11 +4,13 @@ import './style/TagInput.css';
 export default function TagInput({ name, tagList, setTagList }) {
   const [tag, setTag] = useState('');
 
-  const handleKeyUp = e => {
+  const handleKeyDown = e => {
     if (tag.trim() !== '' && e.key === 'Enter') {
-      setTagList([tag, ...tagList]);
-      e.preventDefault();
-      setTag('');
+      if (e.nativeEvent.isComposing === false) {
+        setTagList([tag, ...tagList]);
+        e.preventDefault();
+        setTag('');
+      }
     }
   };
 
@@ -31,7 +33,7 @@ export default function TagInput({ name, tagList, setTagList }) {
           type='text'
           placeholder='태그를 입력해주세요'
           onChange={handleInputChange}
-          onKeyUp={handleKeyUp}
+          onKeyDown={handleKeyDown}
         />
       </label>
       <div className='tag__container'>
