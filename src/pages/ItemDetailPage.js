@@ -43,4 +43,9 @@ const DetailContainer = styled.section`
   gap: 24px;
   width: 100%;
   height: 486px;
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    flex-direction: column;
+    margin-bottom: 224px;
+  }
 `;

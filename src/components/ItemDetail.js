@@ -45,11 +45,27 @@ export const DescriptionContainer = styled.div`
   h1 {
     font-size: 24px;
     font-weight: 600;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      font-size: 20px;
+    }
+
+    @media (min-width: 375px) and (max-width: 767px) {
+      font-size: 16px;
+    }
   }
 
   h2 {
     font-size: 40px;
     font-weight: 600;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      font-size: 32px;
+    }
+
+    @media (min-width: 375px) and (max-width: 767px) {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -76,6 +92,7 @@ const ContentDescription = styled.p`
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 24px;
+  line-height: 22px;
 `;
 
 const Tag = styled(ContentDescription)`
@@ -99,6 +116,9 @@ const HeartContainer = styled.div`
   gap: 10px;
   flex-grow: 0;
   border-radius: 35px;
+  @media (min-width: 375px) and (max-width: 767px) {
+    margin-top: 24px;
+  }
 `;
 
 const ItemDescriptionContainer = styled(DescriptionContainer)``;

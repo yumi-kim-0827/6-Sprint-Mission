@@ -86,6 +86,11 @@ const CommentInput = styled.input`
     font-size: 16px;
     font-weight: 400;
     color: #9ca3af;
+    white-space: pre-wrap;
+
+    @media (min-width: 375px) and (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 
   &:placeholder-shown {
