@@ -4,7 +4,7 @@ import "./AddItemPage.css";
 
 function AddItemPage() {
   const [tags, setTags] = useState([]);
-  const [disabled, setDisabled] = useState(true); 
+  const [disabled, setDisabled] = useState(true);
   const [values, setValues] = useState({
     title: "",
     description: "",
@@ -15,18 +15,18 @@ function AddItemPage() {
 
   const addTags = (e) => { // 여기서 버그 발생 : 태그만 입력하고 엔터를 누르는데 등록버튼이 활성화됨
     if (e.keyCode === 13 && values.tag !== "") {
-      
+
       setTags([...tags, values.tag]);
-      // setValues({tag: ""}) => 여기가 문제
+      // setValues({tag: ""}) => 여기가 문제 
       values.tag = '';
     }
   };
 
 
-  const deleteTag = (val) =>{
+  const deleteTag = (val) => {
     const nextTags = tags.filter((tag) => tag !== val);
     setTags(nextTags);
-    
+
   }
 
   const handleChange = (name, value) => {
@@ -43,10 +43,9 @@ function AddItemPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(values);
   };
 
-  useEffect(() => { // 여기서 뭔가 문제가 있나?
+  useEffect(() => { 
     const { title, description, price } = values;
     if (title !== "" && description !== "" && price !== "") {
       console.log('등록버튼 활성화');
@@ -120,7 +119,7 @@ function AddItemPage() {
         <div className="tag-input-wrapper">
           <ul>
             {tags.map((item, index) => {
-              return <li key={index}>{item} <button onClick={()=> deleteTag(item)}>X</button></li>;
+              return <li key={index}>{item} <button onClick={() => deleteTag(item)}>X</button></li>;
             })}
           </ul>
         </div>
