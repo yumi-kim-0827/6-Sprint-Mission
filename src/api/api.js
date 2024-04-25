@@ -22,3 +22,22 @@ export async function getBestProducts() {
     throw error;
   }
 }
+
+export async function getProductDetail(params) {
+  try {
+    const { data } = await axiosInstance.get(`products/${params}`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getComments(params) {
+  try {
+    const query = 3;
+    const { data } = await axiosInstance.get(`products/${params}/comments?limit=${query}`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
