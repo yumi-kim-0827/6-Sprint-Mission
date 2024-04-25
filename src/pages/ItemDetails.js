@@ -12,18 +12,18 @@ export default function ItemDetails() {
     <>
       <Navbar />
       <main className="my-6">
-        <div className="mx-auto flex w-[1200px] flex-col">
-          <div className="flex justify-center">
+        <div className="mx-auto flex flex-col px-4 sm:px-6 lg:w-[1200px] lg:px-0">
+          <div className="flex flex-col justify-center sm:flex-row">
             <img
               src={postedItems.images[0]}
               alt={postedItems.name}
-              className="h-[486px] w-[486px] rounded-2xl object-fill"
+              className="h-[340px] w-[340px] rounded-2xl object-fill lg:h-[486px] lg:w-[486px]"
             />
-            <div className="ml-6 flex flex-grow flex-col">
-              <h1 className="text-2xl font-semibold">
+            <div className="ml-6 mt-4 flex flex-grow flex-col sm:mt-0">
+              <h1 className="text-xl font-semibold lg:text-2xl">
                 {postedItems.name} 팔아요
               </h1>
-              <h1 className="my-4 text-4xl font-semibold">
+              <h1 className="my-4 text-3xl font-semibold lg:text-4xl">
                 {formatNumber(postedItems.price)} 원
               </h1>
               <hr className="my-4" />
@@ -41,7 +41,7 @@ export default function ItemDetails() {
                   );
                 })}
               </div>
-              <div className="mt-auto flex w-fit cursor-default items-center justify-center gap-x-1 rounded-[35px] border px-3 py-1">
+              <div className="mt-6 flex w-fit cursor-default items-center justify-center gap-x-1 rounded-[35px] border px-3 py-1 lg:mt-auto">
                 <img
                   src={favoriteIcon}
                   alt="favoriteicon"

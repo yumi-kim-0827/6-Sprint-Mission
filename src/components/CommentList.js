@@ -1,4 +1,5 @@
 import useFetchComments from "../api/useFetchComments";
+import formatDateDiff from "../utils/formatDateDiff";
 
 export default function CommentList({ productId }) {
   // 데이터를 가져오기 위한 옵션입니다.
@@ -33,7 +34,9 @@ export default function CommentList({ productId }) {
                 />
                 <div className="flex flex-col">
                   <p className="text-sm">{comment.writer.nickname}</p>
-                  <p className="text-xs">{comment.createdAt}</p>
+                  <p className="text-xs">
+                    {formatDateDiff(comment.createdAt)}일 전
+                  </p>
                 </div>
               </div>
             </div>
