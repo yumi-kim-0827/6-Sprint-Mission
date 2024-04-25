@@ -1,12 +1,12 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
 import styled from 'styled-components';
+import { getItemsComments } from '../api/getItemsComments';
 import useItem from '../hooks/useItem';
 import ItemDetailCard from '../components/ItemDetailCard';
 import Comment from '../components/Comment';
 import ic_back from '../assets/ic_back.png';
-import { getItemsComments } from '../api/getItemsComments';
+import Img_inquiry_empty from '../assets/Img_inquiry_empty.png';
 
 export default function ItemDetails() {
   const params = useParams();
@@ -40,9 +40,16 @@ export default function ItemDetails() {
         </label>
         <Button>등록</Button>
       </Form>
-      {comments.map(comment => (
-        <Comment key={comment.id} {...comment} />
-      ))}
+      {comments.length === 0 ? (
+        <EmptyComment>
+          <div>
+            <img src={Img_inquiry_empty} alt='' />
+          </div>
+          <p>아직 문의가 없습니다.</p>
+        </EmptyComment>
+      ) : (
+        comments.map(comment => <Comment key={comment.id} {...comment} />)
+      )}
       <BlueButton>
         <p>목록으로 돌아가기</p>
         <img src={ic_back} alt='뒤로 돌아가기' />
@@ -54,7 +61,7 @@ export default function ItemDetails() {
 const Container = styled.div`
   width: 343px;
   margin: auto;
-  padding-bottom: 162px;
+  padding-bottom: 121px;
 
   @media (min-width: 768px) {
     width: 696px;
@@ -134,6 +141,28 @@ const Button = styled.button`
   line-height: 16px;
 `;
 
+const EmptyComment = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & div {
+    width: 200px;
+    height: 200px;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+
+  & p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #9ca3af;
+    line-height: 24px;
+  }
+`;
+
 const BlueButton = styled.button`
   box-sizing: border-box;
   min-width: 240px;
@@ -144,7 +173,7 @@ const BlueButton = styled.button`
   font-weight: 600;
   font-size: 18px;
   line-height: 16px;
-  margin: 0 auto;
+  margin: 24px auto 0;
   display: flex;
   align-items: center;
   gap: 10px;
