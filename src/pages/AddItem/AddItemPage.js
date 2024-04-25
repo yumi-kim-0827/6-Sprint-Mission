@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FileInput from "./FileInput";
+import InputForm from "./InputForm";
 import Tag from "./Tag";
 import * as S from "./Styles/AddItemPageStyles";
 
@@ -57,45 +58,34 @@ function AddItemPage(props) {
             name="imgFile"
             value={value.imgFile}
             onChange={handleChange}
-          />
+            />
         </div>
 
-        <div>
-          <S.Title>상품명</S.Title>
-          <S.Input
-            name="name"
-            placeholder="상품명을 입력해주세요."
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div>
-          <S.Title>상품 소개</S.Title>
-          <S.Textarea
-            name="introduce"
-            placeholder="상품 소개를 입력해주세요."
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div>
-          <S.Title>판매 가격</S.Title>
-          <S.Input
-            name="price"
-            placeholder="판매 가격을 입력해주세요."
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div>
-          <S.Title>태그</S.Title>
-          <S.Input
-            name="tag"
-            placeholder="태그를 입력해주세요."
-            onChange={handleInputChange}
-            onKeyUp={(e) => AddTags(e)}
-          />
-        </div>
+        <InputForm
+          name="name"
+          label="상품명"
+          placeholder="상품명을 입력해주세요."
+          onChange={handleInputChange}
+        />
+        <InputForm
+          name="introduce"
+          label="상품 소개"
+          placeholder="상품 소개를 입력해주세요."
+          onChange={handleInputChange}
+        />
+        <InputForm
+          name="price"
+          label="판매 가격"
+          placeholder="판매 가격을 입력해주세요."
+          onChange={handleInputChange}
+        />
+        <InputForm
+          name="tag"
+          label="태그"
+          placeholder="태그를 입력해주세요."
+          onChange={handleInputChange}
+          onKeyUp={(e) => AddTags(e)}
+        />
       </S.Main>
       <Tag tags={tags} setTags={setTags} />
     </S.Wrapper>
