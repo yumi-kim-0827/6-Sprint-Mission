@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { ReactComponent as DotsIcon } from "../../../../assets/dotsIcon.svg";
 
 export const CommentUl = styled.ul`
   margin-bottom: 24px;
@@ -30,4 +31,17 @@ export const CommentName = styled.h4`
 
 export const CommentDate = styled.h5`
   color: var(--placeholder-color);
+`;
+
+export const SettingIcon = styled(DotsIcon)`
+  display: none;
+  
+  @media ${props => props.theme.mobile} {
+    display: inline;
+    margin-left: auto;
+  }
+  @media ${props => props.theme.tablet} {
+    display: inline;
+    margin-left: auto;
+  }
 `;

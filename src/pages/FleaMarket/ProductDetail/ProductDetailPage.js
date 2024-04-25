@@ -44,14 +44,19 @@ function ProductDetailPage() {
   }, []);
 
   return (
-    <>
+    <S.Wrapper>
       <S.ProductDetailContainer>
         <S.ProductImage src={products.images} alt={products.name} />
         <S.DescriptionContainer>
           <div>
             <div>
-              <S.DescriptionTitle>{products.name}</S.DescriptionTitle>
-              <S.DescriptionPrice>{products.price}</S.DescriptionPrice>
+              <S.DescriptionBox>
+                <div>
+                  <S.DescriptionTitle>{products.name}</S.DescriptionTitle>
+                  <S.DescriptionPrice>{products.price}</S.DescriptionPrice>
+                </div>
+                <S.SettingIcon />
+              </S.DescriptionBox>
               <S.IntroduceContainer>
                 <S.Title>상품 소개</S.Title>
                 <p>{products.description}</p>
@@ -97,7 +102,7 @@ function ProductDetailPage() {
           </S.BackButton>
         </S.StyledLink>
       </S.CommentsContainer>
-    </>
+    </S.Wrapper>
   );
 }
 

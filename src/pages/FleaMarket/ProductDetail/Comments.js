@@ -12,6 +12,7 @@ function Comments({ comments }) {
               <S.CommentName>{comment.writer.nickname}</S.CommentName>
               <S.CommentDate>{comment.createdAt}</S.CommentDate>
             </div>
+            <S.SettingIcon />
           </S.CommentContent>
         </S.CommentLi>
       ))}
