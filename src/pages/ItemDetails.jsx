@@ -13,6 +13,7 @@ export default function ItemDetails() {
   const item = useItem(params.id);
   const [comments, setComments] = useState([]);
   const itemId = params.id;
+  const nav = useNavigate();
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -25,6 +26,10 @@ export default function ItemDetails() {
     };
     fetchComments();
   }, [itemId]);
+
+  const handleGoBack = () => {
+    nav(-1);
+  };
 
   if (!item) {
     return <div>데이터 로딩중...</div>;
@@ -43,14 +48,14 @@ export default function ItemDetails() {
       {comments.length === 0 ? (
         <EmptyComment>
           <div>
-            <img src={Img_inquiry_empty} alt='' />
+            <img src={Img_inquiry_empty} alt='회색 판다 그림' />
           </div>
           <p>아직 문의가 없습니다.</p>
         </EmptyComment>
       ) : (
         comments.map(comment => <Comment key={comment.id} {...comment} />)
       )}
-      <BlueButton>
+      <BlueButton onClick={handleGoBack}>
         <p>목록으로 돌아가기</p>
         <img src={ic_back} alt='뒤로 돌아가기' />
       </BlueButton>
