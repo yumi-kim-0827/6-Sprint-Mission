@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import Logo from "../assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../css/style.css";
+import "../../css/style.css";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -9,6 +9,7 @@ const Header = () => {
   const handleLoginClick = () => {
     navigate("/login");
   };
+
   const isUsedMarketActive =
     location.pathname === "/items" ||
     location.pathname === "/additem" ||

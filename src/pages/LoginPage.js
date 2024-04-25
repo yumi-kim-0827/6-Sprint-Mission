@@ -46,6 +46,7 @@ const Logo = styled.div`
   text-align: center;
   margin-top: 60px;
   margin-bottom: 40px;
+  cursor: pointer;
 `;
 
 const GoSignUp = styled.div`
