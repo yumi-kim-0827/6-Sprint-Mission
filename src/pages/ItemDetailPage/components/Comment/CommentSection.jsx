@@ -18,7 +18,7 @@ function CommentSection() {
   }, []);
 
   return (
-    <div>
+    <div className="comment-section">
       <AddComment />
       {commentList?.map((comment) => (
         <CommentList comment={comment} key={comment.id} />

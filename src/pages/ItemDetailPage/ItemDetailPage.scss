@@ -1,6 +1,7 @@
 /* ItemDetailSection Components */
 hr {
   border: 1px solid var(--gray-200);
+  margin: 16px 0;
 }
 
 .item-detail-section {
@@ -96,4 +97,55 @@ hr {
   font-weight: 600;
   font-size: 18px;
   border-radius: 40px;
+}
+
+/* Comment Section */
+.comment-section {
+  width: 100%;
+}
+
+/* AddComment Components*/
+.add-comment-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 24px 0 16px;
+  cursor: default;
+}
+
+.input-comment {
+  width: 100%;
+  height: 104px;
+  resize: none;
+  background-color: var(--gray-50);
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-radius: 12px;
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 500px var(--gray-100) inset !important;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--gray-50);
+  }
+
+  &::placeholder {
+    color: var(--gray-400);
+  }
+}
+
+.btn-section {
+  display: flex;
+  justify-content: right;
+}
+
+.btn-comment-submit {
+  width: 74px;
+  height: 42px;
+  padding: 12px 22px;
+  margin: 16px 0;
+  justify-content: right;
 }
