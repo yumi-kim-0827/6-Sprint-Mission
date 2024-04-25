@@ -1,6 +1,37 @@
 import styled from "styled-components";
 import heartIcon from "../assets/heart-icon.svg";
 
+export default function ItemDetail({ item }) {
+  return (
+    <>
+      <ItemImg src={item.images} alt="상품 사진" />
+      <DescriptionContainer>
+        <TitleContainer>
+          <h1>{item.name}</h1>
+          {/* <h2>{item.price.toLocaleString()}원</h2> 
+        TypeError: Cannot read properties of undefined (reading 'toLocaleString') */}
+          <h2>{item.price ? `${item.price.toLocaleString()}원` : ""}</h2>
+        </TitleContainer>
+        <ContentContainer>
+          <ItemDescriptionContainer>
+            <h3>상품 소개</h3>
+            <ContentDescription>{item.description}</ContentDescription>
+            <h3>상품 태그</h3>
+            <TagContainer>
+              {item.tags?.map((tag, index) => {
+                return <Tag key={index}>#{tag}</Tag>;
+              })}
+            </TagContainer>
+          </ItemDescriptionContainer>
+          <HeartContainer>
+            <img src={heartIcon} />
+            <p>{item.favoriteCount}</p>
+          </HeartContainer>
+        </ContentContainer>
+      </DescriptionContainer>
+    </>
+  );
+}
 const ItemImg = styled.img`
   aspect-ratio: 1;
   border-radius: 12px;
@@ -71,35 +102,3 @@ const HeartContainer = styled.div`
 `;
 
 const ItemDescriptionContainer = styled(DescriptionContainer)``;
-
-export default function ItemDetail({ item }) {
-  return (
-    <>
-      <ItemImg src={item.images} alt="상품 사진" />
-      <DescriptionContainer>
-        <TitleContainer>
-          <h1>{item.name}</h1>
-          {/* <h2>{item.price.toLocaleString()}원</h2> 
-        TypeError: Cannot read properties of undefined (reading 'toLocaleString') */}
-          <h2>{item.price ? `${item.price.toLocaleString()}원` : ""}</h2>
-        </TitleContainer>
-        <ContentContainer>
-          <ItemDescriptionContainer>
-            <h3>상품 소개</h3>
-            <ContentDescription>{item.description}</ContentDescription>
-            <h3>상품 태그</h3>
-            <TagContainer>
-              {item.tags?.map((tag, index) => {
-                return <Tag key={index}>#{tag}</Tag>;
-              })}
-            </TagContainer>
-          </ItemDescriptionContainer>
-          <HeartContainer>
-            <img src={heartIcon} />
-            <p>{item.favoriteCount}</p>
-          </HeartContainer>
-        </ContentContainer>
-      </DescriptionContainer>
-    </>
-  );
-}

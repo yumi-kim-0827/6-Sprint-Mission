@@ -5,13 +5,6 @@ import styled from "styled-components";
 import ItemDetail from "../components/ItemDetail";
 import ItemComments from "../components/ItemComments";
 
-const DetailContainer = styled.section`
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  height: 486px;
-`;
-
 export default function ItemDetailPage() {
   const { itemId } = useParams();
   const [item, setItem] = useState({});
@@ -44,3 +37,10 @@ export default function ItemDetailPage() {
     </>
   );
 }
+
+const DetailContainer = styled.section`
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  height: 486px;
+`;

@@ -3,6 +3,51 @@ import { DescriptionContainer } from "./ItemDetail";
 import arrowTurn from "../assets/arrow-turn.svg";
 import { Link } from "react-router-dom";
 
+export default function ItemComments({ comments }) {
+  return (
+    <>
+      <section>
+        <CommentInputContainer>
+          <label htmlFor="comment">문의하기</label>
+          <CommentInput
+            id="comment"
+            placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+          />
+          <CommentButton>등록</CommentButton>
+        </CommentInputContainer>
+        <CommentsContainer>
+          {comments.length > 0 ? (
+            comments.map((comment) => {
+              return (
+                <Comment key={comment.id}>
+                  <p>{comment.content}</p>
+                  <WriterContainer>
+                    <img src={comment.writer?.image} alt="프로필 이미지" />
+                    <WriterInfoContainer>
+                      <span>{comment.writer?.nickname}</span>
+                      <CommentUpdatedAt>{comment.updatedAt}</CommentUpdatedAt>
+                    </WriterInfoContainer>
+                  </WriterContainer>
+                </Comment>
+              );
+            })
+          ) : (
+            <p>댓글이 없습니다.</p>
+          )}
+          <ItemListButton>
+            <Link to="/items">
+              <ItemListButtonContainer>
+                <span>목록으로 돌아가기</span>
+                <img src={arrowTurn} alt="돌아가기 아이콘" />
+              </ItemListButtonContainer>
+            </Link>
+          </ItemListButton>
+        </CommentsContainer>
+      </section>
+    </>
+  );
+}
+
 const CommentInputContainer = styled(DescriptionContainer)`
   border-top: 1px solid #e5e7eb;
   margin-top: 24px;
@@ -116,48 +161,3 @@ const ItemListButtonContainer = styled.div`
 const ItemListButton = styled.div`
   margin: 40px auto;
 `;
-
-export default function ItemComments({ comments }) {
-  return (
-    <>
-      <section>
-        <CommentInputContainer>
-          <label htmlFor="comment">문의하기</label>
-          <CommentInput
-            id="comment"
-            placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-          />
-          <CommentButton>등록</CommentButton>
-        </CommentInputContainer>
-        <CommentsContainer>
-          {comments.length > 0 ? (
-            comments.map((comment) => {
-              return (
-                <Comment key={comment.id}>
-                  <p>{comment.content}</p>
-                  <WriterContainer>
-                    <img src={comment.writer?.image} alt="프로필 이미지" />
-                    <WriterInfoContainer>
-                      <span>{comment.writer?.nickname}</span>
-                      <CommentUpdatedAt>{comment.updatedAt}</CommentUpdatedAt>
-                    </WriterInfoContainer>
-                  </WriterContainer>
-                </Comment>
-              );
-            })
-          ) : (
-            <p>댓글이 없습니다.</p>
-          )}
-          <ItemListButton>
-            <Link to="/items">
-              <ItemListButtonContainer>
-                <span>목록으로 돌아가기</span>
-                <img src={arrowTurn} alt="돌아가기 아이콘" />
-              </ItemListButtonContainer>
-            </Link>
-          </ItemListButton>
-        </CommentsContainer>
-      </section>
-    </>
-  );
-}
