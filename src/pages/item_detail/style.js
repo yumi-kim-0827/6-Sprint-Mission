@@ -40,13 +40,3 @@ export const BackToListButton = styled.button`
   font-family: Pretendard;
 `;
 
-
-export const CommentSection = styled.div`
-  width: 100%;
-  min-height: 37.8rem;
-  background-color: green;
-  margin-bottom: 4rem;
-
-  @media (min-width: 375px) and (max-width: 768px) {
-  }
-`;

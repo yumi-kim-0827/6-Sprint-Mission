@@ -69,7 +69,7 @@ const ProductInfo = () => {
               <DetailHead>상품 태그</DetailHead>
               <DetailTagSection>
                 {tags.map((tag) => (
-                  <DetailTag>#{tag}</DetailTag>
+                  <DetailTag key={tag}>#{tag}</DetailTag>
                 ))}
               </DetailTagSection>
             </DetailContent>

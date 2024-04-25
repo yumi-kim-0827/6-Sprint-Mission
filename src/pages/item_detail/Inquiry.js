@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { EnrollButton, Head, InquirySection, TextArea } from "./Inquiry_style";
+import { EnrollButton, Head, InquirySection, TextArea } from "./inquiry_style";
 
 const Inquiry = () => {
 
