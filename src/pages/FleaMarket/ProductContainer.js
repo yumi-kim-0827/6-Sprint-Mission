@@ -1,11 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import heart from "../../assets/heart.svg";
+import getProductDetail from "../../api/api";
 
-function ProductContainer({src, alt, description, price, favoriteCount, width }) {
+function ProductContainer({src, alt, description, price, favoriteCount, productId, width }) {
   return (
-    <StyledProductContainer>
+    <Link to={`/items/${productId}`}>
       <ProductImg src={src} alt={alt} width={width} />
       <ProductDes>{description}</ProductDes>
       <ProductPrice>{price}</ProductPrice>
@@ -13,12 +14,9 @@ function ProductContainer({src, alt, description, price, favoriteCount, width })
         <HeartImg src={heart}/>
         <ProductFav>{favoriteCount}</ProductFav>
       </ProductFooter>
-    </StyledProductContainer>
+    </Link>
   );
 }
-
-const StyledProductContainer = styled(Link)`
-`;
 
 const ProductImg = styled.img`
   width: 100%;

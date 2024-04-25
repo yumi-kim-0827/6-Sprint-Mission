@@ -42,6 +42,7 @@ function AllProducts({ products, setOrderBy }) {
               description={product.name}
               price={product.price}
               favoriteCount={product.favoriteCount}
+              productId={product.id}
             />
           ))}
         </AllProductsLayout>
