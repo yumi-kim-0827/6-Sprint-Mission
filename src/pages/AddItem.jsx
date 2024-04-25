@@ -70,9 +70,10 @@ export default function AddItem() {
         value={values.imgFile}
         onChange={handleChange}
       />
-      <label htmlFor=''>
+      <label htmlFor='name'>
         상품명
         <input
+          id='name'
           name='name'
           value={values.name}
           type='text'
@@ -82,9 +83,10 @@ export default function AddItem() {
         />
       </label>
 
-      <label htmlFor=''>
+      <label htmlFor='description'>
         상품 소개
         <textarea
+          id='description'
           name='description'
           value={values.description}
           placeholder='상품 소개를 입력해주세요'
@@ -93,9 +95,10 @@ export default function AddItem() {
         />
       </label>
 
-      <label htmlFor=''>
+      <label htmlFor='price'>
         판매가격
         <input
+          id='price'
           name='price'
           value={addComma(price) || ''}
           type='text'
