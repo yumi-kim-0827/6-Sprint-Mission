@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import ItemCard from './components/TestItemCard';
+import ItemCard from './components/ItemCard';
 
 function MarketPage() {
   return (
@@ -18,7 +18,7 @@ function MarketPage() {
           </div>
           <div>
 
-          </div>
+          </div> 
 
         </div>
       </main>
