@@ -6,7 +6,7 @@ function AddItemPage() {
   const [values, setValues] = useState({
     title: "",
     content: "",
-    price: "",
+    price: 0,
     tag: "",
     imgFile: null,
   });
@@ -43,7 +43,7 @@ function AddItemPage() {
   return (
     <form className="AddItemForm" onSubmit={handleSubmit}>
       <div className="AddItemHeader">
-        <h1>상품 등록하기</h1>
+        <label>상품 등록하기</label>
         <button
           type="submit"
           style={{ backgroundColor: isFormValid ? "#3692FF" : "" }}
@@ -53,7 +53,7 @@ function AddItemPage() {
         </button>
       </div>
       <div className="AddItemWrapper">
-        <h2>상품 이미지</h2>
+        <label>상품 이미지</label>
         <FileInput
           name="imgFile"
           value={values.imgFile}
@@ -61,7 +61,7 @@ function AddItemPage() {
         />
       </div>
       <div className="AddItemWrapper">
-        <h2>상품명</h2>
+        <label>상품명</label>
         <input
           name="title"
           value={values.title}
@@ -70,7 +70,7 @@ function AddItemPage() {
         />
       </div>
       <div className="AddItemWrapper">
-        <h2>상품 소개</h2>
+        <label>상품 소개</label>
         <textarea
           name="content"
           value={values.content}
@@ -79,7 +79,7 @@ function AddItemPage() {
         />
       </div>
       <div className="AddItemWrapper">
-        <h2>판매가격</h2>
+        <label>판매가격</label>
         <input
           type="number"
           name="price"
@@ -89,7 +89,7 @@ function AddItemPage() {
         />
       </div>
       <div className="AddItemWrapper">
-        <h2>태그</h2>
+        <label>태그</label>
         <input
           name="tag"
           value={values.tag}

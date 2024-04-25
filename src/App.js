@@ -7,14 +7,14 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className="withHeader">
+      <main className="withHeader">
         <Routes>
           <Route path="items" element={<MarketPage />} />
           <Route path="additem" element={<AddItemPage />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }
-//주석추가_test
+
 export default App;
