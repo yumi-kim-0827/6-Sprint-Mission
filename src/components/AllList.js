@@ -1,6 +1,7 @@
 import "../styles/AllList.css";
 import vetor from "../imgs/vector.svg";
 import heart from "../imgs/heart.svg";
+import { Link } from "react-router-dom";
 
 const AllList = ({ items, onClick }) => {
   const handlerNewOrder = (e) => onClick(e.target.value);
@@ -14,7 +15,9 @@ const AllList = ({ items, onClick }) => {
             <img src={vetor} />
             <input type="text" placeholder="검색할 상품을 입력해주세요" />
           </div>
-          <button>상품 등록하기</button>
+          <Link to="/Add">
+            <button>상품 등록하기</button>
+          </Link>
           <select className="select_tool" onClick={handlerNewOrder}>
             <option value="id">최신순</option>
             <option value="favoriteCount">좋아요순</option>
