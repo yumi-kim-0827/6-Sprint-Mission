@@ -32,3 +32,36 @@ export const fetchProduct = async (productId) => {
     throw new Error("Failed to fetch product");
   }
 };
+
+export const fetchProductComments = async (productId, limit = 10) => {
+  try {
+    const response = await httpClient.get(
+      `/products/${productId}/comments?limit=${limit}`
+    );
+    const data = response.data;
+    if (data && Array.isArray(data.list)) {
+      return data.list;
+    } else {
+      throw new Error("Invalid data format");
+    }
+  } catch (error) {
+    throw new Error("Failed to fetch product comments");
+  }
+};
+
+export const addProductComment = async (productId, comment) => {
+  try {
+    const response = await httpClient.post(
+      `/products/${productId}/comments`,
+      comment
+    );
+    const data = response.data;
+    if (data) {
+      return data;
+    } else {
+      throw new Error("Invalid data format");
+    }
+  } catch (error) {
+    throw new Error("Failed to add product comment");
+  }
+};
