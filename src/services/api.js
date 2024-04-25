@@ -43,3 +43,24 @@ export async function getItemComments(productId, limit = 3) {
     throw error;
   }
 }
+
+export async function sendCommentToServer(comment, productId) {
+  try {
+    const response = await fetch(`${BASE_URL}/products/${productId}/comments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment: comment }),
+    });
+
+    if (!response.ok) {
+      throw new Error("서버에 댓글을 전송하는 중 오류가 발생했습니다.");
+    }
+
+    const responseData = await response.json();
+    console.log(responseData);
+  } catch (error) {
+    console.error(error);
+  }
+}

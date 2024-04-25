@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import SquareImage from "./SquareImage";
 
 import DefaultProfileImage from "../assets/icon/profile.svg";

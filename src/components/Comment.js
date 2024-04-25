@@ -1,6 +1,7 @@
 import React from "react";
-import UserProfile from "./UserProfile";
 import styled from "styled-components";
+
+import UserProfile from "./UserProfile";
 
 const Comment = ({ data }) => {
   const { writer, content, createdAt } = data;
