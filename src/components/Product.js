@@ -37,6 +37,7 @@ export default function Product() {
 
     fetchData();
     fetchCommentData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const handleCommentChange = (e) => {

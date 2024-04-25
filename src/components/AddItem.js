@@ -47,6 +47,7 @@ export default function AddItem() {
 
   useEffect(() => {
     handleInputChange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tags]);
 
   const handleNameChange = (e) => {
