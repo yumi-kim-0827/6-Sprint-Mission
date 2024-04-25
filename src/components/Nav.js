@@ -17,7 +17,7 @@ function Nav() {
         </LogoContainer>
         <StyledNavLink to="/board">자유게시판</StyledNavLink>
         <StyledNavLink
-          to="/fleamarket"
+          to="/items"
           $isActive={pathname === "/additem" ? true : false}
         >
           중고마켓
