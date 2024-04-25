@@ -69,8 +69,8 @@ function App() {
     }
   };
 
-  function onChangeSelect(e) {
-    const value = e.target.value;
+  function onChangeSelect(value) {
+    console.log(value);
     value === "좋아요순" ? setOrderBy("favorite") : setOrderBy("recent");
   }
 
