@@ -24,7 +24,7 @@ export default function SortDropdown({
   };
 
   return (
-    <ul className="absolute right-1 top-12 w-32 rounded-xl border bg-white text-center sm:left-0 sm:top-14">
+    <ul className="absolute right-1 top-12 w-32 rounded-xl border bg-white text-center sm:-left-[105px] sm:top-10">
       <li className="cursor-pointer border-b py-2" onClick={handleDateSort}>
         최신순
       </li>
