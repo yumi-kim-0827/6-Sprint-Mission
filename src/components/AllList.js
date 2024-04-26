@@ -15,7 +15,7 @@ const AllList = ({ items, onClick }) => {
             <img src={vetor} />
             <input type="text" placeholder="검색할 상품을 입력해주세요" />
           </div>
-          <Link to="/items/Add">
+          <Link to="/items/additem">
             <button>상품 등록하기</button>
           </Link>
           <select className="select_tool" onClick={handlerNewOrder}>

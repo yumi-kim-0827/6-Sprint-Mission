@@ -13,7 +13,7 @@ const Main = () => {
         <Route path="/board" element={<FreeBoard />} />
         <Route path="/items">
           <Route index element={<App />} />
-          <Route path="Add" element={<AddProduct />} />
+          <Route path="additem" element={<AddProduct />} />
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>
