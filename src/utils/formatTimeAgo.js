@@ -4,7 +4,14 @@ export default function formatTimeAgo(beforeTime) {
 
   const timeDifference = currentTime - updatedAtTime;
   const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
+  const daysDifference = Math.floor(hoursDifference / 24);
 
-  if (hoursDifference === 0) return "방금 전";
-  return `${hoursDifference}시간 전`;
+  if (daysDifference > 0) {
+    const remainingHours = hoursDifference % 24;
+    return remainingHours > 0
+      ? `${daysDifference}일 ${remainingHours}시간 전`
+      : `${daysDifference}일 전`;
+  }
+
+  return hoursDifference > 0 ? `${hoursDifference}시간 전` : "방금 전";
 }
