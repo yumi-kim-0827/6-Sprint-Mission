@@ -1,7 +1,10 @@
 import "./../styles/NavBar.css";
 import Logo from "../assets/images/logo/logo.svg";
-
+import { NavLink } from "react-router-dom";
 function NavBar() {
+  function getLinkStyle({ isActive }) {
+    return { color: isActive ? "var(--primary-color)" : undefined };
+  }
   return (
     <header className="header">
       <div className="nav-left-container">
@@ -12,10 +15,14 @@ function NavBar() {
         <nav className="nav-category-container">
           <ul>
             <li>
-              <a href="comunity">자유게시판</a>
+              <NavLink to="/community" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
             </li>
             <li>
-              <a href="items">중고마켓</a>
+              <NavLink to="/items" style={getLinkStyle}>
+                중고마켓
+              </NavLink>
             </li>
           </ul>
         </nav>

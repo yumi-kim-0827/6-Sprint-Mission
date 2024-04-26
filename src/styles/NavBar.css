@@ -23,6 +23,10 @@ ul {
   display: flex;
   align-items: center;
 }
-.nav-category-container ul{
-  gap: 8px
+.nav-category-container ul {
+  gap: 8px;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
 }

@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
 import { getItems } from "../api";
 import ItemBox from "./ItemBox";
+import PagenationBar from "./PagenationBar";
 import "../styles/MainItemList.css";
 
 const MainItemList = () => {
   const [MainItem, setMainItem] = useState([]);
-  const [order, setOrder] = useState("recent");
+  const [orderBy, setOrderBy] = useState("recent");
 
   const handleSortedChange = (e) => {
-    setOrder(e.target.value);
+    setOrderBy(e.target.value);
   };
 
   const handleMainItemListLoad = async () => {
-    const { list } = await getItems(order, 1, 10);
+    const { list } = await getItems(orderBy, 1, 10);
     setMainItem(list);
   };
   useEffect(() => {
     handleMainItemListLoad();
-  }, [order]);
+  }, [orderBy]);
   return (
     <section className="main-container">
       <div className="main-header">
@@ -46,6 +47,7 @@ const MainItemList = () => {
           return <ItemBox key={item.id} item={item} />;
         })}
       </div>
+      <PagenationBar />
     </section>
   );
 };
