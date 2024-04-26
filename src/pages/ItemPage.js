@@ -25,7 +25,7 @@ function ItemPage() {
   const [order, setOrder] = useState("createdAt");
   const [searchValue, setSearchValue] = useState("");
   const { width } = useWindowSize();
-  const [screenSize, setScreenSize] = useState("small");
+  const [screenSize, setScreenSize] = useState();
 
   useEffect(() => {
     width >= 1200

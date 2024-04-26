@@ -1,57 +1,71 @@
 const BASE_URL = "https://panda-market-api.vercel.app";
 
-export async function getItems() {
-  try {
-    const response = await fetch(`${BASE_URL}/products`);
-    if (!response.ok) {
-      throw new Error("상품 목록을 가져오는 데 실패했습니다.");
-    }
-    const items = await response.json();
-    return items;
-  } catch (error) {
-    console.error("상품 목록을 가져오는 중 오류가 발생했습니다:", error);
-    throw error;
-  }
-}
+export const fetcher = async ({
+  resource,
+  query = {},
+  body = null,
+  headers = {},
+}) => {
+  const queryString = new URLSearchParams(query).toString();
+  const url = `${BASE_URL}/${resource}${queryString ? `?${queryString}` : ""}`;
 
-export async function getItem(productId) {
   try {
-    const response = await fetch(`${BASE_URL}/products/${productId}`);
-    if (!response.ok) {
-      throw new Error("상품 정보를 가져오는 데 실패했습니다.");
-    }
-    const item = await response.json();
-    return item;
-  } catch (error) {
-    console.error("상품 정보를 가져오는 중 오류가 발생했습니다:", error);
-    throw error;
-  }
-}
-
-export async function getItemComments(productId, limit = 3) {
-  try {
-    const response = await fetch(
-      `${BASE_URL}/products/${productId}/comments?limit=${limit}`
-    );
-    if (!response.ok) {
-      throw new Error("상품 댓글을 가져오는 데 실패했습니다.");
-    }
-    const comments = await response.json();
-    return comments;
-  } catch (error) {
-    console.error("상품 댓글을 가져오는 중 오류가 발생했습니다:", error);
-    throw error;
-  }
-}
-
-export async function sendCommentToServer(comment, productId) {
-  try {
-    const response = await fetch(`${BASE_URL}/products/${productId}/comments`, {
-      method: "POST",
+    const response = await fetch(url, {
+      method: body ? "POST" : "GET",
       headers: {
         "Content-Type": "application/json",
+        ...headers,
       },
-      body: JSON.stringify({ comment: comment }),
+      body: body ? JSON.stringify(body) : null,
+    });
+
+    if (!response.ok) {
+      throw new Error(`${resource}를 가져오는데 실패했습니다.`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error(`${resource}를 가져오는 중 오류가 발생했습니다.`, error);
+    throw error;
+  }
+};
+
+export async function getItems(query = {}) {
+  try {
+    const data = await fetcher({ resource: "products", query });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const getItem = async (productId) => {
+  try {
+    const data = await fetcher({ resource: `products/${productId}` });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getItemComments = async (productId, limit = 3) => {
+  try {
+    const data = await fetcher({
+      resource: `products/${productId}/comments`,
+      query: { limit },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export async function postItemComment(comment, productId) {
+  try {
+    const response = await fetcher({
+      resource: `products/${productId}/comments`,
+      method: "POST",
+      body: { comment },
     });
 
     if (!response.ok) {

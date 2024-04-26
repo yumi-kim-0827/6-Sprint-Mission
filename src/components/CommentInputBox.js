@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BaseButton from "./BaseButton";
 import BaseTextArea from "./BaseTextArea";
 
-import { sendCommentToServer } from "../services/api";
+import { postItemComment } from "../services/api";
 import { useParams } from "react-router-dom";
 
 const placeholder =
@@ -23,7 +23,7 @@ const CommentInputBox = ({ className, title }) => {
 
     if (!inputValue.trim()) return;
 
-    sendCommentToServer(inputValue, productId);
+    postItemComment(inputValue, productId);
 
     setInputValue("");
   };
