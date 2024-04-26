@@ -17,7 +17,7 @@ function App() {
       <Route
         path="/"
         element={
-          <Layout isHeader isFooter={true}>
+          <Layout isHeader isFooter>
             <Home />
           </Layout>
         }
@@ -28,7 +28,7 @@ function App() {
         <Route
           index
           element={
-            <Layout isHeader={true}>
+            <Layout isHeader>
               <ItemsList />
             </Layout>
           }
@@ -36,7 +36,7 @@ function App() {
         <Route
           path=":productId"
           element={
-            <Layout isHeader={true}>
+            <Layout isHeader>
               <Item />
             </Layout>
           }
@@ -45,7 +45,7 @@ function App() {
       <Route
         path="/Community"
         element={
-          <Layout isHeader={true}>
+          <Layout isHeader>
             <Community />
           </Layout>
         }
@@ -53,7 +53,7 @@ function App() {
       <Route
         path="/AddItem"
         element={
-          <Layout isHeader={true} site="/AddItem">
+          <Layout isHeader site="/AddItem">
             <AddItem />
           </Layout>
         }
@@ -61,7 +61,7 @@ function App() {
       <Route
         path="*"
         element={
-          <Layout isHeader={true}>
+          <Layout isHeader>
             <NotFound />
           </Layout>
         }
