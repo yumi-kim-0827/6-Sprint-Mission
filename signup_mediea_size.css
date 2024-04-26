@@ -1,0 +1,125 @@
+/* 회원가입 미디어 쿼리 */
+
+/* 타블렛 사이즈 === PC 사이즈와 동일 */
+
+/* 모바일 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+ 
+  /* 판다마켓 로고와 타이틀 사이즈 조정 작업 */
+  
+  header {
+    padding : 16px 16px;
+    width: 300px;
+    height: 66px;
+    position: relative;
+    top: 24px;
+    margin-bottom: 24px;
+    /* border: 1px solid red; */
+  }
+
+  .main_logo {
+    width: 51.76px;
+    height: 51.94px;
+    margin-right: 11.12px;
+  }
+
+  .main_title {
+    left: -60px;
+    width: 140px;
+    height: 45px;
+    /* border: 1px solid blue; */
+  }
+
+  .main_title>a {
+    font-size: 33.17px;
+    font-weight: 700;
+    line-height: 44.78px;
+  }
+
+  /* main 영역 모바일 사이즈 조정 작업 */
+
+  .login_form {
+    width: 344px;
+    height: 391px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .email_label, .password_label, .username_label, .password_check {
+    font-size: 14px;
+    font-weight: 700;
+    width: 80px;
+    height: 17px;
+    line-height: 16.71px;
+    gap: 10px;
+  }
+
+  .login_input {
+    width: 343px;
+    height: 56px;
+  }
+
+  .login_input::placeholder {
+    font-size: 16px;
+    font-weight: 700;
+    width: 295px;
+    height: 24px;
+  }
+
+  .signup_button {
+    width: 343px;
+    height: 56px;
+    padding: 16px 124px 16px 124px;
+    gap: 10px;
+  }
+
+  .signup_button>a {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .easy_login_box {
+    position: absolute;
+    top: 510px;
+    left: 148px;
+    width: 344px;
+    height: 75px;
+  }
+
+  .easy_login {
+    font-size: 16px;
+    font-weight: 500;
+    width: 101px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .icon_img {
+    position: absolute;
+    left: 220px;
+    width: 100px;
+    height: 42px;
+    gap: 16px;
+  }
+
+  .icon_img>a>img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sign_up_box {
+    position: relative;
+    top: 230px;
+    width: 158px;
+    height: 18px;
+  }
+
+  .sign_up_box>p, #sign_up {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17.9px;
+  }
+
+  }

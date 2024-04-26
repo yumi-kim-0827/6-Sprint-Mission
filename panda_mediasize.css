@@ -1,0 +1,531 @@
+/* 미디어 쿼리 판다 마켓 */
+
+/* 타블렛 사이즈 */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  header {
+  width: 744px;
+  padding-right: 24px;
+ }
+
+ .main_visual, .background_color{
+  width: 744px;
+  height: 771px;
+
+ }
+
+ .main_title {
+  width: 525px;
+  height: 56px;
+  text-align: center;
+  margin: 84px 116px 24px 116px;
+ }
+
+.section_button {
+  position: absolute;
+  top: 164px;
+  left: 195px;
+}
+
+.img_panda {
+  width: 744px;
+  position: absolute;
+  top: 320px;
+  /* border: 1px solid red; */
+  height: 447px;
+  overflow: hidden;
+}
+
+.section_img {
+  width: 996px;
+  height: 447px;
+  /* height: 611px; */
+  position: absolute;
+  top: 0;
+  left: -126px;
+}
+
+.container {
+  width: 744px;
+  height: 800px;
+  /* border: 1px solid red; */
+  position: relative;
+  left: 0;
+  top: 0;
+  padding: 24px 24px 20px 24px;
+}
+
+.image {
+  width: 696px;
+  height: 524px;
+  margin: 0 auto;
+}
+
+.mini_title {
+  position: absolute;
+  top: 568px;
+  left: 22px;
+  font-size: 18px;
+}
+
+.main_subtitle {
+ position: absolute;
+ top: 605px;
+ left: 22px;
+ font-size: 32px;
+ font-weight: 700;
+ line-height: 44.8px;
+ width: 335px;
+ height: 45px;
+ /* border: 1px solid red; */
+}
+
+.explanation {
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  top: 670px;
+  left: 22px;
+  width: 225px;
+  height: 44px;
+}
+
+.container2 {
+  width: 744px;
+  height: 800px;
+  position: absolute;
+  top: 800px;
+  z-index: 1;
+  left: 0;
+  padding: 24px 24px 20px 24px;
+  /* border: 1px solid blue; */
+}
+
+.right_img {
+  width: 696px;
+  height: 524px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.search {
+  position: absolute;
+  top: 550px;
+  left: 660px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+}
+
+.main_subtitle_buy {
+  position: absolute;
+  width: 420px;
+  height: 45px;
+  top: 582px;
+  left: 300px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44.8px;
+  text-align: right;
+}
+
+.main_subtitle_buy br {
+  display: none;
+}
+.explanation_p {
+  position: absolute;
+  top: 650px;
+  left: 490px;
+  font-size: 18px;
+  font-weight: 500;
+  width: 230px;
+  height: 50px;
+  line-height: 25.2px;
+  text-align: right;
+}
+
+.container3 {
+  width: 744px;
+  height: 800px;
+  position: absolute;
+  top: 1550px;
+  z-index: 1;
+  left: 0;
+  padding: 24px 24px 20px 24px;
+}
+
+.register {
+  width: 67px;
+  height: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  position: absolute;
+  top: 580px;
+  left: 24px;
+}
+
+.main_subtitle_sell {
+  font-size: 32px;
+  width: 420px;
+  height: 45px;
+  font-weight: 700;
+  line-height: 44.8px;
+  position: absolute;
+  top: 615px;
+  left: 24px;
+}
+
+.main_subtitle_sell br {
+  display: none;
+}
+
+.explanation_p_p {
+  font-size: 18px;
+  width: 270px;
+  height: 44px;
+  font-weight: 500;
+  line-height: 21.6px;
+  position: absolute;
+  top: 680px;
+  left: 24px;
+}
+
+footer {
+  width: 744px;
+  height: 927px;
+  /* border: 1px solid red; */
+  position: relative;
+  top: 1520px;
+}
+
+.footer_bg {
+  width: 744px;
+  height: 927px;
+  overflow: hidden;
+  position: relative;
+}
+
+.trade_panda {
+  width: 996px;
+  height: 540px;
+  position: absolute;
+  margin: 0 auto;
+  top: 392px;
+  left: -126px;
+}
+
+.footer_title {
+  position: absolute;
+  width: 295px;
+  height: 112px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  /* border: 1px solid blue; */
+  top: 201px;
+  left: 224px;
+  text-align: center;
+}
+
+.information {
+  width: 744px;
+  height: 160px;
+}
+
+.information_group {
+  width: 536px;
+  height: 20px;
+  position: absolute;
+  top: 32px;
+  left: 104px;
+  
+}
+
+}
+
+
+/* 모바일 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+ 
+  header {
+    width: 375px;
+    padding-left: 16px;
+    padding-right: 16px;
+   }
+
+   .main_visual {
+    width: 375px;
+    height: 540px;
+    position: relative;
+   }
+  
+  .background_color{
+    width: 375px;
+    height: 540px;
+   
+   }
+
+   .nav_logo>img {
+    display: none;
+   }
+
+   .main_title {
+    width: 240px;
+    height: 90px;
+    margin: 48px 69px 18px 70px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44.8px;
+    text-align: center;
+   }
+  
+  .section_button {
+    position: absolute;
+    border-radius: 24px;
+    width: 154px;
+    height: 48px;
+    top: 156px;
+    left: 111px;
+  }
+
+  .section_button>a {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.09px;
+  }
+
+  .img_panda {
+    position: absolute;
+    top: 259px;
+    left: 0px;
+    width: 375px;
+    height: 281px;
+    overflow: hidden;
+  }
+
+  .section_img {
+    position: absolute;
+    top: 0;
+    left: -126.06px;
+    z-index: 5;
+    width: 626.12px;
+    height: 281px;
+  }
+
+  .container {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 51px;
+    width: 375px;
+    height: 1430px;
+    /* border: 1px solid red; */
+
+  }
+
+  .subtitle {
+    width: 375px;
+  }
+
+  .image {
+    width: 344px;
+    height: 259px;
+    margin: 0 auto;
+  }
+
+  .mini_title {
+    position: absolute;
+    top: 279px;
+    left: 16px;
+    width: 64px;
+    height: 22px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22.4px;
+    
+  }
+
+  .main_subtitle {
+    margin-top: 15px;
+    position: absolute;
+    top: 290px;
+    left: 16px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33.6px;
+    width: 248px;
+    height: 34px;
+  }
+
+  .explanation {
+    position: absolute;
+    top: 360px;
+    left: 16px;
+    width: 190px;
+    height: 38px;
+    font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 500;
+
+  }
+
+  .container2 {
+    position: relative;
+    top: 210px;
+    width: 375px;
+    height: 470px;
+  }
+
+  .right_img {
+    position: absolute;
+    top: 0;
+    left: 14px;
+    width: 343px;
+    height: 259px;
+  }
+
+  .search {
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    top: 280px;
+    left: 306px;
+  }
+
+  .main_subtitle_buy {
+    position: absolute;
+    top: 310px;
+    left: 44px;
+    font-size: 24px;
+    font-weight: 700;
+    width: 315px;
+    height: 34px; 
+    line-height: 33.6px;
+  }
+
+  .main_subtitle_buy br {
+    display: none;
+  }
+
+  .explanation_p {
+    position: absolute;
+    top: 370px;
+    left: 110px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
+    width: 247px;
+    height: 38px;
+  }
+
+ 
+.container3 {
+  position: relative;
+  top: 210px;
+  width: 375px;
+  height: 470px;
+}
+
+.image_third {
+  position: absolute;
+  left: 14px;
+  width: 343px;
+  height: 258px;
+}
+
+.register {
+  position: absolute;
+  top: 280px;
+  left: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.4px;
+  width: 59px;
+  height: 22px;
+}
+
+.main_subtitle_sell {
+  position: absolute;
+  top: 310px;
+  left: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  width: 315px;
+  height: 34px;
+}
+
+.main_subtitle_sell br {
+   display: none;
+}
+
+.explanation_p_p {
+  position: absolute;
+  top: 370px;
+  left: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  width: 247px;
+  height: 38px;
+}
+
+
+footer {
+  width: 375px;
+  height: 420px;
+  position: relative;
+}
+
+.footer_bg {
+  width: 375px;
+  height: 540px;
+  overflow: hidden;
+  position: relative;
+}
+
+.trade_panda {
+  width: 497.91px;
+  height: 269.95px;
+  position: absolute;
+  margin: 0 auto;
+  top: 270px;
+  left: -61px;
+}
+
+.footer_title {
+  position: absolute;
+  width: 236px;
+  height: 90px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44.8px;
+  top: 121px;
+  left: 70px;
+  text-align: center;
+}
+
+.information {
+  width: 375px;
+  height: 200px;
+}
+
+.information_group {
+  width: 311px;
+  height: 96px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.codeit {
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+}

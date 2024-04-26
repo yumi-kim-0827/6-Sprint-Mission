@@ -104,7 +104,10 @@ main {
   background-color: var(--visual-color);
 }
 
+
 .main_title {
+  width: 299px;
+  height: 112px;
   font-family: 'Pretendard-Regular';
   font-weight: 700;
   font-size: 40px;
@@ -181,6 +184,9 @@ main {
 }
 
 .main_subtitle {
+  width: 221px;
+  height: 112px;
+  /* border: 1px solid red; */
   font-family: 'Pretendard-Regular';
   font-weight: 700;
   font-size: 40px;
@@ -191,6 +197,8 @@ main {
 }
 
 .explanation {
+  width: 280px;
+  height: 58px;
   font-family: 'Pretendard-Regular';
   font-weight: 500;
   font-size: 24px;
@@ -236,11 +244,10 @@ main {
   line-height: 56px;
   position: absolute;
   top: 281.5px;
-  left: 231px;
+  left: 240px;
   text-align: right;
-  width: 317px;
+  width: 313px;
   height: 112px;
-  /* border: 1px solid green; */
 }
 
 .explanation_p {

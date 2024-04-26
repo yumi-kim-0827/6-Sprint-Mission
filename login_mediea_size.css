@@ -1,0 +1,119 @@
+/* 로그인 미디어 쿼리 */
+
+/* 타블렛 사이즈 === PC 사이즈와 동일 */
+
+/* 모바일 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+  /* 판다마켓 로고와 타이틀 사이즈 조정 작업 */
+  
+  header {
+    padding : 16px 16px;
+    width: 300px;
+    height: 66px;
+    position: relative;
+    top: 24px;
+    /* border: 1px solid red; */
+  }
+
+  .main_logo {
+    width: 51.76px;
+    height: 51.94px;
+    margin-right: 11.12px;
+  }
+
+  .main_title {
+    left: -60px;
+    width: 140px;
+    height: 45px;
+    /* border: 1px solid blue; */
+  }
+
+  .main_title>a {
+    font-size: 33.17px;
+    font-weight: 700;
+    line-height: 44.78px;
+  }
+
+  /* main 영역 모바일 사이즈 조정 작업 */
+
+
+
+  .login_form {
+    width: 344px;
+    height: 391px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .email_label, .password_label {
+    font-size: 14px;
+    font-weight: 700;
+    width: 49px;
+    height: 17px;
+    line-height: 16.71px;
+    gap: 10px;
+  }
+
+  .login_input {
+    width: 343px;
+    height: 56px;
+  }
+
+  .login_input::placeholder {
+    font-size: 16px;
+    font-weight: 700;
+    width: 143px;
+    height: 24px;
+  }
+
+  .login_button {
+    width: 343px;
+    height: 56px;
+    padding: 16px 124px 16px 124px;
+    gap: 10px;
+  }
+
+  .login_button>a {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .easy_login_box {
+    position: absolute;
+    left: 148px;
+    width: 344px;
+    height: 75px;
+  }
+
+  .easy_login {
+    font-size: 16px;
+    font-weight: 500;
+    width: 101px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .icon_img {
+    position: absolute;
+    left: 220px;
+    width: 100px;
+    height: 42px;
+    gap: 16px;
+  }
+
+  .icon_img>a>img {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* 다른 부분은 일정 사이즈에서 요소가 움직이는걸 멈추는데, 
+  판다마켓 로고와 타이틀 부분은 이상하게 브라우저가 줄어드는데로
+  끝까지 줄어든다. 이유를 모르겠다. */
+
+  /* 'Mobile 사이즈에서 내부 요소들의 너비는 기기의 너비가 커지는 만큼 커지지만 400px을 넘지 않습니다.' 
+  이 조건을 위해 max-width로 width값을 변경했다가 레이아웃이 깨지는 참사가 발생했다.
+  어떻게해야하는건지 모르겠다.
+  */
+  }
