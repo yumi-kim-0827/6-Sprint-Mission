@@ -1,21 +1,20 @@
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
 export const getProducts = async ({
   page = 1,
   pageSize = 10,
   orderBy = 'recent',
 }) => {
   try {
-    const response = await axios.get(
-      'https://panda-market-api.vercel.app/products',
-      {
-        params: {
-          page,
-          pageSize,
-          orderBy,
-        },
-      }
-    );
+    const response = await axios.get(`${baseUrl}/products`, {
+      params: {
+        page,
+        pageSize,
+        orderBy,
+      },
+    });
 
     return response.data;
   } catch (error) {
