@@ -2,12 +2,12 @@ import styled from "styled-components";
 import leftButton from "../../assets/btnLeft.svg";
 import rightButton from "../../assets/btnRight.svg";
 
-function Pagination({ page, setPage, handleLoadPrev, handleLoadNext, handleClickPageNum, totalPage, pageNumbers }) {
+function Pagination({ page, setPage, handlePrevPage, handleNextPage, handleClickPageNum, totalPage, pageNumbers }) {
 
   return (
     <PaginationIconContainer>
       <ButtonIcon>
-        <img src={leftButton} alt="왼쪽 버튼" onClick={handleLoadPrev} />
+        <img src={leftButton} alt="왼쪽 버튼" onClick={handlePrevPage} />
       </ButtonIcon>
       {pageNumbers.map((number) => (
         <NumberContainer key={number} $isActive={number === page} onClick={() => handleClickPageNum(number)} >
@@ -16,7 +16,7 @@ function Pagination({ page, setPage, handleLoadPrev, handleLoadNext, handleClick
           </Number>
         </NumberContainer>
       ))}
-      <ButtonIcon type="button" onClick={handleLoadNext}>
+      <ButtonIcon type="button" onClick={handleNextPage}>
         <img src={rightButton} alt="오른쪽 버튼" />
       </ButtonIcon>
     </PaginationIconContainer>

@@ -5,21 +5,24 @@ function usePagination(initialPage = 1, totalCount, pageSize, asyncFunction) {
   const totalPage = Math.ceil(totalCount / pageSize);
   const pageNumbers = Array.from({ length: totalPage }, (_, index) => index + 1);
 
-  const handleNextPage = () => {
+  const handleNextPage = async (...args) => {
     if (page < totalPage) {
       setPage((prev) => prev + 1);
+      return await asyncFunction(...args);
     }
   };
 
-  const handlePrevPage = () => {
+  const handlePrevPage = async (...args) => {
     if (page > 1) {
       setPage((prev) => prev - 1);
+      return await asyncFunction(...args);
     }
   };
 
-  const handleClickPageNum = (number) => {
+  const handleClickPageNum = async (number) => {
     if (number !== page) {
       setPage(number);
+      return await asyncFunction(number);
     }
   };
 
