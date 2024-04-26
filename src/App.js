@@ -5,7 +5,7 @@ import MarketPage from "./pages/MarketPage/MarketPage";
 import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import Header from "./components/Layout/Header";
-import ItemDescriptionPage from "./pages/ItemDescriptionPage/ItemDescriptionPage";
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="items">
             <Route index element={<MarketPage />} />
-            <Route path=":itemId" element={<ItemDescriptionPage />} />
+            <Route path=":itemId" element={<ItemDetailPage />} />
           </Route>
           <Route path="additem" element={<AddItemPage />} />
           <Route path="community" element={<CommunityFeedPage />} />
