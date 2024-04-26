@@ -35,3 +35,21 @@ export async function getProductById(productId, params = {}) {
     throw error;
   }
 }
+
+export async function getProductComments(productId, params = {}) {
+  const query = new URLSearchParams(params).toString();
+
+  try {
+    const response = await fetch(
+      `https://panda-market-api.vercel.app/products/${productId}/comments?${query}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const comments = await response.json();
+    return comments;
+  } catch (error) {
+    console.error("Failed to fetch comments:", error);
+    throw error;
+  }
+}
