@@ -3,6 +3,9 @@ import "../styles/style.css";
 import styles from "../styles/main.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import logo_text from '../assets/logo_text.png'
+import logo from '../assets/logo.png'
+
 function Header() {
   const location = useLocation()
 
@@ -26,10 +29,10 @@ function Header() {
     <header>
       <picture onClick={goToMain}>
         <source
-          srcset={require('../assets/logo_text.png')}
+          srcset={logo_text}
           media="all and (max-width: 768px)"
         />
-        <img src={require('../assets/logo.png')} className={styles.logo} alt="로고" />
+        <img src={logo} className={styles.logo} alt="로고" />
       </picture>
       <nav className={styles['header-nav']}>
         <p>자유게시판</p>

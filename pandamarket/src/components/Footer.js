@@ -2,6 +2,11 @@ import React from "react";
 import "../styles/style.css";
 import styles from "../styles/main.module.css";
 
+import icon_facebook from '../assets/icon_facebook.png'
+import icon_twitter from '../assets/icon_twitter.png'
+import icon_youtube from '../assets/icon_youtube.png'
+import icon_insta from '../assets/icon_insta.png'
+
 function Footer() {
   return (
     <footer>
@@ -23,21 +28,21 @@ function Footer() {
               rel="noreferrer"
             >
               <img
-                src={require('../assets/icon_facebook.png')}
+                src={icon_facebook}
                 alt="facebook"
                 className={styles.icon}
               />
             </a>
             <a href="https://twitter.com/" target="_blank" rel="noreferrer">
               <img
-                src={require('../assets/icon_twitter.png')}
+                src={icon_twitter}
                 alt="twitter"
                 className={styles.icon}
               />
             </a>
             <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
               <img
-                src={require('../assets/icon_youtube.png')}
+                src={icon_youtube}
                 alt="youtube"
                 className={styles.icon}
               />
@@ -48,7 +53,7 @@ function Footer() {
               rel="noreferrer"
             >
               <img
-                src={require('../assets/icon_insta.png')}
+                src={icon_insta}
                 alt="insta"
                 className={styles.icon}
               />

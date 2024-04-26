@@ -2,7 +2,11 @@ import React from "react";
 import "../styles/style.css";
 import styles from "../styles/main.module.css";
 import { useNavigate } from "react-router-dom";
-
+import img_home_top from '../assets/img_home_top.png'
+import img_home_01 from '../assets/img_home_01.png'
+import img_home_02 from '../assets/img_home_02.png'
+import img_home_03 from '../assets/img_home_03.png'
+import img_home_bottom from '../assets/img_home_bottom.png'
 
 function Main() {
   const navigate = useNavigate()
@@ -26,7 +30,7 @@ function Main() {
             </button>
           </div>
           <img
-            src={require('../assets/img_home_top.png')}
+            src={img_home_top}
             className={styles.home_img1}
             alt="메인이미지1"
           />
@@ -36,7 +40,7 @@ function Main() {
       <main>
         <div className={styles.para}>
           <img
-            src={require('../assets/img_home_01.png')}
+            src={img_home_01}
             alt="home1"
             className={styles.imgs}
           />
@@ -70,14 +74,14 @@ function Main() {
             </p>
           </div>
           <img
-            src={require('../assets/img_home_02.png')}
+            src={img_home_02}
             alt="home1"
             className={styles.imgs}
           />
         </div>
         <div className={styles.para}>
           <img
-            src={require('../assets/img_home_03.png')}
+            src={img_home_03}
             alt="home1"
             className={styles.imgs}
           />
@@ -106,7 +110,7 @@ function Main() {
             </h2>
           </div>
           <img
-            src={require('../assets/img_home_bottom.png')}
+            src={img_home_bottom}
             className={styles.home_img2}
             alt="메인이미지2"
           />

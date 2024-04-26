@@ -5,6 +5,10 @@ import { BestProductList, ProductList, Pagination } from '../components'
 import { getProducts, getBestProducts } from '../api/api'
 import { useNavigate } from 'react-router-dom'
 
+import icon_search from '../assets/icon_search.png'
+import icon_order from '../assets/icon_order.png'
+import icon_dropdown from '../assets/icon_dropdown.png'
+
 function Items() {
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
@@ -174,7 +178,7 @@ function Items() {
           <div className={styles['all-products-sub-nav']}>
             <h3 className={styles['products-name']}>전체 상품</h3>
             <div className={styles.search}>
-              <img src={require('../assets/icon_search.png')} />
+              <img src={icon_search} />
               <input
                 className={styles['search-input']}
                 placeholder="검색할 상품을 입력해주세요"
@@ -187,13 +191,13 @@ function Items() {
             <div className={styles.dropdown} onClick={toggleDropdown}>
               <picture>
                 <source
-                  srcset={require('../assets/icon_order.png')}
+                  srcset={icon_order}
                   media="all and (max-width: 768px)"
                 />
                 <span className={styles.valueName}>
                   {selectOptions.find((option) => option.value === order).label}
                 </span>
-                <img src={require('../assets/icon_dropdown.png')} />
+                <img src={icon_dropdown} />
               </picture>
               {isDropdownView && (
                 <ul className={styles.dropdownMenu}>

@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "../styles/bestproductlist.module.css";
 import { Link } from "react-router-dom";
+import icon_favorite from '../assets/icon_favorite.png'
 
 function BestProductList({ products }) {
   return (
@@ -16,7 +17,7 @@ function BestProductList({ products }) {
           <div className={styles.name}>{product.name}</div>
           <div className={styles.price}>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           <div className={styles.favoritecount}>
-            <img src={require('../assets/icon_favorite.png')}></img>
+            <img src={icon_favorite}></img>
             <div className={styles["favoritecount-number"]}>
               {product.favoriteCount}
             </div>

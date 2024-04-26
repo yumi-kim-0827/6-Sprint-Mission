@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import styles from '../styles/additem.module.css'
 import FileInput from '../components/FileInput'
 
+import icon_tag_remove from '../assets/icon_tag_remove.png'
+
 const INITIAL_VALUES = {
   title: '',
   content: '',
@@ -131,7 +133,7 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview }) {
             <div key={index} className={styles.tag}>
               {tag}
               <img
-                src={require('../assets/icon_tag_remove.png')}
+                src={icon_tag_remove}
                 onClick={() => removeTag(index)}
                 className={styles['tag-remove']}
               />

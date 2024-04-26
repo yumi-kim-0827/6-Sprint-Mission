@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react'
 import { getProductsComments, getProductsDetail } from '../api/api'
 import { CommentNotFound } from '../components'
 
+import icon_optionbar from '../assets/icon_optionbar.png'
+import icon_back from '../assets/icon_back.png'
+import icon_favorite from '../assets/icon_favorite.png'
+
 function ItemsDetail() {
   const { id } = useParams()
   const [item, setItem] = useState(null)
@@ -81,7 +85,7 @@ function ItemsDetail() {
           <div className={styles['detail-nav']}>
             <p className={styles['detail-name']}>{item.name}</p>
             <img
-              src={require('../assets/icon_optionbar.png')}
+              src={icon_optionbar}
               className={styles.navimg}
             ></img>
           </div>
@@ -101,7 +105,7 @@ function ItemsDetail() {
             ))}
           </div>
           <div className={styles.favoriteCount}>
-            <img src={require('../assets/icon_favorite.png')} />
+            <img src={icon_favorite} />
             {item.favoriteCount}
           </div>
         </div>
@@ -126,7 +130,7 @@ function ItemsDetail() {
               <div className={styles.usernav}>
                 <p>{comment.content}</p>
                 <img
-                  src={require('../assets/icon_optionbar.png')}
+                  src={icon_optionbar}
                   className={styles.navimg}
                 ></img>
               </div>
@@ -151,7 +155,7 @@ function ItemsDetail() {
           <button className={styles.back}>
             목록으로 돌아가기
             <img
-              src={require('../assets/icon_back.png')}
+              src={icon_back}
               className={styles.backimg}
             />
           </button>

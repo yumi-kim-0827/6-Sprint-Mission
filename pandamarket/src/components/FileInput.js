@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/fileinput.module.css";
 import previewImg from '../assets/icon_placeholder.png'
+import icon_reset from '../assets/icon_reset.png'
 
 function FileInput({ name, value, initialPreview, onChange }) {
   const [preview, setPreview] = useState(initialPreview);
@@ -60,7 +61,7 @@ function FileInput({ name, value, initialPreview, onChange }) {
           className={styles["fileinput-clear-button"]}
           onClick={handleClearClick}
         >
-          <img src={require('../assets/icon_reset.png')} alt="선택해제" />
+          <img src={icon_reset} alt="선택해제" />
         </button>
       )}
     </div>
