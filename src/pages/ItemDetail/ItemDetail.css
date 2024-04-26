@@ -1,0 +1,101 @@
+.product,
+.addComment {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ItemDescription.jsx 스타일 */
+.product-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+  gap: 40px;
+}
+
+.product-image img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.product-detail p {
+  line-height: 47.73px;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+h1 {
+  line-height: 28.64px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+h2 {
+  line-height: 19.09px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+h3 {
+  line-height: 16.71px;
+  margin: 16px 0 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+hr {
+  margin: 16px 0;
+  border: 1px solid #e5e7eb;
+}
+
+.product-tag-wrapper {
+  display: flex;
+  margin-bottom: 24px;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.product-tag-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26px;
+  padding: 6px 16px;
+  background-color: #f3f4f6;
+}
+
+.product-favoriteCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: 500;
+  gap: 4px;
+}
+
+/* AddComments.jsx 스타일 */
+.addComment-button {
+  display: flex;
+  justify-content: right;
+}
+
+button {
+  width: 74px;
+  height: 42px;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background-color: #9ca3af;
+  color: white;
+}
