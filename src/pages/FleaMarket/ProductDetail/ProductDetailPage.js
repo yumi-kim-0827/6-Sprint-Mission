@@ -1,46 +1,47 @@
-import { useState, useEffect, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
-import Comments from "./Comments";
-import { getProductDetail, getComments } from "../../../api/api";
-import { ReactComponent as HeartIcon } from "../../../assets/heartIcon.svg";
-import { ReactComponent as BackIcon } from "../../../assets/backIcon.svg";
-import ProfileImg from "../../../assets/profileIcon.svg";
-import { ReactComponent as InquireImg } from "../../../assets/inquireImg.svg";
-import * as S from "./Styles/ProductDetailPageStyles";
+import { useState, useEffect, useCallback } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Comments from './Comments';
+import { getProductDetail, getComments } from '../../../api/api';
+import { ReactComponent as HeartIcon } from '../../../assets/heartIcon.svg';
+import { ReactComponent as BackIcon } from '../../../assets/backIcon.svg';
+import ProfileImg from '../../../assets/profileIcon.svg';
+import { ReactComponent as InquireImg } from '../../../assets/inquireImg.svg';
+import * as S from './Styles/ProductDetailPageStyles';
 
 function ProductDetailPage() {
   const { productId } = useParams();
   const [products, setProducts] = useState([]);
   const [comments, setComments] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const value = e.target.value;
     setInputValue(value);
   };
 
   const isFormValid = () => {
-    return inputValue.trim() !== "";
+    return inputValue.trim() !== '';
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     const handleProductDetail = async () => {
-      const result = await getProductDetail(productId);
-      if (!result) return;
-      setProducts(result);
+      const productDetail = await getProductDetail(productId, {
+        signal: abortController.signal,
+      });
+      const commentsData = await getComments(productId, {
+        signal: abortController.signal,
+      });
+      setProducts(productDetail);
+      setComments(commentsData.list);
     };
 
     handleProductDetail();
 
-    const handleComments = async () => {
-      const result = await getComments(productId);
-      if (!result) return;
-
-      const { list } = result;
-      setComments(list);
+    return () => {
+      abortController.abort();
     };
-
-    handleComments();
   }, []);
 
   return (
