@@ -64,7 +64,7 @@ export function ItemPage (){
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
             <SearchText name="search" value={values.search} onSubmit={handleSearch} onChange={handleInputChange} className="section-item__search"/>
-            <Link to="/additem"><SmallButton className="section-item__btn">상품 등록하기</SmallButton></Link>
+            <Link to="/additem" className="btn-small section-item__btn">상품 등록하기</Link>
             <Select isShow={isPopDropdown} selectOptions={sortOptions} name="order" value={values.order} onPop={setPopState} onClick={handlePop} onChange={handleChange}  className="section-item__dropdown"></Select>
           </header>
           <div className="section-content">
