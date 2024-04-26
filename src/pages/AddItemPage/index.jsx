@@ -40,8 +40,8 @@ const AddItemPage = () => {
     formData.append('tag', inputData.itemTag);
   };
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
+  const handleChange = ({ target }) => {
+    const { name, value, files } = target;
 
     if (name === 'itemImage') {
       setImageUrl(files[0]);
