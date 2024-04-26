@@ -8,10 +8,7 @@ const ProductContent = (items) => {
   const description = item.description;
   const favoriteCount = item.favoriteCount;
   const images = item.images;
-  console.log(images);
   const tags = item.tags;
-
-  //태그 분리해줘야 함
 
   return (
     <>

@@ -7,32 +7,35 @@ import kakaotalkImg from "../assets/kakaotalk.png";
 const Signup = () => {
   return (
     <>
-      <form>
+      <form className="signupForm">
         <div className="logo">
           <a href="../main/index.html" style={{ textDecorationLine: "none" }}>
             <img src={logoImg} className="logo-image" alt="판다마켓로고" />
           </a>
         </div>
-        <label>
+        <label className="signupLabel">
           이메일
           <input
+            className="signupInput"
             name="useremail"
             type="email"
             placeholder="이메일을 입력해주세요"
           />
         </label>
-        <label>
+        <label className="signupLabel">
           닉네임
           <input
+            className="signupInput"
             name="username"
             type="text"
             placeholder="닉네임을 입력해주세요"
           />
         </label>
-        <label>
+        <label className="signupLabel">
           비밀번호
           <div className="passwordInput">
             <input
+              className="signupInput"
               name="password"
               type="password"
               placeholder="비밀번호를 입력해주세요"
@@ -40,10 +43,11 @@ const Signup = () => {
             <img src={visibilityOff} />
           </div>
         </label>
-        <label>
+        <label className="signupLabel">
           비밀번호 확인
           <div className="passwordInput">
             <input
+              className="signupInput"
               name="passwordretry"
               type="password"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
