@@ -1,5 +1,12 @@
+import React from "react";
+import ItemDescription from "./ItemDescription";
+
 const ItemDetail = () => {
-  return <div>상세페이지</div>;
+  return (
+    <div>
+      <ItemDescription />
+    </div>
+  );
 };
 
 export default ItemDetail;

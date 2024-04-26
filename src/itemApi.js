@@ -1,3 +1,4 @@
+//MarketPage
 export async function getProducts(params = {}) {
   const query = new URLSearchParams(params).toString();
 
@@ -16,6 +17,7 @@ export async function getProducts(params = {}) {
   }
 }
 
+//ItemDetail Page
 export async function getProductById(productId, params = {}) {
   const query = new URLSearchParams(params).toString();
 
