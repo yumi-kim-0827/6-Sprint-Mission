@@ -1,5 +1,6 @@
 import React from "react";
 import favoriteIcon from "../../../assets/favorite-icon.svg";
+import kebabIcon from "../../../assets/ic_kebab.svg";
 import "./ProductInfo.css";
 
 function ProductInfo({ product }) {
@@ -13,6 +14,9 @@ function ProductInfo({ product }) {
     <section className="productInfo">
       <img className="productInfo__img" src={images} alt={name} />
       <div className="productInfoItems">
+        <button className="productInfoItems__kebab">
+          <img src={kebabIcon} alt="kebabIcon" />
+        </button>
         <h2 className="productInfoItems__name">{name}</h2>
         <h1 className="productInfoItems__price">
           {formatPriceWithCommas(price)}원

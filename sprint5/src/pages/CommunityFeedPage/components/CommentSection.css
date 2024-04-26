@@ -73,12 +73,22 @@
 .comment {
   border-bottom: solid 1px #e5e7eb;
   padding-bottom: 24px;
+  position: relative;
+  padding-top: 24px;
+}
+
+.comment__kebab {
+  position: absolute;
+  right: 0;
+  border: none;
+  background-color: #ffffff;
 }
 
 .comment__content {
   font-weight: 400;
   font-size: 16px;
   color: #1f2937;
+  margin: 0;
 }
 
 .commentInfo {

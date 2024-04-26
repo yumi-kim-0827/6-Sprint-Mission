@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import EmptyComment from "../../../assets/img_inquiry_empty.svg";
+import kebabIcon from "../../../assets/ic_kebab.svg";
+
 import "./CommentSection.css";
 
 function formatRelativeDate(dateString) {
@@ -51,8 +53,11 @@ function CommentSection({ comments }) {
         ) : (
           comments.map((comment) => (
             <div className="comment" key={comment.id}>
-              <div className="comment__content">
-                <p>{comment.content}</p>
+              <button className="comment__kebab">
+                <img src={kebabIcon} alt="kebabIcon" />
+              </button>
+              <div>
+                <p className="comment__content">{comment.content}</p>
               </div>
               <div className="commentInfo">
                 <img className="commentInfo__img" src={comment.writer.image} />
