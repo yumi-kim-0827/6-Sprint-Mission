@@ -37,6 +37,7 @@ export default function Product() {
 
     fetchData();
     fetchCommentData();
+    console.log(productCommentData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -92,7 +93,7 @@ export default function Product() {
             <button className={isFilled ? "filled" : ""}>등록</button>
           </div>
           <div className="comment-container">
-            {productCommentData ? (
+            {productCommentData && productCommentData.list.length > 0 ? (
               <div>
                 {productCommentData.list.map((comment) => (
                   <div key={comment.id} className="comments">
