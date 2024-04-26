@@ -1,1 +1,3 @@
-export const ProductCommentsSection = () => {};
+export const ProductCommentsSection = ({ comments }) => {
+  return <></>;
+};
