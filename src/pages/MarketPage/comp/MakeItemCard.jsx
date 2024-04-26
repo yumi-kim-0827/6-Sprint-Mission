@@ -1,5 +1,5 @@
 import React from "react";
-import heart from "../../../assets/ic_heart.png";
+import heart from "../../../assets/ic_heart.svg";
 import { formatCurrencyWon } from "../../../utils/formatCurrencyWon";
 import { Link } from "react-router-dom";
 
