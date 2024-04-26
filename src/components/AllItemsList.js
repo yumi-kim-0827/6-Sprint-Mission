@@ -75,7 +75,7 @@ export default function AllItemsList() {
         <div className="relative row-start-2 ml-auto flex items-center">
           <img src={searchIcon} alt="searchicon" className="absolute left-4" />
           <input
-            className="w-full rounded-xl bg-[var(--cool-gray100)] py-2 pl-11 text-[var(--cool-gray400)] sm:w-56 sm:w-64 sm:pr-1 lg:w-96"
+            className="w-full rounded-xl bg-[var(--cool-gray100)] py-2 pl-11 text-[var(--cool-gray400)] sm:w-64 sm:pr-1 lg:w-96"
             placeholder="검색할 상품을 입력해주세요"
           />
         </div>
