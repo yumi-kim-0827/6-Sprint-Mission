@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import { Link, useParams } from 'react-router-dom'
 import styles from '../styles/itemsdetail.module.css'
@@ -14,34 +15,20 @@ function ItemsDetail() {
   const [item, setItem] = useState(null)
   const [comments, setComments] = useState(null)
 
-  useEffect(() => {
-    const fetchItem = async () => {
-      try {
-        const data = await getProductsDetail(id)
-        setItem(data)
-      } catch (error) {
-        console.error('상품 정보를 가져오는데 실패했습니다', error)
-      }
-    }
-    fetchItem()
-
-    const fetchComments = async () => {
-      try {
-        const comments = await getProductsComments(id)
-        setComments(comments)
-        console.log(comments.createdAt)
-      } catch (error) {
-        console.log('댓글을 가져오는데 실패했습니다', error)
-      }
-    }
-    fetchComments()
-  }, [id])
-
-  if (!item) {
-    return <div>Loading...</div>
+  const fetchData = async (id) => {
+    const [itemData, commentsData] = await Promise.all([
+      getProductsDetail(id),
+      getProductsComments(id),
+    ])
+    setItem(itemData)
+    setComments(commentsData)
   }
 
-  if (!comments) {
+  useEffect(() => {
+    fetchData(id)
+  }, [id])
+
+  if (!item || !comments) {
     return <div>Loading...</div>
   }
 
@@ -84,10 +71,7 @@ function ItemsDetail() {
         <div className={styles['detail-description']}>
           <div className={styles['detail-nav']}>
             <p className={styles['detail-name']}>{item.name}</p>
-            <img
-              src={icon_optionbar}
-              className={styles.navimg}
-            ></img>
+            <img src={icon_optionbar} className={styles.navimg}></img>
           </div>
           <h1>
             {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
@@ -129,10 +113,7 @@ function ItemsDetail() {
             <>
               <div className={styles.usernav}>
                 <p>{comment.content}</p>
-                <img
-                  src={icon_optionbar}
-                  className={styles.navimg}
-                ></img>
+                <img src={icon_optionbar} className={styles.navimg}></img>
               </div>
 
               <div key={index} className={styles.user}>
@@ -154,10 +135,7 @@ function ItemsDetail() {
         <Link to={'/items'}>
           <button className={styles.back}>
             목록으로 돌아가기
-            <img
-              src={icon_back}
-              className={styles.backimg}
-            />
+            <img src={icon_back} className={styles.backimg} />
           </button>
         </Link>
       </div>
