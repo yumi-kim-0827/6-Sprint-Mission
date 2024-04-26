@@ -1,0 +1,14 @@
+.productDetailWrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.productImageBox {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.productImage {
+  object-fit: cover;
+}
