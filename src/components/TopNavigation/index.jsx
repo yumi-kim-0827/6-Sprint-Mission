@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import pandaLogo from 'assets/logos/panda-logo.png';
+import PandaLogo from 'assets/logos/panda-logo.png';
 import TextLogo from 'assets/logos/text-logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
@@ -28,7 +28,7 @@ const TopNavigation = () => {
     <header>
       <div className="leftContainer">
         <Link to="/">
-          <img src={isMobile ? TextLogo : pandaLogo} alt="판다마켓 로고" />
+          <img src={isMobile ? TextLogo : PandaLogo} alt="판다마켓 로고" />
         </Link>
         <nav>
           <ul className="navBar">
