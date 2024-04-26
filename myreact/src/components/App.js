@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductsList from "./ProductsList";
-import { getProducts } from "../api";
+import { getProducts } from "../api/api";
 import Header from "./Header";
 import Dropdown from "./Dropdown";
 
