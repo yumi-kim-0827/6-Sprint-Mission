@@ -99,13 +99,13 @@ const ProductDetail = () => {
       </CommentButton>
       <ProductDetailCommentBoxBottom>
         {comments.length === 0 ? (
-          <>
+          <Emptycomment>
             <EmptyPandaImage
               src="/images/home/emptypanda.png"
               alt="Empty Panda"
             />
             <NoCommentsMessage>아직 문의가 없습니다.</NoCommentsMessage>
-          </>
+          </Emptycomment>
         ) : (
           comments.map((comment) => (
             <>
@@ -241,16 +241,21 @@ const ProductDetailCommentBox = styled.div`
   flex-direction: column;
 `;
 
+const Emptycomment = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const EmptyPandaImage = styled.img`
+  margin-top: 50px;
   width: 200px;
 `;
 
 const NoCommentsMessage = styled.div`
   font-size: 15px;
   font-weight: 400;
-  color: #9ca3af
-  margin-top: 10px;
-  margin-bottom: 18px;
+  color: #9ca3af;
 `;
 
 const ProductDetailNewComment = styled.div`
