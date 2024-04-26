@@ -2,6 +2,21 @@ import React, { useState } from "react";
 import EmptyComment from "../../../assets/img_inquiry_empty.svg";
 import "./CommentSection.css";
 
+function formatRelativeDate(dateString) {
+  const date = new Date(dateString);
+  const currentDate = new Date();
+  const diffTime = Math.abs(currentDate - date);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) {
+    return "오늘";
+  } else if (diffDays === 1) {
+    return "어제";
+  } else {
+    return `${diffDays}일 전`;
+  }
+}
+
 function CommentSection({ comments }) {
   const [commentText, setCommentText] = useState("");
 
@@ -45,7 +60,9 @@ function CommentSection({ comments }) {
                   <p className="commentInfo__nickname">
                     {comment.writer.nickname}
                   </p>
-                  <p className="commentInfo__updateAt">{comment.updatedAt}</p>
+                  <p className="commentInfo__updateAt">
+                    {formatRelativeDate(comment.updatedAt)}
+                  </p>
                 </div>
               </div>
             </div>
