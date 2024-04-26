@@ -33,10 +33,15 @@ function ProductForm() {
     return (
       <form className="productForm" onSubmit={handleSubmit}>
         <p className="addProductTitle">상품 등록하기</p>
-        <label htmlFor="img" className="inputTitle">
+        <label htmlFor="productImg" className="inputTitle">
           상품이미지
         </label>
-        <FileInput name="img" value={values.img} onChange={handleChange} />
+        <FileInput
+          id="productImg"
+          name="img"
+          value={values.img}
+          onChange={handleChange}
+        />
         <label htmlFor="name" className="inputTitle">
           상품명
         </label>
