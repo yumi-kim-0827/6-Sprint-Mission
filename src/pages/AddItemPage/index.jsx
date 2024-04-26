@@ -8,7 +8,7 @@ import {
 } from 'components/FormInput';
 import { FormHeader, AddItemTitle, FormContainer, TagList, Tag } from './style';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
-import GrayXIcon from 'assets/icons/Gray-X.svg';
+import CloseXIcon from 'assets/icons/CloseX';
 
 const AddItemPage = () => {
   const [inputData, setInputData] = useState({
@@ -128,11 +128,7 @@ const AddItemPage = () => {
                 {inputData.itemTag.map((item, index) => (
                   <Tag key={index}>
                     {item}
-                    <img
-                      src={GrayXIcon}
-                      onClick={() => handleClickTag(index)}
-                      alt="태그 삭제 아이콘"
-                    />
+                    <CloseXIcon onClick={() => handleClickTag(index)} />
                   </Tag>
                 ))}
               </TagList>

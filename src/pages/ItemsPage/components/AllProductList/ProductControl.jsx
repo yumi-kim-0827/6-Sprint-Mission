@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
-import SearchIcon from 'assets/icons/Search.svg';
+import SearchIcon from 'assets/icons/Search';
 import DropDown from 'components/Dropdown';
-import ArrowDownIcon from 'assets/icons/ArrowDown.svg';
-import SortIcon from 'assets/icons/Sort.svg';
+import ArrowDownIcon from 'assets/icons/ArrowDown';
+import SortIcon from 'assets/icons/Sort';
 import './style.css';
 
 const ProductControl = ({
@@ -35,7 +35,7 @@ const ProductControl = ({
   return (
     <div className="product-control">
       <div className="search-container">
-        <img src={SearchIcon} alt="검색 아이콘" className="search-icon" />
+        <SearchIcon className="search-icon" />
         <input
           placeholder="검색할 상품을 입력해주세요"
           value={search}
@@ -50,18 +50,14 @@ const ProductControl = ({
             <div className="dropdown-container">
               {pageSize === 4 ? (
                 <button className="dropdown-simple-icon">
-                  <img alt="드롭다운 아이콘" src={SortIcon} />
+                  <SortIcon />
                 </button>
               ) : (
                 <>
                   <button className="dropdown-trigger">
                     {orderBy === 'recent' ? '최신순' : '좋아요순'}
                   </button>
-                  <img
-                    alt="드롭다운 아이콘"
-                    src={ArrowDownIcon}
-                    className="dropdown-icon"
-                  />
+                  <ArrowDownIcon className="dropdown-icon" />
                 </>
               )}
             </div>

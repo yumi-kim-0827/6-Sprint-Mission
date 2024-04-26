@@ -44,7 +44,7 @@ export const ImagePreview = styled.div`
 
   position: relative;
 
-  & img {
+  & svg {
     position: absolute;
     top: 0.63rem;
     right: 0.63rem;

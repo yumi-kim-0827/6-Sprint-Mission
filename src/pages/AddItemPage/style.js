@@ -41,7 +41,7 @@ export const Tag = styled.li`
   display: flex;
   gap: 0.5rem;
 
-  & img {
+  & svg {
     cursor: pointer;
   }
 `;

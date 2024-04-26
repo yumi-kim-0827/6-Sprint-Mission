@@ -47,6 +47,7 @@
 
 .favorite-container {
   display: flex;
+  align-items: center;
   gap: 0.2rem;
   color: var(--gray-600);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ImageContainer, ImageAdd, ImagePreview } from './style';
-import PlusIcon from 'assets/icons/Plus.svg';
-import XIcon from 'assets/icons/Blue-X.svg';
+import PlusIcon from 'assets/icons/Plus';
+import CloseXIcon from 'assets/icons/CloseX';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
 
 const ImageAddBox = ({ onClick }) => {
@@ -29,16 +29,12 @@ const ImageAddBox = ({ onClick }) => {
   return (
     <ImageContainer>
       <ImageAdd onClick={onClick}>
-        <img src={PlusIcon} alt="이미지 추가 아이콘" />
+        <PlusIcon />
         <span>이미지 등록</span>
       </ImageAdd>
       {image && (
         <ImagePreview $imageUrl={image}>
-          <img
-            src={XIcon}
-            onClick={handleClearImage}
-            alt="이미지 삭제 아이콘"
-          />
+          <CloseXIcon fill="#3692FF" onClick={handleClearImage} />
         </ImagePreview>
       )}
     </ImageContainer>
