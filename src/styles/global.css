@@ -1,5 +1,3 @@
-/* Mobile styles */
-
 :root {
   /* Gray scale */
   --gray-900: #1b1d1f;
@@ -13,9 +11,22 @@
 
   /* Primary color */
   --blue: #3692ff;
+  --name-color: #1F2937;
+  --hover-blue: #1967d6;
+  --hover-bluebtn: #3692ff;
+  --click-blue: #1251aa;
+  --product-item-name-color: #1f2937;
+  --product-category-color: #111827;
+  --go-login-signup-color: #3182f6;
+  --btn-color-nonactive: #4b5563;
+  --btn-color-active: #3692ff;
+  --inactive-color: #9ca3af;
+  --background-blue: #cfe5ff;
+  --error-red: #f74747;
 
   /* Layout dimensions */
   --header-height: 70px;
+  
 }
 
 * {
