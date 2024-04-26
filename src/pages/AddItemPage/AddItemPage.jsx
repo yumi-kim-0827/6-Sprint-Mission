@@ -38,7 +38,6 @@ function AddItemPage() {
       const word = e.target.value;
       if (word !== "") {
         setTagList([...tagList, word.trim()]);
-        console.log(tag);
         setTag("");
       }
     }

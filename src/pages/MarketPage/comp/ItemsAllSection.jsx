@@ -22,23 +22,21 @@ function ItemsAllSection() {
     setShowDropdown(false);
   };
 
-  const handleLoad = async () => {
-    try {
-      const list = await getItems(queryData);
-      if (list && list.list) {
-        console.log(list);
-        setItems(list.list);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  console.log(items);
   const handleLoadPage = (NumOfPage) => {
     setPageNum(NumOfPage);
   };
 
   useEffect(() => {
+    const handleLoad = async () => {
+      try {
+        const data = await getItems(queryData);
+        if (data && data.list) {
+          setItems(data.list);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
     handleLoad();
   }, [order, pageNum]);
 

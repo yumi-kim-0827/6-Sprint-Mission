@@ -15,7 +15,6 @@ function ItemsBestSection() {
         const data = await getItems(query);
         if (data && data.list) {
           setItems(data.list);
-          console.log(data.list);
         }
       } catch (e) {
         console.log(e);

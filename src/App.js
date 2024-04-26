@@ -6,7 +6,7 @@ import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-//import ItemDetails from "./pages/ItemDetailsPage/ItemDetails";
+import ItemDetails from "./pages/ItemDetailsPage/ItemDetails";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="feed" element={<CommunityFeedPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="sighup" element={<SignupPage />} />
-          {/* <Route path="itemdetail" element={<ItemDetails />} /> */}
+          <Route path="items/details" element={<ItemDetails />} />
         </Routes>
       </Layout>
     </BrowserRouter>
