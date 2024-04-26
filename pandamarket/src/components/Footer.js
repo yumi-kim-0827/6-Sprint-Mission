@@ -23,21 +23,21 @@ function Footer() {
               rel="noreferrer"
             >
               <img
-                src="/assets/icon_facebook.png"
+                src={require('../assets/icon_facebook.png')}
                 alt="facebook"
                 className={styles.icon}
               />
             </a>
             <a href="https://twitter.com/" target="_blank" rel="noreferrer">
               <img
-                src="/assets/icon_twitter.png"
+                src={require('../assets/icon_twitter.png')}
                 alt="twitter"
                 className={styles.icon}
               />
             </a>
             <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
               <img
-                src="/assets/icon_youtube.png"
+                src={require('../assets/icon_youtube.png')}
                 alt="youtube"
                 className={styles.icon}
               />
@@ -48,7 +48,7 @@ function Footer() {
               rel="noreferrer"
             >
               <img
-                src="/assets/icon_insta.png"
+                src={require('../assets/icon_insta.png')}
                 alt="insta"
                 className={styles.icon}
               />

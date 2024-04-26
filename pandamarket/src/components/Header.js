@@ -26,10 +26,10 @@ function Header() {
     <header>
       <picture onClick={goToMain}>
         <source
-          srcset="assets/logo_text.png"
+          srcset={require('../assets/logo_text.png')}
           media="all and (max-width: 768px)"
         />
-        <img src="assets/logo.png" className={styles.logo} alt="로고" />
+        <img src={require('../assets/logo.png')} className={styles.logo} alt="로고" />
       </picture>
       <nav className={styles['header-nav']}>
         <p>자유게시판</p>
