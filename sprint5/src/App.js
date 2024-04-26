@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <div>
         <Routes>
+          <Route index element={<Items />} />
           <Route path="/items">
             <Route index element={<Items />} />
             <Route path=":productID" element={<CommunityFeedPage />} />
