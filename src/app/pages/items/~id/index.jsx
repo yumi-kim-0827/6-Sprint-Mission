@@ -15,6 +15,7 @@ export default function ItemsPage$ID({ /* html */ id = null, style = {}, classes
 	const parms = useParams();
 	const [product, setProduct] = React.useState(null);
 	const [comments, setComments] = React.useState(null);
+	const [mycomment, setMyComment] = React.useState("");
 
 	React.useEffect(() =>
 	{
@@ -22,18 +23,6 @@ export default function ItemsPage$ID({ /* html */ id = null, style = {}, classes
 		API["products/{productId}/comments?"].GET(parms).then((response) => setComments((comments) => response));
 	},
 	[parms]);
-
-	React.useEffect(() =>
-	{
-		console.log(product);
-	},
-	[product]);
-
-	React.useEffect(() =>
-	{
-		console.log(comments);
-	},
-	[comments]);
 
 	return (
 		<section {...widget(ItemsPage$ID.name, { id, style, classes })}>
@@ -107,9 +96,9 @@ export default function ItemsPage$ID({ /* html */ id = null, style = {}, classes
 										<Row classes="heading" arrange="flex-start">
 											문의하기
 										</Row>
-										<textarea placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."/>
+										<textarea onChange={(event) => setMyComment((comment) => event.target.value)} placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."/>
 										<Row arrange="flex-end">
-											<Button disabled={true}>
+											<Button disabled={mycomment.isEmpty}>
 												등록
 											</Button>
 										</Row>
