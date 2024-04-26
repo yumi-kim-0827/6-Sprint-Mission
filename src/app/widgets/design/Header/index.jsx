@@ -30,7 +30,7 @@ export default function Header({ /* html */ id = null, style = {}, classes = [],
 					if (avatar)
 					{
 						return (
-							<Link href="/profile" id="avatar" style={{ backgroundImage: `url("${avatar_svg}")` }}></Link>
+							<Link id="avatar" style={{ backgroundImage: `url("${avatar_svg}")` }}></Link>
 						);
 					}
 					else

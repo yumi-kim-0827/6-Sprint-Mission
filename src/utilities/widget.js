@@ -2,7 +2,7 @@ export default function widget(name, { id = null, style = {}, classes = [] } = {
 {
 	if (!name) throw new Error();
 
-	return { "data-widget": name, "id": id, "style": { ...style, ...$style }, "class": typeof classes === "string" ? classes : taylor(...classes, ...$classes) };
+	return { "data-widget": name, "id": id, "style": { ...style, ...$style }, "class": typeof classes === "string" ? taylor(classes, ...$classes) : taylor(...classes, ...$classes) };
 }
 
 function taylor(...classes) // not swift!

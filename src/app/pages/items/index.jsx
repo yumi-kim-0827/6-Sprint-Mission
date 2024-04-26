@@ -110,7 +110,9 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 						{products_best?.["list"]?.map((item, index, array) =>
 						{
 							return (
-								<Product key={item.id} data={item}/>
+								<Link key={item.id} href={`/items/${item.id}`}>
+									<Product data={item}/>
+								</Link>
 							);
 						})}
 					</div>
@@ -138,7 +140,9 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 						{
 							// TODO: filter by occurrence
 							return (
-								<Product key={item.id} data={item}/>
+								<Link key={item.id} href={`/items/${item.id}`}>
+									<Product data={item}/>
+								</Link>
 							);
 						})}
 					</div>
