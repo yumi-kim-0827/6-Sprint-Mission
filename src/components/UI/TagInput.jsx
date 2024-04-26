@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import InputItem from "./InputItem";
-import { FlexContainer } from "../../styles/CommonStyles";
-import DeleteButton from "./DeleteButton";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import InputItem from './InputItem';
+import { FlexContainer } from '../../styles/CommonStyles';
+import DeleteButton from './DeleteButton';
 
 const TagButtonsSection = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const TagText = styled.span`
 `;
 
 function TagInput({ tags, onAddTag, onRemoveTag }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   // 엔터 키 누르면 tags 배열에 input 값을 추가
   const onPressEnter = (event) => {
@@ -43,10 +43,10 @@ function TagInput({ tags, onAddTag, onRemoveTag }) {
     if (event.nativeEvent.isComposing) return;
 
     const inputString = input.trim();
-    if (event.key === "Enter" && inputString) {
+    if (event.key === 'Enter' && inputString) {
       event.preventDefault(); // 엔터 키 눌렀을 때 form이 제출되지 않도록 꼭 추가해 주세요!
       onAddTag(inputString);
-      setInput(""); // 태그 추가 후 input field 초기화
+      setInput(''); // 태그 추가 후 input field 초기화
     }
   };
 
@@ -68,10 +68,7 @@ function TagInput({ tags, onAddTag, onRemoveTag }) {
             <Tag key={`tag-${tag}`}>
               <TagText>{tag}</TagText>
 
-              <DeleteButton
-                onClick={() => onRemoveTag(tag)}
-                label={`${tag} 태그`}
-              />
+              <DeleteButton onClick={() => onRemoveTag(tag)} label={`${tag} 태그`} />
             </Tag>
           ))}
         </TagButtonsSection>
