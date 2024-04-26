@@ -7,3 +7,5 @@ export { default as favoriteIcon } from './ic_heart.png';
 export { default as pandaLogo } from './panda_logo.png';
 export { default as searchIcon } from './ic_search.png';
 export { default as sortButton } from './btn_sort.png';
+export { default as backIcon } from './ic_back.png';
+export { default as emptyCommentImage } from './img_inquiry_empty.png';

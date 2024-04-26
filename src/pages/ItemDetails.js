@@ -6,6 +6,7 @@ import {
   ItemIntroduction,
   Navbar,
 } from '../components';
+import { backIcon } from '../images';
 
 export default function ItemDetails() {
   const location = useLocation();
@@ -22,9 +23,10 @@ export default function ItemDetails() {
           <div className="my-10 flex justify-center">
             <Link
               to="/items"
-              className="w-fit rounded-[40px] bg-[var(--btn-blue1)] px-10 py-3 text-white"
+              className="flex justify-between gap-x-2 rounded-[40px] bg-[var(--btn-blue1)] px-10 py-3 text-white"
             >
               목록으로 돌아가기
+              <img src={backIcon} alt="backicon" />
             </Link>
           </div>
         </div>
