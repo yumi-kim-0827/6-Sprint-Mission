@@ -1,7 +1,9 @@
-import useFetchItems from "../api/useFetchItems";
-import { favoriteIcon } from "../images";
-import { useRankedProductCountStore } from "../store/productCountStore";
-import formatNumber from "../utils/formatNumber";
+import { Link } from 'react-router-dom';
+
+import useFetchItems from '../api/useFetchItems';
+import { favoriteIcon } from '../images';
+import { useRankedProductCountStore } from '../store/productCountStore';
+import formatNumber from '../utils/formatNumber';
 
 export default function RankedItems() {
   // 화면 전환 시 달라지는 베스트 상품 데이터들을 전역적으로 관리하였습니다.
@@ -11,7 +13,7 @@ export default function RankedItems() {
   const fetchOptions = {
     page: 1,
     pageSize: rankedProductCount,
-    orderBy: "favorite",
+    orderBy: 'favorite',
   };
 
   // useFetchItems로 데이터를 가져옵니다.
@@ -35,19 +37,25 @@ export default function RankedItems() {
           data.list.map((post) => {
             return (
               <li key={post.id}>
-                <img
-                  src={post.images[0]}
-                  alt={post.name}
-                  className="h-80 w-80 rounded-2xl object-fill sm:h-72 sm:w-72"
-                />
-                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
-                  {post.name} 팝니다
-                </p>
-                <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                  {formatNumber(post.price)}원
-                </p>
-                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                <Link to={`/items/${post.id}`} state={{ post }}>
+                  <img
+                    src={post.images[0]}
+                    alt={post.name}
+                    className="h-80 w-80 rounded-2xl object-fill sm:h-72 sm:w-72"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
+                    {post.name} 팝니다
+                  </p>
+                  <p className="text-sm font-bold text-[var(--cool-gray800)]">
+                    {formatNumber(post.price)}원
+                  </p>
+                  <img
+                    src={favoriteIcon}
+                    alt="favoriteicon"
+                    className="inline"
+                  />
+                  <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                </Link>
               </li>
             );
           })}

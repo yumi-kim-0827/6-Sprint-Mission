@@ -1,4 +1,4 @@
-import paginationStore from "../store/paginationStore";
+import paginationStore from '../store/paginationStore';
 
 export default function SortDropdown({
   setSortContent,
@@ -9,20 +9,22 @@ export default function SortDropdown({
   const setCurrentPage = paginationStore((state) => state.setCurrentPage);
 
   // props를 받아 구현하였습니다.
-  const handleDateSort = () => {
-    setSortContent(sortOptions.NEWEST);
-    setOrderBy("recent");
+  const handleSort = (sortContentValue, orderBy) => {
+    setSortContent(sortContentValue);
+    setOrderBy(orderBy);
     setCurrentPage(1);
+  };
+
+  const handleDateSort = () => {
+    handleSort(sortOptions.NEWEST, 'recent');
   };
 
   const handleLikeSort = () => {
-    setSortContent(sortOptions.LIKE);
-    setOrderBy("favorite");
-    setCurrentPage(1);
+    handleSort(sortOptions.LIKE, 'favorite');
   };
 
   return (
-    <ul className="absolute right-1 top-12 w-32 rounded-xl border bg-white text-center sm:left-0 sm:top-14">
+    <ul className="absolute right-1 top-12 w-32 rounded-xl border bg-white text-center sm:-left-[105px] sm:top-10">
       <li className="cursor-pointer border-b py-2" onClick={handleDateSort}>
         최신순
       </li>
