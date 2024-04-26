@@ -40,6 +40,11 @@ const ItemDetail = () => {
   const pathId = useLocation().pathname.split("/").pop();
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
+  const [isTextareaActive, setTextareaActive] = useState(false);
+
+  const handleChange = e => {
+    setTextareaActive(!!e.target.value);
+  };
 
   useEffect(() => {
     (async () => {
@@ -98,11 +103,19 @@ const ItemDetail = () => {
       <div className={ItemDetailStyles.commentsContainer}>
         <div className={ItemDetailStyles.contactContainer}>
           <span>문의하기</span>
-          <div className={ItemDetailStyles.contactBox}>
-            {CONTACT_DESCRIPTION}
-          </div>
+          <textarea
+            className={ItemDetailStyles.contactBox}
+            placeholder={CONTACT_DESCRIPTION}
+            onChange={handleChange}
+          />
           <div className={ItemDetailStyles.buttonBox}>
-            <button className={ItemDetailStyles.btn}>등록</button>
+            <button
+              className={`${ItemDetailStyles.btn} ${
+                isTextareaActive && ItemDetailStyles.active
+              }`}
+            >
+              등록
+            </button>
           </div>
         </div>
         {comments.length > 0 ? (

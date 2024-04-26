@@ -135,6 +135,9 @@
   color: #111827;
 }
 .contactBox {
+  width: 344px;
+  height: 104px;
+  border: none;
   border-radius: 12px;
   background-color: #f3f4f6;
   padding: 16px 24px 16px 24px;
@@ -142,7 +145,15 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+  resize: none;
 }
+.contactBox::placeholder {
+  color: #9ca3af;
+}
+.contactBox:focus-visible {
+  outline: none;
+}
+
 .buttonBox {
   display: flex;
   justify-content: right;
@@ -159,7 +170,9 @@
   padding: 12px 23px;
   color: #ffffff;
 }
-
+.active {
+  background-color: #3692ff;
+}
 .contentBox {
   display: flex;
   justify-content: space-between;
