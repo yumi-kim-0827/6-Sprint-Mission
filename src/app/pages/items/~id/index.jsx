@@ -19,7 +19,7 @@ export default function ItemsPage$ID({ /* html */ id = null, style = {}, classes
 	React.useEffect(() =>
 	{
 		API["products/{productId}"].GET(parms).then((response) => setProduct((product) => response));
-		API["products/{productId}/comments"].GET(parms).then((response) => setComments((comments) => response));
+		API["products/{productId}/comments?"].GET(parms).then((response) => setComments((comments) => response));
 	},
 	[parms]);
 

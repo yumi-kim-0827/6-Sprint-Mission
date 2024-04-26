@@ -2,7 +2,7 @@ import React from "react"; import "./index.scss"; import widget from "@/utilitie
 
 export default function Pagination({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ index, length, onPaging })
 {
-	const [page, set_page] = React.useState(index);
+	const [page, setPage] = React.useState(index);
 
 	React.useEffect(() =>
 	{
@@ -19,7 +19,7 @@ export default function Pagination({ /* html */ id = null, style = {}, classes =
 
 	React.useEffect(() =>
 	{
-		set_page((page) => page.clamp(1, length));
+		setPage((page) => page.clamp(1, length));
 	},
 	[length]);
 
@@ -30,19 +30,19 @@ export default function Pagination({ /* html */ id = null, style = {}, classes =
 		//
 		static first()
 		{
-			set_page((page) => 1);
+			setPage((page) => 1);
 		}
 		static prev()
 		{
-			set_page((page) => (page - 1).clamp(1, length));
+			setPage((page) => (page - 1).clamp(1, length));
 		}
 		static next()
 		{
-			set_page((page) => (page + 1).clamp(1, length));
+			setPage((page) => (page + 1).clamp(1, length));
 		}
 		static last()
 		{
-			set_page((length) => 1);
+			setPage((length) => 1);
 		}
 		//
 		// events
@@ -73,7 +73,7 @@ export default function Pagination({ /* html */ id = null, style = {}, classes =
 			{length && new Array(length).fill(null).map((_, index, array) =>
 			{
 				return (
-					<div key={index} class={["page", page === index + 1 ? "indexing" : null].join("\u0020")} onClick={(event) => set_page((page) => index + 1)}>
+					<div key={index} class={["page", page === index + 1 ? "indexing" : null].join("\u0020")} onClick={(event) => setPage((page) => index + 1)}>
 						{index + 1}
 					</div>	
 				);

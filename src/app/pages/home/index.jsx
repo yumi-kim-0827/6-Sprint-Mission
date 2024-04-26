@@ -14,6 +14,26 @@ import Footer from "@/app/widgets/design/Footer";
 // widgets/layout
 import Column from "@/app/widgets/layout/Column";
 
+const items = [
+	{
+		src: home_01_png,
+		name: "Hot Item",
+		heading: ["인기 상품을", "확인해 보세요"],
+		subheading: ["가장 HOT한 중고거래 물품을", "판다마켓에서 확인해 보세요"],
+	},
+	{
+		src: home_02_png,
+		name: "Search",
+		heading: ["구매를 원하는", "상품을 검색하세요"],
+		subheading: ["구매하고 싶은 물품은 검색해서", "쉽게 찾아보세요"],
+	},
+	{
+		src: home_03_png,
+		name: "Register",
+		heading: ["판매를 원하는", "상품을 등록하세요"],
+		subheading: ["어떤 물건이든 판매하고 싶은 상품을", "쉽게 등록하세요"],
+	}];
+
 export default function HomePage({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
 	return (
@@ -23,11 +43,7 @@ export default function HomePage({ /* html */ id = null, style = {}, classes = [
 			<Banner src={banner_top_png} title={["일상의 모든 물건을", "거래해 보세요"]} button={true}></Banner>
 
 			<Column>
-				{[
-					{ src: home_01_png, heading: ["인기 상품을", "확인해 보세요"], subheading: ["가장 HOT한 중고거래 물품을", "판다마켓에서 확인해 보세요"], name: "Hot Item" },
-					{ src: home_02_png, heading: ["구매를 원하는", "상품을 검색하세요"], subheading: ["구매하고 싶은 물품은 검색해서", "쉽게 찾아보세요"], name: "Search" },
-					{ src: home_03_png, heading: ["판매를 원하는", "상품을 등록하세요"], subheading: ["어떤 물건이든 판매하고 싶은 상품을", "쉽게 등록하세요"], name: "Register" },
-				].map((args, index, array) =>
+				{items.map((args, index, array) =>
 				{
 					return (
 						<Showcase key={index} {...args} align={index % 2 === 1 ? "left" : "right"}></Showcase>

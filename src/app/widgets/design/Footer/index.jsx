@@ -9,6 +9,39 @@ import Link from "@/app/widgets/design/Link";
 // widgets/layout
 import Row from "@/app/widgets/layout/Row";
 
+const navi = [
+	{
+		name: "Privacy Policy",
+		href: "/privacy",
+	},
+	{
+		name: "FAQ",
+		href: "/faq",
+	},
+];
+const socials = [
+	{
+		src: facebook_svg,
+		alt: "facebook",
+		href: "https://www.facebook.com",
+	},
+	{
+		src: twitter_svg,
+		alt: "twitter",
+		href: "https://www.twitter.com",
+	},
+	{
+		src: youtube_svg,
+		alt: "youtube",
+		href: "https://www.youtube.com",
+	},
+	{
+		src: instagram_svg,
+		alt: "instagram",
+		href: "https://www.instagram.com",
+	},
+];
+
 export default function Footer({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
 	return (
@@ -18,16 +51,7 @@ export default function Footer({ /* html */ id = null, style = {}, classes = [],
 					@codeit - 2024
 				</Row>
 				<Row classes="navigation" gap={30}>
-					{[
-						{
-							name: "Privacy Policy",
-							href: "/privacy",
-						},
-						{
-							name: "FAQ",
-							href: "/faq",
-						},
-					].map((args, index, array) =>
+					{navi.map((args, index, array) =>
 					{
 						return (
 							<Link key={index} href={args.href}>{args.name}</Link>
@@ -35,28 +59,7 @@ export default function Footer({ /* html */ id = null, style = {}, classes = [],
 					})}
 				</Row>
 				<Row classes="social-media" gap={12}>
-					{[
-						{
-							src: facebook_svg,
-							alt: "facebook",
-							href: "https://www.facebook.com",
-						},
-						{
-							src: twitter_svg,
-							alt: "twitter",
-							href: "https://www.twitter.com",
-						},
-						{
-							src: youtube_svg,
-							alt: "youtube",
-							href: "https://www.youtube.com",
-						},
-						{
-							src: instagram_svg,
-							alt: "instagram",
-							href: "https://www.instagram.com",
-						},
-					].map((args, index, array) => {
+					{socials.map((args, index, array) => {
 						return (
 							<a key={index} href={args.href} target="_blank">
 								<img src={args.src} alt={args.alt} />

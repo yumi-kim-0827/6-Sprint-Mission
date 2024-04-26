@@ -2,12 +2,12 @@ import React from "react"; import "./index.scss"; import widget from "@/utilitie
 
 export default function DropDown({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ index, items })
 {
-	const [active, set_active] = React.useState(false);
-	const [indexing, set_indexing] = React.useState(index);
+	const [active, setActive] = React.useState(false);
+	const [indexing, setIndexing] = React.useState(index);
 
 	React.useEffect(() =>
 	{
-		set_active((active) => false);
+		setActive((active) => false);
 	},
 	[indexing]);
 
@@ -19,13 +19,13 @@ export default function DropDown({ /* html */ id = null, style = {}, classes = [
 		//
 		static onMouseEnter(event)
 		{
-			set_active((active) => true);
+			setActive((active) => true);
 			
 			$.timeout = clearTimeout($.timeout);
 		}
 		static onMouseLeave(event)
 		{
-			$.timeout = setTimeout(() => set_active((active) => false), 150);
+			$.timeout = setTimeout(() => setActive((active) => false), 150);
 		}
 	}
 
@@ -40,7 +40,7 @@ export default function DropDown({ /* html */ id = null, style = {}, classes = [
 				{
 					return (
 						<React.Fragment key={index}>
-							<div key={index} class="item" onClick={(event) => { set_indexing((indexing) => index); item.onClick?.(); }}>
+							<div key={index} class="item" onClick={(event) => { setIndexing((indexing) => index); item.onClick?.(); }}>
 								{item.name}
 							</div>
 							{index < array.length - 1 && <hr class="seperator"/>}
