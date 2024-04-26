@@ -4,6 +4,7 @@ import Products from "./Products";
 import { getBestProducts, getProducts } from "../../api/Api";
 import DropdownContainer from "../../components/UI/DropdownContainer";
 import PaginationButton from "../../components/UI/PaginationButton";
+import useResizeHandler from "../../hooks/useResizeHandler";
 import "./Items.css";
 
 const getLimit = () => {
@@ -70,26 +71,10 @@ function Items() {
     handleLoadBestItems();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      handleLoadBestItems();
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setLimit(getLimit());
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [page, limit, order, keyword]);
+  useResizeHandler(() => {
+    handleLoadBestItems();
+    setLimit(getLimit());
+  });
 
   return (
     <div>
