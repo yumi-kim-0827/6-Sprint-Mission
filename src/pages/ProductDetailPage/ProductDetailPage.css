@@ -31,6 +31,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+	position: relative;
 }
 
 .product-name{
@@ -40,7 +41,7 @@
   color: #1F2937;
 }
 
-.product-pirce{
+.product-price{
   padding: 16px 0;
   font-size: 40px;
   font-weight: 600;
@@ -96,6 +97,9 @@
   color: #6B7280;
   font-size: 16px;
   font-weight: 500;
+	position: absolute;
+	bottom: 32px;
+	left: 0px;
 }
 
 .product-like-count img{
@@ -107,6 +111,7 @@
 /* ======================================================== */
 
 .question-wrapper {
+	padding-bottom: 24px;
 }
 
 .question-wrapper label {
@@ -114,22 +119,32 @@
   font-weight: 600;
 }
 
-.question-wrapper input {
+.question-wrapper textarea {
   width: 1200px;
   height: 104px;
   border-radius: 12px;
   padding: 16px 24px;
   background-color: #f3f4f6;
+	resize: none;
+}
+.submit-button-wrapper{
+	display: flex;
+	justify-content: end;
 }
 
-.question-wrapper button {
+.submit-button-wrapper button {
   border: none;
   border-radius: 8px;
   padding: 12px 23px;
-  background-color: #9ca3af;
+  background-color: #3692ff;
   color: #fff;
+	cursor: pointer;
 }
 
+.submit-button-wrapper button:disabled{
+	background-color: #9ca3af;
+  cursor: auto;
+}
 /* ======================================================== */
 
 .comment-wrapper {
@@ -146,10 +161,13 @@
   font-size: 16px;
   font-weight: 400;
   color: #1f2937;
+	padding-bottom: 24px;
 }
 
 .user-information {
   display: flex;
+	gap: 8px;
+	padding-bottom: 24px;
 }
 
 .user-information img {
@@ -161,6 +179,7 @@
   display: flex;
   flex-direction: column;
   align-items: baseline;
+	gap: 4px;
 }
 
 .user-nickname {
@@ -173,6 +192,13 @@
   font-size: 12px;
   font-weight: 400;
   color: #9ca3af;
+}
+
+.back-item-list-button-section{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 250px;
 }
 
 .back-item-list-button {
@@ -188,6 +214,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+	text-decoration: none;
 }
 
 .back-item-list-button img {

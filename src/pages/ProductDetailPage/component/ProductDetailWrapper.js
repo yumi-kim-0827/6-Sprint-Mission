@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProductDetail } from "../../../api/api";
 import heartIcon from "../../../assets/heart.svg";
 
-function ProductDetaiWrapper() {
+function ProductDetailWrapper() {
   const [productDetail, setProductDetail] = useState({});
 
   const { productId } = useParams();
@@ -21,7 +21,7 @@ function ProductDetaiWrapper() {
       <img src={productDetail.images} alt={productDetail.name} />
       <div className="product-detail-information">
         <div className="product-name">{productDetail.name}</div>
-        <div className="product-pirce">{productDetail.price}원</div>
+        <div className="product-price">{productDetail.price}원</div>
         <div className="product-introduce">상품 소개</div>
         <div className="product-description">{productDetail.description}</div>
         <div className="product-tags">상품 태그</div>
@@ -45,4 +45,4 @@ function ProductDetaiWrapper() {
   );
 }
 
-export default ProductDetaiWrapper;
+export default ProductDetailWrapper;

@@ -13,11 +13,10 @@ function AddItemPage() {
     imgFile: null,
   });
 
-  const addTags = (e) => { // 여기서 버그 발생 : 태그만 입력하고 엔터를 누르는데 등록버튼이 활성화됨
+  const addTags = (e) => {
     if (e.keyCode === 13 && values.tag !== "") {
 
       setTags([...tags, values.tag]);
-      // setValues({tag: ""}) => 여기가 문제 
       values.tag = '';
     }
   };
