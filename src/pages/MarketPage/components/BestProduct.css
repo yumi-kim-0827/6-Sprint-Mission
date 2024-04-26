@@ -1,0 +1,70 @@
+.bestItemsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bestItemsCardSection {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.bestProductTitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+/*ItemCard 관련 css*/
+.item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-description {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.product-image {
+    width: 282px;
+    height: 282px;
+    border-radius : 16PX;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.71px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.09px;
+    margin: 0;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.32px;
+    margin: 0;
+}
+
+.heart-icon {
+    width: 16px;
+    height: 16px;
+}
+
+
