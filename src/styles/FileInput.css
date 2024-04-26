@@ -1,0 +1,26 @@
+#imgAdd {
+  display: none;
+}
+
+.preview_container {
+  position: relative;
+}
+
+.preview_img {
+  margin-left: 10px;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+}
+
+.preview_container > button {
+  width: 22px;
+  height: 24px;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  background-color: #3692ff;
+  position: absolute;
+  top: 10px;
+  left: 540px;
+}

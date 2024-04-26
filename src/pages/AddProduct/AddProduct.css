@@ -21,6 +21,8 @@ main {
   color: white;
   background-color: #9ca3af;
   border: none;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 form {
