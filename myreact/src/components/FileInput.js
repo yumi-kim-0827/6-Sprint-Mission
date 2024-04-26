@@ -6,7 +6,7 @@ function FileInput({ name, value, onChange }) {
   const inputRef = useRef();
 
   const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+    const [nextValue] = e.target.files;
     onChange(name, nextValue);
   };
 
