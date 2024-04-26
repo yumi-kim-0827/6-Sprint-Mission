@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
-import PostImg from "~/assets/unknownpostimg.png";
-import BigPostImg from "~/assets/unknownbigpostimg.png";
+import PostImg from "~/assets/add_image.png";
+import BigPostImg from "~/assets/big-add_image.png";
 import ActiveXbox from "~/assets/activexbox.svg";
 import { useMediaQuery } from "react-responsive";
 
@@ -15,30 +15,36 @@ function ProductImgAdd() {
 
   useEffect(() => {
     setImages([{ src: choicePostImg, isDefault: true }]);
-  }, [setImages]);
+  }, [setImages, choicePostImg]);
 
-  const handleChangeAdd = (e) => {
+  const handleAddImage = (e) => {
+    if (images.length > 1) {
+      return;
+    }
     const file = e.target.files[0];
     if (file) {
-      const src = URL.createObjectURL(file);
+      let src = URL.createObjectURL(file);
       setImages([...images, { src, isDefault: false }]);
       e.target.value = null;
+      src = URL.revokeObjectURL(file);
     }
   };
-  const handleClickDelete = (e) => {
-    setImages(images.filter((_, index) => index !== e));
+  //이미지 한개추가하고 삭제후 추가하면 안됨. 원인은 삭제시,src ㅂ배열에서 이미지 제거못함 이벤트 타깃의 인덱스를 어케 아냐?
+  const handleDeleteImage = (e) => {
+    // setImages(images.filter((_, index) => index !== e.target.index));
+    const removeImg = images.slice(0, 1);
+    setImages(removeImg);
     e.stopPropagation();
-    e.target.parentElement.remove();
+    // e.target.parentElement.remove();
   };
 
   return (
     <>
-      <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleChangeAdd} />
-
+      <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleAddImage} />
       {images.map((image, index) => (
         <div style={{ position: "relative" }} key={index} onClick={() => fileInputRef.current.click()}>
           <ProductImgAddTag src={image.src} />
-          {!image.isDefault && <ActiveXboxImg src={ActiveXbox} onClick={handleClickDelete} />}
+          {!image.isDefault && <ActiveXboxImg src={ActiveXbox} onClick={handleDeleteImage} />}
         </div>
       ))}
     </>
