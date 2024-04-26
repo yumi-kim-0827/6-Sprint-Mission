@@ -4,7 +4,7 @@ import PlusIcon from 'assets/icons/Plus.svg';
 import XIcon from 'assets/icons/Blue-X.svg';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
 
-const ImageAddBox = ({ ...props }) => {
+const ImageAddBox = ({ onClick }) => {
   const [image, setImage] = useState(null);
 
   const imageUrl = useImageUrl();
@@ -28,7 +28,7 @@ const ImageAddBox = ({ ...props }) => {
 
   return (
     <ImageContainer>
-      <ImageAdd {...props}>
+      <ImageAdd onClick={onClick}>
         <img src={PlusIcon} alt="이미지 추가 아이콘" />
         <span>이미지 등록</span>
       </ImageAdd>
