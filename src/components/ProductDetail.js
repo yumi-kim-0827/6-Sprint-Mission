@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchProduct, fetchProductComments } from "../api";
@@ -8,6 +9,10 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+
+  const isFormValid = () => {
+    return newComment.trim() !== "";
+  };
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -67,14 +72,16 @@ const ProductDetail = () => {
         </ProductDetailContentContainer>
       </ProductDetailInfoContainer>
       <HorizontalLineBottom />
+      <ProductDetailNewComment>문의하기</ProductDetailNewComment>
       <ProductDetailCommentBox>
-        <ProductDetailNewComment>문의하기</ProductDetailNewComment>
         <StyledTextarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
         ></StyledTextarea>
-        <button>등록</button>
+      </ProductDetailCommentBox>
+      <CommentButton disabled={!isFormValid()}>등록</CommentButton>
+      <ProductDetailCommentBox>
         {comments.map((comment) => (
           <ProductDetailComment key={comment}>
             <ProductDetailCommentWriter
@@ -90,9 +97,11 @@ const ProductDetail = () => {
             </ProductCommentCreatedAt>
           </ProductDetailComment>
         ))}
+        <HorizontalLineBottom />
       </ProductDetailCommentBox>
-      <HorizontalLineBottom />
-      <ListBackButton to="/items">목록으로 돌아가기</ListBackButton>
+      <ProductDetailBack>
+        <ListBackButton to="/items">목록으로 돌아가기 ↩️</ListBackButton>
+      </ProductDetailBack>
     </ProductDetailContainer>
   );
 };
@@ -190,17 +199,54 @@ const ProductDetailFavorite = styled.p`
 const HorizontalLineBottom = styled.hr`
   width: calc(100% - 400px);
   border: none;
-  border-top: 1px solid #e6e8ec;
-  margin: 10px 200px;
+  border-top: 2px solid #e6e8ec;
+  margin: 10px 200px;xormqk
 `;
 
 const ProductDetailCommentBox = styled.div`
-  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-const ProductDetailNewComment = styled.div``;
+const ProductDetailNewComment = styled.div`
+  margin-top: 15px;
+  margin-left: 200px;
+`;
 
-const StyledTextarea = styled.textarea``;
+const StyledTextarea = styled.textarea`
+  width: calc(100% - 430px);
+  height: 70px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  resize: none;
+  background-color: #f3f4f6;
+  font-family: auto;
+  margin-top: 15px;
+`;
+
+const CommentButton = styled.button`
+  margin-top: 15px;
+  margin-left: calc(100% - 267px);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      background-color: #3691ff;
+    `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    `}
+`;
 
 const ProductDetailComment = styled.div`
   display: flex;
@@ -216,17 +262,17 @@ const ProductCommentContent = styled.p``;
 
 const ProductCommentCreatedAt = styled.p``;
 
+const ProductDetailBack = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ListBackButton = styled(Link)`
-  width: 130px;
-  height: 19px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   gap: 10px;
-  border-radius: 12px;
+  border-radius: 50px;
   background-color: #3692ff;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 19.09px;
   text-align: center;
   color: #ffffff;
   text-decoration: none;
