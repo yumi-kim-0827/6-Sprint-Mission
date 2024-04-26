@@ -64,73 +64,13 @@
   flex-shrink: 0;
 }
 
-.allitemList {
-  display: grid;
-  grid-template: repeat(2, 301px) / repeat(5, 221px);
-  column-gap: 24px;
-  row-gap: 10px;
-}
-
-.allitemList > li {
-  width: fit-content;
-}
-
-.allitemListItemImage {
-  width: 221px;
-  height: 221px;
-  display: inline-block;
-  border: 1px black solid;
-  border-radius: 16px;
-}
-
-.allitemListItemImage > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-}
-
-.allitemListItemIitle {
-  font-family: Pretendard;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16.71px;
-}
-
-.allitemListItemPrice {
-  font-family: Pretendard;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19.09px;
-}
-
-.allitemListItemLikebutton {
-  display: inline-block;
-  position: relative;
-}
-
-.allitemListItemLikecount {
-  display: inline-block;
-  font-family: Pretendard;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14.32px;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .allitemList {
-    grid-template: repeat(2, 301px) / repeat(3, 221px);
-  }
-
   .allitemTitleFormSearch {
     width: 242px;
   }
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .allitemList {
-    grid-template: repeat(2, 248px) / repeat(2, 168px);
-  }
-
   .allitemTitle {
     display: grid;
     grid-template: repeat(2, auto) / 200px auto;
@@ -140,11 +80,6 @@
     width: fit-content;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-  }
-
-  .allitemListItemImage {
-    width: 168px;
-    height: 168px;
   }
 
   .allitemTitleFormSearch {

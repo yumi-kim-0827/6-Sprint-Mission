@@ -8,9 +8,11 @@
   --panda-gray-color: #9ca3af;
   --footer-bg-color: #111827;
   --button-font-color: #fff;
+  --font-color: #000;
   --faq-font-color: #e5e7eb;
   --cool-gray-50: #f9fafb;
   --cool-gray-100: #f3f4f6;
+  --cool-gray-200: #e5e7eb;
   --cool-gray-800: #1f2937;
   --brand-blue: #3692ff;
   --brand-sky: #e6f2ff;
@@ -18,4 +20,5 @@
   --invalid-color: #f00;
   --item-header-line-color: #dfdfdf;
   --additem-title-color: #1f2937;
+  --askitem-label-color: #111827;
 }

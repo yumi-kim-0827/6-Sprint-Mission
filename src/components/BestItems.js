@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
-import Products from "./Products";
+import { BestProducts } from "./Products";
 import { sortItemsByOrder } from "../utils/sort";
 import styles from "../styles/BestItems.module.css";
 
 function BestItems({ pageSize }) {
-  const bestItemsListStyles = {
-    list: styles.bestitemList,
-    listItem: styles.bestitemListItem,
-    elements: {
-      listItemImg: styles.bestitemListItemImage,
-      listItemTitle: styles.bestitemListItemTitle,
-      listItemPrice: styles.bestitemListItemPrice,
-      listItemLikeButton: styles.bestitemListItemLikebutton,
-      listItemLikeCount: styles.bestitemListItemLikecount,
-    },
-  };
-
   const [order, setOrder] = useState("favorite");
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +39,7 @@ function BestItems({ pageSize }) {
         <div className={styles.bestitemTitle}>
           <h2 className={styles.bestitemTitleContent}>베스트 상품</h2>
         </div>
-        <Products className={bestItemsListStyles} items={sortedItems} />
+        <BestProducts items={sortedItems} />
       </div>
       {loadingError?.message && <span>{loadingError.message}</span>}
     </>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
 import { sortItemsByOrder } from "../utils/sort";
-import Products from "./Products";
+import { AllProducts } from "./Products";
 import { Link } from "react-router-dom";
 import styles from "../styles/AllItems.module.css";
 import SelectMenu from "./SelectMenu";
+import Paging from "./Paging";
 
 function getLinkStyle({ isActive }) {
   return {
@@ -13,26 +14,14 @@ function getLinkStyle({ isActive }) {
 }
 
 function AllItems({ pageSize }) {
-  const allItemsListStyles = {
-    list: styles.allitemList,
-    listItem: styles.allitemListItem,
-    elements: {
-      listItemImg: styles.allitemListItemImage,
-      listItemTitle: styles.allitemListItemTitle,
-      listItemPrice: styles.allitemListItemPrice,
-      listItemLikeButton: styles.allitemListItemLikebutton,
-      listItemLikeCount: styles.allitemListItemLikecount,
-    },
-  };
-
   const [order, setOrder] = useState("recent");
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [totalPage, setTotalPage] = useState(0);
   const [loadingError, setLoadingError] = useState(null);
   const [keyword, setKeyword] = useState("");
 
   const sortedItems = sortItemsByOrder(items, order);
-  console.log(sortedItems);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +41,7 @@ function AllItems({ pageSize }) {
       setIsLoading(false);
     }
     const { list } = result;
+    setTotalPage(result.totalCount);
     setItems(list);
   };
 
@@ -68,7 +58,7 @@ function AllItems({ pageSize }) {
             {window.innerWidth < 1199 ? "판매 중인 상품" : "전체 상품"}
           </h2>
           <div className={styles.allitemTitleFormSearch}>
-            <span className={styles.allitemTitleFormSearchImage}></span>
+            <span className={styles.allitemTitleFormSearchImage} />
             <form onSubmit={handleSearchSubmit}>
               <input
                 type="text"
@@ -84,10 +74,17 @@ function AllItems({ pageSize }) {
           <SelectMenu className={styles.SelectBox} setOrder={setOrder} />
         </div>
         <div>
-          <Products className={allItemsListStyles} items={sortedItems} />
+          <AllProducts items={sortedItems} />
         </div>
         {loadingError?.message && <span>{loadingError.message}</span>}
       </div>
+      {/* <Paging
+        itemsCount={1}
+        totalPageCount={totalPage}
+        displayCount={pageSize}
+        order={order}
+        onClick={handleLoad}
+      /> */}
     </>
   );
 }

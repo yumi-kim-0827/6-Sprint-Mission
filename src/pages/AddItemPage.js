@@ -57,7 +57,11 @@ function Tags({ onChange }) {
   );
 }
 
-function AddItem({ initialValues = INITIAL_VALUES, initialPreview, onSubmit }) {
+function AddItemPage({
+  initialValues = INITIAL_VALUES,
+  initialPreview,
+  onSubmit,
+}) {
   const [values, setValues] = useState(initialValues);
   const [validate, setValidate] = useState(false);
   const [loading, error, onSubmitAsync] = useAsync(onSubmit);
@@ -70,7 +74,6 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview, onSubmit }) {
   };
 
   function checkValidate() {
-    console.log("validate");
     if (
       values["title"] &&
       values["price"] &&
@@ -84,8 +87,8 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview, onSubmit }) {
     }
   }
 
-  function handleInputChange(e) {
-    const { name, value } = e.target;
+  function handleInputChange({ target }) {
+    const { name, value } = target;
     handleChange(name, value);
   }
 
@@ -168,4 +171,4 @@ function AddItem({ initialValues = INITIAL_VALUES, initialPreview, onSubmit }) {
   );
 }
 
-export default AddItem;
+export default AddItemPage;

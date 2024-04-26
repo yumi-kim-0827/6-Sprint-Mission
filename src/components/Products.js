@@ -1,46 +1,83 @@
 import styles from "../styles/Products.module.css";
+import { Link } from "react-router-dom";
+
 // function formatDate(value) {
 //     const date = new Date(value);
 //     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 // }
 
-function ProductItem({ item, className }) {
-  const {
-    listItemImg,
-    listItemTitle,
-    listItemPrice,
-    listItemLikeButton,
-    listItemLikeCount,
-  } = className;
+function BestProductItem({ item }) {
   return (
     <div className={styles.productItemContainer}>
-      <span className={listItemImg}>
+      <span className={styles.bestitemListItemImage}>
         <img src={item.images[0]} alt={item.name} />
       </span>
-      <p className={listItemTitle}>{item.name}</p>
-      <p className={listItemPrice}>{item.price.toLocaleString("ko-KR")}원</p>
+      <Link className={styles.bestitemListItemTitle} to={`/items/${item.id}`}>
+        {item.name}
+      </Link>
+      <p className={styles.bestitemListItemPrice}>
+        {item.price.toLocaleString("ko-KR")}원
+      </p>
       <div className={styles.likes}>
-        <label className={listItemLikeButton}>
+        <label className={styles.bestitemListItemLikebutton}>
           <input type="checkbox" className={styles.likebuttonToggle} />
           <span className={styles.likebuttonToggleButton}></span>
         </label>
-        <p className={listItemLikeCount}>{item.favoriteCount}</p>
+        <p className={styles.bestitemListItemLikecount}>{item.favoriteCount}</p>
       </div>
     </div>
   );
 }
 
-function Products({ items, counts, className }) {
-  const { list, listItem, elements } = className;
+function AllProductItem({ item }) {
   return (
-    <ul className={list}>
+    <div className={styles.productItemContainer}>
+      <span className={styles.allitemListItemImage}>
+        <img src={item.images[0]} alt={item.name} />
+      </span>
+      <Link className={styles.allitemListItemTitle} to={`/items/${item.id}`}>
+        {item.name}
+      </Link>
+      <p className={styles.allitemListItemPrice}>
+        {item.price.toLocaleString("ko-KR")}원
+      </p>
+      <div className={styles.likes}>
+        <label className={styles.allitemListItemLikebutton}>
+          <input type="checkbox" className={styles.likebuttonToggle} />
+          <span className={styles.likebuttonToggleButton}></span>
+        </label>
+        <p className={styles.allitemListItemLikecount}>{item.favoriteCount}</p>
+      </div>
+    </div>
+  );
+}
+
+function BestProducts({ items, counts }) {
+  return (
+    <ul className={styles.bestitemList}>
+      {items.map((item, index) => {
+        if (!(index > counts - 1)) {
+          return (
+            <li className={styles.bestitemListItem} key={item.id}>
+              <BestProductItem item={item} />
+            </li>
+          );
+        }
+      })}
+    </ul>
+  );
+}
+
+function AllProducts({ items, counts }) {
+  return (
+    <ul className={styles.allitemList}>
       {items.map((item, index) => {
         if (index > counts - 1) {
           return <></>;
         }
         return (
-          <li className={listItem} key={item.id}>
-            <ProductItem className={elements} item={item} />
+          <li className={styles.allitemListItem} key={item.id}>
+            <AllProductItem item={item} />
           </li>
         );
       })}
@@ -48,4 +85,4 @@ function Products({ items, counts, className }) {
   );
 }
 
-export default Products;
+export { BestProducts, AllProducts };
