@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../api/itemApi";
+import { getProductById } from "../../../api/itemApi";
+import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
 
-function ItemDescriptionPage() {
+function ItemDetailCard() {
   const { itemId } = useParams();
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   const fetch = async () => {
     try {
@@ -18,19 +19,38 @@ function ItemDescriptionPage() {
   useEffect(() => {
     if (!itemId) return;
     fetch();
-  }, [itemId]);
+  }, []);
 
   return (
     <div>
-      <h2>이름: {data?.name}</h2>
-      <p>Description: {data?.description}</p>
-      <p>Price: {data?.price}</p>
-      <p>Favorite Count: {data?.favoriteCount}</p>
+      <div className="detailImgContainer">
+        <img className="detailImg" src={data.images} alt={data.name} />
+        <div className="detailInfoContainer">
+          <div className="detailName">{data.name}</div>
+          <div className="detailPrice">
+            {Number(data.price).toLocaleString("ko-KR")}원
+          </div>
+          <div className="detailIntroduction">상품 소개</div>
+          <p className="detailDescription">{data.description}</p>
+          <div className="detailIntroduction">상품 태그</div>
+          <div>
+            <ul className="detailTag">
+              {data.tags?.map((tag, index) => {
+                return <li key={index}>#{tag}</li>;
+              })}
+            </ul>
+            <div className="detailFavoriteCount">
+              <HeartIcon />
+              {data.favoriteCount}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default ItemDescriptionPage;
+export default ItemDetailCard;
 
 // ㅠ.ㅠ
 // api를 호출할 때는 (리액트에서)
