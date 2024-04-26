@@ -1,52 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { getProducts } from "../api";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import ListItems from "./ListItems";
+import { GetItemsContext } from "../App";
 import "./../css/List.css";
 
-function List({ title, order, limit, gridCol, isOrderChange }) {
-  const [isLoading, setIsLoading] = useState(false);
+const Pagination = ({ page, setPage, pageList }) => {
+  setPage(1);
+
+  const Li = () => {
+    return <li>안녕</li>;
+  };
+
+  return <ul className="Pagination"></ul>;
+};
+
+function List({ order, limit, gridCol, isPage }) {
   const [items, setItems] = useState();
+  const [page, setPage] = useState(1);
+  const [pageList, setPageList] = useState();
+  const getItems = useContext(GetItemsContext);
 
-  const getItems = async ({ order, limit }) => {
-    let result;
-    try {
-      setIsLoading(true);
-      result = await getProducts({ order, limit });
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
-    const { totalCount, list } = await result;
-    setItems(list);
-  };
-
-  // 데이터 가져오기
   useEffect(() => {
-    getItems({ order, limit });
-  }, [order, limit]);
-
-  const OrderNav = () => {
-    return (
-      <form className="OrderNav">
-        <input type="text" placeholder="검색할 상품을 입력해주세요" />
-        <button>상품 등록하기</button>
-        <select>
-          <option value="recent">최신순</option>
-          <option value="favorite">좋아요순</option>
-        </select>
-      </form>
-    );
-  };
+    async function ex() {
+      const { list, totalCount } = await getItems(order, limit, page);
+      setPageList(totalCount / limit);
+      setItems(list);
+    }
+    ex();
+  }, [page]);
 
   return (
-    <div className="List">
-      <div className="List__head">
-        <h3 className="List__title">{title}</h3>
-        {isOrderChange && <OrderNav />}
+    <>
+      <div className="List">
+        <ListItems items={items} gridCol={gridCol} />
       </div>
-      <ListItems items={items} gridCol={gridCol} />
-    </div>
+      {isPage && (
+        <Pagination page={page} setPage={setPage} pageList={pageList} />
+      )}
+    </>
   );
 }
 

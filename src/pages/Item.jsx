@@ -1,12 +1,27 @@
-import List from "../components/List";
-import "../css/Item.css";
 import useMediaQuery from "../hooks/useMediaQuery";
+
+import List from "../components/List";
+
+import "../css/Item.css";
 
 /*
 desktop : 1200~
 tablet : 768~1200
 phone : ~768
 */
+
+const OrderNav = () => {
+  return (
+    <form className="OrderNav">
+      <input type="text" placeholder="검색할 상품을 입력해주세요" />
+      <button>상품 등록하기</button>
+      <select>
+        <option value="recent">최신순</option>
+        <option value="favorite">좋아요순</option>
+      </select>
+    </form>
+  );
+};
 
 function Item() {
   // 미디어 쿼리
@@ -32,11 +47,9 @@ function Item() {
     cols_ = [cols[4], cols[5]];
     limits = [4, 10];
   } else if (matchesTablet) {
-    console.log("tablet");
     cols_ = [cols[2], cols[3]];
     limits = [2, 6];
   } else if (matchesPhone) {
-    console.log("phone");
     cols_ = [cols[1], cols[2]];
     limits = [1, 4];
   }
@@ -45,20 +58,22 @@ function Item() {
 
   return (
     <div className="Item">
-      <List
-        title={"베스트 상품"}
-        order={"favorite"}
-        limit={bestLimit}
-        gridCol={bestCol}
-        isOrderChange={false}
-      />
-      <List
-        title={"전체 상품"}
-        order={"recent"}
-        limit={allLimit}
-        gridCol={allColl}
-        isOrderChange={true}
-      />
+      <section>
+        <h2>베스트 상품</h2>
+        <List order={"favorite"} limit={bestLimit} gridCol={bestCol} />
+      </section>
+      <section>
+        <div className="title">
+          <h2>전체 상품</h2>
+          <OrderNav />
+        </div>
+        <List
+          order={"recent"}
+          limit={allLimit}
+          gridCol={allColl}
+          isPage={true}
+        />
+      </section>
     </div>
   );
 }

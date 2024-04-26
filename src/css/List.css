@@ -15,23 +15,6 @@
   margin-right: auto;
   display: inline;
 }
-.OrderNav {
-  display: flex;
-  gap: 12px;
-}
-
-.OrderNav input[type="text"] {
-  padding: 9px 16px;
-  background-color: var(--gray100);
-  width: 325px;
-  border-radius: 12px;
-  font-size: 1.6rem;
-  font-family: var(--main-font);
-}
-
-.OrderNav input[type="text"]::placeholder {
-  color: var(--gray400);
-}
 
 .OrderNav__bottom {
   display: flex;
