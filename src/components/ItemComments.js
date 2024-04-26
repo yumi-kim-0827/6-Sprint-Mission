@@ -4,13 +4,14 @@ import arrowTurn from "../assets/arrow-turn.svg";
 import kebabIcon from "../assets/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import moment from "moment";
 import {
   DARK_GRAY,
   GRAY_200,
   INPUT_COLOR,
   PRIMARY_COLOR,
 } from "../constants/color";
+import moment from "moment";
+import "moment/locale/ko";
 
 export default function ItemComments({ comments }) {
   const [comment, setComment] = useState("");
