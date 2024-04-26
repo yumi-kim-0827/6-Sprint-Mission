@@ -5,18 +5,18 @@ import ItemDetailsComments from "./ItemDetailsComments";
 import "./ItemDetails.css";
 import likeIcon from "../../assets/ic_heart.svg";
 import returnIcon from "../../assets/ic_back.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ItemDetails() {
   const [item, setItem] = useState({});
-  const itemID = 9;
+  const { itemID } = useParams();
   const queryData = `products/${itemID}`;
 
   const handleLoadItemInfo = async () => {
     try {
-      const item = await getItems(queryData);
-      if (item) {
-        setItem(item);
+      const data = await getItems(queryData);
+      if (data) {
+        setItem(data);
       }
     } catch (e) {
       console.log(e);

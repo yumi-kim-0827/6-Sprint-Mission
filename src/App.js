@@ -19,7 +19,7 @@ function App() {
           <Route path="feed" element={<CommunityFeedPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="sighup" element={<SignupPage />} />
-          <Route path="items/details" element={<ItemDetails />} />
+          <Route path="items/:itemID" element={<ItemDetails />} />
         </Routes>
       </Layout>
     </BrowserRouter>
