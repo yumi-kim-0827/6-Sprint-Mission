@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getProductDetails } from '../../api/itemApi';
 import { ReactComponent as HeartIcon } from '../../assets/images/icons/ic_heart.svg';
 
 function ProductPage() {
@@ -7,11 +8,11 @@ function ProductPage() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // Fetch product details from backend API
-    fetch(`https://panda-market-api.vercel.app/products/${productId}`)
-      .then((response) => response.json())
-      .then((data) => setProduct(data))
-      .catch((error) => console.error('Error fetching product:', error));
+    async function fetchData() {
+      const data = await getProductDetails(productId);
+      setProduct(data);
+    }
+    fetchData();
   }, [productId]); // Fetch data whenever productId changes
 
   if (!product) {
