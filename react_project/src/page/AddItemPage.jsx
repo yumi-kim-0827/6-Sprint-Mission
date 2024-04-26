@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ImageUpload from '../components/ImageUpload';
+import Button from '../components/Button';
 import styles from '../styles/AddItemPage.module.css';
 import TagInput from '../components/TagInput';
 
-function AddItemPage() {
+function AddItemPage({type}) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -25,7 +26,7 @@ function AddItemPage() {
     <form className={styles.addIteme_wrap}>
       <div className={styles.addItem_header}>
         <h1>상품 등록하기</h1>
-        <button type='submit' disabled={isSubmitDisabled}>등록</button>
+        <Button type={"submit"} disabled={isSubmitDisabled}>등록</Button>
       </div>
       <ImageUpload title="상품 이미지" />
       <div className={styles.addItem_infoContainer}>
