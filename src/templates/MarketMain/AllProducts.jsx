@@ -30,6 +30,14 @@ export default function AllProducts() {
   const { deviceState } = useDeviceState();
   useResetPage([deviceState, keyword]);
 
+  useEffect(() => {
+    console.log(deviceState);
+  }, [deviceState]);
+
+  useEffect(() => {
+    console.log(keyword);
+  }, [keyword]);
+
   // 렌더되는 데이터 설정
   useEffect(() => {
     (async () => {

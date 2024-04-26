@@ -25,7 +25,8 @@ export const ProductDetailInfoContainer = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-  position: relative;
+  display: grid;
+  grid-template-rows: repeat(2, auto) 1fr;
 `;
 
 export const InfoTop = styled.div`
@@ -85,15 +86,14 @@ export const InfoBottom = styled.div`
     font-weight: 400;
     color: var(--cool-gray800);
   }
+`;
 
-  .like-btn {
-    margin-top: 24px;
-  }
+export const LikeBtnBox = styled.div`
+  margin-top: 24px;
+  align-self: flex-end;
 
   ${onTabletAndPc} {
-    margin-top: 0;
-    position: absolute;
-    bottom: 0;
+    margin-top: 15px;
   }
 `;
 

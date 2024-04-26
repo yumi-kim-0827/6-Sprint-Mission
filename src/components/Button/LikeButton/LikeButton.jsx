@@ -26,6 +26,7 @@ const StyledLikeButton = styled.button`
   color: var(--cool-gray500);
   font-weight: 500;
   font-size: 16px;
+  background-color: white;
 
   &:focus,
   &:hover {
