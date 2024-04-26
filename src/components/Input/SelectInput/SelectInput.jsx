@@ -1,16 +1,16 @@
-import { orderAtom } from "contexts/atoms/order";
 import useDeviceState from "hooks/useDeviceState";
-import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
 import * as S from "./SelectInput.style";
+import { useOrderState } from "contexts/MarketMain";
 
 export default function SelectInput() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [order, setOrder] = useAtom(orderAtom);
   const { isMobileWidth } = useDeviceState();
   const dropdownRef = useRef(null);
+
+  const [order, setOrder] = useOrderState();
 
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);

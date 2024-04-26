@@ -1,8 +1,7 @@
 import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
-import { useAtom, useAtomValue } from "jotai";
-import { currentPageAtom, totalPagesAtom } from "contexts/atoms/page";
 import * as S from "./Pagination.style";
+import { useCurrentPageState, useTotalPages } from "contexts/MarketMain";
 
 function PageButton({ children, isFocus, onClick }) {
   return (
@@ -13,8 +12,8 @@ function PageButton({ children, isFocus, onClick }) {
 }
 
 export default function Pagination() {
-  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
-  const totalPages = useAtomValue(totalPagesAtom);
+  const [currentPage, setCurrentPage] = useCurrentPageState();
+  const totalPages = useTotalPages();
 
   const handleButtonClick = (page) => {
     setCurrentPage(page);

@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
 import { getProductsData } from "apis/get";
-import useResetPage from "hooks/useResetPage";
-import { useAtomValue, useSetAtom } from "jotai";
-import { orderAtom } from "contexts/atoms/order";
-import { currentPageAtom, totalPagesAtom } from "contexts/atoms/page";
 import useAsync from "hooks/useAsync";
 import { Button } from "components/Button";
 import Loading from "components/Loading";
 import { Input } from "components/Input";
 import Card from "components/Card";
 import * as S from "./MarketMain.style";
+import {
+  useCurrentPage,
+  useOrder,
+  useSetTotalPages,
+} from "contexts/MarketMain";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,
@@ -23,20 +24,11 @@ export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
   const [totalCount, setTotalCount] = useState(0);
   const [renderDataList, setRenderDataList] = useState([]);
-  const orderState = useAtomValue(orderAtom);
-  const currentPage = useAtomValue(currentPageAtom);
-  const setTotalPages = useSetAtom(totalPagesAtom);
+  const orderState = useOrder();
+  const currentPage = useCurrentPage();
+  const setTotalPages = useSetTotalPages();
   const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
   const { deviceState } = useDeviceState();
-  useResetPage([deviceState, keyword]);
-
-  useEffect(() => {
-    console.log(deviceState);
-  }, [deviceState]);
-
-  useEffect(() => {
-    console.log(keyword);
-  }, [keyword]);
 
   // 렌더되는 데이터 설정
   useEffect(() => {
