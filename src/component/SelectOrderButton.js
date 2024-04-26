@@ -1,17 +1,15 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SelectOrderButton = ({ handleSelectOption, currentOrder }) => {
   const [showSelectBox, setShowSelectBox] = useState(false);
 
-  //정렬 버튼 열기
   const handleSelectButton = () => {
     setShowSelectBox(!showSelectBox);
   };
 
-  //정렬 선택
   const handleOrderButton = (e) => {
-    handleSelectOption(e.target.value);
+    const selectedValue = e.currentTarget.getAttribute("data-value");
+    handleSelectOption(selectedValue);
     setShowSelectBox(false);
   };
 
@@ -22,10 +20,10 @@ const SelectOrderButton = ({ handleSelectOption, currentOrder }) => {
       </button>
       {showSelectBox && (
         <ul className="product-sort-select-option-list">
-          <li value="recent" onClick={handleOrderButton}>
+          <li data-value="recent" onClick={handleOrderButton}>
             최신순
           </li>
-          <li value="favorite" onClick={handleOrderButton}>
+          <li data-value="favorite" onClick={handleOrderButton}>
             좋아요순
           </li>
         </ul>

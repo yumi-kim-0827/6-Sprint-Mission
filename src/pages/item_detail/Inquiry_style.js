@@ -62,7 +62,7 @@ export const EnrollButton = styled.div`
     }
 
     @media (min-width: 375px) and (max-width: 768px) {
-    font-size: 1.4rem;
-  }
+      font-size: 1.4rem;
+    }
   }
 `;

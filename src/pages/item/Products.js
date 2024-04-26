@@ -102,7 +102,7 @@ const Products = ({ numOfItemsToShow }) => {
         nextPageBtn();
         return;
       default:
-        console.log(typeof e.target.value); // string 왜 스트링이 되는지 모르겠어요 ㅠㅠㅠ
+        console.log(typeof e.target.value);
         setCurrentPage(Number(e.target.value));
     }
   };
