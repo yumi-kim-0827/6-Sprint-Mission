@@ -4,6 +4,7 @@ import arrowTurn from "../assets/arrow-turn.svg";
 import kebabIcon from "../assets/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import moment from "moment";
 import {
   DARK_GRAY,
   GRAY_200,
@@ -16,6 +17,11 @@ export default function ItemComments({ comments }) {
 
   const handleChangeComment = ({ target }) => {
     setComment(target.value);
+  };
+
+  // 날짜 및 시간 형식 처리
+  const getTimeAgo = (updatedAt) => {
+    return moment(updatedAt).fromNow();
   };
 
   return (
@@ -44,7 +50,9 @@ export default function ItemComments({ comments }) {
                     />
                     <WriterInfoContainer>
                       <span>{comment.writer?.nickname}</span>
-                      <CommentUpdatedAt>{comment.updatedAt}</CommentUpdatedAt>
+                      <CommentUpdatedAt>
+                        {getTimeAgo(comment.updatedAt)}
+                      </CommentUpdatedAt>
                     </WriterInfoContainer>
                   </WriterContainer>
                 </Comment>
