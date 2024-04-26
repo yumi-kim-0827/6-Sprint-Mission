@@ -22,9 +22,9 @@ const AddItemPage = () => {
 
   const isFormValid = () => {
     return (
-      inputData.itemName !== '' &&
-      inputData.itemDescription !== '' &&
-      inputData.itemPrice !== '' &&
+      inputData.itemName.trim() !== '' &&
+      inputData.itemDescription.trim() !== '' &&
+      inputData.itemPrice.trim() !== '' &&
       inputData.itemTag.length > 0
     );
   };
