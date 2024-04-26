@@ -9,6 +9,7 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import MarketPage from "./components/MarketPage/MarketPage";
 import AddItemPage from "./components/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./components/CommunityFeedPage/CommunityFeedPage";
+import ProductDetailPage from "./components/ProductDetailPage/ProductDetailPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="items" element={<MarketPage />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="community" element={<CommunityFeedPage />} />
+          <Route path="items/:productId" element={<ProductDetailPage />} />
         </Routes>
       </div>
     </BrowserRouter>
