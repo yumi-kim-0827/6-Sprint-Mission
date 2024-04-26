@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import ProductsList from "./ProductsList";
+import ProductsList from "../components/ProductsList";
 import { getProducts } from "../api/api";
-import Header from "./Header";
-import Dropdown from "./Dropdown";
+import Dropdown from "../components/Dropdown";
 
-function App() {
+function MarketPage() {
 
   const [order, setOrder] = useState("createdAt");
   const [items, setItems] = useState([]);
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <div>
-      <Header />
       <div>
         <p>베스트상품</p>
         <button onClick={handleNewestClick}>최신순</button>
@@ -41,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default MarketPage;

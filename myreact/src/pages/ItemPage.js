@@ -1,32 +1,34 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../api/api";
-import Header from "../components/Header";
+import { useParams } from "react-router-dom";
 import "./ItemPage.css";
 
 function ItemPage() {
   const [product, setProduct] = useState([]);
+  const { productId } = useParams();
 
   const order="favoriteCount"
-  const productName="게이밍 의자"
 
-  const handleLoad = async (orderQuery, productName) => {
+  const getProductByName = async (orderQuery, productId) => {
     const { list } = await getProducts(orderQuery);
     console.log(list);
-    const item = list.find((elem) => elem.Name === productName);
-    setProduct(item);
+    /*
+    const productFind = list.find((elem) => {
+      console.log(elem.id);
+      console.log(productId);
+      console.log("------------------")
+      return elem.id === productId;
+    });
+    setProduct(productFind);
+    */
   };
 
   useEffect(() => {
-    handleLoad(order, productName);
+    getProductByName(order, productId);
   }, [order]);
-
-  console.log(product);
-  // const item = getProductByName(product, '게이밍 의자');
-  // setProduct(item);
 
   return (
     <div>
-      <Header />
       <img
         className="ProductsListItem-img"
         src={product.images}
