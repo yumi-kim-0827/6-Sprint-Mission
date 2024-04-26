@@ -81,24 +81,38 @@ const ProductDetail = () => {
         ></StyledTextarea>
       </ProductDetailCommentBox>
       <CommentButton disabled={!isFormValid()}>등록</CommentButton>
-      <ProductDetailCommentBox>
-        {comments.map((comment) => (
-          <ProductDetailComment key={comment}>
-            <ProductDetailCommentWriter
-              src={comment.writer.image}
-              alt={comment.writer.nickname}
+      <ProductDetailCommentBoxBottom>
+        {comments.length === 0 ? (
+          <>
+            <EmptyPandaImage
+              src="/images/home/emptypanda.png"
+              alt="Empty Panda"
             />
-            <ProductCommentNickname>
-              {comment.writer.nickname}
-            </ProductCommentNickname>
-            <ProductCommentContent>{comment.content}</ProductCommentContent>
-            <ProductCommentCreatedAt>
-              {comment.createdAt}
-            </ProductCommentCreatedAt>
-          </ProductDetailComment>
-        ))}
-        <HorizontalLineBottom />
-      </ProductDetailCommentBox>
+            <NoCommentsMessage>아직 문의가 없습니다.</NoCommentsMessage>
+          </>
+        ) : (
+          comments.map((comment) => (
+            <>
+              <ProductDetailComment key={comment}>
+                <ProductCommentContent>{comment.content}</ProductCommentContent>
+                <ProductDetailCommentWriter
+                  src={comment.writer.image}
+                  alt={comment.writer.nickname}
+                />
+                <ProductCommenterInfo>
+                  <ProductCommentNickname>
+                    {comment.writer.nickname}
+                  </ProductCommentNickname>
+                  <ProductCommentCreatedAt>
+                    {comment.createdAt}
+                  </ProductCommentCreatedAt>
+                </ProductCommenterInfo>
+              </ProductDetailComment>
+              <HorizontalLineBottom />
+            </>
+          ))
+        )}
+      </ProductDetailCommentBoxBottom>
       <ProductDetailBack>
         <ListBackButton to="/items">목록으로 돌아가기 ↩️</ListBackButton>
       </ProductDetailBack>
@@ -113,6 +127,7 @@ const ProductDetailContainer = styled.div`
 
 const ProductDetailInfoContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const ProductDetailImageContainer = styled.div`
@@ -210,6 +225,18 @@ const ProductDetailCommentBox = styled.div`
   flex-direction: column;
 `;
 
+const EmptyPandaImage = styled.img`
+  width: 200px;
+`;
+
+const NoCommentsMessage = styled.div`
+  font-size: 15px;
+  font-weight: 400;
+  color: #9ca3af
+  margin-top: 10px;
+  margin-bottom: 18px;
+`;
+
 const ProductDetailNewComment = styled.div`
   margin-top: 15px;
   margin-left: 200px;
@@ -248,19 +275,43 @@ const CommentButton = styled.button`
     `}
 `;
 
-const ProductDetailComment = styled.div`
+const ProductDetailCommentBoxBottom = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+`;
+
+const ProductDetailComment = styled.div`
   margin-bottom: 10px;
 `;
 
-const ProductDetailCommentWriter = styled.div``;
+const ProductCommentContent = styled.p`
+  margin-top: 20px;
+  margin-left: 200px;
+`;
 
-const ProductCommentNickname = styled.p``;
+const ProductDetailCommentWriter = styled.img`
+  width: 40px;
+  margin-top: 10px;
+  margin-left: 200px;
+`;
 
-const ProductCommentContent = styled.p``;
+const ProductCommenterInfo = styled.div`
+  margin-top: -60px;
+  margin-left: 250px;
+`;
 
-const ProductCommentCreatedAt = styled.p``;
+const ProductCommentNickname = styled.p`
+  font-weight: 400;
+  color: #4b5563;
+  margin-bottom: 3px;
+`;
+
+const ProductCommentCreatedAt = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: #9ca3af;
+  margin-top: 3px;
+`;
 
 const ProductDetailBack = styled.div`
   display: flex;
@@ -269,6 +320,7 @@ const ProductDetailBack = styled.div`
 `;
 
 const ListBackButton = styled(Link)`
+  margin-top: 30px;
   padding: 10px 20px;
   gap: 10px;
   border-radius: 50px;
