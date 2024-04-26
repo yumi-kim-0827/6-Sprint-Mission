@@ -1,33 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import search from "../../img/search.svg";
+import { Link } from "react-router-dom";
+import Items from "./Items";
+import './Product.css';
+import { getProducts }  from '../../../api';
 
+const getPageSize = () => {
+  return window.innerWidth < 768 ? 4 :  window.innerWidth < 1280 ? 6 : 10
+};
 const Product = () => {
+  const [itemList, setItemList] = useState([]);
+  const [pageSize, setPageSize] = useState(getPageSize());
+
+  const SortedData = async ({ orderBy, pageSize }) => {
+    const products = await getProducts({ orderBy, pageSize });
+    setItemList(products.list);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+
+
+    window.addEventListener("resize", handleResize);
+    SortedData({ orderBy: "favorite", pageSize });
+
+  }, [pageSize]);
   return (
-    <div className="">
-      <div className="">
-        <span className="">전체 상품</span>
-        <div className="">
-          <input className=""
-            type="text"
-            placeholder="🔍 상품을 검색해주세요"
-            value={value}
-          />
-          <section className="">
-            <option value={"latest"}>최신순</option>
-            <option value={"like"}>좋아요 순</option>
-          </section>
+    <>
+    <div className="Product">
+      <h1 className="Title">전체 상품</h1>
+      <div className="ProductBar">
+        <div className="searchBar">
+          <img src={search} alt="검색버튼" className="searchImg" />
+          <input className="searchInput" placeholder="검색할 상품을 입력해 주세요" />
         </div>
-        <div>
-          <div className="" src={"images"} alt={"name"} />
-          <div className="">{"name"}</div>
-          <div className="">{"price"}원</div>
-          {"Likes" && (
-            <div className="">
-              {"Count" !== 0 ? (src = {}) : (src = {})} {"Count"}
-            </div>
-          )}
+        <Link to="/additem" className="loginLink button">
+          상품 등록하기
+        </Link>
+        <select>
+          <option>최신순</option>
+          <option>좋아요순</option>
+        </select>
         </div>
-      </div>
     </div>
+    <div className="Item">
+    {itemList?.map((item) => (
+          <Items item={item} key={`best-item-${item.id}`} />
+        ))}
+    </div>
+    </>
   );
 };
 

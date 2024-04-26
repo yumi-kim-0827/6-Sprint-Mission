@@ -1,18 +1,20 @@
-const panda_market_backend_api = "https://panda-market-api.vercel.app/";
+const BASE_URL = "https://panda-market-api.vercel.app";
 
-const get_products = async ({
+export async function getProducts({
   page = 1,
   pageSize = 10,
-  orderBy = "recent",
-  keyword = ''
-}) => {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
-  const response = await fetch(panda_market_backend_api + `products?${query}`);
-  if (!response.ok) {
-    throw new Error("데이터를 불러오는데 실패했습니다");
+  orderBy = '',
+}) {
+  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
+  try {
+    const response = await fetch(`${BASE_URL}/products?${query}`);
+    if (!response.ok) {
+      throw new Error("데이터를 불러오는데 실패했습니다");
+    }
+    const body = await response.json();
+    return body;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-  const products = await response.json();
-  return products;
-};
-
-export { get_products };
+}
