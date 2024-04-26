@@ -10,10 +10,15 @@ import icon_order from '../assets/icon_order.png'
 import icon_dropdown from '../assets/icon_dropdown.png'
 
 function Items() {
+  const selectOptions = [
+    { value: 'createdAt', label: '최신순' },
+    { value: 'favoriteCount', label: '좋아요순' },
+  ]
+
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
   const [bestProducts, setBestProducts] = useState([])
-  const [order, setOrder] = useState('createdAt')
+  const [order, setOrder] = useState(selectOptions[0].value)
   const [keyword, setKeyword] = useState('')
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -26,11 +31,6 @@ function Items() {
   // 처음과 끝 인덱스 번호를 구하고 slice로 분할하기
   const indexOfLast = currentPage * productsPerPage // 현재 페이지의 마지막 상품 인덱스
   const indexOfFirst = indexOfLast - productsPerPage // 현재 페이지의 첫 번째 상품 인덱스
-
-  const selectOptions = [
-    { value: 'createdAt', label: '최신순' },
-    { value: 'favoriteCount', label: '좋아요순' },
-  ]
 
   const currentProducts = (products) => {
     let currentProducts = 0
