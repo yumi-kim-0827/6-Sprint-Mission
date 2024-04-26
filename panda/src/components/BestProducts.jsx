@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import getItems from "../api/api";
 
-export default function BestItems() {
+export default function BestProducts() {
   const [data, setData] = useState([]);
 
   const fetchData = async ({ orderBy }) => {

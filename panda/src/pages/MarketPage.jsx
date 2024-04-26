@@ -1,10 +1,12 @@
 import React from "react";
-import BestItems from "../components/BestItems";
+import BestProducts from "../components/BestProducts";
+import AllProducts from "../components/AllProducts";
 
 export default function MarketPage() {
   return (
     <>
-      <BestItems />
+      <BestProducts />
+      <AllProducts />
     </>
   );
 }
