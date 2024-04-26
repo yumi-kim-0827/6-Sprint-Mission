@@ -7,6 +7,7 @@ import {
 } from "../../../shared/constants/constants";
 import { ProductInfoSection } from "../../../widgets/ProductInfoSection";
 import { Main, MainContent } from "../../../shared/ui/MainContent";
+import { Line } from "../../../shared/ui/Line";
 
 export const ProductPage = () => {
   const { productId } = useParams();
@@ -44,6 +45,7 @@ export const ProductPage = () => {
       <MainContent>
         {dataState?.isLoading && <span>로딩 중입니다.</span>}
         {productInfo?.info && <ProductInfoSection info={productInfo.info} />}
+        <Line />
         {/* <ProductCommentsSection comments={productInfo.comments} /> */}
         {dataState?.errorMessage && (
           <span>{dataState.errorMessage.message}</span>

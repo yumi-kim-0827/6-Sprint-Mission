@@ -2,12 +2,15 @@ import "./TagList.scss";
 import tagXicon from "/src/shared/asset/tagXicon.png";
 
 // tags = {value : ~ , id: ~}
-export function TagList({ tags, onDelete = null }) {
+export function TagList({ className = "styled", tags, onDelete = null }) {
   return (
     <div className="TagList">
       {tags &&
         tags.map((v) => (
-          <div className="TagList__card" key={crypto.randomUUID()}>
+          <div
+            className={"TagList__card " + className}
+            key={crypto.randomUUID()}
+          >
             <span>{v}</span>
             {onDelete !== null && (
               <button
