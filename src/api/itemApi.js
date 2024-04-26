@@ -28,3 +28,19 @@ export async function getProductDetails(productId) {
     throw error;
   }
 }
+
+export async function getProductComments(productId, commentId) {
+  try {
+    const response = await fetch(`https://panda-market-api.vercel.app/products/${productId}/${commentId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch product comments');
+    }
+    const responseData = await response.json();
+
+    // 'list' 키에 해당하는 배열을 반환합니다.
+    return responseData.list || [];
+  } catch (error) {
+    console.error('Error fetching product comments:', error);
+    throw error;
+  }
+}
