@@ -12,6 +12,7 @@ const NewFlexContainer = styled(FlexContainer)`
 `;
 
 const NewTagList = styled(TagList)`
+  background: #f3f4f6;
   height: fit-content;
   padding: 6px 16px;
   border-radius: 26px;

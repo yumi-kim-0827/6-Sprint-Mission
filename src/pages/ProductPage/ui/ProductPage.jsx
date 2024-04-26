@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getComments, getProduct } from "../../../shared/api/api";
 import { useEffect, useState } from "react";
 import {
@@ -14,6 +14,26 @@ import { ItemInput } from "../../../entities/ItemInput";
 import { Button } from "../../../shared/ui/Button";
 import { FlexContainer } from "../../../shared/ui/Container";
 import styled from "styled-components";
+import backIcon from "../../../shared/asset/ic_back.png";
+const HomeLink = styled(Link).attrs({ className: "styled" })`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  width: 240px;
+  height: 48px;
+  padding: 12px 71px;
+  margin-top: 40px;
+  margin-inline: auto;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  background-color: #3692ff;
+`;
 
 const NewItemInput = styled(ItemInput)`
   height: 104px;
@@ -92,6 +112,11 @@ export const ProductPage = () => {
         {dataState?.errorMessage && (
           <span>{dataState.errorMessage.message}</span>
         )}
+
+        <HomeLink to="/">
+          <span>목록으로 돌아가기</span>
+          <img src={backIcon} />
+        </HomeLink>
       </MainContent>
     </Main>
   );
