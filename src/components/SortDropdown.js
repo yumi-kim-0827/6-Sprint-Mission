@@ -1,4 +1,4 @@
-import paginationStore from "../store/paginationStore";
+import paginationStore from '../store/paginationStore';
 
 export default function SortDropdown({
   setSortContent,
@@ -16,11 +16,11 @@ export default function SortDropdown({
   };
 
   const handleDateSort = () => {
-    handleSort(sortOptions.NEWEST, "recent");
+    handleSort(sortOptions.NEWEST, 'recent');
   };
 
   const handleLikeSort = () => {
-    handleSort(sortOptions.LIKE, "favorite");
+    handleSort(sortOptions.LIKE, 'favorite');
   };
 
   return (

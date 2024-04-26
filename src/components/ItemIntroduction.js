@@ -1,5 +1,5 @@
-import { favoriteIcon } from "../images";
-import formatNumber from "../utils/formatNumber";
+import { favoriteIcon } from '../images';
+import formatNumber from '../utils/formatNumber';
 
 export default function ItemIntroduction({ postedItems }) {
   return (

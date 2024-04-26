@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
 // axios와 useQuery를 사용하여 fetch하였습니다.
 export default function useFetchItems(paramsOptions) {
@@ -7,7 +7,7 @@ export default function useFetchItems(paramsOptions) {
 
   const fetchItems = async () => {
     const response = await axios.get(
-      "https://panda-market-api.vercel.app/products",
+      'https://panda-market-api.vercel.app/products',
       {
         params: {
           page,
@@ -20,5 +20,5 @@ export default function useFetchItems(paramsOptions) {
     return response.data;
   };
 
-  return useQuery(["products", page, pageSize, orderBy], fetchItems);
+  return useQuery(['products', page, pageSize, orderBy], fetchItems);
 }

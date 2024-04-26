@@ -1,5 +1,5 @@
-import useFetchComments from "../api/useFetchComments";
-import formatDateDiff from "../utils/formatDateDiff";
+import useFetchComments from '../api/useFetchComments';
+import formatDateDiff from '../utils/formatDateDiff';
 
 export default function CommentList({ productId }) {
   // 데이터를 가져오기 위한 옵션입니다.

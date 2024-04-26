@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 
 import {
   CommentInput,
   CommentList,
   ItemIntroduction,
   Navbar,
-} from "../components";
+} from '../components';
 
 export default function ItemDetails() {
   const location = useLocation();

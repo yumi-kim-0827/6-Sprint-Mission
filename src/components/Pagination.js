@@ -1,6 +1,6 @@
-import { arrowLeft, arrowRight } from "../images";
-import paginationStore from "../store/paginationStore";
-import { useProductCountStore } from "../store/productCountStore";
+import { arrowLeft, arrowRight } from '../images';
+import paginationStore from '../store/paginationStore';
+import { useProductCountStore } from '../store/productCountStore';
 
 function PageButton({ onClick, children }) {
   return (
