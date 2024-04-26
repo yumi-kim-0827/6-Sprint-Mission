@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
-import FormInput from 'components/FormInput';
+import {
+  DefaultInput,
+  ImageFileInput,
+  TextareaInput,
+} from 'components/FormInput';
 import { FormHeader, AddItemTitle, FormContainer, TagList, Tag } from './style';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
 import GrayXIcon from 'assets/icons/Gray-X.svg';
@@ -87,34 +91,32 @@ const AddItemPage = () => {
             <Button disabled={!isFormValid()} title="등록" type="submit" />
           </FormHeader>
           <FormContainer>
-            <FormInput
+            <ImageFileInput
               id="itemImage"
               label="상품 이미지"
-              type="file"
               onChange={handleChange}
             />
-            <FormInput
+            <DefaultInput
               id="itemName"
               label="상품명"
               placeholder="상품명을 입력해주세요"
               onChange={handleChange}
               onKeyPress={handleKeyDownPrevent}
             />
-            <FormInput
+            <TextareaInput
               id="itemDescription"
               label="상품 소개"
               placeholder="상품 소개를 입력해주세요"
-              type="textarea"
               onChange={handleChange}
             />
-            <FormInput
+            <DefaultInput
               id="itemPrice"
               label="판매가격"
               placeholder="판매 가격을 입력해주세요"
               onChange={handleChange}
               onKeyPress={handleKeyDownPrevent}
             />
-            <FormInput
+            <DefaultInput
               id="itemTag"
               label="태그"
               placeholder="태그를 입력해주세요"
