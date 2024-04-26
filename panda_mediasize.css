@@ -529,15 +529,3 @@ footer {
   left: 0;
 }
 }
-
-
-/* 로그인, 회원가입 미디어 쿼리 */
-
-/* 타블렛 사이즈 */
-@media (min-width: 768px) and (max-width: 1199px) {
-  
-}
-
-/* 모바일 사이즈 */
-@media (min-width: 375px) and (max-width: 767px) {
-}
