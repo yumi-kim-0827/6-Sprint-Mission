@@ -9,10 +9,12 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="items" element={<MarketPage />} />
-        <Route path="items/product" element={<ProductDetailPage />} />
+      <Routes path="/">
+        <Route index element={<Homepage />} />
+        <Route path="items">
+          <Route index element={<MarketPage />} />
+          <Route path=":productId" element={<ProductDetailPage />} />
+        </Route>
         <Route path="additem" element={<AddItemPage />} />
       </Routes>
     </BrowserRouter>
