@@ -194,6 +194,24 @@
   color: #9ca3af;
 }
 
+.no-question-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24px;
+}
+
+.no-question-wrapper img{
+  width: 200px;
+  height: 200px;
+}
+
+.no-question-wrapper p{
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
 .back-item-list-button-section{
 	display: flex;
 	align-items: center;

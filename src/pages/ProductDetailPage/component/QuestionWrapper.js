@@ -5,7 +5,6 @@ import { getProductComment } from "../../../api/api";
 
 function QuestionWrapper() {
 
-
   const [productComment, setProductComment] = useState([]);
 
   const { productId } = useParams();
@@ -19,9 +18,9 @@ function QuestionWrapper() {
     const previous = new Date(time);
     const current = new Date();
     const elapsed = current - previous;
-  
+
     const seconds = Math.floor(elapsed / 1000);
-  
+
     if (seconds < 60) {
       return seconds + '초 전';
     } else if (seconds < 3600) {
