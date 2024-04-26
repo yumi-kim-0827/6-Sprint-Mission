@@ -54,10 +54,10 @@ const AddItemPage = () => {
   };
 
   const handleKeyDown = (e) => {
+    const tag = e.target.value;
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (e.target.value !== '') {
-        const tag = e.target.value;
+      if (tag.trim() !== '') {
         setInputData({
           ...inputData,
           itemTag: [...inputData.itemTag, tag],

@@ -3,6 +3,8 @@ import { getProducts } from 'api/productApi';
 import { useEffect, useState } from 'react';
 import ProductItem from 'components/ProductItem';
 import Grid from '@mui/material/Grid';
+import { MOBILE_SIZE, TABLET_SIZE } from 'constants/windowSize';
+import { BEST } from 'constants/productItems';
 import './style.css';
 
 const BestProductList = () => {
@@ -28,12 +30,12 @@ const BestProductList = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 600) {
-        setBestProduct(originProduct.slice(0, 1));
-      } else if (window.innerWidth < 900) {
-        setBestProduct(originProduct.slice(0, 2));
+      if (window.innerWidth < MOBILE_SIZE) {
+        setBestProduct(originProduct.slice(0, BEST.MOBILE_CNT));
+      } else if (window.innerWidth < TABLET_SIZE) {
+        setBestProduct(originProduct.slice(0, BEST.TABLET_CNT));
       } else {
-        setBestProduct(originProduct.slice(0, 4));
+        setBestProduct(originProduct.slice(0, BEST.DEFAULT_CNT));
       }
     };
 

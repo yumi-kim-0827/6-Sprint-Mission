@@ -15,7 +15,7 @@ const ProductControl = ({
 }) => {
   const navigate = useNavigate();
 
-  const dropDownOptions = [
+  const DROP_DOWN_OPTIONS = [
     {
       label: '최신순',
       onClick: () => handleClickOrder('recent'),
@@ -66,7 +66,7 @@ const ProductControl = ({
               )}
             </div>
           }
-          options={dropDownOptions}
+          options={DROP_DOWN_OPTIONS}
         />
       </div>
     </div>

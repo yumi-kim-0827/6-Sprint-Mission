@@ -5,6 +5,8 @@ import ProductItem from 'components/ProductItem';
 import Pagination from '@mui/material/Pagination';
 import Grid from '@mui/material/Grid';
 import ProductControl from './ProductControl';
+import { MOBILE_SIZE, TABLET_SIZE } from 'constants/windowSize';
+import { ALL } from 'constants/productItems';
 import './style.css';
 
 const AllProductList = () => {
@@ -42,12 +44,12 @@ const AllProductList = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 600) {
-        setPageSize(4);
-      } else if (window.innerWidth < 900) {
-        setPageSize(6);
+      if (window.innerWidth < MOBILE_SIZE) {
+        setPageSize(ALL.MOBILE_CNT);
+      } else if (window.innerWidth < TABLET_SIZE) {
+        setPageSize(ALL.TABLET_CNT);
       } else {
-        setPageSize(10);
+        setPageSize(ALL.DEFAULT_CNT);
       }
     };
 
