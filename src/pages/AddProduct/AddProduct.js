@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./AddProduct.css";
 import Nav from "../../components/Nav";
 import FileInput from "../../components/FileInput";
 
 const AddProduct = () => {
+  const addButton = useRef();
   const [addList, setAddList] = useState({
     productImg: null,
     productName: "",
@@ -32,7 +33,18 @@ const AddProduct = () => {
         <form>
           <div className="Add_registration">
             <h1>상품 등록하기</h1>
-            <button>등록</button>
+            <button
+              disabled={
+                addList.productName &&
+                addList.productIntro &&
+                addList.productPrice &&
+                addList.productTag
+                  ? false
+                  : true
+              }
+            >
+              등록
+            </button>
           </div>
 
           <div className="input_container">
