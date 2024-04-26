@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_API_URL
+
 export async function getProducts({
   page = 1,
   pageSize = 100,
@@ -6,7 +8,7 @@ export async function getProducts({
 }) {
   const query = `page=${page}&pageSize=${pageSize}&order=${order}&keyword=${keyword}`
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products?${query}`
+    `${API_URL}/products?${query}`
   )
 
   const body = await response.json()
@@ -16,7 +18,7 @@ export async function getProducts({
 // 베스트 상품
 export async function getBestProducts() {
   const response = await fetch(
-    'https://panda-market-api.vercel.app/products?orderBy=favorite'
+    `${API_URL}/products?orderBy=favorite`
   )
   const body = await response.json()
   return body
@@ -24,7 +26,7 @@ export async function getBestProducts() {
 
 export async function getProductsDetail(id) {
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products/${id}`
+    `${API_URL}/products/${id}`
   )
   const data = await response.json()
   return data
@@ -32,7 +34,7 @@ export async function getProductsDetail(id) {
 
 export async function getProductsComments(id) {
   const response = await fetch(
-    `https://panda-market-api.vercel.app/products/${id}/comments?limit=5`
+    `${API_URL}/products/${id}/comments?limit=5`
   )
   const comments = await response.json()
   return comments.list
