@@ -1,4 +1,4 @@
-function Button() {
+function DropdownList() {
   return (
     <div>
       <button>최신순</button>
@@ -7,4 +7,4 @@ function Button() {
   );
 }
 
-export default Button;
+export default DropdownList;

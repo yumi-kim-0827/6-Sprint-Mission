@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getProduct } from "../api/api";
 //전체 상품
 
 function AllItemSection() {
-  const [Item, setItem] = useState();
+  const [order, setOrder] = useState("recent");
+  const [Item, setItem] = useState([]);
 
-  const fetchDate = async ({ orderBy }) => {
-    const products = await getProduct({ orderBy });
+  const fetchDate = async ({ order }) => {
+    const products = await getProduct({ order });
     setItem(products.list);
+  };
+
+  const handleSelection = (option) => {
+    setItem(option);
   };
 
   return (

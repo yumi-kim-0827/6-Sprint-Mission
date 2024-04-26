@@ -1,8 +1,12 @@
 //네비게이션 바
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../imgs/logo/logo.svg";
 import "./Header.css";
+
+function getLinkStyle({ isActive }) {
+  return { color: isActive ? "var(--blue)" : undefined };
+}
 
 function Header() {
   return (
@@ -11,15 +15,19 @@ function Header() {
         <Link to="/">
           <img src={logo} alt="판다마켓 로고" />
         </Link>
-
         <li>
-          <Link to="/freeboard">자유게시판</Link>
+          <NavLink to="/freeboard" style={getLinkStyle}>
+            자유게시판
+          </NavLink>
         </li>
         <li>
-          <Link to="/items">중고마켓</Link>
+          <NavLink to="/items" style={getLinkStyle}>
+            중고마켓
+          </NavLink>
         </li>
-
-        <button className="loginButton">로그인</button>
+        <button className="loginButton">
+          <Link to="/login">로그인</Link>
+        </button>
       </div>
     </header>
   );
