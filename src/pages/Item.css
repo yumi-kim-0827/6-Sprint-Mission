@@ -267,6 +267,7 @@
 
   .item_wrap {
     max-height: 340px;
+    grid-template-columns: 340px 1fr;
   }
 
   .item_img {
