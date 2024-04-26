@@ -1,0 +1,37 @@
+.comment__wrapper {
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 30px;
+}
+.comment__content {
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+.comment__profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+.comment__profile__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.comment__nickname {
+  font-size: 14px;
+  color: #4b5563;
+}
+.comment__createdAt {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.commentsEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.commentsEmpty__p {
+  color: #9ca3af;
+}

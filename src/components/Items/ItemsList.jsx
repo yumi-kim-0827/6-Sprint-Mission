@@ -9,7 +9,7 @@ import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
 import Pagenation from "../Pagenation.jsx";
-import { formatCurrency } from "../../utils/utils.js";
+import { formatKorWon } from "../../utils/utils.js";
 
 const getDisplaySize = () => {
   const width = window.innerWidth;
@@ -116,7 +116,7 @@ const ItemsList = () => {
         <div className="itemsList__menu-bar__right">
           <SearchInput />
           <div className="itemsList__menu-bar__btn-wrapper">
-            <Link to="additem">
+            <Link to="additem" style={{ textDecoration: "none" }}>
               <Button>상품 등록하기</Button>
             </Link>
           </div>
@@ -129,13 +129,18 @@ const ItemsList = () => {
       </div>
       <div className="itemsList__items-wrapper">
         {items?.map(({ id, images, name, price, favoriteCount }) => (
-          <Item
-            key={id}
-            imgSrc={images[0]}
-            name={name}
-            price={formatCurrency(price)}
-            favoriteCount={favoriteCount}
-          />
+          <Link
+            to={`/items/${id}`}
+            key={`item-${id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <Item
+              imgSrc={images[0]}
+              name={name}
+              price={formatKorWon(price)}
+              favoriteCount={favoriteCount}
+            />
+          </Link>
         ))}
       </div>
       <div className="itemsList__pagination-wrapper">

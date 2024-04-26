@@ -1,5 +1,5 @@
 import "../../styles/Items/BestItem.css";
-import { formatCurrency } from "../../utils/utils";
+import { formatKorWon } from "../../utils/utils";
 import iconLikes from "../../assets/Icon_likes.svg";
 
 const BestItem = ({ imgSrc, name, price, favoriteCount }) => {
@@ -10,7 +10,7 @@ const BestItem = ({ imgSrc, name, price, favoriteCount }) => {
       </div>
       <div className="bestItem__text-wrapper">
         <p className="bestItem__name">{name}</p>
-        <p className="bestItem__price">{formatCurrency(price)}</p>
+        <p className="bestItem__price">{formatKorWon(price)}</p>
         <p className="bestItem__likes">
           <img src={iconLikes} alt="좋아요 아이콘" />
           {favoriteCount}
