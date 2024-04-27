@@ -2,7 +2,7 @@ import { useResponsive } from "../hooks/useResponsive";
 import icoArrow from "../img/ic_arrow_down.svg";
 import icoSort from "../img/ic_sort.svg";
 
-export function Select ({isShow, selectOptions, name, value, onPop, onClick, onChange}) {
+export function Select ({isShow, selectOptions, name, value, onPop, onClick, onChange, className}) {
   const [isPC, isTablet, isMobile] = useResponsive();
   const OPTIONS = selectOptions;
 
@@ -12,7 +12,7 @@ export function Select ({isShow, selectOptions, name, value, onPop, onClick, onC
   }
 
   return (
-    <div className={`select`}>
+    <div className={`select ${className}`}>
       <form onChange={handleClick}>
         <div className="select-main">
           <button type="button" name={name} value={value} aria-expanded={isShow} aria-controls="select-box" onClick={onClick} className="select-main__btn">
