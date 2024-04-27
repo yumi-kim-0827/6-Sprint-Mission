@@ -1,0 +1,19 @@
+.product-faq-title {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+
+.product-faq {
+  width: 1200px;
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  gap: 10px;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+.product-faq::placeholder {
+  color: #9ca3af;
+  padding: 16px;
+}
