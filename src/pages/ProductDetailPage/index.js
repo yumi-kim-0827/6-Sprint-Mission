@@ -12,7 +12,7 @@ const ProductDetailPage = () => {
       <main>
         <ProductIntroduce />
         <ProductFaq />
-        {/* <ProductComments /> */}
+        <ProductComments />
       </main>
     </>
   );
