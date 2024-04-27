@@ -11,14 +11,14 @@ html {
 #loginForm {
   width: 640px;
 }
-label {
+.loginLabel {
   margin: 20px 0;
   text-align: left;
   display: block;
   font-weight: 700;
   font-size: 18px;
 }
-input {
+.loginInput {
   margin: 10px 0;
   padding: 20px;
   width: 100%;
@@ -31,7 +31,7 @@ input {
   color: #9ca3af;
   line-height: 24px;
 }
-input:focus {
+.loginInput:focus {
   outline: none;
   border: 2px solid #3692ff;
 }

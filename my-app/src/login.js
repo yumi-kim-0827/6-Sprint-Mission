@@ -45,19 +45,21 @@ const Login = () => {
             <img className="logo-image" src={logoImg} alt="판다마켓로고" />
           </a>
         </div>
-        <label>
+        <label className="loginLabel">
           이메일
           <input
+            className="loginInput"
             id="emailInput"
             name="useremail"
             type="email"
             placeholder="이메일을 입력해주세요"
           />
         </label>
-        <label>
+        <label className="loginLabel">
           비밀번호
           <div className="passwordInput">
             <input
+              className="loginInput"
               id="passwordInput"
               name="password"
               type="password"
