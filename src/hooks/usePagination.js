@@ -5,26 +5,27 @@ function usePagination(initialPage = 1, totalCount, pageSize, asyncFunction) {
   const totalPage = Math.ceil(totalCount / pageSize);
   const pageNumbers = Array.from({ length: totalPage }, (_, index) => index + 1);
 
-  const handleNextPage = async (...args) => {
+  const handleNextPage = () => {
     if (page < totalPage) {
-      setPage((prev) => prev + 1);
-      return await asyncFunction(...args);
+      setPage(page + 1);
     }
   };
 
-  const handlePrevPage = async (...args) => {
+  const handlePrevPage = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
-      return await asyncFunction(...args);
+      setPage(page - 1);
     }
   };
 
-  const handleClickPageNum = async (number) => {
+  const handleClickPageNum = (number) => {
     if (number !== page) {
       setPage(number);
-      return await asyncFunction(number);
     }
   };
+
+  useEffect(() => {
+    asyncFunction(page);
+  }, [page]);
 
   return {
     page,

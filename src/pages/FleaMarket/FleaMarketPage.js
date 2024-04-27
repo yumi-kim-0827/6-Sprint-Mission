@@ -52,14 +52,14 @@ function FleaMarketPage() {
     if (options.page === 1) {
       setProducts(list);
     } else {
-      setProducts([...products, ...list]);
+      setProducts([...list]);
     }
   }, [getItems]);
 
   useEffect(() => {
-    handleLoadAllProducts({ page: 1, pageSize: PAGESIZE, orderBy });
+    handleLoadAllProducts({ page, pageSize: PAGESIZE, orderBy });
     handleLoadBestProducts();
-  }, [orderBy, handleLoadBestProducts, handleLoadAllProducts]);
+  }, [page, orderBy, handleLoadBestProducts, handleLoadAllProducts]);
 
   return (
     <>
