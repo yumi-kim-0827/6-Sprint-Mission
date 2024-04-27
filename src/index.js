@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ItemsPage from 'pages/ItemsPage';
 import AddItem from 'pages/addItem';
+import ProductDetailPage from 'pages/ProductDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/addItem',
     element: <AddItem />,
+  },
+  {
+    path: '/items/:productId',
+    element: <ProductDetailPage />,
   },
 ]);
 
