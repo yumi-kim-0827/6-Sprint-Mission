@@ -12,6 +12,10 @@
     pointer-events: none
   }
 }
+.line {
+  margin:0;
+  border:1px solid #E5E7EB;
+}
 
 .link {
   &:active {

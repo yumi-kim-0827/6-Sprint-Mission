@@ -29,3 +29,36 @@ export async function createItems(formData) {
   const body = await response.json();
   return body;
 }
+
+
+export async function getItemDetail(productId) {
+  let response;
+  try {
+    response = await fetch(
+      `${BASE_URL}/products/${productId}`
+    );
+  } catch(error) {
+    throw new Error("주소가 유효하지 않습니다.");
+  }
+  if(!response.ok) {
+    throw new Error("아이템을 불러오는데 실패했습니다.");
+  }
+  const body = await response.json();
+  return body;
+}
+
+export async function getItemComments(productId) {
+  let response;
+  try {
+    response = await fetch(
+      `${BASE_URL}/products/${productId}/comments`
+    );
+  } catch(error) {
+    throw new Error("주소가 유효하지 않습니다.");
+  }
+  if(!response.ok) {
+    throw new Error("댓글을 불러오는데 실패했습니다.");
+  }
+  const body = await response.json();
+  return body;
+}

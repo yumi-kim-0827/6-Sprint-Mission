@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import icoHeart from "../img/ic_heart.svg";
 
 export function ItemCard({ item }) {
   return (
     <>
       <div className="itemlist-img-wrap">
-        <a href="" className="link">
+        <Link to={`/items/${item.id}`} className="link">
           <img src={item.images[0]} alt={item.name + " 이미지"} className="itemlist-img"/>
-        </a>
+        </Link>
       </div>
       <div className="itemlist-content">
         <h2 className="itemlist__title"><a href="#" className="link">{item.description}</a></h2>

@@ -43,7 +43,6 @@ export function ItemList ({order, size, keyword, page}) {
         </ul>
         
         {!loadingError && items.length == 0 && <div className="error"><p className="error-txt">일치하는 결과가 없습니다.</p></div>}
-        {loadingError?.message && <div className="error"><p className="error-txt">{loadingError.message}</p></div>}
         <Pagination now={paging} total={pageTotal} onClick={handleLoadMore} onChange={setPaging}/>
       </>
     );

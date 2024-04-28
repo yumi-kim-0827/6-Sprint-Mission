@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../components/ItemList";
 import { SearchText } from "../components/SearchText";
-import { SmallButton } from "../components/SmallButton";
 import { Select } from "../components/Select";
 import { useResponsive } from "../hooks/useResponsive";
 import { Link, useSearchParams } from "react-router-dom";

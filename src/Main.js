@@ -3,6 +3,7 @@ import App from "./App";
 import { ItemPage } from "./page/ItemPage";
 import { HomePage } from "./page/HomePage";
 import { AddItemPage } from "./page/AddItemPage";
+import { ItemDetailPage } from "./page/ItemDetailPage";
 
 export default function Main() {
   return (
@@ -12,6 +13,7 @@ export default function Main() {
           <Route index element={<HomePage />}/>
           <Route path="items">
             <Route index element={<ItemPage />}/>
+            <Route path=":productId" element={<ItemDetailPage/>}/>
           </Route>
           <Route path="additem" element={<AddItemPage />}/>
         </Route>
