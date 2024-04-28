@@ -64,92 +64,26 @@
   flex-shrink: 0;
 }
 
-.allitemList {
-  display: grid;
-  grid-template: repeat(2, 301px) / repeat(5, 221px);
-  column-gap: 24px;
-  row-gap: 10px;
-}
-
-.allitemListItemImage {
-  width: 221px;
-  height: 221px;
-  display: inline-block;
-  border: 1px black solid;
-  border-radius: 16px;
-}
-
-.allitemListItemImage > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-}
-
-.allitemListItemIitle {
-  font-family: Pretendard;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16.71px;
-}
-
-.allitemListItemPrice {
-  font-family: Pretendard;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19.09px;
-}
-
-.allitemListItemLikebutton {
-  display: inline-block;
-  position: relative;
-}
-
-.allitemListItemLikecount {
-  display: inline-block;
-  font-family: Pretendard;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14.32px;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .allitemList {
-    grid-template: repeat(2, 301px) / repeat(3, 221px);
-  }
-
   .allitemTitleFormSearch {
     width: 242px;
   }
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .allitemList {
-    grid-template: repeat(2, 301px) / repeat(2, 221px);
-  }
-
   .allitemTitle {
     display: grid;
-    grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+    grid-template: repeat(2, auto) / 200px auto;
   }
 
   .allitemTitleContent {
+    width: fit-content;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
 
-  .allitemTitleForm {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    display: grid;
-    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-  }
-
-  .allitemListItemImage {
-    width: 168px;
-    height: 168px;
-  }
-
   .allitemTitleFormSearch {
+    width: 300px;
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
   }
@@ -157,11 +91,9 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
   }
+
   .SelectBox {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
-    width: 42px;
-    height: 42px;
-    background-image: url("../assets/images/itemsPage/selectBox.svg");
   }
 }

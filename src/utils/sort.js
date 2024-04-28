@@ -1,2 +1,2 @@
-export const sortItems = (items, order) => items.sort((a,b) => b[order] - a[order]);
-
+export const sortItemsByOrder = (items, order) =>
+  items.sort((a, b) => b[order] - a[order]);

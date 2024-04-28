@@ -73,3 +73,22 @@ ul.popup li.popupItem {
 .userMenu ul.popup a:hover {
   text-decoration: none;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+}
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .iconButtonMini {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--faq-font-color);
+    background-color: #fff;
+    background-image: url("../assets/images/itemsPage/selectBox.svg");
+    background-repeat: no-repeat;
+    background-position: 10px;
+  }
+  .userMenu {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

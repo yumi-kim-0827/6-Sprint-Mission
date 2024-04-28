@@ -11,7 +11,8 @@ function SelectMenu({ setOrder }) {
 
   const handleSelect = (order, e) => {
     e.target.parentNode.parentNode.classList.remove("active");
-    e.target.parentNode.previousSibling.innerHTML = e.target.textContent;
+    if (window.innerWidth >= 768)
+      e.target.parentNode.previousSibling.innerHTML = e.target.textContent;
     setOrder(order);
   };
 
@@ -28,9 +29,13 @@ function SelectMenu({ setOrder }) {
 
   return (
     <div className={styles.userMenu}>
-      <button className={styles.iconButton} onClick={handleButtonClick}>
-        최신순
-      </button>
+      {window.innerWidth >= 768 ? (
+        <button className={styles.iconButton} onClick={handleButtonClick}>
+          최신순
+        </button>
+      ) : (
+        <button className={styles.iconButtonMini} onClick={handleButtonClick} />
+      )}
       {isOpen && (
         <ul className={styles.popup}>
           <li

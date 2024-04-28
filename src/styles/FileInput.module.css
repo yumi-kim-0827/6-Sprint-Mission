@@ -40,7 +40,7 @@
 .imagePreviewDeleteBtn {
   width: 20px;
   height: 20px;
-  border-radius: 9999px;
+  border-radius: 99px;
   border: none;
   background-color: var(--brand-blue);
   color: var(--button-font-color);

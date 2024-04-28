@@ -10,26 +10,26 @@ import {
   Routes,
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Board from "./pages/Board";
-import Items from "./pages/Items";
-import AddItem from "./pages/AddItem";
+import HomePage from "./pages/HomePage";
+import BoardPage from "./pages/BoardPage";
+import ItemsPage from "./pages/ItemsPage";
+import AddItemPage from "./pages/AddItemPage";
+import ItemDetailPage from "./pages/ItemDetailPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
     <App>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/items" element={<Items />} />
-        <Route path="/additem" element={<AddItem />} />
-        <Route path="*" element={<Navigate to="/NotFound" />} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/board" element={<BoardPage />} />
+        <Route path="/items">
+          <Route index element={<ItemsPage />} />
+          <Route path=":productId" element={<ItemDetailPage />} />
+        </Route>
+        <Route path="/additem" element={<AddItemPage />} />
+        <Route path="*" element={<Navigate to="/NotFoundPage" />} />
       </Routes>
     </App>
   </Router>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
