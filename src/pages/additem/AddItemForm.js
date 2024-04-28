@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ProductImageInput from "./ProductImageInput";
 import ProductInfoInput from "./ProductInfoInput";
-import deleteTagButton from "../image/ic_X_for_tag.png";
-import "../css/additemForm.css";
+import deleteTagButton from "../../image/ic_X_for_tag.png";
+import "./additemForm.css";
+import ProductTagInput from "./ProductTagInput";
+import ProductDescribeInput from "./ProductDescribeInput";
 
 const TagListElement = ({ tag, onDelete }) => {
   const handleDeleteTag = () => {
@@ -40,9 +42,9 @@ const AddItemForm = ({
     addTagList(tag);
     setTag("");
   };
-  //태그 스페이스비 누르면 입력
+  // 태그 스페이스비 누르면 입력
   const handleKeyDown = (e) => {
-    if (e.keyCode === 32) {
+    if (e.key === " ") {
       addTagList(tag);
       setTag("");
     }
@@ -64,14 +66,13 @@ const AddItemForm = ({
         value={values.name}
         onChange={onChange}
       />
-      <ProductInfoInput
+      <ProductDescribeInput
         label="상품 소개"
         id="ProductDescription"
         name="description"
         placeholder="상품 소개를 입력해주세요"
         value={values.description}
         onChange={onChange}
-        type="textarea"
       />
       <ProductInfoInput
         label="판매 가격"
@@ -82,7 +83,7 @@ const AddItemForm = ({
         onChange={onChange}
         type="number"
       />
-      <ProductInfoInput
+      <ProductTagInput
         label="태그"
         id="ProductTag"
         name="tags"

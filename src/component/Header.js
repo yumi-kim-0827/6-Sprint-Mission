@@ -4,18 +4,22 @@ import panda_market_logo from "../image/panda_market_home_logo.png";
 import "../css/header.css";
 import userIcon from "../image/ic_user.png";
 
+const SecondhandMarketPaths = ["/items", "/additem"];
+
 const Header = () => {
   const location = useLocation();
 
   const currentPageBlueColor = (paths) => {
-    for (let path of paths) {
-      if (path === location.pathname) {
-        return { color: "#3692FF" };
+    return paths.some((path) => {
+      if (path === "/items") {
+        return location.pathname.startsWith("/items");
+      } else {
+        return path === location.pathname;
       }
-    }
+    })
+      ? { color: "#3692FF" }
+      : null;
   };
-  //additem 페이지에도 중고마켓 글자를 파랗게 하는 요구 사항을 위해
-  // 이런 코드를 작성했는데 괜찮은 코드인가요
 
   return (
     <header>
@@ -33,14 +37,14 @@ const Header = () => {
           </NavLink>
           <NavLink
             to="/items"
-            style={currentPageBlueColor(["/items", "/additem"])}
+            style={currentPageBlueColor(SecondhandMarketPaths)}
             className="navLink"
           >
             중고마켓
           </NavLink>
         </div>
         {location.pathname === "/additem" ? (
-          <img src={userIcon} className="user-icon"/>
+          <img src={userIcon} className="user-icon" alt="유저 아이콘" />
         ) : (
           <Link to="/" className="login-btn">
             로그인
