@@ -16,23 +16,45 @@ function ListSection({ initialOrder, sort, limit, ispage }) {
 
   useEffect(() => {
     const ex = async () => {
+      // 불러온 데이터 할당
       const { list, totalCount } = await getItems(order, limit, page);
       setItems(list);
+
+      // 페이지네이션 넘버
       const PaginationNumber = Math.ceil(totalCount / limit);
       setPageNumbers(PaginationNumber);
     };
     ex();
   }, [limit, order, page]);
 
+  // 정렬 변경
   const onChangeOrder = (e) => {
     setOrder(e.target.value);
   };
 
   const onClickPaginationButton = (e) => {
     const lis = e.target.parentElement.children;
-    [...lis].map((li) => li.classList.remove("active"));
-    e.target.classList.add("active");
-    setPage(e.target.textContent);
+
+    const filteredLi = [...lis].find((li) => li.classList.contains("active"));
+    if (e.target.textContent === "<") {
+      const previousLi = filteredLi.previousElementSibling;
+      if (previousLi.textContent !== "<") {
+        [...lis].map((li) => li.classList.remove("active"));
+        previousLi.classList.add("active");
+        setPage(previousLi.textContent);
+      }
+    } else if (e.target.textContent === ">") {
+      const nextLi = filteredLi.nextElementSibling;
+      if (nextLi.textContent !== ">") {
+        [...lis].map((li) => li.classList.remove("active"));
+        nextLi.classList.add("active");
+        setPage(nextLi.textContent);
+      }
+    } else {
+      [...lis].map((li) => li.classList.remove("active"));
+      e.target.classList.add("active");
+      setPage(e.target.textContent);
+    }
   };
 
   let title;
