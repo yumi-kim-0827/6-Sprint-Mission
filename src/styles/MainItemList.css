@@ -35,3 +35,21 @@
   grid-template-rows: repeat(2, 301px);
   gap: 24px;
 }
+
+@media (max-width: 1280px) {
+  .main-item-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 221px);
+    gap: 40px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-item-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 221px);
+    gap: 32px 8px;
+  }
+}

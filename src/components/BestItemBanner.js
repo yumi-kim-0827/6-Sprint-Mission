@@ -3,17 +3,38 @@ import { getItems } from "../api";
 import ItemBox from "./ItemBox";
 import "../styles/BestItemBanner.css";
 
+const getPageSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 1;
+  } else if (width < 1200) {
+    return 2;
+  } else {
+    return 4;
+  }
+};
+
+
 const BestItemBanner = () => {
   const [bestItem, setBestItem] = useState([]);
-  const [bestItemSize, setBestItemSize] = useState(4);
+  const [bestItemSize, setBestItemSize] = useState(getPageSize());
 
   const handleBestItemBannerLoad = async () => {
     const { list } = await getItems("favorite", 1, bestItemSize);
     setBestItem(list);
   };
   useEffect(() => {
+    const handleResize = ()=>{
+      setBestItemSize(getPageSize());
+    }
+
+    window.addEventListener("resize", handleResize);
+
     handleBestItemBannerLoad();
-  }, []);
+    return ()=>{
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [bestItemSize]);
   return (
     <section className="best-container">
       <div className="best-header">

@@ -1,23 +1,45 @@
 import { useState, useEffect } from "react";
 import { getItems } from "../api";
 import ItemBox from "./ItemBox";
+import PagenationBar from "./PagenationBar";
 import "../styles/MainItemList.css";
+
+const getPageSize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    return 4;
+  } else if (width < 1200) {
+    return 6;
+  } else {
+    return 10;
+  }
+};
 
 const MainItemList = () => {
   const [MainItem, setMainItem] = useState([]);
-  const [order, setOrder] = useState("recent");
+  const [orderBy, setOrderBy] = useState("recent");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(getPageSize());
 
   const handleSortedChange = (e) => {
-    setOrder(e.target.value);
+    setOrderBy(e.target.value);
   };
 
   const handleMainItemListLoad = async () => {
-    const { list } = await getItems(order, 1, 10);
+    const { list } = await getItems(orderBy, page, pageSize);
     setMainItem(list);
   };
   useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+    window.addEventListener("resize", handleResize);
+
     handleMainItemListLoad();
-  }, [order]);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [orderBy, page, pageSize]);
   return (
     <section className="main-container">
       <div className="main-header">
@@ -46,6 +68,7 @@ const MainItemList = () => {
           return <ItemBox key={item.id} item={item} />;
         })}
       </div>
+      <PagenationBar />
     </section>
   );
 };
