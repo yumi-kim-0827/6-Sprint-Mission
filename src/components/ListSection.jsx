@@ -24,6 +24,7 @@ function ListSection({ initialOrder, sort, limit, ispage }) {
       const PaginationNumber = Math.ceil(totalCount / limit);
       setPageNumbers(PaginationNumber);
     };
+
     ex();
   }, [limit, order, page]);
 
@@ -32,6 +33,7 @@ function ListSection({ initialOrder, sort, limit, ispage }) {
     setOrder(e.target.value);
   };
 
+  // pagination 버튼 클릭 시 변경
   const onClickPaginationButton = (e) => {
     const lis = e.target.parentElement.children;
 

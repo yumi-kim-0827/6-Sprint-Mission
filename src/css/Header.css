@@ -31,6 +31,9 @@
 .nav__ul > li {
   padding: 24px 16px;
 }
+.nav__ul .active {
+  color: var(--main);
+}
 .header button {
   color: var(--white);
   font-weight: 500;

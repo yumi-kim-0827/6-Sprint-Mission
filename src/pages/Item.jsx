@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
+
+import ListSection from "../components/ListSection";
 import Header from "../components/Header";
 
 import "../css/Item.css";
-import ListSection from "../components/ListSection";
-import { useEffect, useState } from "react";
 
 function Item() {
   const [width, setWidth] = useState(window.innerWidth);
