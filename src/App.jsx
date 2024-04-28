@@ -2,12 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { getProducts } from "./api";
 
-import Item from "./pages/Item";
-import Main from "./pages/Main";
+import Item from "./pages/ItemPage";
+import Main from "./pages/MainPage";
 
 import "./css/reset.css";
 import "./css/style.css";
 import "./css/App.css";
+import AddItemPage from "./pages/AddItemPage";
 
 export const GetItemsContext = createContext();
 
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/item" element={<Item />} />
+          <Route path="/additem" element={<AddItemPage />} />
         </Routes>
       </GetItemsContext.Provider>
     </>
