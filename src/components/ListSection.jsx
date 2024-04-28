@@ -17,7 +17,7 @@ function ListSection({ order, sort, limit }) {
       setItems(list);
     };
     ex();
-  }, []);
+  }, [limit]);
 
   return (
     <section className="ListSection">
