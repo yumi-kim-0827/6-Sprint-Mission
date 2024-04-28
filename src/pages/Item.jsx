@@ -42,8 +42,6 @@ function Item() {
   };
 
   useEffect(() => {
-    console.log(limit1);
-
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);

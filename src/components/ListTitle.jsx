@@ -15,10 +15,10 @@ const OrderNav = ({ onChangeOrder }) => {
   );
 };
 
-function ListTitle({ sort, onChangeOrder }) {
+function ListTitle({ title, sort, onChangeOrder }) {
   return (
     <div className="ListTitle">
-      <div>최신순</div>
+      <div>{title}</div>
       {sort && (
         <div>
           <OrderNav onChangeOrder={onChangeOrder} />
