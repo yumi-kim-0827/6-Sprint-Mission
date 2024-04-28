@@ -4,6 +4,7 @@ import ArrowDownIcon from "../assets/ic_arrow_down.png";
 import getItems from "../api/api";
 import ItemCard from "./ItemCard";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 export default function AllProducts() {
   const [data, setData] = useState([]);
@@ -60,10 +61,12 @@ export default function AllProducts() {
             placeholder="검색할 상품을 입력해주세요."
           />
         </div>
+        <Link to="/additem">
+          <button className="bg-primaryColor text-white p-3 rounded-lg">
+            상품 등록하기
+          </button>
+        </Link>
 
-        <button className="bg-primaryColor text-white p-3 rounded-lg">
-          상품 등록하기
-        </button>
         <div
           onClick={toggleDropdown}
           className="flex justify-center items-center border border-coolGray400 rounded-xl px-4 py-3 relative cursor-pointer"
