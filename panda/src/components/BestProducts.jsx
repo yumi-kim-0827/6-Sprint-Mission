@@ -19,7 +19,7 @@ export default function BestProducts() {
       <h1 className="mb-5 text-xl font-bold ">베스트 상품</h1>
       <div className="flex justify-between">
         {data?.slice(0, 4).map((item) => (
-          <ItemCard item={item} key={item.id} />
+          <ItemCard item={item} key={`best-item-${item.id}`} />
         ))}
       </div>
     </div>
