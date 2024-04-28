@@ -6,7 +6,7 @@ import BestItemList from "../components/BestItemList";
 import { AllItemList } from "../components/AllItemList";
 import Pagination from "../components/Pagination";
 
-function ItemPage() {
+function ItemListPage() {
   const [allItems, setAllItems] = useState([]);
   const [bestItems, setBestItems] = useState([]);
   const [order, setOrder] = useState("recent");
@@ -40,6 +40,18 @@ function ItemPage() {
   useEffect(() => {
     handLoadAllItemList({ order, page, pageSize, keyword });
     handLoadBestItemList();
+
+    const handleWindowResize = () => {
+      const windowWidth = window.innerWidth;
+      const pageSize = windowWidth <= 767 ? 4 : windowWidth <= 1199 ? 6 : 10;
+      setPageSize(pageSize);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, [order, page, pageSize, keyword]);
 
   return (
@@ -60,4 +72,4 @@ function ItemPage() {
   );
 }
 
-export default ItemPage;
+export default ItemListPage;

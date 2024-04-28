@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import "../styles/Pagination.css";
 function Pagination({ currentPage, totalPage, onPageChange }) {
-  if (totalPage === 1) {
-    return null;
-  }
+  const [pageList, setPageList] = useState([]);
 
-  const pageList = [];
+  const createPageList = (totalPage) => {
+    return Array.from({ length: totalPage }, (v, i) => i + 1);
+  };
 
-  for (let i = 1; i <= totalPage; i++) {
-    pageList.push(i);
-  }
+  useEffect(() => {
+    if (totalPage === 1) return null;
+    setPageList(createPageList(totalPage));
+  }, [totalPage]);
 
   const handleNextPage = () => {
     onPageChange((prevPage) => prevPage + 1);
@@ -17,6 +19,7 @@ function Pagination({ currentPage, totalPage, onPageChange }) {
   const handlePrevPage = () => {
     onPageChange((prevPage) => prevPage - 1);
   };
+
   const handleChangePage = (page) => {
     onPageChange(page);
   };

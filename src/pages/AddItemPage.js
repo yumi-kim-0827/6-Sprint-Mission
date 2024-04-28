@@ -18,17 +18,10 @@ export default function AddItemPage() {
 
   const handleChange = (name, value) => {
     // 배열(tags) 인 경우 배열을 생성
-    if (name === "tags") {
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: [...prevValues[name], value],
-      }));
-    } else {
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: value,
-      }));
-    }
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: name === "tags" ? [...prevValues[name], value] : value,
+    }));
   };
 
   const handleClearClick = (index) => {
@@ -38,8 +31,8 @@ export default function AddItemPage() {
     }));
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = ({ target }) => {
+    const { name, value } = target;
     handleChange(name, value);
   };
 

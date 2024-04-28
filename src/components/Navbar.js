@@ -7,7 +7,7 @@ function Navbar() {
   const location = useLocation();
 
   const isActive = (pathname) => {
-    return location.pathname === pathname ? "active-category" : "";
+    return location.pathname.startsWith(pathname) ? "active-category" : "";
   };
 
   return (
