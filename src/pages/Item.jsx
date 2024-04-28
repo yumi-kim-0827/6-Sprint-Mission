@@ -1,17 +1,31 @@
-import useMediaQuery from "../hooks/useMediaQuery";
-
 import Header from "../components/Header";
 
 import "../css/Item.css";
 import ListSection from "../components/ListSection";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function Item() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [limit1, setLimit1] = useState(4);
-  const [limit2, setLimit2] = useState(10);
 
-  const matches = useMediaQuery("");
+  // 첫 mount 시 window width값에 따른 limit 변화
+  const [limit1, setLimit1] = useState(() => {
+    if (width > 744) {
+      return 4;
+    } else if (width > 375) {
+      return 2;
+    } else {
+      return 1;
+    }
+  });
+  const [limit2, setLimit2] = useState(() => {
+    if (width > 744) {
+      return 10;
+    } else if (width > 375) {
+      return 6;
+    } else {
+      return 4;
+    }
+  });
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -28,18 +42,25 @@ function Item() {
   };
 
   useEffect(() => {
+    console.log(limit1);
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [window.innerWidth]);
+  }, [width, window.innerWidth]);
 
   return (
     <div className="Item">
       <Header />
       <div className="lists">
-        <ListSection order={"favorite"} limit={limit1} />
-        <ListSection order={"recent"} sort={true} limit={limit2} />
+        <ListSection initialOrder={"favorite"} limit={limit1} />
+        <ListSection
+          initialOrder={"recent"}
+          sort={true}
+          ispage={true}
+          limit={limit2}
+        />
       </div>
     </div>
   );

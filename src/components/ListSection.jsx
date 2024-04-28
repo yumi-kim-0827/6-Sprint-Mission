@@ -6,10 +6,11 @@ import { GetItemsContext } from "../App";
 
 import "../css/ListSection.css";
 
-function ListSection({ order, sort, limit }) {
+function ListSection({ initialOrder, sort, limit, ispage }) {
   const getItems = useContext(GetItemsContext);
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
+  const [order, setOrder] = useState(initialOrder);
 
   useEffect(() => {
     const ex = async () => {
@@ -17,11 +18,15 @@ function ListSection({ order, sort, limit }) {
       setItems(list);
     };
     ex();
-  }, [limit]);
+  }, [limit, order]);
+
+  const onChangeOrder = (e) => {
+    setOrder(e.target.value);
+  };
 
   return (
     <section className="ListSection">
-      <ListTitle sort={sort} />
+      <ListTitle sort={sort} onChangeOrder={onChangeOrder} />
       <List items={items} />
     </section>
   );
