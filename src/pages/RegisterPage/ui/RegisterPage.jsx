@@ -43,6 +43,15 @@ export function RegisterPage() {
     handleChange(name, value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const newValue = e.target.value;
+      e.target.value = "";
+      setTags((prevTag) => [...prevTag, newValue]);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(file);
@@ -79,14 +88,7 @@ export function RegisterPage() {
                 placeholder={tagPlaceholder.placeholder}
                 type={tagPlaceholder.type}
                 key={-1}
-                onKeyPress={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    const newValue = e.target.value;
-                    e.target.value = "";
-                    setTags((prevTag) => [...prevTag, newValue]);
-                  }
-                }}
+                onKeyPress={handleKeyPress}
               ></ItemInput>
               <TagList tags={tags} onDelete={handleDelete} />
             </div>
