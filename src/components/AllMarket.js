@@ -124,7 +124,7 @@ export default function AllMarket() {
         {data.length > 0 && (
           <div className="cards">
             {data.map((item) => (
-              <Link to={`/product/${item.id}`} key={item.id}>
+              <Link to={`/items/${item.id}`} key={item.id}>
                 <div className="card">
                   <img
                     className="all-img"

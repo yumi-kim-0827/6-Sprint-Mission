@@ -1,40 +1,94 @@
 import "../style/additem.css";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ic_x_gray from "../assets/icon/ic_x_gray.svg";
 import ic_x_blue from "../assets/icon/ic_x_blue.svg";
 
 export default function AddItem() {
   const [imageSrc, setImageSrc] = useState("");
-  const [filled, setFilled] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isAllInputFilled, setIsAllInputFilled] = useState(false);
+  const [inputPrice, setInputPrice] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputDes, setInputDes] = useState("");
+  const [tags, setTags] = useState([]);
+  const [inputTag, setInputTag] = useState("");
+  const [imageHovered, setImageHovered] = useState(false);
+  const [tagHovered, setTagHovered] = useState(Array(10).fill(false));
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0]; // 선택한 파일
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setImageSrc(event.target.result); // 이미지를 URL로 변환하여 상태 업데이트
+        setImageSrc(event.target.result);
       };
-      reader.readAsDataURL(file); // 파일을 읽어서 URL로 변환
+      reader.readAsDataURL(file);
     }
   };
 
-  const handleInputChange = (e) => {
-    // 모든 input과 textarea가 채워졌는지 확인
-    const inputs = document.querySelectorAll(
-      "input:not(#imageInput), textarea"
-    );
-    const isFilled = Array.from(inputs).every(
-      (input) => input.value.trim() !== ""
-    );
-    setFilled(isFilled);
+  function Commas(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const handlePriceChange = (e) => {
+    const price = e.target.value.replace(/\D/g, "");
+    const formattedPrice = Commas(price);
+    setInputPrice(formattedPrice);
+    handleInputChange();
+  };
+
+  const handleInputChange = useCallback(() => {
+    const isFilled =
+      inputName.trim() !== "" &&
+      inputDes.trim() !== "" &&
+      inputPrice.trim() !== "" &&
+      tags.length > 0;
+    setIsAllInputFilled(isFilled);
+  }, [inputName, inputDes, inputPrice, tags]);
+
+  useEffect(() => {
+    handleInputChange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tags]);
+
+  const handleNameChange = (e) => {
+    setInputName(e.target.value);
+    handleInputChange();
+  };
+
+  const handleDesChange = (e) => {
+    setInputDes(e.target.value);
+    handleInputChange();
+  };
+
+  const handleTagInputKeyDown = (e) => {
+    if (e.key === "Enter" && inputTag.trim() !== "") {
+      const newTag = inputTag.trim();
+      if (!tags.includes(newTag)) {
+        setTags([...tags, newTag]);
+        setInputTag("");
+        handleInputChange();
+      } else {
+        alert("이미 추가된 태그입니다.");
+      }
+    }
+  };
+
+  const handleTagDelete = (index) => {
+    const updatedTags = [...tags];
+    updatedTags.splice(index, 1);
+    setTags(updatedTags);
+    handleInputChange();
+  };
+
+  const handleImageDelete = () => {
+    setImageSrc("");
   };
 
   return (
     <>
       <div className="add-header flexrow margin-bottom10">
         <p>상품 등록하기</p>
-        <button className={filled ? "filled" : ""}>등록</button>
+        <button className={isAllInputFilled ? "filled" : ""}>등록</button>
       </div>
       <div className="flexcolumn margin-bottom10">
         <div>
@@ -42,10 +96,9 @@ export default function AddItem() {
           <div className="flexrow">
             <div className="add-img">
               <label className="input-img-btn" htmlFor="imageInput">
-                <span style={{ fontSize: "40px" }}>+</span>
+                <span className="input-img-text">+</span>
                 <br />
                 <span>이미지 등록</span>
-                {/* 파일 선택 input */}
                 <input
                   id="imageInput"
                   type="file"
@@ -60,25 +113,14 @@ export default function AddItem() {
                 {imageSrc && (
                   <>
                     <img src={imageSrc} className="handleImage" alt="add img" />
-                    {isHovered && (
-                      <img
-                        src={ic_x_blue}
-                        alt="delete img"
-                        onClick={() => setImageSrc("")}
-                        className="delete-btn"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                      />
-                    )}
-                    {!isHovered && (
-                      <img
-                        src={ic_x_gray}
-                        alt="delete img"
-                        className="delete-btn"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                      />
-                    )}
+                    <img
+                      src={imageHovered ? ic_x_blue : ic_x_gray}
+                      alt="delete img"
+                      className="delete-btn-img"
+                      onClick={handleImageDelete}
+                      onMouseEnter={() => setImageHovered(true)}
+                      onMouseLeave={() => setImageHovered(false)}
+                    />
                   </>
                 )}
               </div>
@@ -90,30 +132,60 @@ export default function AddItem() {
         <p>상품명</p>
         <input
           type="text"
+          value={inputName}
           placeholder="상품명을 입력해주세요."
-          onChange={handleInputChange}
+          onChange={handleNameChange}
         />
       </div>
       <div className="add-text flexcolumn margin-bottom10">
         <p>상품 소개</p>
         <textarea
+          className="add-des"
+          value={inputDes}
           placeholder="상품 소개를 입력해주세요."
-          onChange={handleInputChange}
+          onChange={handleDesChange}
         ></textarea>
       </div>
       <div className="add-price flexcolumn margin-bottom10">
         <p>판매가격</p>
         <input
+          value={inputPrice}
           placeholder="판매 가격을 입력해주세요."
-          onChange={handleInputChange}
+          onChange={handlePriceChange}
         />
       </div>
+
       <div className="add-tag flexcolumn margin-bottom10">
         <p>태그</p>
         <input
           placeholder="태그를 입력해주세요."
-          onChange={handleInputChange}
+          value={inputTag}
+          onChange={(e) => setInputTag(e.target.value)}
+          onKeyDown={handleTagInputKeyDown}
         />
+      </div>
+      <div className="tags flexrow">
+        {tags.map((tag, index) => (
+          <div key={index} className="tag">
+            <p>{tag}</p>
+            <img
+              src={tagHovered[index] ? ic_x_blue : ic_x_gray}
+              alt="delete img"
+              className="delete-btn-tag"
+              onClick={() => handleTagDelete(index)}
+              onMouseEnter={() => {
+                let newTagHovered = [...tagHovered];
+                newTagHovered[index] = true;
+                setTagHovered(newTagHovered);
+              }}
+              onMouseLeave={() => {
+                let newTagHovered = [...tagHovered];
+                newTagHovered[index] = false;
+                setTagHovered(newTagHovered);
+              }}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
