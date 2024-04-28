@@ -1,8 +1,8 @@
 import React from "react";
-import logoImg from "../assets/logo.svg";
-import profile from "../assets/profile.svg";
+import logoImg from "../../assets/logo.svg";
+import profile from "../../assets/profile.svg";
 import { Link, useLocation } from "react-router-dom";
-import "../styles/Navbar.css";
+import "./Navbar.css";
 
 function UserStateButton({ isAddItemPage }) {
   return isAddItemPage ? (

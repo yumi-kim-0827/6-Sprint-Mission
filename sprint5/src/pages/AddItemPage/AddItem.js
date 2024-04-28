@@ -1,9 +1,8 @@
 // AddItem.js
 import React, { useState } from "react";
-import ImageInput from "./ImageInput";
-import deleteTagIcon from "../assets/tag_x.svg";
-import "../styles/AddItem.css";
-import Navbar from "../components/Navbar";
+import ImageInput from "../../components/UI/ImageInput";
+import deleteTagIcon from "../../assets/tag_x.svg";
+import "./AddItem.css";
 
 function AddItem() {
   const [values, setValues] = useState({
@@ -37,7 +36,7 @@ function AddItem() {
 
   const handleAddTag = () => {
     if (values.currentTag.trim() !== "" && !tags.includes(values.currentTag)) {
-      setTags([...tags, values.currentTag.trim()]);
+      setTags((prev) => [...prev, values.currentTag.trim()]);
       setValues((prevValues) => ({
         ...prevValues,
         currentTag: "",
@@ -58,7 +57,6 @@ function AddItem() {
 
   return (
     <div>
-      <Navbar />
       <form className="addItemForm">
         <div className="formTitle">
           <h1>상품 등록하기</h1>
@@ -67,6 +65,7 @@ function AddItem() {
               isButtonActive ? "activeAddButton" : ""
             }`}
             disabled={!isButtonActive}
+            type="submit"
           >
             등록
           </button>

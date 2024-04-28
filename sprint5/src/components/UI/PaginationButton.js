@@ -1,8 +1,8 @@
 import React from "react";
 import { range } from "lodash-es";
-import "../styles/PaginationButton.css";
-import ActiveRightArrow from "../assets/active-rightarrow.svg";
-import ActiveLeftArrow from "../assets/active-leftarrow.svg";
+import "./PaginationButton.css";
+import ActiveRightArrow from "../../assets/active-rightarrow.svg";
+import ActiveLeftArrow from "../../assets/active-leftarrow.svg";
 
 const PaginationButton = ({ totalPageNum, activePageNum, onPageChange }) => {
   const maxVisiblePages = 5;

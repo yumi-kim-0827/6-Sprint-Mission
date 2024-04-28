@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Products from "../components/Products";
-import { getBestProducts, getProducts } from "../components/Api";
-import DropdownContainer from "../components/DropdownContainer";
-import PaginationButton from "../components/PaginationButton";
-import "../styles/Items.css";
+import Products from "./Products";
+import { getBestProducts, getProducts } from "../../api/Api";
+import DropdownContainer from "../../components/UI/DropdownContainer";
+import PaginationButton from "../../components/UI/PaginationButton";
+import useResizeHandler from "../../hooks/useResizeHandler";
+import "./Items.css";
 
 const getLimit = () => {
   const width = window.innerWidth;
@@ -27,8 +27,8 @@ function Items() {
   const [keyword, setKeyword] = useState("");
   const [bestItems, setBestItems] = useState([]);
 
-  const handleLoad = async (page, limit, order, keyword) => {
-    const products = await getProducts(page, limit, order, keyword);
+  const handleLoad = async ({ page, limit, order, keyword }) => {
+    const products = await getProducts({ page, limit, order, keyword });
 
     setItems(products.list);
     setTotalPages(Math.ceil(products.totalCount / limit));
@@ -60,41 +60,24 @@ function Items() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLoad(page, limit, order, keyword);
+    await handleLoad({ page, limit, order, keyword });
   };
 
   useEffect(() => {
-    handleLoad(page, limit, order, keyword);
+    handleLoad({ page, limit, order, keyword });
   }, [page, limit, order]);
 
   useEffect(() => {
     handleLoadBestItems();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      handleLoadBestItems();
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setLimit(getLimit());
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [page, limit, order, keyword]);
+  useResizeHandler(() => {
+    handleLoadBestItems();
+    setLimit(getLimit());
+  });
 
   return (
     <div>
-      <Navbar />
       <main className="items-container">
         <section className="items-wrapper">
           <h1 className="product-menu-title">베스트 상품</h1>

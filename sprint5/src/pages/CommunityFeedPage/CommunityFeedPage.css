@@ -1,0 +1,42 @@
+.CommunitySection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CommunitySection-wrapper {
+  width: 1200px;
+  margin-top: 94px;
+  margin-bottom: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.CommunitySection__button {
+  width: 240px;
+  height: 48px;
+  margin-top: 24px;
+  background: #3692ff;
+  border-radius: 40px;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+  .CommunitySection-wrapper {
+    width: 100%;
+    padding: 0 24px;
+  }
+}

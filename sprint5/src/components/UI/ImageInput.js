@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import "./AddItem";
-import "../styles/ImageInput.css";
-import imageDeleteIcon from "../assets/imageFile_x.svg";
-import imageAddIcon from "../assets/imageFile_+.svg";
+import "../../pages/AddItemPage/AddItem";
+import "./ImageInput.css";
+import imageDeleteIcon from "../../assets/imageFile_x.svg";
+import imageAddIcon from "../../assets/imageFile_+.svg";
 
 function ImageInput({ onImageChange, onImageDelete, image }) {
   const inputRef = useRef(null);
