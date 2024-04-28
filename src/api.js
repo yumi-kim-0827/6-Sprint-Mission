@@ -13,6 +13,7 @@ export async function getProducts({
     }
     const body = await response.json();
     return body;
+
   } catch (error) {
     console.error(error);
     throw error;

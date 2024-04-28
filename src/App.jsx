@@ -6,6 +6,7 @@ import AddItemPage from "./components/pages/AddItemPage/AddItemPage";
 import Login from "./components/pages/Login/Login";
 import NotFound from "./components/pages/NotFound";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,7 +19,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  );
-}
+)}
 
 export default App;
+
