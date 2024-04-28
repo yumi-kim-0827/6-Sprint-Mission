@@ -5,7 +5,9 @@
 
 - addItem 페이지 : 상품 이미지는 최대 한개 업로드
 - Item 페이지 : 전체 상품에서 드롭 다운으로 “최신 순” 또는 “좋아요 순”을 선택해서 정렬
+- 상품 상세 페이지 : 상품 상세 / 상품 문의 / 댓글
 - 상품 데이터 정보 : https://panda-market-api.vercel.app/docs/#/
+- 상품 상세 페이지 주소 : “/items/{productId}”
 
 # 🖥 설치
 

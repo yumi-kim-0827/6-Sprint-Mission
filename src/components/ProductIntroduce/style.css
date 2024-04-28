@@ -1,0 +1,88 @@
+.product-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 360px;
+}
+.product-image {
+  width: 486px;
+  height: 486px;
+  margin-right: 20px;
+  border-radius: 16px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 20px;
+}
+
+.product-description {
+  width: 690px;
+  margin-top: 16px;
+}
+.product-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.64px;
+  color: #1f2937;
+}
+
+.product-price {
+  border-bottom: 1px solid #e5e7eb;
+  line-height: 47.73px;
+  font-size: 40px;
+  color: #1f2937;
+  margin-top: 16px;
+  padding-bottom: 16px;
+}
+
+.product-detail {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.71px;
+  color: #4b5563;
+  margin-top: 16px;
+}
+
+.product-detail-box {
+  margin-top: -24px;
+}
+
+.product-tag {
+  border: 1px solid #f3f4f6;
+  background-color: #f3f4f6;
+  padding: 6px 16px;
+  gap: 10px;
+  border-radius: 26px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 8px;
+}
+
+.product-like {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 35px;
+  padding: 4px 12px;
+  gap: 10px;
+  width: 57px;
+  height: 40px;
+  margin-top: 180px;
+  margin-left: -400px;
+}
+
+.heart-icon {
+  width: 26.8px;
+  height: 23.3px;
+}
+
+.like {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19.09px;
+  color: #6b7280;
+}

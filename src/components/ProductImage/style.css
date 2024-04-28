@@ -1,8 +1,4 @@
-.product-image-title,
-.product-name,
-.product-introduction,
-.product-price,
-.product-tag {
+.product-label {
   font-weight: 700;
   font-size: 18px;
   line-height: 21.48px;
@@ -31,11 +27,8 @@
   margin-top: 12px;
 }
 
-.product-name-input,
-.product-introduction-input,
-.product-price-input,
-.product-tag-input {
-  width: 1200px;
+.product-input {
+  width: 100%;
   height: 56px;
   border-radius: 12px;
   border: none;
@@ -53,17 +46,7 @@
   padding-top: 16px;
 }
 
-.product-name-input::placeholder,
-.product-introduction-input::placeholder,
-.product-price-input::placeholder,
-.product-tag-input::placeholder {
+.product-input::placeholder {
   color: #9ca3af;
   padding-left: 24px;
-}
-
-.product-name-input,
-.product-introduction-input,
-.product-price-input,
-.product-tag-input {
-  width: 100%;
 }

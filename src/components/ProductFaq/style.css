@@ -1,0 +1,33 @@
+.product-faq-title {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+
+.product-faq {
+  width: 1200px;
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  gap: 10px;
+  background-color: #f3f4f6;
+  border: none;
+}
+
+.product-faq::placeholder {
+  color: #9ca3af;
+  padding: 16px;
+}
+
+.product-button {
+  background-color: #9ca3af;
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 23px;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 19.09px;
+  margin-top: 16px;
+  margin-left: 1180px;
+}

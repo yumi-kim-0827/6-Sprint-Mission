@@ -4,10 +4,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App'; // 수정된 부분
 import ItemsPage from 'pages/ItemsPage';
 import AddItem from 'pages/addItem';
-import reportWebVitals from './reportWebVitals';
+
+import ProductDetailPage from 'pages/ProductDetailPage';
+=======import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 import './normalize.css';
+
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/addItem',
     element: <AddItem />,
+  },
+  {
+    path: '/items/:productId',
+    element: <ProductDetailPage />,
   },
 ]);
 

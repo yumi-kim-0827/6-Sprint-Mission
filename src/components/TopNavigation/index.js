@@ -53,12 +53,11 @@ const TopNavigation = () => {
           </ul>
         </nav>
       </div>
-      {isAddItemPage && (
+      {isAddItemPage ? (
         <div className='rightContainer'>
           <img src={pandaProfile} alt='현재 프로필' className='profileIcon' />
         </div>
-      )}
-      {!isAddItemPage && (
+      ) : (
         <Link to='/login'>
           <Button title='로그인' />
         </Link>

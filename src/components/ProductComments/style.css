@@ -1,0 +1,21 @@
+.product-comments {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 24px;
+}
+
+.back-button {
+  background-color: #3692ff;
+  padding: 12px 71px;
+  gap: 10px;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  margin-top: 42px;
+  margin-left: 500px;
+}
+
+.back-icon {
+  margin-left: 10px;
+}
