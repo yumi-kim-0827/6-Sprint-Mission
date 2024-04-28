@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { getProducts } from "./api";
 
-import Header from "./components/Header";
 import Item from "./pages/Item";
 import Main from "./pages/Main";
 
@@ -34,7 +33,6 @@ function App() {
   return (
     <>
       <GetItemsContext.Provider value={getItems}>
-        <Header />
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/item" element={<Item />} />

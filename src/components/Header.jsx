@@ -6,7 +6,7 @@ import "../css/Header.css";
 function Header() {
   return (
     <header className="header">
-      <nav>
+      <nav className="header__nav">
         <Link to="/">
           <Logo />
           <LogoWords />
