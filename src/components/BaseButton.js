@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-function Button({
+function BaseButton({
   children,
   className,
   onClick,
@@ -64,4 +64,4 @@ const StyledButton = styled.button`
   }
 `;
 
-export default Button;
+export default BaseButton;

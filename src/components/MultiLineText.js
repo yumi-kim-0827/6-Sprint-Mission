@@ -2,39 +2,29 @@ import React from "react";
 import styled from "styled-components";
 
 const MultiLineText = ({ className, children, isWrap }) => {
-  const texts = children.split(",");
-
-  const renderWrapText = () => (
-    <Text className={`${className} text-wrap`}>
-      {texts.reduce((acc, text) => `${acc}\n${text}`)}
-    </Text>
-  );
-
-  const renderNoWrapText = () => (
-    <Text className={`${className} text-nowrap`}>
-      {texts.reduce((acc, text) => `${acc} ${text}`)}
-    </Text>
-  );
+  const text = isWrap
+    ? children.replaceAll("\\n", "\n")
+    : children.replaceAll("\\n", " ");
 
   return (
     <>
-      {isWrap === "all" ? (
-        <>
-          {renderWrapText()}
-          {renderNoWrapText()}
-        </>
-      ) : (
-        <>
-          {isWrap && renderWrapText()}
-          {!isWrap && renderNoWrapText()}
-        </>
+      <Text
+        className={`${className} ${isWrap ? "text-wrap" : "text-nowrap"}`}
+        $isWrap={isWrap}
+      >
+        {text}
+      </Text>
+      {isWrap === "all" && (
+        <Text className={`${className} text-nowrap`} $isWrap={false}>
+          {text}
+        </Text>
       )}
     </>
   );
 };
 
 const Text = styled.p`
-  white-space: pre-wrap;
+  white-space: ${({ $isWrap }) => ($isWrap ? "pre-wrap" : "nowrap")};
 `;
 
 export default MultiLineText;

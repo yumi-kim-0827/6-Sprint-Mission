@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import DeleteIconButton from "./DeleteIconButton";
-import { Input } from "./Input";
+import BaseInput from "./BaseInput";
+import DeleteButton from "./DeleteButton";
+import BaseIcon from "./BaseIcon";
 
 import plus from "../assets/icon/plus.svg";
 
-const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
+const AddItemPageImageInput = ({
+  className,
+  placeholder,
+  value,
+  icon = { plus },
+}) => {
   const [postImg, setPostImg] = useState([]);
   const [previewImg, setPreviewImg] = useState("");
 
@@ -33,9 +39,9 @@ const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
   return (
     <StyledImgInput className={className} icon={icon}>
       <label>
-        <i></i>
+        <ImageInputIcon src={plus} />
         <p>{placeholder}</p>
-        <Input
+        <BaseInput
           type="file"
           accept="image/*"
           onChange={handleUploadFile}
@@ -45,7 +51,7 @@ const ImageInput = ({ className, placeholder, value, icon = { plus } }) => {
       {previewImg && (
         <Preview>
           <img alt={previewImg} src={previewImg} />
-          <DeleteIconButton onClick={handleDeleteFile} />
+          <DeleteButton onClick={handleDeleteFile} />
         </Preview>
       )}
     </StyledImgInput>
@@ -80,14 +86,6 @@ const StyledImgInput = styled.div`
       font-size: 16px;
       color: #9ca3af;
     }
-
-    i {
-      display: block;
-      width: 48px;
-      height: 48px;
-      //   background-image: url(${(props) => props.icon});
-      background-image: url(${plus});
-    }
   }
 
   img {
@@ -107,6 +105,11 @@ const StyledImgInput = styled.div`
   }
 `;
 
+const ImageInputIcon = styled(BaseIcon)`
+  width: 48px;
+  height: 48px;
+`;
+
 const Preview = styled.div`
   position: relative;
 
@@ -118,4 +121,4 @@ const Preview = styled.div`
   }
 `;
 
-export default ImageInput;
+export default AddItemPageImageInput;
