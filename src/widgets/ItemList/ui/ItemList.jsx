@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { getDatum } from "/src/shared/api/api.jsx";
-import { ItemCard } from "/src/entities/ItemCard/ItemCard.jsx";
+import { ItemCard } from "/src/entities/ItemCard";
 import { ItemListHeader } from "/src/entities/index.jsx";
 
 import "./ItemList.scss";
 import { PageList } from "/src/widgets/PageList/index.jsx";
 import { useCustomMediaQuery } from "/src/shared/hooks/useCustomMediaQuery.jsx";
-import { INITIALVALUE } from "../../../shared/constants/constants";
+import { INITIAL_VALUE } from "../../../shared/constants/constants";
 
 export const ItemList = () => {
-  const [dataState, setDataState] = useState(INITIALVALUE);
+  const [dataState, setDataState] = useState(INITIAL_VALUE);
   const [items, setItems] = useState([]);
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);

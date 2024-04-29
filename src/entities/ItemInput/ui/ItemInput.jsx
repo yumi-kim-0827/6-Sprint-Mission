@@ -6,6 +6,7 @@
 import "./ItemInput.scss";
 
 export function ItemInput({
+  className = "styled",
   name,
   placeholder,
   type,
@@ -22,9 +23,15 @@ export function ItemInput({
       <h2 className="ItemInput__subtitle">{value}</h2>
       <div>
         {type !== "textarea" ? (
-          <input className="ItemInput ItemInput--small" {...props} />
+          <input
+            className={`ItemInput ItemInput--small ${className}`}
+            {...props}
+          />
         ) : (
-          <textarea className="ItemInput ItemInput--big" {...props}></textarea>
+          <textarea
+            className={`ItemInput ItemInput--big ${className}`}
+            {...props}
+          ></textarea>
         )}
       </div>
     </div>

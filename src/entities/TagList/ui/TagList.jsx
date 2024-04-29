@@ -1,28 +1,28 @@
-{
-  /* <TagInput onChange={setTags} /> */
-}
-{
-  /* <TagList tags={tags}> */
-}
 import "./TagList.scss";
 import tagXicon from "/src/shared/asset/tagXicon.png";
 
-export function TagList({ tags, onDelete }) {
+// tags = {value : ~ , id: ~}
+export function TagList({ className = "styled", tags, onDelete = null }) {
   return (
     <div className="TagList">
       {tags &&
-        tags.map((v, index) => (
-          <div className="TagList__card" key={index}>
+        tags.map((v) => (
+          <div
+            className={"TagList__card " + className}
+            key={crypto.randomUUID()}
+          >
             <span>{v}</span>
-            <button
-              className="TagList__cancel"
-              onClick={() => {
-                onDelete(v);
-              }}
-              type="button"
-            >
-              <img src={tagXicon} />
-            </button>
+            {onDelete !== null && (
+              <button
+                className="TagList__cancel"
+                onClick={() => {
+                  onDelete(v);
+                }}
+                type="button"
+              >
+                <img src={tagXicon} />
+              </button>
+            )}
           </div>
         ))}
     </div>

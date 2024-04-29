@@ -1,5 +1,5 @@
-export { RegisterHeader } from "./RegisterHeader/RegisterHeader";
+export { RegisterHeader } from "./RegisterHeader";
 
-export { ItemCard } from "./ItemCard/ItemCard";
+export { ItemCard } from "./ItemCard";
 
-export { ItemListHeader } from "./ItemListHeader/ui/ItemListHeader";
+export { ItemListHeader } from "./ItemListHeader";

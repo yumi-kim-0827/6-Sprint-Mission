@@ -5,9 +5,10 @@ import "./ImageCard.scss";
 export function ImageCard({ src, onClick, className }) {
   return (
     <>
-      <div className={`${className}`}>
+      <div className={className}>
         <img src={src} className={`${className} ImageCard__image`} />
         <button
+          type="button"
           onClick={() => {
             onClick(src);
           }}
