@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import { addCommas } from "utils/commas";
-import HeartIcon from "assets/icon/ic_heart.svg";
 import * as S from "./Card.style";
+import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
+import { ImageCard } from "./ImageCard/ImageCard";
 
 export default function Card({ data }) {
-  const { images = [], name: title, price, favoriteCount } = data;
+  const { id, images = [], name: title, price, favoriteCount } = data;
 
   return (
-    <Link>
+    <Link to={`/items/${id}`}>
       <S.CardContainer>
-        <S.ProductImg src={images[0]} alt="product-img" />
+        <ImageCard src={images[0]} alt="product-img" radius={16} />
         <S.CardTitle>{title}</S.CardTitle>
         <S.ProductPrice>{`${addCommas(price)}원`}</S.ProductPrice>
         <S.LikeCount>
-          <img src={HeartIcon} alt="heart-icon" />
+          <HeartIcon width={16} height={16} strokeWidth={1.2} />
           <span>{favoriteCount}</span>
         </S.LikeCount>
       </S.CardContainer>

@@ -4,13 +4,6 @@ export const CardContainer = styled.div`
   color: var(--cool-gray800);
 `;
 
-export const ProductImg = styled.img`
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 19px;
-  object-fit: cover;
-`;
-
 export const CardTitle = styled.h1`
   margin-top: 14px;
   font-weight: 500;

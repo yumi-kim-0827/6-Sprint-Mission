@@ -24,7 +24,7 @@ const StyledSearchInput = styled.div`
     width: 100%;
     min-width: 242px;
     height: 42px;
-    background-color: var(--input-bg);
+    background-color: var(--cool-gray300);
     text-indent: 44px;
     &::placeholder {
       color: var(--light-gray);

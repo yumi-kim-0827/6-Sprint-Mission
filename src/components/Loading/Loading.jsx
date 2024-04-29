@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-export default function Loading() {
+export default function Loading({ height }) {
   return (
-    <LoadingContainer>
+    <LoadingContainer height={height}>
       <StyledLoading />
     </LoadingContainer>
   );
 }
 
 const LoadingContainer = styled.div`
-  min-height: 500px;
+  min-height: ${({ height = 500 }) => height}px;
 `;
 
 const StyledLoading = styled.div`

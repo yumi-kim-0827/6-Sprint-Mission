@@ -34,27 +34,26 @@ export function NumberInput({ name, value: number, onChange, placeholder }) {
   );
 }
 
-export function TextareaInput({ name, content, onChange, placeholder }) {
+export function TextareaInput({
+  name,
+  content,
+  onChange,
+  placeholder,
+  height,
+}) {
   return (
     <S.TextareaInput
       name={name}
       placeholder={placeholder}
       value={content}
       onChange={onChange}
+      height={height}
       required
     />
   );
 }
 
-export function TagInput({
-  name,
-  value,
-  tagList,
-  handleTagDelete,
-  onChange,
-  onKeyUp,
-  placeholder,
-}) {
+export function TagInput({ name, value, onChange, onKeyUp, placeholder }) {
   return (
     <>
       <S.FormInput
@@ -64,23 +63,6 @@ export function TagInput({
         onChange={onChange}
         onKeyUp={onKeyUp}
       />
-
-      <S.TagList>
-        {[...tagList].reverse().map((tag) => (
-          <Tag key={tag} onDelete={() => handleTagDelete(tag)}>
-            {tag}
-          </Tag>
-        ))}
-      </S.TagList>
     </>
-  );
-}
-
-function Tag({ children, onDelete }) {
-  return (
-    <S.Tag>
-      {children}
-      <S.StyledXIcon onClick={onDelete} />
-    </S.Tag>
   );
 }

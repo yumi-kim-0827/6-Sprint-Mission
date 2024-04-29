@@ -1,12 +1,11 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
 import { DEVICE } from "styles/variables";
+import { ImageCardCSS } from "components/Card/ImageCard";
 
-const ImageBlock = css`
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 12px;
-  background-color: var(--input-bg);
+const ImageInputCard = css`
+  ${ImageCardCSS}
+  background-color: var(--cool-gray300);
   border: none;
   outline: none;
   display: flex;
@@ -35,7 +34,7 @@ export const ImageInputContainer = styled.div`
 `;
 
 export const ImageInput = styled.div`
-  ${ImageBlock};
+  ${ImageInputCard};
   cursor: pointer;
 
   input {
@@ -56,7 +55,8 @@ export const ImageInput = styled.div`
 `;
 
 export const PreviewImage = styled.div`
-  ${ImageBlock};
+  ${ImageCardCSS};
+  position: relative;
 
   img {
     width: 100%;
