@@ -1,21 +1,21 @@
 import "./Items.css";
 import heart from "../assets/ic_heart.png";
-import { FormatCurrencyWon } from "../utils/FormatCurrencyWon";
+import { FormatCurrencyWon } from "../utils/formatCurrencyWon";
 
-function ItemsAllItem({ item }) {
+function ItemsAllItem({ images, name, price, favoriteCount }) {
   return (
     <div className="items-box items-all">
       <div className="image-box">
-        <img className="item-image" src={item.images} alt={item.name} />
+        <img className="item-image" src={images} alt={name} />
       </div>
       <div className="description-box">
-        <p className="item-name">{item.name}</p>
-        <p className="item-price">{FormatCurrencyWon(item.price)}</p>
+        <p className="item-name">{name}</p>
+        <p className="item-price">{FormatCurrencyWon(price)}</p>
         <div className="likes-box">
           <a>
             <img src={heart} alt="like-button" />
           </a>
-          <p className="item-likes">{item.favoriteCount}</p>
+          <p className="item-likes">{favoriteCount}</p>
         </div>
       </div>
     </div>
@@ -28,7 +28,12 @@ function ItemsAll({ items }) {
       {items.map((item) => {
         return (
           <div className="item-box" key={item.id}>
-            <ItemsAllItem item={item} />
+            <ItemsAllItem
+              images={item.images}
+              name={item.name}
+              price={item.price}
+              favoriteCount={item.favoriteCount}
+            />
           </div>
         );
       })}

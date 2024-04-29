@@ -1,16 +1,25 @@
-import { GetBestItems } from "../../../api/GetBestItems";
+import getItems from "../../../api/getItems";
 import { useEffect, useState } from "react";
 import MakeItemList from "./MakeItemList";
 
-function ItemsBestSection() {
-  const [bestItems, setBestItems] = useState([]);
+const PAGESIZE = 4;
 
-  const handleLoadBest = async () => {
-    const { list } = await GetBestItems();
-    setBestItems(list);
-  };
+function ItemsBestSection() {
+  const [items, setItems] = useState([]);
+
+  const query = `products?pageSize=${PAGESIZE}&orderBy=favorite`;
 
   useEffect(() => {
+    const handleLoadBest = async () => {
+      try {
+        const data = await getItems(query);
+        if (data && data.list) {
+          setItems(data.list);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
     handleLoadBest();
   }, []);
 
@@ -18,7 +27,7 @@ function ItemsBestSection() {
     <>
       <section className="products-best">
         <div className="content-label">베스트 상품</div>
-        <MakeItemList items={bestItems} />
+        <MakeItemList items={items} />
       </section>
     </>
   );

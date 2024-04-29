@@ -11,6 +11,9 @@ function AddItemPage() {
     itemPrice: "",
   });
 
+  const [tagList, setTagList] = useState([]);
+  const [tag, setTag] = useState("");
+
   const handleChange = (name, value) => {
     setValues((preValues) => ({
       ...preValues,
@@ -21,6 +24,23 @@ function AddItemPage() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     handleChange(name, value);
+  };
+
+  const handleTagInputChange = (e) => {
+    const value = e.target.value;
+    setTag(value);
+    console.log(tag);
+  };
+
+  const handleTagListChange = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const word = e.target.value;
+      if (word !== "") {
+        setTagList([...tagList, word.trim()]);
+        setTag("");
+      }
+    }
   };
 
   const handleSubmit = (e) => {
@@ -103,11 +123,20 @@ function AddItemPage() {
             className="inputs input-text"
             id="input-tags"
             type="text"
-            value={values.itemTags}
-            name="itemTag"
-            onChange={handleInputChange}
+            value={tag}
+            onChange={handleTagInputChange}
+            onKeyDown={handleTagListChange}
             placeholder="태그를 입력해주세요"
           />
+          <div>
+            태그리스트
+            {tagList &&
+              tagList.map((tag) => (
+                <div className="tags" key={tag}>
+                  {tag}
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </form>
