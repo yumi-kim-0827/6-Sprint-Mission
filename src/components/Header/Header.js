@@ -5,7 +5,7 @@ import "./Header.css";
 
 function getLinkStyle({ isActive }) {
   return {
-    color: isActive ? "#3692FF" : undefined,
+    color: isActive ? "#3692FF" : null,
   };
 }
 

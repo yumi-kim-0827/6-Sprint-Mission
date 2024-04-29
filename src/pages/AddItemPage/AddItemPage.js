@@ -1,51 +1,129 @@
-import { useState } from "react";
-import FileInput from "../AddItemPage/component/FileInput";
+import { useEffect, useState } from "react";
+import FileInput from "./component/FileInput";
 import "./AddItemPage.css";
 
 function AddItemPage() {
-  const [inputValue, setInputValue] = useState("");
-  const [isButtonActive, setIsButtonActive] = useState(false);
+  const [tags, setTags] = useState([]);
+  const [disabled, setDisabled] = useState(true);
+  const [values, setValues] = useState({
+    title: "",
+    description: "",
+    price: "",
+    tag: "",
+    imgFile: null,
+  });
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    setIsButtonActive(e.target.value !== "");
+  const addTags = (e) => {
+    if (e.keyCode === 13 && values.tag !== "") {
+
+      setTags([...tags, values.tag]);
+      values.tag = '';
+    }
   };
 
-  
+
+  const deleteTag = (val) => {
+    const nextTags = tags.filter((tag) => tag !== val);
+    setTags(nextTags);
+
+  }
+
+  const handleChange = (name, value) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => { 
+    const { title, description, price } = values;
+    if (title !== "" && description !== "" && price !== "") {
+      console.log('등록버튼 활성화');
+      setDisabled(false);
+    } else {
+      console.log('등록버튼 비활성화');
+      setDisabled(true);
+    }
+  }, [values]);
 
   return (
-    <form className="addItemSection">
-      <div className="add-section">
-        <h1>상품 등록하기</h1>
-        <button className="item-add-button">등록</button>
-      </div>
+    <div className="add-item-form-section">
+      <form onSubmit={handleSubmit} className="add-item-form">
+        <div className="add-item-form-header">
+          <h1>상품 등록하기</h1>
+          <button
+            type="submit"
+            className="add-item-form-upload-button"
+            disabled={disabled}
+          >
+            등록
+          </button>
+        </div>
 
-      <div>
-        <h2>상품 이미지</h2>
-        <FileInput />
-      </div>
-      <div>
-        <h2>상품명</h2>
-        <input placeholder="상품명을 입력해주세요" />
-      </div>
-      <div>
-        <h2>상품소개</h2>
-        <input
-          placeholder="상품 소개를 입력해주세요"
-          className="input-description"
+        <label htmlFor="img">상품 이미지</label>
+        <FileInput
+          name="imgFile"
+          value={values.imgFile}
+          onChange={handleChange}
         />
-      </div>
-      <div>
-        <h2>판매가격</h2>
-        <input placeholder="판매 가격을 입력해주세요" />
-      </div>
-      <div>
-        <h2>태그</h2>
-        <input placeholder="태그를 입력해주세요" className="tag-input" />
-      </div>
 
-      <div></div>
-    </form>
+        <label htmlFor="img">상품명</label>
+        <input
+          type="text"
+          name="title"
+          id="img"
+          value={values.title}
+          placeholder="상품명을 입력해주세요"
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="img">상품 소개</label>
+        <textarea
+          name="description"
+          id="img"
+          value={values.description}
+          placeholder="상품 소개를 입력해주세요"
+          onChange={handleInputChange}
+          className="item-description"
+        />
+
+        <label htmlFor="img">판매 가격</label>
+        <input
+          name="price"
+          id="img"
+          value={values.price}
+          placeholder="판매 가격을 입력해주세요"
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="img">태그</label>
+        <input
+          type="text"
+          name="tag"
+          id="img"
+          value={values.tag}
+          placeholder="태그를 입력해주세요"
+          onChange={handleInputChange}
+          onKeyDown={addTags}
+        />
+        <div className="tag-input-wrapper">
+          <ul>
+            {tags.map((item, index) => {
+              return <li key={index}>{item} <button onClick={() => deleteTag(item)}>X</button></li>;
+            })}
+          </ul>
+        </div>
+      </form>
+    </div>
   );
 }
 

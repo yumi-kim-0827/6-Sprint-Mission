@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+}
+
+.product-detail-section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-detail-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 24px;
+}
+
+.product-detail-section img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+}
+
+.product-detail-information {
+  width: 690px;
+  height: 489px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+	position: relative;
+}
+
+.product-name{
+  padding-top: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.product-price{
+  padding: 16px 0;
+  font-size: 40px;
+  font-weight: 600;
+  color: #1F2937;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.product-introduce{
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5563;
+  padding: 16px 0 8px;
+}
+
+.product-description{
+  font-size: 16px;
+  font-weight: 400;
+  color: #1F2937;
+  padding-bottom: 24px;
+}
+
+.product-tags{
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5563;
+  padding-bottom: 8px;
+}
+
+.product-tag ul{
+  display: flex;
+  gap: 8px;
+}
+
+.product-tag li{
+  border-radius: 26px;
+  background-color: #f3f4f6;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1F2937;
+}
+
+
+.product-like-count{
+  width: 87px;
+  height: 40px;
+  border: 1px solid #E5E7EB;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  gap: 4px;
+  color: #6B7280;
+  font-size: 16px;
+  font-weight: 500;
+	position: absolute;
+	bottom: 32px;
+	left: 0px;
+}
+
+.product-like-count img{
+  width: 27px;
+  height: 23px;
+}
+
+
+/* ======================================================== */
+
+.question-wrapper {
+	padding-bottom: 24px;
+}
+
+.question-wrapper label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.question-wrapper textarea {
+  width: 1200px;
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  background-color: #f3f4f6;
+	resize: none;
+}
+.submit-button-wrapper{
+	display: flex;
+	justify-content: end;
+}
+
+.submit-button-wrapper button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 23px;
+  background-color: #3692ff;
+  color: #fff;
+	cursor: pointer;
+}
+
+.submit-button-wrapper button:disabled{
+	background-color: #9ca3af;
+  cursor: auto;
+}
+/* ======================================================== */
+
+.comment-wrapper {
+  width: 1200px;
+  height: 110px;
+}
+
+.user-comment-wrapper {
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.user-content {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+	padding-bottom: 24px;
+}
+
+.user-information {
+  display: flex;
+	gap: 8px;
+	padding-bottom: 24px;
+}
+
+.user-information img {
+  width: 40px;
+  height: 40px;
+}
+
+.user-text-information {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+	gap: 4px;
+}
+
+.user-nickname {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.user-updatedAt {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.no-question-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24px;
+}
+
+.no-question-wrapper img{
+  width: 200px;
+  height: 200px;
+}
+
+.no-question-wrapper p{
+  font-size: 16px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.back-item-list-button-section{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 250px;
+}
+
+.back-item-list-button {
+  background-color: #3692ff;
+  padding: 12px 71px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+	text-decoration: none;
+}
+
+.back-item-list-button img {
+  width: 24px;
+  height: 24px;
+}
