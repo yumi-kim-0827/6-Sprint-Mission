@@ -1,19 +1,17 @@
 .header {
-    max-width: 1920px;
     height: 70px;
     align-items: center;
     border-bottom : solid 1px var(--gray-border);
 }
 
 .header-container {
-    max-width: 1520px;
-    height: 51px;
-    align-items: center;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+    height: 70px;
     margin: 0 auto;
-    padding: 10px 200px;
-    border-bottom: 1px;
+    padding: 0 200px;
 }
 
 .logo {
@@ -22,14 +20,20 @@
 }
 
 .header-nav {
-    margin-right: 575px;
+    align-items: left;
+    width: calc( 90% - 281px);
 }
 
 .nav-container {
+    width: 100%;
+    display: flex;
+    place-items: left;
     list-style: none; 
     padding: 0; 
     margin: 0; 
-    display: flex;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.48px;
 }
 
 li {
@@ -62,3 +66,19 @@ button {
     cursor: pointer;
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header-container {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-container {
+        padding: 0 16px;
+    }
+
+    .nav-container {
+        font-size: 16px;
+        line-height: 19.09px;
+    }
+}
