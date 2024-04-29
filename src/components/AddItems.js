@@ -4,11 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaPlus, FaTimes } from "react-icons/fa";
 
 const AddItem = () => {
-  const [productName, setProductName] = useState("");
-  const [productDescription, setProductDescription] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-  const [productImage, setProductImage] = useState("");
-  const [tags, setTags] = useState("");
+  const [product, setProduct] = useState({
+    productName: "",
+    productDescription: "",
+    productPrice: "",
+    productImage: "",
+  });
+  const [tags, setTags] = useState([]);
   const [currentTag, setCurrentTag] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const navigate = useNavigate();
@@ -25,21 +27,23 @@ const AddItem = () => {
       const newTag = currentTag.trim();
 
       if (newTag !== "") {
-        setTags([...tags, newTag]);
+        setTags((prevTags) => [...prevTags, newTag]);
         setCurrentTag("");
       }
     }
   };
 
   const handleTagRemove = (indexToRemove) => {
-    setTags(tags.filter((_, index) => index !== indexToRemove));
+    setTags((prevTags) =>
+      prevTags.filter((_, index) => index !== indexToRemove)
+    );
   };
 
   const isFormValid = () => {
     return (
-      productName.trim() !== "" &&
-      productDescription.trim() !== "" &&
-      productPrice.trim() !== "" &&
+      product.productName.trim() !== "" &&
+      product.productDescription.trim() !== "" &&
+      product.productPrice.trim() !== "" &&
       tags.length > 0
     );
   };
@@ -47,7 +51,10 @@ const AddItem = () => {
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
     if (selectedImage instanceof Blob) {
-      setProductImage(selectedImage);
+      setProduct({
+        ...product,
+        productImage: selectedImage,
+      });
 
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -61,18 +68,23 @@ const AddItem = () => {
 
   const handleCancelPreview = (e) => {
     e.preventDefault();
-    setProductImage("");
+    setProduct({
+      ...product,
+      productImage: "",
+    });
     setImagePreview("");
   };
 
   return (
     <AddItemContainer>
-      <AddItemHeader>
-        <AddItemTitle>상품 등록하기</AddItemTitle>
-        <AddItemsButton type="submit" disabled={!isFormValid()}>
-          등록
-        </AddItemsButton>
-      </AddItemHeader>
+      <form onSubmit={handleSubmit}>
+        <AddItemHeader>
+          <AddItemTitle>상품 등록하기</AddItemTitle>
+          <AddItemsButton type="submit" disabled={!isFormValid()}>
+            등록
+          </AddItemsButton>
+        </AddItemHeader>
+      </form>
       <form onSubmit={handleSubmit}>
         <AddImgContainer>
           <ItemImgTitle>상품 이미지</ItemImgTitle>
@@ -101,8 +113,10 @@ const AddItem = () => {
           <ItemNameInput
             type="text"
             placeholder="상품명을 입력해주세요"
-            value={productName}
-            onChange={(e) => setProductName(e.target.value)}
+            value={product.productName}
+            onChange={(e) =>
+              setProduct({ ...product, productName: e.target.value })
+            }
             required
           />
         </ItemNameContainer>
@@ -111,8 +125,10 @@ const AddItem = () => {
           <ItemDescriptionTitle>상품 소개</ItemDescriptionTitle>
           <StyledTextarea
             placeholder="상품 소개를 입력해주세요"
-            value={productDescription}
-            onChange={(e) => setProductDescription(e.target.value)}
+            value={product.productDescription}
+            onChange={(e) =>
+              setProduct({ ...product, productDescription: e.target.value })
+            }
             required
           />
         </ItemDescriptionContainer>
@@ -122,8 +138,10 @@ const AddItem = () => {
           <ItemPriceInput
             type="text"
             placeholder="판매 가격을 입력해주세요"
-            value={productPrice}
-            onChange={(e) => setProductPrice(e.target.value)}
+            value={product.productPrice}
+            onChange={(e) =>
+              setProduct({ ...product, productPrice: e.target.value })
+            }
             required
           />
         </ItemPriceContainer>
@@ -301,11 +319,11 @@ const ItemDescriptionTitle = styled.h3`
 const StyledTextarea = styled.textarea`
   width: 100%;
   height: 200px;
-  background-color: #f3f4f6;
   padding: 15px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
   resize: none;
+  background-color: #f3f4f6;
   font-family: auto;
 `;
 
