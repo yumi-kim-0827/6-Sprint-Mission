@@ -1,0 +1,294 @@
+[data-widget="ItemsPage$ID"]
+{
+	> [data-widget="Header"]
+	{
+		border-bottom: #DFDFDF solid thin;
+	}
+	> main
+	{
+		> .container
+		{
+			> .product
+			{
+				display: flex;
+				width: 100%;
+				
+				> .portrait
+				{
+					aspect-ratio: 1 / 1;
+					box-shadow: inset 0px 0px 50px 0 rgba(0, 0, 0, 0.125);
+					border-radius: 16px;
+					background-size: cover;
+					background-position: center;
+				}
+				> .details
+				{
+					width: 100%;
+				}
+			}
+		}
+	}
+	hr
+	{
+		width: 100%;
+		height: 1px;
+		background-color: #E5E7EB;
+	}
+	.heading
+	{
+		color: #4B5563;
+		font-size: 14px;
+		font-weight: 500;
+	}
+	.name
+	{
+		width: 100%;
+		font-weight: 600;
+	}
+	.price
+	{
+		font-weight: 600;
+	}
+	.description
+	{
+		margin-bottom: 24px;
+
+		.content
+		{
+			text-wrap: wrap;
+			color: #1F2937;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 22.4px;
+		}
+	}
+	.tags
+	{
+		margin-bottom: 16px;
+
+		.content
+		{
+			white-space: wrap;
+
+			.chip
+			{
+				display: inline-flex;
+				gap: 8px;
+				height: 48px;
+				padding: 12px;
+				margin-right: 8px;
+				margin-bottom: 8px;
+				border-radius: 26px;
+				background-color: #F9FAFB;
+		
+				> .button
+				{
+					width: 24px;
+					height: 24px;
+					padding: 6px;
+					border-radius: 50%;
+					background-color: #9CA3AF;
+		
+					&:hover
+					{
+						background-color: var(--blue);
+					}
+				}
+			}
+		}
+	}
+	.favoriteCount
+	{
+		border: #E5E7EB solid thin;
+		border-radius: 35px;
+		padding: 4px 12px;
+	}
+	.comments
+	{
+		width: 100%;
+		margin-bottom: 48px;
+
+		.mycomment
+		{
+			.heading
+			{
+				color: #111827;
+				font-size: 16px;
+				font-weight: 600;
+			}
+			textarea
+			{
+				height: 104px;
+				text-wrap: wrap;
+				padding: 16px 24px;
+				border-radius: 12px;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 24px;
+				background-color: #F3F4F6;
+
+				&::placeholder
+				{
+					color: #9CA3AF;
+				}
+			}
+			[data-widget="Button"]
+			{
+				border-radius: 8px;
+				padding: 12px 23px;
+				font-size: 16px;
+				font-weight: 600;
+			}
+		}
+		.comment
+		{
+			color: #1F2937;
+			font-size: 16px;
+			font-weight: 400;
+			padding-top: 24px;
+			border-bottom: #E5E7EB solid thin;
+			padding-bottom: 24px;
+
+			.avatar
+			{
+				width: 40px;
+				height: 40px;
+			}
+			.nickname
+			{
+				color: #4B5563;
+				font-size: 14px;
+				font-weight: 400;
+			}
+			.timestamp
+			{
+				color: #9CA3AF;
+				font-size: 12px;
+				font-weight: 400;
+			}
+		}
+	}
+	.rewind
+	{
+		padding: 12px 55.5px;
+		border-radius: 40px;
+
+		[data-widget="Row"]
+		{
+			color: #FFFFFF;
+			font-size: 18px;
+			font-weight: 600;
+		}
+	}
+}
+/* viewport: pc */
+@media screen and (1200px <= width)
+{
+	[data-widget="ItemsPage$ID"]
+	{
+		> main
+		{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			> .container
+			{
+				width: 100%;
+				max-width: 1200px;
+				margin-top: 24px;
+				margin-left: 24px;
+				margin-right: 24px;
+
+				> .product
+				{
+					gap: 24px;
+					flex-direction: row;
+
+					> .portrait
+					{
+						height: 486px;
+					}
+				}
+			}
+		}
+	}
+	.name
+	{
+		font-size: 24px;
+	}
+	.price
+	{
+		font-size: 40px;
+	}
+}
+/* viewport: tablet */
+@media screen and (768px <= width < 1200px)
+{
+	[data-widget="ItemsPage$ID"]
+	{
+		> main
+		{
+			> .container
+			{
+				margin-top: 24px;
+				margin-left: 24px;
+				margin-right: 24px;
+
+				> .product
+				{
+					gap: 16px;
+					flex-direction: row;
+
+					> .portrait
+					{
+						height: 340px;
+					}
+				}
+			}
+		}
+		.name
+		{
+			font-size: 20px;
+		}
+		.price
+		{
+			font-size: 32px;
+		}
+	}
+}
+/* viewport: mobile */
+@media screen and (375px <= width < 768px)
+{
+	[data-widget="ItemsPage$ID"]
+	{
+		> main
+		{
+			> .container
+			{
+				margin-top: 16px;
+				margin-left: 16px;
+				margin-right: 16px;
+
+				> .product
+				{
+					gap: 16px;
+					flex-direction: column;
+
+					> .portrait
+					{
+						width: 100%;
+					}
+				}
+			}
+		}
+		.name
+		{
+			font-size: 16px;
+		}
+		.price
+		{
+			font-size: 24px;
+		}
+	}
+}

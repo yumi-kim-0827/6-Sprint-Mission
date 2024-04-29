@@ -11,10 +11,10 @@ import close_svg from "@/assets/icons/close.svg";
 
 export default function AddItemPage({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
-	const refImageInput = React.useRef();
-	const refNameInput = React.useRef();
-	const refDesInput = React.useRef();
-	const refPriceInput = React.useRef();
+	const refImageInput = React.useRef(null);
+	const refNameInput = React.useRef(null);
+	const refDesInput = React.useRef(null);
+	const refPriceInput = React.useRef(null);
 
 	const [isValid, setIsValid] = React.useState(false);
 	const [tags, setTags] = React.useState([]);
@@ -110,6 +110,19 @@ export default function AddItemPage({ /* html */ id = null, style = {}, classes 
 								</label>
 								{previewImgs.map((src, index, array) =>
 								{
+									// quite frankly, using 'src' as a key won't improve the element's uniqueness, not even a bit, unless a UUID is provided. but this requires UUID collision testing.
+									//
+									// provided each iteration value is unique (aka Set), this is the ideal solution,
+									// and one must foremost look for it. however, in our case, 'src' is an img's base64 encoded string.
+									// this means if a user ever uploads a duplicated img, for god's sake, it's no longer unique,
+									//
+									// meaning, any value that has a relation to the iteration value, irreversible or not (e.g. sha-256),
+									// cannot be unique and will not serve its purpose of a unique key, unless iteration values themselves are unique.
+									//
+									// the only way to combat this problem is to assign a UUID to each iterable object's values.
+									// and for the most part, using the index as a key will work like a charm, until user-controllable order kicks in.
+									//
+									// tl;dr; people who claim that using the iteration value can provide uniqueness and that using the index as a key is bad practice are wrong.
 									return (
 										<div key={index} class="wrapper">
 											<div class="preview" style={{ backgroundImage: `url("${src}")` }}></div>
@@ -146,7 +159,7 @@ export default function AddItemPage({ /* html */ id = null, style = {}, classes 
 								{tags.map((tag, index, array) =>
 								{
 									return (
-										<div key={index} class="chip">
+										<div key={src} class="chip">
 											{tag}
 											<img class="button" src={close_svg} onClick={(event) => setTags((tags) => tags.toSpliced(index, 1))}/>
 										</div>

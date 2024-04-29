@@ -1,17 +1,36 @@
 // @see https://panda-market-api.vercel.app/docs/#/
 export default class API
 {
-	static async get_products({ page = 1, page_size = 10, order_by = "recent" })
+	static get ["products?"]()
 	{
-		try
+		return class
 		{
-			const response = await fetch(`https://panda-market-api.vercel.app/products?${new URLSearchParams({ page: page, pageSize: page_size, orderBy: order_by }).toString()}`);
-			
-			return await response.json();
+			static async GET(parms = {}, query = { page: 1, pageSize: 10, orderBy: "recent" })
+			{
+				return await (await fetch(`https://panda-market-api.vercel.app/products?${new URLSearchParams(query).toString()}`)).json();
+			}
 		}
-		catch (error)
+	}
+
+	static get ["products/{productId}"]()
+	{
+		return class
 		{
-			console.log(error);
+			static async GET(parms = { productId: 1 }, query = {})
+			{
+				return await (await fetch(`https://panda-market-api.vercel.app/products/${parms.productId}`)).json();
+			}
+		}
+	}
+
+	static get ["products/{productId}/comments?"]()
+	{
+		return class
+		{
+			static async GET(parms = { productId: 1 }, query = { limit: 10 })
+			{
+				return await (await fetch(`https://panda-market-api.vercel.app/products/${parms.productId}/comments?${new URLSearchParams(query).toString()}`)).json();
+			}
 		}
 	}
 }

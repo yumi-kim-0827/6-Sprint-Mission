@@ -23,16 +23,16 @@ const limit = {
 
 export default function ItemsPage({ /* html */ id = null, style = {}, classes = [], children = [], /* props */ })
 {
-	const [query, set_query] = React.useState({});
-	const [filter, set_filter] = React.useState("");
-	const [viewport, set_viewport] = React.useState(null);
-	const [products_all, set_products_all] = React.useState(null);
-	const [products_best, set_products_best] = React.useState(null);
+	const [query, setQuery] = React.useState({});
+	const [filter, setFilter] = React.useState("");
+	const [viewport, setViewport] = React.useState(null);
+	const [allProducts, setAllProducts] = React.useState(null);
+	const [bestProducts, setBestProducts] = React.useState(null);
 
 	React.useEffect(() =>
 	{
 		
-		set_viewport($.viewport);
+		setViewport($.viewport);
 		window.addEventListener("resize", $.onResize);
 		return () => window.removeEventListener("resize", $.onResize);
 	},
@@ -40,7 +40,7 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 
 	React.useEffect(() =>
 	{
-		API.get_products(query).then((products) => set_products_all((products_all) => products));
+		API["products?"].GET({}, query).then((products) => setAllProducts((products_all) => products));
 	},
 	[query]);
 
@@ -48,13 +48,13 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 	{
 		if (viewport)
 		{
-			if (!products_all || products_all["list"].length < limit.all[viewport])
+			if (!allProducts || allProducts["list"].length < limit.all[viewport])
 			{
-				set_query((query) => ({ ...query, page_size: limit.all[viewport] })); // API.get_products(query).then(set_products_all);
+				setQuery((query) => ({ ...query, pageSize: limit.all[viewport] }));
 			}
-			if (!products_best || products_best["list"].length < limit.best[viewport])
+			if (!bestProducts || bestProducts["list"].length < limit.best[viewport])
 			{
-				API.get_products({ page_size: limit.best[viewport], order_by: "favorite" }).then((products) => set_products_best((products_best) => products));
+				API["products?"].GET({}, { pageSize: limit.best[viewport], orderBy: "favorite" }).then((products) => setBestProducts((products_best) => products));
 			}
 		}
 	},
@@ -85,7 +85,7 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 		//
 		static onResize(event)
 		{
-			set_viewport((viewport) => $.viewport);
+			setViewport((viewport) => $.viewport);
 		}
 	}
 
@@ -107,10 +107,12 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 						</h1>
 					</div>
 					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.best[viewport])}, 1fr)` }}>
-						{products_best?.["list"]?.map((item, index, array) =>
+						{bestProducts?.["list"]?.map((item, index, array) =>
 						{
 							return (
-								<Product key={item.id} data={item}/>
+								<Link key={item.id} href={`/items/${item.id}`}>
+									<Product data={item}/>
+								</Link>
 							);
 						})}
 					</div>
@@ -122,29 +124,31 @@ export default function ItemsPage({ /* html */ id = null, style = {}, classes = 
 						</h1>
 						<div class="query">
 							<img src={require("@/assets/icons/search.svg").default}/>
-							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => set_filter((filter) => event.target.value)}/>
+							<input placeholder="검색할 상품을 입력해주세요" onChange={(event) => setFilter((filter) => event.target.value)}/>
 						</div>
 						<Button href="/additem">
 							상품 등록하기
 						</Button>
 						<DropDown class="dropdown" index={0} items={
 						[
-							{ name: "최신순", onClick: (event) => set_query((query) => ({ ...query, order_by: "recent" })) },
-							{ name: "좋아요순", onClick: (event) =>  set_query((query) => ({ ...query, order_by: "favorite" })) },
+							{ name: "최신순", onClick: (event) => setQuery((query) => ({ ...query, orderBy: "recent" })) },
+							{ name: "좋아요순", onClick: (event) =>  setQuery((query) => ({ ...query, orderBy: "favorite" })) },
 						]}/>
 					</div>
 					<div class="products" style={{ gridTemplateColumns: `repeat(${Math.ceil(limit.all[viewport] / 2)}, 1fr)` }}>
-						{products_all?.["list"]?.filter((item) => item.name.includes(filter)).map((item, index, array) =>
+						{allProducts?.["list"]?.filter((item) => item.name.includes(filter)).map((item, index, array) =>
 						{
 							// TODO: filter by occurrence
 							return (
-								<Product key={item.id} data={item}/>
+								<Link key={item.id} href={`/items/${item.id}`}>
+									<Product data={item}/>
+								</Link>
 							);
 						})}
 					</div>
 				</div>
 			</main>
-			<Pagination index={1} length={products_all ? Math.ceil(products_all["totalCount"] / limit.all[viewport]) : 0} onPaging={(index) => set_query((query) => ({...query, page: index }))}/>
+			<Pagination index={1} length={allProducts ? Math.ceil(allProducts["totalCount"] / limit.all[viewport]) : 0} onPaging={(index) => setQuery((query) => ({...query, page: index }))}/>
 		</section>
 	);
 }
