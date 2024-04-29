@@ -1,14 +1,15 @@
 import { useState } from "react";
-import dropDown from "../../assets/icon-dropdown.svg";
-import searchIcon from "../../assets/icon-search.svg";
+import dropDown from "../../../assets/icon-dropdown.svg";
+import searchIcon from "../../../assets/icon-search.svg";
 import { Link } from "react-router-dom";
 import "./NavOnSaleProducts.css";
-import useItemCount from "../../hooks/useItemCount";
-import iconArrow from "../../assets/icon-arrow.svg";
+import useItemCount from "./useItemCount";
+import iconArrow from "../../../assets/icon-arrow.svg";
 
 export default function NavOnSaleProducts() {
   const [toggleDropDown, setToggleDropDown] = useState(false);
-  const isTb = useItemCount() === 2;
+  const isTablet = useItemCount() === 6;
+  const pc = useItemCount() === 10;
 
   const handleDropDownClick = () => {
     setToggleDropDown(!toggleDropDown);
@@ -35,8 +36,8 @@ export default function NavOnSaleProducts() {
           className="dropDownBtn-onSaleProducts"
           onClick={handleDropDownClick}
         >
-          {isTb ? (
-            <div className="">
+          {isTablet || pc ? (
+            <div className="dropDownBtn-tablet">
               <span>{sortOrder}</span>
               <img src={iconArrow} alt="화살표 아이콘" />
             </div>

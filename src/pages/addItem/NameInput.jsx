@@ -2,7 +2,7 @@ import styles from "./AddItem.module.css";
 import { PLACEHOLDER } from "../../constants/placeholder";
 import { handleInputChange } from "../../utils/handleInputChange";
 
-const NameInput = ({ values: { productName }, setValues }) => {
+const NameInput = ({ productName, setValues }) => {
   return (
     <div>
       <p className={styles.titleForms}>상품명</p>

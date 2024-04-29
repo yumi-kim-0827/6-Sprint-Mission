@@ -2,12 +2,13 @@ import { Link, useLocation } from "react-router-dom";
 import "./Nav.css";
 import logo from "../../assets/logo-panda.svg";
 import { useContext } from "react";
-import LoginContext from "../../contexts/LoginContext";
+import AuthContext from "../../contexts/AuthContext";
 import LoginIcon from "../../assets/icon-login.svg";
 
 export default function Nav() {
-  const isLogin = useContext(LoginContext);
+  const isLogin = useContext(AuthContext);
   const { pathname } = useLocation();
+  const isProductPage = pathname.startsWith("/products");
 
   return (
     <>
@@ -21,21 +22,24 @@ export default function Nav() {
           </div>
           <div className="nav-pages">
             <Link
-              to="/board"
-              className={`board-btn ${pathname === "/board" && "active"}`}
+              to="/freeboard"
+              className={`board-btn ${pathname === "/freeboard" && "active"}`}
             >
               자유게시판
             </Link>
             <Link
               to="/items"
               className={`items-btn ${
-                (pathname === "/additem" || pathname === "/items") && "active"
+                (pathname === "/additem" ||
+                  pathname === "/items" ||
+                  isProductPage) &&
+                "active"
               }`}
             >
               중고마켓
             </Link>
           </div>
-          {!isLogin ? (
+          {isLogin ? (
             <img className="icon-login" src={LoginIcon} alt="로그인 아이콘" />
           ) : (
             <Link to="/login" className="btn login-btn">

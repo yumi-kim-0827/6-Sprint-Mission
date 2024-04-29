@@ -1,4 +1,4 @@
-export const createFormData = ({
+export const createItemFormData = ({
   productName,
   productDescription,
   price,
