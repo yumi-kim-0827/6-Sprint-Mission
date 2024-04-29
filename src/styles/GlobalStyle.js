@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     --main-text-color: #1F2937;
     --placeholder-color: #9CA3AF;
     --input-background-color: #F3F4F6;
-
+    --bottom-line: #E5E7EB;
   }
 
   @font-face {
@@ -56,13 +56,48 @@ const GlobalStyle = createGlobalStyle`
     resize: none;
   }
 
-
   h1 {
-    font-family: 'ROKAF Sans';
     font-size: 25.63px;
     font-weight: 700;
     line-height: 34.6px;
   }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.64px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.71px;
+  }
+
+  h5 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.32px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+  }
+
+  span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  }
+  
 `;
 
 export default GlobalStyle;

@@ -7,13 +7,13 @@ function usePagination(initialPage = 1, totalCount, pageSize, asyncFunction) {
 
   const handleNextPage = () => {
     if (page < totalPage) {
-      setPage((prev) => prev + 1);
+      setPage(page + 1);
     }
   };
 
   const handlePrevPage = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
+      setPage(page - 1);
     }
   };
 
@@ -22,6 +22,10 @@ function usePagination(initialPage = 1, totalCount, pageSize, asyncFunction) {
       setPage(number);
     }
   };
+
+  useEffect(() => {
+    asyncFunction(page);
+  }, [page]);
 
   return {
     page,

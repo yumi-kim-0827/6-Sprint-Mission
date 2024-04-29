@@ -15,6 +15,7 @@ function BestProducts({ bestProducts }) {
             description={product.name}
             price={product.price}
             favoriteCount={product.favoriteCount}
+            productId={product.id}
           />
         ))}
       </BestProductsList>

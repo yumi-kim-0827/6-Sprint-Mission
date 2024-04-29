@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../common/Button";
+import DefaultButton from "../common/DefaultButton";
 import logo from "../assets/pandaLogo.svg";
 import logoWithoutPanda from "../assets/logo.svg";
 import profile from "../assets/profileIcon.svg";
@@ -17,8 +17,8 @@ function Nav() {
         </LogoContainer>
         <StyledNavLink to="/board">자유게시판</StyledNavLink>
         <StyledNavLink
-          to="/fleamarket"
-          className={pathname === "/additem" ? "active" : ""}
+          to="/items"
+          $isActive={pathname === "/additem" ? true : false}
         >
           중고마켓
         </StyledNavLink>
@@ -27,7 +27,7 @@ function Nav() {
         <img src={profile} alt="프로필 아이콘" />
       ) : (
         <Link to="/login">
-          <Button>로그인</Button>
+          <StyledButton>로그인</StyledButton>
         </Link>
       )}
     </StyledNav>
@@ -44,7 +44,6 @@ const StyledNav = styled.div`
   @media ${(props) => props.theme.mobile} {
     padding: 16px 21px;
   }
-
   @media ${(props) => props.theme.tablet} {
     padding: 10px 24px;
   }
@@ -69,7 +68,7 @@ const StyledNavLink = styled(NavLink)`
   font-size: 18px;
   font-weight: 700;
   line-height: 21.48px;
-  color: var(--nav-text-color);
+  color: ${({ $isActive }) => $isActive ? 'var(--main-color)' : 'var(--nav-text-color)'};
   margin-left: 47px;
 
   &:not(:first-of-type) {
@@ -86,7 +85,6 @@ const StyledNavLink = styled(NavLink)`
     &:not(:first-of-type) {
       margin-left: 8px;
     }
-
   @media ${(props) => props.theme.tablet} {
     margin-left: 39px;
 
@@ -94,6 +92,10 @@ const StyledNavLink = styled(NavLink)`
       margin-left: 35px;
     }
   }
+`;
+
+const StyledButton = styled(DefaultButton)`
+  background-color: var(--main-color);
 `;
 
 export default Nav;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DefaultButton from "../../../common/DefaultButton";
 
 // AddItemPage.js
 export const Wrapper = styled.form`
@@ -32,15 +33,9 @@ export const HeaderTitle = styled.p`
   }
 `;
 
-export const SubmitButton = styled.button`
-  width: 88px;
-  height: 42px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
+export const StyledButton = styled(DefaultButton)`
   line-height: 19.09px;
   background-color: var(--placeholder-color);
-  color: white;
 
   &:disabled {
     background-color: var(--main-color);

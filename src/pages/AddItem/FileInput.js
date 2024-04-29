@@ -8,27 +8,17 @@ function FileInput({ name, value, onChange }) {
 
   const handleChange = (e) => {
     const nextValue = e.target.files[0];
-    onChange(name, nextValue);
+    const nextPreview = URL.createObjectURL(nextValue);
+    setPreview(nextPreview);
+    onChange(name, nextPreview);
   };
 
   const handleDelete = (e) => {
     const inputNode = inputRef.current;
-    if (!inputNode) return;
-
     inputNode.value = "";
+    setPreview();
     onChange(name, null);
   };
-
-  useEffect(() => {
-    if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
-
-    return () => {
-      setPreview();
-      URL.revokeObjectURL(nextPreview);
-    };
-  }, [value]);
 
   return (
     <S.Wrapper>

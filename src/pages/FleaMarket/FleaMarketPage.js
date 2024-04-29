@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Helmet } from "react-helmet";
 import { styled } from "styled-components";
 import BestProducts from "./BestProducts";
 import AllProducts from "./AllProducts";
@@ -25,7 +26,10 @@ function FleaMarketPage() {
     handleNextPage,
     handlePrevPage,
     handleClickPageNum,
-  } = usePagination(1, totalCount, PAGESIZE);
+  } = usePagination(1, totalCount, PAGESIZE, async () => {
+    const result = await getAllProductsAsync({ page, pageSize: PAGESIZE, orderBy });
+    return result;
+  });
 
   // 베스트 상품
   const handleLoadBestProducts = useCallback(async () => {
@@ -48,31 +52,21 @@ function FleaMarketPage() {
     if (options.page === 1) {
       setProducts(list);
     } else {
-      setProducts([...products, ...list]);
+      setProducts([...list]);
     }
-  },[getItems]);
-
-  const handleLoadNext = async (options) => {
-    await handleLoadAllProducts({ page: 1, pageSize: PAGESIZE, orderBy });
-  };
-
-  const handleLoadPrev = async (options) => {
-    await handleLoadAllProducts({ page: 1, pageSize: PAGESIZE, orderBy });
-  };
-
-  // const handleLoad = async (number) => {
-  //   setPage(number);
-  //   await handleLoadAllProducts({ page: number, pageSize: PAGESIZE, orderBy });
-  // };
+  }, [getItems]);
 
   useEffect(() => {
-    handleLoadAllProducts({ page: 1, pageSize: PAGESIZE, orderBy });
+    handleLoadAllProducts({ page, pageSize: PAGESIZE, orderBy });
     handleLoadBestProducts();
-  }, [orderBy, handleLoadBestProducts, handleLoadAllProducts]);
+  }, [page, orderBy, handleLoadBestProducts, handleLoadAllProducts]);
 
   return (
     <>
-      {(bestProductsError?.message || allProductsError?.message) ? (
+      <Helmet>
+        <title>중고마켓</title>
+      </Helmet>
+      {bestProductsError?.message || allProductsError?.message ? (
         <ErrorContainer>
           {bestProductsError?.message || allProductsError?.message}
         </ErrorContainer>
@@ -83,8 +77,8 @@ function FleaMarketPage() {
           <Pagination
             page={page}
             setPage={setPage}
-            handleLoadPrev={handleLoadPrev}
-            handleLoadNext={handleLoadNext}
+            handlePrevPage={handlePrevPage}
+            handleNextPage={handleNextPage}
             handleClickPageNum={handleClickPageNum}
             totalPage={totalCount}
             pageNumbers={pageNumbers}
@@ -93,7 +87,6 @@ function FleaMarketPage() {
       )}
     </>
   );
-  
 }
 
 const FleaMarketContainer = styled.div`

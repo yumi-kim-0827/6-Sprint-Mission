@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import ProductContainer from "./ProductContainer";
-import Button from "../../common/Button";
+import DefaultButton from "../../common/DefaultButton";
 import Accordion from "./Accordion";
 import readingGlasses from "../../assets/readingGlasses.svg";
 
@@ -42,6 +42,7 @@ function AllProducts({ products, setOrderBy }) {
               description={product.name}
               price={product.price}
               favoriteCount={product.favoriteCount}
+              productId={product.id}
             />
           ))}
         </AllProductsLayout>
@@ -95,8 +96,8 @@ const Icon = styled.img`
   padding: 13px 20px;
 `;
 
-const StyledButton = styled(Button)`
-  width: 133px;
+const StyledButton = styled(DefaultButton)`
+  background-color: var(--main-color);
 `;
 
 const AllProductsLayout = styled.div`

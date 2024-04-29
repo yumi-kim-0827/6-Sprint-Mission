@@ -1,9 +1,11 @@
-import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function BoardPage(props) {
   return (
     <div>
-      <h1>자유게시판</h1>
+      <Helmet>
+        <title>자유게시판</title>
+      </Helmet>
     </div>
   );
 }
