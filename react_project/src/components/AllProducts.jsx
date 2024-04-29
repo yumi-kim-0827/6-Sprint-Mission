@@ -7,6 +7,7 @@ import { getProducts } from '../data/api';
 import Pagination from './Pagination';
 import Button from './Button';
 import styles from '../styles/AllProducts.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -21,6 +22,11 @@ function AllProducts() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [productList, setProductList] = useState([]);
+
+  const nav = useNavigate();
+  const onMoveButton = () => {
+    nav("/additem");
+  };
   
   const fetchSortedData = async ({ orderBy, page, pageSize }) => {
     const products = await getProducts({ orderBy, page, pageSize });
@@ -70,7 +76,7 @@ function AllProducts() {
             <input type="text" placeholder='검색할 상품을 입력해 주세요'>
             </input>
           </div>
-          <Button>상품 등록하기</Button>
+          <Button onClick={onMoveButton}>상품 등록하기</Button>
           <div>
             <button onClick={toggleDropdown}>
               <img src={sortIcon} alt="정렬 버튼" />

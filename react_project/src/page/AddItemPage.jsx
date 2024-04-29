@@ -1,38 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ImageUpload from '../components/ImageUpload';
 import Button from '../components/Button';
-import FileInput from '../components/FileInput';
 import styles from '../styles/AddItemPage.module.css';
-import plusIcon from '../assets/ic_plus.svg';
+import TagInput from '../components/TagInput';
 
-function AddItemPage() {
+function AddItemPage({type}) {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [tags, setTags] = useState([]);
 
-  const imageRegistration = () => {
+  const addTag = (tag) => {
+    if (!tags.includes(tag)) {
+      setTags([...tags, tag])
+    }
+  };
 
+  const removeTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
   }
 
-  const tagInput = (e) => {
-    
-  }
+  const isSubmitDisabled = !name || !description || !price || !tags.length;
 
   return (
-    <form className={styles.AddItemPage_wrap}>
-      <div className={styles.AddItemPage_header}>
+    <form className={styles.addIteme_wrap}>
+      <div className={styles.addItem_header}>
         <h1>상품 등록하기</h1>
-        <Button>등록</Button>
+        <Button type={"submit"} disabled={isSubmitDisabled}>등록</Button>
       </div>
-      <label htmlFor="product_image">상품 이미지</label>
-      <div className={styles.addImage_box} id='product_imgae' onClick={imageRegistration}>
-        <img src={plusIcon} alt="상품" />
-        <p>이미지 등록</p>
+      <ImageUpload title="상품 이미지" />
+      <div className={styles.addItem_infoContainer}>
+        <label htmlFor="product_name">상품명</label>
+        <input id='product_name' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='상품명을 입력해주세요 '/>
+        <label htmlFor="product_desciption">상품 소개</label>
+        <textarea name="product_desciption" id="product_desciption" value={description} onChange={(e) => setDescription(e.target.value)} placeholder='상품 소개를 입력해주세요' />
+        <label htmlFor="product_price">판매가격</label>
+        <input id='product_price' type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='판매 가격을 입력해주세요' />
+        <TagInput tags={tags} onAddTag={addTag} onRemoveTag={removeTag} />
       </div>
-      <label htmlFor="product_name">상품명</label>
-      <input id='product_name' type="text" placeholder='상품명을 입력해주세요 '/>
-      <label htmlFor="product_introduce">상품 소개</label>
-      <textarea name="product_introduce" id="product_introduce" placeholder='상품 소개를 입력해주세요' />
-      <label htmlFor="product_price">판매가격</label>
-      <input id='product_price' type="number" placeholder='판매 가격을 입력해주세요' />
-      <label htmlFor="tag">태그</label>
-      <input id='tag' type="text" placeholder='태그를 입력해주세요' onKeyDown={tagInput}/>
     </form>
   )
 }

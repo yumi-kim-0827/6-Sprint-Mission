@@ -1,0 +1,6 @@
+.ItemPage_wrap {
+  width: 1200px;
+  margin: 10 auto;
+  display: flex;
+  flex-direction: column;
+}
