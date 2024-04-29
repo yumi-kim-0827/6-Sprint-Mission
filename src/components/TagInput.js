@@ -35,10 +35,10 @@ const InputTag = ({ tags, setTags, setIsTagsEmpty }) => {
         placeholder="태그를 입력하세요"
       />
       <TagList>
-        {tags.map((tag, index) => (
-          <TagItem key={index}>
+        {tags.map((tag) => (
+          <TagItem key={`tag-${tag}`}>
             <TagText>{tag}</TagText>
-            <DeleteButton onClick={() => handleTagDelete(index)}>
+            <DeleteButton onClick={() => handleTagDelete(`tag-${tag}`)}>
               <CloseIcon src={DeleteIcon} alt="삭제 아이콘" />
             </DeleteButton>
           </TagItem>

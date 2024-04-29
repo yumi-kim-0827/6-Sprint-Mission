@@ -11,7 +11,6 @@ const AddItem = () => {
     title: "",
     description: "",
     price: "",
-    isTagsEmpty: true,
     imgFile: null,
   });
 
@@ -27,7 +26,7 @@ const AddItem = () => {
     handleChange(name, value);
   };
 
-  const formComplete =
+  const isValidate =
     values.title.trim() !== "" &&
     values.description.trim() !== "" &&
     values.price.trim() !== "" &&
@@ -45,7 +44,7 @@ const AddItem = () => {
     <AddItemContainer onSubmit={handleSubmit}>
       <AddItemTitle>
         상품등록하기
-        <SubmitButton type="submit" disabled={!formComplete}>
+        <SubmitButton type="submit" disabled={!isValidate}>
           등록
         </SubmitButton>
       </AddItemTitle>

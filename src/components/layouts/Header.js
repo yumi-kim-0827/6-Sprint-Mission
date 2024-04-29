@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import Logo from "../assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../css/style.css";
+import "../../css/style.css";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,7 +11,9 @@ const Header = () => {
   };
 
   const isUsedMarketActive =
-    location.pathname === "/items" || location.pathname === "/additem";
+    location.pathname === "/items" ||
+    location.pathname === "/additem" ||
+    /^\/items\/\d+$/.test(location.pathname);
 
   return (
     <HeaderContainer>
