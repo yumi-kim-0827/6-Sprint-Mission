@@ -19,7 +19,7 @@ const FileInput = ({ name, value, onChange }) => {
     const inputNode = inputRef.current;
     if (!inputNode) return;
 
-    console.log(inputNode);
+    // console.log(inputNode);
     inputNode.value = "";
     onChange(name, null);
   };

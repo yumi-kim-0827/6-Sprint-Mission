@@ -1,14 +1,14 @@
 import "./ProductAll.css";
 
-import iconHeart from "../../../assets/images/items/ic_heart.svg";
 import iconSearch from "../../../assets/images/items/ic_search.svg";
 
 import React, { useState, useEffect } from "react";
 
-import { getProducts } from "../../../api/ItemsApi";
+import { getProducts } from "../../../api/product.api";
 import { Link } from "react-router-dom";
 import { Desktop, Mobile, Tablet } from "../../MediaQuery";
 import Dropdown from "./Dropdown";
+import Product from "./Product";
 
 const ProductAll = () => {
   const [order, setOrder] = useState("recent");
@@ -16,7 +16,7 @@ const ProductAll = () => {
   const [products, setProducts] = useState([]);
 
   const handleLoad = async (orderQuery) => {
-    const { list } = await getProducts(orderQuery);
+    const { list } = await getProducts({ orderBy: orderQuery });
     setProducts(list);
   };
 
@@ -74,67 +74,19 @@ const ProductAll = () => {
       <div className="all_content">
         <Desktop>
           {products.slice(0, 12).map((product) => (
-            <div className="all_wrap" key={product.id}>
-              <img
-                className="all_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="all_name">{product.name}</div>
-              <div className="all_price">{product.price}원</div>
-              <div className="all_heart">
-                <img
-                  className="all_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="all_heart_count">{product.favoriteCount}</span>
-              </div>
-            </div>
+            <Product product={product} isAllSection={true} key={product.id} />
           ))}
         </Desktop>
 
         <Tablet>
           {products.slice(0, 6).map((product) => (
-            <div className="all_wrap" key={product.id}>
-              <img
-                className="all_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="all_name">{product.name}</div>
-              <div className="all_price">{product.price}원</div>
-              <div className="all_heart">
-                <img
-                  className="all_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="all_heart_count">{product.favoriteCount}</span>
-              </div>
-            </div>
+            <Product product={product} isAllSection={true} key={product.id} />
           ))}
         </Tablet>
 
         <Mobile>
           {products.slice(0, 4).map((product) => (
-            <div className="all_wrap" key={product.id}>
-              <img
-                className="all_img"
-                src={product.images}
-                alt={product.name}
-              ></img>
-              <div className="all_name">{product.name}</div>
-              <div className="all_price">{product.price}원</div>
-              <div className="all_heart">
-                <img
-                  className="all_heart_icon"
-                  src={iconHeart}
-                  alt="icon_heart"
-                ></img>
-                <span className="all_heart_count">{product.favoriteCount}</span>
-              </div>
-            </div>
+            <Product product={product} isAllSection={true} key={product.id} />
           ))}
         </Mobile>
       </div>

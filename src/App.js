@@ -5,10 +5,11 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Items from "./pages/Items";
+import ItemsList from "./pages/ItemsList";
 import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
+import Item from "./pages/Item";
 
 function App() {
   return (
@@ -16,25 +17,35 @@ function App() {
       <Route
         path="/"
         element={
-          <Layout isHeader={true} isFooter={true}>
+          <Layout isHeader isFooter>
             <Home />
           </Layout>
         }
       />
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/SignUp" element={<SignUp />} />
-      <Route
-        path="/Items"
-        element={
-          <Layout isHeader={true}>
-            <Items />
-          </Layout>
-        }
-      />
+      <Route path="/Items">
+        <Route
+          index
+          element={
+            <Layout isHeader>
+              <ItemsList />
+            </Layout>
+          }
+        />
+        <Route
+          path=":productId"
+          element={
+            <Layout isHeader>
+              <Item />
+            </Layout>
+          }
+        />
+      </Route>
       <Route
         path="/Community"
         element={
-          <Layout isHeader={true}>
+          <Layout isHeader>
             <Community />
           </Layout>
         }
@@ -42,7 +53,7 @@ function App() {
       <Route
         path="/AddItem"
         element={
-          <Layout isHeader={true} site="/AddItem">
+          <Layout isHeader site="/AddItem">
             <AddItem />
           </Layout>
         }
@@ -50,7 +61,7 @@ function App() {
       <Route
         path="*"
         element={
-          <Layout isHeader={true}>
+          <Layout isHeader>
             <NotFound />
           </Layout>
         }
