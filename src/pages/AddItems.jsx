@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./AddItems.css";
 import fileplus from "../assets/file-plus.png";
 import tagdelete from "../assets/tag-delete.png";
+import { registerValidation } from "../components/common/validation";
 
 function ProductImg({ name, value, onChange }) {
   const [preview, setPreview] = useState();
@@ -12,13 +13,13 @@ function ProductImg({ name, value, onChange }) {
     onChange(name, nextImg);
   };
 
-  const handleClearClick = () => {
-    const inputNode = inputRef;
+  const handleClearClick = useCallback(() => {
+    const inputNode = inputRef.current;
     if (inputNode) {
       inputNode.value = "";
       onChange(name, null);
     }
-  };
+  }, [name, onChange]);
 
   useEffect(() => {
     if (!value) return;
@@ -48,7 +49,7 @@ function ProductImg({ name, value, onChange }) {
   );
 }
 
-function ProductTag({ name, value, onChange, clearProductTag }) {
+function ProductTag({ name, onChange, clearProductTag }) {
   const [tagArr, setTagArr] = useState([]);
   const inputRef = useRef();
 
@@ -57,11 +58,18 @@ function ProductTag({ name, value, onChange, clearProductTag }) {
       e.preventDefault();
       const tagValue = e.target.value;
       if (tagValue !== "") {
-        onChange(name, tagValue);
-        const newTagArr = [...tagArr, tagValue];
-        setTagArr(newTagArr);
-        if (inputRef) {
-          inputRef.current.value = "";
+        if (tagArr.includes(tagValue)) {
+          alert("동일한 태그는 입력할 수 없습니다.");
+          if (inputRef.current) {
+            inputRef.current.value = "";
+          }
+        } else {
+          onChange(name, tagValue);
+          const newTagArr = [...tagArr, tagValue];
+          setTagArr(newTagArr);
+          if (inputRef.current) {
+            inputRef.current.value = "";
+          }
         }
       }
     }
@@ -88,9 +96,9 @@ function ProductTag({ name, value, onChange, clearProductTag }) {
         ref={inputRef}
       />
       <div className="show-tag">
-        {tagArr.map((tag, idx) => {
+        {tagArr.map((tag) => {
           return (
-            <p key={idx}>
+            <p key={tag}>
               {`# ${tag}`}
               <img src={tagdelete} alt="태그 삭제 버튼" onClick={handleDeleteTag} />
             </p>
@@ -143,22 +151,12 @@ const AddItems = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("성공");
   };
 
   useEffect(() => {
-    if (
-      productValues.productName !== "" &&
-      productValues.productIntro !== "" &&
-      productValues.productPrice !== "" &&
-      productValues.productTag.length !== 0
-    ) {
-      buttonRef.current.disabled = false;
-      buttonRef.current.classList.add("active");
-    } else {
-      buttonRef.current.disabled = true;
-      buttonRef.current.classList.remove("active");
-    }
+    const isValidInput = registerValidation({ ...productValues });
+    buttonRef.current.disabled = isValidInput;
+    buttonRef.current.classList.toggle("active", !isValidInput);
   }, [productValues]);
 
   return (
@@ -205,12 +203,7 @@ const AddItems = () => {
           value={productValues.productPrice}
         />
       </div>
-      <ProductTag
-        name="productTag"
-        value={productValues.productIag}
-        onChange={handleChange}
-        clearProductTag={clearProductTag}
-      />
+      <ProductTag name="productTag" onChange={handleChange} clearProductTag={clearProductTag} />
     </form>
   );
 };

@@ -1,116 +1,121 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./Items.css";
 import ShowBestProducts from "../components/ShowBestProducts";
 import ShowProducts from "../components/ShowProducts";
 import PageButton from "../components/PageButton";
-import { getProduct, getBestProduct } from "../api";
-import debounce from "../components/common/debounce";
+import { getProduct, getBestProduct, getTotalCount } from "../api";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
-  const [selectValue, setSelectValue] = useState("최신순");
   const [totalCount, setTotalCount] = useState();
-  const [bestItemPage, setBestItemPage] = useState(4);
-  const [width, setWidth] = useState();
-  const [order, setOrder] = useState({
-    orderBy: "recent",
-    page: 1,
-    pageSize: 10,
-  });
+
+  const [orderBy, setOrderBy] = useState("recent");
+  const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1);
+
+  const [pageSize, setPageSize] = useState(10);
+  const [bestPageSize, setBestPageSize] = useState(4);
+
   const handleLoad = async (orderQuery) => {
     const { list } = await getProduct(orderQuery);
     setProducts(list);
   };
 
-  const handleBestLoad = async () => {
-    const { list } = await getBestProduct();
+  const handleBestLoad = async (pageSize) => {
+    const { list } = await getBestProduct(pageSize);
     setBestProducts(list);
   };
 
-  function onChangeSelect(e) {
-    const value = e.target.value;
-    setSelectValue(value);
-    value === "좋아요순"
-      ? setOrder((prevOrder) => ({ ...prevOrder, orderBy: "favorite", page: 1 }))
-      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: "recent", page: 1 }));
-  }
-
-  const getSelectValue = (value) => {
-    return value;
-  };
-
-  function onChangeInput(e) {
-    const value = e.target.value;
-    value === ""
-      ? setOrder((prevOrder) =>
-          selectValue === "좋아요순" ? { ...prevOrder, orderBy: "favorite" } : { ...prevOrder, orderBy: "recent" }
-        )
-      : setOrder((prevOrder) => ({ ...prevOrder, orderBy: value }));
-  }
-
-  const getTotalCount = async () => {
-    const { totalCount } = await getBestProduct();
+  const getProducttotalCount = async () => {
+    const { totalCount } = await getTotalCount();
     setTotalCount(totalCount);
   };
 
+  const desktop = window.matchMedia("(min-width : 1200px");
+  const tablet = window.matchMedia("(min-width : 768px) and (max-width : 1199px)");
+
+  const handlePageSize = () => {
+    const mediaSize = desktop.matches ? "desktop" : tablet.matches ? "tablet" : "mobile";
+    const pageSizes = getPageSize(mediaSize);
+    const bestPageSizes = getBestPageSize(mediaSize);
+    setPageSize(pageSizes);
+    setBestPageSize(bestPageSizes);
+    setPage(1);
+  };
+
+  const getPageSize = (mediaSize) => {
+    switch (mediaSize) {
+      case "desktop":
+        return 10;
+      case "tablet":
+        return 6;
+      case "mobile":
+        return 4;
+      default:
+        return 10;
+    }
+  };
+  const getBestPageSize = (mediaSize) => {
+    switch (mediaSize) {
+      case "desktop":
+        return 4;
+      case "tablet":
+        return 2;
+      case "mobile":
+        return 1;
+      default:
+        return 4;
+    }
+  };
+
+  function onChangeSelect(value) {
+    value === "좋아요순" ? setOrderBy("favorite") : setOrderBy("recent");
+  }
+
+  function onChangeInput(e) {
+    const value = e.target.value;
+    value ? setKeyword(value) : setKeyword("");
+  }
+
   const handlePageNum = () => {
     if (!isNaN(totalCount)) {
-      const pageNum = Math.ceil(totalCount / order.pageSize);
+      const pageNum = Math.ceil(totalCount / pageSize);
       return pageNum;
     }
   };
 
   const handlePage = (value) => {
-    setOrder((prevOrder) => ({
-      ...prevOrder,
-      page: value,
-    }));
-  };
-  const handlePageSize = (width) => {
-    if (width >= 1200) {
-      return 10;
-    } else if (width >= 768 && width <= 1199) {
-      return 6;
-    } else if (width >= 380 && width <= 767) {
-      return 4;
-    }
+    setPage(value);
   };
 
-  const handleResize = debounce(() => {
-    setWidth(window.innerWidth);
-  }, 50);
+  useEffect(() => {
+    handleBestLoad(bestPageSize);
+  }, [bestPageSize]);
 
   useEffect(() => {
-    const pageSize = handlePageSize(width);
-    setOrder((prevOrder) => ({ ...prevOrder, pageSize }));
-    setOrder((prevOrder) => ({ ...prevOrder, page: 1 }));
-  }, [width]);
+    handleLoad({ orderBy, page, pageSize, keyword });
+  }, [orderBy, page, pageSize, keyword]);
 
   useEffect(() => {
-    handleBestLoad();
-    getTotalCount();
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    getProducttotalCount();
+
+    desktop.addListener(handlePageSize);
+    tablet.addListener(handlePageSize);
+
+    handlePageSize();
+
     return () => {
-      window.removeEventListener("resize", handleResize);
+      desktop.removeListener(handlePageSize);
+      tablet.removeListener(handlePageSize);
     };
   }, []);
-
-  useEffect(() => {
-    handleLoad(order);
-  }, [order]);
 
   return (
     <div className="App">
       <div className="container">
         <ShowBestProducts products={bestProducts} />
-        <ShowProducts
-          onChangeSelect={onChangeSelect}
-          onChangeInput={onChangeInput}
-          products={products}
-          getSelectValue={getSelectValue}
-        />
+        <ShowProducts onChangeSelect={onChangeSelect} onChangeInput={onChangeInput} products={products} />
       </div>
       <PageButton handlePageNum={handlePageNum} handlePage={handlePage} />
     </div>
