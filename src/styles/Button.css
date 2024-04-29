@@ -1,16 +1,20 @@
 .Button {
-  box-sizing: border-box;
-  text-wrap: nowrap;
-  background-color: #3692ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   width: 100%;
   height: 100%;
-  padding: 12px 23px;
+  box-sizing: border-box;
   border-radius: 8px;
   border: none;
+  padding: 12px 23px;
+  background-color: #3692ff;
   font-weight: 600;
   font-size: 16px;
   color: white;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 
 .Button.disable {

@@ -1,49 +1,49 @@
-.AddItem__Header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.AddItem__Header h1 {
-  font-weight: 700;
-  font-size: 28px;
-}
-.AddItem__Header__button_wrapper {
-  width: 88px;
-  height: 42px;
-}
-form {
+.addItem__form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.form__input_title {
+.addItem__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addItem__header__title {
+  font-weight: 700;
+  font-size: 28px;
+}
+.addItem__header__btn-wrapper {
+  width: 88px;
+  height: 42px;
+}
+.addItem__input-wrapper input[type="text"],
+.addItem__input-wrapper input[type="number"] {
+  width: 100%;
+  height: 56px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+.addItem__input__title {
+  display: block;
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 12px;
 }
-.form__input_wrapper input[type="text"],
-.form__input_wrapper input[type="number"] {
-  box-sizing: border-box;
+.addItem__textarea {
   width: 100%;
-  border-radius: 12px;
-  border: none;
-  background-color: #f3f4f6;
-  padding: 16px;
-  height: 56px;
-}
-textarea {
   height: 200px;
   box-sizing: border-box;
-  width: 100%;
   border-radius: 12px;
   border: none;
-  background-color: #f3f4f6;
   padding: 16px;
+  background-color: #f3f4f6;
   resize: none;
 }
-
-.tags__wrapper {
-  margin-top: 12px;
+.addItem__tags-wrapper {
   display: flex;
   gap: 12px;
+  margin-top: 12px;
 }

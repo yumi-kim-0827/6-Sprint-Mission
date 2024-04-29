@@ -1,14 +1,15 @@
 import React from "react";
 import "../styles/Button.css";
 
-const Button = ({ text, type = "", disable }) => {
+const Button = ({ children, type = "", disable, onClick }) => {
   return (
     <button
-      className={["Button", `${disable ? "disable" : "enable"}`].join(" ")}
+      onClick={onClick}
+      className={`Button ${disable ? "disable" : "enable"}`}
       type={type}
       disabled={disable}
     >
-      {text}
+      {children}
     </button>
   );
 };

@@ -1,16 +1,16 @@
-.Container {
-  width: 1200px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 100px;
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-  .Container {
-    width: 696px;
+  .container {
+    max-width: 696px;
   }
 }
 @media screen and (max-width: 767px) {
-  .Container {
-    width: 343px;
+  .container {
+    max-width: 343px;
   }
 }

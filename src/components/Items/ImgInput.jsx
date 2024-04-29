@@ -4,7 +4,7 @@ import ICON_PLUS from "../../assets/icon_plus.svg";
 import ICON_CANCEL from "../../assets/icon_cancel.svg";
 
 const ImgInput = ({ name, value, onChange }) => {
-  const [preview, setPreview] = useState();
+  const [preview, setPreview] = useState(null);
   const imgInputRef = useRef();
   const handleChange = (e) => {
     const nextValue = e.target.files[0];
@@ -24,18 +24,18 @@ const ImgInput = ({ name, value, onChange }) => {
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
+      setPreview(null);
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);
 
   return (
-    <div className="ImgInput">
-      <div className="ImgInput__wrapper">
+    <div className="imgInput">
+      <div className="imgInput__wrapper">
         <label htmlFor="imgFile">
           <img
             src={ICON_PLUS}
-            alt={"이미지 첨부 아이콘"}
+            alt="이미지 첨부 아이콘"
             style={{ width: "48px" }}
           />
           이미지 등록
@@ -47,14 +47,14 @@ const ImgInput = ({ name, value, onChange }) => {
           ref={imgInputRef}
         />
       </div>
-      <div
-        className={["ImgInput__preview_wrapper", preview ? "show" : ""].join(
-          " "
-        )}
-      >
-        <img className="preview_img" src={preview} alt="이미지 미리보기" />
+      <div className={`imgInput__preview-wrapper ${preview ? "show" : ""}`}>
+        <img
+          className="imgInput__preview-img"
+          src={preview}
+          alt="이미지 미리보기"
+        />
         <button
-          className="preview_cancel_button"
+          className="imgInput__preview-cancel-btn"
           type="button"
           onClick={handleClearClick}
         >

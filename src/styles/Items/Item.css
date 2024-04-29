@@ -1,49 +1,49 @@
-.Item {
+.item {
   width: 221px;
   height: 301px;
 }
-.imgWrapper {
+.item__img-frame {
   width: 221px;
   height: 221px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 10px;
 }
-.imgWrapper img {
+.item__img-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.textWrapper {
+.item__text-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.nameText {
+.item__name {
   color: #1f2937;
   font-weight: 500;
   font-size: 14px;
 }
-.priceText {
+.item__price {
   color: #1f2937;
   font-weight: 700;
   font-size: 16px;
 }
-.likes {
+.item__likes {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   color: #4b5563;
   font-weight: 500;
   font-size: 12px;
-  display: flex;
-  gap: 3px;
-  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
-  .Item {
+  .item {
     width: 168px;
     height: 248px;
   }
-  .imgWrapper {
+  .item__img-frame {
     width: 168px;
     height: 168px;
   }

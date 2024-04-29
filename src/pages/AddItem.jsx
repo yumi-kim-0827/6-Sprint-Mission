@@ -63,8 +63,9 @@ const AddItem = () => {
   }, [values, tags.length]);
 
   return (
-    <div className="AddItem">
+    <div className="addItem">
       <form
+        className="addItem__form"
         onKeyDown={(e) => {
           if (e.key === "Enter" && e.target.name !== "productTags")
             e.preventDefault();
@@ -78,58 +79,73 @@ const AddItem = () => {
           }
         }}
       >
-        <div className="AddItem__Header">
-          <h1>상품 등록하기</h1>
-          <div className="AddItem__Header__button_wrapper">
-            <Button text={"등록"} type={"submit"} disable={!canSubmit} />
+        <div className="addItem__header">
+          <h1 className="addItem__header__title">상품 등록하기</h1>
+          <div className="addItem__header__btn-wrapper">
+            <Button type="submit" disable={!canSubmit}>
+              등록
+            </Button>
           </div>
         </div>
 
-        <div className={"form__input_wrapper"}>
-          <h1 className="form__input_title">상품 이미지</h1>
+        <div className="addItem__input-wrapper">
+          <label className="addItem__input__title">상품 이미지</label>
           <ImgInput
-            name={"imgFile"}
+            name="imgFile"
             value={values.imgFile}
             onChange={handleValueChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
-          <h1 className="form__input_title">상품명</h1>
+        <div className="addItem__input-wrapper">
+          <label className="addItem__input__title" htmlFor="title">
+            상품명
+          </label>
           <input
+            id="title"
             name="title"
             type="text"
             placeholder="상품명을 입력해주세요"
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
-          <h1 className="form__input_title">상품 소개</h1>
+        <div className="addItem__input-wrapper">
+          <label className="addItem__input__title" htmlFor="description">
+            상품 소개
+          </label>
           <textarea
+            id="description"
+            className="addItem__textarea"
             name="description"
             placeholder="상품 소개를 입력해주세요"
             value={values.description}
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
-          <h1 className="form__input_title">판매가격</h1>
+        <div className="addItem__input-wrapper">
+          <label className="addItem__input__title" htmlFor="price">
+            판매가격
+          </label>
           <input
+            id="price"
             name="price"
             type="number"
             placeholder="판매 가격을 입력해주세요"
             onChange={handleInputChange}
           />
         </div>
-        <div className={"form__input_wrapper"}>
-          <h1 className="form__input_title">태그</h1>
+        <div className="addItem__input-wrapper">
+          <label className="addItem__input__title" htmlFor="productTags">
+            태그
+          </label>
           <input
+            id="productTags"
             name="productTags"
             type="text"
             placeholder="태그를 입력해주세요"
             value={tagValue}
             onChange={handleTagInputChange}
           />
-          <div className="tags__wrapper">
+          <div className="addItem__tags-wrapper">
             {tags?.map((item) => {
               return <Tag key={item} value={item} onDelete={handleTagDelete} />;
             })}

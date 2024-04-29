@@ -1,9 +1,9 @@
-.Pagenation {
+.pagenation {
   display: flex;
 }
-.Pagenation__prev_button,
-.Pagenation__next_button,
-.PageButton {
+.pagenation__prev-btn,
+.pagenation__next-btn,
+.pageButton {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -14,15 +14,15 @@
   justify-content: center;
   cursor: pointer;
 }
-.PageButton.isActive {
+.pageButton.isActive {
   background-color: #2f80ed;
   color: white;
 }
-.Pagenation__next_button img {
+.pagenation__next-btn img {
   transform: rotate(180deg);
 }
 
-.Pagenation__lists {
+.pagenation__page-btn {
   display: flex;
   gap: 4px;
   margin: 0 4px;

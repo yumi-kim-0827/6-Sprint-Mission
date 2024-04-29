@@ -3,9 +3,10 @@ import ICON_CANCEL from "../../assets/icon_cancel.svg";
 
 const Tag = ({ value, onDelete }) => {
   return (
-    <div className="Tag">
+    <div className="tag">
       {value}
       <button
+        className="tag__delete-btn"
         onClick={(e) => {
           onDelete(value);
         }}

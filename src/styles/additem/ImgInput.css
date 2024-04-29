@@ -1,15 +1,15 @@
-.ImgInput {
+.imgInput {
   display: flex;
   gap: 30px;
 }
-.ImgInput__wrapper {
+.imgInput__wrapper {
+  position: relative;
   width: 282px;
   height: 282px;
-  background-color: #f3f4f6;
   border-radius: 12px;
-  position: relative;
+  background-color: #f3f4f6;
 }
-.ImgInput__wrapper label {
+.imgInput__wrapper label {
   display: block;
   width: 100%;
   height: 100%;
@@ -23,60 +23,60 @@
   font-size: 16px;
   cursor: pointer;
 }
-.ImgInput__wrapper label img {
+.imgInput__wrapper label img {
   margin-bottom: 15px;
 }
 input[type="file"] {
   display: none;
 }
-.ImgInput__preview_wrapper {
+.imgInput__preview-wrapper {
+  position: relative;
+  display: none;
   width: 282px;
   height: 282px;
   border-radius: 12px;
-  position: relative;
   overflow: hidden;
-  display: none;
 }
-.ImgInput__preview_wrapper.show {
+.imgInput__preview-wrapper.show {
   display: block;
 }
-.preview_img {
+.imgInput__preview-img {
   position: absolute;
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-.preview_cancel_button {
-  border: none;
-  background-color: #3692ff;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.imgInput__preview-cancel-btn {
   position: absolute;
   right: 10px;
   top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3692ff;
   cursor: pointer;
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-  .ImgInput__wrapper {
+  .imgInput__wrapper {
     width: 162px;
     height: 162px;
   }
-  .ImgInput__preview_wrapper {
+  .imgInput__preview-wrapper {
     width: 162px;
     height: 162px;
   }
 }
 @media screen and (max-width: 767px) {
-  .ImgInput__wrapper {
+  .imgInput__wrapper {
     width: 168px;
     height: 168px;
   }
-  .ImgInput__preview_wrapper {
+  .imgInput__preview-wrapper {
     width: 168px;
     height: 168px;
   }

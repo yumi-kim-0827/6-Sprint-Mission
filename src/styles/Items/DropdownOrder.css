@@ -1,65 +1,59 @@
-.DropdownOrderWrapper {
+.dropdownOrder__wrapper {
   position: relative;
   width: 130px;
   height: 42px;
 }
-.DropdownOrder {
-  width: 130px;
-  height: 42px;
-  background-color: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+.dropdownOrder {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-.DropdownWrapper {
-  position: absolute;
-  border: 1px solid #e5e7eb;
-  background-color: white;
-  border-radius: 12px;
   width: 130px;
-  left: 0;
-  bottom: -91px;
+  height: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: white;
 }
-.DropdownOrder img {
+.dropdownOrder img {
   width: 15px;
   height: 7px;
 }
-
-.DropdownWrapper {
+.dropDownOrder__list-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: -91px;
+  width: 130px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: white;
   transition: 0.4s;
   opacity: 0;
   pointer-events: none;
 }
-
-.DropdownWrapper.show {
+.dropDownOrder__list-wrapper.show {
   opacity: 1;
   pointer-events: all;
 }
-
-.DropdownWrapper.mobile {
+.dropDownOrder__list-wrapper.mobile {
   left: -90px;
 }
-
-.DropdownWrapper ul li {
-  width: 100%;
-  height: 42px;
+.dropDownOrder__list-wrapper ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 42px;
   cursor: pointer;
 }
-.DropdownWrapper ul li:first-child {
+.dropDownOrder__list-wrapper ul li:first-child {
   border-bottom: 1px solid #e5e7eb;
 }
 
 @media screen and (max-width: 767px) {
-  .DropdownOrderWrapper {
+  .dropdownOrder__wrapper {
     width: 42px;
     height: 42px;
   }
-  .DropdownOrder {
+  .dropdownOrder {
     width: 42px;
     height: 42px;
   }

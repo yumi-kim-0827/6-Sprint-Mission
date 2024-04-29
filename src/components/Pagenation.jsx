@@ -5,9 +5,7 @@ const PageButton = ({ page, currentPage, handlePage }) => {
   return (
     <div
       onClick={handlePage}
-      className={["PageButton", currentPage === page ? "isActive" : ""].join(
-        " "
-      )}
+      className={`pageButton ${currentPage === page ? "isActive" : ""}`}
     >
       {page}
     </div>
@@ -39,14 +37,12 @@ const Pagenation = ({
   };
 
   return (
-    <div className="Pagenation">
-      <div className="Pagenation__prev_button" onClick={handlePagePrevBtn}>
+    <div className="pagenation">
+      <div className="pagenation__prev-btn" onClick={handlePagePrevBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>
-      <div className="Pagenation__lists">
-        {createPagenation(totalPages).map((item) => item)}
-      </div>
-      <div className="Pagenation__next_button" onClick={handlePageNextBtn}>
+      <div className="pagenation__page-btn">{createPagenation(totalPages)}</div>
+      <div className="pagenation__next-btn" onClick={handlePageNextBtn}>
         <img src={ICON_ARROW} alt="페이지네이션 뒤로가기 버튼" />
       </div>
     </div>

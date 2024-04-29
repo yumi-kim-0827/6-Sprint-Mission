@@ -2,38 +2,51 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Items/ItemsList.css";
 
-import { getData } from "../../apis/apis.js";
+import { fetchItems } from "../../apis/apis.js";
 
-import SearchBox from "./SearchBox.jsx";
+import SearchInput from "./SearchInput.jsx";
 import Button from "../Button.jsx";
 import DropdownOrder from "./DropdownOrder.jsx";
 import Item from "./Item.jsx";
 import Pagenation from "../Pagenation.jsx";
-import { formatCurrency } from "../../utils/utils.js";
+import { formatKorWon } from "../../utils/utils.js";
+
+const getDisplaySize = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    // Mobile viewport
+    return "mobile";
+  } else if (width < 1280) {
+    // Tablet viewport
+    return "tablet";
+  } else {
+    // Desktop viewport
+    return "desktop";
+  }
+};
+const getItemsPerPage = () => {
+  const width = window.innerWidth;
+  if (width < 768) {
+    // Mobile viewport
+    return 4;
+  } else if (width < 1280) {
+    // Tablet viewport
+    return 6;
+  } else {
+    // Desktop viewport
+    return 10;
+  }
+};
 
 const ItemsList = () => {
-  const [data, setData] = useState([]);
+  const [items, setItems] = useState([]);
   const [order, setOrder] = useState("최신순");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [displaySize, setDisplaySize] = useState("desktop");
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [displaySize, setDisplaySize] = useState(getDisplaySize());
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
 
   useEffect(() => {
-    // 데이터가 처음 로드될 때 브라우저 사이즈를 체크해서 스테이트 변경
-    (function () {
-      if (window.innerWidth < 1199 && window.innerWidth > 768) {
-        setDisplaySize("tablet");
-        setItemsPerPage(6);
-      } else if (window.innerWidth < 767) {
-        setDisplaySize("mobile");
-        setItemsPerPage(4);
-      } else {
-        setDisplaySize("desktop");
-        setItemsPerPage(10);
-      }
-    })();
-
     // window.innerWidth에 따라서 displaySize, itemsPerPage state 변경
     const resizeHandler = () => {
       if (window.innerWidth < 1199 && window.innerWidth > 768) {
@@ -57,29 +70,23 @@ const ItemsList = () => {
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
     setCurrentPage(1);
-    const loadData = async () => {
-      const newData = await getData(orderText, currentPage, itemsPerPage);
-      setData(newData.list);
-      setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
+    const loadItems = async () => {
+      const newItems = await fetchItems(orderText, currentPage, itemsPerPage);
+      setItems(newItems.list);
+      setTotalPages(Math.ceil(newItems.totalCount / itemsPerPage));
     };
-
-    console.log("data request");
-    loadData();
+    loadItems();
   }, [displaySize]);
-
-  useEffect(() => {
-    console.log("data Change!!!");
-  }, [data]);
 
   // 페이지 및 정렬 변경 시 데이터 로드
   useEffect(() => {
     const orderText = order === "최신순" ? "recent" : "favorite";
-    const loadData = async () => {
-      const newData = await getData(orderText, currentPage, itemsPerPage);
-      setData(newData.list);
-      setTotalPages(Math.ceil(newData.totalCount / itemsPerPage));
+    const loadItems = async () => {
+      const newItems = await fetchItems(orderText, currentPage, itemsPerPage);
+      setItems(newItems.list);
+      setTotalPages(Math.ceil(newItems.totalCount / itemsPerPage));
     };
-    loadData();
+    loadItems();
   }, [order, currentPage]);
 
   // 최신순, 좋아요순 정렬
@@ -103,14 +110,14 @@ const ItemsList = () => {
   };
 
   return (
-    <div className="ItemsList__wrapper">
-      <div className="ItemsList__menu_bar">
-        <h1 className="ItemsList__menu_bar__title">전체 상품</h1>
-        <div className={"ItemsList__menu_bar__right"}>
-          <SearchBox />
-          <div className="ItemsList__menu_bar__button_wrapper">
-            <Link to={"additem"}>
-              <Button text={"상품 등록하기"} />
+    <div className="itemsList">
+      <div className="itemsList__menu-bar">
+        <h1 className="itemsList__menu-bar__title">전체 상품</h1>
+        <div className="itemsList__menu-bar__right">
+          <SearchInput />
+          <div className="itemsList__menu-bar__btn-wrapper">
+            <Link to="additem" style={{ textDecoration: "none" }}>
+              <Button>상품 등록하기</Button>
             </Link>
           </div>
           <DropdownOrder
@@ -120,18 +127,23 @@ const ItemsList = () => {
           />
         </div>
       </div>
-      <div className="ItemsList__itemsWrapper">
-        {data?.map((item) => (
-          <Item
-            key={item.id}
-            imgSrc={item.images[0]}
-            name={item.name}
-            price={formatCurrency(item.price)}
-            favoriteCount={item.favoriteCount}
-          />
+      <div className="itemsList__items-wrapper">
+        {items?.map(({ id, images, name, price, favoriteCount }) => (
+          <Link
+            to={`/items/${id}`}
+            key={`item-${id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <Item
+              imgSrc={images[0]}
+              name={name}
+              price={formatKorWon(price)}
+              favoriteCount={favoriteCount}
+            />
+          </Link>
         ))}
       </div>
-      <div className="ItemsList__pagination_wrapper">
+      <div className="itemsList__pagination-wrapper">
         <Pagenation
           totalPages={totalPages}
           currentPage={currentPage}
