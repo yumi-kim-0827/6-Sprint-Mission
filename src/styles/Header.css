@@ -1,0 +1,40 @@
+.header {
+  height: 70px;
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: var(--color-white);
+  border-bottom: 1px solid #dfdfdf;
+}
+.header_logo .mobile_ver {
+  display: none;
+}
+.header_left {
+  display: flex;
+  align-items: center;
+}
+.gnb {
+  display: flex;
+  gap: 45px;
+  margin-left: 47px;
+}
+.gnb li a {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.login_btn {
+  background: var(--color-blue);
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  border-radius: 8px;
+}
