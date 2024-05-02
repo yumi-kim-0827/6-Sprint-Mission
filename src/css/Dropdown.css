@@ -1,0 +1,76 @@
+.all-items__drop-down {
+  position: relative;
+}
+
+.all-items__order-select {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--gray200);
+
+  padding: 9px 20px;
+
+  font-size: 16px;
+  font-weight: 400;
+  text-align: start;
+  color: var(--gray800);
+
+  background-color: var(--white);
+  background-image: url("../assets/icons/ic_arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position: 85%;
+
+  cursor: pointer;
+}
+
+.all-items__dropped {
+  position: absolute;
+  top: 46px;
+
+  width: 130px;
+  height: 84px;
+
+  border-radius: 12px;
+}
+
+.all-items__dropped--hided {
+  display: none;
+}
+
+.all-items__order-option {
+  width: 130px;
+  height: 42px;
+  border: 1px solid var(--gray200);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray800);
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .all-items__order-select,
+  .all-items__dropped,
+  .all-items__order-option {
+    width: 120px;
+  }
+}
+
+@media (max-width: 743px) {
+  .all-items__drop-down {
+    grid-column: -2/-1;
+    grid-row: -2;
+  }
+  .all-items__dropped,
+  .all-items__order-option {
+    width: 130px;
+  }
+  .all-items__dropped {
+    right: 0; /*오른쪽에 딱 맞춘다에 의의*/
+  }
+  .all-items__order-select {
+    width: 42px;
+    background-image: url("../assets/icons/ic_sort.svg");
+    background-position: center;
+  }
+}

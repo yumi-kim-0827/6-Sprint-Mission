@@ -1,12 +1,11 @@
-import "../css/Pagination.css";
-import PaginationButton from "./PaginationButton";
 import leftArrowIcon from "../assets/icons/ic_arrow_left.svg";
 import rightArrowIcon from "../assets/icons/ic_arrow_right.svg";
-import { useContext } from "react";
-import PageContext from "../contexts/pageContext";
+import { usePagination } from "../contexts/paginationContext";
+import "../css/Pagination.css";
+import PaginationButton from "./PaginationButton";
 
 function Pagination({ className }) {
-  const { page, setPage } = useContext(PageContext);
+  const { page, setPage } = usePagination();
 
   const calculateSelectedButton = (num) =>
     num === page ? "pagination-button--selected" : "";

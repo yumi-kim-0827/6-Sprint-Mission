@@ -1,20 +1,34 @@
-import Item from "./Item";
-import "../css/BestItems.css";
+import { useEffect, useState } from "react";
 
-function BestItems({ className, items }) {
+import { getItems } from "../api";
+import "../css/BestItems.css";
+import { calculatePageSize } from "../module";
+import Item from "./Item";
+
+function BestItems({ className, pageSize }) {
+  const [bestItems, setBestItems] = useState([]);
+
+  const loadBestItems = async (options) => {
+    const { list } = await getItems(options);
+    setBestItems(list);
+  };
+
+  useEffect(() => {
+    loadBestItems({
+      order: "favorite",
+      page: "1",
+      pageSize: calculatePageSize("best"),
+    });
+  }, [pageSize]);
+
   return (
     <div className={className}>
       <h2 className="best-items__name-tag">베스트 상품</h2>
       <div className="best-items__layout">
-        {items.map((item) => {
-          return (
-            <Item
-              key={item.id}
-              className="best-items__img-container"
-              item={item}
-            />
-          );
-        })}
+        {bestItems &&
+          bestItems.map((item) => {
+            return <Item key={item.id} type="best-item" item={item} />;
+          })}
       </div>
     </div>
   );

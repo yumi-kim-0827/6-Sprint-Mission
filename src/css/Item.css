@@ -2,6 +2,16 @@
   line-height: normal;
 }
 
+.best-items__img-container {
+  width: 282px;
+  height: 282px;
+}
+
+.all-items__img-container {
+  width: 221px;
+  height: 221px;
+}
+
 .item__img {
   display: block;
   width: 100%;
@@ -43,4 +53,22 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--gray600);
+}
+
+@media (max-width: 1200px) {
+  .best-items__img-container {
+    width: 336px;
+    height: 336px;
+  }
+}
+
+@media (max-width: 743px) {
+  .best-items__img-container {
+    width: 343px;
+    height: 343px;
+  }
+  .all-items__img-container {
+    width: 168px;
+    height: 168px;
+  }
 }

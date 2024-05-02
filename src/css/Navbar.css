@@ -1,17 +1,19 @@
-.menus__list {
+.header__navbar {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  gap: 48px;
 }
 
-.menus__menu {
-  margin-right: 40px;
+@media (max-width: 1200px) {
+  .header__navbar {
+    gap: 36px;
+  }
 }
-
-/* //로고에서 48 36 16 */
 
 /*애매한점: 어디까지가 태블릿 사이즈냐, ipad mini는? */
 @media (max-width: 743px) {
-  .menus__menu {
-    margin-right: 8px;
+  .header__navbar {
+    gap: 16px;
   }
 }

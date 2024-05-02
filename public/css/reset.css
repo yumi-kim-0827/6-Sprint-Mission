@@ -15,10 +15,11 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, input, select, button, textarea {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	outline: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -45,4 +46,13 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
 }

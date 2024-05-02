@@ -1,0 +1,9 @@
+.all-items__order-option--top {
+  border-bottom: 1px solid var(--gray200);
+  border-radius: 12px 12px 0 0;
+}
+
+.all-items__order-option--bottom {
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}

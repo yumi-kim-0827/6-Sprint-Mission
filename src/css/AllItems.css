@@ -1,0 +1,124 @@
+.all-items__container {
+  display: grid;
+  grid-template-columns: 1fr 325px 133px 130px;
+  gap: 12px;
+}
+
+.all-items__name-tag {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray900);
+  line-height: 28px;
+
+  display: flex;
+  align-items: center;
+}
+
+.all-items__search-container {
+  position: relative;
+}
+
+.all-items__search-icon {
+  position: absolute;
+  top: 9px;
+  left: 16px;
+}
+
+.all-items__search {
+  width: 325px;
+  height: 42px;
+  /* line-height: 42px; 어차피안먹음*/
+  border-radius: 12px;
+  background-color: var(--gray100);
+
+  padding: 9px 24px 9px 44px;
+}
+
+.all-items__search::placeholder {
+  color: var(--gray400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.all-items__add-item-link {
+  width: 133px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--blue);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-shrink: 0; */
+}
+
+.all-items__add-item-link:hover {
+  background-color: #1251aa;
+}
+
+.all-items__layout {
+  margin-top: 24px;
+
+  display: flex;
+  gap: 40px 24px;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  min-width: 1201px; /*1201~14 쯔음 다음줄로 넘어가버리는 현상 때문에*/
+  height: 642px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  margin: 40px 0px 100px;
+}
+
+@media (max-width: 1200px) {
+  .all-items__container {
+    display: grid;
+    grid-template-columns: 1fr 242px 133px 120px;
+    gap: 12px;
+  }
+  .all-items__search {
+    width: 242px;
+  }
+  .all-items__layout {
+    gap: 40px 16px;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 743px) {
+  .all-items__container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 83px 42px;
+    grid-template-rows: 42px 42px;
+    gap: 8px;
+  }
+  .all-items__name-tag {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+  }
+  .all-items__search-container {
+    grid-column: 1/3;
+    grid-row: -2;
+  }
+  .all-items__search {
+    width: 294px;
+  }
+  .all-items__layout {
+    gap: 32px 8px;
+    height: 528px;
+  }
+}

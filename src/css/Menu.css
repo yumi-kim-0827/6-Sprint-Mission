@@ -3,8 +3,9 @@
   font-weight: 700;
   text-decoration: none;
   color: var(--gray600);
+  display: block;
 }
 
-.menu.blue {
+.menu.active {
   color: var(--blue);
 }

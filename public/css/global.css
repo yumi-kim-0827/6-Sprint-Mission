@@ -1,33 +1,18 @@
-* {
-  box-sizing: border-box;
-}
-
 :root {
-  --gray900: #111827;
-  --gray800: #1f2937;
-  --gray700: #374151;
-  --gray600: #4b5563;
-  --gray500: #6b7280;
-  --gray400: #9ca3af;
-  --gray200: #e5e7eb;
-  --gray100: #f3f4f6;
+  --white: #fff;
   --gray50: #f3f4f6;
+  --gray100: #f3f4f6;
+  --gray200: #e5e7eb;
+  --gray400: #9ca3af;
+  --gray500: #6b7280;
+  --gray600: #4b5563;
+  --gray700: #374151;
+  --gray800: #1f2937;
+  --gray900: #111827;
   --blue: #3692ff;
   --red: #f74747;
-  --white: #fff;
 }
 
-html,
-input,
-textarea,
-button,
-select {
-  font-family: "Pretendard", "sans-serif";
-}
-
-input,
-select,
-button {
-  border: none;
-  outline: none;
+body {
+  font-family: 'Pretendard', 'sans-serif';
 }

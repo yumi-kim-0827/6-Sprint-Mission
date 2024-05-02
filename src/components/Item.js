@@ -1,15 +1,18 @@
 import heartIcon from "../assets/icons/ic_heart.svg";
 import "../css/Item.css";
 
-function Item({ item, className }) {
+function Item({ item, type }) {
   const { images, name, price, favoriteCount } = item;
-  // const classNames = `item ${className}`;
+  const itemType =
+    type === "best-item"
+      ? "best-items__img-container"
+      : "all-items__img-container";
 
   const priceTag = `${price.toLocaleString()}원`;
 
   return (
     <div>
-      <div className={className}>
+      <div className={itemType}>
         <img className="item__img" src={images[0]} alt="item"></img>
       </div>
       <div className="item__description-container">

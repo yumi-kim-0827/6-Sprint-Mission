@@ -4,10 +4,18 @@
   height: 51px;
 }
 
-/*애매한점: 어디까지가 태블릿 사이즈냐, ipad mini는? */
+@media (min-width: 744px) {
+  .logo__mobile {
+    display: none;
+  }
+}
+
 @media (max-width: 743px) {
   .logo__image {
     width: 81px;
     height: 40px;
+  }
+  .logo__desktop {
+    display: none;
   }
 }
