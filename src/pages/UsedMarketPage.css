@@ -6,8 +6,9 @@ h2 {
   margin-bottom: 6px;
 }
 
-div.search-bar {
+.search-bar {
   display: flex;
+  align-items: center;
 }
 
 .search-container {
@@ -18,7 +19,11 @@ div.search-bar {
   margin-bottom: 24px;
 }
 
-.search input {
+.search-bar__form {
+  display: flex;
+}
+
+.search-bar__form input {
   border-radius: 12px;
   padding: 9px 20px 9px 20px;
   gap: 10px;
@@ -26,11 +31,11 @@ div.search-bar {
   background-color: #f3f4f6;
 }
 
-.search input:focus {
+.search-bar__form input:focus {
   outline: none;
 }
 
-.submit-btn {
+.add-button {
   border-radius: 8px;
   padding: 12px 23px 12px 23px;
   gap: 10px;
@@ -47,4 +52,15 @@ div.search-bar {
 h2.best-product {
   margin-top: 24px;
   margin-bottom: 12px;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-wrapper__image {
+  position: absolute;
+  left: 5px;
 }

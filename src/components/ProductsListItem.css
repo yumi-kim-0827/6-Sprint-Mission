@@ -1,0 +1,7 @@
+.products-list-item__img {
+  max-width: 100%;
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}

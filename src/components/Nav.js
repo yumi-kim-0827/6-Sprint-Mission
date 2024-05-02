@@ -3,12 +3,6 @@ import Container from "./Container";
 import logoImg from "../assets/logo.png";
 import styles from "./Nav.module.css";
 
-function getLinkStyle({ isActive }) {
-  return {
-    color: isActive ? "#3692ff" : undefined,
-  };
-}
-
 function Nav() {
   return (
     <div className={styles.nav}>
@@ -20,11 +14,18 @@ function Nav() {
           <NavLink>
             <li className={styles.item}>자유게시판</li>
           </NavLink>
-          <NavLink to="/items" style={getLinkStyle}>
+          <NavLink
+            to="/items"
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#3692ff" : "",
+              };
+            }}
+          >
             <li className={styles.item}>중고마켓</li>
           </NavLink>
         </ul>
-        <button className={styles.loginBtn}>로그인</button>
+        <button className={styles.login__button}>로그인</button>
       </Container>
     </div>
   );

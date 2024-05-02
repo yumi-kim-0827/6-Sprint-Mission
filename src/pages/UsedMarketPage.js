@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getProducts } from "../api";
 import ProductsList from "../components/ProductsList";
@@ -11,10 +12,9 @@ function UsedMarketPage() {
   const [order, setOrder] = useState("createdAt");
   const [favoriteProducts, setFavoriteProducts] = useState([]);
 
-  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
+  const [searchText, setSearchText] = useState("");
 
-  const handleNewestClick = () => setOrder("createdAt");
-  const handleBestClick = () => setOrder("favoriteCount");
+  const sortedProducts = products.sort((a, b) => b[order] - a[order]);
 
   const handleLoad = async () => {
     const { list } = await getProducts();
@@ -32,6 +32,14 @@ function UsedMarketPage() {
     setFavoriteProducts(sortedFavoriteProducts);
   }, [products]);
 
+  const handleToggleClick = (option) => {
+    if (option === "newest") {
+      setOrder("createdAt");
+    } else if (option === "likes") {
+      setOrder("favoriteCount");
+    }
+  };
+
   return (
     <div className="products-list">
       <div>
@@ -41,20 +49,28 @@ function UsedMarketPage() {
       <div className="search-container">
         <h2>전체 상품</h2>
         <div className="search-bar">
-          <form className="search">
-            <img src={searchImg} alt="검색"></img>
-            <input
-              name="keyword"
-              placeholder="검색할 상품을 입력해주세요"
-            ></input>
-            <button className="submit-btn" type="submit">
+          <form className="search-bar__form">
+            <div className="search-bar-wrapper">
+              <input
+                className="search-bar-wrapper__input"
+                name="keyword"
+                placeholder=" 검색할 상품을 입력해주세요"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              ></input>
+              {searchText ? null : (
+                <img
+                  className="search-bar-wrapper__image"
+                  src={searchImg}
+                  alt="검색"
+                ></img>
+              )}
+            </div>
+            <Link to="/additem" className="add-button">
               상품 등록하기
-            </button>
+            </Link>
           </form>
-          <ToggleMenu
-            onNewestClick={handleNewestClick}
-            onBestClick={handleBestClick}
-          />
+          <ToggleMenu onClick={handleToggleClick} />
         </div>
       </div>
       <div>

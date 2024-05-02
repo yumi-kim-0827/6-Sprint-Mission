@@ -5,11 +5,19 @@
 .iconButton {
   border: 1px solid #ebebeb;
   cursor: pointer;
-  padding: 12px 20px 12px 20px;
+  padding: 12px 30px;
   border-radius: 12px;
   gap: 10px;
   margin: 0;
   margin-bottom: 5px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.toggleMenu .iconText {
+  position: relative;
+  left: -15px;
 }
 
 ul.popup {
@@ -33,13 +41,12 @@ ul.popup li:hover {
 }
 
 ul.popup li.disabled {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #c4c4c4;
   user-select: none;
   cursor: default;
   border: 1px 1px 0px 1px;
   height: 42px;
-  border-radius: 12px 12px 0px 0px;
 }
 
 .toggleMenu ul.popup a:hover {
@@ -53,4 +60,10 @@ button {
 
 .newestBtn {
   border-bottom: 1px solid #e5e7eb;
+}
+
+.iconButton img {
+  position: absolute;
+  right: 12px;
+  height: 7.42px;
 }

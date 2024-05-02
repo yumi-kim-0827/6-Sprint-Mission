@@ -4,6 +4,7 @@
   padding: 15px 0;
   background-color: #fff;
   border-bottom: 1px solid #dfdfdf;
+  width: 100%;
 }
 
 .container {
@@ -12,7 +13,7 @@
   justify-content: space-between;
 }
 
-.loginBtn {
+.login__button {
   padding: 12px 23px 12px 23px;
   border-radius: 8px;
   background-color: #3692ff;
@@ -21,6 +22,10 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 19.09px;
+}
+
+.visit__link:focus {
+  color: #3692ff;
 }
 
 .item {

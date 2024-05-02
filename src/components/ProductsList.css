@@ -1,4 +1,4 @@
-.ProductsList {
+.Products-list {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -30,12 +30,4 @@ h3 {
   font-weight: 500;
   font-size: 14px;
   line-height: 16.71px;
-}
-
-.ProductsListItem-img {
-  max-width: 100%;
-  width: 282px;
-  height: 282px;
-  border-radius: 16px;
-  margin-bottom: 16px;
 }

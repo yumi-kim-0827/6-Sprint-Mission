@@ -1,13 +1,5 @@
-.BestProductsList {
+.best-products-list {
   list-style: none;
   display: flex;
   padding: 0;
-}
-
-.BestProductsListItem-img {
-  max-width: 100%;
-  width: 282px;
-  height: 282px;
-  border-radius: 16px;
-  margin-bottom: 16px;
 }
