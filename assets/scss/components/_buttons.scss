@@ -1,0 +1,43 @@
+/* primary button */
+.btn {
+  display: inline-flex;
+  color: $bg-white;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 5.6rem;
+  &.pill {
+    width: 100%;
+    padding: 1.6rem 2rem;
+    border-radius: 50em;
+    font-size: 2rem;
+  }
+  &.rounded {
+    width: auto;
+    padding: 1.2rem 2rem;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  background: $primary;
+  &:hover {
+    background: darken($primary, 10%);
+  }
+  &:focus {
+    background: darken($primary, 20%);
+  }
+  &[disabled] {
+    background: #9ca3af;
+  }
+}
+
+/* link button */
+.link {
+  display: inline-block;
+  margin: 0 0.4rem;
+  color: #3182f6;
+  font-weight: 500;
+  text-decoration: underline;
+}

@@ -1,0 +1,32 @@
+/* 고정헤더영역 */
+.header-area {
+  @include gnb-inner;
+  display: flex;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  background: $bg-white;
+  border-bottom: 1px solid $border-gray;
+  align-items: center;
+  justify-content: space-between;
+  @include res--tablet {
+    padding: 0 2rem;
+  }
+  @include res--mobile {
+    padding: 1.6rem;
+  }
+}
+.header-area .logo a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-area .btn-login {
+  display: flex;
+  min-width: 12.8rem;
+  min-height: 4.8rem;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.9rem;
+  text-align: center;
+}

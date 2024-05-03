@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판다마켓</title>
+  <link rel="icon" href="/assets/images/common/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <div class="container login-page">
+    <!-- 로고 -->
+    <h1 class="logo">
+      <a href="/">
+          <img src="./assets/images/common/logo.svg" alt="판다마켓">
+      </a>
+    </h1>
+    <!-- // 로고 -->
+
+    <!-- 로그인 박스 -->
+    <section class="login-box form-wrap">
+      <div class="inp-wrap">
+        <div class="inp-title">이메일</div> 
+        <div class="inp-item">
+          <input type="email" placeholder="이메일을 입력해주세요" title="이메일" required>
+          <p></p>
+        </div>
+      </div>
+      <div class="inp-wrap">
+          <div class="inp-title">비밀번호</div>
+          <div class="inp-item">
+            <input type="password" placeholder="비밀번호를 입력해주세요" title="비밀번호" required>
+            <button class="btn-visible off"></button>
+            <p></p>
+          </div>
+      </div>
+
+      <div class="login-btn-wrap"><a href="/" class="btn pill" disabled>로그인</a></div>
+
+      <div class="social-login-wrap">
+        <div class="tit">간편 로그인하기</div>
+        <div class="btns">
+          <a aria-label="google" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/images/social/google-logo.png" alt="구글" width="22"/>
+          </a>
+          <a aria-label="kakao" href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/images/social/kakao-logo.png" alt="카카오" width="26"/>
+          </a>
+        </div>
+      </div>
+
+      <div class="signup-wrap">판다마켓이 처음이신가요?<a href="/signup.html" class="link">회원가입</a></div>
+    </section>
+    <!-- // 로그인 박스 -->
+  </div>
+</body>
+<script src="/assets/js/common.js"></script>
+</html>

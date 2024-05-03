@@ -1,0 +1,57 @@
+// 기본 스타일
+input,
+textarea {
+    width: 100%;
+    border-radius: 1.2rem;
+    padding: 1.6rem 2.4rem;
+    background: $cool-gray-100;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    text-align: left;
+}
+
+.inp-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    @include res--mobile {
+        gap: 0.8rem;
+    }
+}
+
+.inp-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    text-align: left;
+    color: $cool-gray-800;
+    @include res--mobile {
+        font-size: 1.4rem;
+    }
+}
+
+.inp-item {
+    position: relative;
+
+    & .btn-visible {
+        position: absolute;
+        display: inline-block;
+        width: 2.4rem;
+        height: 100%;
+        padding: 2.4rem;
+        top: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+    
+        &.on {
+            background-image: url(/assets/images/icons/icn-visible.svg);
+        }
+        &.off {
+            background-image: url(/assets/images/icons/icn-hidden.svg);
+        }
+    }
+}
+

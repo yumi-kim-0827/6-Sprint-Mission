@@ -1,0 +1,43 @@
+/* 고정푸터영역 */
+.footer-area {
+  @include gnb-inner;
+  display: flex;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+  height: 16rem;
+  justify-content: space-between;
+  gap: 1rem;
+  background: $cool-gray-900;
+  font-size: 1.6rem;
+  flex-wrap: wrap;
+  @include res--tablet {
+    padding-left: 10.4rem;
+    padding-right: 10.4rem;
+  }
+  @include res--mobile {
+    padding: 3.2rem;
+    align-content: space-between;
+  }
+}
+.footer-area .copy {
+  color: $gray-600;
+  @include res--mobile {
+    order: 999;
+    width: 100%;
+  }
+}
+.footer-area .btn-links {
+  display: flex;
+  gap: 3rem;
+}
+.footer-area .btn-links a {
+  color: $gray-200;
+}
+.footer-area .btn-socials {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.footer-area .btn-socials a {
+  color: $bg-white;
+}

@@ -1,0 +1,54 @@
+// preset css
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+body.scroll-off {
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
+} // 모달창 등에 사용
+
+// common css
+.container {
+    min-height: 100vh;
+    background-color: $bg-white;
+    &:not(.login-page) {
+        padding-top: $header-height;
+    }
+}
+
+.dimmed-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(#000, 0.8);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    &.hidden {
+        opacity: 0;
+    }
+    &.light {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
