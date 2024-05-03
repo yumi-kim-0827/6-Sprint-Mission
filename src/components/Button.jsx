@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../style/Button.css";
 
 const Button = ({ children, type = "", width, height, onClick }) => {
@@ -17,14 +16,13 @@ const Button = ({ children, type = "", width, height, onClick }) => {
       }}
       className={
         type === "default"
-          ? ["btn", " none"].join("")
+          ? "default none"
           : type === "fill"
-          ? ["btn", " fill"].join("")
+          ? "default fill"
           : type === "cancel"
-          ? ["btn", " cancel"].join("")
+          ? "default cancel"
           : "btn"
       }
-
     >
       {children}
     </button>
