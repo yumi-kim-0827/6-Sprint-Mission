@@ -1,0 +1,73 @@
+.FileInput {
+  width: 1200px;
+  height: 282px;
+
+  display: grid;
+  grid-template-rows: 282px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.FileInput input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.FileInput .FileInput-add-button {
+  width: 282px;
+  height: 282px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+}
+
+.FileInput-add-button p {
+  font-size: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9ca3af;
+}
+
+.FileInput-img {
+  width: 282px;
+  height: 282px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  border: 1px solid #f9fafb;
+  border-radius: 12px;
+}
+
+.FileInput-img img {
+  max-width: 282px;
+  max-height: 282px;
+}
+
+.FileInput-img button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: #3692ff;
+  border: 0;
+  border-radius: 9999px;
+}
+
+.FileInput-img button span {
+  transform: rotateX(-45deg);
+  color: #fff;
+}
