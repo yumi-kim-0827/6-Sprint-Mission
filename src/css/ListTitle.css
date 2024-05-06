@@ -1,0 +1,82 @@
+.ListTitle {
+  display: flex;
+  line-height: 42px;
+}
+
+.ListTitle div:first-child {
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.OrderNav {
+  display: flex;
+  gap: 12px;
+}
+
+.OrderNav input[type="text"] {
+  font-size: 1.6rem;
+  padding: 9px 16px;
+  color: var(--gray400);
+  border-radius: 12px;
+  font-family: var(--main-font);
+  background-color: var(--gray100);
+  width: 325px;
+}
+
+.OrderNav button {
+  background-color: var(--main);
+  font-family: var(--main-font);
+  padding: 11px 23px;
+  border-radius: 8px;
+}
+
+.OrderNav button .link {
+  color: var(--white);
+}
+
+.OrderNav select {
+  width: 130px;
+  border: 1px solid var(--gray200);
+  border-radius: 12px;
+  padding: 12px 20px;
+}
+
+@media (max-width: 744px) {
+  .OrderNav input[type="text"] {
+    width: 242px;
+  }
+  .OrderNav select {
+    width: 120px;
+  }
+}
+
+@media (max-width: 690px) {
+  .ListTitle {
+    display: inline;
+  }
+  .OrderNav {
+    flex-direction: row-reverse;
+    position: relative;
+    margin-top: 8px;
+    width: 100%;
+    z-index: 10;
+  }
+  .OrderNav button {
+    order: -1;
+    position: absolute;
+    top: -50px;
+  }
+  .OrderNav select {
+    order: -1;
+  }
+  .OrderNav input[type="text"] {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 375px) {
+  .OrderNav select {
+    width: 42px;
+  }
+}
