@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { Header } from "./layout/Header";
 import { View } from "./layout/View";
 import "./style/css/style.min.css";
@@ -6,8 +5,8 @@ import "./style/css/style.min.css";
 function App() {
   return (
     <div className="pandamarket">
-      <Header/>
-      <View/>
+      <Header />
+      <View />
     </div>
   );
 }
