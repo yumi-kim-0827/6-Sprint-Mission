@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Items from "./pages/ItemsPage/Items";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddItem from "./pages/AddItemPage/AddItem";
+import Navbar from "./components/Layout/Navbar";
+import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
+import "./styles/global.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route index element={<Items />} />
+          <Route path="/items">
+            <Route index element={<Items />} />
+            <Route path=":productID" element={<CommunityFeedPage />} />
+          </Route>
+
+          <Route path="/additem" element={<AddItem />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
