@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ProductInfo from "./components/ProductInfo";
 import CommentSection from "./components/CommentSection";
 import { getProductInfo, getComments } from "../../api/Api";
@@ -8,55 +8,51 @@ import "./CommunityFeedPage.css";
 
 function useProductData(productID) {
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setisLoading(true);
     setError(null);
 
     getProductInfo(productID)
       .then((data) => {
         setProduct(data);
-        setLoading(false);
+        setisLoading(false);
       })
       .catch((error) => {
-        setError(error);
-        setLoading(false);
+        setError({ message: error.message || "Unknown error" });
+        setisLoading(false);
       });
   }, [productID]);
-  return { product, loading, error };
+  return { product, isLoading, error };
 }
 
 function useCommentData(productID) {
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setisLoading(true);
     setError(null);
 
     getComments(productID)
       .then((data) => {
         setComments(data);
-        setLoading(false);
+        setisLoading(false);
       })
       .catch((error) => {
-        setError(error);
-        setLoading(false);
+        setError({ message: error.message || "Unknown error" });
+        setisLoading(false);
       });
   }, [productID]);
 
-  return { comments, loading, error };
+  return { comments, isLoading, error };
 }
 
 function CommunityFeedPage() {
   const { productID } = useParams();
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/items");
-  };
 
   const {
     product,
@@ -75,7 +71,7 @@ function CommunityFeedPage() {
   }
 
   if (productError || commentError) {
-    return <div>Error: {productError || commentError.message}</div>;
+    return <div>Error: {productError?.message || commentError?.message}</div>;
   }
 
   return (
@@ -83,10 +79,10 @@ function CommunityFeedPage() {
       <div className="CommunitySection-wrapper">
         {product && <ProductInfo product={product} />}
         <CommentSection comments={comments} />
-        <button className="CommunitySection__button" onClick={handleClick}>
+        <Link to="/items" className="CommunitySection__link">
           <p>목록으로 돌아가기</p>
           <img src={backIcon} alt="backIcon" />
-        </button>
+        </Link>
       </div>
     </section>
   );

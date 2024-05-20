@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { isEmpty } from "lodash";
 import EmptyComment from "../../../assets/img_inquiry_empty.svg";
 import kebabIcon from "../../../assets/ic_kebab.svg";
 
@@ -41,7 +42,7 @@ function CommentSection({ comments }) {
         </button>
       </form>
       <div className="commentContainer">
-        {comments.length === 0 ? (
+        {isEmpty(comments) ? (
           <div className="comment--empty">
             <img
               className="comment--empty-Image"

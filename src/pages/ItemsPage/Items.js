@@ -71,10 +71,12 @@ function Items() {
     handleLoadBestItems();
   }, []);
 
-  useResizeHandler(() => {
+  const handleResize = () => {
     handleLoadBestItems();
     setLimit(getLimit());
-  });
+  };
+
+  useResizeHandler(handleResize, 500);
 
   return (
     <div>

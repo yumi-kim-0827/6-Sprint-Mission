@@ -17,10 +17,10 @@ function ProductInfo({ product }) {
         <button className="productInfoItems__kebab">
           <img src={kebabIcon} alt="kebabIcon" />
         </button>
-        <h2 className="productInfoItems__name">{name}</h2>
-        <h1 className="productInfoItems__price">
+        <h1 className="productInfoItems__name">{name}</h1>
+        <h2 className="productInfoItems__price">
           {formatPriceWithCommas(price)}원
-        </h1>
+        </h2>
         <p className="productInfoItems__descriptionTitle">상품 소개</p>
         <p className="productInfoItems__description">{description}</p>
         <div className="productInfoBottomContainer">

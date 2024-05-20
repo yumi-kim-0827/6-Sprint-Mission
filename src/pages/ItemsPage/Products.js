@@ -5,14 +5,13 @@ import favoriteIcon from "../../assets/favorite-icon.svg";
 
 function ProductListItem({ item, imageStyle }) {
   const { id, images, name, price, favoriteCount } = item;
-  console.log(images);
   const formatPriceWithCommas = (price) => {
     return price.toLocaleString("en-US");
   };
   return (
     <Link className="Link" to={`/items/${id}`}>
       <div className="ProductListItem ">
-        <img className={` ${imageStyle}`} src={images} alt={imageStyle} />
+        <img className={imageStyle} src={images} alt={imageStyle} />
         <div>
           <p>{name}</p>
           <p className="product-price">{formatPriceWithCommas(price)}원</p>

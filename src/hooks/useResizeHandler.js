@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { throttle } from "lodash-es";
 
-const useResizeHandler = (handler) => {
+const useResizeHandler = (handler, duration) => {
   useEffect(() => {
-    const handleResize = throttle(handler, 500);
+    const handleResize = throttle(handler, duration);
 
     window.addEventListener("resize", handleResize);
     return () => {
