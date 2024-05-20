@@ -39,7 +39,7 @@ export async function getDetailProduct(id) {
 export async function getProductComment(id) {
   try {
     const response = await inctance.get(`/${id}/comments?limit=10`);
-    return response.data;
+    return response.data.list;
   } catch (error) {
     console.error(`${error} : error`);
   }

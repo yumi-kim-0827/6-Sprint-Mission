@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDetailProduct } from "../api";
+import { getDetailProduct, getProductComment } from "../api";
 import "./DetailItem.css";
 import ShowDetail from "../components/ShowDetail";
 import HandleComment from "../components/HandleComment";
@@ -9,15 +9,17 @@ import returnlist from "../assets/return.png";
 const DetailItem = () => {
   const { Id } = useParams();
   const [detailItem, setDetailItem] = useState();
+  const [comments, setComments] = useState([]);
 
-  const handleDetailLoad = async (value) => {
-    const item = await getDetailProduct(value);
-    setDetailItem(item);
+  const handleDetailsLoad = async (Id) => {
+    const [itemsData, commentsData] = await Promise.all([getDetailProduct(Id), getProductComment(Id)]);
+    setDetailItem(itemsData);
+    setComments(commentsData);
   };
 
   useEffect(() => {
-    handleDetailLoad(Id);
-  }, []);
+    handleDetailsLoad(Id);
+  }, [Id]);
 
   return (
     <>
@@ -25,7 +27,7 @@ const DetailItem = () => {
         {detailItem !== undefined && <ShowDetail {...detailItem} />}
         <div className="underline"></div>
       </div>
-      <HandleComment id={Id} />
+      <HandleComment comments={comments} />
       <div className="return-to-items-btn-container">
         <Link to={"/Items"}>
           <button className="return-to-items-btn-container__btn">

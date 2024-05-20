@@ -2,22 +2,15 @@ import React, { useRef, useState, useEffect } from "react";
 import noninquiry from "../assets/no-inquiry.png";
 import "./HandleComment.css";
 import { commentValidation } from "./common/validation";
-import { getProductComment } from "../api";
 import hamburger from "../assets/hamburger-icon.png";
 
-const HandleComment = ({ id }) => {
+const HandleComment = ({ comments }) => {
   const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]);
   const buttonRef = useRef();
 
   const handleChange = (e) => {
     const value = e.target.value;
     setComment(value);
-  };
-
-  const handleCommentLoad = async (id) => {
-    const { list } = await getProductComment(id);
-    setComments(list);
   };
 
   const handleTimeAgo = (time) => {
@@ -40,10 +33,6 @@ const HandleComment = ({ id }) => {
     buttonRef.current.classList.toggle("active", !isValidComment);
   }, [comment]);
 
-  useEffect(() => {
-    handleCommentLoad(id);
-  }, []);
-
   return (
     <div className="wrapper">
       <div className="inquire-container">
@@ -60,7 +49,12 @@ const HandleComment = ({ id }) => {
         </button>
       </div>
       <div className="comment-container">
-        {comments.length !== 0 ? (
+        {comments.length === 0 ? (
+          <div className="non-comment-container">
+            <img src={noninquiry} alt="댓글이 없는 경우 출력 이미지" />
+            <p>아직 문의가 없습니다.</p>
+          </div>
+        ) : (
           comments.map((comment) => {
             return (
               <div className="comment" key={comment.id}>
@@ -78,11 +72,6 @@ const HandleComment = ({ id }) => {
               </div>
             );
           })
-        ) : (
-          <div className="non-comment-container">
-            <img src={noninquiry} alt="댓글이 없는 경우 출력 이미지" />
-            <p>아직 문의가 없습니다.</p>
-          </div>
         )}
       </div>
     </div>
