@@ -242,7 +242,7 @@
   .top .img-top img {
     width: 996px;
     height: 447px;
-    margin-bottom: -189px;
+    margin-bottom: -178px;
   }
 
   .section,
@@ -261,7 +261,7 @@
   }
   .section-description {
     position: relative;
-    right: 160px;
+    right: 110px;
   }
   .section-reverse-description {
     position: relative;
@@ -297,7 +297,7 @@
     text-align: center;
   }
   .bottom .img-bottom img {
-    margin-bottom: -290px;
+    margin-bottom: -287px;
   }
   .bottom h2 {
     position: relative;
