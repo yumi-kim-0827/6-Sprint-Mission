@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import searchicon from "../assets/search-icon.png";
 import "./ShowProducts.css";
 import likeicon from "../assets/like-icon.png";
+import dropdownArrow from "../assets/dropdown-arrow.png";
+import dropdownMobile from "../assets/dropdown-mobile.png";
 
 import { Link } from "react-router-dom";
 
@@ -22,6 +24,32 @@ function Product({ name, price, favoriteCount, images }) {
 }
 
 const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [dropdownMenu, setDropdownMenu] = useState("최신순");
+  const recentRef = useRef();
+  const favoriteRef = useRef();
+
+  const handleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleChangeRecent = () => {
+    const recentNode = recentRef.current;
+    if (recentNode) {
+      setDropdownMenu(recentNode.innerText);
+      onChangeSelect(recentNode.innerText);
+    }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const handleChangeFavorite = () => {
+    const favoiteNode = favoriteRef.current;
+    if (favoiteNode) {
+      setDropdownMenu(favoiteNode.innerText);
+      onChangeSelect(favoiteNode.innerText);
+    }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
       <div className="Search-Group">
@@ -34,17 +62,32 @@ const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
         <Link className="link" to="/additems">
           <button className="Product-Resister-Btn">상품 등록하기</button>
         </Link>
-        <label htmlFor="select-category"></label>
-        <select onChange={onChangeSelect} name="category" id="select-category">
-          <option value="최신순">최신순</option>
-          <option value="좋아요순">좋아요순</option>
-        </select>
+        <div className="select-category">
+          <div onClick={handleDropdown} className="dropdown-menu">
+            <p>{dropdownMenu}</p>
+            <img src={dropdownMobile} className="mobileIcon" alt="제품 페이지 드롭다운 메뉴 모바일 아이콘" />
+            <img src={dropdownArrow} className="dropdownIcon" alt="제품 페이지 드롭다운 메뉴 아이콘" />
+          </div>
+          {isDropdownOpen && (
+            <div className="dropdown-option">
+              <span ref={recentRef} onClick={handleChangeRecent}>
+                최신순
+              </span>
+              <div className="line"></div>
+              <span ref={favoriteRef} onClick={handleChangeFavorite}>
+                좋아요순
+              </span>
+            </div>
+          )}
+        </div>
       </div>
       <ul className="ProductsList">
         {products.map((item) => {
           return (
             <li key={item.id}>
-              <Product {...item} />
+              <Link to={`/Items/${item.id}`}>
+                <Product {...item} />
+              </Link>
             </li>
           );
         })}
