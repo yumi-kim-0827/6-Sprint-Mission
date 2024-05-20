@@ -18,14 +18,14 @@ const PageButton = ({ handlePageNum, handlePage }) => {
 
   const pageDown = () => {
     if (buttonNum > 1) {
-      setButtonNum(buttonNum * 1 - 1);
-      handlePage(buttonNum * 1 - 1);
+      setButtonNum(Number(buttonNum) - 1);
+      handlePage(Number(buttonNum) - 1);
     }
   };
   const pageUp = () => {
     if (buttonNum < pageArr.length) {
-      setButtonNum(buttonNum * 1 + 1);
-      handlePage(buttonNum * 1 + 1);
+      setButtonNum(Number(buttonNum) + 1);
+      handlePage(Number(buttonNum) + 1);
     }
   };
 
