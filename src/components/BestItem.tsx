@@ -2,7 +2,15 @@ import React from 'react';
 import './style/BestItem.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function BestItem({ price, images, favoriteCount, name, id }) {
+interface Props {
+  price: number;
+  images: string;
+  favoriteCount: number;
+  name: string;
+  id: string;
+}
+
+export default function BestItem({ price, images, favoriteCount, name, id }: Props) {
   const formattedPrice = price.toLocaleString();
   const nav = useNavigate();
 
