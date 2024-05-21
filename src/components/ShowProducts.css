@@ -35,6 +35,9 @@
   width: 133px;
   height: 40px;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -191,7 +194,7 @@
   .Search-Group a {
     width: 10px;
   }
-  .Search-Group button {
+  .Search-Group .Product-Resister-Btn {
     grid-area: button;
     position: relative;
     right: 36px;
@@ -300,8 +303,6 @@
     color: #fff;
     border: none;
     cursor: pointer;
-    position: relative;
-    top: 2px;
     font-weight: 600;
     font-size: 16px;
     margin-left: 10px;
