@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDetailProduct, getProductComment } from "../api";
+import { getDetailProduct, getProductComment } from "../apis/api";
 import "./DetailItem.css";
 import ShowDetail from "../components/ShowDetail";
 import HandleComment from "../components/HandleComment";

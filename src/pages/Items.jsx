@@ -3,7 +3,7 @@ import "./Items.css";
 import ShowBestProducts from "../components/ShowBestProducts";
 import ShowProducts from "../components/ShowProducts";
 import PageButton from "../components/PageButton";
-import { getProduct, getBestProduct, getTotalCount } from "../api";
+import { getProduct, getBestProduct, getTotalCount } from "../apis/api";
 
 function App() {
   const [products, setProducts] = useState([]);
