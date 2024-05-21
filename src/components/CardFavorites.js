@@ -16,7 +16,7 @@ const CardFavorites = ({ isFavorite, favoriteCount, onClick, className }) => {
   return (
     <StyledFavorite className={className} onClick={handleClick}>
       <BaseIcon src={getFavoriteIcon} />
-      {isFavorite ? favoriteCount + 1 : favoriteCount}
+      {favoriteCount}
     </StyledFavorite>
   );
 };
