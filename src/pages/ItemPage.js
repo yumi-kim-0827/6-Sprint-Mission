@@ -24,7 +24,7 @@ function ItemPage() {
   const [bestItems, setBestItems] = useState([]);
   const [order, setOrder] = useState("createdAt");
   const [searchValue, setSearchValue] = useState("");
-  const { width } = useWindowSize();
+  const { width } = useWindowSize(window.innerWidth);
   const [screenSize, setScreenSize] = useState();
 
   useEffect(() => {
