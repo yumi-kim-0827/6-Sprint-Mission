@@ -6,7 +6,7 @@ import { fetchProduct, fetchProductComments } from "../api";
 
 const ProductDetail = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(undefined);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
