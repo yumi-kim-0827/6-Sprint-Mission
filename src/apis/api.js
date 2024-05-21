@@ -1,4 +1,4 @@
-import inctance from "./api/axioxInstance";
+import inctance from "./axioxInstance";
 
 export async function getProduct({ orderBy = "recent", page, pageSize, keyword = "" }) {
   try {
