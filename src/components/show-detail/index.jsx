@@ -1,7 +1,7 @@
 import React from "react";
 import "./ShowDetail.css";
-import likeicon from "../assets/like-icon.png";
-import hamburger from "../assets/hamburger-icon.png";
+import likeicon from "../../assets/like-icon.png";
+import hamburger from "../../assets/hamburger-icon.png";
 
 const ShowDetail = ({ images, name, price, description, tags, favoriteCount }) => {
   return (

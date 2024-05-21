@@ -1,6 +1,6 @@
 import React from "react";
 import "./ShowBestProducts.css";
-import likeicon from "../assets/like-icon.png";
+import likeicon from "../../assets/like-icon.png";
 import { Link } from "react-router-dom";
 
 function BestProduct({ name, price, favoriteCount, images }) {

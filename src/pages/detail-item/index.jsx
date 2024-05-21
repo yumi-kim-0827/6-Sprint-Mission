@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDetailProduct, getProductComment } from "../apis/api";
+import { getDetailProduct, getProductComment } from "../../apis/api";
 import "./DetailItem.css";
-import ShowDetail from "../components/ShowDetail";
-import HandleComment from "../components/HandleComment";
-import returnlist from "../assets/return.png";
+import ShowDetail from "../../components/show-detail";
+import HandleComment from "../../components/handle-comment";
+import returnlist from "../../assets/return.png";
 
 const DetailItem = () => {
   const { Id } = useParams();

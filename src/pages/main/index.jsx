@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Main.css";
-import hometop from "../assets/home_top.png";
-import home01 from "../assets/home01.png";
-import home02 from "../assets/home02.png";
-import home03 from "../assets/home03.png";
-import homebottom from "../assets/home_bottom.png";
+import hometop from "../../assets/home_top.png";
+import home01 from "../../assets/home01.png";
+import home02 from "../../assets/home02.png";
+import home03 from "../../assets/home03.png";
+import homebottom from "../../assets/home_bottom.png";
 
 function Main() {
   const navigate = useNavigate();

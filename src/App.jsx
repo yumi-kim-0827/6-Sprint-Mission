@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Items from "./pages/Items";
-import AddItems from "./pages/AddItems";
-import Main from "./pages/Main";
-import DetailItem from "./pages/DetailItem";
+import Items from "./pages/items";
+import AddItems from "./pages/add-items";
+import Main from "./pages/main";
+import DetailItem from "./pages/detail-item";
 import Layout from "./pages/Layout";
 
 function App(props) {

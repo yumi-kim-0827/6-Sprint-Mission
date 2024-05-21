@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./AddItems.css";
-import fileplus from "../assets/file-plus.png";
-import tagdelete from "../assets/tag-delete.png";
-import { registerValidation } from "../components/common/validation";
+import fileplus from "../../assets/file-plus.png";
+import tagdelete from "../../assets/tag-delete.png";
+import { registerValidation } from "../../components/validations/validation";
 
 function ProductImg({ name, value, onChange }) {
   const [preview, setPreview] = useState();

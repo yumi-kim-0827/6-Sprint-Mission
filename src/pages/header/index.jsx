@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
-import longlogo from "../assets/long_logo.png";
-import shortlogo from "../assets/short_logo.png";
+import longlogo from "../../assets/long_logo.png";
+import shortlogo from "../../assets/short_logo.png";
 import { useLocation, Link, useParams } from "react-router-dom";
 
 const Header = () => {

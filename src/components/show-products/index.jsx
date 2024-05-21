@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import searchicon from "../assets/search-icon.png";
+import searchicon from "../../assets/search-icon.png";
 import "./ShowProducts.css";
-import likeicon from "../assets/like-icon.png";
-import dropdownArrow from "../assets/dropdown-arrow.png";
-import dropdownMobile from "../assets/dropdown-mobile.png";
+import likeicon from "../../assets/like-icon.png";
+import dropdownArrow from "../../assets/dropdown-arrow.png";
+import dropdownMobile from "../../assets/dropdown-mobile.png";
 
 import { Link } from "react-router-dom";
 

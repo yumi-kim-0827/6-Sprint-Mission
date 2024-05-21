@@ -1,5 +1,4 @@
-@import "../root.css";
-
+@import "../../root.css";
 .wrapper {
   max-width: 1200px;
   width: 100%;

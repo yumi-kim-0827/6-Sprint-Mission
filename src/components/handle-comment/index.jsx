@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import noninquiry from "../assets/no-inquiry.png";
+import noninquiry from "../../assets/no-inquiry.png";
 import "./HandleComment.css";
-import { commentValidation } from "./common/validation";
-import hamburger from "../assets/hamburger-icon.png";
+import { commentValidation } from "../validations/validation";
+import hamburger from "../../assets/hamburger-icon.png";
 
 const HandleComment = ({ comments }) => {
   const [comment, setComment] = useState("");

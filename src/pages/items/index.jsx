@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Items.css";
-import ShowBestProducts from "../components/ShowBestProducts";
-import ShowProducts from "../components/ShowProducts";
-import PageButton from "../components/PageButton";
-import { getProduct, getBestProduct, getTotalCount } from "../apis/api";
+import ShowBestProducts from "../../components/show-best-products";
+import ShowProducts from "../../components/show-products";
+import PageButton from "../../components/page-button";
+import { getProduct, getBestProduct, getTotalCount } from "../../apis/api";
 
-function App() {
+function Items() {
   const [products, setProducts] = useState([]);
   const [bestProducts, setBestProducts] = useState([]);
   const [totalCount, setTotalCount] = useState();
@@ -122,4 +122,4 @@ function App() {
   );
 }
 
-export default App;
+export default Items;
