@@ -1,4 +1,5 @@
 import React from "react";
+import HomePage from "./pages/Homepage/Homepage";
 import Items from "./pages/ItemsPage/Items";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddItem from "./pages/AddItemPage/AddItem";
@@ -12,7 +13,7 @@ function App() {
       <Navbar />
       <div>
         <Routes>
-          <Route index element={<Items />} />
+          <Route index element={<HomePage />} />
           <Route path="/items">
             <Route index element={<Items />} />
             <Route path=":productID" element={<CommunityFeedPage />} />
