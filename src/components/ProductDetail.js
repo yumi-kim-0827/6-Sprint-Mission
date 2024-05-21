@@ -9,6 +9,8 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(undefined);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleCommentSubmit = () => {
     const newCommentData = {
@@ -35,6 +37,9 @@ const ProductDetail = () => {
         setProduct(productData);
       } catch (error) {
         console.error("Error fetching product detail:", error);
+        setError("상품 정보를 불러오는 데 실패했습니다.");
+      } finally {
+        setLoading(false);
       }
     };
     fetchProductDetail();
@@ -52,8 +57,16 @@ const ProductDetail = () => {
     fetchComments();
   }, [productId]);
 
-  if (!product) {
+  if (loading) {
     return <div>로딩중...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!product) {
+    return <div>상품 정보를 불러올 수 없습니다.</div>;
   }
 
   return (
