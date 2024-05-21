@@ -6,6 +6,8 @@ import AddItems from "./pages/add-items";
 import Main from "./pages/main";
 import DetailItem from "./pages/detail-item";
 import Layout from "./pages/Layout";
+import SignIn from "./pages/sign-in";
+import SignUp from "./pages/sign-up";
 
 function App(props) {
   return (
@@ -19,6 +21,8 @@ function App(props) {
           </Route>
           <Route path="additems" element={<AddItems />} />
         </Route>
+        <Route path="sign-in" element={<SignIn />} />
+        <Route path="sign-up" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );
