@@ -29,6 +29,7 @@ export const fetchProduct = async (productId) => {
       throw new Error("Invalid data format");
     }
   } catch (error) {
+    console.error("Error fetching product:", error);
     throw new Error("Failed to fetch product");
   }
 };
