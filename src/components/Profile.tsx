@@ -2,7 +2,13 @@ import React from 'react';
 import Avatar from './Avatar';
 import styled from 'styled-components';
 
-export default function Profile({ image, nickname, children }) {
+interface Props {
+  nickname: number;
+  image: string;
+  children: string;
+}
+
+export default function Profile({ image, nickname, children }: Props) {
   return (
     <ProfileContainer>
       <Avatar img={image} />
