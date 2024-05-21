@@ -259,6 +259,10 @@
   .section-reverse h2 br {
     display: none;
   }
+  .section-description.first {
+    position: relative;
+    right: 155px;
+  }
   .section-description {
     position: relative;
     right: 110px;

@@ -34,7 +34,7 @@ function Main() {
         <div className="section-img">
           <img src={home01} alt="섹션1 이미지" />
         </div>
-        <div className="section-description">
+        <div className="section-description first">
           <p>Hot item</p>
           <h2>
             인기 상품을
