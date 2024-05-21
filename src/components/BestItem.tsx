@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 interface Props {
   price: number;
   images: string;
-  favoriteCount: number;
   name: string;
-  id: string;
+  favoriteCount: number;
+  id: number;
 }
 
 export default function BestItem({ price, images, favoriteCount, name, id }: Props) {
