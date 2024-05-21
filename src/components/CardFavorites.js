@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
 import BaseIcon from "./BaseIcon";
-
 import heartIcon from "../assets/icon/heart.svg";
 import heartActiveIcon from "../assets/icon/heart-active.svg";
 
