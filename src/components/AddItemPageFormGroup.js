@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import AddItemPageImageInput from "./AddItemPageImageInput";
 import BaseInput from "./BaseInput";
 import BaseTextArea from "./BaseTextArea";

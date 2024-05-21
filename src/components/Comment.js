@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import UserProfile from "./UserProfile";
 
 const Comment = ({ data }) => {

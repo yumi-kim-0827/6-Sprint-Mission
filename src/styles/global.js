@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
 import PretendardThin from "../assets/fonts/Pretendard-Thin.woff";
 import PretendardLight from "../assets/fonts/Pretendard-Light.woff";
 import PretendardRegular from "../assets/fonts/Pretendard-Regular.woff";

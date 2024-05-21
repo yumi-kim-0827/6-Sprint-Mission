@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import * as S from "./ItemPage.style.js";
-
 import { getItems } from "../services/api";
 import useWindowSize from "../hooks/useWindowSize";
 import usePagination from "../hooks/usePagination";
@@ -98,8 +96,9 @@ function ItemPage() {
             <S.ItemPageSelectBox
               onClick={setOrder}
               order={order}
-              size={screenSize === "small" ? "small" : "medium"}
-            ></S.ItemPageSelectBox>
+              size={
+                screenSize === "small" ? "small" : "medium"
+              }></S.ItemPageSelectBox>
           </S.ItemTitleSection>
           <div>
             {paginatedList.map((item) => (
@@ -113,8 +112,7 @@ function ItemPage() {
           totalPages={totalPages}
           goToPrevPage={goToPrevPage}
           goToNextPage={goToNextPage}
-          goToPage={goToPage}
-        ></S.ItemPagePagination>
+          goToPage={goToPage}></S.ItemPagePagination>
       </S.Wrapper>
     </>
   );

@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
 import SquareImage from "./SquareImage";
 import { getTimeAgo } from "../utils/utils";
-
 import DefaultProfileImage from "../assets/icon/profile.svg";
 
 const UserProfile = ({ image, nickname = "똑똑한 판다", updatedAt }) => {

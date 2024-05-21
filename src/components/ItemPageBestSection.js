@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import ItemPageCard from "../components/ItemPageCard";
 
 const ItemPageBestSection = ({ bestItems }) => {

@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import * as S from "./HomePage.style.js";
-
 import homeImg01 from "../assets/img/Img_home_01@2x.jpg";
 import homeImg01webp from "../assets/img/Img_home_01@2x.webp";
 import homeImg02 from "../assets/img/Img_home_02@2x.jpg";

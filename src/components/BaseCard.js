@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import SquareImage from "./SquareImage";
 
 const BaseCard = ({ className, src, alt, title, text }) => {

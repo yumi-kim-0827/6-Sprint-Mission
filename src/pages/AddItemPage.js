@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import * as S from "./AddItemPage.style.js";
-
 import BaseTag from "../components/BaseTag.js";
 
 const TAG_LIMIT = 7;
@@ -105,8 +103,7 @@ const AddItemPage = () => {
         <S.AddItemFormButton
           type="submit"
           size="small"
-          disabled={!isValidation}
-        >
+          disabled={!isValidation}>
           등록
         </S.AddItemFormButton>
       </form>

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as S from "./ItemDetailPage.style.js";
-
 import ItemDetailPageCardLarge from "../components/ItemDetailPageCardLarge.js";
 import CommentInputBox from "../components/CommentInputBox";
 import Comment from "../components/Comment";
-
 import { getItem, getItemComments } from "../services/api.js";
-
 import IconBack from "../assets/icon/back.svg";
 import EmptyCommentImage from "../assets/img/Img_inquiry_empty.png";
 

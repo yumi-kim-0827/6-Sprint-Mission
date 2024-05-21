@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-
 import sortIcon from "../assets/icon/sort.svg";
 import arrowDownIcon from "../assets/icon/arrow_down.svg";
 
@@ -25,26 +24,22 @@ function SortSelectBox({ className, order, onClick, size = "medium" }) {
     <StyledSortSelectBox className={className} size={size}>
       <button
         className="sort-select-box__button small"
-        onClick={showSortOption}
-      >
+        onClick={showSortOption}>
         <i className="icon-sort"></i>
       </button>
       <button
         className="sort-select-box__button medium"
-        onClick={showSortOption}
-      >
+        onClick={showSortOption}>
         <p>{OrderName[order]}</p> <i className="icon-arrow-down"></i>
       </button>
       <div
         className="sort-select-box__option-box"
-        style={{ display: isVisible ? "block" : "none" }}
-      >
+        style={{ display: isVisible ? "block" : "none" }}>
         {Object.keys(OrderName).map((key) => (
           <button
             key={key}
             className="sort-select-box__option"
-            onClick={() => handleOptionClick(key)}
-          >
+            onClick={() => handleOptionClick(key)}>
             {OrderName[key]}
           </button>
         ))}

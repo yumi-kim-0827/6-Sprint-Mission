@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
 import BaseIcon from "./BaseIcon";
-
 import XIcon from "../assets/icon/X.svg";
 import activeXIcon from "../assets/icon/activeX.svg";
 

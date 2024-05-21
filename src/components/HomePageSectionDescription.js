@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import MultiLineText from "./MultiLineText";
 
 const HomePageSectionDescription = ({ badgeText, title, content }) => {

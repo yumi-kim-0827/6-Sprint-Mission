@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import DeleteButton from "./DeleteButton";
 
 const BaseTag = ({ tag, onClick, isEditable = false, className }) => {

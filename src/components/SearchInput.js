@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
 import BaseIcon from "./BaseIcon";
 import BaseInput from "./BaseInput";
-
 import searchIcon from "../assets/icon/search.svg";
 
 const SearchInput = ({ className = "", placeholder, value, onChange }) => {

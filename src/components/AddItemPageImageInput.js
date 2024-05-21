@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import BaseInput from "./BaseInput";
 import DeleteButton from "./DeleteButton";
 import BaseIcon from "./BaseIcon";

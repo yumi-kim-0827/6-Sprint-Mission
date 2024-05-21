@@ -1,8 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-
 import BaseButton from "./BaseButton";
-
 import logo from "../assets/img/panda-logo.svg";
 import logoTypo from "../assets/img/panda-logo-typo.svg";
 
@@ -20,8 +18,7 @@ function AppLayoutNavbar() {
         to="/items"
         className={
           pathname === "/items" || pathname === "/additem" ? "active" : ""
-        }
-      >
+        }>
         중고마켓
       </StyledNavLink>
       <NavLink to="/login">

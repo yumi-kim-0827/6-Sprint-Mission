@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import BaseButton from "./BaseButton";
 import BaseTextArea from "./BaseTextArea";
-
 import { postItemComment } from "../services/api";
 import { useParams } from "react-router-dom";
 

@@ -1,8 +1,6 @@
 import styled from "styled-components";
-
 import ItemPageBestSection from "../components/ItemPageBestSection";
 import Pagination from "../components/Pagination";
-import BaseCard from "../components/BaseCard";
 import SortSelectBox from "../components/SortSelectBox";
 import BaseButton from "../components/BaseButton";
 import SearchInput from "../components/SearchInput";
