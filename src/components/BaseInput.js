@@ -27,6 +27,7 @@ const BaseInput = ({
       onKeyDown={onKeyDown}
       accept={accept}
       autoComplete={autoComplete}
+      {...rest}
     />
   );
 };
