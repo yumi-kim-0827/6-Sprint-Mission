@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "./App.css";
 import Items from "./pages/items";
 import AddItems from "./pages/add-items";
 import Main from "./pages/main";
