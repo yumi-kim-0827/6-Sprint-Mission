@@ -3,12 +3,12 @@ import Avatar from './Avatar';
 import styled from 'styled-components';
 
 interface Props {
-  nickname: number;
+  nickname: string;
   image: string;
-  children: string;
+  children: React.ReactNode;
 }
 
-export default function Profile({ image, nickname, children }: Props) {
+export default function Profile({ image, nickname, children }: Props): JSX.Element {
   return (
     <ProfileContainer>
       <Avatar img={image} />

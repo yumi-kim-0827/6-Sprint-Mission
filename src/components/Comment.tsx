@@ -1,12 +1,22 @@
 import moment from 'moment';
 import 'moment/locale/ko';
-
 import Profile from './Profile';
 import styled from 'styled-components';
 import ic_kebab from '../assets/ic_kebab.png';
 
-export default function Comment({ content, createdAt, ...comment }) {
-  const { nickname, image } = comment.writer;
+type Writer = {
+  nickname: string;
+  image: string;
+};
+
+type CommentProps = {
+  content: string;
+  createdAt: string;
+  writer: Writer;
+};
+
+export default function Comment({ content, createdAt, writer }: CommentProps) {
+  const { nickname, image } = writer;
   let nowDate = moment(createdAt).startOf('hour').fromNow();
 
   return (
