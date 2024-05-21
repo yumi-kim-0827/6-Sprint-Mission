@@ -80,6 +80,7 @@ const AddItem = () => {
       <form onSubmit={handleSubmit}>
         <AddItemHeader>
           <AddItemTitle>상품 등록하기</AddItemTitle>
+          <input type="hidden" name="newProductForm" />
           <AddItemsButton type="submit" disabled={!isFormValid()}>
             등록
           </AddItemsButton>
