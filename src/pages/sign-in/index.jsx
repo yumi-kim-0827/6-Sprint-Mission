@@ -11,11 +11,14 @@ import googleLogo from "../../assets/sign-up/google-icon.png";
 const SignIn = () => {
   const [isSignInBtnDisabled, setIsSignInBtnDisabled] = useState(true);
   const [isPwShow, setIsPwShow] = useState(false);
+
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPw, setIsValidPw] = useState(true);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
 
   const validOption = {
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -23,23 +26,29 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    if (isValidEmail && isValidPw && email && password) {
+    if (isValidEmail && isValidPw && userInfo.email && userInfo.password) {
       setIsSignInBtnDisabled(false);
     } else {
       setIsSignInBtnDisabled(true);
     }
-  }, [isValidEmail, isPwShow, email, password]);
+  }, [isValidEmail, isPwShow]);
 
   const checkEmailValidity = (e) => {
     const { value } = e.target;
-    setEmail(value);
+    setUserInfo((prevUserInfo) => ({
+      ...prevUserInfo,
+      email: value,
+    }));
     const isValid = validOption.email.test(value);
     setIsValidEmail(isValid ? true : false);
   };
 
   const checkPwValidity = (e) => {
     const { value } = e.target;
-    setPassword(value);
+    setUserInfo((prevUserInfo) => ({
+      ...prevUserInfo,
+      password: value,
+    }));
     const isValid = validOption.pw.test(value);
     setIsValidPw(isValid ? true : false);
   };
@@ -62,14 +71,15 @@ const SignIn = () => {
           <input
             type="email"
             id="email"
-            value={email}
             placeholder="이메일을 입력해주세요"
             autoFocus
             onChange={checkEmailValidity}
             className={isValidEmail ? "" : "wrong"}
           />
           {isValidEmail || (
-            <span className="wrong-email">{email === "" ? "이메일을 입력해주세요" : "잘못된 이메일 형식입니다"}</span>
+            <span className="wrong-email">
+              {userInfo.email === "" ? "이메일을 입력해주세요" : "잘못된 이메일 형식입니다"}
+            </span>
           )}
         </div>
 
@@ -85,11 +95,11 @@ const SignIn = () => {
           {isPwShow ? (
             <img className="pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
           ) : (
-            <img className="pw-icon" src={nonShowIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
+            <img className="pw-icon" src={nonShowIcon} onClick={handlePwShow} alt="비밀번호 보이지 않기" />
           )}
           {isValidPw || (
             <span className="wrong-pw">
-              {password === "" ? "비밀번호를 입력해주세요" : "비밀번호를 8자 이상 입력해주세요"}
+              {userInfo.password === "" ? "비밀번호를 입력해주세요" : "비밀번호를 8자 이상 입력해주세요"}
             </span>
           )}
         </div>
