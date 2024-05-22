@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import "./Items.css";
 import ShowBestProducts from "../../components/show-best-products";
 import ShowProducts from "../../components/show-products";
 import PageButton from "../../components/page-button";
 import { getProduct, getBestProduct, getTotalCount } from "../../apis/api";
 
-function Items() {
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
-  const [totalCount, setTotalCount] = useState();
+function Items(): JSX.Element {
+  const [products, setProducts] = useState<string[]>([]);
+  const [bestProducts, setBestProducts] = useState<string[]>([]);
+  const [totalCount, setTotalCount] = useState<number>();
 
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -17,12 +17,19 @@ function Items() {
   const [pageSize, setPageSize] = useState(10);
   const [bestPageSize, setBestPageSize] = useState(4);
 
-  const handleLoad = async (orderQuery) => {
+  interface OrderQuery {
+    orderBy: string;
+    page: number;
+    pageSize: number;
+    keyword: string;
+  }
+
+  const handleLoad = async (orderQuery: OrderQuery) => {
     const { list } = await getProduct(orderQuery);
     setProducts(list);
   };
 
-  const handleBestLoad = async (pageSize) => {
+  const handleBestLoad = async (pageSize: number) => {
     const { list } = await getBestProduct(pageSize);
     setBestProducts(list);
   };
@@ -44,7 +51,7 @@ function Items() {
     setPage(1);
   };
 
-  const getPageSize = (mediaSize) => {
+  const getPageSize = (mediaSize: string) => {
     switch (mediaSize) {
       case "desktop":
         return 10;
@@ -56,7 +63,7 @@ function Items() {
         return 10;
     }
   };
-  const getBestPageSize = (mediaSize) => {
+  const getBestPageSize = (mediaSize: string) => {
     switch (mediaSize) {
       case "desktop":
         return 4;
@@ -69,23 +76,24 @@ function Items() {
     }
   };
 
-  function onChangeSelect(value) {
+  function onChangeSelect(value: string) {
     value === "좋아요순" ? setOrderBy("favorite") : setOrderBy("recent");
   }
 
-  function onChangeInput(e) {
+  function onChangeInput(e: ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
     value ? setKeyword(value) : setKeyword("");
   }
 
-  const handlePageNum = () => {
-    if (!isNaN(totalCount)) {
+  const handlePageNum = (totalCount: number | undefined, pageSize: number): number | undefined => {
+    if (typeof totalCount === "number" && !isNaN(totalCount)) {
       const pageNum = Math.ceil(totalCount / pageSize);
       return pageNum;
     }
+    return undefined; // 또는 0과 같은 기본값을 반환할 수 있습니다.
   };
 
-  const handlePage = (value) => {
+  const handlePage = (value: number) => {
     setPage(value);
   };
 
