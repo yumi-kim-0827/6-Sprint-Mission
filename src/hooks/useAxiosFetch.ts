@@ -1,6 +1,6 @@
-import dispatcher from "api/dispatcher";
-import { AxiosRequestConfig } from "axios";
 import { useState } from "react";
+import { AxiosRequestConfig } from "axios";
+import dispatcher from "api/dispatcher";
 
 export default function useAxiosFetch() {
   const [isLoading, setIsLoading] = useState(false);

@@ -1,18 +1,18 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import useDeviceState from "hooks/useDeviceState";
-import getPageSize from "utils/getPageSize";
-import { Button } from "components/Button";
+import Button from "components/Button";
 import Loading from "components/Loading";
-import { Input } from "components/Input";
+import Input from "components/Input";
 import Card from "components/Card";
-import * as S from "./MarketMain.style";
+import useDeviceState from "hooks/useDeviceState";
+import useAxiosFetch from "hooks/useAxiosFetch";
+import getPageSize from "utils/getPageSize";
+import Product from "models/product";
 import {
   useCurrentPage,
   useOrder,
   useSetTotalPages,
 } from "contexts/MarketMain";
-import Product from "@/models/product";
-import useAxiosFetch from "hooks/useAxiosFetch";
+import * as S from "./MarketMain.style";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,
@@ -54,6 +54,7 @@ export default function AllProducts() {
   useEffect(() => {
     const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
     const totalPages = Math.ceil(totalCount / pageSize);
+
     setTotalPages(totalPages > 0 ? totalPages : 1);
   }, [deviceState, renderDataList]);
 

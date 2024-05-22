@@ -1,1 +1,1 @@
-export { ImageCardCSS } from "./ImageCard";
+export { ImageCardCSS, ImageCard } from "./ImageCard";

@@ -1,5 +1,5 @@
-import { addCommas } from "utils/commas";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
+import { addCommas } from "utils/commas";
 import * as S from "./FormInputs.style";
 
 interface InputProps {

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import Product from "models/product";
 import { addCommas } from "utils/commas";
-import * as S from "./Card.style";
 import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
 import { ImageCard } from "./ImageCard/ImageCard";
-import Product from "@/models/product";
+import * as S from "./Card.style";
 
 export default function Card({ data }: { data: Product }) {
   const { id, images = [], name: title, price, favoriteCount } = data;

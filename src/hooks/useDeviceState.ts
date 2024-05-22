@@ -1,7 +1,6 @@
+import { useEffect, useState } from "react";
 import { Device, DeviceType } from "models/device";
-import React, { useEffect, useState } from "react";
 
-const MIN_MOBILE_WIDTH = 375;
 const MIN_TABLET_WIDTH = 768;
 const MIN_DESKTOP_WIDTH = 1200;
 

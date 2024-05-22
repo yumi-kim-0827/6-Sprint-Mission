@@ -1,9 +1,8 @@
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
-import { Button } from "components/Button";
-import { Input } from "components/Input";
-import { TagList } from "components/Tag";
-import { Tag } from "components/Tag";
+import Button from "components/Button";
+import Input from "components/Input";
+import { TagList, Tag } from "components/Tag";
 import * as S from "./AddItemForm.style";
 
 export default function AddItemForm() {

@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
-import useDeviceState from "hooks/useDeviceState";
 import { ReactNode } from "react";
+import useDeviceState from "hooks/useDeviceState";
+import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
+import styled from "styled-components";
 
 interface Props {
   children: ReactNode;

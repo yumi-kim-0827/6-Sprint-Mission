@@ -1,5 +1,5 @@
-import SearchIcon from "assets/icon/ic_search.svg";
 import { ChangeEvent } from "react";
+import SearchIcon from "assets/icon/ic_search.svg";
 import styled from "styled-components";
 
 interface Props {

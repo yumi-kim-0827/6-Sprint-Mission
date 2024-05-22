@@ -1,8 +1,8 @@
+import { ReactNode } from "react";
+import { useCurrentPageState, useTotalPages } from "contexts/MarketMain";
 import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import * as S from "./Pagination.style";
-import { useCurrentPageState, useTotalPages } from "contexts/MarketMain";
-import { ReactNode } from "react";
 
 interface PageButtonProps {
   children: ReactNode;

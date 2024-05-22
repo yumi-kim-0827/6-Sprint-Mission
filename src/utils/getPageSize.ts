@@ -1,4 +1,4 @@
-import { DeviceProductCount, DeviceType } from "@/models/device";
+import { DeviceProductCount, DeviceType } from "models/device";
 
 export default function getPageSize(
   deviceState: DeviceType,

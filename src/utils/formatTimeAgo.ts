@@ -8,6 +8,7 @@ export default function formatTimeAgo(beforeTime: string) {
 
   if (daysDifference > 0) {
     const remainingHours = hoursDifference % 24;
+
     return remainingHours > 0
       ? `${daysDifference}일 ${remainingHours}시간 전`
       : `${daysDifference}일 전`;

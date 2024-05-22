@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import kebab from "assets/icon/ic_kebab.svg";
 import formatTimeAgo from "utils/formatTimeAgo";
-import CommentType from "@/models/comment";
+import CommentType from "models/comment";
 
 export default function Comment({ data }: { data: CommentType }) {
   const {

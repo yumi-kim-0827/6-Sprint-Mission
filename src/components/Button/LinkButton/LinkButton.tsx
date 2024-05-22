@@ -1,7 +1,7 @@
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { DefaultButton } from "../Button.style";
-import { ReactNode } from "react";
+import DefaultButton from "../Button.style";
 
 interface Props {
   children: ReactNode;

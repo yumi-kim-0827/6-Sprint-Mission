@@ -1,20 +1,19 @@
-import Loading from "components/Loading";
-import { TagList } from "components/Tag";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import kebabIcon from "assets/icon/ic_kebab.svg";
-import { addCommas } from "utils/commas";
-import { Tag } from "components/Tag";
-import { Button } from "components/Button";
-import { Input } from "components/Input";
-import inquiryEmpty from "assets/img/Img_inquiry_empty.svg";
-import { ImageCard } from "components/Card/ImageCard/ImageCard";
-import backIcon from "assets/icon/ic_back.svg";
+import Button from "components/Button";
+import Input from "components/Input";
+import { Tag, TagList } from "components/Tag";
+import { ImageCard } from "components/Card/ImageCard";
 import Comment from "components/Comment";
-import * as S from "./ProductDetail.style";
-import CommentType from "@/models/comment";
+import Loading from "components/Loading";
 import useAxiosFetch from "hooks/useAxiosFetch";
-import Product from "@/models/product";
+import CommentType from "models/comment";
+import Product from "models/product";
+import { addCommas } from "utils/commas";
+import kebabIcon from "assets/icon/ic_kebab.svg";
+import inquiryEmpty from "assets/img/Img_inquiry_empty.svg";
+import backIcon from "assets/icon/ic_back.svg";
+import * as S from "./ProductDetail.style";
 
 export default function ProductDetail() {
   const params = useParams();

@@ -17,17 +17,20 @@ export default function ImageInput({ name, onImageChange }: ImageInputProps) {
 
   const handleImgFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
+
     if (!files || files.length === 0) return;
     const file = files[0];
 
     onImageChange(file);
 
     const nextPreview = URL.createObjectURL(file);
+
     setPreview(nextPreview);
   };
 
   const handleImgFileDelete = () => {
     const inputNode = imgFileRef.current;
+
     if (!inputNode) return;
 
     inputNode.value = "";
@@ -36,11 +39,11 @@ export default function ImageInput({ name, onImageChange }: ImageInputProps) {
   };
 
   useEffect(() => {
-    return () => {
-      if (preview) {
+    if (preview) {
+      return () => {
         URL.revokeObjectURL(preview);
-      }
-    };
+      };
+    }
   }, [preview]);
 
   return (

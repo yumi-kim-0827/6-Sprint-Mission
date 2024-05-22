@@ -1,9 +1,8 @@
+import { NavLink, useLocation } from "react-router-dom";
 import SmallMainLogo from "assets/icon/main_logo_small.svg";
 import MainLogo from "assets/icon/main_logo.svg";
-import { useLocation } from "react-router-dom";
-import { Button } from "components/Button";
+import Button from "components/Button";
 import useDeviceState from "hooks/useDeviceState";
-import { NavLink } from "react-router-dom";
 import * as S from "./Navbar.style";
 
 export default function GNB() {

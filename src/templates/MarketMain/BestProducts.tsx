@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import useDeviceState from "hooks/useDeviceState";
-import getPageSize from "utils/getPageSize";
-import Loading from "components/Loading";
 import Card from "components/Card";
-import * as S from "./MarketMain.style";
-import { DeviceProductCount } from "@/models/device";
-import Product from "@/models/product";
+import Loading from "components/Loading";
+import useDeviceState from "hooks/useDeviceState";
 import useAxiosFetch from "hooks/useAxiosFetch";
+import { DeviceProductCount } from "models/device";
+import Product from "models/product";
+import getPageSize from "utils/getPageSize";
+import * as S from "./MarketMain.style";
 
 const DEVICE_PRODUCT_COUNT: DeviceProductCount = {
   mobile: 1,

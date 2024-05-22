@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-export const DefaultButton = css`
+const DefaultButton = css`
   cursor: pointer;
   padding: 12px 23px;
   border-radius: 8px;
@@ -15,3 +15,5 @@ export const DefaultButton = css`
   font-weight: 600;
   user-select: none;
 `;
+
+export default DefaultButton;

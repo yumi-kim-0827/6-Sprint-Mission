@@ -36,12 +36,14 @@ export function PageProvider({ children }: { children: ReactNode }) {
 
 export function useCurrentPage() {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return context.currentPage;
 }
 
 export function useSetCurrentPage() {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return context.setCurrentPage;
 }
@@ -51,18 +53,21 @@ export function useCurrentPageState(): [
   Dispatch<SetStateAction<number>>,
 ] {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return [context.currentPage, context.setCurrentPage];
 }
 
 export function useTotalPages() {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return context.totalPages;
 }
 
 export function useSetTotalPages() {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return context.setTotalPages;
 }
@@ -72,6 +77,7 @@ export function useTotalPagesState(): [
   Dispatch<SetStateAction<number>>,
 ] {
   const context = useContext(PageContext);
+
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
   return [context.currentPage, context.setCurrentPage];
 }

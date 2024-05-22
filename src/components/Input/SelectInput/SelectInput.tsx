@@ -1,9 +1,9 @@
-import useDeviceState from "hooks/useDeviceState";
 import { useEffect, useRef, useState } from "react";
+import useDeviceState from "hooks/useDeviceState";
+import { useOrderState } from "contexts/MarketMain";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
 import * as S from "./SelectInput.style";
-import { useOrderState } from "contexts/MarketMain";
 
 export default function SelectInput() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);

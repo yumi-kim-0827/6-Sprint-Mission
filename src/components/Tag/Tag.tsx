@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
 import { ReactNode } from "react";
+import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
+import styled from "styled-components";
 
 interface Props {
   children: ReactNode;
