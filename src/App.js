@@ -1,29 +1,39 @@
 import React from "react";
-import HomePage from "./pages/Homepage/Homepage";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import HomePage from "./pages/Homepage/HomePage";
+import SigninPage from "./pages/SigninPage/SigninPage";
+import SignupPage from "./pages/SigninPage/SignupPage";
 import Items from "./pages/ItemsPage/Items";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddItem from "./pages/AddItemPage/AddItem";
 import Navbar from "./components/Layout/Navbar";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import "./styles/global.css";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Navbar />
-      <div>
-        <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/items">
-            <Route index element={<Items />} />
-            <Route path=":productID" element={<CommunityFeedPage />} />
-          </Route>
+  const location = useLocation();
+  const hideNavbarRoutes = ["/signin", "/signup"];
 
-          <Route path="/additem" element={<AddItem />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+  return (
+    <div>
+      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/items">
+          <Route index element={<Items />} />
+          <Route path=":productID" element={<CommunityFeedPage />} />
+        </Route>
+        <Route path="/additem" element={<AddItem />} />
+      </Routes>
+    </div>
   );
 }
 
-export default App;
+export default function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+}
