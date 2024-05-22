@@ -48,7 +48,7 @@ export function useSetCurrentPage() {
 
 export function useCurrentPageState(): [
   number,
-  Dispatch<SetStateAction<number>>
+  Dispatch<SetStateAction<number>>,
 ] {
   const context = useContext(PageContext);
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");
@@ -69,7 +69,7 @@ export function useSetTotalPages() {
 
 export function useTotalPagesState(): [
   number,
-  Dispatch<SetStateAction<number>>
+  Dispatch<SetStateAction<number>>,
 ] {
   const context = useContext(PageContext);
   if (!context) throw new Error("Provider 안에서 사용해야 합니다");

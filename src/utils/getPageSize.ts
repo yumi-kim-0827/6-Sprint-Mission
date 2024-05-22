@@ -2,7 +2,7 @@ import { DeviceProductCount, DeviceType } from "@/models/device";
 
 export default function getPageSize(
   deviceState: DeviceType,
-  deviceProductCount: DeviceProductCount
+  deviceProductCount: DeviceProductCount,
 ): number {
   if (deviceState === "mobile") return deviceProductCount.mobile;
   if (deviceState === "tablet") return deviceProductCount.tablet;

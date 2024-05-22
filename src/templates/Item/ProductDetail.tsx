@@ -83,7 +83,7 @@ function InquiryComments({ productId }: { productId?: string }) {
   const { isLoading, error, axiosFetch } = useAxiosFetch();
 
   const onTextChange = (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     setText(e.target.value);
   };
