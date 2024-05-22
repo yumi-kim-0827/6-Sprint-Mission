@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Main.css";
 import hometop from "../../assets/home_top.png";
 import home01 from "../../assets/home01.png";
@@ -7,13 +7,9 @@ import home02 from "../../assets/home02.png";
 import home03 from "../../assets/home03.png";
 import homebottom from "../../assets/home_bottom.png";
 
-function Main() {
-  const navigate = useNavigate();
+type AppProps = {};
 
-  const goItems = () => {
-    navigate("./Items");
-  };
-
+function Main(props: AppProps): React.ReactElement {
   return (
     <main>
       <section className="top">
@@ -23,7 +19,7 @@ function Main() {
             <br />
             거래해보세요
           </h2>
-          <button onClick={goItems}>구경하러 가기</button>
+          <Link to="/Items">구경하러 가기</Link>
         </div>
         <div className="img-top">
           <img src={hometop} alt="메인홈 이미지" />

@@ -23,8 +23,11 @@
   font-size: 40px;
   font-weight: 700;
 }
-.top .home-top button {
+.top .home-top a {
   width: 355px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 56px;
   background-color: var(--blue);
   border-radius: 9999px;
