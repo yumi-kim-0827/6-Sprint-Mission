@@ -1,13 +1,13 @@
 import React from "react";
-import BestItemsSection from "./BestItemsSection";
-import AllItemSection from "./AllItemsSection";
+import BestItemsSection from "./components/BestItemsSection";
+import AllItemsSection from "./components/AllItemsSection";
 import "./MarketPage.css";
 
 function MarketPage() {
   return (
     <div className="wrapper">
       <BestItemsSection />
-      <AllItemSection />
+      <AllItemsSection />
     </div>
   );
 }
