@@ -1,16 +1,24 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, ChangeEvent, FormEvent } from "react";
 import "./AddItems.css";
 import fileplus from "../../assets/file-plus.png";
 import tagdelete from "../../assets/tag-delete.png";
 import { registerValidation } from "../../components/validations/validation";
 
-function ProductImg({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
-  const inputRef = useRef();
+interface Props {
+  name: string;
+  value: string | null;
+  onChange: (name: string, value: File | null) => void;
+}
 
-  const handleFileChange = (e) => {
-    const nextImg = e.target.files[0];
-    onChange(name, nextImg);
+function ProductImg({ name, value, onChange }: Props) {
+  const [preview, setPreview] = useState<string>();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextImg = e.target.files?.[0];
+    if (nextImg) {
+      onChange(name, nextImg);
+    }
   };
 
   const handleClearClick = useCallback(() => {
@@ -23,8 +31,16 @@ function ProductImg({ name, value, onChange }) {
 
   useEffect(() => {
     if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
+
+    // value가 string이라면 Blob 객체로 변환
+    const blob = typeof value === "string" ? new Blob([value], { type: "text/plain" }) : value;
+
+    const nextPreview = URL.createObjectURL(blob);
     setPreview(nextPreview);
+
+    return () => {
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
 
   return (
@@ -49,11 +65,17 @@ function ProductImg({ name, value, onChange }) {
   );
 }
 
-function ProductTag({ name, onChange, clearProductTag }) {
+interface ProductTagProps {
+  name: string;
+  onChange: (name: string, value: string[]) => void;
+  clearProductTag: string;
+}
+
+function ProductTag({ name, onChange, clearProductTag }: ProductTagProps) {
   const [tagArr, setTagArr] = useState([]);
   const inputRef = useRef();
 
-  const handleTagValue = (e) => {
+  const handleTagValue = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
       const tagValue = e.target.value;
@@ -75,7 +97,7 @@ function ProductTag({ name, onChange, clearProductTag }) {
     }
   };
 
-  const handleDeleteTag = (e) => {
+  const handleDeleteTag = (e: MouseEvent) => {
     const tagValue = e.target.parentElement.innerText;
     const compareValue = tagValue.slice(2, tagValue.length);
     const newTag = tagArr.filter((tag) => tag !== compareValue);
@@ -109,32 +131,42 @@ function ProductTag({ name, onChange, clearProductTag }) {
   );
 }
 
+interface ProductValues {
+  productName: string;
+  productIntro: string;
+  productPrice: string;
+  productImg: string | null;
+  productTag: string[];
+}
+
 const AddItems = () => {
-  const [productValues, setProductValues] = useState({
+  const [productValues, setProductValues] = useState<ProductValues>({
     productName: "",
     productIntro: "",
     productPrice: "",
     productImg: null,
     productTag: [],
   });
-  const buttonRef = useRef();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleChange = (name, value) => {
-    if (name === "productTag") {
-      const newArr = [...productValues.productTag, value];
-      setProductValues((prevProductValues) => ({
-        ...prevProductValues,
-        productTag: newArr,
-      }));
-    } else {
-      setProductValues((prevProductValues) => ({
-        ...prevProductValues,
-        [name]: value,
-      }));
-    }
+  const handleChange = (name: string, value: string | File) => {
+    setProductValues((prevProductValues) => {
+      if (name === "productTag") {
+        const newArr = [...prevProductValues.productTag, value instanceof File ? value.name : value];
+        return {
+          ...prevProductValues,
+          productTag: newArr,
+        };
+      } else {
+        return {
+          ...prevProductValues,
+          [name]: value,
+        };
+      }
+    });
   };
 
-  const clearProductTag = (value) => {
+  const clearProductTag = (value: string) => {
     setProductValues((prevProductValues) => {
       const updatedProductValues = prevProductValues.productTag.filter((tag) => tag !== value);
       return {
@@ -144,12 +176,17 @@ const AddItems = () => {
     });
   };
 
-  const handleValuesChange = (e) => {
+  const handleInputValuesChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleTextAreaValuesChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
 
@@ -176,7 +213,7 @@ const AddItems = () => {
           type="text"
           id="product-name"
           placeholder="상품명을 입력해주세요"
-          onChange={handleValuesChange}
+          onChange={handleInputValuesChange}
           value={productValues.productName}
         />
       </div>
@@ -187,7 +224,7 @@ const AddItems = () => {
           name="productIntro"
           id="product-intro"
           placeholder="상품 소개를 입력해주세요"
-          onChange={handleValuesChange}
+          onChange={handleTextAreaValuesChange}
           value={productValues.productIntro}
         ></textarea>
       </div>
@@ -199,7 +236,7 @@ const AddItems = () => {
           type="number"
           id="product-price"
           placeholder="판매 가격을 입력해주세요"
-          onChange={handleValuesChange}
+          onChange={handleInputValuesChange}
           value={productValues.productPrice}
         />
       </div>
