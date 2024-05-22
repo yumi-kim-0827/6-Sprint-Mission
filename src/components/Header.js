@@ -27,7 +27,7 @@ const Header = () => {
           중고마켓
         </UsedMarket>
       </MenuContainer>
-      <GoLogin onClick={() => handleNavigate("/")}>로그인</GoLogin>
+      <GoLogin onClick={() => handleNavigate("/login")}>로그인</GoLogin>
     </HeaderContainer>
   );
 };
