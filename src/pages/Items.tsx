@@ -9,7 +9,6 @@ import '../styles/ItemsPage.css';
 export default function Items() {
   usePageTitle('판다마켓: 중고마켓');
   const [items, setItems] = useState([]);
-
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -27,8 +26,18 @@ export default function Items() {
     fetchItems();
   }, []);
 
+  interface Props {
+    name: string;
+    description: string;
+    images: string;
+    price: number;
+    tags: string[];
+    favoriteCount: number;
+    id: number;
+  }
+
   const getBestItems = () => {
-    const sortedItems = [...items];
+    const sortedItems: Props[] = [...items];
     sortedItems.sort((a, b) => b.favoriteCount - a.favoriteCount);
     return sortedItems.slice(0, 4);
   };
