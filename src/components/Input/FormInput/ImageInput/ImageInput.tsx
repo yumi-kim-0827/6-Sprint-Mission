@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import PlusIcon from "assets/icon/ic_plus.svg";
 import * as S from "./ImageInput.style";
 
 interface ImageInputProps {
   name: string;
-  value: Blob | null;
-  onChange: any;
+  onImageChange: (file: File | null) => void;
 }
 
-export default function ImageInput({ name, value, onChange }: ImageInputProps) {
+export default function ImageInput({ name, onImageChange }: ImageInputProps) {
   const [preview, setPreview] = useState("");
   const imgFileRef = useRef<HTMLInputElement>(null);
 
@@ -16,32 +15,40 @@ export default function ImageInput({ name, value, onChange }: ImageInputProps) {
     imgFileRef.current?.click();
   };
 
+  const handleImgFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    const file = files[0];
+
+    onImageChange(file);
+
+    const nextPreview = URL.createObjectURL(file);
+    setPreview(nextPreview);
+  };
+
   const handleImgFileDelete = () => {
     const inputNode = imgFileRef.current;
     if (!inputNode) return;
 
     inputNode.value = "";
-    onChange({ target: { name: "img-file", files: [null] } });
+    onImageChange(null);
+    setPreview("");
   };
 
   useEffect(() => {
-    if (!value) return;
-
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
-
     return () => {
-      setPreview("");
-      URL.revokeObjectURL(nextPreview);
+      if (preview) {
+        URL.revokeObjectURL(preview);
+      }
     };
-  }, [value]);
+  }, [preview]);
 
   return (
     <S.ImageInputContainer>
       <S.ImageInput onClick={handleClick}>
         <input
           name={name}
-          onChange={onChange}
+          onChange={handleImgFileChange}
           ref={imgFileRef}
           type="file"
           accept="image/png, image/jpeg"

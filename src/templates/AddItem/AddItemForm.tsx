@@ -7,7 +7,7 @@ import { Tag } from "components/Tag";
 import * as S from "./AddItemForm.style";
 
 export default function AddItemForm() {
-  const [imgFile, setImgFile] = useState<any>(null);
+  const [imgFile, setImgFile] = useState<File | null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -18,14 +18,14 @@ export default function AddItemForm() {
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    if (name === "img-file") {
-      //@ts-ignore
-      setImgFile(e.target.files[0]);
-    }
     if (name === "title") setTitle(value);
     if (name === "description") setDescription(value);
     if (name === "price") setPrice(Number(removeCommas(e.target.value)));
     if (name === "tags") setCurrentTag(value);
+  };
+
+  const onImageChange = (file: File | null) => {
+    setImgFile(file);
   };
 
   const handleTagKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -66,11 +66,7 @@ export default function AddItemForm() {
       <S.AddItemForm>
         <div className="form__image">
           <h1>상품 이미지</h1>
-          <Input.Form.Image
-            name="img-file"
-            value={imgFile}
-            onChange={onChange}
-          />
+          <Input.Form.Image name="img-file" onImageChange={onImageChange} />
         </div>
 
         <div className="form__productName">
