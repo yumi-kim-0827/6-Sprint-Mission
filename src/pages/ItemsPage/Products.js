@@ -13,7 +13,7 @@ function ProductListItem({ item, imageStyle }) {
       <div className="ProductListItem ">
         <img className={imageStyle} src={images} alt={imageStyle} />
         <div>
-          <p>{name}</p>
+          <p className="product-title">{name}</p>
           <p className="product-price">{formatPriceWithCommas(price)}원</p>
           <div className="favorite-count">
             <img

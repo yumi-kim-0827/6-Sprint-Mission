@@ -7,7 +7,15 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 94px;
+  margin-bottom: 16px;
   height: 42px;
+}
+
+.formTitle h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33.41px;
+  text-align: left;
 }
 
 .addItemButton {
@@ -102,4 +110,10 @@ label {
   right: 5px;
   left: 2px;
   border: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .addItemForm {
+    margin: 94px 16px;
+  }
 }
