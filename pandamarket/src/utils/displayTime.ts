@@ -1,5 +1,5 @@
-export const displayTime = (time) => {
-  const date = new Date(time)
+export const displayTime = (time: string) => {
+  const date = +new Date(time)
   const now = Date.now()
 
   const milliSeconds = now - date

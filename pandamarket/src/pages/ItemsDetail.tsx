@@ -9,14 +9,37 @@ import { CommentNotFound } from '../components'
 import icon_optionbar from '../assets/icon_optionbar.png'
 import icon_back from '../assets/icon_back.png'
 import icon_favorite from '../assets/icon_favorite.png'
-import { displayTime } from '../utils/displayTime'
+import { displayTime } from '../utils/displayTime.ts'
+
+type ItemData = {
+  id: string
+  name: string
+  images: string[]
+  price: number
+  favoriteCount: number
+  tags: string[]
+  description: string
+}
+
+type CommentData = {
+  map(
+    arg0: (comment: any, index: any) => import('react/jsx-runtime').JSX.Element
+  ): import('react').ReactNode
+  length: number
+  content: string
+  createdAt: string
+  writer: {
+    image: string
+    nickname: string
+  }
+}
 
 function ItemsDetail() {
   const { id } = useParams()
-  const [item, setItem] = useState(null)
-  const [comments, setComments] = useState(null)
+  const [item, setItem] = useState<ItemData | null>(null)
+  const [comments, setComments] = useState<CommentData | null>(null)
 
-  const fetchData = async (id) => {
+  const fetchData = async (id: string) => {
     const [itemData, commentsData] = await Promise.all([
       getProductsDetail(id),
       getProductsComments(id),
@@ -26,7 +49,9 @@ function ItemsDetail() {
   }
 
   useEffect(() => {
-    fetchData(id)
+    if (id !== undefined) {
+      fetchData(id)
+    }
   }, [id])
 
   if (!item || !comments) {
