@@ -1,7 +1,5 @@
-import { getProductComments, getProductData } from "apis/get";
 import Loading from "components/Loading";
 import { TagList } from "components/Tag";
-import useAsync from "hooks/useAsync";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import kebabIcon from "assets/icon/ic_kebab.svg";
@@ -14,6 +12,9 @@ import { ImageCard } from "components/Card/ImageCard/ImageCard";
 import backIcon from "assets/icon/ic_back.svg";
 import Comment from "components/Comment";
 import * as S from "./ProductDetail.style";
+import CommentType from "@/models/comment";
+import useAxiosFetch from "hooks/useAxiosFetch";
+import Product from "@/models/product";
 
 export default function ProductDetail() {
   const params = useParams();
@@ -26,25 +27,17 @@ export default function ProductDetail() {
   );
 }
 
-// ProductDetailInfo Component
-
-const INTIAL_DATA = {
-  favoriteCount: 0,
-  images: [],
-  tags: [],
-  name: "",
-  description: "",
-  price: 0,
-};
-
 function ProductDetailInfo({ productId }: { productId?: string }) {
-  const [productData, setProductData] = useState(INTIAL_DATA);
-  const [isLoading, getProductDataAsync] = useAsync(getProductData);
+  const [productData, setProductData] = useState<Product | null>(null);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
 
   useEffect(() => {
     (async () => {
-      const data = await getProductDataAsync(productId);
-      setProductData(data);
+      const res = await axiosFetch({
+        url: `${productId}`,
+      });
+
+      setProductData(res.data);
     })();
   }, []);
 
@@ -52,42 +45,42 @@ function ProductDetailInfo({ productId }: { productId?: string }) {
 
   return (
     <S.ProductDetailInfoContainer>
-      <ImageCard src={productData.images[0]} alt="product-img" />
+      <ImageCard src={productData?.images[0]} alt="product-img" />
       <S.InfoContainer>
         <S.InfoTop>
-          <h1 className="product-name">{productData.name}</h1>
+          <h1 className="product-name">{productData?.name}</h1>
           <img className="kebab-icon" src={kebabIcon} alt="ic-kebab" />
-          <span className="price">{addCommas(productData.price)}원</span>
+          <span className="price">
+            {addCommas(productData?.price as number)}원
+          </span>
         </S.InfoTop>
 
         <S.InfoBottom>
           <h2>상품 소개</h2>
-          <p>{productData.description}</p>
+          <p>{productData?.description}</p>
           <h2>상품 태그</h2>
           <TagList>
-            {productData.tags.map((tag) => (
+            {productData?.tags.map((tag) => (
               <Tag.Product key={tag}>{`#${tag}`}</Tag.Product>
             ))}
           </TagList>
         </S.InfoBottom>
 
         <S.LikeBtnBox>
-          <Button.Like>{productData.favoriteCount}</Button.Like>
+          <Button.Like>{productData?.favoriteCount}</Button.Like>
         </S.LikeBtnBox>
       </S.InfoContainer>
     </S.ProductDetailInfoContainer>
   );
 }
 
-// InquiryComments Component
-
 const PRIVACY_POLICY_NOTICE =
   "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.";
 
 function InquiryComments({ productId }: { productId?: string }) {
   const [text, setText] = useState("");
-  const [commentList, setCommentList] = useState<any[]>([]);
-  const [isLoading, getProductCommentsAsync] = useAsync(getProductComments);
+  const [commentList, setCommentList] = useState<CommentType[]>([]);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
 
   const onTextChange = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -97,8 +90,14 @@ function InquiryComments({ productId }: { productId?: string }) {
 
   useEffect(() => {
     (async () => {
-      const data = await getProductCommentsAsync(productId, { limit: 3 });
-      setCommentList(data.list);
+      const res = await axiosFetch({
+        url: `${productId}/comments`,
+        params: {
+          limit: 5,
+        },
+      });
+
+      setCommentList(res.data.list);
     })();
   }, []);
 

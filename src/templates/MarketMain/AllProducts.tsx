@@ -1,8 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
-import { getProductsData } from "apis/get";
-import useAsync from "hooks/useAsync";
 import { Button } from "components/Button";
 import Loading from "components/Loading";
 import { Input } from "components/Input";
@@ -13,6 +11,8 @@ import {
   useOrder,
   useSetTotalPages,
 } from "contexts/MarketMain";
+import Product from "@/models/product";
+import useAxiosFetch from "hooks/useAxiosFetch";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,
@@ -23,11 +23,11 @@ const DEVICE_PRODUCT_COUNT = {
 export default function AllProducts() {
   const [keyword, setKeyword] = useState("");
   const [totalCount, setTotalCount] = useState(0);
-  const [renderDataList, setRenderDataList] = useState([]);
+  const [renderDataList, setRenderDataList] = useState<Product[]>([]);
   const orderState = useOrder();
   const currentPage = useCurrentPage();
   const setTotalPages = useSetTotalPages();
-  const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
   const { deviceState } = useDeviceState();
 
   // 렌더되는 데이터 설정
@@ -36,14 +36,17 @@ export default function AllProducts() {
       const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
       const order = orderState === "최신순" ? "recent" : "favorite";
 
-      const data = await getProductsDataAsync({
-        order,
-        page: currentPage,
-        pageSize,
-        keyword,
+      const res = await axiosFetch({
+        params: {
+          orderBy: order,
+          page: currentPage,
+          pageSize,
+          keyword,
+        },
       });
-      setRenderDataList(data.list);
-      setTotalCount(data.totalCount);
+
+      setRenderDataList(res.data.list);
+      setTotalCount(res.data.totalCount);
     })();
   }, [currentPage, deviceState, orderState, keyword]);
 

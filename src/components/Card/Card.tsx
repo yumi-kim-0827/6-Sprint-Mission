@@ -3,8 +3,9 @@ import { addCommas } from "utils/commas";
 import * as S from "./Card.style";
 import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
 import { ImageCard } from "./ImageCard/ImageCard";
+import Product from "@/models/product";
 
-export default function Card({ data }: { data: any }) {
+export default function Card({ data }: { data: Product }) {
   const { id, images = [], name: title, price, favoriteCount } = data;
 
   return (

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
-import { getProductsData } from "apis/get";
 import Loading from "components/Loading";
-import useAsync from "hooks/useAsync";
 import Card from "components/Card";
 import * as S from "./MarketMain.style";
 import { DeviceProductCount } from "@/models/device";
+import Product from "@/models/product";
+import useAxiosFetch from "hooks/useAxiosFetch";
 
 const DEVICE_PRODUCT_COUNT: DeviceProductCount = {
   mobile: 1,
@@ -16,19 +16,22 @@ const DEVICE_PRODUCT_COUNT: DeviceProductCount = {
 
 export default function BestProducts() {
   const { deviceState } = useDeviceState();
-  const [renderDataList, setRenderDataList] = useState([]);
-  const [isLoading, getProductsDataAsync] = useAsync(getProductsData);
+  const [renderDataList, setRenderDataList] = useState<Product[]>([]);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
 
   useEffect(() => {
     (async () => {
       const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
 
-      const data = await getProductsDataAsync({
-        order: "favorite",
-        page: 1,
-        pageSize,
+      const res = await axiosFetch({
+        params: {
+          orderBy: "favorite",
+          page: 1,
+          pageSize,
+        },
       });
-      setRenderDataList(data.list);
+
+      setRenderDataList(res.data.list);
     })();
   }, [deviceState]);
 
