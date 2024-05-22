@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
 import styles from '../styles/pagination.module.css'
 
-function Pagination({ productsPerPage, totalProducts, paginate }) {
+type PaginationProps = {
+  productsPerPage: number
+  totalProducts: number
+  paginate: (newPage: number) => void
+}
+
+function Pagination({
+  productsPerPage,
+  totalProducts,
+  paginate,
+}: PaginationProps) {
   const pageNumbers = []
   const [currentPage, setCurrentPage] = useState(1)
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
@@ -30,7 +40,7 @@ function Pagination({ productsPerPage, totalProducts, paginate }) {
     setIsButtonDisabled(newPage === totalPages)
   }
 
-  const handleNumClick = (number) => {
+  const handleNumClick = (number: number) => {
     setCurrentPage(number)
     paginate(number)
   }
