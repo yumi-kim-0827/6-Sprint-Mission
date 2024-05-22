@@ -25,7 +25,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "browserslist": {
     "production": [
@@ -48,6 +56,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.34.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.4",
     "prettier": "^3.2.5",
     "sass": "^1.74.1"
   }
