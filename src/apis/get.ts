@@ -1,16 +1,27 @@
+import { Order } from "@/models/order";
+
 const PRODUCTS_URL = "https://panda-market-api.vercel.app/products";
 
-// 메인 페이지에서 상품들의 데이터를 page, order, keyword에 맞게 받습니다.
+interface ProductDataArgs {
+  order: Order;
+  page: number;
+  pageSize: number;
+  keyword?: string;
+}
+
+/**
+ * 메인 페이지에서 상품들의 데이터를 page, order, keyword에 맞게 받습니다.
+ */
 export async function getProductsData({
   order = "recent",
   page = 1,
   pageSize = 10,
   keyword = "",
-}) {
+}: ProductDataArgs) {
   const query = new URLSearchParams({
     orderBy: order,
-    page,
-    pageSize,
+    page: String(page),
+    pageSize: String(pageSize),
     keyword,
   }).toString();
   const url = `${PRODUCTS_URL}?${query}`;
@@ -23,8 +34,10 @@ export async function getProductsData({
   return body;
 }
 
-// 상품 상세페이지에서 데이터를 받습니다.
-export async function getProductData(productId) {
+/**
+ * 상품 상세페이지에서 데이터를 받습니다.
+ */
+export async function getProductData(productId: string) {
   const url = `${PRODUCTS_URL}/${productId}`;
 
   const response = await fetch(url);
@@ -35,10 +48,12 @@ export async function getProductData(productId) {
   return body;
 }
 
-// 상품에 대한 문의사항을 받습니다.
-export async function getProductComments(productId, { limit = 3 }) {
+/**
+ * 상품에 대한 문의사항을 받습니다.
+ */
+export async function getProductComments(productId: string, { limit = 3 }) {
   const query = new URLSearchParams({
-    limit,
+    limit: String(limit),
   }).toString();
   const url = `${PRODUCTS_URL}/${productId}/comments?${query}`;
 

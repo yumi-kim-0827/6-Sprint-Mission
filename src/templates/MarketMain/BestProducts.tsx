@@ -6,8 +6,9 @@ import Loading from "components/Loading";
 import useAsync from "hooks/useAsync";
 import Card from "components/Card";
 import * as S from "./MarketMain.style";
+import { DeviceProductCount } from "@/models/device";
 
-const DEVICE_PRODUCT_COUNT = {
+const DEVICE_PRODUCT_COUNT: DeviceProductCount = {
   mobile: 1,
   tablet: 2,
   desktop: 4,

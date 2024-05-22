@@ -8,7 +8,7 @@ import { useOrderState } from "contexts/MarketMain";
 export default function SelectInput() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const { isMobileWidth } = useDeviceState();
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const [order, setOrder] = useOrderState();
 
@@ -17,8 +17,11 @@ export default function SelectInput() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node | null)
+      ) {
         setDropdownOpen(false);
       }
     };

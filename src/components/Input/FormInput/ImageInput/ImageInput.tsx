@@ -2,12 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import PlusIcon from "assets/icon/ic_plus.svg";
 import * as S from "./ImageInput.style";
 
-export default function ImageInput({ name, value, onChange }) {
+interface ImageInputProps {
+  name: string;
+  value: Blob | null;
+  onChange: any;
+}
+
+export default function ImageInput({ name, value, onChange }: ImageInputProps) {
   const [preview, setPreview] = useState("");
-  const imgFileRef = useRef(null);
+  const imgFileRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
-    imgFileRef.current.click();
+    imgFileRef.current?.click();
   };
 
   const handleImgFileDelete = () => {
@@ -32,7 +38,7 @@ export default function ImageInput({ name, value, onChange }) {
 
   return (
     <S.ImageInputContainer>
-      <S.ImageInput onClick={handleClick} radius={12}>
+      <S.ImageInput onClick={handleClick}>
         <input
           name={name}
           onChange={onChange}
@@ -43,18 +49,17 @@ export default function ImageInput({ name, value, onChange }) {
         <img src={PlusIcon} alt="img-file" />
         <h1>이미지 등록</h1>
       </S.ImageInput>
-      {preview && (
-        <PreviewImage
-          url={preview}
-          onDelete={handleImgFileDelete}
-          radius={12}
-        />
-      )}
+      {preview && <PreviewImage url={preview} onDelete={handleImgFileDelete} />}
     </S.ImageInputContainer>
   );
 }
 
-function PreviewImage({ url, onDelete }) {
+interface PreviewImageProps {
+  url: string;
+  onDelete: () => void;
+}
+
+function PreviewImage({ url, onDelete }: PreviewImageProps) {
   return (
     <S.PreviewImage>
       <img src={url} alt="img-file" />

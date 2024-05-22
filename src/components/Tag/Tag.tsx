@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
+import { ReactNode } from "react";
 
-export default function Tag({ children, onDelete }) {
+interface Props {
+  children: ReactNode;
+  onDelete: () => void;
+}
+
+export default function Tag({ children, onDelete }: Props) {
   return (
     <StyledTag>
       {children}

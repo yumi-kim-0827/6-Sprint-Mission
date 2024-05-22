@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { removeCommas } from "utils/commas";
 import { Button } from "components/Button";
 import { Input } from "components/Input";
@@ -7,26 +7,29 @@ import { Tag } from "components/Tag";
 import * as S from "./AddItemForm.style";
 
 export default function AddItemForm() {
-  const [imgFile, setImgFile] = useState(null);
+  const [imgFile, setImgFile] = useState<any>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [currentTag, setCurrentTag] = useState("");
-  const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState<string[]>([]);
   const [isActive, setIsActive] = useState(false);
 
-  const onChange = (e) => {
-    const { name, value, files } = e.target;
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
 
-    if (name === "img-file") setImgFile(files[0]);
+    if (name === "img-file") {
+      //@ts-ignore
+      setImgFile(e.target.files[0]);
+    }
     if (name === "title") setTitle(value);
     if (name === "description") setDescription(value);
     if (name === "price") setPrice(Number(removeCommas(e.target.value)));
     if (name === "tags") setCurrentTag(value);
   };
 
-  const handleTagKeyUp = (e) => {
-    if (e.keyCode !== 13 || e.target.value.trim() === "") return;
+  const handleTagKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter" || e.currentTarget.value.trim() === "") return;
     if (tagList.includes(currentTag)) {
       alert("같은 태그가 있습니다");
       return;
@@ -35,7 +38,7 @@ export default function AddItemForm() {
     setCurrentTag("");
   };
 
-  const handleTagDelete = (tagToDelete) => {
+  const handleTagDelete = (tagToDelete: string) => {
     setTagList((prev) => prev.filter((tag) => tag !== tagToDelete));
   };
 
@@ -85,7 +88,7 @@ export default function AddItemForm() {
           <Input.Form.Textarea
             name="description"
             placeholder="상품 소개를 입력해주세요"
-            content={description}
+            value={description}
             onChange={onChange}
           />
         </div>

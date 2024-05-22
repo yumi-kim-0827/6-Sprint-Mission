@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
-export default function TagList({ children }) {
+export default function TagList({ children }: { children: ReactNode }) {
   return <StyledTagList>{children}</StyledTagList>;
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import useDeviceState from "hooks/useDeviceState";
 import getPageSize from "utils/getPageSize";
 import { getProductsData } from "apis/get";
@@ -54,7 +54,7 @@ export default function AllProducts() {
     setTotalPages(totalPages > 0 ? totalPages : 1);
   }, [deviceState, renderDataList]);
 
-  const handleKeywordChange = (e) => {
+  const handleKeywordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
 

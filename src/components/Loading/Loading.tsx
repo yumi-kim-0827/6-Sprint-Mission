@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Loading({ height }) {
+export default function Loading({ height }: { height?: number }) {
   return (
     <LoadingContainer height={height}>
       <StyledLoading />
@@ -8,7 +8,7 @@ export default function Loading({ height }) {
   );
 }
 
-const LoadingContainer = styled.div`
+const LoadingContainer = styled.div<{ height?: number }>`
   min-height: ${({ height = 500 }) => height}px;
 `;
 

@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
 import useDeviceState from "hooks/useDeviceState";
+import { ReactNode } from "react";
 
-export default function LikeButton({ children, onClick }) {
+interface Props {
+  children: ReactNode;
+  onClick?: () => void;
+}
+
+export default function LikeButton({ children, onClick }: Props) {
   const { isMobileWidth } = useDeviceState();
 
   return (
-    <StyledLikeButton>
+    <StyledLikeButton onClick={onClick}>
       <HeartIcon
         width={isMobileWidth ? 24 : 32}
         height={isMobileWidth ? 24 : 32}
@@ -16,6 +22,7 @@ export default function LikeButton({ children, onClick }) {
     </StyledLikeButton>
   );
 }
+
 const StyledLikeButton = styled.button`
   border-radius: 35px;
   border: 1px solid var(--gray200);

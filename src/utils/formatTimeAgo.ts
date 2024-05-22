@@ -1,5 +1,5 @@
-export default function formatTimeAgo(beforeTime) {
-  const currentTime = new Date();
+export default function formatTimeAgo(beforeTime: string) {
+  const currentTime = new Date().getTime();
   const updatedAtTime = new Date(beforeTime).getTime();
 
   const timeDifference = currentTime - updatedAtTime;

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const ImageCardCSS = css`
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: ${({ radius }) => radius}px;
+  border-radius: 16px;
   object-fit: cover;
 `;
 

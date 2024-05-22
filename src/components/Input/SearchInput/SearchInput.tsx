@@ -1,7 +1,13 @@
 import SearchIcon from "assets/icon/ic_search.svg";
+import { ChangeEvent } from "react";
 import styled from "styled-components";
 
-export default function SearchInput({ value, onChange }) {
+interface Props {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function SearchInput({ value, onChange }: Props) {
   return (
     <StyledSearchInput>
       <input

@@ -1,17 +1,12 @@
+import { Device, DeviceType } from "models/device";
 import React, { useEffect, useState } from "react";
 
 const MIN_MOBILE_WIDTH = 375;
 const MIN_TABLET_WIDTH = 768;
 const MIN_DESKTOP_WIDTH = 1200;
 
-const DEVICE = {
-  MOBILE: "mobile",
-  TABLET: "tablet",
-  DESKTOP: "desktop",
-};
-
 export default function useDeviceState() {
-  const [deviceState, setDeviceState] = useState(getDeviceState());
+  const [deviceState, setDeviceState] = useState<DeviceType>(getDeviceState());
   const [isMobileWidth, setIsMobileWidth] = useState(false);
 
   useEffect(() => {
@@ -38,7 +33,7 @@ export default function useDeviceState() {
 function getDeviceState() {
   const width = window.innerWidth;
 
-  if (width < MIN_TABLET_WIDTH) return DEVICE.MOBILE;
-  if (width < MIN_DESKTOP_WIDTH) return DEVICE.TABLET;
-  return DEVICE.DESKTOP;
+  if (width < MIN_TABLET_WIDTH) return Device.MOBILE;
+  if (width < MIN_DESKTOP_WIDTH) return Device.TABLET;
+  return Device.DESKTOP;
 }

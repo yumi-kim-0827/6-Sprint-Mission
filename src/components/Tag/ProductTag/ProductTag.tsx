@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
-export default function ProductTag({ children }) {
+export default function ProductTag({ children }: { children: ReactNode }) {
   return <StyledTag>{children}</StyledTag>;
 }
 

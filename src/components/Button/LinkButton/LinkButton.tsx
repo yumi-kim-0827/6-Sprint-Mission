@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DefaultButton } from "../Button.style";
+import { ReactNode } from "react";
 
-export default function LinkButton({ children, to = "/", radius }) {
+interface Props {
+  children: ReactNode;
+  to: string;
+  radius?: number;
+}
+
+export default function LinkButton({ children, to = "/", radius = 8 }: Props) {
   return (
     <Link to={to}>
       <StyledLinkButton radius={radius}>{children}</StyledLinkButton>
@@ -10,7 +17,7 @@ export default function LinkButton({ children, to = "/", radius }) {
   );
 }
 
-const StyledLinkButton = styled.button`
+const StyledLinkButton = styled.button<{ radius: number }>`
   ${DefaultButton}
   background-color: var(--blue);
   border-radius: ${({ radius }) => radius}px;

@@ -28,7 +28,7 @@ export const BestProductsCards = styled.div`
   }
 `;
 
-export const NoItems = styled.h1`
+export const NoItems = styled.h1<{ height: number }>`
   min-height: ${({ height }) => height}px;
   color: var(--cool-gray800);
   display: flex;

@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 import { DEVICE } from "styles/variables";
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children }: { children: ReactNode }) {
   return <StyledMainLayout>{children}</StyledMainLayout>;
 }
 

@@ -2,8 +2,15 @@ import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import * as S from "./Pagination.style";
 import { useCurrentPageState, useTotalPages } from "contexts/MarketMain";
+import { ReactNode } from "react";
 
-function PageButton({ children, isFocus, onClick }) {
+interface PageButtonProps {
+  children: ReactNode;
+  isFocus?: boolean;
+  onClick: () => void;
+}
+
+function PageButton({ children, isFocus, onClick }: PageButtonProps) {
   return (
     <S.PageButton $isFocus={isFocus} onClick={onClick}>
       {children}
@@ -15,18 +22,18 @@ export default function Pagination() {
   const [currentPage, setCurrentPage] = useCurrentPageState();
   const totalPages = useTotalPages();
 
-  const handleButtonClick = (page) => {
+  const handleButtonClick = (page: number) => {
     setCurrentPage(page);
   };
 
   const handleLeftClick = () => {
     if (currentPage === 1) return;
-    setCurrentPage((prev) => prev - 1);
+    setCurrentPage((prev: number) => prev - 1);
   };
 
   const handleRightClick = () => {
     if (currentPage === totalPages) return;
-    setCurrentPage((prev) => prev + 1);
+    setCurrentPage((prev: number) => prev + 1);
   };
 
   return (

@@ -8,7 +8,7 @@ export const PaginationContainer = styled.div`
   margin-top: 40px;
 `;
 
-export const PageButton = styled.div`
+export const PageButton = styled.div<{ $isFocus?: boolean }>`
   width: 40px;
   height: 40px;
   display: flex;

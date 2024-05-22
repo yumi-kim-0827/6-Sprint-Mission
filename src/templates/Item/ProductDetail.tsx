@@ -2,7 +2,7 @@ import { getProductComments, getProductData } from "apis/get";
 import Loading from "components/Loading";
 import { TagList } from "components/Tag";
 import useAsync from "hooks/useAsync";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import kebabIcon from "assets/icon/ic_kebab.svg";
 import { addCommas } from "utils/commas";
@@ -37,7 +37,7 @@ const INTIAL_DATA = {
   price: 0,
 };
 
-function ProductDetailInfo({ productId }) {
+function ProductDetailInfo({ productId }: { productId?: string }) {
   const [productData, setProductData] = useState(INTIAL_DATA);
   const [isLoading, getProductDataAsync] = useAsync(getProductData);
 
@@ -52,7 +52,7 @@ function ProductDetailInfo({ productId }) {
 
   return (
     <S.ProductDetailInfoContainer>
-      <ImageCard src={productData.images[0]} alt="product-img" radius={16} />
+      <ImageCard src={productData.images[0]} alt="product-img" />
       <S.InfoContainer>
         <S.InfoTop>
           <h1 className="product-name">{productData.name}</h1>
@@ -84,12 +84,14 @@ function ProductDetailInfo({ productId }) {
 const PRIVACY_POLICY_NOTICE =
   "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.";
 
-function InquiryComments({ productId }) {
+function InquiryComments({ productId }: { productId?: string }) {
   const [text, setText] = useState("");
-  const [commentList, setCommentList] = useState([]);
+  const [commentList, setCommentList] = useState<any[]>([]);
   const [isLoading, getProductCommentsAsync] = useAsync(getProductComments);
 
-  const onTextChange = (e) => {
+  const onTextChange = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setText(e.target.value);
   };
 

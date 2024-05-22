@@ -4,13 +4,13 @@ import * as S from "./Card.style";
 import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
 import { ImageCard } from "./ImageCard/ImageCard";
 
-export default function Card({ data }) {
+export default function Card({ data }: { data: any }) {
   const { id, images = [], name: title, price, favoriteCount } = data;
 
   return (
     <Link to={`/items/${id}`}>
       <S.CardContainer>
-        <ImageCard src={images[0]} alt="product-img" radius={16} />
+        <ImageCard src={images[0]} alt="product-img" />
         <S.CardTitle>{title}</S.CardTitle>
         <S.ProductPrice>{`${addCommas(price)}원`}</S.ProductPrice>
         <S.LikeCount>
