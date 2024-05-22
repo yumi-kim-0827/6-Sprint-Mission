@@ -9,7 +9,9 @@ import Layout from "./pages/Layout";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 
-function App(props) {
+type AppProps = {};
+
+function App(props: AppProps): React.ReactElement {
   return (
     <BrowserRouter>
       <Routes>
