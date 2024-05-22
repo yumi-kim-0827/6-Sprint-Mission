@@ -3,7 +3,23 @@ import styled from 'styled-components';
 import ic_kebab from '../assets/ic_kebab.png';
 import big_grayHeart from '../assets/big_grayHeart.png';
 
-export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }) {
+interface Props {
+  name: string;
+  description: string;
+  images: string;
+  price: number;
+  tags: string[];
+  favoriteCount: number;
+}
+
+interface TitleStyle {
+  fontSize: string;
+  fontWeight: string;
+  ipadSize: string;
+  deskTopSize: string;
+}
+
+export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: Props) {
   const formattedPrice = price.toLocaleString();
   return (
     <Container>
@@ -127,7 +143,7 @@ const TitleContainer = styled.div`
   }
 `;
 
-const Title = styled.p`
+const Title = styled.p<Partial<TitleStyle>>`
   font-size: ${props => props.fontSize};
   font-weight: ${props => props.fontWeight};
   line-height: 19px;
