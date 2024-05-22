@@ -39,7 +39,6 @@ function ProductDetailPage() {
 				<div className="submit-button-wrapper">
 					<button disabled={disabled}>등록</button>
 				</div>
-
 			</form>
 
 			<div className="comment-wrapper">
