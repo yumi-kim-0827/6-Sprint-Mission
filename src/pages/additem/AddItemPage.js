@@ -16,19 +16,18 @@ const AddItemPage = () => {
     tags: [],
   });
 
-  //등록 버튼 활성화 검사
-  useEffect(() => {
-    if (
+  const isEnrollButtonEnabled = () => {
+    return (
       values.images &&
       values.name &&
       values.description &&
       values.price &&
-      values.tags.length
-    ) {
-      setEnrollButtonDisable(false);
-    } else {
-      setEnrollButtonDisable(true);
-    }
+      values.tags.length > 0
+    );
+  };
+
+  useEffect(() => {
+    setEnrollButtonDisable(!isEnrollButtonEnabled());
   }, [values]);
 
   // 위 코드 적절한 코드인가요?

@@ -1,6 +1,6 @@
 const panda_market_backend_api = "https://panda-market-api.vercel.app/";
 
-const get_products = async ({
+const getProducts = async ({
   page = 1,
   pageSize = 10,
   orderBy = "recent",
@@ -16,7 +16,7 @@ const get_products = async ({
   return products;
 };
 
-const get_product = async ({
+const getProduct = async ({
   productId,
 }) => {
   const response = await fetch(panda_market_backend_api + `products/${productId}`);
@@ -28,7 +28,7 @@ const get_product = async ({
   return products;
 };
 
-const get_comments = async ({
+const getComments = async ({
   productId,
 }) => {
   const response = await fetch(panda_market_backend_api + `products/${productId}/comments?limit=3`);
@@ -40,4 +40,4 @@ const get_comments = async ({
   return products;
 };
 
-export { get_products, get_product, get_comments };
+export { getProducts, getProduct, getComments };

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { get_comments, get_product, get_products } from "../api/api";
+import { getProducts, getProduct, getComments } from "../api/api";
 
 export function useLoading() {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
-  const [noResult,setNoResult] =useState(false);
+  const [noResult, setNoResult] = useState(false);
 
   const handleLoad = async (...arg) => {
     let result;
@@ -12,8 +12,10 @@ export function useLoading() {
       setLoadingError(null);
       setIsLoading(true);
       setNoResult(false);
-      result = await get_products(...arg);
-      if(result.totalCount===0){setNoResult(true)}
+      result = await getProducts(...arg);
+      if (result.totalCount === 0) {
+        setNoResult(true);
+      }
       return result;
     } catch (error) {
       setLoadingError(error);
@@ -23,7 +25,7 @@ export function useLoading() {
     }
   };
 
-  return [isLoading, loadingError,noResult, handleLoad];
+  return [isLoading, loadingError, noResult, handleLoad];
 }
 
 export function useProductLoading() {
@@ -35,7 +37,7 @@ export function useProductLoading() {
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_product(...arg);
+      result = await getProduct(...arg);
       return result;
     } catch (error) {
       setLoadingError(error);
@@ -56,7 +58,7 @@ export function useCommentsLoading() {
     try {
       setLoadingError(null);
       setIsLoading(true);
-      result = await get_comments(...arg);
+      result = await getComments(...arg);
       return result;
     } catch (error) {
       setLoadingError(error);

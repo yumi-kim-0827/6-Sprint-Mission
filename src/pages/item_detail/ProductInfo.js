@@ -36,7 +36,6 @@ const ProductInfo = () => {
 
   const handleProductInfoLoad = async () => {
     const result = await handleLoad({ productId: productId });
-    console.log(result);
     setProductInfo(result);
   };
 

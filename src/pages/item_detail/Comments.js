@@ -15,7 +15,6 @@ const Comments = () => {
 
   const handleCommentsLoad = async () => {
     const result = await handleLoad({ productId: productId });
-    console.log(result);
     if (result.list.length === 0) {
       return;
     }
