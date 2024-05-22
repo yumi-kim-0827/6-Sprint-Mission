@@ -5,7 +5,7 @@ import facebookicon from "../../assets/ic-facebook.png";
 import youtubeicon from "../../assets/ic-youtube.png";
 import instagramicon from "../../assets/ic-instagram.png";
 
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer>
       <div className="info-container">
