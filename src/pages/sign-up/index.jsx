@@ -101,9 +101,9 @@ const SignUp = () => {
   return (
     <div className="sign-up-container">
       <div className="sign-up-container__logo">
-        <a href="/">
+        <Link to="/">
           <img className="logo" src={logoPng} alt="판다마켓 로고" />
-        </a>
+        </Link>
       </div>
 
       <form action="#" method="post">
