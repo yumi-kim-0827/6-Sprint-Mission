@@ -6,12 +6,22 @@ import ShowDetail from "../../components/show-detail";
 import HandleComment from "../../components/handle-comment";
 import returnlist from "../../assets/return.png";
 
-const DetailItem = () => {
+const DetailItem = (): JSX.Element => {
   const { Id } = useParams();
-  const [detailItem, setDetailItem] = useState();
-  const [comments, setComments] = useState([]);
 
-  const handleDetailsLoad = async (Id) => {
+  interface DetailItem {
+    images: string;
+    name: string;
+    price: number;
+    description: string;
+    tags: string[];
+    favoriteCount: number;
+  }
+
+  const [detailItem, setDetailItem] = useState<DetailItem>();
+  const [comments, setComments] = useState<string[]>([]);
+
+  const handleDetailsLoad = async (Id: string | undefined) => {
     const [itemsData, commentsData] = await Promise.all([getDetailProduct(Id), getProductComment(Id)]);
     setDetailItem(itemsData);
     setComments(commentsData);
