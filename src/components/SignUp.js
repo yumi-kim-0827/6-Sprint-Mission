@@ -4,11 +4,17 @@ import "../styles/home.css";
 import "../styles/auth.css";
 import "../styles/global.css";
 
-const LoginPage = () => {
+const SignUp = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
   };
 
   return (
@@ -18,9 +24,10 @@ const LoginPage = () => {
           <img src="/images/home/pandamarket.png" alt="판다마켓 로고" />
         </Link>
 
-        <form id="loginForm" method="post">
+        <form id="signupForm" method="post">
           <div class="input-item">
             <label for="email">이메일</label>
+
             <input
               id="email"
               name="email"
@@ -28,11 +35,26 @@ const LoginPage = () => {
               placeholder="이메일을 입력해 주세요"
               required
             />
+
             <span id="emailEmptyError" class="error-message">
               이메일을 입력해 주세요
             </span>
             <span id="emailInvalidError" class="error-message">
               잘못된 이메일 형식입니다
+            </span>
+          </div>
+
+          <div class="input-item">
+            <label for="nickname">닉네임</label>
+            <input
+              id="nickname"
+              name="nickname"
+              type="text"
+              placeholder="닉네임을 입력해 주세요"
+              required
+            />
+            <span id="nicknameEmptyError" class="error-message">
+              닉네임을 입력해 주세요
             </span>
           </div>
 
@@ -77,8 +99,49 @@ const LoginPage = () => {
             </span>
           </div>
 
+          <div class="input-item">
+            <label for="passwordConfirmation">비밀번호 확인</label>
+            <div class="input-wrapper">
+              <input
+                id="passwordConfirmation"
+                name="passwordConfirmation"
+                type={isConfirmPasswordVisible ? "text" : "password"}
+                placeholder="비밀번호를 다시 한 번 입력해 주세요"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle-button"
+                aria-label={
+                  isConfirmPasswordVisible ? "비밀번호 숨기기" : "비밀번호 보기"
+                }
+                onClick={toggleConfirmPasswordVisibility}
+              >
+                <img
+                  class="password-toggle-icon"
+                  src={
+                    isConfirmPasswordVisible
+                      ? "/images/home/openeyes.png"
+                      : "/images/home/closeeyes.png"
+                  }
+                  alt={
+                    isConfirmPasswordVisible
+                      ? "비밀번호 표시 상태 아이콘"
+                      : "비밀번호 숨김 상태 아이콘"
+                  }
+                />
+              </button>
+            </div>
+            <span id="passwordConfirmationInitError" class="error-message">
+              먼저 조건에 맞는 비밀번호를 입력해 주세요
+            </span>
+            <span id="passwordConfirmationError" class="error-message">
+              비밀번호가 일치하지 않습니다
+            </span>
+          </div>
+
           <button type="submit" class="button pill-button full-width">
-            로그인
+            회원가입
           </button>
         </form>
 
@@ -113,11 +176,11 @@ const LoginPage = () => {
         </div>
 
         <div class="auth-switch">
-          판다마켓이 처음이신가요? <Link to="/SignUp">회원가입</Link>
+          이미 회원이신가요? <Link to="/login">로그인</Link>
         </div>
       </main>
     </>
   );
 };
 
-export default LoginPage;
+export default SignUp;

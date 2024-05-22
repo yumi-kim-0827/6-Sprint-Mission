@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./home.css";
-import "./auth.css";
-import "./global.css";
+import "../styles/home.css";
+import "../styles/auth.css";
+import "../styles/global.css";
 
 const Home = () => {
   return (
