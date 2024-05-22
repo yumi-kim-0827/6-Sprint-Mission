@@ -3,12 +3,27 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   gap: 24px;
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 `;
 
 export const Image = styled.img`
   width: 486px;
   height: 486px;
   border-radius: 16px;
+
+  @media (max-width: 744px) {
+    width: 340px;
+    height: 340px;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 export const Title = styled.h2`
@@ -31,7 +46,7 @@ export const Price = styled.span`
 `;
 
 export const Division = styled.div`
-  width: 680px;
+  max-width: 680px;
   border: 1px solid #e5e7eb;
   margin-block: 16px;
 `;
@@ -67,7 +82,10 @@ export const ItemTag = styled.div`
   & div {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+
     margin-top: 8px;
+    margin-bottom: 25px;
     & span {
       color: #1f2937;
 
@@ -97,5 +115,5 @@ export const Favorite = styled.div`
   padding-block: 4px;
   padding-inline: 12px;
 
-  margin-top: 120px;
+  margin-top: auto;
 `;
