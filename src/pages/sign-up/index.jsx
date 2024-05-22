@@ -9,17 +9,94 @@ import googleLogo from "../../assets/sign-up/google-icon.png";
 
 const SignUp = () => {
   const [isSignUpBtnDisabled, setIsSignUpBtnDisabled] = useState(true);
-  const [isPwShow, setIsPwShow] = useState(false);
+
+  const [isPwShow, setIsPwShow] = useState({
+    password: false,
+    passwordConfirm: false,
+  });
 
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPw, setIsValidPw] = useState(true);
   const [isPwMatch, setIsPwMatch] = useState(true);
   const [isValidNickname, setIsValidNickname] = useState(true);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [matchPassword, setMatchPassword] = useState("");
-  const [nickname, setNickname] = useState("");
+  const [signUpInfo, setSignUpInfo] = useState({
+    email: "",
+    password: "",
+    matchPassword: "",
+    nickname: "",
+  });
+
+  const validOption = {
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    pw: /.{8,}/,
+    nick: /^.+$/,
+  };
+
+  useEffect(() => {
+    if (
+      isValidEmail &&
+      isValidPw &&
+      isPwMatch &&
+      isValidNickname &&
+      signUpInfo.email &&
+      signUpInfo.password &&
+      signUpInfo.nickname &&
+      signUpInfo.matchPassword
+    ) {
+      setIsSignUpBtnDisabled(false);
+    } else {
+      setIsSignUpBtnDisabled(true);
+    }
+  }, [isValidEmail, isPwShow, isPwMatch, isValidNickname]);
+
+  const checkInputValidity = (category, value) => {
+    setSignUpInfo((prevSignUpInfo) => ({
+      ...prevSignUpInfo,
+      [category]: value,
+    }));
+  };
+
+  const setEmailToSignUpInfo = (e) => {
+    const { value } = e.target;
+    checkInputValidity("email", value);
+    const isValid = validOption.email.test(value);
+    setIsValidEmail(isValid ? true : false);
+  };
+
+  const setPwToSignUpInfo = (e) => {
+    const { value } = e.target;
+    checkInputValidity("password", value);
+    const isValid = validOption.pw.test(value);
+    setIsValidPw(isValid ? true : false);
+  };
+
+  const setNickToSignUpInfo = (e) => {
+    const { value } = e.target;
+    checkInputValidity("nickname", value);
+    const isValid = validOption.nick.test(value);
+    setIsValidNickname(isValid ? true : false);
+  };
+
+  const setPwMatchToSignUpInfo = (e) => {
+    const { value } = e.target;
+    checkInputValidity("matchPassword", value);
+    const isValid = signUpInfo.password === value;
+    setIsPwMatch(isValid ? true : false);
+  };
+
+  const handlePwShow = (e) => {
+    const { className } = e.target;
+    className.includes("re")
+      ? setIsPwShow((prevIsPwShow) => ({
+          ...prevIsPwShow,
+          passwordConfirm: !prevIsPwShow.passwordConfirm,
+        }))
+      : setIsPwShow((prevIsPwShow) => ({
+          ...prevIsPwShow,
+          password: !prevIsPwShow.password,
+        }));
+  };
 
   return (
     <div className="sign-up-container">
@@ -32,27 +109,76 @@ const SignUp = () => {
       <form action="#" method="post">
         <div className="email con">
           <label htmlFor="email">이메일</label>
-          <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+          <input
+            type="email"
+            id="email"
+            placeholder="이메일을 입력해주세요"
+            onChange={setEmailToSignUpInfo}
+            className={isValidEmail ? "" : "wrong"}
+            autoFocus
+          />
+          {isValidEmail || (
+            <span className="wrong-email">
+              {signUpInfo.email === "" ? "이메일을 입력해주세요" : "잘못된 이메일 형식입니다"}
+            </span>
+          )}
         </div>
 
         <div className="nick con">
           <label htmlFor="nickname">닉네임</label>
-          <input type="text" id="nickname" placeholder="닉네임을 입력해주세요" />
+          <input
+            type="text"
+            id="nickname"
+            placeholder="닉네임을 입력해주세요"
+            className={isValidNickname ? "" : "wrong"}
+            onChange={setNickToSignUpInfo}
+          />
+          {isValidNickname || (
+            <span className="wrong-nick">{signUpInfo.nickname === "" && "닉네임을 입력해주세요"}</span>
+          )}
         </div>
 
         <div className="pw con">
           <label htmlFor="pw">비밀번호</label>
-          <input type="password" id="pw" placeholder="비밀번호를 입력해주세요" />
-          <img className="pw-icon" src="./signup/assets/non-show-pw.png" alt="비밀번호 보이기" />
+          <input
+            type={isPwShow.password ? "text" : "password"}
+            id="pw"
+            placeholder="비밀번호를 입력해주세요"
+            className={isValidPw ? "" : "wrong"}
+            onChange={setPwToSignUpInfo}
+          />
+          {isPwShow.password ? (
+            <img className="pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
+          ) : (
+            <img className="pw-icon" src={nonShowIcon} onClick={handlePwShow} alt="비밀번호 보이지 않기" />
+          )}
+          {isValidPw || (
+            <span className="wrong-pw">
+              {signUpInfo.password === "" ? "비밀번호를 입력해주세요" : "비밀번호를 8자 이상 입력해주세요"}
+            </span>
+          )}
         </div>
 
         <div className="re-pw con">
           <label htmlFor="re-pw">비밀번호 확인</label>
-          <input type="password" id="re-pw" placeholder="비밀번호를 다시 한번 입력해주세요" />
-          <img className="re-pw-icon" src="./login/assets/non-show-pw.png" alt="비밀번호 보이기" />
+          <input
+            type={isPwShow.passwordConfirm ? "text" : "password"}
+            id="re-pw"
+            placeholder="비밀번호를 다시 한번 입력해주세요"
+            className={isPwMatch ? "" : "wrong"}
+            onChange={setPwMatchToSignUpInfo}
+          />
+          {isPwShow.passwordConfirm ? (
+            <img className="re pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
+          ) : (
+            <img className="re pw-icon" src={nonShowIcon} onClick={handlePwShow} alt="비밀번호 보이지 않기" />
+          )}
+          {isPwMatch || <span className="wrong-pw">비밀번호가 일치하지 않습니다</span>}
         </div>
 
-        <button className="signup-btn">회원가입</button>
+        <button disabled={isSignUpBtnDisabled} className="signup-btn">
+          회원가입
+        </button>
 
         <div className="social-login">
           <p>간편 로그인하기</p>
