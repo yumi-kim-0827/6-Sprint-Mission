@@ -13,7 +13,7 @@ const INITIAL_VALUES = {
   imgFile: null as File | null,
 }
 
-interface AddItemProps {
+type AddItemProps = {
   initialValues?: typeof INITIAL_VALUES // typeof 없으면 객체 구조를 명시적으로 작성해야 함
   initialPreview?: string
 }

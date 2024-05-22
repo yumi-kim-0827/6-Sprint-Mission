@@ -3,7 +3,7 @@ import styles from '../styles/fileinput.module.css'
 import previewImg from '../assets/icon_placeholder.png'
 import icon_reset from '../assets/icon_reset.png'
 
-interface FileInputProps {
+type FileInputProps = {
   className?: string
   name: string
   value: File | null
