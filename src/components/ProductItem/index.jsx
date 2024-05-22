@@ -2,10 +2,16 @@ import React from 'react';
 import './style.css';
 import HeartIcon from 'assets/icons/Heart';
 import { formatNumberToWon } from 'utils/formatNumber';
+import { useNavigate } from 'react-router-dom';
 
 const ProductItem = ({ item }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="item-container">
+    <div
+      className="item-container"
+      onClick={() => navigate(`/items/${item.id}`)}
+    >
       <div className="image-container">
         <img src={item.images[0]} alt={item.name} className="item-image" />
       </div>

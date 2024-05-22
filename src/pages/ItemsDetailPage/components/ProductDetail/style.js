@@ -27,7 +27,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #1f2937;
+  color: var(--gray-800);
 
   font-size: 24px;
   font-weight: 600;
@@ -38,7 +38,7 @@ export const Title = styled.h2`
 `;
 
 export const Price = styled.span`
-  color: #1f2937;
+  color: var(--gray-800);
 
   font-size: 40px;
   font-weight: 600;
@@ -47,21 +47,21 @@ export const Price = styled.span`
 
 export const Division = styled.div`
   max-width: 680px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--gray-200);
   margin-block: 16px;
 `;
 
 export const Description = styled.div`
   margin-bottom: 24px;
   & span {
-    color: #4b5563;
+    color: var(--gray-600);
 
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
   }
   & p {
-    color: #1f2937;
+    color: var(--gray-800);
 
     font-size: 16px;
     font-weight: 400;
@@ -73,7 +73,7 @@ export const Description = styled.div`
 
 export const ItemTag = styled.div`
   & span {
-    color: #4b5563;
+    color: var(--gray-600);
 
     font-size: 14px;
     font-weight: 500;
@@ -87,7 +87,7 @@ export const ItemTag = styled.div`
     margin-top: 8px;
     margin-bottom: 25px;
     & span {
-      color: #1f2937;
+      color: var(--gray-800);
 
       background-color: #f3f4f6;
       padding-block: 6px;
@@ -104,16 +104,21 @@ export const ItemTag = styled.div`
 export const Favorite = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 
-  color: #6b7280;
+  color: var(--gray-500);
 
   width: 87px;
   height: 40px;
   border-radius: 35px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--gray-200);
   padding-block: 4px;
   padding-inline: 12px;
 
   margin-top: auto;
+
+  & span {
+    margin-bottom: 3px;
+  }
 `;

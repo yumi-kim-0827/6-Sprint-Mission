@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Division = styled.div`
   max-width: 1200px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--gray-200);
 
   margin-top: 32px;
   margin-bottom: 24px;
@@ -17,7 +17,7 @@ export const Inquiry = styled.div`
     font-weight: 600;
     line-height: 19px;
 
-    color: #111827;
+    color: var(--gray-900);
   }
 
   & textarea {
@@ -41,13 +41,32 @@ export const Inquiry = styled.div`
   }
 `;
 
+export const EmptyComment = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & img {
+    width: 200px;
+    height: 200px;
+  }
+
+  & p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: var(--gray-400);
+  }
+`;
+
 export const Comment = styled.div`
   & p {
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
 
-    color: #1f2937;
+    color: var(--gray-800);
 
     margin-block: 24px;
   }
@@ -75,7 +94,7 @@ export const CommentUser = styled.div`
       font-weight: 400;
       line-height: 17px;
 
-      color: #4b5563;
+      color: var(--gray-600);
     }
 
     & span:nth-child(2) {
@@ -83,7 +102,7 @@ export const CommentUser = styled.div`
       font-weight: 400;
       line-height: 14px;
 
-      color: #9ca3af;
+      color: var(--gray-400);
     }
   }
 `;
