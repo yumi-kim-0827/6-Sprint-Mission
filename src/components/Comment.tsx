@@ -11,7 +11,7 @@ type Writer = {
 
 type CommentProps = {
   content: string;
-  createdAt: string;
+  createdAt: number;
   writer: Writer;
 };
 
