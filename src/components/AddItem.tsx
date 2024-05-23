@@ -3,27 +3,36 @@ import styled, { css } from "styled-components";
 import FileInput from "./FileInputs";
 import InputTag from "./TagInput";
 
-const AddItem = () => {
-  const [tags, setTags] = useState([]);
-  const [isTagsEmpty, setIsTagsEmpty] = useState(true);
+interface Values {
+  title: string;
+  description: string;
+  price: string;
+  imgFile: File | null;
+}
 
-  const [values, setValues] = useState({
+const AddItem = () => {
+  const [tags, setTags] = useState<string[]>([]);
+  const [isTagsEmpty, setIsTagsEmpty] = useState<boolean>(true);
+
+  const [values, setValues] = useState<Values>({
     title: "",
     description: "",
     price: "",
     imgFile: null,
   });
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: keyof Values, value: File | null | string) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    handleChange(name, value);
+    handleChange(name as keyof Values, value as string);
   };
 
   const isValidate =
@@ -32,7 +41,7 @@ const AddItem = () => {
     values.price.trim() !== "" &&
     !isTagsEmpty;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("제목:", values.title);
     console.log("설명:", values.description);
@@ -52,7 +61,7 @@ const AddItem = () => {
       <FileInput
         name="imgFile"
         value={values.imgFile}
-        onChange={handleChange}
+        onChange={(name, value) => handleChange(name as keyof Values, value)}
       />
       <InputTitleWrapper>
         <TitleText>상품명</TitleText>
@@ -86,7 +95,6 @@ const AddItem = () => {
       <InputTitleWrapper>
         <TitleText>태그</TitleText>
         <InputTag
-          name="tags"
           tags={tags}
           setTags={setTags}
           setIsTagsEmpty={setIsTagsEmpty}

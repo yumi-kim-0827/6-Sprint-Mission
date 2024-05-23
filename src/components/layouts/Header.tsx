@@ -6,6 +6,7 @@ import "../../css/style.css";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const handleLoginClick = () => {
     navigate("/login");
   };
@@ -87,7 +88,7 @@ const FreeBoard = styled.div`
   cursor: pointer;
 `;
 
-const UsedMarket = styled.div`
+const UsedMarket = styled.div<{ active: boolean }>`
   font-family: Pretendard;
   font-size: 15px;
   font-weight: 700;
@@ -95,13 +96,16 @@ const UsedMarket = styled.div`
   text-align: center;
   padding-left: 15px;
   cursor: pointer;
+
   ${(props) =>
     props.active &&
     css`
       color: #3692ff;
     `}
 `;
+
 const PandaLogo = styled.img`
   cursor: pointer;
 `;
+
 export default Header;

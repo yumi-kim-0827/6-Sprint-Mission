@@ -1,5 +1,5 @@
 import ProductDetailStyle from "../css/ProductDetailStyle";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const {
   AskQuestion,
@@ -12,7 +12,7 @@ const {
 const InputComments = () => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
   };
 

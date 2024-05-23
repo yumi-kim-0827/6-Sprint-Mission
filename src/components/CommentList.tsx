@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getComments } from "../Api/getComments";
+import { getComments, Comment } from "../Api/getComments";
 import NoneImg from "../assets/images/Img_inquiry_empty.png";
 import BackIcon from "../assets/images/ic_back.png";
 import styled from "styled-components";
@@ -8,20 +8,25 @@ import KebabIcon from "../assets/images/ic_kebab.png";
 import { formatTimes } from "../utils/FormatTimes";
 
 const CommentList = () => {
-  const { productId } = useParams();
-  const [comments, setComments] = useState([]);
+  const { productId } = useParams<{ productId: string }>();
+  const [comments, setComments] = useState<Comment[]>([]);
 
   const navigate = useNavigate();
 
   const handleReturnClick = () => {
     navigate("/items");
   };
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const data = await getComments(productId, 3);
-        setComments(data.list);
-        console.log(data);
+        if (productId) {
+          const data = await getComments(parseInt(productId), 3);
+          if (data) {
+            setComments(data.list);
+            console.log(data);
+          }
+        }
       } catch (error) {
         console.error("댓글을 불러오는 데 실패했습니다:", error);
       }
@@ -43,8 +48,8 @@ const CommentList = () => {
       ) : (
         <>
           <CommentListContainer>
-            {comments.map((comment, id) => (
-              <div key={id}>
+            {comments.map((comment) => (
+              <div key={comment.id}>
                 <Content>
                   {comment.content}
                   <Logo src={KebabIcon} />

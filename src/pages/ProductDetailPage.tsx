@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../Api/getProductId";
+import { getProductById, Product } from "../Api/getProductId";
 import ProductDetail from "../components/ProductDetail";
 import InputComments from "../components/InputComment";
 import CommentList from "../components/CommentList";
 import styled from "styled-components";
 
 const ProductDetailPage = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const { productId } = useParams<{ productId: string }>();
+  const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getProductById(productId);
-        setProduct(data);
+        if (productId) {
+          const data = await getProductById(productId);
+          if (data) {
+            setProduct(data);
+          }
+        }
       } catch (error) {
         console.error("상품 정보를 불러오는 데 실패했습니다:", error);
       }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import KebabIcon from "../assets/images/ic_kebab.png";
 import ProductDetailStyle from "../css/ProductDetailStyle";
+import { Product } from "Api/getProductId";
 
 const {
   ProductDetailContainer,
@@ -17,7 +18,11 @@ const {
   TagList,
 } = ProductDetailStyle;
 
-const ProductDetail = ({ product }) => {
+interface ProductDetailProps {
+  product: Product;
+}
+
+const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const { name, description, price, images, favoriteCount, tags } = product;
 
   return (
