@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import kakao from "../../assets/images/social/kakao-logo.png";
 import google from "../../assets/images/social/google-logo.png";
 import eyeinvisible from "../../assets/images/icons/eye-invisible.svg";
@@ -7,12 +7,19 @@ import logo from "../../assets/images/logo/logo.svg";
 import "../../styles/auth.css";
 import "../../styles/global.css";
 
-function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+function SignupPage() {
+  const [email, setEmail] = useState<string>("");
+  const [nickname, setNickname] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState<string>("");
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+  const [isNicknameValid, setIsNicknameValid] = useState<boolean>(false);
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
+  const [isPasswordConfirmationValid, setIsPasswordConfirmationValid] =
+    useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isPasswordConfirmationVisible, setIsPasswordConfirmationVisible] =
+    useState<boolean>(false);
 
   useEffect(() => {
     const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
@@ -20,25 +27,49 @@ function LoginPage() {
   }, [email]);
 
   useEffect(() => {
-    setIsPasswordValid(password.length >= 8);
-  }, [password]);
+    setIsNicknameValid(nickname.length > 0);
+  }, [nickname]);
 
-  const handleEmailChange = (e) => {
+  useEffect(() => {
+    setIsPasswordValid(password.length >= 8);
+    setIsPasswordConfirmationValid(password === passwordConfirmation);
+  }, [password, passwordConfirmation]);
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handleNicknameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNickname(e.target.value);
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+  };
+
+  const handlePasswordConfirmationChange = (
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    setPasswordConfirmation(e.target.value);
   };
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const handleSubmit = (e) => {
+  const togglePasswordConfirmationVisibility = () => {
+    setIsPasswordConfirmationVisible(!isPasswordConfirmationVisible);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isEmailValid && isPasswordValid) {
-      window.location.href = "/items";
+    if (
+      isEmailValid &&
+      isNicknameValid &&
+      isPasswordValid &&
+      isPasswordConfirmationValid
+    ) {
+      window.location.href = "/login";
     }
   };
 
@@ -69,6 +100,24 @@ function LoginPage() {
             {email && !isEmailValid && (
               <span id="emailInvalidError" className="error-message">
                 잘못된 이메일 형식입니다
+              </span>
+            )}
+          </div>
+
+          <div className="input-item">
+            <label className="nickname">닉네임</label>
+            <input
+              id="nickname"
+              name="nickname"
+              type="text"
+              placeholder="닉네임을 입력해 주세요"
+              value={nickname}
+              onChange={handleNicknameChange}
+              required
+            />
+            {!nickname && (
+              <span id="nicknameEmptyError" className="error-message">
+                닉네임을 입력해 주세요
               </span>
             )}
           </div>
@@ -116,12 +165,59 @@ function LoginPage() {
             )}
           </div>
 
+          <div className="input-item">
+            <label className="passwordConfirmation">비밀번호 확인</label>
+            <div className="input-wrapper">
+              <input
+                id="passwordConfirmation"
+                name="passwordConfirmation"
+                type={isPasswordConfirmationVisible ? "text" : "password"}
+                placeholder="비밀번호를 다시 한 번 입력해 주세요"
+                value={passwordConfirmation}
+                onChange={handlePasswordConfirmationChange}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle-button"
+                aria-label={
+                  isPasswordConfirmationVisible
+                    ? "비밀번호 숨기기"
+                    : "비밀번호 보기"
+                }
+                onClick={togglePasswordConfirmationVisibility}
+              >
+                <img
+                  className="password-toggle-icon"
+                  src={
+                    isPasswordConfirmationVisible ? eyevisible : eyeinvisible
+                  }
+                  alt={
+                    isPasswordConfirmationVisible
+                      ? "비밀번호 숨김 상태 아이콘"
+                      : "비밀번호 표시 상태 아이콘"
+                  }
+                />
+              </button>
+            </div>
+            {passwordConfirmation && !isPasswordConfirmationValid && (
+              <span id="passwordConfirmationError" className="error-message">
+                비밀번호가 일치하지 않습니다
+              </span>
+            )}
+          </div>
+
           <button
             type="submit"
             className="button pill-button full-width"
-            disabled={!isEmailValid || !isPasswordValid}
+            disabled={
+              !isEmailValid ||
+              !isNicknameValid ||
+              !isPasswordValid ||
+              !isPasswordConfirmationValid
+            }
           >
-            로그인
+            회원가입
           </button>
         </form>
 
@@ -148,11 +244,11 @@ function LoginPage() {
         </div>
 
         <div className="auth-switch">
-          판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
+          이미 회원이신가요? <a href="/login">로그인</a>
         </div>
       </main>
     </div>
   );
 }
 
-export default LoginPage;
+export default SignupPage;
