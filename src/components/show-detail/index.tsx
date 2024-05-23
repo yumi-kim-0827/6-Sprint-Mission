@@ -3,7 +3,16 @@ import "./ShowDetail.css";
 import likeicon from "../../assets/like-icon.png";
 import hamburger from "../../assets/hamburger-icon.png";
 
-const ShowDetail = ({ images, name, price, description, tags, favoriteCount }) => {
+interface ShowDetailValues {
+  images: string;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  favoriteCount: string;
+}
+
+const ShowDetail = ({ images, name, price, description, tags, favoriteCount }: ShowDetailValues) => {
   return (
     <div className="show-item-detail">
       <img className="show-item-detail__img" src={images} alt="제품 상세 페이지 내부 제품 이미지" />
