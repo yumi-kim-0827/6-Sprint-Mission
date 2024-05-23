@@ -11,7 +11,7 @@ import React, {
 import "./AddItems.css";
 import fileplus from "../../assets/file-plus.png";
 import tagdelete from "../../assets/tag-delete.png";
-import { registerValidation } from "../../components/validations/validation";
+import { registerValidation } from "../../utils/validation";
 
 interface Props {
   name: string;
