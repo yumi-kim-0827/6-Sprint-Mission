@@ -1,7 +1,9 @@
-
+import React from "react";
 import { Link } from "react-router-dom";
 import "./productElement.css";
 import favoriteCountIcon from "image/ic_heart.svg";
+
+
 interface Product {
   createdAt: string;
   favoriteCount: number;

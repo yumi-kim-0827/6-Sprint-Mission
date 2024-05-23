@@ -1,0 +1,370 @@
+/* 메인 */
+.main-container {
+  display: grid;
+  grid-template: 54rem 1fr 54rem / 1fr 120rem 1fr;
+}
+.banner.top {
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+.banner.bottom {
+  grid-column: 1/4;
+  grid-row: -1/-2;
+}
+/* 배너 */
+
+.banner {
+  background-color: var(--bannerbg);
+  display: grid;
+  grid-template-columns: 1fr 120rem 1fr;
+}
+
+.banner-content {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: flex;
+}
+.banner-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.2rem;
+}
+.banner-txt p {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+  width: max-content; /* 텍스트 박스의 너비를 텍스트 크기에 맞게 조절 */
+  white-space: nowrap; /* 텍스트가 한 줄에만 표시되도록 줄바꿈을 막음 */
+}
+
+.action-btn {
+  background-color: var(--btn1);
+  padding: 1.6rem 12.4rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 4rem;
+  line-height: 2.4rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.top .banner-img {
+  width: 99.6rem;
+  height: 44.7rem;
+  position: relative;
+  right: 1.4rem;
+  top: 9.3rem;
+}
+.bottom .banner-img {
+  width: 99.6rem;
+  height: 54rem;
+  position: relative;
+  left: 5.5rem;
+}
+
+/* 인포 섹션 */
+
+.info-section {
+  grid-column: 2/3;
+  grid-row: 2/-2;
+  display: grid;
+  grid-template-rows: repeat(3, 13.8rem 1fr 13.8rem);
+}
+.info-card {
+  display: flex;
+  gap: 6.4rem;
+}
+.search {
+  justify-content: end;
+}
+.info-card.hot-item {
+  grid-row: 2/3;
+}
+.info-card.search {
+  grid-row: 5/6;
+}
+.info-card.register {
+  grid-row: 8/9;
+}
+
+.info-card-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.search .info-card-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: end;
+}
+.info-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--main);
+  line-height: 2.52rem;
+  margin-bottom: 1.2rem;
+}
+.big-info {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5.6rem;
+  margin-bottom: 2.4rem;
+  letter-spacing: 2%;
+}
+.small-info {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+
+/* footer */
+footer {
+  background-color: var(--gray900);
+  height: 16rem;
+  padding-top: 3.2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 20rem;
+}
+.footer-company {
+  color: var(--gray400);
+  font-size: 1.6rem;
+  font-weight: 40;
+  line-height: 1.9rem;
+}
+.footer-policy-faq a {
+  color: var(--gray200);
+  font-size: 1.6rem;
+}
+.footer-policy-faq a:first-child {
+  margin-right: 3rem;
+}
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* Tablet size */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* main */
+  .main-container {
+    grid-template: 77.1rem 1fr 92.7rem / 2.4rem 1fr 2.4rem;
+  }
+
+  /* banner */
+  .banner {
+    display: block;
+  }
+
+  .top .banner-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8.4rem;
+    gap: 10rem;
+  }
+
+  .top .banner-txt {
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  .top .action-btn {
+    width: 35.5rem;
+  }
+
+  .top .banner-txt p br {
+    display: none;
+  }
+
+  .top .banner-img {
+    position: static;
+    width: 99.6rem;
+  }
+
+  .bottom .banner-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20.1rem;
+    gap: 7.4rem;
+  }
+
+  .bottom .banner-txt {
+    text-align: center;
+  }
+
+  .bottom .banner-img {
+    position: static;
+    width: 99.6rem;
+  }
+
+  /* info */
+
+  .info-section {
+    grid-template-rows: 2.4rem 1fr 3.2rem 3.2rem 1fr 3.2rem 3.2rem 1fr 8rem;
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .info-card-img {
+    width: 69.6rem;
+    height: 52.4rem;
+  }
+
+  .info-card-txt .big-info br {
+    display: none;
+  }
+
+  .search .info-card-txt {
+    order: 2;
+  }
+
+  .search .info-card-img {
+    order: 1;
+  }
+  .big-info {
+    font-size: 3.2rem;
+    line-height: 4.4rem;
+    margin-bottom: 2rem;
+  }
+  .small-info {
+    font-size: 1.8rem;
+    line-height: 2.16rem;
+  }
+
+  /* footer */
+  .footer-content {
+    margin: 0 10rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  /* main */
+  .main-container {
+    grid-template: 54rem 1fr 54rem / 1.6rem 1fr 1.6rem;
+  }
+
+  /* banner */
+  .banner {
+    display: block;
+  }
+  .banner-txt p {
+    font-size: 3.2rem;
+    line-height: 4.48rem;
+  }
+  .top .banner-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4.8rem;
+    gap: 5.5rem;
+  }
+
+  .top .banner-txt {
+    align-items: center;
+    gap: 1.8rem;
+    text-align: center;
+  }
+
+  .top .action-btn {
+    width: 15.6rem;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+  .top .banner-img {
+    position: static;
+    width: 62.6rem;
+    height: 28.1rem;
+  }
+
+  .bottom .banner-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12.1rem;
+    gap: 5.9rem;
+  }
+
+  .bottom .banner-txt {
+    text-align: center;
+  }
+
+  .bottom .banner-img {
+    position: static;
+    width: 49.7rem;
+    height: 27rem;
+  }
+
+  /* info */
+
+  .info-section {
+    grid-template-rows: 2.4rem 1fr 3.2rem 3.2rem 1fr 3.2rem 3.2rem 1fr 6.4rem;
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .info-card-img {
+    width: 100%;
+  }
+  .info-card-txt .big-info br {
+    display: none;
+  }
+
+  .search .info-card-txt {
+    order: 2;
+  }
+
+  .search .info-card-img {
+    order: 1;
+  }
+
+  .info-title {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .big-info {
+    font-size: 2.4rem;
+    line-height: 3.36rem;
+    margin-bottom: 1.4rem;
+  }
+  .small-info {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+  /* footer */
+  footer {
+    padding-bottom: 3.2rem;
+  }
+  .footer-content {
+    grid-template: 1fr 1fr / 1fr 1fr;
+    row-gap: 6rem;
+    margin: 0 3.2rem;
+  }
+  .footer-company {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+}

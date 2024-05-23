@@ -46,7 +46,7 @@ const Header = () => {
         {location.pathname === "/additem" ? (
           <img src={userIcon} className="user-icon" alt="유저 아이콘" />
         ) : (
-          <Link to="/" className="login-btn">
+          <Link to="/signin" className="login-btn">
             로그인
           </Link>
         )}
