@@ -13,7 +13,7 @@ import Button from 'components/Button';
 import BackIcon from 'assets/icons/Back';
 import { getProductComment } from 'api/getProductComment';
 import useLoading from 'hooks/useLoading';
-import EmptyLogo from 'assets/logos/emptyLogo.png';
+import EmptyLogo from 'assets/logos/empty-logo.png';
 import { diffTime } from 'utils/diffTime';
 import { CommentType } from 'types/comment';
 
