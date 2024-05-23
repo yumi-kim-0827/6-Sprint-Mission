@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import "./DropdownContainer.css";
 import SortIcon from "../../assets/ic_sort.svg";
 
-const DropdownContainer = ({ onNewestClick, onBestClick }) => {
+interface DropdownContainerProps {
+  onNewestClick: () => void;
+  onBestClick: () => void;
+}
+
+const DropdownContainer = ({
+  onNewestClick,
+  onBestClick,
+}: DropdownContainerProps) => {
   const [isDropdownView, setDropdownView] = useState(false);
 
   const handleClickContainer = () => {
     setDropdownView((prevState) => !prevState);
   };
 
-  const handleItemClick = (clickHandler) => {
+  const handleItemClick = (clickHandler: () => void) => {
     clickHandler();
     setDropdownView(false);
   };

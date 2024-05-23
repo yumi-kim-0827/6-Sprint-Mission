@@ -3,9 +3,23 @@ import { Link } from "react-router-dom";
 import "./Products.css";
 import favoriteIcon from "../../assets/favorite-icon.svg";
 
-function ProductListItem({ item, imageStyle }) {
+export interface ItemProps {
+  id: number;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+function ProductListItem({
+  item,
+  imageStyle,
+}: {
+  item: ItemProps;
+  imageStyle: string;
+}) {
   const { id, images, name, price, favoriteCount } = item;
-  const formatPriceWithCommas = (price) => {
+  const formatPriceWithCommas = (price: number) => {
     return price.toLocaleString("en-US");
   };
   return (
@@ -28,8 +42,14 @@ function ProductListItem({ item, imageStyle }) {
     </Link>
   );
 }
-function Products({ items, type }) {
-  const getItemStyle = (type) => {
+
+interface ProductsProps {
+  items: ItemProps[];
+  type: "best" | "all";
+}
+
+function Products({ items, type }: ProductsProps) {
+  const getItemStyle = (type: "best" | "all") => {
     switch (type) {
       case "best":
         return "bestItemStyle";

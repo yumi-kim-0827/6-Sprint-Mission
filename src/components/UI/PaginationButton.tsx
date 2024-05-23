@@ -4,14 +4,21 @@ import "./PaginationButton.css";
 import ActiveRightArrow from "../../assets/active-rightarrow.svg";
 import ActiveLeftArrow from "../../assets/active-leftarrow.svg";
 
-const PaginationButton = ({ totalPageNum, activePageNum, onPageChange }) => {
+interface PaginationButtonProps {
+  totalPageNum: number;
+  activePageNum: number;
+  onPageChange: (pageNum: number) => void;
+}
+
+const PaginationButton = ({
+  totalPageNum,
+  activePageNum,
+  onPageChange,
+}: PaginationButtonProps) => {
   const maxVisiblePages = 5;
 
-  let startPage;
+  let startPage = 1;
 
-  if (totalPageNum <= maxVisiblePages) {
-    startPage = 1;
-  }
   if (totalPageNum > maxVisiblePages) {
     startPage = Math.max(activePageNum - Math.floor(maxVisiblePages / 2), 1);
     startPage = Math.min(startPage, totalPageNum - maxVisiblePages + 1);

@@ -1,3 +1,4 @@
+import React from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
 import hotItem from "../../assets/hotItem.svg";
@@ -32,7 +33,7 @@ function Homepage() {
               <h2 className="featureSubtitle">Hot item</h2>
               <h1 className="featureTitle">
                 인기 상품을{" "}
-                <span class="breakOnDesktop">
+                <span className="breakOnDesktop">
                   <br />
                 </span>
                 확인해 보세요

@@ -5,6 +5,7 @@ import { getBestProducts, getProducts } from "../../api/Api";
 import DropdownContainer from "../../components/UI/DropdownContainer";
 import PaginationButton from "../../components/UI/PaginationButton";
 import useResizeHandler from "../../hooks/useResizeHandler";
+import { ItemProps } from "./Products";
 import "./Items.css";
 
 const getLimit = () => {
@@ -19,15 +20,27 @@ const getLimit = () => {
 };
 
 function Items() {
-  const [items, setItems] = useState([]);
-  const [order, setOrder] = useState("recent");
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(getLimit());
-  const [totalPages, setTotalPages] = useState();
-  const [keyword, setKeyword] = useState("");
-  const [bestItems, setBestItems] = useState([]);
+  const [items, setItems] = useState<ItemProps[]>([]);
+  const [order, setOrder] = useState<string>("recent");
+  const [page, setPage] = useState<number>(1);
+  const [limit, setLimit] = useState<number>(getLimit());
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [keyword, setKeyword] = useState<string>("");
+  const [bestItems, setBestItems] = useState<ItemProps[]>([]);
 
-  const handleLoad = async ({ page, limit, order, keyword }) => {
+  interface handleLodaProps {
+    page: number;
+    limit: number;
+    order: string;
+    keyword: string;
+  }
+
+  const handleLoad = async ({
+    page,
+    limit,
+    order,
+    keyword,
+  }: handleLodaProps) => {
     const products = await getProducts({ page, limit, order, keyword });
 
     setItems(products.list);
@@ -48,7 +61,7 @@ function Items() {
     const bestItemsLimited = bestProducts.slice(0, bestItemsCount);
     setBestItems(bestItemsLimited);
   };
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
@@ -56,9 +69,10 @@ function Items() {
 
   const handleNewestClick = () => setOrder("recent");
 
-  const handleKeywordChange = (e) => setKeyword(e.target.value);
+  const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setKeyword(e.target.value);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await handleLoad({ page, limit, order, keyword });
   };

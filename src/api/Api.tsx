@@ -1,4 +1,4 @@
-async function fetchData(url) {
+async function fetchData(url: string) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -11,15 +11,22 @@ async function fetchData(url) {
   }
 }
 
+interface URLSearchParamsProps {
+  page: number;
+  limit: number;
+  order: string;
+  keyword: string;
+}
+
 export async function getProducts({
   page = 1,
   limit = 12,
   order = "recent",
   keyword = "",
-}) {
+}: URLSearchParamsProps) {
   const query = new URLSearchParams({
-    page,
-    pageSize: limit,
+    page: page.toString(),
+    limit: limit.toString(),
     orderBy: order,
     keyword,
   }).toString();
@@ -33,12 +40,12 @@ export async function getBestProducts(order = "favorite") {
   return data.list;
 }
 
-export async function getProductInfo(productID) {
+export async function getProductInfo(productID: number) {
   const url = `https://panda-market-api.vercel.app/products/${productID}`;
   return await fetchData(url);
 }
 
-export async function getComments(productID) {
+export async function getComments(productID: number) {
   const url = `https://panda-market-api.vercel.app/products/${productID}/comments?limit=10`;
   const data = await fetchData(url);
   return data.list;
