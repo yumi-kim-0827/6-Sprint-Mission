@@ -1,0 +1,113 @@
+header {
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
+}
+.nav-container {
+  width: 100%;
+
+  background-color: #ffffff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-pages {
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}
+
+.board-btn {
+  font-size: 16px;
+  font-family: Pretendard;
+  font-weight: 700;
+  line-height: 19px;
+  color: #4b5563;
+  margin-right: 8px;
+}
+
+.items-btn {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #4b5563;
+}
+.active {
+  color: var(--blue);
+}
+
+.logo-icon {
+  display: none;
+}
+
+.logo-title {
+  font-family: ROKAF Sans;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--blue);
+  margin: 0 16px;
+}
+
+.btn {
+  display: flex;
+  width: 88px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+.login-btn {
+  margin-left: 23px;
+  margin-right: 16px;
+}
+
+.icon-login {
+  margin: 15px 16px;
+}
+
+@media (min-width: 744px) {
+  .items-btn {
+    font-size: 18px;
+  }
+  .board-btn {
+    font-size: 18px;
+  }
+  .logo-icon {
+    /*  */
+    display: block;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+  }
+  .logo-title {
+    margin-left: 8px;
+    font-size: 26px;
+  }
+  .login-btn {
+    margin-right: 34px;
+    margin-left: 207px;
+  }
+  .nav-pages {
+    display: flex;
+    gap: 39px;
+    margin-left: 40px;
+  }
+  .icon-login {
+    margin: 15px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
