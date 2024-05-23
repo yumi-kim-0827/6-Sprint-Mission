@@ -20,7 +20,7 @@ export function ItemList({ order, size, keyword, page }) {
       setPageTotal(Math.ceil(totalCount / size));
       setItems(list);
     },
-    [getItemsAsync]
+    [size, getItemsAsync]
   );
 
   const handleLoadMore = (e) => {
@@ -30,7 +30,7 @@ export function ItemList({ order, size, keyword, page }) {
 
   useEffect(() => {
     handleLoad({ order, page: paging, pageSize: size, keyword });
-  }, [order, keyword, paging, handleLoad]);
+  }, [order, keyword, paging, size, handleLoad]);
   if (page) {
     return (
       <>
@@ -44,7 +44,7 @@ export function ItemList({ order, size, keyword, page }) {
           })}
         </ul>
 
-        {!loadingError && items.length == 0 && (
+        {!loadingError && items.length === 0 && (
           <div className="error">
             <p className="error-txt">일치하는 결과가 없습니다.</p>
           </div>
