@@ -1,18 +1,27 @@
+import { KeyboardEvent } from "react";
 import "../styles/AddItemTagsInput.css";
 
-function AddItemTagsInput({ onChange, name, value, onClearClick }) {
-  const handleTagChange = (e) => {
+interface Props {
+  onChange: (name: string, value: string | File) => void;
+  name: string;
+  value: string[];
+  onClearClick: (index: number) => void;
+}
+
+function AddItemTagsInput({ onChange, name, value, onClearClick }: Props) {
+  const handleTagChange = (e: KeyboardEvent<HTMLInputElement>) => {
+    const inputElement = e.target as HTMLInputElement;
     // Enter 누르면 폼 제출되는 문제, 아무것도 입력하지 않은 경우 리턴
-    if (e.key !== "Enter" || !e.target.value.trim()) return;
+    if (e.key !== "Enter" || !inputElement.value.trim()) return;
     // 이미 존재하는 태그 입력하는 경우 alert 창 띄움
-    if (value.includes(e.target.value.trim())) {
+    if (value.includes(inputElement.value.trim())) {
       alert("이미 존재하는 태그입니다.");
-      e.target.value = "";
+      inputElement.value = "";
       return;
     }
     e.preventDefault(); // 폼 제출 막음
-    onChange(name, e.target.value);
-    e.target.value = ""; // 인풋 값 초기화
+    onChange(name, inputElement.value);
+    inputElement.value = ""; // 인풋 값 초기화
   };
 
   return (
