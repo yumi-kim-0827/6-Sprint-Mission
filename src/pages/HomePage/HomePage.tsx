@@ -1,4 +1,3 @@
-import logo from "../../assets/images/logo/logo.svg";
 import feature1Image from "../../assets/images/home/feature1-image.png";
 import feature2Image from "../../assets/images/home/feature2-image.png";
 import feature3Image from "../../assets/images/home/feature3-image.png";
@@ -12,15 +11,6 @@ import "./HomePage.css";
 function HomePage() {
   return (
     <div className="body">
-      <header>
-        <a href="/" aria-label="홈으로 이동">
-          <img src={logo} alt="판다마켓 로고" width="153" />
-        </a>
-        <a href="/login" id="loginLink" className="button">
-          로그인
-        </a>
-      </header>
-
       <main className="with-header">
         <section id="hero" className="banner">
           <div className="wrapper">
