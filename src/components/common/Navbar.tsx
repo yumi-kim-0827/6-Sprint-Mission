@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 function Navbar() {
   const location = useLocation();
 
-  const isActive = (pathname) => {
+  const isActive = (pathname: string): string => {
     return location.pathname.startsWith(pathname) ? "active-category" : "";
   };
 
