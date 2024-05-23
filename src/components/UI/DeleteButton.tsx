@@ -16,12 +16,17 @@ const Button = styled.button`
   }
 `;
 
-function DeleteButton({ onClick, label }) {
+interface DeleteButtonProps {
+  onClick: () => void;
+  label: string;
+}
+
+const DeleteButton = ({ onClick, label }: DeleteButtonProps) => {
   return (
     <Button aria-label={`${label} 삭제`} onClick={onClick}>
       <CloseIcon />
     </Button>
   );
-}
+};
 
 export default DeleteButton;

@@ -1,3 +1,4 @@
+import React from "react";
 import feature1Image from "../../assets/images/home/feature1-image.png";
 import feature2Image from "../../assets/images/home/feature2-image.png";
 import feature3Image from "../../assets/images/home/feature3-image.png";
