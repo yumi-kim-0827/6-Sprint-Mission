@@ -6,10 +6,29 @@ import { getProductInfo, getComments } from "../../api/Api";
 import backIcon from "../../assets/ic_back.png";
 import "./CommunityFeedPage.css";
 
-function useProductData(productID) {
-  const [product, setProduct] = useState(null);
-  const [isLoading, setisLoading] = useState(true);
-  const [error, setError] = useState(null);
+interface Comment {
+  id: number;
+  content: string;
+  updatedAt: number;
+  writer: {
+    image: string;
+    nickname: string;
+  };
+}
+
+interface Product {
+  images: string;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  favoriteCount: number;
+}
+
+function useProductData(productID: number) {
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setisLoading] = useState<boolean>(true);
+  const [error, setError] = useState<{ message: string } | null>(null);
 
   useEffect(() => {
     setisLoading(true);
@@ -28,10 +47,10 @@ function useProductData(productID) {
   return { product, isLoading, error };
 }
 
-function useCommentData(productID) {
-  const [comments, setComments] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
-  const [error, setError] = useState(null);
+function useCommentData(productID: number) {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [isLoading, setisLoading] = useState<boolean>(true);
+  const [error, setError] = useState<{ message: string } | null>(null);
 
   useEffect(() => {
     setisLoading(true);
@@ -52,19 +71,18 @@ function useCommentData(productID) {
 }
 
 function CommunityFeedPage() {
-  const { productID } = useParams();
+  const { productID } = useParams<{ productID: string }>();
 
   const {
     product,
-    loading: productLoading,
+    isLoading: productLoading,
     error: productError,
-  } = useProductData(productID);
-
+  } = useProductData(Number(productID));
   const {
     comments,
-    loading: commentLoading,
+    isLoading: commentLoading,
     error: commentError,
-  } = useCommentData(productID);
+  } = useCommentData(Number(productID));
 
   if (productLoading || commentLoading) {
     return <div>Loading...</div>;

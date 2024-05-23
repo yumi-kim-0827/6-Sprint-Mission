@@ -5,10 +5,10 @@ import kebabIcon from "../../../assets/ic_kebab.svg";
 
 import "./CommentSection.css";
 
-function formatRelativeDate(dateString) {
+function formatRelativeDate(dateString: number) {
   const date = new Date(dateString);
   const currentDate = new Date();
-  const diffTime = Math.abs(currentDate - date);
+  const diffTime = Math.abs(currentDate.getTime() - date.getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   if (diffDays === 0) {
@@ -20,8 +20,22 @@ function formatRelativeDate(dateString) {
   }
 }
 
-function CommentSection({ comments }) {
-  const [commentText, setCommentText] = useState("");
+interface Comment {
+  id: number;
+  content: string;
+  updatedAt: number;
+  writer: {
+    image: string;
+    nickname: string;
+  };
+}
+
+interface CommentProps {
+  comments: Comment[];
+}
+
+function CommentSection({ comments }: CommentProps) {
+  const [commentText, setCommentText] = useState<string>("");
 
   return (
     <section className="commentSection">

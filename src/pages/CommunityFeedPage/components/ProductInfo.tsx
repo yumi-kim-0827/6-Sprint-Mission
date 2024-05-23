@@ -3,10 +3,21 @@ import favoriteIcon from "../../../assets/favorite-icon.svg";
 import kebabIcon from "../../../assets/ic_kebab.svg";
 import "./ProductInfo.css";
 
-function ProductInfo({ product }) {
+function ProductInfo({
+  product,
+}: {
+  product: {
+    images: string;
+    name: string;
+    price: number;
+    description: string;
+    tags: string[];
+    favoriteCount: number;
+  };
+}) {
   const { images, name, price, description, tags, favoriteCount } = product;
 
-  const formatPriceWithCommas = (price) => {
+  const formatPriceWithCommas = (price: number) => {
     return price.toLocaleString("en-US");
   };
 
