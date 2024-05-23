@@ -1,7 +1,9 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSetAtom } from "jotai";
 import Input from "components/Input";
 import Button from "components/Button";
+import { loginState } from "contexts/users";
 import mainLogo from "assets/icon/main_logo.svg";
 import kakaoIcon from "assets/icon/ic_kakao.svg";
 import googleIcon from "assets/icon/ic_google.svg";
@@ -9,16 +11,17 @@ import * as S from "./UsersTemplates.style";
 
 export function AuthLogo() {
   return (
-    <S.LogoBox>
-      <S.AuthLogo src={mainLogo} alt="main-logo" />
-    </S.LogoBox>
+    <Link to="/">
+      <S.LogoBox>
+        <S.AuthLogo src={mainLogo} alt="main-logo" />
+      </S.LogoBox>
+    </Link>
   );
 }
 
 const EMAIL_REGEXP = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export function LoginForm() {
-  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -29,6 +32,9 @@ export function LoginForm() {
     password: false,
   });
 
+  const navigate = useNavigate();
+  const setLoginState = useSetAtom(loginState);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -37,6 +43,7 @@ export function LoginForm() {
   };
 
   const handleSubmit = () => {
+    setLoginState(true);
     navigate("/items");
   };
 
