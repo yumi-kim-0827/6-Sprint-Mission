@@ -3,7 +3,19 @@ import ItemCard from "./ItemCard";
 import { getProducts } from "../../../api/itemApi";
 import LoadingSpinner from "../../../components/UI/LoadingSpinner";
 
-const getPageSize = () => {
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string[];
+}
+
+interface ProductsResponse {
+  list: Item[];
+}
+
+const getPageSize = (): number => {
   const width = window.innerWidth;
   if (width < 768) {
     // Mobile viewport
@@ -18,17 +30,26 @@ const getPageSize = () => {
 };
 
 function BestItemsSection() {
-  const [itemList, setItemList] = useState([]);
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [isLoading, setIsLoading] = useState(true);
+  const [itemList, setItemList] = useState<Item[]>([]);
+  const [pageSize, setPageSize] = useState<number>(getPageSize());
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const fetchSortedData = async ({ orderBy, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    pageSize,
+  }: {
+    orderBy: string;
+    pageSize: number;
+  }) => {
     setIsLoading(true);
     try {
-      const products = await getProducts({ orderBy, pageSize });
+      const products: ProductsResponse = await getProducts({
+        orderBy,
+        pageSize,
+      });
       setItemList(products.list);
     } catch (error) {
-      console.error("오류: ", error.message);
+      console.error("오류: ", (error as Error).message);
     } finally {
       setIsLoading(false);
     }
@@ -39,11 +60,9 @@ function BestItemsSection() {
       setPageSize(getPageSize());
     };
 
-    // 화면 크기 변경할 때마다 pageSize를 다시 계산해 넣음
     window.addEventListener("resize", handleResize);
     fetchSortedData({ orderBy: "favorite", pageSize });
 
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
     };

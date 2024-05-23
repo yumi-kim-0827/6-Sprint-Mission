@@ -7,6 +7,19 @@ import DropdownMenu from "../../../components/UI/DropdownMenu";
 import PaginationBar from "../../../components/UI/PaginationBar";
 import LoadingSpinner from "../../../components/UI/LoadingSpinner";
 
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string[];
+}
+
+interface ProductsResponse {
+  list: Item[];
+  totalCount: number;
+}
+
 const getPageSize = () => {
   const width = window.innerWidth;
   if (width < 768) {
@@ -22,27 +35,39 @@ const getPageSize = () => {
 };
 
 function AllItemsSection() {
-  const [orderBy, setOrderBy] = useState("recent");
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [itemList, setItemList] = useState([]);
-  const [totalPageNum, setTotalPageNum] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [orderBy, setOrderBy] = useState<string>("recent");
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(getPageSize());
+  const [itemList, setItemList] = useState<Item[]>([]);
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+  const fetchSortedData = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: {
+    orderBy: string;
+    page: number;
+    pageSize: number;
+  }) => {
     setIsLoading(true);
     try {
-      const products = await getProducts({ orderBy, page, pageSize });
+      const products: ProductsResponse = await getProducts({
+        orderBy,
+        page,
+        pageSize,
+      });
       setItemList(products.list);
       setTotalPageNum(Math.ceil(products.totalCount / pageSize));
     } catch (error) {
-      console.error("오류: ", error.message);
+      console.error("오류: ", (error as Error).message);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: string) => {
     setOrderBy(sortOption);
   };
 
@@ -51,17 +76,15 @@ function AllItemsSection() {
       setPageSize(getPageSize());
     };
 
-    // 화면 크기 변경할 때마다 pageSize를 다시 계산해 넣음
     window.addEventListener("resize", handleResize);
     fetchSortedData({ orderBy, page, pageSize });
 
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [orderBy, page, pageSize]);
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
