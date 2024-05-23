@@ -12,10 +12,10 @@ import {
 } from "../../constants/color";
 import moment from "moment";
 import "moment/locale/ko";
-import Comment from "constants/comment";
+import ItemComment from "constants/comment";
 
 interface Props {
-  comments: Comment[];
+  comments: ItemComment[];
 }
 
 export default function ItemComments({ comments }: Props) {

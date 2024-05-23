@@ -4,7 +4,7 @@ export interface CommentWriter {
   id: number;
 }
 
-export default interface Comment {
+export default interface ItemComment {
   writer: CommentWriter;
   updatedAt: string;
   createdAt: string;
