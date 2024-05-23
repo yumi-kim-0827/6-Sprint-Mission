@@ -11,11 +11,13 @@ export const getProductComment = async ({
   limit = 10,
   cursor,
 }: getProductCommentProps) => {
-  const cursorQuery = cursor ? `&cursor=${cursor}` : '';
   try {
-    const response = await baseAxios.get(
-      `products/${productId}/comments?limit=${limit}${cursorQuery}`
-    );
+    const response = await baseAxios.get(`products/${productId}/comments`, {
+      params: {
+        limit,
+        cursor,
+      },
+    });
     return response.data;
   } catch (error) {
     throw new Error('문의 가져오기 실패');

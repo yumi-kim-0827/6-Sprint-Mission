@@ -1,3 +1,4 @@
+import React, { ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
 import SearchIcon from 'assets/icons/Search';
@@ -6,7 +7,6 @@ import ArrowDownIcon from 'assets/icons/ArrowDown';
 import SortIcon from 'assets/icons/Sort';
 import './style.css';
 import { OrderBy } from 'types/order';
-import React, { ChangeEvent } from 'react';
 
 interface ProductControlProps {
   search: string;
@@ -65,7 +65,7 @@ const ProductControl = ({
               ) : (
                 <>
                   <button className="dropdown-trigger">
-                    {orderBy === 'recent' ? '최신순' : '좋아요순'}
+                    {orderBy === OrderBy.최신순 ? '최신순' : '좋아요순'}
                   </button>
                   <ArrowDownIcon className="dropdown-icon" />
                 </>

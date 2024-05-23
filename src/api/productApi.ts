@@ -20,7 +20,6 @@ export const getProducts = async ({
         orderBy,
       },
     });
-
     return response.data;
   } catch (error) {
     throw new Error('상품 불러오기 실패');
