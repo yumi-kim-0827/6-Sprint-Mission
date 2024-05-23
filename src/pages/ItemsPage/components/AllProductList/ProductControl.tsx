@@ -5,6 +5,16 @@ import DropDown from 'components/Dropdown';
 import ArrowDownIcon from 'assets/icons/ArrowDown';
 import SortIcon from 'assets/icons/Sort';
 import './style.css';
+import { OrderBy } from 'types/order';
+import React, { ChangeEvent } from 'react';
+
+interface ProductControlProps {
+  search: string;
+  setSearch: (value: string) => void;
+  orderBy: OrderBy;
+  setOrderBy: (value: OrderBy) => void;
+  pageSize: number;
+}
 
 const ProductControl = ({
   search,
@@ -12,23 +22,23 @@ const ProductControl = ({
   orderBy,
   setOrderBy,
   pageSize,
-}) => {
+}: ProductControlProps) => {
   const navigate = useNavigate();
 
   const DROP_DOWN_OPTIONS = [
     {
       label: '최신순',
-      onClick: () => handleClickOrder('recent'),
+      onClick: () => handleClickOrder(OrderBy.최신순),
     },
     {
       label: '좋아요순',
-      onClick: () => handleClickOrder('favorite'),
+      onClick: () => handleClickOrder(OrderBy.좋아요순),
     },
   ];
 
-  const handleClickOrder = (orderType) => setOrderBy(orderType);
+  const handleClickOrder = (orderType: OrderBy) => setOrderBy(orderType);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
@@ -43,7 +53,11 @@ const ProductControl = ({
           className="search-input"
         />
       </div>
-      <Button title="상품 등록하기" onClick={() => navigate('/addItem')} />
+      <Button
+        title="상품 등록하기"
+        onClick={() => navigate('/addItem')}
+        disabled={undefined}
+      />
       <div className="order-container">
         <DropDown
           triggerComponent={

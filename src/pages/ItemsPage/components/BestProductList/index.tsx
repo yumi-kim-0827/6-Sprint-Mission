@@ -6,13 +6,14 @@ import Grid from '@mui/material/Grid';
 import { MOBILE_SIZE, TABLET_SIZE } from 'constants/windowSize';
 import { BEST } from 'constants/productItems';
 import './style.css';
+import { ItemType } from 'types/item';
 
 const BestProductList = () => {
-  const [originProduct, setOriginProduct] = useState([]);
-  const [bestProduct, setBestProduct] = useState([]);
-  const [loadingError, setLoadingError] = useState(null);
+  const [originProduct, setOriginProduct] = useState<ItemType[]>([]);
+  const [bestProduct, setBestProduct] = useState<ItemType[]>([]);
+  const [loadingError, setLoadingError] = useState<Error | null>(null);
 
-  const handleBestItemLoad = async (options) => {
+  const handleBestItemLoad = async () => {
     let result;
     try {
       setLoadingError(null);
@@ -23,7 +24,7 @@ const BestProductList = () => {
       setOriginProduct(list);
       setBestProduct(list.slice(0, 4));
     } catch (error) {
-      setLoadingError(error);
+      setLoadingError(error as Error);
       return;
     }
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { getProducts } from 'api/productApi';
 import ProductItem from 'components/ProductItem';
@@ -8,17 +8,25 @@ import ProductControl from './ProductControl';
 import { MOBILE_SIZE, TABLET_SIZE } from 'constants/windowSize';
 import { ALL } from 'constants/productItems';
 import './style.css';
+import { ItemType } from 'types/item';
+import { OrderBy } from 'types/order';
+
+interface LoadOptions {
+  page: number;
+  pageSize: number;
+  orderBy: OrderBy;
+}
 
 const AllProductList = () => {
-  const [allProduct, setAllProduct] = useState([]);
-  const [orderBy, setOrderBy] = useState('recent');
-  const [pageSize, setPageSize] = useState(10);
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [loadingError, setLoadingError] = useState(null);
+  const [allProduct, setAllProduct] = useState<ItemType[]>([]);
+  const [orderBy, setOrderBy] = useState<OrderBy>(OrderBy.최신순);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [search, setSearch] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
+  const [total, setTotal] = useState<number>(0);
+  const [loadingError, setLoadingError] = useState<Error | null>(null);
 
-  const handleAllProductLoad = async (options) => {
+  const handleAllProductLoad = async (options: LoadOptions) => {
     let result;
     try {
       setLoadingError(null);
@@ -29,12 +37,12 @@ const AllProductList = () => {
       setTotal(totalCount);
       setAllProduct(list);
     } catch (error) {
-      setLoadingError(error);
+      setLoadingError(error as Error);
       return;
     }
   };
 
-  const handlePagination = (_, value) => {
+  const handlePagination = (_: ChangeEvent<unknown>, value: number) => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
