@@ -7,7 +7,7 @@ import Items from "./pages/items";
 import Board from "./pages/board";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
-import Layout from "./layouts/layout.js";
+import Layout from "./layout";
 
 function App() {
   return (
