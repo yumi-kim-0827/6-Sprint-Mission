@@ -1,13 +1,19 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, ChangeEvent } from "react";
 import searchicon from "../../assets/search-icon.png";
 import "./ShowProducts.css";
 import likeicon from "../../assets/like-icon.png";
 import dropdownArrow from "../../assets/dropdown-arrow.png";
 import dropdownMobile from "../../assets/dropdown-mobile.png";
-
 import { Link } from "react-router-dom";
 
-function Product({ name, price, favoriteCount, images }) {
+interface ProductValues {
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string;
+}
+
+function Product({ name, price, favoriteCount, images }: ProductValues) {
   const formatedPrice = price.toLocaleString();
 
   return (
@@ -23,11 +29,16 @@ function Product({ name, price, favoriteCount, images }) {
   );
 }
 
-const SearchInput = ({ onChangeSelect, onChangeInput }) => {
+interface SearchInputProps {
+  onChangeSelect: (value: string) => void;
+  onChangeInput: (e: ChangeEvent) => void;
+}
+
+const SearchInput = ({ onChangeSelect, onChangeInput }: SearchInputProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dropdownMenu, setDropdownMenu] = useState("최신순");
-  const recentRef = useRef();
-  const favoriteRef = useRef();
+  const recentRef = useRef<HTMLSpanElement>(null);
+  const favoriteRef = useRef<HTMLSpanElement>(null);
 
   const handleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -83,12 +94,18 @@ const SearchInput = ({ onChangeSelect, onChangeInput }) => {
   );
 };
 
-const ShowProducts = ({ onChangeSelect, onChangeInput, products }) => {
+interface ShowProductsProps {
+  onChangeSelect: (value: string) => void;
+  onChangeInput: (e: ChangeEvent) => void;
+  products: any;
+}
+
+const ShowProducts = ({ onChangeSelect, onChangeInput, products }: ShowProductsProps) => {
   return (
     <>
       <SearchInput onChangeSelect={onChangeSelect} onChangeInput={onChangeInput} />
       <ul className="ProductsList">
-        {products.map((item) => {
+        {products.map((item: any) => {
           return (
             <li key={item.id}>
               <Link to={`/Items/${item.id}`}>
