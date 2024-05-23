@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
-import { getItemsComments } from '../api/getItemsComments';
+import { getItemsComments, GetComments } from '../api/getItemsComments';
 import useItem from '../hooks/useItem';
 import ItemDetailCard from '../components/ItemDetailCard';
 import Comment from '../components/Comment';
@@ -9,18 +9,25 @@ import ic_back from '../assets/ic_back.png';
 import Img_inquiry_empty from '../assets/Img_inquiry_empty.png';
 
 export default function ItemDetails() {
-  const params = useParams();
-  const item = useItem(params.id);
-  const [comments, setComments] = useState([]);
+  const { itemId } = useParams<{ itemId: string }>();
+  console.log(itemId);
+  const parseIntId = parseInt(itemId);
+
+  const item = useItem(parseIntId);
+  const [comments, setComments] = useState<GetComments[]>([]);
   const [inquiryComment, setInquiryComment] = useState('');
-  const itemId = params.id;
   const nav = useNavigate();
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const data = await getItemsComments(itemId, 3);
-        setComments(data.list);
+        if (itemId) {
+          const data = await getItemsComments(itemId, 3);
+          if (data) {
+            setComments(data.list);
+            // console.log(data.list);
+          }
+        }
       } catch (error) {
         console.error('Failed to fetch items:', error);
       }
@@ -32,7 +39,7 @@ export default function ItemDetails() {
     nav(-1);
   };
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInquiryComment(e.target.value);
   };
 

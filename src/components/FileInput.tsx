@@ -1,16 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { MouseEvent, ChangeEvent, useEffect, useRef, useState } from 'react';
 import './style/FileInput.css';
 import DeleteButton from './DeleteButton';
 
-export default function FileInput({ name, value, onChange }) {
-  const [imgValue, setImgValue] = useState();
-  const [preview, setPreview] = useState();
-  const inputRef = useRef();
+interface Props {
+  name: string;
+  value: string | null;
+  onChange: (name: string, value: File | null) => void;
+}
 
-  const handleChange = e => {
-    const [nextValue] = e.target.files;
-    setImgValue(nextValue);
-    onChange(name, nextValue);
+export default function FileInput({ name, value, onChange }: Props) {
+  const [preview, setPreview] = useState<string>();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files?.[0];
+    if (nextValue) {
+      onChange(name, nextValue);
+    }
   };
 
   const handleClearClick = () => {
@@ -23,18 +29,19 @@ export default function FileInput({ name, value, onChange }) {
 
   useEffect(() => {
     if (!value) return;
-    const nextPreview = URL.createObjectURL(value);
+    const blob = typeof value === 'string' ? new Blob([value], { type: 'text/plain' }) : value;
+
+    const nextPreview = URL.createObjectURL(blob);
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);
 
-  const onClickImageUpload = e => {
+  const onClickImageUpload = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    inputRef.current.click();
+    inputRef.current?.click();
   };
   return (
     <div className='file-input__container'>

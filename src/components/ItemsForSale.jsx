@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import ItemForSale from './ItemForSale';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';

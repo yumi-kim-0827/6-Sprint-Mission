@@ -2,15 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ic_kebab from '../assets/ic_kebab.png';
 import big_grayHeart from '../assets/big_grayHeart.png';
-
-interface Props {
-  name: string;
-  description: string;
-  images: string;
-  price: number;
-  tags: string[];
-  favoriteCount: number;
-}
+import { GetItem } from 'api/getItemsId';
 
 interface TitleStyle {
   fontSize: string;
@@ -19,7 +11,7 @@ interface TitleStyle {
   deskTopSize: string;
 }
 
-export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: Props) {
+export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: GetItem) {
   const formattedPrice = price.toLocaleString();
   return (
     <Container>

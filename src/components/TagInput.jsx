@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DeleteButton from './DeleteButton';
 import './style/TagInput.css';
+import { v4 as uuidv4 } from 'uuid';
+
 export default function TagInput({ name, tagList, setTagList }) {
   const [tag, setTag] = useState('');
 
@@ -19,7 +21,7 @@ export default function TagInput({ name, tagList, setTagList }) {
   };
 
   const handleDeleteClick = tagValue => {
-    const remainTags = tagList.filter(tag => tag !== tagValue);
+    const remainTags = tagList.filter(tag => tag.key !== tagValue);
     setTagList(remainTags);
   };
 
@@ -37,9 +39,9 @@ export default function TagInput({ name, tagList, setTagList }) {
         />
       </label>
       <div className='tag__container'>
-        {tagList.map((tagItem, index) => {
+        {tagList.map(tagItem => {
           return (
-            <div key={index} className='tag'>
+            <div key={uuidv4()} className='tag'>
               <p className='tag__text'>{tagItem}</p>
               <DeleteButton deleteItem={'tag'} onClick={() => handleDeleteClick(tagItem)} />
             </div>
