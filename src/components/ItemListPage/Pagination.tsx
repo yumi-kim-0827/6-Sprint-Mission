@@ -1,26 +1,33 @@
 import { useEffect, useState } from "react";
 import "../styles/Pagination.css";
-function Pagination({ currentPage, totalPage, onPageChange }) {
-  const [pageList, setPageList] = useState([]);
 
-  const createPageList = (totalPage) => {
+interface Props {
+  currentPage: number;
+  totalPage: number;
+  onPageChange: (pageNumber: number) => void;
+}
+
+function Pagination({ currentPage, totalPage, onPageChange }: Props) {
+  const [pageList, setPageList] = useState<number[]>([]);
+
+  const createPageList = (totalPage: number): number[] => {
     return Array.from({ length: totalPage }, (v, i) => i + 1);
   };
 
   useEffect(() => {
-    if (totalPage === 1) return null;
+    if (totalPage === 1) return () => {};
     setPageList(createPageList(totalPage));
   }, [totalPage]);
 
   const handleNextPage = () => {
-    onPageChange((prevPage) => prevPage + 1);
+    onPageChange(currentPage + 1);
   };
 
   const handlePrevPage = () => {
-    onPageChange((prevPage) => prevPage - 1);
+    onPageChange(currentPage - 1);
   };
 
-  const handleChangePage = (page) => {
+  const handleChangePage = (page: number) => {
     onPageChange(page);
   };
 
