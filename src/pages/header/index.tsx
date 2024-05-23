@@ -21,7 +21,7 @@ const Header = (): JSX.Element => {
             </picture>
           </Link>
           <ul className="Header-btn">
-            <li href="#">자유게시판</li>
+            <li>자유게시판</li>
             <Link to="/Items">
               <li className={isItemPage ? "active" : ""}>중고마켓</li>
             </Link>
