@@ -1,3 +1,10 @@
+export type AddItemType = {
+  itemName: string;
+  itemDescription: string;
+  itemPrice: string;
+  itemTag: string[];
+};
+
 export type ItemType = {
   id: number;
   name: string;

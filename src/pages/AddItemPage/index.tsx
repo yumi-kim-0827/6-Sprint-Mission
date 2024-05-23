@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, KeyboardEvent, useState } from 'react';
 import TopNavigation from 'components/TopNavigation';
 import Button from 'components/Button';
 import {
@@ -9,9 +9,10 @@ import {
 import { FormHeader, AddItemTitle, FormContainer, TagList, Tag } from './style';
 import { useImageUrl, useSetImageUrl } from 'contexts/ItemImageContext';
 import CloseXIcon from 'assets/icons/CloseX';
+import { AddItemType } from 'types/item';
 
 const AddItemPage = () => {
-  const [inputData, setInputData] = useState({
+  const [inputData, setInputData] = useState<AddItemType>({
     itemName: '',
     itemDescription: '',
     itemPrice: '',
@@ -29,7 +30,7 @@ const AddItemPage = () => {
     );
   };
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -37,13 +38,13 @@ const AddItemPage = () => {
     formData.append('name', inputData.itemName);
     formData.append('description', inputData.itemDescription);
     formData.append('price', inputData.itemPrice);
-    formData.append('tag', inputData.itemTag);
+    formData.append('tag', JSON.stringify(inputData.itemTag));
   };
 
-  const handleChange = ({ target }) => {
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = target;
 
-    if (name === 'itemImage') {
+    if (name === 'itemImage' && files) {
       setImageUrl(files[0]);
     } else if (name !== 'itemTag') {
       setInputData({
@@ -53,8 +54,9 @@ const AddItemPage = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    const tag = e.target.value;
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    const tag = target.value;
     if (e.key === 'Enter') {
       e.preventDefault();
       if (tag.trim() !== '') {
@@ -62,18 +64,18 @@ const AddItemPage = () => {
           ...inputData,
           itemTag: [...inputData.itemTag, tag],
         });
-        e.target.value = '';
+        target.value = '';
       }
     }
   };
 
-  const handleKeyDownPrevent = (e) => {
+  const handleKeyDownPrevent = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
     }
   };
 
-  const handleClickTag = (index) => {
+  const handleClickTag = (index: number) => {
     const newTagList = inputData.itemTag.filter((_, idx) => idx !== index);
     setInputData({
       ...inputData,
