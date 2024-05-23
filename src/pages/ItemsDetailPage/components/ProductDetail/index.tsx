@@ -15,10 +15,15 @@ import { formatNumberToWon } from 'utils/formatNumber';
 import Heart from 'assets/icons/Heart';
 import { getProductDetail } from 'api/getProductDetail';
 import useLoading from 'hooks/useLoading';
+import { ItemType } from 'types/item';
 
-const ProductDetail = ({ productId }) => {
+interface ProductDetailProps {
+  productId: number;
+}
+
+const ProductDetail = ({ productId }: ProductDetailProps) => {
   const { isLoading, error, handleLoad } = useLoading(getProductDetail);
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState<ItemType | null>(null);
 
   const handleProductLoad = async () => {
     const product = await handleLoad({ productId: productId });

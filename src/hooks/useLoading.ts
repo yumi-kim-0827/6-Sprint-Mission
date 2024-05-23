@@ -1,17 +1,17 @@
 import { useState } from 'react';
 
-const useLoading = (getApi) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+const useLoading = (getApi: Function) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
-  const handleLoad = async (...arg) => {
+  const handleLoad = async (...arg: any[]) => {
     try {
       setIsLoading(true);
       setError(null);
       let result = await getApi(...arg);
       return result;
     } catch (error) {
-      setError(error);
+      setError(error as Error);
       return null;
     } finally {
       setIsLoading(false);

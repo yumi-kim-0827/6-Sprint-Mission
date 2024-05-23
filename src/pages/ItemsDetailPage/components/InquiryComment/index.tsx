@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Division,
@@ -13,18 +13,23 @@ import Button from 'components/Button';
 import BackIcon from 'assets/icons/Back';
 import { getProductComment } from 'api/getProductComment';
 import useLoading from 'hooks/useLoading';
-import EmptyLogo from 'assets/logos/empty-logo.png';
+import EmptyLogo from 'assets/logos/emptyLogo.png';
 import { diffTime } from 'utils/diffTime';
+import { CommentType } from 'types/comment';
 
-const InquiryComment = ({ productId }) => {
+interface InquiryCommentProps {
+  productId: number;
+}
+
+const InquiryComment = ({ productId }: InquiryCommentProps) => {
   const { isLoading, error, handleLoad } = useLoading(getProductComment);
-  const [commentList, setCommentList] = useState(null);
+  const [commentList, setCommentList] = useState<CommentType[] | null>(null);
 
-  const [inquiry, setInquiry] = useState('');
+  const [inquiry, setInquiry] = useState<string>('');
 
   const navigate = useNavigate();
 
-  const handleChangeTextarea = (e) => {
+  const handleChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInquiry(e.target.value);
   };
 

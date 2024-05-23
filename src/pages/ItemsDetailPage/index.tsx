@@ -11,8 +11,8 @@ const ItemsDetailPage = () => {
     <>
       <TopNavigation />
       <main>
-        <ProductDetail productId={productId} />
-        <InquiryComment productId={productId} />
+        <ProductDetail productId={Number(productId)} />
+        <InquiryComment productId={Number(productId)} />
       </main>
     </>
   );
