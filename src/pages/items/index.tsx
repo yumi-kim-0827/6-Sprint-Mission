@@ -86,7 +86,7 @@ function Items(): JSX.Element {
   }
 
   const handlePageNum = () => {
-    if (typeof totalCount === "number" && !isNaN(totalCount)) {
+    if (typeof totalCount === "number" && !isNaN(totalCount) && totalCount > 0 && pageSize > 0) {
       const pageNum = Math.ceil(totalCount / pageSize);
       return pageNum;
     }
