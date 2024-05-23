@@ -12,9 +12,7 @@ const PageButton = ({ handlePageNum, handlePage, page }: Props) => {
   const [isPageUpBtnDisabled, setIsPageUpBtnDisabled] = useState(false);
   const pageNum = handlePageNum();
 
-  const pageArr: number[] = useMemo(() => {
-    return [...Array(pageNum).keys()].map((i) => i + 1);
-  }, [pageNum]);
+  const pageArr = [...Array(pageNum).keys()].map((i) => i + 1);
 
   const getButtonValue = (value: number) => {
     handlePage(value);
@@ -42,7 +40,7 @@ const PageButton = ({ handlePageNum, handlePage, page }: Props) => {
     } else {
       setIsPageUpBtnDisabled(false);
     }
-  }, [page]);
+  }, [pageArr]);
 
   return (
     <div className="button">
