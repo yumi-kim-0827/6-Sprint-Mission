@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getItem, getItemComments } from "../services/api";
 import styled from "styled-components";
-import ItemDetail from "../components/ItemDetail";
-import ItemComments from "../components/ItemComments";
+import ItemDetail from "../components/ItemDetailPage/ItemDetail";
+import ItemComments from "../components/ItemDetailPage/ItemComments";
 
 export default function ItemDetailPage() {
   const { itemId } = useParams();

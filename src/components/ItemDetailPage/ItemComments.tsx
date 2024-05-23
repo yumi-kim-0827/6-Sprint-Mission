@@ -9,7 +9,7 @@ import {
   GRAY_200,
   INPUT_COLOR,
   PRIMARY_COLOR,
-} from "../constants/color";
+} from "../../constants/color";
 import moment from "moment";
 import "moment/locale/ko";
 
