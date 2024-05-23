@@ -12,7 +12,7 @@ function Items(): JSX.Element {
 
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
 
   const [pageSize, setPageSize] = useState(10);
   const [bestPageSize, setBestPageSize] = useState(4);
@@ -39,8 +39,8 @@ function Items(): JSX.Element {
     setTotalCount(totalCount);
   };
 
-  const desktop = window.matchMedia("(min-width : 1200px");
-  const tablet = window.matchMedia("(min-width : 768px) and (max-width : 1199px)");
+  const desktop: MediaQueryList = window.matchMedia("(min-width : 1200px");
+  const tablet: MediaQueryList = window.matchMedia("(min-width : 768px) and (max-width : 1199px)");
 
   const handlePageSize = () => {
     const mediaSize = desktop.matches ? "desktop" : tablet.matches ? "tablet" : "mobile";
@@ -85,12 +85,11 @@ function Items(): JSX.Element {
     value ? setKeyword(value) : setKeyword("");
   }
 
-  const handlePageNum = (totalCount: number | undefined, pageSize: number): number | undefined => {
+  const handlePageNum = () => {
     if (typeof totalCount === "number" && !isNaN(totalCount)) {
       const pageNum = Math.ceil(totalCount / pageSize);
       return pageNum;
     }
-    return undefined; // 또는 0과 같은 기본값을 반환할 수 있습니다.
   };
 
   const handlePage = (value: number) => {
@@ -108,10 +107,10 @@ function Items(): JSX.Element {
   useEffect(() => {
     getProducttotalCount();
 
+    handlePageSize();
+
     desktop.addListener(handlePageSize);
     tablet.addListener(handlePageSize);
-
-    handlePageSize();
 
     return () => {
       desktop.removeListener(handlePageSize);
@@ -125,7 +124,7 @@ function Items(): JSX.Element {
         <ShowBestProducts products={bestProducts} />
         <ShowProducts onChangeSelect={onChangeSelect} onChangeInput={onChangeInput} products={products} />
       </div>
-      <PageButton handlePageNum={handlePageNum} handlePage={handlePage} />
+      <PageButton handlePageNum={handlePageNum} handlePage={handlePage} page={page} />
     </div>
   );
 }
