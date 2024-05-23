@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useQuery } from "react-query";
 
 // axios와 useQuery를 사용하여 fetch하였습니다.
@@ -20,5 +20,5 @@ export default function useFetchItems(paramsOptions: {page: number, pageSize:num
     return response.data;
   };
 
-  return useQuery(["products", page, pageSize, orderBy], fetchItems);
+  return useQuery<any, AxiosError>(["products", page, pageSize, orderBy], fetchItems);
 }

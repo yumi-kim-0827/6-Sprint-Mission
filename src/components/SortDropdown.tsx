@@ -4,6 +4,13 @@ export default function SortDropdown({
   setSortContent,
   setOrderBy,
   sortOptions,
+}: {
+  setSortContent: React.Dispatch<React.SetStateAction<string>>,
+  setOrderBy: React.Dispatch<React.SetStateAction<string>>,
+  sortOptions: {
+    LIKE: string,
+    NEWEST: string
+  }
 }) {
   // 최신순, 좋아요순으로 바꿀 시 페이지를 1페이지로 이동시키기 위한 setter입니다.
   const setCurrentPage = paginationStore((state) => state.setCurrentPage);

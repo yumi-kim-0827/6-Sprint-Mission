@@ -29,10 +29,10 @@ export default function AllItemsList() {
   const currentPage = paginationStore((state) => state.currentPage);
 
   // 드롭다운을 외부에서 클릭 시 닫히게 하기위한 Ref와 Effect입니다.
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<any>(null);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: MouseEvent) => {
       // 드롭다운이 존재하고 클릭한 요소가 드롭다운 밖에 있으면 드롭다운을 닫습니다.
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownView(false);
@@ -138,8 +138,8 @@ export default function AllItemsList() {
         </div>
       </div>
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-        {data.list &&
-          data.list?.map((post) => {
+        {data?.list &&
+          data?.list.map((post: any) => {
             return (
               <li key={post.id}>
                 <img
@@ -159,7 +159,7 @@ export default function AllItemsList() {
             );
           })}
       </ul>
-      <Pagination datatotalCount={data.totalCount} />
+      <Pagination datatotalCount={data?.totalCount} />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function RankedItems() {
       </h1>
       <ul className="grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
         {data.list &&
-          data.list.map((post) => {
+          data.list.map((post: any) => {
             return (
               <li key={post.id}>
                 <img
