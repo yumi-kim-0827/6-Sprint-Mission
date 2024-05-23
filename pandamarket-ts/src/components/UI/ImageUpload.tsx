@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Label } from "./InputItem";
 import styled, { css } from "styled-components";
 import { ReactComponent as PlusIcon } from "../../assets/images/icons/ic_plus.svg";
@@ -52,7 +52,11 @@ const UploadButton = styled.label`
   ${squareStyles}
 `;
 
-const ImagePreview = styled.div`
+interface ImagePreviewProps {
+  src: string;
+}
+
+const ImagePreview = styled.div<ImagePreviewProps>`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
@@ -72,11 +76,15 @@ const HiddenFileInput = styled.input`
   display: none;
 `;
 
-function ImageUpload({ title }) {
-  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
+interface ImageUploadProps {
+  title?: string;
+}
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+function ImageUpload({ title }: ImageUploadProps) {
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>("");
+
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       // 미리보기 주소 값(Object URL) 생성
       const imageUrl = URL.createObjectURL(file);

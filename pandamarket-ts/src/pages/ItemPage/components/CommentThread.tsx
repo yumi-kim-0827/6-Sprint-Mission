@@ -7,6 +7,7 @@ import { ReactComponent as SeeMoreIcon } from "../../../assets/images/icons/ic_k
 import DefaultProfileImage from "../../../assets/images/ui/ic_profile.svg";
 import { LineDivider } from "../../../styles/CommonStyles";
 import { formatUpdatedAt } from "../../../utils/dateUtils";
+import { Item } from "../../../api/Product";
 
 const CommentContainer = styled.div`
   padding: 24px 0;
@@ -50,11 +51,10 @@ const Timestamp = styled.p`
   font-size: 12px;
 `;
 
-const CommentItem = ({ item }) => {
+const CommentItem = ({ item }: { item: Item }) => {
   const authorInfo = item.writer;
   // 업데이트 시간 표기를 위한 util function을 만들었으니 dateUtils.js 파일에서 꼭 설명을 확인해 주세요!
   const formattedTimestamp = formatUpdatedAt(item.updatedAt);
-
   return (
     <>
       <CommentContainer>
@@ -111,10 +111,10 @@ const ThreadContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-function CommentThread({ productId }) {
-  const [comments, setComments] = useState([]);
+function CommentThread({ productId }: { productId: string }) {
+  const [comments, setComments] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!productId) return;
@@ -128,10 +128,15 @@ function CommentThread({ productId }) {
       try {
         const data = await getProductComments({ productId, params });
         setComments(data.list);
+        console.log(data.list);
         setError(null);
       } catch (error) {
-        console.error("Error fetching comments:", error);
-        setError("상품의 댓글을 불러오지 못했어요.");
+        if (error instanceof Error) {
+          console.error("Error fetching comments:", error);
+          setError("상품의 댓글을 불러오지 못했어요.");
+        } else {
+          console.log("알수없는 에러", error);
+        }
       } finally {
         setIsLoading(false);
       }

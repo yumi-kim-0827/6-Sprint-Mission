@@ -2,7 +2,16 @@ import React from "react";
 import { ReactComponent as HeartIcon } from "../../../assets/images/icons/ic_heart.svg";
 import { Link } from "react-router-dom";
 
-function ItemCard({ item }) {
+interface Item {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+  [key: string]: any;
+}
+
+function ItemCard({ item }: { item: Item }) {
   return (
     // 상품 카드 클릭 시 해당 상품의 상세페이지로 이동
     <Link to={`/items/${item.id}`} className="itemCard">

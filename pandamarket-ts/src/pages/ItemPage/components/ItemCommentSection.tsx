@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { Button } from "../../../styles/CommonStyles";
 import CommentThread from "./CommentThread";
@@ -51,10 +51,10 @@ const PostCommentButton = styled(Button)`
   }
 `;
 
-function ItemCommentSection({ productId }) {
+function ItemCommentSection({ productId }: { productId: string }) {
   const [comment, setComment] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
 

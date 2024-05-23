@@ -16,7 +16,12 @@ const Button = styled.button`
   }
 `;
 
-function DeleteButton({ onClick, label }) {
+interface DeleteButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  label: string;
+}
+
+function DeleteButton({ onClick, label }: DeleteButtonProps) {
   return (
     <Button aria-label={`${label} 삭제`} onClick={onClick}>
       <CloseIcon />

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import DropdownMenu from "../../../components/UI/DropdownMenu";
 import PaginationBar from "../../../components/UI/PaginationBar";
 import LoadingSpinner from "../../../components/UI/LoadingSpinner";
+import { Product } from "../../../api/Product";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -21,28 +22,49 @@ const getPageSize = () => {
   }
 };
 
-function AllItemsSection() {
-  const [orderBy, setOrderBy] = useState("recent");
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [itemList, setItemList] = useState([]);
-  const [totalPageNum, setTotalPageNum] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+type orderBy = "recent" | "favorite";
 
-  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+interface fetchSortedDataProps {
+  orderBy: orderBy;
+  page: number;
+  pageSize: number;
+}
+
+type images = string[];
+
+type tags = string[];
+
+function AllItemsSection() {
+  const [orderBy, setOrderBy] = useState<orderBy>("recent");
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(getPageSize());
+  const [itemList, setItemList] = useState<Product[]>([]);
+  const [totalPageNum, setTotalPageNum] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const fetchSortedData = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: fetchSortedDataProps) => {
     setIsLoading(true);
     try {
       const products = await getProducts({ orderBy, page, pageSize });
+      //console.log(products.list);
       setItemList(products.list);
       setTotalPageNum(Math.ceil(products.totalCount / pageSize));
     } catch (error) {
-      console.error("오류: ", error.message);
+      if (error instanceof Error) {
+        console.error("오류: ", error.message);
+      } else {
+        console.error("알 수 없는 오류: ", error);
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortSelection = (sortOption: orderBy) => {
     setOrderBy(sortOption);
   };
 
@@ -61,13 +83,13 @@ function AllItemsSection() {
     };
   }, [orderBy, page, pageSize]);
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
   return (
     <>
-      <LoadingSpinner isLoading={isLoading} />
+      <LoadingSpinner />
 
       <div>
         <div className="allItemsSectionHeader">

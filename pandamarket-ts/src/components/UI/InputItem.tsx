@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled, { css } from "styled-components";
 
 // input과 textarea의 스타일이 대부분 중복되기 때문에 styled-components의 css 헬퍼 함수를 사용해 공통 스타일을 정의했어요.
@@ -43,6 +43,20 @@ const TextArea = styled.textarea`
   resize: none; // 우측 하단 코너의 textarea 영역 크기 조절 기능을 없애줍니다
 `;
 
+interface InputItem {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
+  placeholder?: string;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  isTextArea?: boolean;
+}
+
 function InputItem({
   id,
   label,
@@ -51,7 +65,7 @@ function InputItem({
   placeholder,
   onKeyDown,
   isTextArea,
-}) {
+}: InputItem) {
   return (
     <div>
       {label && <Label htmlFor={id}>{label}</Label>}

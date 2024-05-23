@@ -24,7 +24,16 @@ const ButtonContent = styled(FlexContainer)`
   gap: 4px;
 `;
 
-function LikeButton({ productId, isFavorite, favoriteCount }) {
+function LikeButton({
+  productId,
+  isFavorite,
+  favoriteCount,
+}: {
+  productId: number;
+  isFavorite: boolean;
+  favoriteCount: number;
+}) {
+  console.log(productId, isFavorite, favoriteCount);
   return (
     <PillButton>
       <ButtonContent>
@@ -32,7 +41,7 @@ function LikeButton({ productId, isFavorite, favoriteCount }) {
         <Icon
           iconComponent={HeartSvg}
           size={24}
-          fillColor={isFavorite && "var(--red)"}
+          fillColor={isFavorite ? "var(--red)" : undefined}
         />
         {favoriteCount.toLocaleString()}
       </ButtonContent>

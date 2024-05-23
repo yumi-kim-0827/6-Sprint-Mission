@@ -7,6 +7,7 @@ import ItemProfileSection from "./components/ItemProfileSection";
 import ItemCommentSection from "./components/ItemCommentSection";
 import { ReactComponent as BackIcon } from "../../assets/images/icons/ic_back.svg";
 import LoadingSpinner from "../../components/UI/LoadingSpinner";
+import { Product } from "../../api/Product";
 
 const BackToMarketPageLink = styled(StyledLink)`
   display: flex;
@@ -18,14 +19,13 @@ const BackToMarketPageLink = styled(StyledLink)`
 `;
 
 function ItemPage() {
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   // react-router-dom의 useParams 훅을 사용해 URL의 path parameter(상품 아이디)를 가져오세요.
   // Route에서 정의한 path parameter의 이름과 useParams 훅에서 사용하는 변수명이 일치해야 정상적으로 추출돼요.
   const { productId } = useParams();
-
   useEffect(() => {
     async function fetchProduct() {
       if (!productId) {
@@ -42,15 +42,17 @@ function ItemPage() {
         }
         setProduct(data);
       } catch (error) {
-        setError(error.message);
+        if (error instanceof Error) {
+          setError(error.message);
+        }
       } finally {
         setIsLoading(false);
       }
     }
-
     fetchProduct();
   }, [productId]);
 
+  console.log(product);
   // 데이터 fetching 오류 발생 시 UI
   // - 만약 서버에서 사용자 친화적으로 작성된 오류 메세지를 보내주지 않는다면 호출된 오류 메세지를 그대로 노출하는 것보다는 프론트단에서 별도의 내용을 넣어주는 것이 사용성에 좋아요
   if (error) {
@@ -62,7 +64,7 @@ function ItemPage() {
   return (
     <>
       {/* 데이터를 불러올 동안 로딩 스피너 표시 */}
-      <LoadingSpinner isLoading={isLoading} />
+      <LoadingSpinner />
 
       <Container>
         <ItemProfileSection product={product} />

@@ -20,15 +20,27 @@ const getPageSize = () => {
 function BestItemsSection() {
   const [itemList, setItemList] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const fetchSortedData = async ({ orderBy, pageSize }) => {
+  interface fetchSortedDateProps {
+    orderBy: "recent" | "favorite";
+    pageSize: number;
+  }
+
+  const fetchSortedData = async ({
+    orderBy,
+    pageSize,
+  }: fetchSortedDateProps) => {
     setIsLoading(true);
     try {
       const products = await getProducts({ orderBy, pageSize });
       setItemList(products.list);
     } catch (error) {
-      console.error("오류: ", error.message);
+      if (error instanceof Error) {
+        console.error("오류: ", error.message);
+      } else {
+        console.error("알 수 없는 오류", error);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -48,16 +60,15 @@ function BestItemsSection() {
       window.removeEventListener("resize", handleResize);
     };
   }, [pageSize]);
-
   return (
     <>
-      <LoadingSpinner isLoading={isLoading} />
+      <LoadingSpinner />
 
       <div className="bestItemsContainer">
         <h1 className="sectionTitle">베스트 상품</h1>
 
         <div className="bestItemsCardSection">
-          {itemList?.map((item) => (
+          {itemList?.map((item: any) => (
             <ItemCard item={item} key={`best-item-${item.id}`} />
           ))}
         </div>
