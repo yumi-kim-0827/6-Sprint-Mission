@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import AddItemFileInput from "../components/AddItemFileInput";
+import AddItemFileInput from "../components/AddItemPage/AddItemFileInput";
 import "../styles/AddItemPage.css";
-import AddItemTagsInput from "../components/AddItemTagsInput";
+import AddItemTagsInput from "../components/AddItemPage/AddItemTagsInput";
 
 interface InitialValues {
   name: string;
