@@ -1,5 +1,5 @@
 import "./SignUp.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import logoPng from "../../assets/long_logo.png";
 import showIcon from "../../assets/sign-up/show.svg";
@@ -50,43 +50,37 @@ const SignUp = () => {
     }
   }, [isValidEmail, isPwShow, isPwMatch, isValidNickname]);
 
-  const checkInputValidity = (category, value) => {
+  const checkInputValidity = (category: string, value: string) => {
     setSignUpInfo((prevSignUpInfo) => ({
       ...prevSignUpInfo,
       [category]: value,
     }));
   };
 
-  const setEmailToSignUpInfo = (e) => {
-    const { value } = e.target;
-    checkInputValidity("email", value);
-    const isValid = validOption.email.test(value);
-    setIsValidEmail(isValid ? true : false);
+  const setInputValueToSignUpInfo = (e: ChangeEvent) => {
+    const { name, value } = e.target as HTMLInputElement;
+
+    if (name === "email") {
+      checkInputValidity("email", value);
+      const isValid = validOption.email.test(value);
+      setIsValidEmail(isValid ? true : false);
+    } else if (name === "nickname") {
+      checkInputValidity("nickname", value);
+      const isValid = validOption.nick.test(value);
+      setIsValidNickname(isValid ? true : false);
+    } else if (name === "pw") {
+      checkInputValidity("password", value);
+      const isValid = validOption.pw.test(value);
+      setIsValidPw(isValid ? true : false);
+    } else {
+      checkInputValidity("matchPassword", value);
+      const isValid = signUpInfo.password === value;
+      setIsPwMatch(isValid ? true : false);
+    }
   };
 
-  const setPwToSignUpInfo = (e) => {
-    const { value } = e.target;
-    checkInputValidity("password", value);
-    const isValid = validOption.pw.test(value);
-    setIsValidPw(isValid ? true : false);
-  };
-
-  const setNickToSignUpInfo = (e) => {
-    const { value } = e.target;
-    checkInputValidity("nickname", value);
-    const isValid = validOption.nick.test(value);
-    setIsValidNickname(isValid ? true : false);
-  };
-
-  const setPwMatchToSignUpInfo = (e) => {
-    const { value } = e.target;
-    checkInputValidity("matchPassword", value);
-    const isValid = signUpInfo.password === value;
-    setIsPwMatch(isValid ? true : false);
-  };
-
-  const handlePwShow = (e) => {
-    const { className } = e.target;
+  const handlePwShow = (e: MouseEvent) => {
+    const { className } = e.target as HTMLImageElement;
     className.includes("re")
       ? setIsPwShow((prevIsPwShow) => ({
           ...prevIsPwShow,
@@ -112,8 +106,9 @@ const SignUp = () => {
           <input
             type="email"
             id="email"
+            name="email"
             placeholder="이메일을 입력해주세요"
-            onChange={setEmailToSignUpInfo}
+            onChange={setInputValueToSignUpInfo}
             className={isValidEmail ? "" : "wrong"}
             autoFocus
           />
@@ -129,9 +124,10 @@ const SignUp = () => {
           <input
             type="text"
             id="nickname"
+            name="nickname"
             placeholder="닉네임을 입력해주세요"
             className={isValidNickname ? "" : "wrong"}
-            onChange={setNickToSignUpInfo}
+            onChange={setInputValueToSignUpInfo}
           />
           {isValidNickname || (
             <span className="wrong-nick">{signUpInfo.nickname === "" && "닉네임을 입력해주세요"}</span>
@@ -143,9 +139,10 @@ const SignUp = () => {
           <input
             type={isPwShow.password ? "text" : "password"}
             id="pw"
+            name="pw"
             placeholder="비밀번호를 입력해주세요"
             className={isValidPw ? "" : "wrong"}
-            onChange={setPwToSignUpInfo}
+            onChange={setInputValueToSignUpInfo}
           />
           {isPwShow.password ? (
             <img className="pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
@@ -164,9 +161,10 @@ const SignUp = () => {
           <input
             type={isPwShow.passwordConfirm ? "text" : "password"}
             id="re-pw"
+            name="re-pw"
             placeholder="비밀번호를 다시 한번 입력해주세요"
             className={isPwMatch ? "" : "wrong"}
-            onChange={setPwMatchToSignUpInfo}
+            onChange={setInputValueToSignUpInfo}
           />
           {isPwShow.passwordConfirm ? (
             <img className="re pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />

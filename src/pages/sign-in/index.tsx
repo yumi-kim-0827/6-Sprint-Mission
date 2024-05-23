@@ -1,5 +1,5 @@
 import "./SignIn.css";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoPng from "../../assets/long_logo.png";
@@ -33,8 +33,8 @@ const SignIn = () => {
     }
   }, [isValidEmail, isPwShow]);
 
-  const checkEmailValidity = (e) => {
-    const { value } = e.target;
+  const checkEmailValidity = (e: ChangeEvent) => {
+    const { value } = e.target as HTMLInputElement;
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
       email: value,
@@ -43,8 +43,8 @@ const SignIn = () => {
     setIsValidEmail(isValid ? true : false);
   };
 
-  const checkPwValidity = (e) => {
-    const { value } = e.target;
+  const checkPwValidity = (e: ChangeEvent) => {
+    const { value } = e.target as HTMLInputElement;
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
       password: value,
