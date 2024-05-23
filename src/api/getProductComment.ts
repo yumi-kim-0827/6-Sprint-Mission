@@ -1,6 +1,16 @@
 import { baseAxios } from './api';
 
-export const getProductComment = async ({ productId, limit = 10, cursor }) => {
+interface getProductCommentProps {
+  productId: number;
+  limit?: number;
+  cursor?: number;
+}
+
+export const getProductComment = async ({
+  productId,
+  limit = 10,
+  cursor,
+}: getProductCommentProps) => {
   const cursorQuery = cursor ? `&cursor=${cursor}` : '';
   try {
     const response = await baseAxios.get(

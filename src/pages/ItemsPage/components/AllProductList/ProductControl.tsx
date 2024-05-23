@@ -53,11 +53,7 @@ const ProductControl = ({
           className="search-input"
         />
       </div>
-      <Button
-        title="상품 등록하기"
-        onClick={() => navigate('/addItem')}
-        disabled={undefined}
-      />
+      <Button title="상품 등록하기" onClick={() => navigate('/addItem')} />
       <div className="order-container">
         <DropDown
           triggerComponent={

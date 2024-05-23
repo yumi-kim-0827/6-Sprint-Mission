@@ -3,8 +3,13 @@ import './style.css';
 import HeartIcon from 'assets/icons/Heart';
 import { formatNumberToWon } from 'utils/formatNumber';
 import { useNavigate } from 'react-router-dom';
+import { ItemType } from 'types/item';
 
-const ProductItem = ({ item }) => {
+interface ProductItemProps {
+  item: ItemType;
+}
+
+const ProductItem = ({ item }: ProductItemProps) => {
   const navigate = useNavigate();
 
   return (

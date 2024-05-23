@@ -34,7 +34,7 @@ const AddItemPage = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('image', imageUrl);
+    formData.append('image', JSON.stringify(imageUrl));
     formData.append('name', inputData.itemName);
     formData.append('description', inputData.itemDescription);
     formData.append('price', inputData.itemPrice);
@@ -52,6 +52,17 @@ const AddItemPage = () => {
         [name]: value,
       });
     }
+  };
+
+  const handleChangeTextarea = ({
+    target,
+  }: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = target;
+
+    setInputData({
+      ...inputData,
+      [name]: value,
+    });
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -109,7 +120,7 @@ const AddItemPage = () => {
               id="itemDescription"
               label="상품 소개"
               placeholder="상품 소개를 입력해주세요"
-              onChange={handleChange}
+              onChange={handleChangeTextarea}
             />
             <DefaultInput
               id="itemPrice"

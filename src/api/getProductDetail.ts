@@ -1,6 +1,12 @@
 import { baseAxios } from './api';
 
-export const getProductDetail = async ({ productId }) => {
+interface getProductDetailProps {
+  productId: number;
+}
+
+export const getProductDetail = async ({
+  productId,
+}: getProductDetailProps) => {
   try {
     const response = await baseAxios.get(`products/${productId}`);
     return response.data;

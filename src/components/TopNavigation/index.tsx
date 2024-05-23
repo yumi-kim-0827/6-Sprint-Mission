@@ -8,7 +8,7 @@ import './style.css';
 const TopNavigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,7 +44,7 @@ const TopNavigation = () => {
               <Link
                 to="/items"
                 className={
-                  location.pathname === '/items' ||
+                  location.pathname.startsWith('/items') ||
                   location.pathname === '/addItem'
                     ? 'active-nav'
                     : ''

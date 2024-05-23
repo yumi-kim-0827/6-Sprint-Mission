@@ -1,9 +1,25 @@
+import React, { ReactNode } from 'react';
 import { createContext, useContext, useState } from 'react';
 
-const ImageUrlContext = createContext();
+type ImageType = Blob | MediaSource | null;
 
-export const ImageUrlProvider = ({ defaultValue = null, children }) => {
-  const [imageUrl, setImageUrl] = useState(defaultValue);
+interface ImageUrlProviderProps {
+  defaultValue: ImageType;
+  children: ReactNode;
+}
+
+interface ImageUrlContextProps {
+  imageUrl: ImageType;
+  setImageUrl: (value: ImageType) => void;
+}
+
+const ImageUrlContext = createContext<ImageUrlContextProps | null>(null);
+
+export const ImageUrlProvider = ({
+  defaultValue = null,
+  children,
+}: ImageUrlProviderProps) => {
+  const [imageUrl, setImageUrl] = useState<ImageType>(defaultValue);
 
   return (
     <ImageUrlContext.Provider value={{ imageUrl, setImageUrl }}>

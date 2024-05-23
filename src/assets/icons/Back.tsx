@@ -1,6 +1,12 @@
-import * as React from 'react';
+import React from 'react';
+import type { SVGProps } from 'react';
 
-const BackIcon = ({ width = 25, height = 24, fill = 'white', ...props }) => (
+const BackIcon = ({
+  width = 25,
+  height = 24,
+  fill = 'white',
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     width={width}
     height={height}

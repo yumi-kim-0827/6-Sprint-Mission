@@ -1,5 +1,12 @@
-import * as React from 'react';
-const Heart = ({ width = 16, height = 16, stroke = '#4B5563', ...props }) => (
+import type { SVGProps } from 'react';
+import React from 'react';
+
+const Heart = ({
+  width = 16,
+  height = 16,
+  stroke = '#4B5563',
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     width={width}
     height={height}

@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { InputContainer, Label } from './style';
 
-const FormWrapper = ({ label, id, children }) => {
+interface FormWrapperProps {
+  label: string;
+  id: string;
+  children: ReactNode;
+}
+
+const FormWrapper = ({ label, id, children }: FormWrapperProps) => {
   return (
     <InputContainer>
       <Label htmlFor={id}>{label}</Label>

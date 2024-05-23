@@ -1,8 +1,12 @@
-// import type { SVGProps } from 'react';
+import type { SVGProps } from 'react';
+import React from 'react';
 
-//: SVGProps<SVGAElement>
-
-const ArrowDown = ({ width = 24, height = 24, fill = '#1F2937', ...props }) => (
+const ArrowDown = ({
+  width = 24,
+  height = 24,
+  fill = '#1F2937',
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     width={width}
     height={height}

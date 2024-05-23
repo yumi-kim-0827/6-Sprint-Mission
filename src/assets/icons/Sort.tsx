@@ -1,5 +1,12 @@
-import * as React from 'react';
-const Sort = (props) => (
+import type { SVGProps } from 'react';
+import React from 'react';
+
+const Sort = ({
+  width = 24,
+  height = 24,
+  stroke = '#1F2937',
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}
@@ -10,20 +17,20 @@ const Sort = (props) => (
   >
     <path
       d="M15 6.5V17.5M15 17.5L11.5 14M15 17.5L18.5 14"
-      stroke="#1F2937"
+      stroke={stroke}
       strokeWidth={1.8}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M7.90002 15.5L9.50002 15.5"
-      stroke="#1F2937"
+      stroke={stroke}
       strokeWidth={1.8}
       strokeLinecap="round"
     />
     <path
       d="M5 7.5H10"
-      stroke="#1F2937"
+      stroke={stroke}
       strokeWidth={1.8}
       strokeLinecap="round"
     />

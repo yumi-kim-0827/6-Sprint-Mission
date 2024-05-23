@@ -1,13 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, ComponentProps } from 'react';
 import ImageAddBox from 'components/ImageAddBox';
 import FormWrapper from './FormWrapper';
 import { ImageInput } from './style';
 
-const ImageFileInput = ({ label, id, ...props }) => {
-  const imageRef = useRef(null);
+interface ImageFileInputProps extends ComponentProps<'input'> {
+  label: string;
+  id: string;
+}
+
+const ImageFileInput = ({ label, id, ...props }: ImageFileInputProps) => {
+  const imageRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
-    imageRef.current.click();
+    if (imageRef.current) {
+      imageRef.current.click();
+    }
   };
 
   return (

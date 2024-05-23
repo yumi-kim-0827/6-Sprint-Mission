@@ -7,6 +7,7 @@ import { MOBILE_SIZE, TABLET_SIZE } from 'constants/windowSize';
 import { BEST } from 'constants/productItems';
 import './style.css';
 import { ItemType } from 'types/item';
+import { OrderBy } from 'types/order';
 
 const BestProductList = () => {
   const [originProduct, setOriginProduct] = useState<ItemType[]>([]);
@@ -17,7 +18,7 @@ const BestProductList = () => {
     let result;
     try {
       setLoadingError(null);
-      result = await getProducts({ orderBy: 'favorite' });
+      result = await getProducts({ orderBy: OrderBy.좋아요순 });
 
       const { list } = result;
 

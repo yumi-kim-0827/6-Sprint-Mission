@@ -1,8 +1,15 @@
-import * as React from 'react';
-const CloseX = ({ fill = '#9CA3AF', ...props }) => (
+import type { SVGProps } from 'react';
+import React from 'react';
+
+const CloseX = ({
+  width = 22,
+  height = 24,
+  fill = '#9CA3AF',
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
-    width={22}
-    height={24}
+    width={width}
+    height={height}
     viewBox="0 0 22 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
