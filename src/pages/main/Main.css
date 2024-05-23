@@ -37,10 +37,10 @@
   cursor: pointer;
 }
 
-.top .home-top button:hover {
+.top .home-top a:hover {
   background-color: var(--hover-blue);
 }
-.top .home-top button:active {
+.top .home-top a:active {
   background-color: var(--click-blue);
 }
 .top .img-top img {
@@ -139,7 +139,7 @@
   .top .home-top h2 {
     font-size: 32px;
   }
-  .top .home-top button {
+  .top .home-top a {
     width: 154px;
     padding: 16px 20px 16px 20px;
     margin: 0 auto;
@@ -239,7 +239,7 @@
     position: relative;
     top: -80px;
   }
-  .top .home-top button {
+  .top .home-top a {
     margin: 0 auto;
   }
   .top .img-top img {
