@@ -1,9 +1,9 @@
 import "../styles/ItemPage.css";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { getItems } from "../services/api";
+import { getItems } from "services/api";
 import "../styles/main.css";
-import BestItemList from "../components/ItemListPage/BestItemList";
-import Pagination from "../components/ItemListPage/Pagination";
+import BestItemList from "components/ItemListPage/BestItemList";
+import Pagination from "components/ItemListPage/Pagination";
 import Item from "constants/Item";
 import { AllItemList } from "components/ItemListPage/AllItemList";
 

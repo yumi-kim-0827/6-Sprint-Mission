@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import "../styles/AddItemFileInput.css";
+import "styles/AddItemFileInput.css";
 
 interface Props {
   onChange: (name: string, value: string | File | null) => void;

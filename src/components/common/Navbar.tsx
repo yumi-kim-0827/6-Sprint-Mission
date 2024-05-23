@@ -1,6 +1,6 @@
-import "../styles/Navbar.css";
-import pandaLogoImg from "../assets/panda-logo.svg";
-import pandaTextLogoImg from "../assets/panda-text-logo.svg";
+import "styles/Navbar.css";
+import pandaLogoImg from "assets/panda-logo.svg";
+import pandaTextLogoImg from "assets/panda-text-logo.svg";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {

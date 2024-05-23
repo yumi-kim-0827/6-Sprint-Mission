@@ -1,5 +1,5 @@
 import { KeyboardEvent } from "react";
-import "../styles/AddItemTagsInput.css";
+import "styles/AddItemTagsInput.css";
 
 interface Props {
   onChange: (name: string, value: string | File) => void;

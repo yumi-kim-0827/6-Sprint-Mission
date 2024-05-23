@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { DescriptionContainer, KebabIcon } from "./ItemDetail";
-import arrowTurn from "../assets/arrow-turn.svg";
-import kebabIcon from "../assets/icon-kebab.svg";
+import arrowTurn from "assets/arrow-turn.svg";
+import kebabIcon from "assets/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 import {
@@ -9,7 +9,7 @@ import {
   GRAY_200,
   INPUT_COLOR,
   PRIMARY_COLOR,
-} from "../../constants/color";
+} from "constants/color";
 import moment from "moment";
 import "moment/locale/ko";
 import ItemComment from "constants/comment";

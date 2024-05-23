@@ -1,4 +1,4 @@
-import "../styles/Home.css";
+import "styles/Home.css";
 import homeTop from "../assets/Img-home-top.png";
 import homeBottom from "../assets/Img-home-bottom.png";
 import mainHotItem from "../assets/main-hot-item.png";

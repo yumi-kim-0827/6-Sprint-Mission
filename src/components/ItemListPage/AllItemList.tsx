@@ -1,6 +1,6 @@
 import Item from "constants/Item";
-import heartIcon from "../assets/heart-icon.svg";
-import "../styles/AllItemList.css";
+import heartIcon from "assets/heart-icon.svg";
+import "styles/AllItemList.css";
 import { Link } from "react-router-dom";
 import { ChangeEvent, FormEvent } from "react";
 
