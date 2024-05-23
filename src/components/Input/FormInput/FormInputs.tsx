@@ -1,12 +1,18 @@
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { addCommas } from "utils/commas";
+import PWEyeClose from "assets/icon/password_eye.svg";
+import PWEyeOpen from "assets/icon/password_eye-open.svg";
 import * as S from "./FormInputs.style";
 
 interface InputProps {
   name: string;
   value: string | number;
-  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   placeholder: string;
+}
+
+interface TextInputProps extends InputProps {
+  error?: boolean;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function FormInputMain({
@@ -14,9 +20,10 @@ export function FormInputMain({
   value,
   onChange,
   placeholder,
-}: InputProps) {
+}: TextInputProps) {
   return (
     <S.FormInput
+      type="text"
       name={name}
       placeholder={placeholder}
       value={value}
@@ -26,12 +33,67 @@ export function FormInputMain({
   );
 }
 
+export function EmailInput({
+  name,
+  value,
+  onChange,
+  placeholder,
+  error,
+}: TextInputProps) {
+  return (
+    <S.FormInput
+      type="email"
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      $error={error}
+      required
+    />
+  );
+}
+
+export function PasswordInput({
+  name,
+  value,
+  onChange,
+  placeholder,
+  error,
+}: TextInputProps) {
+  const [pwClose, setPwClose] = useState(true);
+
+  const togglePWEye = () => {
+    setPwClose((prev) => !prev);
+  };
+
+  return (
+    <S.PWInputBox>
+      <S.FormInput
+        type={pwClose ? "password" : "text"}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        $error={error}
+        required
+      />
+      <div className="pw-eye" onClick={togglePWEye}>
+        {pwClose ? (
+          <img src={PWEyeClose} alt="pw-close" />
+        ) : (
+          <img src={PWEyeOpen} alt="pw-open" />
+        )}
+      </div>
+    </S.PWInputBox>
+  );
+}
+
 export function NumberInput({
   name,
   value,
   onChange,
   placeholder,
-}: InputProps) {
+}: TextInputProps) {
   const number = Number(value);
   const [priceStr, setPriceStr] = useState("");
 
@@ -43,6 +105,7 @@ export function NumberInput({
 
   return (
     <S.FormInput
+      type="text"
       name={name}
       placeholder={placeholder}
       value={priceStr}
@@ -53,6 +116,7 @@ export function NumberInput({
 }
 
 interface TextareaInputProps extends InputProps {
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   height?: number;
 }
 
@@ -75,7 +139,7 @@ export function TextareaInput({
   );
 }
 
-interface TagInputProps extends InputProps {
+interface TagInputProps extends TextInputProps {
   onKeyUp: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 
@@ -87,14 +151,13 @@ export function TagInput({
   placeholder,
 }: TagInputProps) {
   return (
-    <>
-      <S.FormInput
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        onKeyUp={onKeyUp}
-      />
-    </>
+    <S.FormInput
+      type="text"
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      onKeyUp={onKeyUp}
+    />
   );
 }

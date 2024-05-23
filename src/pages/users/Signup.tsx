@@ -1,5 +1,19 @@
-import React from "react";
+import MainLayout from "components/Layout";
+import {
+  AuthLogo,
+  EasyLogin,
+  LinkBlock,
+  LoginForm,
+  SignupForm,
+} from "templates/Users";
 
 export default function Signup() {
-  return <div>Signup</div>;
+  return (
+    <MainLayout>
+      <AuthLogo />
+      <SignupForm />
+      <EasyLogin />
+      <LinkBlock type="signup" />
+    </MainLayout>
+  );
 }
