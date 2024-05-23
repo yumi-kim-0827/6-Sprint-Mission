@@ -6,7 +6,7 @@ import { arrowDown, favoriteIcon, searchIcon, sortButton } from "../images";
 import paginationStore from "../store/paginationStore";
 import { useProductCountStore } from "../store/productCountStore";
 import formatNumber from "../utils/formatNumber";
-import { Pagination, SortDropdown } from "./";
+import { Pagination, SortDropdown } from ".";
 
 export default function AllItemsList() {
   // 정렬 옵션을 위한 객체입니다.
@@ -139,7 +139,7 @@ export default function AllItemsList() {
       </div>
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {data.list &&
-          data.list.map((post) => {
+          data.list?.map((post) => {
             return (
               <li key={post.id}>
                 <img

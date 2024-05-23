@@ -5,5 +5,5 @@ import { create } from "zustand";
 
 export default create((set) => ({
   currentPage: 1,
-  setCurrentPage: (count) => set({ currentPage: count }),
+  setCurrentPage: (count: number) => set({ currentPage: count }),
 }));

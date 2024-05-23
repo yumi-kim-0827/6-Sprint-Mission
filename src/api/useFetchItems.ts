@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 // axios와 useQuery를 사용하여 fetch하였습니다.
-export default function useFetchItems(paramsOptions) {
+export default function useFetchItems(paramsOptions: {page: number, pageSize:number, orderBy: string}) {
   const { page, pageSize, orderBy } = paramsOptions;
 
   const fetchItems = async () => {
