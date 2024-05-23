@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
 import MarketPage from './pages/MarketPage';
+import AddItemPage from './pages/AddItemPage';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/login" element={<LogInPage />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
-        <Route path="/market" element={<MarketPage />}></Route>
+        <Route path="/items" element={<MarketPage />}></Route>
+        <Route path="/additem" element={<AddItemPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

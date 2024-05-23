@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
 import TopBanner from "../assets/top_banner.png";
@@ -13,19 +13,15 @@ import Instagram from "../assets/icons/ic_instagram.png";
 
 import "../styles/HomePage.css";
 
-
 export default function HomePage() {
   const navigate = useNavigate();
   return (
     <div>
       <header>
-        <img
-          src={Logo}
-          alt="판다마켓 로고"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
+        <Link to="/">
+          <img src={Logo} alt="판다마켓 로고" />
+        </Link>
+
         <button
           className="login_button"
           onClick={() => {
@@ -39,12 +35,12 @@ export default function HomePage() {
         <div className="top_banner_wrapper">
           <p className="top_banner_description">
             일상의 모든 물건을 <br />
-            거래해 보세요
+            거래해보세요
           </p>
           <button
             className="top_banner_button"
             onClick={() => {
-              navigate("/market");
+              navigate("/items");
             }}
           >
             구경하러 가기
@@ -111,7 +107,7 @@ export default function HomePage() {
           <div>Privacy Policy</div>
           <div>FAQ</div>
         </div>
-        <div className="icons">
+        <div className="fotter_icons">
           <img src={Meta} alt="메타 아이콘" />
           <img src={Twitter} alt="트위터 아이콘" />
           <img src={Youtube} alt="유튜브 아이콘" />

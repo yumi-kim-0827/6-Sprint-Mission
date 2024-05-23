@@ -9,9 +9,11 @@ import "../styles/SignPage.css";
 export default function LogInPage() {
   return (
     <div className="sign">
-      <img className="logo" src={Logo} alt="로그인 페이지 로고" />
-      
-      <form action="">
+      <Link to="/">
+        <img className="logo" src={Logo} alt="로그인 페이지 로고" />
+      </Link>
+
+      <form action="" className="sign_form">
         <label htmlFor="">이메일</label>
 
         <input type="email" placeholder="이메일을 입력해주세요" />
@@ -31,7 +33,10 @@ export default function LogInPage() {
       </div>
 
       <div className="go_signup">
-        판다마켓이 처음이신가요? <Link to="/signup">회원가입</Link>
+        판다마켓이 처음이신가요?{" "}
+        <Link to="/signup">
+          <span>회원가입</span>
+        </Link>
       </div>
     </div>
   );

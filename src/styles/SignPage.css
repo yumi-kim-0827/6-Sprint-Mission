@@ -14,12 +14,12 @@
   margin: 60px 0 40px 0;
 }
 
-form {
+.sign_form {
   display: flex;
   flex-direction: column;
 }
 
-form label {
+.sign_form label {
   margin-bottom: 16px;
 
   font-size: 18px;
@@ -27,7 +27,7 @@ form label {
   line-height: 21px;
 }
 
-form input {
+.sign_form input {
   width: 640px;
   height: 56px;
 
@@ -45,7 +45,7 @@ form input {
   line-height: 24px;
 }
 
-form button {
+.sign_form button {
   width: 640px;
   height: 56px;
 
@@ -84,17 +84,22 @@ form button {
   color: #1f2937;
 }
 
-.icons img {
-  width: 42px;
-  height: 42px;
+.login_icons {
   display: flex;
   gap: 16px;
 }
 
-.go_signup {
-  /* padding-top: 24px; */
+.login_icons img {
+  width: 42px;
+  height: 42px;
+}
 
+.go_signup {
   font-size: 15px;
   font-weight: 500;
   line-height: 18px;
+}
+
+.go_signup span{
+  color: #3182f6;
 }

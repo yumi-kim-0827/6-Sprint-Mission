@@ -12,7 +12,7 @@ header {
   top: 0;
   bottom: 0;
 
-  max-width: 1920px;
+  /* max-width: 1920px; */
   width: 100%;
   height: 70px;
 
@@ -192,7 +192,7 @@ footer {
   display: flex;
   justify-content: space-around;
 
-  max-width: 1920px;
+  /* max-width: 1920px; */
   width: 100%;
   height: 160px;
 
@@ -218,12 +218,12 @@ footer {
   color: #cfcfcf;
 }
 
-.icons {
+.fotter_icons {
   display: flex;
   gap: 12px;
 }
 
-.icons img{
+.fotter_icons img{
   width: 20px;
   height: 20px;
 }
