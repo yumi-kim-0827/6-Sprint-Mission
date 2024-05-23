@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import icoX from "../img/ic_x.svg";
+import Styles from "./Input.module.scss";
+import icoX from "../../img/ic_x.svg";
 
-export function TagInput({ name, onChange }) {
+export default function TagInput({ name, onChange }) {
   const [tagArr, setTagArr] = useState([]);
   const tagInput = useRef();
 
@@ -28,23 +29,24 @@ export function TagInput({ name, onChange }) {
   }, [tagArr, name]);
 
   return (
-    <div className="tag-view">
+    <div className={Styles.tagView}>
       <input
+        type="text"
         onKeyDown={handleKeydown}
         ref={tagInput}
-        className="input-theme"
+        className={Styles.input}
         placeholder="태그를 입력해주세요"
       />
-      <ul className="tag-container">
+      <ul className={Styles.tagContainer}>
         {tagArr.map((tag, index) => {
           return (
-            <li key={index} className="tag-view__list">
-              <span className="tag-view__txt">{tag}</span>
+            <li key={index} className={Styles.tagViewList}>
+              <span className={Styles.tagViewTxt}>{tag}</span>
               <button
                 type="button"
                 value={index}
                 onClick={handleDelete}
-                className="tag-view__btn"
+                className={Styles.tagViewBtn}
               >
                 <img src={icoX} alt="아이콘" aria-hidden="true" />
               </button>

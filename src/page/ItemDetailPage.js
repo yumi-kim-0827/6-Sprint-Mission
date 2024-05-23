@@ -4,6 +4,8 @@ import { useAsync } from "../hooks/useAsync";
 import { useCallback, useEffect, useState } from "react";
 import icoHeart from "../img/ic_heart.svg";
 import icoKebab from "../img/ic_kebab.svg";
+import Button from "../components/Button";
+import Input from "../components/Input";
 
 export function ItemDetailPage() {
   const { productId } = useParams();
@@ -72,14 +74,12 @@ export function ItemDetailPage() {
       <section className="section-comment">
         <h3 className="section-tit">문의하기</h3>
         <div className="section-content">
-          <textarea
+          <Input.Textarea
             name="comment"
             className="input-theme txt-comment"
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           />
-          <button type="button" className="btn-small btn-comment">
-            등록
-          </button>
+          <Button.Small className="btn-comment">등록</Button.Small>
         </div>
       </section>
       <section className="section-reply">

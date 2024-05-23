@@ -7,6 +7,7 @@ import IcoFacebook from "../img/ic_facebook.svg";
 import IcoYoutube from "../img/ic_youtube.svg";
 import IcoTwitter from "../img/ic_twitter.svg";
 import IcoInstagram from "../img/ic_instagram.svg";
+import { Link } from "react-router-dom";
 
 export function HomePage() {
   return (
@@ -28,9 +29,9 @@ export function HomePage() {
             </a>
           </h1>
           <div className="header__btn">
-            <a href="/signin" className="btn-small">
+            <Link to="/signin" className="btn-login">
               로그인
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -41,9 +42,9 @@ export function HomePage() {
               일상의 모든 물건을 거래해보세요
             </h2>
             <div className="section-banner__btn">
-              <a href="/items" className="btn-large">
+              <Link to="/items" className="link">
                 구경하러 가기
-              </a>
+              </Link>
             </div>
           </div>
         </section>

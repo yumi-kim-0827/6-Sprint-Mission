@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ItemList } from "../components/ItemList";
-import { SearchText } from "../components/SearchText";
-import { Select } from "../components/Select";
+import Input from "../components/Input";
 import { useResponsive } from "../hooks/useResponsive";
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -62,17 +61,17 @@ export function ItemPage() {
         <div className="section-wrap">
           <header className="section-header">
             <h2 className="section-tit">전체 상품</h2>
-            <SearchText
+            <Input.Search
               name="search"
               value={values.search}
               onSubmit={handleSearch}
               onChange={handleInputChange}
               className="section-item__search"
             />
-            <Link to="/additem" className="btn-small section-item__btn">
+            <Link to="/additem" className="section-item__btn">
               상품 등록하기
             </Link>
-            <Select
+            <Input.Select
               isShow={isPopDropdown}
               selectOptions={sortOptions}
               name="order"
@@ -81,7 +80,7 @@ export function ItemPage() {
               onClick={handlePop}
               onChange={handleChange}
               className="section-item__dropdown"
-            ></Select>
+            ></Input.Select>
           </header>
           <div className="section-content">
             {isPC && (

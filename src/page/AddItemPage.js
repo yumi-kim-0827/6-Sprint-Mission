@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { FileInput } from "../components/FileInput";
 import { useAsync } from "../hooks/useAsync";
 import { Navigate } from "react-router-dom";
 import { createItems } from "../api/api";
-import { TagInput } from "../components/TagInput";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 const INITIAL_VALUES = {
   name: null,
@@ -62,16 +62,16 @@ export function AddItemPage({
         <div className="section-wrap">
           <header className="section-header">
             <h2 className="section-tit">상품 등록하기</h2>
-            <button
+            <Button.Small
               disabled={!isDisableSubmit}
               className="btn-small btn-submit"
             >
               등록
-            </button>
+            </Button.Small>
           </header>
           <section className="section-addItem-content">
             <h3 className="section-tit">상품 이미지</h3>
-            <FileInput
+            <Input.File
               name="images"
               value={values.images}
               initialPreview={initialPreview}
@@ -80,37 +80,38 @@ export function AddItemPage({
           </section>
           <section className="section-addItem-content">
             <h3 className="section-tit">상품명</h3>
-            <input
+            <Input.Text
               name="name"
               value={values.name}
               onChange={handleInputChange}
-              className="input-theme"
               placeholder="상품명을 입력해주세요"
             />
           </section>
           <section className="section-addItem-content">
             <h3 className="section-tit">상품 소개</h3>
-            <textarea
+            <Input.Textarea
               name="description"
               value={values.description}
               onChange={handleInputChange}
-              className="input-theme"
               placeholder="상품 소개를 입력해주세요"
             />
           </section>
           <section className="section-addItem-content">
             <h3 className="section-tit">판매가격</h3>
-            <input
+            <Input.Text
               name="price"
               value={values.price}
               onChange={handleInputChange}
-              className="input-theme"
               placeholder="판매 가격을 입력해주세요"
             />
           </section>
           <section className="section-addItem-content">
             <h3 className="section-tit">태그</h3>
-            <TagInput name="tags" value={values.tags} onChange={handleChange} />
+            <Input.Tag
+              name="tags"
+              value={values.tags}
+              onChange={handleChange}
+            />
           </section>
         </div>
       </form>

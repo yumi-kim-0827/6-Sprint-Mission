@@ -1,0 +1,30 @@
+@import "../../style/scss/common";
+
+.btnLarge,
+.btnSmall {
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    background: #1967d6;
+    color: #fff;
+  }
+  &:active {
+    background: #1251aa;
+    color: #fff;
+  }
+  &:disabled {
+    background: #9ca3af;
+    color: #fff;
+  }
+  &:link {
+    color: #fff;
+  }
+}
+.btnLarge {
+  @include btnLarge();
+}
+
+.btnSmall {
+  @include btnSmall();
+}

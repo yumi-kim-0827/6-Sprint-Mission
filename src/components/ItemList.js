@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import Styles from "./ItemList.module.scss";
 import { ItemCard } from "./ItemCard";
 import { getItems } from "../api/api";
 import { useAsync } from "../hooks/useAsync";
@@ -34,10 +35,10 @@ export function ItemList({ order, size, keyword, page }) {
   if (page) {
     return (
       <>
-        <ul className="itemlists">
+        <ul className={Styles.itemLists}>
           {items.map((item) => {
             return (
-              <li key={item.id} className="itemlist">
+              <li key={item.id} className={Styles.itemList}>
                 <ItemCard item={item} />
               </li>
             );
@@ -45,8 +46,8 @@ export function ItemList({ order, size, keyword, page }) {
         </ul>
 
         {!loadingError && items.length === 0 && (
-          <div className="error">
-            <p className="error-txt">일치하는 결과가 없습니다.</p>
+          <div className={Styles.error}>
+            <p className={Styles.errorTxt}>일치하는 결과가 없습니다.</p>
           </div>
         )}
         <Pagination
@@ -60,10 +61,10 @@ export function ItemList({ order, size, keyword, page }) {
   }
   return (
     <>
-      <ul className="itemlists">
+      <ul className={`${Styles.itemLists} ${Styles.best}`}>
         {items.map((item) => {
           return (
-            <li key={item.id} className="itemlist">
+            <li key={item.id} className={Styles.itemList}>
               <ItemCard item={item} />
             </li>
           );
