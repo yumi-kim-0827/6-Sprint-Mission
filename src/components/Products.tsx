@@ -1,17 +1,26 @@
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { fetchProducts } from "../api";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 
-const Product = () => {
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
-  const [sortBy, setSortBy] = useState("");
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [pageSize] = useState(10);
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  createdAt: number;
+  images: string[];
+}
+
+const Product: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [bestProducts, setBestProducts] = useState<Product[]>([]);
+  const [sortBy, setSortBy] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [total, setTotal] = useState<number>(0);
+  const [pageSize] = useState<number>(10);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +29,8 @@ const Product = () => {
 
         const sortByFunction =
           sortBy === "latest"
-            ? (a, b) => b.createdAt - a.createdAt
-            : (a, b) => b.favoriteCount - a.favoriteCount;
+            ? (a: Product, b: Product) => b.createdAt - a.createdAt
+            : (a: Product, b: Product) => b.favoriteCount - a.favoriteCount;
 
         const filteredProducts = productList
           .filter((product) =>

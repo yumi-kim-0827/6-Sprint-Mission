@@ -4,13 +4,31 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchProduct, fetchProductComments } from "../api";
 
+interface Product {
+  images: string[];
+  name;
+  price;
+  description;
+  tags;
+  favoriteCount;
+}
+
+interface Comment {
+  content: string;
+  writer: {
+    image: string;
+    nickname: string;
+  };
+  createdAt: string;
+}
+
 const ProductDetail = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(undefined);
-  const [comments, setComments] = useState([]);
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleCommentSubmit = () => {
     const newCommentData = {
@@ -39,7 +57,6 @@ const ProductDetail = () => {
         console.error("Error fetching product detail:", error);
         setError("상품 정보를 불러오는 데 실패했습니다.");
       } finally {
-        setLoading(false);
       }
     };
     fetchProductDetail();
@@ -122,7 +139,7 @@ const ProductDetail = () => {
         ) : (
           comments.map((comment) => (
             <>
-              <ProductDetailComment key={comment}>
+              <ProductDetailComment>
                 <ProductCommentContent>{comment.content}</ProductCommentContent>
                 <ProductDetailCommentWriter
                   src={comment.writer.image}

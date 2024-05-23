@@ -1,11 +1,16 @@
+import React from "react";
 import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Header = () => {
+interface UsedMarketProps {
+  active: boolean;
+}
+
+const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigate = (path) => {
+  const handleNavigate = (path: string) => {
     navigate(path);
   };
 
@@ -82,7 +87,7 @@ const FreeBoard = styled.div`
   cursor: pointer;
 `;
 
-const UsedMarket = styled.div`
+const UsedMarket = styled.div<{ active: boolean }>`
   font-size: 18px;
   font-weight: 700;
   line-height: 21.48px;
@@ -90,9 +95,5 @@ const UsedMarket = styled.div`
   color: ${(props) => (props.active ? "#3692ff" : "#4b5563")};
   cursor: pointer;
 `;
-
-MenuContainer.defaultProps = {
-  gap: "0px",
-};
 
 export default Header;

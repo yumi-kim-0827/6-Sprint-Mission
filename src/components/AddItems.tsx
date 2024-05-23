@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaPlus, FaTimes } from "react-icons/fa";
 
@@ -10,18 +10,18 @@ const AddItem = () => {
     productPrice: "",
     productImage: "",
   });
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
   const [currentTag, setCurrentTag] = useState("");
-  const [imagePreview, setImagePreview] = useState("");
+  const [imagePreview, setImagePreview] = useState<string>("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    navigate.push("/");
+    navigate("/");
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       const newTag = currentTag.trim();
@@ -33,7 +33,7 @@ const AddItem = () => {
     }
   };
 
-  const handleTagRemove = (indexToRemove) => {
+  const handleTagRemove = (indexToRemove: number) => {
     setTags((prevTags) =>
       prevTags.filter((_, index) => index !== indexToRemove)
     );
@@ -48,17 +48,17 @@ const AddItem = () => {
     );
   };
 
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    if (selectedImage instanceof Blob) {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedImage = e.target.files?.[0];
+    if (selectedImage) {
       setProduct({
         ...product,
-        productImage: selectedImage,
+        productImage: selectedImage.name,
       });
 
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result);
+        setImagePreview(reader.result as string);
       };
       reader.readAsDataURL(selectedImage);
     } else {
@@ -66,7 +66,7 @@ const AddItem = () => {
     }
   };
 
-  const handleCancelPreview = (e) => {
+  const handleCancelPreview = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setProduct({
       ...product,
@@ -187,30 +187,17 @@ const AddItemTitle = styled.h2`
   margin-bottom: 5px;
 `;
 
-const AddItemsButton = styled(Link)`
-  width: 60px;
-  height: 19px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-family: Pretendard;
+const AddItemsButton = styled.button`
+  padding: 10px 20px;
   font-size: 16px;
-  font-weight: 600;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  text-decoration: none;
-  ${({ disabled }) =>
-    !disabled &&
-    css`
-      background-color: #3691ff;
-    `}
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: #9ca3af;
-      cursor: not-allowed;
-    `}
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  &:disabled {
+    background-color: #ccc;
+  }
 `;
 
 const AddImgContainer = styled.div`
