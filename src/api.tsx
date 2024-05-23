@@ -19,7 +19,7 @@ export const fetchProducts = async () => {
   }
 };
 
-export const fetchProduct = async (productId) => {
+export const fetchProduct = async (productId: number) => {
   try {
     const response = await httpClient.get(`/products/${productId}`);
     const data = response.data;
@@ -34,7 +34,7 @@ export const fetchProduct = async (productId) => {
   }
 };
 
-export const fetchProductComments = async (productId, limit = 10) => {
+export const fetchProductComments = async (productId: number, limit = 10) => {
   try {
     const response = await httpClient.get(
       `/products/${productId}/comments?limit=${limit}`
@@ -50,7 +50,7 @@ export const fetchProductComments = async (productId, limit = 10) => {
   }
 };
 
-export const addProductComment = async (productId, comment) => {
+export const addProductComment = async (productId: number, comment: string) => {
   try {
     const response = await httpClient.post(
       `/products/${productId}/comments`,

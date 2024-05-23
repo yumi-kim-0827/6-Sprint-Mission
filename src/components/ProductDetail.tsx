@@ -6,11 +6,11 @@ import { fetchProduct, fetchProductComments } from "../api";
 
 interface Product {
   images: string[];
-  name;
-  price;
-  description;
-  tags;
-  favoriteCount;
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  favoriteCount: number;
 }
 
 interface Comment {
@@ -51,7 +51,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProductDetail = async () => {
       try {
-        const productData = await fetchProduct(productId);
+        const productData = await fetchProduct(Number(productId));
         setProduct(productData);
       } catch (error) {
         console.error("Error fetching product detail:", error);
@@ -65,7 +65,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const commentsData = await fetchProductComments(productId, 10);
+        const commentsData = await fetchProductComments(Number(productId), 10);
         setComments(commentsData);
       } catch (error) {
         console.error("Error fetching product comments:", error);
@@ -105,7 +105,7 @@ const ProductDetail = () => {
           <ProductDetailTagBox>
             <ProductDetailTagTitle>상품 태그</ProductDetailTagTitle>
             <TagContainer>
-              {product.tags.map((tag) => (
+              {product.tags.map((tag: any) => (
                 <Tag key={tag}>#{tag}</Tag>
               ))}
             </TagContainer>

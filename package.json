@@ -16,7 +16,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^5.1.0",
     "react-router-dom": "^6.22.3",
-    "react-scripts": "^3.4.4",
+    "react-scripts": "^5.0.1",
     "styled-components": "^6.1.11",
     "web-vitals": "^2.1.4"
   },
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/body-parser": "^1.19.5",
     "typescript": "^3.2.1"
   }
 }

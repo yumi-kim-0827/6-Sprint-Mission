@@ -115,7 +115,7 @@ const AddItem = () => {
             type="text"
             placeholder="상품명을 입력해주세요"
             value={product.productName}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productName: e.target.value })
             }
             required
@@ -127,7 +127,7 @@ const AddItem = () => {
           <StyledTextarea
             placeholder="상품 소개를 입력해주세요"
             value={product.productDescription}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productDescription: e.target.value })
             }
             required
@@ -140,7 +140,7 @@ const AddItem = () => {
             type="text"
             placeholder="판매 가격을 입력해주세요"
             value={product.productPrice}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productPrice: e.target.value })
             }
             required
@@ -152,7 +152,9 @@ const AddItem = () => {
             type="text"
             placeholder="태그를 입력해주세요"
             value={currentTag}
-            onChange={(e) => setCurrentTag(e.target.value)}
+            onChange={(e: { target: { value: any } }) =>
+              setCurrentTag(e.target.value)
+            }
             onKeyDown={handleKeyDown}
             required
           />

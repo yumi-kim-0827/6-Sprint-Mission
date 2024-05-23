@@ -33,7 +33,7 @@ const Product: React.FC = () => {
             : (a: Product, b: Product) => b.favoriteCount - a.favoriteCount;
 
         const filteredProducts = productList
-          .filter((product) =>
+          .filter((product: { name: string }) =>
             product.name.toLowerCase().includes(search.toLowerCase())
           )
           .sort(sortByFunction);
@@ -54,15 +54,15 @@ const Product: React.FC = () => {
     fetchData();
   }, [sortBy, search, page]);
 
-  const handleSortChange = (event) => {
+  const handleSortChange = (event: { target: { value: any } }) => {
     setSortBy(event.target.value);
   };
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: { target: { value: any } }) => {
     setSearch(e.target.value);
   };
 
-  const handlePagination = (_, value) => {
+  const handlePagination = (_: any, value: any) => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
