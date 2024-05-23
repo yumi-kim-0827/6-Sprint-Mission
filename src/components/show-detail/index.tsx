@@ -9,7 +9,7 @@ interface ShowDetailValues {
   price: number;
   description: string;
   tags: string[];
-  favoriteCount: string;
+  favoriteCount: number;
 }
 
 const ShowDetail = ({ images, name, price, description, tags, favoriteCount }: ShowDetailValues) => {
