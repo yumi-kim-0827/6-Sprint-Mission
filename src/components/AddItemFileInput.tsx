@@ -1,13 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "../styles/AddItemFileInput.css";
 
-function AddItemFileInput({ onChange, name }) {
-  const [preview, setPreview] = useState(null);
+interface Props {
+  onChange: (name: string, value: string | File | null) => void;
+  name: string;
+}
 
-  const fileInputRef = useRef();
+function AddItemFileInput({ onChange, name }: Props) {
+  const [preview, setPreview] = useState<string | null>(null);
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files?.item(0);
     if (nextValue) {
       onChange(name, nextValue);
       const nextPreview = URL.createObjectURL(nextValue);
@@ -17,7 +22,9 @@ function AddItemFileInput({ onChange, name }) {
 
   const handleClearClick = () => {
     const fileInputNode = fileInputRef.current;
-    if (!fileInputNode) return;
+    if (!fileInputNode) {
+      return;
+    }
     fileInputNode.value = "";
     onChange(name, null);
     setPreview(null);

@@ -24,7 +24,7 @@ export default function AddItemPage() {
 
   const [isWriteAll, setIsWriteAll] = useState<boolean>(true);
 
-  const handleChange = (name: string, value: string | File) => {
+  const handleChange = (name: string, value: string | File | null) => {
     // 배열(tags) 인 경우 배열을 생성
     setValues((prevValues) => ({
       ...prevValues,
