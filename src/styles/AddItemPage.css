@@ -78,12 +78,16 @@ nav {
   height: 42px;
   border-radius: 8px;
   border: none;
-  background-color: #9ca3af;
+  background-color: #3692ff;
 
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;
   color: #fff;
+}
+
+.add_form_wrapper_header button:disabled {
+  background-color: #9ca3af;
 }
 
 .add_form_wrapper label {
@@ -121,5 +125,48 @@ textarea {
 }
 
 .img_add_input:hover {
+  cursor: pointer;
+}
+
+.img_add_wrapper{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.preview_img_wrapper{
+  position: relative;
+}
+
+.preview_img{
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+}
+
+.img_delete_button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 24px;
+  height: 24px;
+  background-color: #9CA3AF;
+  font-weight: 700;
+  color: #fff;
+  
+  border-radius: 9999px;
+  border: none;
+}
+
+.img_delete_button img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -60%);
+}
+
+.img_delete_button:hover{
+  background-color: #3692FF;
   cursor: pointer;
 }
