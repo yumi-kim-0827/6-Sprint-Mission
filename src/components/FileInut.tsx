@@ -16,16 +16,16 @@ export default function FileInput(props: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // HTMLInputElement의 files 속성은 FileList | null 타입
     // Optional chaining을 사용하여 files가 null이 아닌 경우에만 접근합니다.
-    const nextValue = e.target.files?.[0];
+    const selectImg = e.target.files?.[0];
 
-    props.onChange(props.name, nextValue);
+    props.onChange(props.name, selectImg);
   };
 
   const handleDelete = () => {
-    const inputNode = inputRef.current;
-    if (!inputNode) return;
+    const currentImg = inputRef.current;
+    if (!currentImg) return;
 
-    inputNode.value = "";
+    currentImg.value = "";
     props.onChange(props.name, null);
   };
 
