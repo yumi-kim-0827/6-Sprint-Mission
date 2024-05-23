@@ -3,7 +3,7 @@ import "./ShowBestProducts.css";
 import likeicon from "../../assets/like-icon.png";
 import { Link } from "react-router-dom";
 
-function BestProduct({ name, price, favoriteCount, images }) {
+function BestProduct({ name, price, favoriteCount, images }: BestProductValues) {
   const formatedPrice = price.toLocaleString();
 
   return (
@@ -19,7 +19,19 @@ function BestProduct({ name, price, favoriteCount, images }) {
   );
 }
 
-const ShowBestProducts = ({ products }) => {
+interface BestProductValues {
+  id: number;
+  name: string;
+  price: number;
+  favoriteCount: number;
+  images: string;
+}
+
+interface Products {
+  products: any;
+}
+
+const ShowBestProducts = ({ products }: Products) => {
   return (
     <main className="Main">
       <div className="best">
@@ -27,7 +39,7 @@ const ShowBestProducts = ({ products }) => {
       </div>
 
       <ul className="BestProductsList">
-        {products.map((item) => {
+        {products.map((item: BestProductValues) => {
           return (
             <li key={item.id}>
               <Link to={`/Items/${item.id}`}>
