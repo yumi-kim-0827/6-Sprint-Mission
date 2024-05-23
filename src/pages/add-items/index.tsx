@@ -1,4 +1,13 @@
-import React, { useState, useRef, useEffect, useCallback, ChangeEvent, FormEvent } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  ChangeEvent,
+  FormEvent,
+  KeyboardEvent,
+  MouseEvent,
+} from "react";
 import "./AddItems.css";
 import fileplus from "../../assets/file-plus.png";
 import tagdelete from "../../assets/tag-delete.png";
@@ -31,8 +40,6 @@ function ProductImg({ name, value, onChange }: Props) {
 
   useEffect(() => {
     if (!value) return;
-
-    // value가 string이라면 Blob 객체로 변환
     const blob = typeof value === "string" ? new Blob([value], { type: "text/plain" }) : value;
 
     const nextPreview = URL.createObjectURL(blob);
@@ -67,18 +74,19 @@ function ProductImg({ name, value, onChange }: Props) {
 
 interface ProductTagProps {
   name: string;
-  onChange: (name: string, value: string[]) => void;
-  clearProductTag: string;
+  onChange: (name: string, value: string) => void;
+  clearProductTag: (arg0: string) => void;
 }
 
 function ProductTag({ name, onChange, clearProductTag }: ProductTagProps) {
-  const [tagArr, setTagArr] = useState([]);
-  const inputRef = useRef();
+  const [tagArr, setTagArr] = useState<string[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTagValue = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      const tagValue = e.target.value;
+      const tag = e.target as HTMLInputElement;
+      const tagValue = tag.value;
       if (tagValue !== "") {
         if (tagArr.includes(tagValue)) {
           alert("동일한 태그는 입력할 수 없습니다.");
@@ -98,8 +106,11 @@ function ProductTag({ name, onChange, clearProductTag }: ProductTagProps) {
   };
 
   const handleDeleteTag = (e: MouseEvent) => {
-    const tagValue = e.target.parentElement.innerText;
+    const target = e.target as HTMLElement;
+    const parent = target.parentElement as HTMLElement;
+    const tagValue = parent.innerText;
     const compareValue = tagValue.slice(2, tagValue.length);
+    console.log(compareValue);
     const newTag = tagArr.filter((tag) => tag !== compareValue);
     setTagArr(newTag);
     clearProductTag(compareValue);
@@ -147,21 +158,21 @@ const AddItems = () => {
     productImg: null,
     productTag: [],
   });
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [isValidBtn, setIsValidBtn] = useState<boolean>(true);
 
-  const handleChange = (name: string, value: string | File) => {
+  const handleChange = (name: string, value: string | File | null) => {
     setProductValues((prevProductValues) => {
       if (name === "productTag") {
         const newArr = [...prevProductValues.productTag, value instanceof File ? value.name : value];
         return {
           ...prevProductValues,
           productTag: newArr,
-        };
+        } as ProductValues;
       } else {
         return {
           ...prevProductValues,
           [name]: value,
-        };
+        } as ProductValues;
       }
     });
   };
@@ -192,15 +203,14 @@ const AddItems = () => {
 
   useEffect(() => {
     const isValidInput = registerValidation({ ...productValues });
-    buttonRef.current.disabled = isValidInput;
-    buttonRef.current.classList.toggle("active", !isValidInput);
+    setIsValidBtn(isValidInput);
   }, [productValues]);
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
       <div className="product-form-top">
         <h2>상품 등록하기</h2>
-        <button id="register-btn" ref={buttonRef} disabled type="submit">
+        <button id="register-btn" className={isValidBtn ? "" : "active"} disabled={isValidBtn} type="submit">
           등록
         </button>
       </div>
