@@ -80,8 +80,8 @@ function Items(): JSX.Element {
     value === "좋아요순" ? setOrderBy("favorite") : setOrderBy("recent");
   }
 
-  function onChangeInput(e: ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value;
+  function onChangeInput(e: ChangeEvent<Element>) {
+    const { value } = e.target as HTMLInputElement;
     value ? setKeyword(value) : setKeyword("");
   }
 
