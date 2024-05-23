@@ -4,7 +4,6 @@ import { GetItem, getItemsId } from '../api/getItemsId';
 
 export default function useItem(productId: string) {
   const [item, setItem] = useState<GetItem | null>(null);
-  console.log(productId);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -12,10 +11,10 @@ export default function useItem(productId: string) {
       try {
         if (productId) {
           const data = await getItemsId(productId);
-          // if (!data) {
-          //   window.alert('존재하지 않는 상품입니다.');
-          //   nav('/', { replace: true });
-          if (data) {
+          if (!data) {
+            window.alert('존재하지 않는 상품입니다.');
+            nav('/', { replace: true });
+          } else {
             setItem(data);
           }
         }

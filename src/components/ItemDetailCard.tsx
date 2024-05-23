@@ -11,8 +11,8 @@ interface TitleStyle {
   deskTopSize: string;
 }
 
-export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: GetItem) {
-  const formattedPrice = price.toLocaleString();
+export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: Partial<GetItem>) {
+  const formattedPrice = price?.toLocaleString();
   return (
     <Container>
       <ImgContainer>
@@ -42,7 +42,7 @@ export default function ItemDetailCard({ name, description, images, price, tags,
             상품 태그
           </Title>
           <Tags>
-            {tags.map(tag => (
+            {tags?.map(tag => (
               <Tag>{`#${tag}`}</Tag>
             ))}
           </Tags>

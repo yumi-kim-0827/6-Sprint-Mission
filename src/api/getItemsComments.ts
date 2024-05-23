@@ -19,10 +19,8 @@ type GetCommentList = {
 };
 
 export const getItemsComments = async (productId: string, limit: number): Promise<GetCommentList | undefined> => {
-  const parseIntId = parseInt(productId);
-
   try {
-    const response = await instance.get<GetCommentList>(`/products/${parseIntId}/comments`, {
+    const response = await instance.get<GetCommentList>(`/products/${productId}/comments`, {
       params: {
         limit,
       },

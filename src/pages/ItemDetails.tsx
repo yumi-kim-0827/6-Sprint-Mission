@@ -8,12 +8,13 @@ import Comment from '../components/Comment';
 import ic_back from '../assets/ic_back.png';
 import Img_inquiry_empty from '../assets/Img_inquiry_empty.png';
 
-export default function ItemDetails() {
-  const { itemId } = useParams<{ itemId: string }>();
-  console.log(itemId);
-  const parseIntId = parseInt(itemId);
+type ParamsType = {
+  itemId: string;
+};
 
-  const item = useItem(parseIntId);
+export default function ItemDetails() {
+  const { itemId } = useParams() as ParamsType;
+  const item = useItem(itemId);
   const [comments, setComments] = useState<GetComments[]>([]);
   const [inquiryComment, setInquiryComment] = useState('');
   const nav = useNavigate();
@@ -21,11 +22,10 @@ export default function ItemDetails() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        if (itemId) {
+        if (itemId && item) {
           const data = await getItemsComments(itemId, 3);
           if (data) {
             setComments(data.list);
-            // console.log(data.list);
           }
         }
       } catch (error) {
@@ -33,7 +33,7 @@ export default function ItemDetails() {
       }
     };
     fetchComments();
-  }, [itemId]);
+  }, [itemId, item]);
 
   const handleGoBack = () => {
     nav(-1);
