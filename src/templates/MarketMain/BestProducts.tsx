@@ -24,6 +24,7 @@ export default function BestProducts() {
       const pageSize = getPageSize(deviceState, DEVICE_PRODUCT_COUNT);
 
       const res = await axiosFetch({
+        url: "products",
         params: {
           orderBy: "favorite",
           page: 1,

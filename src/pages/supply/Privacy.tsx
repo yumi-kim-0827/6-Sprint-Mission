@@ -1,5 +1,9 @@
-import React from "react";
+import GNB from "components/Navbar/GNB";
 
 export default function Privacy() {
-  return <div>privacy</div>;
+  return (
+    <>
+      <GNB />
+    </>
+  );
 }

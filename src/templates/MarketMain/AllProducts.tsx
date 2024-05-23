@@ -37,6 +37,7 @@ export default function AllProducts() {
       const order = orderState === "최신순" ? "recent" : "favorite";
 
       const res = await axiosFetch({
+        url: "products",
         params: {
           orderBy: order,
           page: currentPage,

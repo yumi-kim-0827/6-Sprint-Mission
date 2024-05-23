@@ -33,7 +33,7 @@ function ProductDetailInfo({ productId }: { productId?: string }) {
   useEffect(() => {
     (async () => {
       const res = await axiosFetch({
-        url: `${productId}`,
+        url: `products/${productId}`,
       });
 
       setProductData(res.data);
@@ -90,7 +90,7 @@ function InquiryComments({ productId }: { productId?: string }) {
   useEffect(() => {
     (async () => {
       const res = await axiosFetch({
-        url: `${productId}/comments`,
+        url: `products/${productId}/comments`,
         params: {
           limit: 5,
         },
