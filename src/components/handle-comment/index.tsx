@@ -1,36 +1,42 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, ChangeEvent } from "react";
 import noninquiry from "../../assets/no-inquiry.png";
 import "./HandleComment.css";
-import { commentValidation } from "../validations/validation";
+import { commentValidation } from "../../utils/validation";
 import hamburger from "../../assets/hamburger-icon.png";
+import formatTimeAgo from "../../utils/formatTimeAgo";
 
-const HandleComment = ({ comments }) => {
-  const [comment, setComment] = useState("");
-  const buttonRef = useRef();
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setComment(value);
+interface Comment {
+  content: string;
+  createdAt: string;
+  id: number;
+  updatedAt: string;
+  writer: {
+    id: number;
+    image: string;
+    nickname: string;
   };
+}
 
-  const handleTimeAgo = (time) => {
-    const currentTime = new Date().getTime();
-    const agoTime = Math.floor((currentTime - new Date(time).getTime()) / (1000 * 60 * 60));
-    const agoDay = Math.floor(agoTime / 24);
-    const agoYear = Math.floor(agoDay / 365);
-    if (agoTime < 24) {
-      return `${agoTime}시간 전`;
-    } else if (agoTime >= 24) {
-      return `${agoDay}일 전`;
-    } else if (agoDay >= 365) {
-      return `${agoYear}년 전`;
-    }
+interface Comments {
+  comments: any;
+}
+
+const HandleComment = ({ comments }: Comments) => {
+  const [comment, setComment] = useState("");
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleChange = (e: ChangeEvent) => {
+    const { value } = e.target as HTMLInputElement;
+    setComment(value);
   };
 
   useEffect(() => {
     const isValidComment = commentValidation(comment);
-    buttonRef.current.disabled = isValidComment;
-    buttonRef.current.classList.toggle("active", !isValidComment);
+    const buttonNode = buttonRef.current;
+    if (buttonNode) {
+      buttonNode.disabled = isValidComment;
+      buttonNode.classList.toggle("active", !isValidComment);
+    }
   }, [comment]);
 
   return (
@@ -55,7 +61,7 @@ const HandleComment = ({ comments }) => {
             <p>아직 문의가 없습니다.</p>
           </div>
         ) : (
-          comments.map((comment) => {
+          comments.map((comment: Comment) => {
             return (
               <div className="comment" key={comment.id}>
                 <div className="comment-top">
@@ -66,7 +72,7 @@ const HandleComment = ({ comments }) => {
                   <img className="profile__img" src={comment.writer.image} alt="프로필 이미지" />
                   <div className="profile-info">
                     <span className="profile__id">{comment.writer.nickname}</span>
-                    <span className="profile__time">{handleTimeAgo(comment.createdAt)}</span>
+                    <span className="profile__time">{formatTimeAgo(comment.createdAt)}</span>
                   </div>
                 </div>
               </div>
