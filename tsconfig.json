@@ -16,7 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "outDir": "./dist"
   },
-  "include": ["src"]
+  "include": ["src", "custom.d.ts", "./src/**/*.ts"]
 }
