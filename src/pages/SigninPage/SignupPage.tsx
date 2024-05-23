@@ -8,16 +8,17 @@ import googleIcon from "../../assets/google_icon.svg";
 import kakaoIcon from "../../assets/kaka0_icon.svg";
 
 function SignupPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [passwordCheck, setPasswordCheck] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [nicknameError, setNicknameError] = useState("");
-  const [passwordCheckError, setPasswordCheckError] = useState("");
-  const [isSigninButtonDisabled, setIsSigninButtonDisabled] = useState(true);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [nickname, setNickname] = useState<string>("");
+  const [passwordCheck, setPasswordCheck] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [nicknameError, setNicknameError] = useState<string>("");
+  const [passwordCheckError, setPasswordCheckError] = useState<string>("");
+  const [isSigninButtonDisabled, setIsSigninButtonDisabled] =
+    useState<boolean>(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -89,23 +90,25 @@ function SignupPage() {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
 
-  const handleNicknameChange = (e) => {
+  const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value);
   };
 
-  const handlePasswordCheckChange = (e) => {
+  const handlePasswordCheckChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setPasswordCheck(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/signin");
   };

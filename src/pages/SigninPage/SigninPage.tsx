@@ -8,18 +8,19 @@ import googleIcon from "../../assets/google_icon.svg";
 import kakaoIcon from "../../assets/kaka0_icon.svg";
 
 function SigninPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [isSigninButtonDisabled, setIsSigninButtonDisabled] = useState(true);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [isSigninButtonDisabled, setIsSigninButtonDisabled] =
+    useState<boolean>(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const MIN_PASSWORD_LENGTH = 8;
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     if (email.trim() === "") {
       setEmailError("이메일을 입력해주세요");
     } else if (!emailPattern.test(email.trim())) {
@@ -29,7 +30,7 @@ function SigninPage() {
     }
   };
 
-  const validatePassword = (password) => {
+  const validatePassword = (password: string) => {
     if (password.trim() === "") {
       setPasswordError("비밀번호를 입력해주세요");
     } else if (password.length < MIN_PASSWORD_LENGTH) {
@@ -59,15 +60,15 @@ function SigninPage() {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/items");
   };
