@@ -24,7 +24,11 @@ function Home() {
               구경하러 가기
             </a>
           </div>
-          <img src={homeTop} alt="상단 베너 판다 이미지" className="home-top-img" />
+          <img
+            src={homeTop}
+            alt="상단 베너 판다 이미지"
+            className="home-top-img"
+          />
         </div>
       </header>
       {/* 메인 */}
@@ -34,7 +38,7 @@ function Home() {
           <div className="main-container">
             <h3 className="main-topic">Hot Item</h3>
             <h2 className="main-title">
-            {`인기 상품을
+              {`인기 상품을
             확인해 보세요`}
             </h2>
             <p className="main-content">
@@ -47,7 +51,7 @@ function Home() {
           <div className="main-container-right">
             <h3 className="main-topic">Search</h3>
             <h2 className="main-title">
-            {`구매를 원하는
+              {`구매를 원하는
             상품을 검색하세요`}
             </h2>
             <p className="main-content">
@@ -66,7 +70,7 @@ function Home() {
           <div className="main-container">
             <h3 className="main-topic">Register</h3>
             <h2 className="main-title">
-            {`판매를 원하는
+              {`판매를 원하는
             상품을 등록하세요`}
             </h2>
             <p className="main-content">
@@ -78,10 +82,10 @@ function Home() {
       </main>
       <div className="home-bottom-background-color">
         <div className="home-bottom-container">
-        <h2 className="home-bottom">
-          {`믿을 수 있는
+          <h2 className="home-bottom">
+            {`믿을 수 있는
           판다마켓 중고거래`}
-        </h2>
+          </h2>
           <img
             className="home-bottom-img"
             src={homeBottom}
