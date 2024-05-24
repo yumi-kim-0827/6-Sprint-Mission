@@ -1,4 +1,5 @@
 import inctance from "./axioxInstance";
+import { AxiosResponse } from "axios";
 
 interface ApiTypeValues {
   orderBy: string;
@@ -7,47 +8,95 @@ interface ApiTypeValues {
   keyword: string;
 }
 
-export async function getProduct({ orderBy = "recent", page, pageSize, keyword = "" }: ApiTypeValues) {
+export type listResponse = {
+  items: {
+    createdAt: string;
+    favoriteCount: number;
+    ownerId: number;
+    images: string;
+    tags: string[];
+    price: number;
+    description: string;
+    name: string;
+    id: number;
+  }[];
+};
+
+type WriterValue = {
+  id: number;
+  nickname: string;
+  image: string;
+};
+
+type ComementValue = {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: WriterValue;
+};
+
+type GetItemResponse = {
+  totalCount: number;
+  list: listResponse[];
+  comment: ComementValue;
+};
+
+export async function getProduct({
+  orderBy = "recent",
+  page,
+  pageSize,
+  keyword = "",
+}: ApiTypeValues): Promise<GetItemResponse> {
   try {
-    const response = await inctance.get(`?&page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`);
+    const response: AxiosResponse<GetItemResponse> = await inctance.get(
+      `?&page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`
+    );
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
+    throw new Error(`Failed to fetch product data: ${error}`);
   }
 }
 
-export async function getBestProduct(pageSize: number) {
+export async function getBestProduct(pageSize: number): Promise<GetItemResponse> {
   try {
-    const response = await inctance.get(`?orderBy=favorite&page=1&pageSize=${pageSize}`);
+    const response: AxiosResponse<GetItemResponse> = await inctance.get(
+      `?orderBy=favorite&page=1&pageSize=${pageSize}`
+    );
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
+    throw new Error(`Failed to fetch product data: ${error}`);
   }
 }
 
-export async function getTotalCount() {
+export async function getTotalCount(): Promise<GetItemResponse> {
   try {
-    const response = await inctance.get(``);
+    const response: AxiosResponse<GetItemResponse> = await inctance.get(``);
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
+    throw new Error(`Failed to fetch product data: ${error}`);
   }
 }
 
-export async function getDetailProduct(id: string | undefined) {
+export async function getDetailProduct(id: string | undefined): Promise<GetItemResponse> {
   try {
-    const response = await inctance.get(`/${id}`);
+    const response: AxiosResponse<GetItemResponse> = await inctance.get(`/${id}`);
     return response.data;
   } catch (error) {
     console.error(`${error} : error`);
+    throw new Error(`Failed to fetch product data: ${error}`);
   }
 }
 
-export async function getProductComment(id: string | undefined) {
+export async function getProductComment(id: string | undefined): Promise<listResponse[]> {
   try {
-    const response = await inctance.get(`/${id}/comments?limit=10`);
+    const response: AxiosResponse<GetItemResponse> = await inctance.get(`/${id}/comments?limit=10`);
     return response.data.list;
   } catch (error) {
     console.error(`${error} : error`);
+    throw new Error(`Failed to fetch product data: ${error}`);
   }
 }
