@@ -49,7 +49,7 @@ export default class API
 
 	public static ["products"] = new class extends Request
 	{
-		public GET({ ...query }: { page: number; page_size: number; order_by: string; keyword?: string; })
+		public GET({ ...query }: { page: number; page_size: number; order_by: "recent" | "favorite"; keyword?: string; })
 		{
 			return super._GET(`https://panda-market-api.vercel.app/products?${API.query(query)}`);
 		}

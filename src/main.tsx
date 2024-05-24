@@ -7,8 +7,8 @@ import App from "@/app";
 import $index from "@/app/routes/!";
 import $signin from "@/app/routes/signin";
 import $signup from "@/app/routes/signup";
-import $items from "@/app/routes/items";
-import $additem from "@/app/routes/additem"; import $additem$product_id from "@/app/routes/additem/[[product_id]]";
+import $items from "@/app/routes/items"; import $items$product_id from "@/app/routes/items/[[product_id]]";
+import $additem from "@/app/routes/additem";
 
 createRoot(document.getElementById("core")!!).render(
 	<StrictMode>
@@ -26,10 +26,10 @@ createRoot(document.getElementById("core")!!).render(
 					</Route>
 					<Route path="items">
 						<Route index element={<$items></$items>}></Route>
+						<Route path=":product_id" element={<$items$product_id></$items$product_id>}></Route>
 					</Route>
 					<Route path="additem">
 						<Route index element={<$additem></$additem>}></Route>
-						<Route path=":product_id" element={<$additem$product_id></$additem$product_id>}></Route>
 					</Route>
 				</Route>
 			</Routes>
@@ -42,7 +42,7 @@ enum Screen
 	MOBILE_MIN = 375, MOBILE_MAX = 768 - 1, TABLET_MIN = 768, TABLET_MAX = 1200 - 1, PC_MIN = 1200, PC_FHD = 1920,
 }
 
-if (false && /localhost/.test(window.location.toString()))
+if (true && /localhost/.test(window.location.toString()))
 {
 	switch (window.opener)
 	{

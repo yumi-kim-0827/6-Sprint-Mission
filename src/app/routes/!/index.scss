@@ -6,7 +6,7 @@
 	{
 		overflow: hidden auto;
 
-		> .banner
+		.banner
 		{
 			background-color: #CFE5FF;
 
@@ -143,7 +143,7 @@
 				}
 			}
 		}
-		> .container
+		.main
 		{
 			@include mobile
 			{

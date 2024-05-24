@@ -1,6 +1,5 @@
-import "./index.scss";
+import { } from "react"; import "./index.scss";
 
-import Box from "@/app/widgets/Box";
 import Header from "@/app/widgets/Header";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
@@ -19,18 +18,18 @@ import banner_bottom_png from "@/common/assets/images/banner_bottom.png";
 
 export default function Page()
 {
-	const { isMobile, isTablet, isDesktop } = useViewport();
+	const { is_mobile, is_tablet, is_desktop } = useViewport();
 
 	return (
 		<Column data-page="index">
 			<Header></Header>
-			<Spacer>
-				<Column id="content">
+			<Spacer id="content">
+				<Column>
 					<Center class="banner">
-						<Box class="wrapper">
+						<div class="wrapper">
 							<Column class="heading" gap={24}>
 								일상의 모든 물건을
-								{isTablet ? "\u0020" : <br></br>}
+								{is_tablet ? "\u0020" : <br/>}
 								거래해 보세요
 								<Link to="/items">
 									<Center class="button">
@@ -39,10 +38,10 @@ export default function Page()
 								</Link>
 							</Column>
 							<img class="background" src={banner_top_png}/>
-						</Box>
+						</div>
 					</Center>
-					<Column class="container" align="center">
-						<Box class={["segment", "left"]}>
+					<Column class="main" align="center">
+						<div class="segment left">
 							<img class="image" src={home_01_png}/>
 							<Column class="content" justify="center">
 								<div>
@@ -50,17 +49,17 @@ export default function Page()
 								</div>
 								<div>
 									인기 상품을
-									{isDesktop ? <br></br> : "\u0020"}
+									{is_desktop ? <br/> : "\u0020"}
 									확인해 보세요
 								</div>
 								<div>
 									가장 HOT한 중고거래 물품을
-									<br></br>
+									<br/>
 									판다 마켓에서 확인해 보세요
 								</div>
 							</Column>
-						</Box>
-						<Box class={["segment", "right"]}>
+						</div>
+						<div class="segment right">
 							<img class="image" src={home_02_png}/>
 							<Column class="content" justify="center">
 								<div>
@@ -68,17 +67,17 @@ export default function Page()
 								</div>
 								<div>
 									구매를 원하는
-									{isDesktop ? <br></br> : "\u0020"}
+									{is_desktop ? <br/> : "\u0020"}
 									상품을 검색하세요
 								</div>
 								<div>
 									구매하고 싶은 물품은 검색해서
-									<br></br>
+									<br/>
 									쉽게 찾아보세요
 								</div>
 							</Column>
-						</Box>
-						<Box class={["segment", "left"]}>
+						</div>
+						<div class="segment left">
 							<img class="image" src={home_03_png}/>
 							<Column class="content" justify="center">
 								<div>
@@ -86,26 +85,26 @@ export default function Page()
 								</div>
 								<div>
 									판매를 원하는
-									{isDesktop ? <br></br> : "\u0020"}
+									{is_desktop ? <br/> : "\u0020"}
 									상품을 등록하세요
 								</div>
 								<div>
 									어떤 물건이든 판매하고 싶은 상품을
-									<br></br>
+									<br/>
 									쉽게 등록하세요
 								</div>
 							</Column>
-						</Box>
+						</div>
 					</Column>
 					<Center class="banner">
-						<Box class="wrapper">
+						<div class="wrapper">
 							<Column class="heading" gap={24}>
 								믿을 수 있는
-								<br></br>
+								<br/>
 								판다마켓 중고 거래
 							</Column>
 							<img class="background" src={banner_bottom_png}/>
-						</Box>
+						</div>
 					</Center>
 					<Footer></Footer>
 				</Column>

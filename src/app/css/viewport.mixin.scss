@@ -2,7 +2,7 @@ $mobile-min: 375px; $tablet-min: 768px; $desktop-min: 1200px;
 
 @mixin mobile
 {
-	@media($mobile-min <= width <= $tablet-min)
+	@media($mobile-min <= width < $tablet-min)
 	{
 		@content;	
 	}
@@ -10,7 +10,7 @@ $mobile-min: 375px; $tablet-min: 768px; $desktop-min: 1200px;
 
 @mixin tablet
 {
-	@media($tablet-min <= width <= $desktop-min)
+	@media($tablet-min <= width < $desktop-min)
 	{
 		@content;	
 	}

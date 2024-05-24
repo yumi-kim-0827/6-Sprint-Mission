@@ -1,6 +1,5 @@
-import "./index.scss";
+import { } from "react"; import "./index.scss";
 
-import Box from "@/app/widgets/Box";
 import Row from "@/app/widgets/Row";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
@@ -52,7 +51,7 @@ export default function Page()
 											<input id={args.id} type={args.type} pattern={args.pattern?.toString()} minlength={args.minlength} maxlength={args.maxlength} placeholder={args.placeholder} autocomplete={args.autocomplete}></input>
 										</Spacer>
 										{
-											args.type === "password" && <img class="visibility" src={visible_svg}/>
+											(args.type === "password" || args.type === "new-password") && <img class="visibility" src={visible_svg}/>
 										}
 									</Row>
 								</Column>
@@ -69,9 +68,9 @@ export default function Page()
 					<img src={google_svg}/>
 					<img src={kakaotalk_svg}/>
 				</Row>
-				<Box class="assistance">
+				<div class="assistance">
 					이미 회원이신가요? <Link to="/signin">로그인</Link>
-				</Box>
+				</div>
 			</Column>
 		</Column>
 	);

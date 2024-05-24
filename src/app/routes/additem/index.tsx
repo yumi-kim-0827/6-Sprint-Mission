@@ -1,4 +1,4 @@
-import "./index.scss";
+import { } from "react"; import "./index.scss";
 
 import Column from "@/app/widgets/Column";
 

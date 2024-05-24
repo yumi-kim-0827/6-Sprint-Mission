@@ -37,14 +37,10 @@
 	}
 	#content
 	{
-		width: 100%;
+		width: calc(100% - 24px - 24px);
 		margin-left: 24px;
 		margin-right: 24px;
 
-		@include mobile
-		{
-			max-width: calc(100% - 24px - 24px);
-		}
 		@include tablet
 		{
 			max-width: 640px;

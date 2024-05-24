@@ -1,6 +1,5 @@
-import "./index.scss";
+import { } from "react"; import "./index.scss";
 
-import Box from "@/app/widgets/Box";
 import Row from "@/app/widgets/Row";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
@@ -36,17 +35,17 @@ export default function Page()
 						{
 							return (
 								<Column class="field" key={index}>
-									<label htmlFor={args.id}>
+									<label for={args.id}>
 									{
 										args.id
 									}
 									</label>
 									<Row class="input" align="center">
 										<Spacer>
-											<input id={args.id} type={args.type} pattern={args.pattern?.toString()} minLength={args.minlength} maxLength={args.maxlength} placeholder={args.placeholder} autoComplete={args.autocomplete}></input>
+											<input id={args.id} type={args.type} pattern={args.pattern?.toString()} minlength={args.minlength} maxlength={args.maxlength} placeholder={args.placeholder} autocomplete={args.autocomplete}></input>
 										</Spacer>
 										{
-											args.type === "password" && <img class="visibility" src={visible_svg}/>
+											(args.type === "password" || args.type === "new-password") && <img class="visibility" src={visible_svg}/>
 										}
 									</Row>
 								</Column>
@@ -63,9 +62,9 @@ export default function Page()
 					<img src={google_svg}/>
 					<img src={kakaotalk_svg}/>
 				</Row>
-				<Box class="assistance">
+				<div class="assistance">
 					판다마켓이 처음이신가요? <Link to="/signup">회원가입</Link>
-				</Box>
+				</div>
 			</Column>
 		</Column>
 	);
