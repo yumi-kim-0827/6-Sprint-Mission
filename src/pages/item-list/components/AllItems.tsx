@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProducts } from "services/api";
 import ItemCard from "./ItemCard";
-import PaginationBar from "components/ui/PaginationBar";
+import PaginationBar from "components/UI/PaginationBar";
 import { Item } from "interfaces/item.interface";
 
 const getPageSize = () => {
