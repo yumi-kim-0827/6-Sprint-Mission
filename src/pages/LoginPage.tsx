@@ -8,13 +8,18 @@ interface InputProps {
   label: string;
   type: string;
   placeholder: string;
+  passwordEye?: string;
 }
 
-function LoginInput({ label, type, placeholder }: InputProps) {
+function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
   return (
     <>
       <label className="login-label">{label}</label>
-      <input type={type} placeholder={placeholder} className="login-input" />
+      <input
+        type={type}
+        placeholder={placeholder}
+        className={`login-input ${passwordEye ? passwordEye : ""}`}
+      />
     </>
   );
 }
@@ -40,6 +45,7 @@ export default function LoginPage() {
             label="비밀번호"
             type="password"
             placeholder="비밀번호를 입력해주세요"
+            passwordEye="password-eye"
           />
           <button type="submit" className="form-login-btn" disabled>
             로그인

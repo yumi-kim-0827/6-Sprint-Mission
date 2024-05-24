@@ -35,15 +35,12 @@ input:focus {
   outline-color: #3182f6;
 }
 
-.password-container {
-  position: relative;
+.password-eye {
+  background-image: url("../assets/images/password-eye.svg");
+  background-repeat: no-repeat;
+  background-position: right 24px top 16px;
 }
 
-.pwd-eye-icon {
-  position: absolute;
-  right: 24px;
-  bottom: 16px;
-}
 .signup-btn,
 .form-login-btn {
   display: block;
