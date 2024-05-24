@@ -1,23 +1,23 @@
-import { useEffect } from "react";
-import { create } from "zustand";
+import { useEffect } from 'react';
+import { create } from 'zustand';
 
-import useDeviceSize from "../utils/useDeviceSize";
+import useDeviceSize from '../utils/useDeviceSize';
 
 // 페이지 변경 시 동적으로 상품 개수들을 바꾸는 것이
 // 페이지네이션과 다른 곳에서 사용되어 전역 상태로 만들었습니다.
 
 // zustand를 위한 인터페이스
 interface Count {
-  productCount: number,
-  rankedProductCount: number,
-  setProductCount: (count:number) => void,
-  setRankedProductCount: (count: number) => void
+  productCount: number;
+  rankedProductCount: number;
+  setProductCount: (count: number) => void;
+  setRankedProductCount: (count: number) => void;
 }
 
 interface ItemCounts {
-  mobile: number,
-  tablet: number,
-  pc: number
+  mobile: number;
+  tablet: number;
+  pc: number;
 }
 
 // 베스트 상품과 전체 상품의 개수를 나누었습니다.
@@ -44,7 +44,12 @@ const rankedItemCounts = {
 
 // 모바일, 태블릿, PC기준으로 나누었습니다.
 // 기준은 640px이하, 641~1024px, 1025px이상입니다.
-const getCountByDeviceSize = (isMobile: boolean, isTablet: boolean, isPC: boolean, itemCounts: ItemCounts) => {
+const getCountByDeviceSize = (
+  isMobile: boolean,
+  isTablet: boolean,
+  isPC: boolean,
+  itemCounts: ItemCounts,
+) => {
   if (isMobile) {
     return itemCounts.mobile;
   } else if (isTablet) {
@@ -62,7 +67,6 @@ export function useProductCountStore() {
   useEffect(() => {
     const count = getCountByDeviceSize(isMobile, isTablet, isPC, allItemCounts);
     if (count) setProductCount(count);
-    
   }, [isMobile, isTablet, isPC, setProductCount]);
 
   return productCount;

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import useFetchItems from "../api/useFetchItems";
-import { favoriteIcon } from "../images";
-import { useRankedProductCountStore } from "../store/productCountStore";
-import formatNumber from "../utils/formatNumber";
+
+import useFetchItems from '../api/useFetchItems';
+import { favoriteIcon } from '../images';
+import { useRankedProductCountStore } from '../store/productCountStore';
+import formatNumber from '../utils/formatNumber';
 
 export default function RankedItems() {
   // 화면 전환 시 달라지는 베스트 상품 데이터들을 전역적으로 관리하였습니다.
@@ -12,7 +13,7 @@ export default function RankedItems() {
   const fetchOptions = {
     page: 1,
     pageSize: rankedProductCount,
-    orderBy: "favorite",
+    orderBy: 'favorite',
   };
 
   // useFetchItems로 데이터를 가져옵니다.

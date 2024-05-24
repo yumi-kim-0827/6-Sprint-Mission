@@ -1,10 +1,10 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import AddItem from "./pages/AddItem";
-import Home from "./pages/Home";
-import Items from "./pages/Items";
+import AddItem from './pages/AddItem';
+import Home from './pages/Home';
 import ItemDetails from './pages/ItemDetails';
+import Items from './pages/Items';
 
 const queryClient = new QueryClient();
 

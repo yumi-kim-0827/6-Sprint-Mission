@@ -1,21 +1,24 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-import { closeTagIcon, deletePreviewImageIcon } from "../images";
+import { closeTagIcon, deletePreviewImageIcon } from '../images';
 
 // form내 에러메시지를 객체로 관리하였습니다.
 const formErrorMessage = {
-  required: "필수 입력 항목입니다",
+  required: '필수 입력 항목입니다',
   pattern: {
-    number: "숫자만 입력해주세요",
+    number: '숫자만 입력해주세요',
   },
 };
 
 export default function ProductForm() {
   // 태그에 관한 state입니다.
-  const [tagState, setTagState] = useState<{tags: string[], tagInput: string}>({
+  const [tagState, setTagState] = useState<{
+    tags: string[];
+    tagInput: string;
+  }>({
     tags: [],
-    tagInput: "",
+    tagInput: '',
   });
   // 미리보기 이미지를 위한 state입니다.
   const [previewImage, setPreviewImage] = useState<any | null>(null);
@@ -33,11 +36,11 @@ export default function ProductForm() {
   };
 
   const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && tagState.tagInput.trim() !== "") {
+    if (e.key === 'Enter' && tagState.tagInput.trim() !== '') {
       e.preventDefault();
       setTagState({
         tags: [...tagState.tags, tagState.tagInput],
-        tagInput: "",
+        tagInput: '',
       });
     }
   };
@@ -66,7 +69,7 @@ export default function ProductForm() {
 
   // * onSubmit테스트 코드입니다.
   const onSubmit = (data: any) => {
-    console.log("로그인 데이터입니다", {
+    console.log('로그인 데이터입니다', {
       ...data,
       tags: tagState.tags,
       previewImage,
@@ -81,7 +84,7 @@ export default function ProductForm() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">상품 등록하기</h1>
         <button
-          className={`rounded-lg px-7 py-3 text-white ${isValid ? "bg-[var(--btn-blue1)]" : "bg-[var(--cool-gray400)]"}`}
+          className={`rounded-lg px-7 py-3 text-white ${isValid ? 'bg-[var(--btn-blue1)]' : 'bg-[var(--cool-gray400)]'}`}
           disabled={!isValid}
         >
           등록
@@ -133,7 +136,7 @@ export default function ProductForm() {
         <input
           type="text"
           id="productName"
-          {...register("productName", {
+          {...register('productName', {
             required: formErrorMessage.required,
           })}
           name="productName"
@@ -154,7 +157,7 @@ export default function ProductForm() {
         <textarea
           // type="text"
           id="productIntro"
-          {...register("productIntro", {
+          {...register('productIntro', {
             required: formErrorMessage.required,
           })}
           name="productIntro"
@@ -175,7 +178,7 @@ export default function ProductForm() {
         <input
           type="text"
           id="price"
-          {...register("price", {
+          {...register('price', {
             required: formErrorMessage.required,
             pattern: {
               value: /^[0-9]+$/,
@@ -188,7 +191,9 @@ export default function ProductForm() {
           required
         />
         {errors.price && (
-          <p className="mt-1 text-sm text-red-500">{errors.price.message?.toString()}</p>
+          <p className="mt-1 text-sm text-red-500">
+            {errors.price.message?.toString()}
+          </p>
         )}
       </div>
       <div className="mt-6 flex flex-col">

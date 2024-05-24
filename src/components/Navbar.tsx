@@ -1,6 +1,6 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from 'react-router-dom';
 
-import { pandaLogo } from "../images";
+import { pandaLogo } from '../images';
 
 export default function Navbar() {
   const location = useLocation();
