@@ -135,7 +135,7 @@ export default function Page()
 						{sale.map((data, index) =>
 						{
 							return (
-								<Link key={index} to={`items/${data.id}`}>
+								<Link key={index} to={`/items/${data.id}`}>
 									<Item data={data}></Item>
 								</Link>
 							);
