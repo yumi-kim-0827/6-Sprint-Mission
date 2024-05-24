@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
-import getItems from "../../api/getItems";
 import { formatTimeAgo } from "../../utils/formatTimeAgo";
 import noInquiry from "../../assets/Img_inquiry_empty.svg";
+import getItemCommentsById from "../../api/getItemCommentsById";
+import { Comments } from "../../types";
 
 const COMMENTS_MAX = 5;
 
-function ItemDetailsComments({ itemID }) {
-  const [comments, setComments] = useState([]);
-  const queryData = `products/${itemID}/comments?limit=${COMMENTS_MAX}`;
+interface ItemDetailsCommentsProps {
+  itemID: string;
+}
+
+function ItemDetailsComments({ itemID }: ItemDetailsCommentsProps) {
+  const [comments, setComments] = useState<Comments[]>([]);
+  const pahtName = `products/${itemID}/comments?limit=${COMMENTS_MAX}`;
 
   useEffect(() => {
     const handleLoad = async () => {
       try {
-        const data = await getItems(queryData);
+        const data = await getItemCommentsById(pahtName);
         if (data && data.list) {
           setComments(data.list);
         }

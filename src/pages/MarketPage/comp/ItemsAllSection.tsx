@@ -1,4 +1,4 @@
-import getItems from "../../../api/getItems";
+import getItems from "../../../api/getAllItems";
 import { useEffect, useState } from "react";
 import SearchItem from "../../../components/SearchItem";
 import EnterItemButton from "../../../components/EnterItemButton";

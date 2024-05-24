@@ -1,4 +1,4 @@
-import getItems from "../../../api/getItems";
+import getItems from "../../../api/getAllItems";
 import { useEffect, useState } from "react";
 import MakeItemList from "./MakeItemList";
 import { Product } from "../../../types";
