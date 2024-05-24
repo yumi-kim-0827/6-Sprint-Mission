@@ -1,0 +1,97 @@
+@import "../../styles/";
+
+.allitemTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-block: 24px 12px;
+}
+
+.allitemTitleContent {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  max-width: 600px;
+  flex-grow: 3;
+}
+
+.allitemTitleFormSearch {
+  width: 325px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background-color: var(--cool-gray-100);
+  border-radius: 12px;
+  padding-block: 9px;
+  padding-inline: 20px 16px;
+}
+
+.allitemTitleFormSearchImage {
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/itemsPage/search-icon.svg");
+}
+
+.allitemTitleFormSearchInput {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: var(--cool-gray-100);
+  border: none;
+}
+
+.allitemTitleFormButton {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  text-align: center;
+  width: 133px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 12px 10px;
+  background-color: var(--brand-blue);
+  color: var(--button-font-color);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .allitemTitleFormSearch {
+    width: 242px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .allitemTitle {
+    display: grid;
+    grid-template: repeat(2, auto) / 200px auto;
+  }
+
+  .allitemTitleContent {
+    width: fit-content;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .allitemTitleFormSearch {
+    width: 300px;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .allitemTitleFormButton {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .SelectBox {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+}

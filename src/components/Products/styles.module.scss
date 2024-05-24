@@ -1,0 +1,177 @@
+@import "../../styles/";
+
+.items {
+  list-style-type: none;
+}
+
+.productItemContainer {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.likes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.likebuttonToggleButton {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-image: url("/src/assets/images/itemsPage/like-button.svg");
+  cursor: pointer;
+}
+
+.likebuttonToggle:checked + .likebuttonToggleButton {
+  background-image: url("/src/assets/images/itemsPage/like-button-fill.svg");
+}
+
+.likebuttonToggle {
+  display: none;
+}
+
+/**AllItems styles*/
+.allitemList {
+  display: grid;
+  grid-template: repeat(2, 301px) / repeat(5, 221px);
+  column-gap: 24px;
+  row-gap: 10px;
+}
+
+.allitemList > li {
+  width: fit-content;
+}
+
+.allitemListItemImage {
+  width: 221px;
+  height: 221px;
+  display: inline-block;
+  border: 1px black solid;
+  border-radius: 16px;
+}
+
+.allitemListItemImage > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.allitemListItemTitle {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.71px;
+  color: black;
+  text-decoration: none;
+}
+
+.allitemListItemPrice {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.09px;
+}
+
+.allitemListItemLikebutton {
+  display: inline-block;
+  position: relative;
+}
+
+.allitemListItemLikecount {
+  display: inline-block;
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.32px;
+}
+
+/**Bestitems Styles*/
+.bestitemList {
+  display: grid;
+  grid-template: 1fr / repeat(4, 282px);
+  column-gap: 24px;
+}
+
+.bestitemList > li {
+  width: fit-content;
+}
+
+.bestitemListItemImage {
+  display: inline-block;
+  border: 1px black solid;
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.bestitemListItemImage > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.bestitemListItemTitle {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.71px;
+  color: black;
+  text-decoration: none;
+}
+
+.bestitemListItemPrice {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.09px;
+}
+
+.bestitemListItemLikebutton {
+  display: inline-block;
+  position: relative;
+}
+
+.bestitemListItemLikecount {
+  display: inline-block;
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.32px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /**Allitems Styles*/
+  .allitemList {
+    grid-template: repeat(2, 301px) / repeat(3, 221px);
+  }
+
+  /**Bestitems Styles*/
+  .bestitemList {
+    grid-template: 1fr / repeat(2, 336px);
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  /**Allitems Styles*/
+  .allitemList {
+    grid-template: repeat(2, 248px) / repeat(2, 168px);
+  }
+
+  .allitemListItemImage {
+    width: 168px;
+    height: 168px;
+  }
+
+  /**Bestitems Styles*/
+  .bestitemList {
+    grid-template: 1fr / auto;
+  }
+
+  .bestitemListItemImage {
+    width: 343px;
+    height: 343px;
+  }
+}
