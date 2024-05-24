@@ -39,16 +39,10 @@ export default function AllItemsList() {
       }
     };
 
-    const dropdownNode = dropdownRef.current;
-
-    if (dropdownNode) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      if (dropdownNode) {
-        document.addEventListener("mousedown", handleClickOutside);
-      }
+      document.addEventListener('mousedown', handleClickOutside);
     };
   }, [dropdownRef]);
 
@@ -72,94 +66,74 @@ export default function AllItemsList() {
 
   return (
     <div className="mt-6 sm:mt-10">
-      <div className="my-6 flex flex-col justify-between sm:flex-row sm:items-center">
-        <div className="mx-4 flex items-center justify-between sm:mx-0">
+      <div className="my-6 grid grid-cols-2 gap-y-3 sm:flex sm:items-center sm:justify-between sm:gap-x-3">
+        <div className="row-start-1">
           <h1 className="text-xl font-bold text-[var(--footer-bg-color)]">
             전체 상품
           </h1>
+        </div>
+        <div className="relative row-start-2 ml-auto flex items-center">
+          <img src={searchIcon} alt="searchicon" className="absolute left-4" />
+          <input
+            className="w-full rounded-xl bg-[var(--cool-gray100)] py-2 pl-11 text-[var(--cool-gray400)] sm:w-64 sm:pr-1 lg:w-96"
+            placeholder="검색할 상품을 입력해주세요"
+          />
+        </div>
+        <div className="row-start-1 ml-auto sm:ml-0">
           <Link
             to="/additem"
-            className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:hidden"
+            className="inline rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white"
           >
             상품 등록하기
           </Link>
         </div>
-        <div className="mx-4 my-2 flex items-center justify-between gap-x-3 sm:mx-0 sm:my-0 sm:justify-normal">
-          <div className="relative flex items-center">
-            <img
-              src={searchIcon}
-              alt="searchicon"
-              className="absolute left-4"
-            />
-            <input
-              className="w-64 rounded-xl bg-[var(--cool-gray100)] py-2 pl-11 text-[var(--cool-gray400)] sm:w-56 sm:pr-1 lg:w-96"
-              placeholder="검색할 상품을 입력해주세요"
-            />
-          </div>
-          <Link
-            to="/additem"
-            className="hidden rounded-lg bg-[var(--btn-blue1)] px-6 py-3 text-white sm:inline-block"
-          >
-            상품 등록하기
-          </Link>
-          <div
-            className="relative hidden w-32 cursor-pointer justify-between rounded-xl border px-5 py-3 sm:inline-block sm:flex "
-            onClick={() => {
-              setDropdownView(!dropdownView);
-            }}
-          >
-            <span>{sortContent}</span>
-            <img src={arrowDown} alt="arrowdown" className="inline" />
-            {dropdownView && (
-              <div ref={dropdownRef}>
-                <SortDropdown
-                  setSortContent={setSortContent}
-                  setOrderBy={setOrderBy}
-                  sortOptions={sortOptions}
-                />
-              </div>
-            )}
-          </div>
-          <div
-            className="relative flex justify-between sm:hidden"
-            onClick={() => setDropdownView(!dropdownView)}
-          >
-            <img src={sortButton} alt="sortbutton" />
-            {dropdownView && (
-              <div ref={dropdownRef}>
-                <SortDropdown
-                  setSortContent={setSortContent}
-                  setOrderBy={setOrderBy}
-                  sortOptions={sortOptions}
-                />
-              </div>
-            )}
-          </div>
+        <div
+          className="row-start-2 ml-auto flex sm:ml-0 sm:justify-between sm:rounded-xl sm:border sm:px-5 sm:py-3"
+          onClick={() => setDropdownView(!dropdownView)}
+        >
+          <span className="hidden sm:block">{sortContent}</span>
+          <img src={arrowDown} alt="arrowdown" className="hidden sm:inline" />
+          <img src={sortButton} alt="sortbutton" className="sm:hidden" />
+          {dropdownView && (
+            <div ref={dropdownRef} className="relative">
+              <SortDropdown
+                setSortContent={setSortContent}
+                setOrderBy={setOrderBy}
+                sortOptions={sortOptions}
+              />
+            </div>
+          )}
         </div>
       </div>
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-        {data?.list &&
-          data?.list.map((post: any) => {
+        {data.list &&
+          data.list.map((post: any) => {
             return (
               <li key={post.id}>
-                <img
-                  src={post.images[0]}
-                  alt={post.name}
-                  className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
-                />
-                <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
-                  {post.name} 팝니다
-                </p>
-                <p className="text-sm font-bold text-[var(--cool-gray800)]">
-                  {formatNumber(post.price)}원
-                </p>
-                <img src={favoriteIcon} alt="favoriteicon" className="inline" />
-                <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                <Link to={`/items/${post.id}`} state={{ post }}>
+                  <img
+                    src={post.images[0]}
+                    alt={post.name}
+                    className="h-40 w-40 rounded-2xl object-fill sm:h-56 sm:w-56"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[var(--cool-gray800)]">
+                    {post.name} 팝니다
+                  </p>
+                  <p className="text-sm font-bold text-[var(--cool-gray800)]">
+                    {formatNumber(post.price)}원
+                  </p>
+                  <img
+                    src={favoriteIcon}
+                    alt="favoriteicon"
+                    className="inline"
+                  />
+                  <span className="ml-1 text-xs">{post.favoriteCount}</span>
+                </Link>
               </li>
             );
           })}
       </ul>
-      <Pagination datatotalCount={data?.totalCount} />
+      <Pagination datatotalCount={data.totalCount} />
     </div>
   );
 }

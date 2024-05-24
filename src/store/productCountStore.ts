@@ -14,6 +14,12 @@ interface Count {
   setRankedProductCount: (count: number) => void
 }
 
+interface ItemCounts {
+  mobile: number,
+  tablet: number,
+  pc: number
+}
+
 // 베스트 상품과 전체 상품의 개수를 나누었습니다.
 const useStore = create<Count>((set) => ({
   productCount: 1,
@@ -21,12 +27,6 @@ const useStore = create<Count>((set) => ({
   setProductCount: (count: number) => set({ productCount: count }),
   setRankedProductCount: (count: number) => set({ rankedProductCount: count }),
 }));
-
-interface ItemCounts {
-  mobile: number,
-  tablet: number,
-  pc: number
-}
 
 // Items Page에서 전체 상품 개수를 바꾸기 위한 객체입니다.
 const allItemCounts = {

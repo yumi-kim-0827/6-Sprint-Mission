@@ -33,9 +33,9 @@ export default function Navbar() {
             <NavLink
               to="/items"
               className={({ isActive }) =>
-                isActive || location.pathname === "/additem"
-                  ? "text-[color:var(--btn-blue1)]"
-                  : "text-[#4B5563]"
+                isActive || location.pathname === '/additem'
+                  ? 'text-[color:var(--btn-blue1)]'
+                  : 'text-[#4B5563]'
               }
             >
               <span className="ml-2 text-lg font-bold sm:ml-10 sm:text-base lg:ml-10">

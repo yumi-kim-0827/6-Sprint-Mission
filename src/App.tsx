@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AddItem from "./pages/AddItem";
 import Home from "./pages/Home";
 import Items from "./pages/Items";
+import ItemDetails from './pages/ItemDetails';
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/items" element={<Items />}></Route>
+            <Route path="/items/:id" element={<ItemDetails />}></Route>
             <Route path="/additem" element={<AddItem />}></Route>
           </Routes>
         </Router>
