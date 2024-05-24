@@ -3,9 +3,7 @@ import { getProductComments } from "../../../api/itemApi";
 import styled from "styled-components";
 import { ReactComponent as EmptyStateImage } from "../../../assets/images/ui/empty-comments.svg";
 import { ReactComponent as SeeMoreIcon } from "../../../assets/images/icons/ic_kebab.svg";
-// 참고: SVG 이미지 파일을 ReactComponent로 import하는 것을 추천하지만, DefaultProfileImage는 image source로 사용하기 위해 그대로 불러왔어요.
 import DefaultProfileImage from "../../../assets/images/ui/ic_profile.svg";
-import { LineDivider } from "../../../styles/CommonStyles";
 import { formatUpdatedAt } from "../../../utils/dateUtils";
 
 const CommentContainer = styled.div`
@@ -13,7 +11,6 @@ const CommentContainer = styled.div`
   position: relative;
 `;
 
-// 더보기 버튼을 댓글 아이템 우측 상단에 포지셔닝
 const SeeMoreButton = styled.button`
   position: absolute;
   right: 0;
@@ -31,7 +28,6 @@ const AuthorProfile = styled.div`
   gap: 8px;
 `;
 
-// Mock data에서 보내주는 프로필 사진은 이미 원형이지만, 혹시 원이 아닌 이미지를 표시해야 하는 경우를 대비해 border-radius를 적용하고 이미지가 주어진 원 내에서 비율을 유지하면서 삽입되도록 함
 const UserProfileImage = styled.img`
   width: 40px;
   height: 40px;
@@ -50,15 +46,28 @@ const Timestamp = styled.p`
   font-size: 12px;
 `;
 
-const CommentItem = ({ item }) => {
+interface Comment {
+  id: number;
+  content: string;
+  updatedAt: string;
+  writer: {
+    id: number;
+    nickname: string;
+    image?: string;
+  };
+}
+
+interface CommentItemProps {
+  item: Comment;
+}
+
+const CommentItem = ({ item }: CommentItemProps) => {
   const authorInfo = item.writer;
-  // 업데이트 시간 표기를 위한 util function을 만들었으니 dateUtils.js 파일에서 꼭 설명을 확인해 주세요!
   const formattedTimestamp = formatUpdatedAt(item.updatedAt);
 
   return (
     <>
       <CommentContainer>
-        {/* 참고: 더보기 버튼 기능은 추후 요구사항에 따라 추가 예정 */}
         <SeeMoreButton>
           <SeeMoreIcon />
         </SeeMoreButton>
@@ -67,7 +76,7 @@ const CommentItem = ({ item }) => {
 
         <AuthorProfile>
           <UserProfileImage
-            src={authorInfo.image || DefaultProfileImage} // 등록된 프로필 사진이 없을 경우 기본 프로필 아이콘 사용
+            src={authorInfo.image || DefaultProfileImage}
             alt={`${authorInfo.nickname}님의 프로필 사진`}
           />
 
@@ -78,7 +87,7 @@ const CommentItem = ({ item }) => {
         </AuthorProfile>
       </CommentContainer>
 
-      <LineDivider $margin="0" />
+      <hr />
     </>
   );
 };
@@ -87,7 +96,7 @@ const EmptyStateContainer = styled.div`
   margin: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center; // flex-direction이 column일 때는 main axis가 세로축이기 때문에 align-items: center; 를 적용해야 자식 요소들이 horizontally 가운데 정렬돼요.
+  align-items: center;
   gap: 24px;
 `;
 
@@ -97,7 +106,6 @@ const EmptyStateText = styled.p`
   line-height: 24px;
 `;
 
-// Empty States: 보여줄 데이터가 없을 때 placeholder 역할을 할 UI를 넣어주세요.
 const EmptyState = () => {
   return (
     <EmptyStateContainer>
@@ -111,10 +119,14 @@ const ThreadContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-function CommentThread({ productId }) {
-  const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+interface CommentThreadProps {
+  productId: string;
+}
+
+function CommentThread({ productId }: CommentThreadProps) {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!productId) return;
@@ -122,11 +134,14 @@ function CommentThread({ productId }) {
     const fetchComments = async () => {
       setIsLoading(true);
       const params = {
-        limit: 10, // 페이지당 보여줄 댓글 개수 (참고: 요구사항에 아직 댓글란 pagination 기능이 없기 때문에 임의로 10으로 설정했어요.)
+        limit: 10,
       };
 
       try {
-        const data = await getProductComments({ productId, params });
+        const data: { list: Comment[] } = await getProductComments({
+          productId,
+          params,
+        });
         setComments(data.list);
         setError(null);
       } catch (error) {

@@ -17,14 +17,22 @@ const BackToMarketPageLink = styled(StyledLink)`
   margin: 0 auto;
 `;
 
-function ItemPage() {
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  images: string[];
+  description: string;
+  tags: string[];
+  isFavorite: boolean;
+  favoriteCount: number;
+}
 
-  // react-router-dom의 useParams 훅을 사용해 URL의 path parameter(상품 아이디)를 가져오세요.
-  // Route에서 정의한 path parameter의 이름과 useParams 훅에서 사용하는 변수명이 일치해야 정상적으로 추출돼요.
-  const { productId } = useParams();
+function ItemPage() {
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const { productId } = useParams<{ productId: string }>();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -51,8 +59,6 @@ function ItemPage() {
     fetchProduct();
   }, [productId]);
 
-  // 데이터 fetching 오류 발생 시 UI
-  // - 만약 서버에서 사용자 친화적으로 작성된 오류 메세지를 보내주지 않는다면 호출된 오류 메세지를 그대로 노출하는 것보다는 프론트단에서 별도의 내용을 넣어주는 것이 사용성에 좋아요
   if (error) {
     alert(`오류: ${error}`);
   }
@@ -61,7 +67,6 @@ function ItemPage() {
 
   return (
     <>
-      {/* 데이터를 불러올 동안 로딩 스피너 표시 */}
       <LoadingSpinner isLoading={isLoading} />
 
       <Container>
@@ -71,11 +76,7 @@ function ItemPage() {
 
         <ItemCommentSection productId={productId} />
 
-        {/* Styled-components에 사용자 정의 prop을 전달해 스타일링 시 참고사항:
-        - 요소에 해당 HTML 태그의 기본 속성이 아닌 것이 추가되면 콘솔창에 "unknown prop"이 전달되고 있다는 경고가 뜰 수 있어요.
-        - prop 이름 앞에 `$`를 붙여주면 styled-components가 `transient props`로 인식하고 DOM 요소에 전달되지 않도록 필터링해요.
-      */}
-        <BackToMarketPageLink $pill="true" to="/items">
+        <BackToMarketPageLink to="/items">
           목록으로 돌아가기
           <BackIcon />
         </BackToMarketPageLink>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, MouseEvent } from "react";
 import styled from "styled-components";
 import { Button } from "../../../styles/CommonStyles";
 import CommentThread from "./CommentThread";
@@ -17,14 +17,13 @@ const SectionTitle = styled.h1`
   font-weight: 600;
 `;
 
-// TODO: InputItem 컴포넌트의 textarea와 겹치므로 common styles에 추가할 것
 const TextArea = styled.textarea`
   background-color: ${({ theme }) => theme.colors.gray[100]};
   border: none;
   border-radius: 12px;
   padding: 16px 24px;
-  height: 104px; // 디자인에 맞춰 textarea 영역의 기본 높이를 설정해 주세요
-  resize: none; // 우측 하단 코너의 textarea 영역 크기 조절 기능을 없애줍니다
+  height: 104px;
+  resize: none;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[400]};
@@ -51,14 +50,20 @@ const PostCommentButton = styled(Button)`
   }
 `;
 
-function ItemCommentSection({ productId }) {
-  const [comment, setComment] = useState("");
+interface ItemCommentSectionProps {
+  productId: string;
+}
 
-  const handleInputChange = (e) => {
+const ItemCommentSection = ({ productId }: ItemCommentSectionProps) => {
+  const [comment, setComment] = useState<string>("");
+
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
 
-  const handlePostComment = () => {};
+  const handlePostComment = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -71,7 +76,6 @@ function ItemCommentSection({ productId }) {
           onChange={handleInputChange}
         />
 
-        {/* 참고: 요구사항에 따라 추후 댓글 등록 API 추가 예정 */}
         <PostCommentButton
           onClick={handlePostComment}
           disabled={!comment.trim()}
@@ -83,6 +87,6 @@ function ItemCommentSection({ productId }) {
       <CommentThread productId={productId} />
     </>
   );
-}
+};
 
 export default ItemCommentSection;
