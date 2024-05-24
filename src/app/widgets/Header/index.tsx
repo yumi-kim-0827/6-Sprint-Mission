@@ -14,7 +14,7 @@ export default function Header(props: Omit<Props, "id">)
 {
 	return (
 		<Center id="header" { ...props }>
-			<Row class="content" justify="space-between" align="center">
+			<Row class="content" align="center">
 				<Link to="/">
 					<Row gap={10} align="center">
 						<Image src={logo_face_svg} class="hide-on-mobile"></Image>

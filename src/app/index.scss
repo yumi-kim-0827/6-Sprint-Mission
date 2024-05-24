@@ -1,5 +1,10 @@
 @import "@/app/css/viewport.mixin.scss";
 
+*
+{
+	color: #1F2937;
+}
+
 a[href]
 {
 	color: inherit;
