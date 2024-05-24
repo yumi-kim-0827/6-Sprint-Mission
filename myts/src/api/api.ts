@@ -1,6 +1,6 @@
 import instance from "./axios";
 
-export async function getProducts({order = "createdAt"}) {
+export async function getProducts(order = "createdAt") {
   try {
     const response = await instance.get('/products/',{
     params: {order},

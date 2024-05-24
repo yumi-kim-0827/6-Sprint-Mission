@@ -1,7 +1,26 @@
 import "./ProductsList.css";
 
-function ProductsListItem({ item }) {
+interface Ilist {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+  images: string;
+  ownerId: number;
+  favoriteCount: number;
+  createdAt: string;
+  updatedAt: string;
+}
+interface ProductsListItemProps {
+  item: Ilist;
+}
 
+interface ProductsListProps {
+  items: Ilist[];
+}
+
+function ProductsListItem({ item }: ProductsListItemProps) {
   return (
     <div className="ProductsListItem">
       <img className="ProductsListItem-img" src={item.images} alt={item.name} />
@@ -14,7 +33,7 @@ function ProductsListItem({ item }) {
   );
 }
 
-function ProductsList({ items }) {
+function ProductsList({ items }: ProductsListProps) {
   return (
     <ul className="ItemContainer">
       {items.map((item) => {

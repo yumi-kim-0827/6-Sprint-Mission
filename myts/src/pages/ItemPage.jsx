@@ -9,7 +9,7 @@ function ItemPage() {
 
   const order="favoriteCount"
 
-  const getProductByName = async (orderQuery, productId) => {
+  const getProductByName = async (orderQuery) => {
     const { list } = await getProducts(orderQuery);
     console.log(list);
     /*
@@ -24,7 +24,7 @@ function ItemPage() {
   };
 
   useEffect(() => {
-    getProductByName(order, productId);
+    getProductByName(order);
   }, [order]);
 
   return (

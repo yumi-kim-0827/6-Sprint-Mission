@@ -1,12 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import './FileInput.css';
+import { ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState } from "react";
+import "./FileInput.css";
 
-function FileInput({ name, value, onChange }) {
-  const [preview, setPreview] = useState();
-  const inputRef = useRef();
+interface Props extends InputHTMLAttributes<HTMLInputElement>{
+  value: File | null;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChange = (e) => {
-    const [nextValue] = e.target.files;
+function FileInput({ name, value, onChange, ...rest }: Props) {
+  const [preview, setPreview] = useState("");
+  const inputRef = useRef<HTMLFormElement>();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue: string = e.target.files[0];
     onChange(name, nextValue);
   };
 
@@ -24,22 +29,28 @@ function FileInput({ name, value, onChange }) {
     setPreview(nextPreview);
 
     return () => {
-      setPreview();
+      setPreview("");
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);
 
   return (
-    <div className='fileInputForm'>
+    <div className="fileInputForm">
       <input
         type="file"
-        className='fileInput'
+        className="fileInput"
         accept="image/png, image/jpeg"
         onChange={handleChange}
         ref={inputRef}
       />
-      {preview && <img src={preview} className="previewImg" alt="이미지 미리보기" />}
-      {value && <button className='deleteImageButton' onClick={handleClearClick}>X</button>}
+      {preview && (
+        <img src={preview} className="previewImg" alt="이미지 미리보기" />
+      )}
+      {value && (
+        <button className="deleteImageButton" onClick={handleClearClick}>
+          X
+        </button>
+      )}
     </div>
   );
 }
