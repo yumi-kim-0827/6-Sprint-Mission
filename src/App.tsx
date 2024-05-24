@@ -3,7 +3,7 @@ import ItemPage from "./pages/item-list/ItemPage";
 import HomePage from "./pages/home/HomePage";
 import AddItemPage from "./pages/add-item/AddItemPage";
 import ItemDetailPage from "./pages/item-detail/ItemDetailPage";
-import Header from "./components/layout/Header";
+import Header from "components/layout/Header";
 
 function App() {
   return (
