@@ -168,7 +168,7 @@ const Signup = () => {
           </div>
           <div className="login-first">
             <span>이미 회원이신가요?</span>
-            <Link to="signin">로그인</Link>
+            <Link to="/signin">로그인</Link>
           </div>
         </div>
       </main>

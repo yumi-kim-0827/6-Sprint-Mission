@@ -33,7 +33,6 @@ const validatePasswordTwice = (password: string, passwordCheck: string) => {
   }
 };
 
-
 export {
   validateEmailAddress,
   validatePassword,

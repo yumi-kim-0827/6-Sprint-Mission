@@ -16,18 +16,21 @@ const Signin = () => {
 
   const buttonActivate: boolean =
     validateEmailAddress(email) && validatePassword(passWord);
+
   const emailErrorMessage: string =
     email === ""
       ? "이메일을 입력해주세요"
       : validateEmailAddress(email)
       ? ""
       : "잘못된 이메일 형식입니다";
+
   const passWordErrorMessage: string =
     passWord === ""
       ? "비밀번호을 입력해주세요"
       : validatePassword(passWord)
       ? ""
       : "비밀번호를 8자 이상 입력해주세요";
+      
 
   const handleEmailInput = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);

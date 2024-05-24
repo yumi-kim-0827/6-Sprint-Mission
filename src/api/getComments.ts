@@ -1,4 +1,4 @@
-const panda_market_backend_api = "https://panda-market-api.vercel.app/";
+const panda_market_backend_api = process.env.REACT_APP_API_KEY;
 
 interface Comment {
   writer: {

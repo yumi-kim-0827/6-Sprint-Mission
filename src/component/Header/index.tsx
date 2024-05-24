@@ -29,8 +29,8 @@ const Header = () => {
         </Link>
         <div className="page-button">
           <NavLink
-            to="/"
-            style={currentPageBlueColor(["/"])}
+            to="/free"
+            style={currentPageBlueColor(["/free"])}
             className="navLink"
           >
             자유게시판
