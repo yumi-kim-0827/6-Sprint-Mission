@@ -2,6 +2,7 @@
 
 #header
 {
+	height: 70px;
 	position: sticky;
 	background: #FFFFFF;
 
@@ -20,38 +21,32 @@
 		padding-left: 200px;
 		padding-right: 200px;
 	}
-	> .content
+	> a
 	{
-		width: 100%;
-		height: 70px;
+		height: 100%;
 		padding-top: 11px;
 		padding-bottom: 11px;
 
-		@include desktop
+		> *
 		{
-			max-width: 1200px;
+			height: 100%;
 		}
-		> a > *
+		>.button
 		{
-			height: 48px;
+			font-weight: 600;
+			border-radius: 8px;
 
-			&.button
+			@include mobile
 			{
-				font-weight: 600;
-				border-radius: 8px;
-
-				@include mobile
-				{
-					width: 88px;
-				}
-				@include tablet
-				{
-					width: 128px;
-				}
-				@include desktop
-				{
-					width: 128px;
-				}
+				width: 88px;
+			}
+			@include tablet
+			{
+				width: 128px;
+			}
+			@include desktop
+			{
+				width: 128px;
 			}
 		}
 	}

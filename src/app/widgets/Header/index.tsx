@@ -13,26 +13,24 @@ import logo_text_svg from "@/common/assets/icons/logo_text.svg";
 export default function Header(props: Omit<Props, "id">)
 {
 	return (
-		<Center id="header" { ...props }>
-			<Row class="content" justify="space-between" align="center">
-				<Link to="/">
-					<Row gap={10} align="center">
-						<Image src={logo_face_svg} class="hide-on-mobile"></Image>
-						<Image src={logo_text_svg}></Image>
-					</Row>
-				</Link>
-				<Spacer>
-				{
-					props.children
-				}
-				</Spacer>
-				<Link to="/signin">
-					<Center class="button">
-						로그인
-					</Center>
-				</Link>
-			</Row>
-		</Center>
+		<Row id="header" justify="space-between" align="center">
+			<Link to="/">
+				<Row gap={10} align="center">
+					<Image src={logo_face_svg} class="hide-on-mobile"></Image>
+					<Image src={logo_text_svg}></Image>
+				</Row>
+			</Link>
+			<Spacer>
+			{
+				props.children
+			}
+			</Spacer>
+			<Link to="/signin">
+				<Center class="button">
+					로그인
+				</Center>
+			</Link>
+		</Row>
 	);
 }
  
