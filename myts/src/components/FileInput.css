@@ -1,0 +1,32 @@
+input::-webkit-file-upload-button {
+    display: none;
+}
+
+.fileInputForm {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.previewImg {
+    width: 17.625rem;
+    height: 17.625rem;
+}
+
+
+
+.fileInput {
+    width: 17.625rem;
+    height: 17.625rem;
+}
+
+.deleteImageButton{
+    margin-left: auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #3692FF;
+    color: #ffffff;
+    border-radius: 50%;
+    border: none;
+    right: 0;
+}
