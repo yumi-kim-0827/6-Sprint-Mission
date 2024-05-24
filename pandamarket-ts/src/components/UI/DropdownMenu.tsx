@@ -7,7 +7,7 @@ interface DropdownMenuProps {
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ onSortSelection }) => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
