@@ -4,6 +4,7 @@ import kakaotalk from "assets/icons/icon-kakaotalk.svg";
 import google from "assets/icons/icon-google.svg";
 import "styles/LoginPage.css";
 import { ChangeEvent, FocusEvent, useState } from "react";
+import { EMAIL_REGEX } from "constants/LoginPage/constant";
 
 interface InputProps {
   label: string;
@@ -13,15 +14,30 @@ interface InputProps {
 }
 
 function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
-  const [inputValue, setInputValue] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [emailErrorMsg, setEmailErrorMsg] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {};
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.type === "email") {
+      if (EMAIL_REGEX.test(e.target.value)) {
+        setEmailErrorMsg("");
+        setIsError(false);
+      } else {
+        setIsError(true);
+        setErrorMsg("");
+        setEmailErrorMsg("잘못된 이메일 형식입니다.");
+      }
+    } else {
+      setIsError(false);
+    }
+  };
   const handleFocusOut = (e: FocusEvent<HTMLInputElement>) => {
     if (!e.target.value) {
       setIsError(true);
-      setErrorMsg(`${e.target.type}을 입력해주세요`);
+      setErrorMsg(
+        `${e.target.type === "email" ? "이메일" : "비밀번호"}을 입력해주세요`
+      );
     }
   };
 
@@ -37,11 +53,15 @@ function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
         onBlur={handleFocusOut}
       />
       {isError && <p className="error-message">{errorMsg}</p>}
+      {type === "email" && emailErrorMsg && (
+        <p className="error-message">{emailErrorMsg}</p>
+      )}
     </div>
   );
 }
 
 export default function LoginPage() {
+  const [inputValue, setInputValue] = useState("");
   return (
     <>
       <Link to={"/"} className="panda-market-logo-container">
