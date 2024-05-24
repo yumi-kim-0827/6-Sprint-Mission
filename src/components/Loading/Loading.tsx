@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import COLORS from "styles/palette";
 
 export default function Loading({ height }: { height?: number }) {
   return (
@@ -21,7 +22,7 @@ const StyledLoading = styled.div`
   top: 0;
   bottom: 0;
   margin: auto;
-  border: 5px solid var(--blue);
+  border: 5px solid ${COLORS.BLUE};
   border-radius: 50%;
   z-index: 999;
 `;

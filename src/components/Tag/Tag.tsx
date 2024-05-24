@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
 import styled from "styled-components";
+import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
+import COLORS from "styles/palette";
 
 interface Props {
   children: ReactNode;
@@ -17,7 +18,7 @@ export default function Tag({ children, onDelete }: Props) {
 }
 
 const StyledTag = styled.div`
-  background-color: var(--cool-gray200);
+  background-color: ${COLORS.COOL_GRAY_200};
   width: max-content;
   padding: 12px 12px 12px 16px;
   border-radius: 26px;
@@ -27,7 +28,7 @@ const StyledTag = styled.div`
   line-height: 24px;
   font-weight: 400;
   font-size: 16px;
-  color: var(--cool-gray800);
+  color: ${COLORS.COOL_GRAY_800};
   user-select: none;
 `;
 
@@ -36,6 +37,6 @@ const StyledXIcon = styled(XIcon)`
   fill: #9ca3af;
 
   &:hover {
-    fill: var(--blue);
+    fill: ${COLORS.BLUE};
   }
 `;

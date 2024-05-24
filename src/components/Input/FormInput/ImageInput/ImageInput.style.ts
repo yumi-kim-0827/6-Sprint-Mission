@@ -1,11 +1,12 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
-import { DEVICE } from "styles/variables";
 import { ImageCardCSS } from "components/Card/ImageCard";
+import { ReactComponent as XIcon } from "assets/icon/ic_X.svg";
+import { onPc, onTablet } from "styles/mediaQuery";
+import COLORS from "styles/palette";
 
 const ImageInputCard = css`
   ${ImageCardCSS}
-  background-color: var(--cool-gray300);
+  background-color: ${COLORS.COOL_GRAY_300};
   border: none;
   outline: none;
   display: flex;
@@ -22,12 +23,12 @@ export const ImageInputContainer = styled.div`
   grid-auto-rows: auto;
   gap: 8px;
 
-  @media (min-width: ${DEVICE.TABLET}) {
+  ${onTablet} {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
-  @media (min-width: ${DEVICE.DESKTOP}) {
+  ${onPc} {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
@@ -50,7 +51,7 @@ export const ImageInput = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    color: var(--light-gray);
+    color: ${COLORS.LIGHT_GRAY};
   }
 `;
 
@@ -74,6 +75,6 @@ export const StyledXIcon = styled(XIcon)`
   fill: #9ca3af;
 
   &:hover {
-    fill: var(--blue);
+    fill: ${COLORS.BLUE};
   }
 `;

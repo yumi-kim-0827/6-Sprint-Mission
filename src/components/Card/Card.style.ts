@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import COLORS from "styles/palette";
 
 export const CardContainer = styled.div`
-  color: var(--cool-gray800);
+  color: ${COLORS.COOL_GRAY_800};
 `;
 
 export const CardTitle = styled.h1`
@@ -20,6 +21,6 @@ export const LikeCount = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  color: var(--cool-gray600);
+  color: ${COLORS.COOL_GRAY_600};
   font-size: 12px;
 `;

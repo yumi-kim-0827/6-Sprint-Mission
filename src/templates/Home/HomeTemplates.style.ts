@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { onPc, onTablet, onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
+import zIndex from "styles/zIndex";
 
 // HomeTopImgComponent
 
@@ -8,7 +10,7 @@ export const HomeTopImgContainer = styled.div`
   padding: 48px 70px 0;
   position: relative;
   margin: 0 auto;
-  background-color: var(--light-blue-200);
+  background-color: ${COLORS.LIGHT_BLUE_200};
 
   ${onTablet} {
     height: 771px;
@@ -27,10 +29,10 @@ export const HomeTopTitle = styled.h1`
   font-weight: 700;
   font-size: 30px;
   line-height: 45px;
-  color: var(--cool-gray700);
+  color: ${COLORS.COOL_GRAY_700};
   text-align: center;
   margin-bottom: 18px;
-  z-index: var(--title-with-img);
+  z-index: ${zIndex.floating};
   position: relative;
 
   span {
@@ -59,7 +61,7 @@ export const HomeTopTitle = styled.h1`
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
-  z-index: var(--title-with-img);
+  z-index: ${zIndex.floating};
   position: relative;
 
   span {
@@ -94,7 +96,7 @@ export const HomeTopImg = styled.img`
   bottom: 0;
   right: 50%;
   transform: translateX(50%);
-  z-index: var(--img);
+  z-index: ${zIndex.base};
   width: 100%;
   height: 290px;
   overflow: hidden;
@@ -119,7 +121,7 @@ export const HomeBottomImgContainer = styled.div`
   padding-top: 100px;
   position: relative;
   margin: 0 auto;
-  background-color: var(--light-blue-200);
+  background-color: ${COLORS.LIGHT_BLUE_200};
 
   ${onTablet} {
     height: 927px;
@@ -139,9 +141,9 @@ export const HomeBottomTitle = styled.h1`
   font-weight: 700;
   font-size: 30px;
   line-height: 45px;
-  color: var(--cool-gray700);
+  color: ${COLORS.COOL_GRAY_700};
   text-align: center;
-  z-index: var(--title-with-img);
+  z-index: ${zIndex.floating};
   position: relative;
 
   ${onTabletAndPc} {
@@ -212,7 +214,7 @@ export const SectionScript = styled.div<{ direction?: "right" | "left" }>`
   }
 
   .badge {
-    color: var(--blue);
+    color: ${COLORS.BLUE};
     font-weight: 700;
     font-size: 18px;
     line-height: 25px;
@@ -257,7 +259,7 @@ export const FooterContainer = styled.div`
   display: flex;
   position: relative;
   justify-content: space-between;
-  background-color: var(--dark-gray800);
+  background-color: ${COLORS.DARK_GRAY_800};
   padding: 32px;
   height: 160px;
 
@@ -274,7 +276,7 @@ export const FooterCopyright = styled.span`
   position: absolute;
   bottom: 32px;
   left: 32px;
-  color: var(--light-gray);
+  color: ${COLORS.LIGHT_GRAY};
   cursor: pointer;
 
   ${onTabletAndPc} {
@@ -290,7 +292,7 @@ export const FooterInfo = styled.div`
 
   a {
     cursor: pointer;
-    color: var(--gray200);
+    color: ${COLORS.GRAY_200};
   }
 `;
 

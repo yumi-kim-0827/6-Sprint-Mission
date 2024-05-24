@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
 
 export const LogoBox = styled.div`
   margin-top: 60px;
@@ -42,7 +43,7 @@ export const AuthForm = styled.form`
   .error-msg {
     font-weight: 600;
     font-size: 15px;
-    color: var(--error);
+    color: ${COLORS.ERROR};
     position: relative;
     top: 8px;
     left: 16px;
@@ -58,7 +59,7 @@ export const AuthForm = styled.form`
 
 export const EasyLogin = styled.div`
   height: 74px;
-  background-color: var(--light-blue-100);
+  background-color: ${COLORS.LIGHT_BLUE_100};
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -83,6 +84,6 @@ export const LinkBlock = styled.div`
 
   a {
     text-decoration: underline;
-    color: var(--blue);
+    color: ${COLORS.BLUE};
   }
 `;

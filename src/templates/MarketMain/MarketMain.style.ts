@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { onPc, onTablet, onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
 
 export const BestProductsContainer = styled.div`
   margin-top: 24px;
@@ -9,7 +10,7 @@ export const BestProductsContainer = styled.div`
     font-size: 20px;
     font-weight: 700;
     line-height: 28px;
-    color: var(--dark-gray800);
+    color: ${COLORS.DARK_GRAY_800};
   }
 `;
 
@@ -30,7 +31,7 @@ export const BestProductsCards = styled.div`
 
 export const NoItems = styled.h1<{ height: number }>`
   min-height: ${({ height }) => height}px;
-  color: var(--cool-gray800);
+  color: ${COLORS.COOL_GRAY_800};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +64,7 @@ export const AllProductsTitle = styled.h1`
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;
-  color: var(--dark-gray800);
+  color: ${COLORS.DARK_GRAY_800};
   align-self: center;
 
   ${onTabletAndPc} {

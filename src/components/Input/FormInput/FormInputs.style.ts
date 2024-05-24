@@ -1,23 +1,24 @@
 import styled from "styled-components";
+import COLORS from "styles/palette";
 
 export const FormInput = styled.input<{ $error?: boolean }>`
   width: 100%;
   height: 56px;
-  background-color: var(--cool-gray300);
+  background-color: ${COLORS.COOL_GRAY_300};
   outline: none;
   border: ${({ $error = false }) =>
-    $error ? "2px solid var(--error)" : "none"};
+    $error ? `2px solid ${COLORS.ERROR}` : "none"};
   border-radius: 12px;
   text-indent: 24px;
   &::placeholder {
-    color: var(--light-gray);
+    color: ${COLORS.LIGHT_GRAY};
     font-size: 16px;
     font-weight: 400;
   }
 
   &:focus {
     border: ${({ $error = false }) =>
-      $error ? "2px solid var(--error)" : "2px solid var(--blue)"};
+      $error ? `2px solid ${COLORS.ERROR}` : `2px solid ${COLORS.BLUE}`};
   }
 `;
 
@@ -39,15 +40,15 @@ export const TextareaInput = styled.textarea<{ height?: number }>`
   border-radius: 12px;
   outline: none;
   border: none;
-  background-color: var(--cool-gray300);
+  background-color: ${COLORS.COOL_GRAY_300};
   padding: 16px 24px;
   &::placeholder {
-    color: var(--light-gray);
+    color: ${COLORS.LIGHT_GRAY};
     font-size: 16px;
     font-weight: 400;
   }
 
   &:focus {
-    border: 2px solid var(--blue);
+    border: 2px solid ${COLORS.BLUE};
   }
 `;

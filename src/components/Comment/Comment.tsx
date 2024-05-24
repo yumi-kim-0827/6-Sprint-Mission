@@ -2,6 +2,7 @@ import styled from "styled-components";
 import kebab from "assets/icon/ic_kebab.svg";
 import formatTimeAgo from "utils/formatTimeAgo";
 import CommentType from "models/comment";
+import COLORS from "styles/palette";
 
 export default function Comment({ data }: { data: CommentType }) {
   const {
@@ -27,7 +28,7 @@ export default function Comment({ data }: { data: CommentType }) {
 }
 
 const CommentContainer = styled.div`
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: 1px solid ${COLORS.GRAY_200};
 `;
 
 const StyledContent = styled.div`
@@ -36,7 +37,7 @@ const StyledContent = styled.div`
   align-items: center;
 
   span {
-    color: var(--cool-gray800);
+    color: ${COLORS.COOL_GRAY_800};
     font-weight: 400;
   }
 `;
@@ -63,12 +64,12 @@ const ProfileContainer = styled.div`
   .username {
     font-weight: 400;
     font-size: 14px;
-    color: var(--cool-gray600);
+    color: ${COLORS.COOL_GRAY_600};
   }
 
   .updated-time {
     font-weight: 400;
     font-size: 12px;
-    color: var(--light-gray);
+    color: ${COLORS.LIGHT_GRAY};
   }
 `;

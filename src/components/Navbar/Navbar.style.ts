@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { DEVICE } from "styles/variables";
+import { onPc, onTablet, onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
+import zIndex from "styles/zIndex";
 
 export const NavbarContainer = styled.nav`
   display: flex;
@@ -8,14 +10,14 @@ export const NavbarContainer = styled.nav`
   border: 1px solid #dfdfdf;
   position: sticky;
   top: 0;
-  z-index: var(--GNB);
+  z-index: ${zIndex.GNB};
   background-color: white;
 
-  @media (min-width: ${DEVICE.TABLET}) {
+  ${onTablet} {
     padding: 10px 34px;
   }
 
-  @media (min-width: ${DEVICE.DESKTOP}) {
+  ${onPc} {
     padding: 10px 200px;
   }
 `;
@@ -29,17 +31,17 @@ export const NavbarLinkContainer = styled.div`
   align-items: center;
   gap: 8px;
 
-  @media (min-width: ${DEVICE.TABLET}) {
+  ${onTabletAndPc} {
     font-size: 18px;
     gap: 38px;
     margin-left: 32px;
   }
 
   a {
-    color: var(--cool-gray600);
+    color: ${COLORS.COOL_GRAY_600};
     &:hover,
     &:focus {
-      color: var(--cool-gray700);
+      color: ${COLORS.COOL_GRAY_700};
     }
   }
 `;

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import COLORS from "styles/palette";
 import DefaultButton from "../Button.style";
 
 interface Props {
@@ -19,11 +20,11 @@ export default function LinkButton({ children, to = "/", radius = 8 }: Props) {
 
 const StyledLinkButton = styled.button<{ radius: number }>`
   ${DefaultButton}
-  background-color: var(--blue);
+  background-color: ${COLORS.BLUE};
   border-radius: ${({ radius }) => radius}px;
 
   &:focus,
   &:hover {
-    background-color: var(--blue600);
+    background-color: ${COLORS.BLUE_600};
   }
 `;

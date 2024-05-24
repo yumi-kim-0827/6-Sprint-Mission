@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
+import styled from "styled-components";
 import useDeviceState from "hooks/useDeviceState";
 import { ReactComponent as HeartIcon } from "assets/icon/ic_heart.svg";
-import styled from "styled-components";
+import COLORS from "styles/palette";
 
 interface Props {
   children: ReactNode;
@@ -25,18 +26,18 @@ export default function LikeButton({ children, onClick }: Props) {
 
 const StyledLikeButton = styled.button`
   border-radius: 35px;
-  border: 1px solid var(--gray200);
+  border: 1px solid ${COLORS.GRAY_200};
   padding: 4px 12px;
   display: flex;
   align-items: center;
   gap: 4px;
-  color: var(--cool-gray500);
+  color: ${COLORS.COOL_GRAY_500};
   font-weight: 500;
   font-size: 16px;
   background-color: white;
 
   &:focus,
   &:hover {
-    background-color: var(--gray50);
+    background-color: ${COLORS.GRAY_50};
   }
 `;

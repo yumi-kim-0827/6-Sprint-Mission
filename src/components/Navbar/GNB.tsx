@@ -6,6 +6,7 @@ import { loginState } from "contexts/users";
 import SmallMainLogo from "assets/icon/main_logo_small.svg";
 import MainLogo from "assets/icon/main_logo.svg";
 import profile from "assets/icon/profile.svg";
+import COLORS from "styles/palette";
 import * as S from "./Navbar.style";
 
 export default function GNB() {
@@ -21,14 +22,16 @@ export default function GNB() {
       <S.NavbarLinkContainer>
         <NavLink
           to="/free-board"
-          style={({ isActive }) => ({ color: isActive ? "var(--blue)" : "" })}
+          style={({ isActive }) => ({
+            color: isActive ? `${COLORS.BLUE}` : "",
+          })}
         >
           자유게시판
         </NavLink>
         <NavLink
           to="/items"
           style={({ isActive }) => ({
-            color: isActive || pathname === "/additem" ? "var(--blue)" : "",
+            color: isActive || pathname === "/additem" ? `${COLORS.BLUE}` : "",
           })}
         >
           중고마켓

@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import SearchIcon from "assets/icon/ic_search.svg";
 import styled from "styled-components";
+import COLORS from "styles/palette";
 
 interface Props {
   value: string;
@@ -30,10 +31,10 @@ const StyledSearchInput = styled.div`
     width: 100%;
     min-width: 242px;
     height: 42px;
-    background-color: var(--cool-gray300);
+    background-color: ${COLORS.COOL_GRAY_300};
     text-indent: 44px;
     &::placeholder {
-      color: var(--light-gray);
+      color: ${COLORS.LIGHT_GRAY};
       font-size: 16px;
       font-weight: 400;
     }

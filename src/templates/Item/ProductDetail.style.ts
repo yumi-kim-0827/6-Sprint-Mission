@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { onPc, onTablet, onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
 
 export const ProductDetailInfoContainer = styled.div`
   position: relative;
   margin-top: 16px;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: 1px solid ${COLORS.GRAY_200};
   display: grid;
   grid-template-rows: repeat(2, auto);
   gap: 16px;
@@ -36,12 +37,12 @@ export const InfoTop = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: 1px solid ${COLORS.GRAY_200};
 
   .product-name {
     font-size: 16px;
     font-weight: 600;
-    color: var(--cool-gray800);
+    color: ${COLORS.COOL_GRAY_800};
 
     ${onTablet} {
       font-size: 20px;
@@ -78,13 +79,13 @@ export const InfoBottom = styled.div`
   h2 {
     font-weight: 500;
     font-size: 14px;
-    color: var(--cool-gray600);
+    color: ${COLORS.COOL_GRAY_600};
   }
 
   p {
     padding: 8px 0 23px;
     font-weight: 400;
-    color: var(--cool-gray800);
+    color: ${COLORS.COOL_GRAY_800};
   }
 `;
 
@@ -107,7 +108,7 @@ export const InquiryTemplateContainer = styled.div`
 
   .title {
     font-weight: 600;
-    color: var(--dark-gray800);
+    color: ${COLORS.DARK_GRAY_800};
     margin-bottom: 16px;
   }
 `;
@@ -142,7 +143,7 @@ export const EmptyContainer = styled.div`
   }
 
   span {
-    color: var(--light-gray);
+    color: ${COLORS.LIGHT_GRAY};
     font-weight: 400;
     line-height: 24px;
   }

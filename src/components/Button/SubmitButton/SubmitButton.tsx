@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import COLORS from "styles/palette";
 import DefaultButton from "../Button.style";
 
 interface Props {
@@ -37,11 +38,11 @@ const StyledSubmitButton = styled.button<{
 }>`
   ${DefaultButton};
   background-color: ${({ $isActive }) =>
-    $isActive ? "var(--blue)" : "var(--light-gray)"};
+    $isActive ? `${COLORS.BLUE}` : `${COLORS.LIGHT_GRAY}`};
   border-radius: ${({ $round = false }) => ($round ? 40 : 8)}px;
 
   &:focus,
   &:hover {
-    background-color: ${({ $isActive }) => $isActive && "var(--blue600)"};
+    background-color: ${({ $isActive }) => $isActive && `${COLORS.BLUE_600}`};
   }
 `;

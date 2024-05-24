@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { onPc, onTablet, onTabletAndPc } from "styles/mediaQuery";
+import COLORS from "styles/palette";
 
 export const AddItemContainer = styled.div`
   margin-top: 16px;
@@ -13,7 +14,7 @@ export const AddItemHeader = styled.div`
   h1 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--cool-gray800);
+    color: ${COLORS.COOL_GRAY_800};
 
     ${onTabletAndPc} {
       font-size: 28px;
@@ -25,7 +26,7 @@ const formLabel = css`
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 700;
-  color: var(--cool-gray800);
+  color: ${COLORS.COOL_GRAY_800};
 
   ${onTabletAndPc} {
     font-size: 18px;
