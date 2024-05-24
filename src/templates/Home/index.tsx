@@ -9,7 +9,7 @@ import facebookIcon from "assets/icon/ic_facebook.svg";
 import instagramIcon from "assets/icon/ic_instagram.svg";
 import twitterIcon from "assets/icon/ic_twitter.svg";
 import youtubeIcon from "assets/icon/ic_youtube.svg";
-import * as S from "./HomeTemplates.style";
+import * as S from "./index.style";
 
 export function HomeTopImgComponent() {
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useDeviceState from "hooks/useDeviceState";
-import { useOrderState } from "contexts/MarketMain";
+import { useOrderState } from "contexts/react-context/FleaMarket";
 import SortIcon from "assets/icon/ic_sort.svg";
 import ArrowDownIcon from "assets/icon/ic_arrow_down.svg";
 import * as S from "./SelectInput.style";

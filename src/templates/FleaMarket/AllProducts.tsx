@@ -11,8 +11,8 @@ import {
   useCurrentPage,
   useOrder,
   useSetTotalPages,
-} from "contexts/MarketMain";
-import * as S from "./MarketMain.style";
+} from "contexts/react-context/FleaMarket";
+import * as S from "./FleaMarket.style";
 
 const DEVICE_PRODUCT_COUNT = {
   mobile: 4,

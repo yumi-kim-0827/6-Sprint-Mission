@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "pages/Home";
 import Login from "pages/users/Login";
 import Signup from "pages/users/Signup";
-import MarketMainPage from "pages/market";
+import FleaMarket from "pages/market/FleaMarket";
 import FAQ from "pages/supply/FAQ";
 import Privacy from "pages/supply/Privacy";
 import FreeBoard from "pages/supply/FreeBoard";
@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/items" element={<MarketMainPage />} />
+        <Route path="/items" element={<FleaMarket />} />
         <Route path="/items/:productId" element={<ItemPage />} />
         <Route path="/free-board" element={<FreeBoard />} />
         <Route path="/additem" element={<AddItemPage />} />

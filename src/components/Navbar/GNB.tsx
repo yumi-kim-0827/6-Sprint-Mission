@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useAtomValue } from "jotai";
 import Button from "components/Button";
 import useDeviceState from "hooks/useDeviceState";
-import { loginState } from "contexts/users";
+import { loginState } from "contexts/atoms/users";
 import SmallMainLogo from "assets/icon/main_logo_small.svg";
 import MainLogo from "assets/icon/main_logo.svg";
 import profile from "assets/icon/profile.svg";

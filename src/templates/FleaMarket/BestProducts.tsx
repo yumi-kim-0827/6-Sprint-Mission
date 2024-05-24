@@ -6,7 +6,7 @@ import useAxiosFetch from "hooks/useAxiosFetch";
 import { DeviceProductCount } from "models/device";
 import Product from "models/product";
 import getPageSize from "utils/getPageSize";
-import * as S from "./MarketMain.style";
+import * as S from "./FleaMarket.style";
 
 const DEVICE_PRODUCT_COUNT: DeviceProductCount = {
   mobile: 1,

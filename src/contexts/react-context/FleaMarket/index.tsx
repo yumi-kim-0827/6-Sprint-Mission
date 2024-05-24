@@ -13,7 +13,7 @@ export {
 
 export { useOrder, useSetOrder, useOrderState } from "./OrderContext";
 
-export default function MarketMainProvider({
+export default function FleaMarketProvider({
   children,
 }: {
   children: ReactNode;

@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSetAtom } from "jotai";
 import Input from "components/Input";
 import Button from "components/Button";
-import { loginState } from "contexts/users";
+import { loginState } from "contexts/atoms/users";
 import mainLogo from "assets/icon/main_logo.svg";
 import kakaoIcon from "assets/icon/ic_kakao.svg";
 import googleIcon from "assets/icon/ic_google.svg";
-import * as S from "./UsersTemplates.style";
+import * as S from "./index.style";
 
 export function AuthLogo() {
   return (

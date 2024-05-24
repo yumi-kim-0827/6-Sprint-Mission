@@ -1,5 +1,8 @@
 import { ReactNode } from "react";
-import { useCurrentPageState, useTotalPages } from "contexts/MarketMain";
+import {
+  useCurrentPageState,
+  useTotalPages,
+} from "contexts/react-context/FleaMarket";
 import ArrowLeft from "assets/icon/ic_arrow_left.svg";
 import ArrowRight from "assets/icon/ic_arrow_right.svg";
 import * as S from "./Pagination.style";
