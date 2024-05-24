@@ -14,7 +14,9 @@ function UserStateButton({ isAddItemPage }: UserStateButtonProps) {
       <img src={profile} alt="프로필 사진" />
     </button>
   ) : (
-    <button className="loginButton">로그인</button>
+    <Link to="/signin">
+      <button className="loginButton">로그인</button>
+    </Link>
   );
 }
 
