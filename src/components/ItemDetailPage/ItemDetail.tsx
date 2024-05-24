@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import heartIcon from "assets/heart-icon.svg";
 import kebabIcon from "assets/icon-kebab.svg";
-import Item from "constants/Item";
+import Item from "types/Item";
 
 interface Props {
   item: Item;

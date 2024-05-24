@@ -1,4 +1,4 @@
-import Item from "constants/Item";
+import Item from "types/Item";
 import heartIcon from "assets/heart-icon.svg";
 import "styles/AllItemList.css";
 import { Link } from "react-router-dom";

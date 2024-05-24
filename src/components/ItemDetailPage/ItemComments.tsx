@@ -12,7 +12,7 @@ import {
 } from "constants/color";
 import moment from "moment";
 import "moment/locale/ko";
-import ItemComment from "constants/comment";
+import ItemComment from "types/comment";
 
 interface Props {
   comments: ItemComment[];

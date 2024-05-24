@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "styles/BestItemList.css";
 import { AllItem } from "./AllItemList";
-import Item from "constants/Item";
+import Item from "types/Item";
 
 interface Props {
   items: Item[];

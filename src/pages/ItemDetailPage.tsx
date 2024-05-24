@@ -4,8 +4,8 @@ import { getItem, getItemComments } from "services/api";
 import styled from "styled-components";
 import ItemDetail from "components/ItemDetailPage/ItemDetail";
 import ItemComments from "components/ItemDetailPage/ItemComments";
-import Item from "constants/Item";
-import Comment from "constants/comment";
+import Item from "types/Item";
+import Comment from "types/comment";
 
 export default function ItemDetailPage() {
   const { itemId } = useParams<{ itemId: string }>();

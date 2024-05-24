@@ -4,7 +4,7 @@ import { getItems } from "services/api";
 import "../styles/main.css";
 import BestItemList from "components/ItemListPage/BestItemList";
 import Pagination from "components/ItemListPage/Pagination";
-import Item from "constants/Item";
+import Item from "types/Item";
 import { AllItemList } from "components/ItemListPage/AllItemList";
 
 interface ItemListOptions {
