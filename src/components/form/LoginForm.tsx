@@ -7,23 +7,30 @@ import { LoginUser } from "../../Api/loginUser";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+interface FormValues {
+  email: string;
+  password: string;
+}
+
 const LoginForm = () => {
   const resolver = yupResolver(loginSchema);
   const {
     handleSubmit,
     register,
     formState: { errors, isValid },
-  } = useForm({
+  } = useForm<FormValues>({
     resolver,
     mode: "onChange",
   });
 
-  const handleLogin = handleSubmit(async (data) => {
+  const handleLogin = handleSubmit(async (data: FormValues) => {
     try {
       const response = await LoginUser(data);
-      const { accessToken } = response.data;
-      localStorage.setItem("accessToken", accessToken);
-      console.log("로그인 성공");
+      if (response) {
+        const { token } = response;
+        localStorage.setItem("accessToken", token);
+        console.log("로그인 성공");
+      }
     } catch (error) {
       console.error("로그인 실패:", error);
     }
@@ -61,18 +68,10 @@ const LoginForm = () => {
       <SocialLoginContainer>
         <LogText id="log">간편 로그인하기</LogText>
         <SocialLogin>
-          <a
-            className="kakao-login"
-            href="https://www.kakaocorp.com/page/"
-            alt="kakaotalk"
-          >
+          <a className="kakao-login" href="https://www.kakaocorp.com/page/">
             <img className="kakao" src={KakaoLogo} alt="카카오톡 로고" />
           </a>
-          <a
-            className="google-login"
-            href="https://www.google.com"
-            alt="google"
-          >
+          <a className="google-login" href="https://www.google.com">
             <img className="google" src={GoogleLogo} alt="구글 로고" />
           </a>
         </SocialLogin>
