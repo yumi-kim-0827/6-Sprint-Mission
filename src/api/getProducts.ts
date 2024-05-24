@@ -1,5 +1,4 @@
 const panda_market_backend_api = process.env.REACT_APP_API_KEY;
-console.log(panda_market_backend_api);
 export interface ProductsApi {
   page?: number;
   pageSize?: number;

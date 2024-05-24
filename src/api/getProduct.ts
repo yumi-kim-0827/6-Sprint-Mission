@@ -1,7 +1,7 @@
 const panda_market_backend_api = process.env.REACT_APP_API_KEY;
 
 
-console.log(panda_market_backend_api);
+
 
 interface Product {
   createdAt: string;
