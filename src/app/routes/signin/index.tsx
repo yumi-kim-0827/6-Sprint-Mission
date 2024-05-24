@@ -2,27 +2,24 @@ import "./index.scss";
 
 import Box from "@/app/widgets/Box";
 import Row from "@/app/widgets/Row";
-import Image from "@/app/widgets/Image";
-import Header from "@/app/widgets/Header";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
 import Center from "@/app/widgets/Center";
-import Footer from "@/app/widgets/Footer";
 
 import { Link } from "react-router-dom";
 
+import logo_svg from "@/common/assets/icons/logo.svg";
 import google_svg from "@/common/assets/icons/google.svg";
 import kakaotalk_svg from "@/common/assets/icons/kakaotalk.svg";
 import visible_svg from "@/common/assets/icons/visible.svg";
 import invisible_svg from "@/common/assets/icons/invisible.svg";
-import logo_full_svg from "@/common/assets/icons/logo_full.svg";
 
 export default function Page()
 {
 	return (
 		<Column data-page="signin" align="center">
 			<Link to="/">
-				<Image id="company" src={logo_full_svg}></Image>
+				<img id="company" src={logo_svg}/>
 			</Link>
 			<Column id="content" gap={24}>
 				<form>
@@ -49,7 +46,7 @@ export default function Page()
 											<input id={args.id} type={args.type} pattern={args.pattern?.toString()} minLength={args.minlength} maxLength={args.maxlength} placeholder={args.placeholder} autoComplete={args.autocomplete}></input>
 										</Spacer>
 										{
-											args.type === "password" && <Image class="visibility" src={visible_svg}></Image>
+											args.type === "password" && <img class="visibility" src={visible_svg}/>
 										}
 									</Row>
 								</Column>
@@ -63,8 +60,8 @@ export default function Page()
 				<Row class="3rd-party" gap={16} align="center">
 					간편 로그인 하기
 					<Spacer></Spacer>
-					<Image src={google_svg}></Image>
-					<Image src={kakaotalk_svg}></Image>
+					<img src={google_svg}/>
+					<img src={kakaotalk_svg}/>
 				</Row>
 				<Box class="assistance">
 					판다마켓이 처음이신가요? <Link to="/signup">회원가입</Link>

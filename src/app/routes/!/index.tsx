@@ -1,7 +1,6 @@
 import "./index.scss";
 
 import Box from "@/app/widgets/Box";
-import Image from "@/app/widgets/Image";
 import Header from "@/app/widgets/Header";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
@@ -39,12 +38,12 @@ export default function Page()
 									</Center>
 								</Link>
 							</Column>
-							<Image class="background" src={banner_top_png}></Image>
+							<img class="background" src={banner_top_png}/>
 						</Box>
 					</Center>
 					<Column class="container" align="center">
 						<Box class={["segment", "left"]}>
-							<Image class="image" src={home_01_png}></Image>
+							<img class="image" src={home_01_png}/>
 							<Column class="content" justify="center">
 								<div>
 									Hot Item
@@ -62,7 +61,7 @@ export default function Page()
 							</Column>
 						</Box>
 						<Box class={["segment", "right"]}>
-							<Image class="image" src={home_02_png}></Image>
+							<img class="image" src={home_02_png}/>
 							<Column class="content" justify="center">
 								<div>
 									Search
@@ -80,7 +79,7 @@ export default function Page()
 							</Column>
 						</Box>
 						<Box class={["segment", "left"]}>
-							<Image class="image" src={home_03_png}></Image>
+							<img class="image" src={home_03_png}/>
 							<Column class="content" justify="center">
 								<div>
 									Register
@@ -105,7 +104,7 @@ export default function Page()
 								<br></br>
 								판다마켓 중고 거래
 							</Column>
-							<Image class="background" src={banner_bottom_png}></Image>
+							<img class="background" src={banner_bottom_png}/>
 						</Box>
 					</Center>
 					<Footer></Footer>

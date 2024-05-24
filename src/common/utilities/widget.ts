@@ -12,7 +12,7 @@ export default function widget(name: string, props: Props, merge: Omit<Props, "i
 		if (/^on/.test(key)) jsx[key] = value; else if (/^data-/.test(key)) jsx[key] = value;
 	}
 
-	jsx["className"] = (() =>
+	jsx["class"] = (() =>
 	{
 		const buffer = [];
 	

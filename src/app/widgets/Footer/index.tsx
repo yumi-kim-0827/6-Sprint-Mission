@@ -1,8 +1,8 @@
 import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
 
 import Row from "../Row";
-import Image from "../Image";
 import Center from "../Center";
+
 import { Link } from "react-router-dom";
 
 import youtube_svg from "@/common/assets/icons/youtube.svg";
@@ -63,7 +63,7 @@ export default function Footer(props: Omit<Props, "id">)
 				{
 					return (
 						<a key={index} href={args.href} target="_blank">
-							<Image src={args.src}></Image>
+							<img src={args.src}/>
 						</a>
 					);
 				})}

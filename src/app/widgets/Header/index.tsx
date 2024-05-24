@@ -1,7 +1,6 @@
 import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
 
 import Row from "../Row";
-import Image from "../Image";
 import Center from "../Center";
 import Spacer from "../Spacer";
 
@@ -17,8 +16,8 @@ export default function Header(props: Omit<Props, "id">)
 			<Row class="content" align="center">
 				<Link to="/">
 					<Row gap={10} align="center">
-						<Image src={logo_face_svg} class="hide-on-mobile"></Image>
-						<Image src={logo_text_svg}></Image>
+						<img src={logo_face_svg} class="hide-on-mobile"/>
+						<img src={logo_text_svg}/>
 					</Row>
 				</Link>
 				<Spacer>
