@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./header.css";
 import "../../index.css";
+import ImgHomeLogo from "../../assets/logo/img_logo.svg";
 
 export default function Header() {
   const location = useLocation();
@@ -16,11 +17,7 @@ export default function Header() {
     <div className="header">
       <div className="header-container">
         <a href="/" className="logo">
-          <img
-            src="../../assets/logo/img_logo.png"
-            alt="Logo"
-            className="logo"
-          />
+          <img src={ImgHomeLogo} alt="Logo" className="logo" />
         </a>
         <nav className="header-nav">
           <ul className="nav-container">

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Router import 추가
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Main from "./pages/main";
 import Additem from "./pages/additem";
