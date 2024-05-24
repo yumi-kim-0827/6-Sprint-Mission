@@ -1,3 +1,5 @@
+@import "../../index.css";
+
 .header {
   height: 70px;
   align-items: center;
@@ -14,7 +16,7 @@
   padding: 0 200px;
 }
 
-.logo {
+.header-logo-img {
   width: 153px;
   height: 100%;
 }
@@ -24,7 +26,7 @@
   width: calc(90% - 281px);
 }
 
-.nav-container {
+.header-nav-container {
   width: 100%;
   display: flex;
   place-items: left;
@@ -36,12 +38,12 @@
   line-height: 21.48px;
 }
 
-li {
+.header-nav-item {
   width: 109px;
   text-align: center;
 }
 
-a {
+.nav-link {
   text-decoration: none;
   color: var(--nav-noselected);
   font-weight: 700;
@@ -53,16 +55,16 @@ a {
   color: var(--brand-blue);
 }
 
-button {
+.header-login-btn {
   color: var(--color-white);
   background-color: var(--brand-blue);
-}
-
-.login-btn {
   width: 128px;
   height: 48px;
   border-radius: 8px;
   border: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.09px;
   cursor: pointer;
 }
 
@@ -77,7 +79,7 @@ button {
     padding: 0 16px;
   }
 
-  .nav-container {
+  .header-nav-container {
     font-size: 16px;
     line-height: 19.09px;
   }

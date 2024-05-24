@@ -1,9 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./header.css";
-import "../../index.css";
 import ImgHomeLogo from "../../assets/logo/img_logo.svg";
 
-export default function Header() {
+function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const isCommunityPage = location.pathname === "/board";
@@ -16,12 +15,12 @@ export default function Header() {
   return (
     <div className="header">
       <div className="header-container">
-        <a href="/" className="logo">
-          <img src={ImgHomeLogo} alt="Logo" className="logo" />
+        <a href="/" className="header-logo">
+          <img src={ImgHomeLogo} alt="Logo" className="header-logo-img" />
         </a>
         <nav className="header-nav">
-          <ul className="nav-container">
-            <li>
+          <ul className="header-nav-container">
+            <li className="header-nav-item">
               <a
                 href="/board"
                 className={`nav-link ${isCommunityPage ? "active" : ""}`}
@@ -29,7 +28,7 @@ export default function Header() {
                 자유게시판
               </a>
             </li>
-            <li>
+            <li className="header-nav-item">
               <a
                 href="/items"
                 className={`nav-link ${isMarketPage ? "active" : ""}`}
@@ -39,10 +38,12 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <button className="login-btn" onClick={handleLoginButtonClick}>
+        <button className="header-login-btn" onClick={handleLoginButtonClick}>
           로그인
         </button>
       </div>
     </div>
   );
 }
+
+export default Header;

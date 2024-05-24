@@ -1,34 +1,5 @@
 @import "../../index.css";
 
-.nav-header {
-  max-width: 1920px;
-  height: 70px;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 10px 200px;
-  border-bottom: 1px;
-}
-
-.logo {
-  width: 153px;
-  height: 100%;
-}
-
-button {
-  color: var(--color-white);
-  background-color: var(--brand-blue);
-}
-
-.login-btn {
-  width: 128px;
-  height: 48px;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-}
-
 .small-text {
   color: var(--brand-blue);
   font-weight: 700;
@@ -84,6 +55,8 @@ main h2 {
 }
 
 .explore-btn {
+  color: var(--color-white);
+  background-color: var(--brand-blue);
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
