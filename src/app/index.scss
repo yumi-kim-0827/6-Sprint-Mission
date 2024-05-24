@@ -1,8 +1,27 @@
 @import "@/app/css/viewport.mixin.scss";
 
-[data-page]
+a[href]
 {
-	height: 100%;
+	color: inherit;
+}
+
+.button
+{
+	color: #FFFFFF;
+	background: #3692FF;
+
+	&:hover
+	{
+		background: #1967D6;
+	}
+	&:focus
+	{
+		background: #1251AA;
+	}
+	&.disabled
+	{
+		background: #9CA3AF;
+	}
 }
 
 @include mobile
@@ -26,29 +45,5 @@
 	.hide-on-pc
 	{
 		display: none !important;
-	}
-}
-
-a[href]
-{
-	color: inherit;
-}
-
-.button
-{
-	color: #FFFFFF;
-	background: #3692FF;
-
-	&:hover
-	{
-		background: #1967D6;
-	}
-	&:focus
-	{
-		background: #1251AA;
-	}
-	&.disabled
-	{
-		background: #9CA3AF;
 	}
 }
