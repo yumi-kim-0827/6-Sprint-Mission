@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   price: number;
-  images: string;
+  images: string[];
   favoriteCount: number;
   name: string;
   id: number;
@@ -17,7 +17,7 @@ export default function ItemForSale({ price, images, favoriteCount, name, id }: 
   return (
     <div className='item'>
       <div onClick={() => nav(`/items/${id}`)} className='item-for-sale__img-wrap'>
-        <img className='item-for-sale__img' src={images} alt={name} />
+        <img className='item-for-sale__img' src={images[0]} alt={name} />
       </div>
       <div className='item-for-sale__description'>
         <p className='item-for-sale__title' onClick={() => nav(`/items/${id}`)}>

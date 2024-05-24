@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, KeyboardEvent, ChangeEvent, SetStateAction, Dispatch } from 'react';
 import DeleteButton from './DeleteButton';
 import './style/TagInput.css';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function TagInput({ name, tagList, setTagList }) {
-  const [tag, setTag] = useState('');
+type Props = {
+  name: string;
+  tagList: string[];
+  setTagList: Dispatch<SetStateAction<string[]>>;
+};
 
-  const handleKeyDown = e => {
+export default function TagInput({ name, tagList, setTagList }: Props) {
+  const [tag, setTag] = useState('');
+  const uuid = uuidv4();
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (tag.trim() !== '' && e.key === 'Enter') {
       if (e.nativeEvent.isComposing === false) {
         setTagList([tag, ...tagList]);
@@ -16,12 +23,12 @@ export default function TagInput({ name, tagList, setTagList }) {
     }
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTag(e.target.value);
   };
 
-  const handleDeleteClick = tagValue => {
-    const remainTags = tagList.filter(tag => tag.key !== tagValue);
+  const handleDeleteClick = (tagValue: string) => {
+    const remainTags = tagList.filter(tag => tag !== tagValue);
     setTagList(remainTags);
   };
 
@@ -41,7 +48,7 @@ export default function TagInput({ name, tagList, setTagList }) {
       <div className='tag__container'>
         {tagList.map(tagItem => {
           return (
-            <div key={uuidv4()} className='tag'>
+            <div key={uuid} className='tag'>
               <p className='tag__text'>{tagItem}</p>
               <DeleteButton deleteItem={'tag'} onClick={() => handleDeleteClick(tagItem)} />
             </div>

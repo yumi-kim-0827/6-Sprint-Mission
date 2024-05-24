@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, KeyboardEvent, useState, Dispatch, SetStateAction } from 'react';
 import '../styles/AddItem.css';
 import usePageTitle from '../hooks/usePageTitle';
 import FileInput from '../components/FileInput';
@@ -11,33 +11,45 @@ export default function AddItem() {
     name: '',
     description: '',
   });
-  const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState<string[]>([]);
   const [price, setPrice] = useState('');
 
-  const addComma = price => {
+  const addComma = (price: string) => {
     let returnString = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return returnString;
   };
 
-  const handlePriceChange = e => {
+  const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     let str = value.replaceAll(',', '');
     setPrice(str);
   };
 
-  const handleChange = (name, value) => {
+  const handleFileChange = (name: string, value: File | null) => {
     setValues(prevValues => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = e => {
+  const handleChange = (name: string, value: string | null) => {
+    setValues(prevValues => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = e => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values);
   };
@@ -45,7 +57,7 @@ export default function AddItem() {
   const isFormComplete =
     values.name.trim() !== '' &&
     values.description.trim() !== '' &&
-    values.price > 0 &&
+    Number(price) > 0 &&
     values.imgFile !== null &&
     tagList.length > 0;
 
@@ -53,7 +65,7 @@ export default function AddItem() {
     backgroundColor: isFormComplete ? '#3692FF' : '#9CA3AF',
   };
 
-  const preventDefault = e => {
+  const preventDefault = (e: KeyboardEvent<HTMLFormElement>) => {
     e.key === 'Enter' && e.preventDefault();
   };
 
@@ -68,7 +80,7 @@ export default function AddItem() {
       <FileInput
         name='imgFile' //
         value={values.imgFile}
-        onChange={handleChange}
+        onChange={handleFileChange}
       />
       <label htmlFor='name'>
         상품명
@@ -90,7 +102,7 @@ export default function AddItem() {
           name='description'
           value={values.description}
           placeholder='상품 소개를 입력해주세요'
-          onChange={handleInputChange}
+          onChange={handleTextAreaChange}
           className='add-item-form__description-input'
         />
       </label>
@@ -107,7 +119,11 @@ export default function AddItem() {
           className='add-item-form__price-input'
         />
       </label>
-      <TagInput name='tag' tagList={tagList} setTagList={setTagList} className='add-item-form__name-input' />
+      <TagInput
+        name='tag'
+        tagList={tagList} //
+        setTagList={setTagList}
+      />
     </form>
   );
 }

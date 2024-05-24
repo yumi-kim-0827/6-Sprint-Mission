@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react';
 import './style/SelectBox.css';
 
-export default function SelectBox({ handleSort }) {
+type Props = {
+  handleSort: (sortType: string) => void;
+};
+
+export default function SelectBox({ handleSort }: Props) {
   const [isDisplay, setIsDisplay] = useState(false);
   const ulRef = useRef(null);
   const [title, setTitle] = useState('최신순');
@@ -23,19 +27,18 @@ export default function SelectBox({ handleSort }) {
   };
 
   return (
-    <div class='select-box'>
-      <button class='select-box__btn' onClick={handleButtonClick}>
+    <div className='select-box'>
+      <button className='select-box__btn' onClick={handleButtonClick}>
         <picture>
-          <source srcSet='/imgs/ic_select.png' alt='드롭다운' />
           <img src='/imgs/ic_select.png' alt='드롭다운' />
         </picture>
-        <p class='select-box__btn__p'>
+        <p className='select-box__btn__p'>
           <span>{title}</span>
-          <img class='select-box__btn__arrow' src='/imgs/ic_arrow_down.png' alt='아래 화살표' />
+          <img className='select-box__btn__arrow' src='/imgs/ic_arrow_down.png' alt='아래 화살표' />
         </p>
       </button>
       {isDisplay && (
-        <ul class='select-box__list' ref={ulRef}>
+        <ul className='select-box__list' ref={ulRef}>
           <li>
             <button className='select-box__list__newest-btn' type='button' onClick={handleNewestClick}>
               최신순

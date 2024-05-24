@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 
 import Home from './Home';
+import LandingPage from 'pages/LandingPage';
 import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
 import AddItem from './pages/AddItem';
@@ -13,7 +14,7 @@ export default function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />}>
-          <Route index element={<Items />} />
+          <Route index element={<LandingPage />} />
           <Route path='/items' element={<Items />} />
           <Route path='/items/:itemId' element={<ItemDetails />} />
           <Route path='/additem' element={<AddItem />} />

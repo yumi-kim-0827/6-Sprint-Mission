@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ItemForSale from './ItemForSale';
+import { ItemList } from 'api/getItems';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
 
-export default function ItemsForSale({ items }) {
+export default function ItemsForSale({ items }: ItemList) {
   const [itemsToShow, setItemsToShow] = useState(10);
   const [title, setTitle] = useState('판매 중인 상품');
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredItems, setFilteredItems] = useState(items.slice(0, itemsToShow));
 
-  const handleSort = criteria => {
-    let sortedItems;
+  const handleSort = (criteria: string) => {
+    let sortedItems: any;
     if (criteria === '최신순') {
-      sortedItems = [...items].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      sortedItems = items.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     } else if (criteria === '좋아요순') {
-      sortedItems = [...items].sort((a, b) => b.favoriteCount - a.favoriteCount);
+      sortedItems = items.sort((a, b) => b.favoriteCount - a.favoriteCount);
     }
     setFilteredItems(sortedItems);
   };
@@ -50,17 +51,6 @@ export default function ItemsForSale({ items }) {
     };
   }, [items]);
 
-  const handleKeyPress = event => {
-    if (event.key === 'Enter') {
-      const results = items.filter(
-        item =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredItems(results);
-    }
-  };
-
   return (
     <div className='items-for-sale'>
       <div className='search-bar'>
@@ -71,12 +61,11 @@ export default function ItemsForSale({ items }) {
           placeholder='검색할 상품을 입력해주세요'
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyPress}
         />
         <Link to='/additem'>
           <button className='search-bar__register'>상품 등록하기</button>
         </Link>
-        <SelectBox className='select-box' items={items} handleSort={handleSort} />
+        <SelectBox handleSort={handleSort} />
       </div>
       <section className='items'>
         {filteredItems?.slice(0, itemsToShow).map(item => (
