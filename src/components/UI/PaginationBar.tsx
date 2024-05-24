@@ -1,10 +1,16 @@
-import { ReactComponent as LeftArrow } from "../../assets/icons/icon-arrow-left.svg";
-import { ReactComponent as RightArrow } from "../../assets/icons/icon-arrow-right.svg";
+import { ReactComponent as LeftArrow } from "assets/icons/icon-arrow-left.svg";
+import { ReactComponent as RightArrow } from "assets/icons/icon-arrow-right.svg";
 import "./PaginationBar.scss";
 
-const PaginationBar = ({ pageTotal, activePage, onPageChange }) => {
+interface Props {
+  pageTotal: number;
+  activePage: number;
+  onPageChange: (e: number) => void;
+}
+
+const PaginationBar = ({ pageTotal, activePage, onPageChange }: Props) => {
   const maxVisiblePages = 5;
-  let startPage;
+  let startPage: number;
 
   if (pageTotal <= maxVisiblePages) {
     startPage = 1;
