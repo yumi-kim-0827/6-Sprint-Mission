@@ -4,24 +4,12 @@ import { getProducts } from "services/api";
 import ItemCard from "./ItemCard";
 import PaginationBar from "components/ui/PaginationBar";
 import { Item } from "interfaces/item.interface";
-import useFetch from "hooks/useFetch";
 
 const getPageSize = () => {
   const width = window.innerWidth;
   if (width < 768) return 4;
   else if (width < 1280) return 6;
   else return 10;
-};
-
-const INITIAL_ITEM: Item = {
-  id: 0,
-  name: "",
-  description: "",
-  price: 0,
-  tags: [],
-  images: [],
-  favoriteCount: 0,
-  createdAt: "",
 };
 
 function AllItems() {
