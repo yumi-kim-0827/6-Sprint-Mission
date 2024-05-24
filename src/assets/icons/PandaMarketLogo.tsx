@@ -1,7 +1,6 @@
-import styles from "../styles/Header.module.css";
 export const PandaMarketLogo = () => {
   return (
-    <span className={styles.PandaMarketLogo}>
+    <span>
       <svg
         width="40"
         height="41"
