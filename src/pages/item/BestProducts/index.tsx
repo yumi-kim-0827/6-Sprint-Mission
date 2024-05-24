@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductElement from "../Component/ProductElement";
+import ProductElement from "../component/ProductElement";
 import "./bestProducts.css";
 import { useProductsLoading } from "hooks/useProductsLoading";
 import LoadingMessage from "component/LoadingMessage";

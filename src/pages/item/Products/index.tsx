@@ -2,7 +2,7 @@ import React from "react";
 import { MouseEvent, FormEvent } from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ProductElement from "../Component/ProductElement";
+import ProductElement from "../component/ProductElement";
 import "./products.css";
 import { useProductsLoading } from "hooks/useProductsLoading";
 import SelectOrderButton from "pages/item/Products/component/SelectOrderButton";
