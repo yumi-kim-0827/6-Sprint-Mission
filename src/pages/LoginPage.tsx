@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import pandaLogo from "assets/images/panda-logo-text.svg";
 import kakaotalk from "assets/icons/icon-kakaotalk.svg";
+import passwordEye from "assets/images/password-eye.svg";
 import google from "assets/icons/icon-google.svg";
 import "styles/LoginPage.css";
 import { ChangeEvent, FocusEvent, useState } from "react";
@@ -10,10 +11,9 @@ interface InputProps {
   label: string;
   type: string;
   placeholder: string;
-  passwordEye?: string;
 }
 
-function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
+function LoginInput({ label, type, placeholder }: InputProps) {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [emailErrorMsg, setEmailErrorMsg] = useState("");
@@ -42,21 +42,30 @@ function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
   };
 
   return (
-    <div className="input-container">
+    <>
       <label className="login-label">{label}</label>
-      <input
-        type={type}
-        name={type}
-        placeholder={placeholder}
-        className={`login-input ${passwordEye ? passwordEye : ""}`}
-        onChange={handleChange}
-        onBlur={handleFocusOut}
-      />
-      {isError && <p className="error-message">{errorMsg}</p>}
-      {type === "email" && emailErrorMsg && (
-        <p className="error-message">{emailErrorMsg}</p>
-      )}
-    </div>
+      <div className="input-container">
+        <input
+          type={type}
+          name={type}
+          placeholder={placeholder}
+          className="login-input"
+          onChange={handleChange}
+          onBlur={handleFocusOut}
+        />
+        {type === "password" && (
+          <img
+            src={passwordEye}
+            alt="비밀번호 눈 아이콘"
+            className="password-eye"
+          />
+        )}
+        {isError && <p className="error-message">{errorMsg}</p>}
+        {type === "email" && emailErrorMsg && (
+          <p className="error-message">{emailErrorMsg}</p>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -82,7 +91,6 @@ export default function LoginPage() {
             label="비밀번호"
             type="password"
             placeholder="비밀번호를 입력해주세요"
-            passwordEye="password-eye"
           />
           <button type="submit" className="form-login-btn" disabled>
             로그인
