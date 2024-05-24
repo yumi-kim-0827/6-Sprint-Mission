@@ -3,11 +3,11 @@ import "./Items.css";
 import ShowBestProducts from "../../components/show-best-products";
 import ShowProducts from "../../components/show-products";
 import PageButton from "../../components/page-button";
-import { getProduct, getBestProduct, getTotalCount } from "../../apis/api";
+import { getProduct, getBestProduct, getTotalCount, listResponse } from "../../apis/api";
 
 function Items(): JSX.Element {
-  const [products, setProducts] = useState<string[]>([]);
-  const [bestProducts, setBestProducts] = useState<string[]>([]);
+  const [products, setProducts] = useState<listResponse[]>([]);
+  const [bestProducts, setBestProducts] = useState<listResponse[]>([]);
   const [totalCount, setTotalCount] = useState<number>();
 
   const [orderBy, setOrderBy] = useState("recent");
