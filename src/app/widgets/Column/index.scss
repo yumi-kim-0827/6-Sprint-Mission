@@ -1,0 +1,18 @@
+[data-widget="Column"]
+{
+	display: flex;
+
+	> *
+	{
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+	&.top-to-bottom
+	{
+		flex-direction: column;
+	}
+	&.bottom-to-top
+	{
+		flex-direction: column-reverse;
+	}
+}

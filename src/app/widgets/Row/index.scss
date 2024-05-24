@@ -1,0 +1,18 @@
+[data-widget="Row"]
+{
+	display: flex;
+
+	> *
+	{
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+	&.left-to-right
+	{
+		flex-direction: row;
+	}
+	&.right-to-left
+	{
+		flex-direction: row-reverse;
+	}
+}

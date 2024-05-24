@@ -1,0 +1,13 @@
+{
+	"compilerOptions":
+	{
+		"strict": true,
+		"composite": true,
+		"skipLibCheck": true,
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+	},
+	"include": ["vite.config.ts"]
+}
+  
