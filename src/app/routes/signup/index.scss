@@ -16,19 +16,22 @@
 	}
 	#company
 	{
-		width: 396px;
-		height: 132px;
-
 		@include mobile
 		{
+			width: 198px;
+			height: 66px;
 			margin-top: 24px;
 		}
 		@include tablet
 		{
+			width: 396px;
+			height: 132px;
 			margin-top: 48px;
 		}
 		@include desktop
 		{
+			width: 396px;
+			height: 132px;
 			margin-top: 60px;
 		}
 	}
@@ -40,7 +43,7 @@
 
 		@include mobile
 		{
-			max-width: 100%;
+			max-width: calc(100% - 24px - 24px);
 		}
 		@include tablet
 		{
