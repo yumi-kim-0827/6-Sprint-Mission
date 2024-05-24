@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import * as S from "./SignUp.style.js";
 import UserForm from "../../components/UserForm.js";
 import ALinkImageButton from "../../components/ALinkImageButton.js";
-import pandaLogo from "../assets/img/panda-logo.svg";
-import IconGoogle from "../assets/icon/google-round.svg";
-import IconKaKao from "../assets/icon/kakao-round.svg";
+import pandaLogo from "../../assets/img/panda-logo.svg";
+import IconGoogle from "../../assets/icon/google-round.svg";
+import IconKaKao from "../../assets/icon/kakao-round.svg";
 
 const SOCIAL_LOGIN = [
   { href: "https://www.google.com/", src: IconGoogle, alt: "구글" },

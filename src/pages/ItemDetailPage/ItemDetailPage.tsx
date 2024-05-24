@@ -5,8 +5,8 @@ import ItemDetailPageCardLarge from "./ItemDetailPageCardLarge.js";
 import CommentInputBox from "../../components/CommentInputBox.js";
 import Comment from "../../components/Comment.js";
 import { getItem, getItemComments } from "../../services/api.js";
-import IconBack from "../assets/icon/back.svg";
-import EmptyCommentImage from "../assets/img/Img_inquiry_empty.png";
+import IconBack from "../../assets/icon/back.svg";
+import EmptyCommentImage from "../../assets/img/Img_inquiry_empty.png";
 
 interface CommentType {
   id: number;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BaseInput from "../../components/BaseInput";
 import DeleteButton from "../../components/DeleteButton";
 import BaseIcon from "../../components/BaseIcon";
-import plus from "../assets/icon/plus.svg";
+import plus from "../../assets/icon/plus.svg";
 
 interface Props {
   className?: string;

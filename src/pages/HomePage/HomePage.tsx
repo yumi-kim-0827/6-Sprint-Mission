@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./HomePage.style.js";
-import homeImg01 from "../assets/img/Img_home_01@2x.jpg";
-import homeImg01webp from "../assets/img/Img_home_01@2x.webp";
-import homeImg02 from "../assets/img/Img_home_02@2x.jpg";
-import homeImg02webp from "../assets/img/Img_home_02@2x.webp";
-import homeImg03 from "../assets/img/Img_home_03@2x.jpg";
-import homeImg03webp from "../assets/img/Img_home_03@2x.webp";
-import banner1 from "../assets/img/panda-1.svg";
-import banner2 from "../assets/img/panda-2.svg";
+import homeImg01 from "../../assets/img/Img_home_01@2x.jpg";
+import homeImg01webp from "../../assets/img/Img_home_01@2x.webp";
+import homeImg02 from "../../assets/img/Img_home_02@2x.jpg";
+import homeImg02webp from "../../assets/img/Img_home_02@2x.webp";
+import homeImg03 from "../../assets/img/Img_home_03@2x.jpg";
+import homeImg03webp from "../../assets/img/Img_home_03@2x.webp";
+import banner1 from "../../assets/img/panda-1.svg";
+import banner2 from "../../assets/img/panda-2.svg";
 
 const HomePage = () => {
   return (
