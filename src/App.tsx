@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -11,7 +12,6 @@ import SignupPage from "./pages/LoginPage/SignupPage";
 function App() {
   return (
     <BrowserRouter>
-      {/* Global Navigation Bar */}
       <Header />
 
       <div className="withHeader">
