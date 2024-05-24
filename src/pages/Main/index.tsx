@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import homeTop from "image/home_top.png";
@@ -12,6 +12,9 @@ import ic_twitter from "image/ic_twitter.png";
 import ic_instagram from "image/ic_instagram.png";
 
 const Main = () => {
+  useEffect(() => {
+    console.log("sprint8");
+  }, []);
   return (
     <>
       <main className="main-container">
