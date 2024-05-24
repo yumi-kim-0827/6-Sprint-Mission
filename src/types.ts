@@ -6,9 +6,9 @@ export interface Product {
   images: string;
   favoriteCount: number;
   category: string;
-  orderBy: string;
 }
 
 export interface GetProductsParams {
   pageSize?: number;
+  orderBy?: string;
 }

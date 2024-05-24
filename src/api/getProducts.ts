@@ -7,7 +7,7 @@ interface GetProductsResponse {
 }
 
 const getProducts = async (
-  params: GetProductsParams = {}
+  params: GetProductsParams
 ): Promise<GetProductsResponse> => {
   try {
     const response = await axios.get<GetProductsResponse>(API_URL, { params });
