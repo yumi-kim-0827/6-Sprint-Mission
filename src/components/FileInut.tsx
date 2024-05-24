@@ -5,8 +5,8 @@ import Close from "../assets/icons/ic_close.png";
 interface Props {
   // 매개변수로 받은 props 정의
   name: string;
-  value: any;
-  onChange: (name: string, value: any) => void;
+  value: File | null;
+  onChange: (name: string, value: File | null) => void;
 }
 
 export default function FileInput(props: Props) {
@@ -16,9 +16,11 @@ export default function FileInput(props: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // HTMLInputElement의 files 속성은 FileList | null 타입
     // Optional chaining을 사용하여 files가 null이 아닌 경우에만 접근합니다.
-    const selectImg = e.target.files?.[0];
+    const selectImg = e.target.files;
+    if (!selectImg || selectImg.length === 0) return;
 
-    props.onChange(props.name, selectImg);
+    const nextValue = selectImg[0];
+    props.onChange(props.name, nextValue);
   };
 
   const handleDelete = () => {

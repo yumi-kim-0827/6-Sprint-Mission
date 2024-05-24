@@ -11,7 +11,7 @@ interface InputValue {
   description: string;
   price: string;
   tag: string;
-  imgFile: any; // 객체로 전달해야 되는데 일단 걍 any로 타입 지정
+  imgFile: File | null;
 }
 
 export default function AddItemPage() {
@@ -27,7 +27,7 @@ export default function AddItemPage() {
     imgFile: null,
   });
 
-  const handleChange = (name: string, value: any): void => {
+  const handleChange = (name: string, value: string | File | null): void => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -38,7 +38,7 @@ export default function AddItemPage() {
   // e의 타입은 input과 textarea에서 발생하므로 유니언 타입으로 해야 한다.
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void => {
+  ) => {
     // 입력한 e를 name과 value로 구조분해 할당
     const { name, value } = e.target;
     handleChange(name, value);
@@ -46,33 +46,38 @@ export default function AddItemPage() {
 
   const handleAddTag = (
     // union type은 안되고 intersection type이 되는 이유?
-    e: React.KeyboardEvent<HTMLDivElement> & React.ChangeEvent<HTMLInputElement>
+    e: React.KeyboardEvent<HTMLInputElement> &
+      React.ChangeEvent<HTMLInputElement>
   ) => {
     if (e.key === "Enter" && values.tag !== "") {
-      setTags([...tags, values.tag]);
       setValues((prev) => ({ ...prev, tag: "" }));
+      setTags([...tags, values.tag]);
     }
   };
 
-  const handleDeleteTag = (val: any) => {
+  const handleDeleteTag = (val: string) => {
     const nextTags = tags.filter((tag) => tag !== val);
     setTags(nextTags);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
-    const { title, description, price, tag, imgFile } = values;
+    const { title, description, price, imgFile } = values;
     if (
       title !== "" &&
       description !== "" &&
       price !== "" &&
-      tag !== "" &&
+      tags.length !== 0 &&
       imgFile !== null
     ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [values]);
+  }, [values, tags]);
 
   return (
     <div>
@@ -96,10 +101,12 @@ export default function AddItemPage() {
           로그인
         </button>
       </header>
-      <form action="" className="add_form_wrapper">
+      <form action="" onSubmit={handleSubmit} className="add_form_wrapper">
         <div className="add_form_wrapper_header">
           <h1>상품 등록하기</h1>
-          <button disabled={isDisabled}>등록</button>
+          <button type="submit" disabled={isDisabled}>
+            등록
+          </button>
         </div>
 
         <label htmlFor="">상품 이미지</label>
