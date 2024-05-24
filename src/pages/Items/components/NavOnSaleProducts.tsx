@@ -6,7 +6,7 @@ import "./NavOnSaleProducts.css";
 import useItemCount from "./useItemCount";
 import iconArrow from "../../../assets/icon-arrow.svg";
 
-export default function NavOnSaleProducts() {
+const NavOnSaleProducts: React.FC = () => {
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const isTablet = useItemCount() === 6;
   const pc = useItemCount() === 10;
@@ -16,7 +16,7 @@ export default function NavOnSaleProducts() {
   };
 
   const [sortOrder, setSortOrder] = useState("최신순");
-  const handleSortOrderClick = e => {
+  const handleSortOrderClick = (e: any) => {
     setSortOrder(e.target.textContent);
   };
 
@@ -62,4 +62,6 @@ export default function NavOnSaleProducts() {
       </div>
     </>
   );
-}
+};
+
+export default NavOnSaleProducts;

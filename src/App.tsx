@@ -1,6 +1,6 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-// import Items from "./pages/Items/Items.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Items from "./pages/Items/Items";
 import HomePage from "./pages/HomePage/HomePage";
 import Layout from "./Layout";
 // import {useState} from "react";
@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          {/* <Route path="/items" element={<Items />} /> */}
+          <Route path="/items" element={<Items />} />
           {/* <Route path="/products/:id" element={<ItemDetail />} /> */}
           {/* <Route path="/freeboard" element={<FreeBoard />} /> */}
           {/* <Route path="/additem" element={<AddItem />} /> */}

@@ -1,13 +1,16 @@
+import React from "react";
 import BestProducts from "./components/BestProducts";
 import OnSaleProducts from "./components/OnSaleProducts";
-import { PaginationBar } from "./components/PaginationBar";
+// import { PaginationBar } from "./components/PaginationBar";
 
-export default function Items() {
+const Items: React.FC = () => {
   return (
     <>
       <BestProducts />
       <OnSaleProducts />
-      <PaginationBar />
+      {/* <PaginationBar /> */}
     </>
   );
-}
+};
+
+export default Items;

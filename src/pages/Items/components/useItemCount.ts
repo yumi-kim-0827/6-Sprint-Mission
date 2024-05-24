@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function useItemCount() {
-  const [itemCount, setItemCount] = useState(1);
+export default function useItemCount(): number {
+  const [itemCount, setItemCount] = useState<number>(1);
 
   const updateItemCountOnResize = () => {
-    const innerWidth = window.innerWidth;
+    const innerWidth: number = window.innerWidth;
     if (innerWidth >= 1200) {
       setItemCount(10);
     } else if (innerWidth >= 768) {

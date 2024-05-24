@@ -1,9 +1,17 @@
+import React from "react";
 import "./ItemCard.css";
 import likeIcon from "../../../assets/icon-like-heart.svg";
 import { Link } from "react-router-dom";
+import { Product } from "../../../types";
 
-export default function ItemCard({ item, best, pc }) {
-  const isPc = pc && "pc";
+interface ItemCardProps {
+  item: Product;
+  best?: boolean;
+  desktop?: boolean;
+}
+
+const ItemCard: React.FC<ItemCardProps> = ({ item, best, desktop }) => {
+  const isDesktop = desktop && "desktop";
   const isBest = best && "best";
 
   return (
@@ -11,12 +19,12 @@ export default function ItemCard({ item, best, pc }) {
       {item ? (
         <Link
           to={`/products/${item.id}`}
-          className={`container-item-card ${isBest}  ${isPc}`}
+          className={`container-item-card ${isBest}  ${isDesktop}`}
         >
-          <div className={`image-container ${isBest}  ${isPc}`}>
+          <div className={`image-container ${isBest}  ${isDesktop}`}>
             <img
               className={`image-item-card`}
-              src={item.images[0]}
+              src={item?.images[0]}
               alt="상품 이미지"
             />
           </div>
@@ -34,4 +42,6 @@ export default function ItemCard({ item, best, pc }) {
       )}
     </>
   );
-}
+};
+
+export default ItemCard;

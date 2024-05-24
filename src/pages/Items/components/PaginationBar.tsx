@@ -1,4 +1,4 @@
-export const PaginationBar = ({ items }) => {
+export const PaginationBar = () => {
   return (
     <div>
       <div>left arrow</div>

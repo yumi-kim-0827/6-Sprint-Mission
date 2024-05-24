@@ -1,12 +1,14 @@
 import "./OnSaleProducts.css";
 import NavOnSaleProducts from "./NavOnSaleProducts";
-import { ItemList } from "./ItemList";
+import ItemList from "./ItemList";
 
-export default function OnSaleProducts() {
+const OnSaleProducts: React.FC = () => {
   return (
     <div className="container-onSaleProducts">
       <NavOnSaleProducts />
       <ItemList />
     </div>
   );
-}
+};
+
+export default OnSaleProducts;
