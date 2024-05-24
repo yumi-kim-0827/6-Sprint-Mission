@@ -1,18 +1,24 @@
 import styled from "styled-components";
 import closeIcon from "../../assets/images/icon/ic_X.svg";
+import React from "react";
 
-const AddTag = ({ tags, setTags }) => {
-  const removeTags = (indexToRemove) => {
+type AddTagProps = {
+  tags: string[];
+  setTags: (tags: string[]) => void;
+};
+
+const AddTag: React.FC<AddTagProps> = ({ tags, setTags }) => {
+  const removeTags = (indexToRemove: number) => {
     const filter = tags.filter((el, index) => index !== indexToRemove);
     setTags(filter);
   };
 
-  const addTags = (e) => {
-    const inputVal = e.target.value;
+  const addTags = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const inputVal = (e.target as HTMLInputElement).value;
     if (e.key === "Enter" && inputVal !== "" && !tags.includes(inputVal)) {
       setTags([...tags, inputVal]);
       e.preventDefault();
-      e.target.value = "";
+      (e.target as HTMLInputElement).value = "";
     }
   };
 

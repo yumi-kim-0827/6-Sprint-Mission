@@ -2,7 +2,13 @@ import styled from "styled-components";
 import closeIcon from "../../assets/images/icon/ic_X.svg";
 import React from "react";
 
-const AddItemImage = ({ value, preview, onClearClick }) => {
+interface AddItemProps {
+  value: File | null;
+  preview: string | undefined;
+  onClearClick?: () => void;
+}
+
+const AddItemImage = ({ value, preview, onClearClick }: AddItemProps) => {
   if (!value) return;
 
   return (

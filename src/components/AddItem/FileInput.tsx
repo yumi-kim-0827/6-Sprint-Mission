@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
-import React from "react";
-import { useEffect, useRef, useState } from "react";
-import { ReactComponent as PlusIcon } from "../../assets/images/icon/ic_plus.svg";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import PlusIcon from "../../assets/images/icon/ic_plus.svg";
 
 import AddItemImage from "./AddItemImage";
 
-const FileInput = ({ name, value, onChange }) => {
-  const inputRef = useRef();
+// Props의 타입을 정의합니다.
+interface FileInputProps {
+  name: string;
+  value: File | null;
+  onChange: (name: string, value: File | null) => void;
+}
 
-  const [preview, setPreview] = useState();
+const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+  const [preview, setPreview] = useState<string>();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files ? e.target.files[0] : null;
     onChange(name, nextValue);
   };
 
@@ -20,7 +26,6 @@ const FileInput = ({ name, value, onChange }) => {
     const inputNode = inputRef.current;
     if (!inputNode) return;
 
-    // console.log(inputNode);
     inputNode.value = "";
     onChange(name, null);
   };
@@ -30,6 +35,11 @@ const FileInput = ({ name, value, onChange }) => {
 
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+
+    // useEffect 내부에서 생성된 URL을 cleanup 함수에서 해제합니다.
+    return () => {
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
 
   return (
@@ -37,7 +47,7 @@ const FileInput = ({ name, value, onChange }) => {
       <AddImageTitle htmlFor="file_input">상품 이미지</AddImageTitle>
       <AddImageWrap>
         <AddImageLabel htmlFor="file_input">
-          <PlusIcon className="plus" />
+          <img src={PlusIcon} alt="플러스" className="plus" />
           <ImagePlaceholder>이미지 등록</ImagePlaceholder>
         </AddImageLabel>
         <input
@@ -92,18 +102,9 @@ const AddImageLabel = styled.label`
   background-color: #f3f4f6;
   cursor: pointer;
 
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Tablet Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
   @media (max-width: 1199px) {
     width: 162px;
     height: 162px;
-  }
-
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Mobile Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  @media (max-width: 767px) {
   }
 `;
 

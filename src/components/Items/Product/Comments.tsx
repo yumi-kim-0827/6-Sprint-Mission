@@ -5,7 +5,11 @@ import React, { useEffect, useState } from "react";
 import { getComment } from "../../../api/product.api";
 import Comment from "./Comment";
 
-const Comments = ({ productId }) => {
+interface ProductProps {
+  productId: string;
+}
+
+const Comments = ({ productId }: ProductProps) => {
   const [comments, setComments] = useState([]);
 
   const handleLoad = async (itemId) => {

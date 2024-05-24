@@ -7,13 +7,13 @@ import EmptyQuestion from "../assets/images/items/question-empty.svg";
 // API
 import { getComment, getProductId } from "../api/product.api";
 
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import React from "react";
-import { useEffect, useState } from "react";
+
+import Comments from "../components/Items/Product/Comments";
 
 import "./Item.css";
-import Comments from "../components/Items/Product/Comments";
-import { Link } from "react-router-dom";
 
 const Item = () => {
   const { productId } = useParams();

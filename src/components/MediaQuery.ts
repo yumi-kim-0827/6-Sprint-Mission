@@ -1,19 +1,23 @@
+import React, { ReactNode } from "react";
 import { useMediaQuery } from "react-responsive";
 
-const Desktop = ({ children }) => {
+interface MediaProps {
+  children: ReactNode;
+}
+
+const Desktop = ({ children }: MediaProps) => {
   const isDesktop = useMediaQuery({ minWidth: 1200 });
-  // console.log("Desktop", isDesktop);
-  return isDesktop ? children : null;
+  return isDesktop ? children : React.createElement("div");
 };
-const Tablet = ({ children }) => {
+
+const Tablet = ({ children }: MediaProps) => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
-  // console.log("Tablet", isTablet);
-  return isTablet ? children : null;
+  return isTablet ? children : React.createElement("div");
 };
-const Mobile = ({ children }) => {
+
+const Mobile = ({ children }: MediaProps) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // console.log("MOBILE", isMobile);
-  return isMobile ? children : null;
+  return isMobile ? children : React.createElement("div");
 };
 
 export { Desktop, Tablet, Mobile };
