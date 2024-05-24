@@ -10,6 +10,9 @@ export function ImageList({ onChange }) {
   let fileRef = useRef(null);
 
   const handleFileSelect = () => {
+    if (!fileRef.current) {
+      return;
+    }
     const newFile = Array.from(fileRef.current.files).map((v) =>
       URL.createObjectURL(v)
     );

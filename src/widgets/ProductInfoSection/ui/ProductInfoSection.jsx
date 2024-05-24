@@ -82,7 +82,7 @@ export const ProductInfoSection = ({ info }) => {
       <FlexContainer direction="column" gap="16px">
         <div>
           <ProductName>{name}</ProductName>
-          <ProductPrice>{formatPrice(price)}</ProductPrice>
+          <ProductPrice>{`${formatPrice(price)}원`}</ProductPrice>
         </div>
         <Line />
         <FlexContainer direction="column" gap="24px">
