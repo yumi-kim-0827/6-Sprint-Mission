@@ -78,7 +78,9 @@ export default function AddItemPage() {
     <div>
       <header>
         <nav>
-          <img src={Logo} alt="판다마켓 로고" />
+          <Link to="/">
+            <img src={Logo} alt="판다마켓 로고" />
+          </Link>
           <span>자유게시판</span>
           <Link to="/items">
             <span>중고마켓</span>
