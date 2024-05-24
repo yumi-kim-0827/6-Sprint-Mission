@@ -2,12 +2,12 @@ import axios, { AxiosError } from 'axios';
 import { useQuery } from 'react-query';
 
 // axios와 useQuery를 사용하여 fetch하였습니다.
-export default function useFetchItems(paramsOptions: {productId:number, limit: number}) {
+export default function useFetchComments(paramsOptions: {productId:number, limit: number}) {
   const { productId, limit } = paramsOptions;
 
   const fetchItems = async () => {
     const response = await axios.get(
-      `https://panda-market-api.vercel.app/products/${productId}/comments`,
+      `${process.env.REACT_APP_API_URL}/products/${productId}/comments`,
       {
         params: {
           limit,

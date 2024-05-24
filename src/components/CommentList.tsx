@@ -21,8 +21,8 @@ export default function CommentList({ productId }: {productId: number}) {
   }
 
   return (
-    data?.list.length > 0 ? (
-      data?.list.map((comment: any) => {
+    data.list.length > 0 ? (
+      data?.list?.map((comment: any) => {
         return (
           <div key={comment.id}>
             <div className="my-6">

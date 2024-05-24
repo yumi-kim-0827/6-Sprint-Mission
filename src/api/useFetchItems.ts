@@ -7,7 +7,7 @@ export default function useFetchItems(paramsOptions: {page: number, pageSize:num
 
   const fetchItems = async () => {
     const response = await axios.get(
-      "https://panda-market-api.vercel.app/products",
+      `${process.env.REACT_APP_API_URL}/products`,
       {
         params: {
           page,
