@@ -1,18 +1,19 @@
 import getItems from "../../../api/getItems";
 import { useEffect, useState } from "react";
 import MakeItemList from "./MakeItemList";
+import { Product } from "../../../types";
 
 const PAGESIZE = 4;
 
 function ItemsBestSection() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
 
-  const query = `products?pageSize=${PAGESIZE}&orderBy=favorite`;
+  const pathName = `products?pageSize=${PAGESIZE}&orderBy=favorite`;
 
   useEffect(() => {
     const handleLoadBest = async () => {
       try {
-        const data = await getItems(query);
+        const data = await getItems(pathName);
         if (data && data.list) {
           setItems(data.list);
         }
@@ -25,7 +26,7 @@ function ItemsBestSection() {
 
   return (
     <>
-      <section className="products-best">
+      <section className="items-best">
         <div className="content-label">베스트 상품</div>
         <MakeItemList items={items} />
       </section>

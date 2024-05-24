@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Product } from "../../../types";
 import MakeItemCard from "./MakeItemCard";
 
-function MakeItemList({ items }) {
+interface MakeItemListProps {
+  items: Product[];
+}
+
+const MakeItemList: React.FC<MakeItemListProps> = ({ items }) => {
   return (
     <div className="item-container">
       {items.map((item) => {
@@ -13,6 +17,6 @@ function MakeItemList({ items }) {
       })}
     </div>
   );
-}
+};
 
 export default MakeItemList;

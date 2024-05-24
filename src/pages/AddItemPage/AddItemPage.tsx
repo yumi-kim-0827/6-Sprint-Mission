@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import "./AddItemPage.css";
 import Plus from "../../assets/ic_plus.svg";
 import InputFile from "../../components/InputFile";
+import IconDelete from "../../assets/ic_X.svg";
 
 function AddItemPage() {
   const [values, setValues] = useState({
@@ -11,39 +12,38 @@ function AddItemPage() {
     itemPrice: "",
   });
 
-  const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState<string[]>([]);
   const [tag, setTag] = useState("");
 
-  const handleChange = (name, value) => {
-    setValues((preValues) => ({
-      ...preValues,
+  const handleChange = (name: string, value: any) => {
+    setValues((prevValues) => ({
+      ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleTagInputChange = (e) => {
-    const value = e.target.value;
-    setTag(value);
-    console.log(tag);
+  const handleTagInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTag(e.target.value);
   };
 
-  const handleTagListChange = (e) => {
-    if (e.key === "Enter") {
+  const handleTagListChange = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.nativeEvent.isComposing) {
       e.preventDefault();
-      const word = e.target.value;
-      if (word !== "") {
-        setTagList([...tagList, word.trim()]);
+      if (tag.trim() !== "") {
+        setTagList((prevTags) => [...prevTags, tag.trim()]);
         setTag("");
       }
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
@@ -51,7 +51,7 @@ function AddItemPage() {
     <form className="enter-item-section" onSubmit={handleSubmit}>
       <div className="label-box">
         <div className="enter-label">상품등록하기</div>
-        <button type="submit" className="enter-button" onClick={handleSubmit}>
+        <button type="submit" className="enter-button">
           등록
         </button>
       </div>
@@ -66,7 +66,9 @@ function AddItemPage() {
             <InputFile
               name="imageFile"
               value={values.imageFile}
-              onChange={handleChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleChange("imageFile", e.target.files?.[0] || null)
+              }
             />
           </div>
         </div>
@@ -91,7 +93,6 @@ function AddItemPage() {
           </label>
           <textarea
             className="inputs input-textarea"
-            type="text"
             id="input-description"
             value={values.itemDescription}
             name="itemDescription"
@@ -128,14 +129,15 @@ function AddItemPage() {
             onKeyDown={handleTagListChange}
             placeholder="태그를 입력해주세요"
           />
-          <div>
-            태그리스트
-            {tagList &&
-              tagList.map((tag) => (
-                <div className="tags" key={tag}>
-                  {tag}
-                </div>
-              ))}
+          <div className="tags-list">
+            {tagList.map((tag, index) => (
+              <div className="tags" key={index}>
+                {tag}
+                <button type="button" className="delete-tag-button">
+                  <img src={IconDelete} alt="태그삭제" />
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

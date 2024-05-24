@@ -10,36 +10,35 @@ a {
   gap: 16px;
 }
 
-/* all items */
-.items-box.items-all .image-box {
-  width: 221px;
-  height: 221px;
-}
-
-.items-box.items-all .item-image {
-  width: 221px;
-  height: 221px;
-}
-
-.items-box.items-all .description-box {
-  width: 221px;
-}
-
-/* ---------- */
 /* best Items */
-.items-box.items-best .image-box {
+.items-best .image-box {
   width: 282px;
   height: 282px;
 }
 
-.items-box.items-best .item-image {
+.items-best .item-image {
   width: 282px;
   height: 282px;
   border-radius: 16px;
 }
 
-.items-box.items-best .description-box {
+.items-best .description-box {
   width: 282px;
+}
+
+/* all items */
+.items-all .image-box {
+  width: 221px;
+  height: 221px;
+}
+
+.items-all .item-image {
+  width: 221px;
+  height: 221px;
+}
+
+.items-all .description-box {
+  width: 221px;
 }
 
 /* ----------- */

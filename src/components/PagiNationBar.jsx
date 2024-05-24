@@ -4,7 +4,13 @@ import ArrowRight from "../assets/arrow_right_active.svg";
 function PagiNationBar({ handlePageNum }) {
   return (
     <div className="pagiNation-box">
-      <button>
+      <button
+        type="button"
+        className="arrow-button"
+        onClick={(prevNum) => {
+          handlePageNum(prevNum - 1);
+        }}
+      >
         <img src={ArrowLeft} alt="왼쪽페이지이동" />
       </button>
       <button
@@ -47,7 +53,13 @@ function PagiNationBar({ handlePageNum }) {
       >
         5
       </button>
-      <button>
+      <button
+        type="button"
+        className="arrow-button"
+        onClick={(prevNum) => {
+          handlePageNum(prevNum + 1);
+        }}
+      >
         <img src={ArrowRight} alt="오른쪽페이지이동" />
       </button>
     </div>
