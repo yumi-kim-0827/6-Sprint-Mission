@@ -32,6 +32,8 @@ const IconWrapper = styled.div<IconWrapperProps>`
 interface IconProps {
   iconComponent: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   size?: number;
+  width?: number;
+  height?: number;
   fillColor?: CSSProperties["color"];
   outlineColor?: CSSProperties["color"];
 }
@@ -43,9 +45,11 @@ const Icon: React.FC<IconProps> = ({
   size,
   fillColor,
   outlineColor,
+  width,
+  height,
 }) => (
   <IconWrapper $size={size} $fillColor={fillColor} $outlineColor={outlineColor}>
-    <IconComponent />
+    <IconComponent width={width} height={height} />
   </IconWrapper>
 );
 

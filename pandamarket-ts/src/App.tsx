@@ -1,23 +1,28 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage/signinPage/LoginPage";
 import MarketPage from "./pages/MarketPage/MarketPage";
 import AddItemPage from "./pages/AddItemPage/AddItemPage";
 import CommunityFeedPage from "./pages/CommunityFeedPage/CommunityFeedPage";
 import Header from "./components/Layout/Header";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import React from "react";
+import SignupPage from "./pages/LoginPage/signupPage/SignupPage";
+import { AuthProvider } from "./context/AuthContext";
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+  const hideHeaderPaths = ["/login", "/signUp"];
+  const shouldHideHeader = hideHeaderPaths.includes(location.pathname);
+
   return (
-    <BrowserRouter>
-      {/* Global Navigation Bar */}
-      <Header />
-
+    <>
+      {!shouldHideHeader && <Header />}
       <div className="withHeader">
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
           <Route path="items" element={<MarketPage />} />
           {/* 
             동적 라우팅 (Dynamic Routing)
@@ -29,7 +34,17 @@ function App() {
           <Route path="community" element={<CommunityFeedPage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
