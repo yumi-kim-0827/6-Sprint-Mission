@@ -46,7 +46,7 @@ function Navbar() {
           </div>
         </div>
         <li className="login-btn-container">
-          <Link to="/" className="login-btn">
+          <Link to="/Login" className="login-btn">
             로그인
           </Link>
         </li>
