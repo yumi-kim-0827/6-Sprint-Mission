@@ -1,12 +1,12 @@
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Nav.css";
 import logo from "../../assets/logo-panda.svg";
-import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import LoginIcon from "../../assets/icon-login.svg";
 
-export default function Nav() {
-  const isLogin = useContext(AuthContext);
+const Nav: React.FC = () => {
+  const isLogin: Boolean = useContext(AuthContext);
   const { pathname } = useLocation();
   const isProductPage = pathname.startsWith("/products");
 
@@ -50,4 +50,6 @@ export default function Nav() {
       </header>
     </>
   );
-}
+};
+
+export default Nav;
