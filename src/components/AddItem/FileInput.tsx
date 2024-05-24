@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { ReactComponent as PlusIcon } from "../../assets/images/icon/ic_plus.svg";
 

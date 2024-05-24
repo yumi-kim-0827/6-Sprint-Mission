@@ -1,13 +1,14 @@
 // 이미지
 import iconHeart from "../assets/images/items/ic_heart.svg";
-import { ReactComponent as IconBack } from "../assets/images/icon/ic_back.svg";
-import { ReactComponent as IconKebab } from "../assets/images/icon/ic_kebab.svg";
-import { ReactComponent as EmptyQuestion } from "../assets/images/items/question-empty.svg";
+import IconBack from "../assets/images/icon/ic_back.svg";
+import IconKebab from "../assets/images/icon/ic_kebab.svg";
+import EmptyQuestion from "../assets/images/items/question-empty.svg";
 
 // API
 import { getComment, getProductId } from "../api/product.api";
 
 import { useParams } from "react-router";
+import React from "react";
 import { useEffect, useState } from "react";
 
 import "./Item.css";

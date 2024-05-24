@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import closeIcon from "../../assets/images/icon/ic_X.svg";
+import React from "react";
 
 const AddItemImage = ({ value, preview, onClearClick }) => {
   if (!value) return;

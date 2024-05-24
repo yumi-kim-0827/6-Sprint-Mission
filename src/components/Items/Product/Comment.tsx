@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import React from "react";
 const Comment = ({ comment }) => {
   // console.log(lastUpdated);
   // console.log(today);

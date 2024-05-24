@@ -1,5 +1,6 @@
 import "./ProductBest.css";
 
+import React from "react";
 import { useState, useEffect } from "react";
 
 import { getProducts } from "../../../api/product.api";

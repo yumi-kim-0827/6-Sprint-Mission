@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./NavMain.css";
+import React from "react";
 
 function NavMain({ site = "" }) {
   return (

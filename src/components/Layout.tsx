@@ -1,6 +1,7 @@
 import Header from "./Navigation/Header";
 import Footer from "./Navigation/Footer";
 
+import React from "react";
 const Layout = ({
   children,
   isHeader = false,

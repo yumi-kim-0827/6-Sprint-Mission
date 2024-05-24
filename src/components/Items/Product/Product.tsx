@@ -1,6 +1,7 @@
 import iconHeart from "../../../assets/images/items/ic_heart.svg";
 import { Link } from "react-router-dom";
 
+import React from "react";
 import "./product.css";
 
 const Product = ({ product, isAllSection }) => {

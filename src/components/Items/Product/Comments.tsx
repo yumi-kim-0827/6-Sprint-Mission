@@ -1,7 +1,7 @@
 // CSS
 import "./Comments.css";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getComment } from "../../../api/product.api";
 import Comment from "./Comment";
 

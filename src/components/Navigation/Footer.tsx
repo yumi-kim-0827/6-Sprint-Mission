@@ -3,6 +3,7 @@ import ic_twitter from "../../assets/images/icon/ic_twitter.svg";
 import ic_youtube from "../../assets/images/icon/ic_youtube.svg";
 import ic_instagram from "../../assets/images/icon/ic_instagram.svg";
 
+import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Footer.css";

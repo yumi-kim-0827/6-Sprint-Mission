@@ -4,6 +4,7 @@ import "./AddItemLayout.css";
 import { useState } from "react";
 import FileInput from "./FileInput";
 import AddTag from "./AddTag";
+import React from "react";
 
 const AddItemLayout = () => {
   // 상품 정보

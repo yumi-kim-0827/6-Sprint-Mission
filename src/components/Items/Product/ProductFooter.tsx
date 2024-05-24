@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { ReactComponent as LeftArrow } from "../../../assets/images/items/arrow_left.svg";
