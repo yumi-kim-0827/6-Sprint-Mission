@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { DescriptionContainer, KebabIcon } from "./ItemDetail";
-import arrowTurn from "assets/arrow-turn.svg";
-import kebabIcon from "assets/icon-kebab.svg";
+import arrowTurn from "assets/icons/arrow-turn.svg";
+import kebabIcon from "assets/icons/icon-kebab.svg";
 import { Link } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 import {

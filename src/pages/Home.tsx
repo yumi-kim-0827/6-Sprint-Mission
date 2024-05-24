@@ -1,13 +1,13 @@
 import "styles/Home.css";
-import homeTop from "../assets/Img-home-top.png";
-import homeBottom from "../assets/Img-home-bottom.png";
-import mainHotItem from "../assets/main-hot-item.png";
-import mainSearch from "../assets/main-search.png";
-import mainRegister from "../assets/main-register.png";
-import facebookIcon from "../assets/icon-facebook.png";
-import twitterIcon from "../assets/icon-twitter.png";
-import youtubeIcon from "../assets/icon-youtube.png";
-import instagramIcon from "../assets/icon-instagram.png";
+import homeTop from "../assets/images/Img-home-top.png";
+import homeBottom from "../assets/images/Img-home-bottom.png";
+import mainHotItem from "../assets/images/main-hot-item.png";
+import mainSearch from "../assets/images/main-search.png";
+import mainRegister from "../assets/images/main-register.png";
+import facebookIcon from "../assets/icons/icon-facebook.png";
+import twitterIcon from "../assets/icons/icon-twitter.png";
+import youtubeIcon from "../assets/icons/icon-youtube.png";
+import instagramIcon from "../assets/icons/icon-instagram.png";
 
 function Home() {
   return (

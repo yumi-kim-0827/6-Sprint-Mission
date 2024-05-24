@@ -1,5 +1,5 @@
 import Item from "types/Item";
-import heartIcon from "assets/heart-icon.svg";
+import heartIcon from "assets/icons/heart-icon.svg";
 import "styles/AllItemList.css";
 import { Link } from "react-router-dom";
 import { ChangeEvent, FormEvent } from "react";
