@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { isEmpty } from "lodash";
-import EmptyComment from "../../../assets/img_inquiry_empty.svg";
+import EmptyComment from "../../../assets/inquiry_empty.svg";
 import kebabIcon from "../../../assets/ic_kebab.svg";
 
 import "./CommentSection.css";
