@@ -3,6 +3,7 @@ import pandaLogo from "assets/images/panda-logo-text.svg";
 import kakaotalk from "assets/icons/icon-kakaotalk.svg";
 import google from "assets/icons/icon-google.svg";
 import "styles/LoginPage.css";
+import { ChangeEvent, FocusEvent, useState } from "react";
 
 interface InputProps {
   label: string;
@@ -12,15 +13,31 @@ interface InputProps {
 }
 
 function LoginInput({ label, type, placeholder, passwordEye }: InputProps) {
+  const [inputValue, setInputValue] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {};
+  const handleFocusOut = (e: FocusEvent<HTMLInputElement>) => {
+    if (!e.target.value) {
+      setIsError(true);
+      setErrorMsg(`${e.target.type}을 입력해주세요`);
+    }
+  };
+
   return (
-    <>
+    <div className="input-container">
       <label className="login-label">{label}</label>
       <input
         type={type}
+        name={type}
         placeholder={placeholder}
         className={`login-input ${passwordEye ? passwordEye : ""}`}
+        onChange={handleChange}
+        onBlur={handleFocusOut}
       />
-    </>
+      {isError && <p className="error-message">{errorMsg}</p>}
+    </div>
   );
 }
 

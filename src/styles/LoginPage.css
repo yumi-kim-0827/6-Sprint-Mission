@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.input-container {
+  position: relative;
+}
+
 .login-label {
   display: block;
   margin-bottom: 16px;
@@ -24,11 +28,12 @@
   border: none;
 }
 
-.inputUnderMessage {
-  margin: 8px 16px 24px;
+.error-message {
   font-size: 15px;
   font-weight: 600;
   color: var(--error-red);
+  position: absolute;
+  bottom: -20px;
 }
 
 input:focus {
