@@ -4,6 +4,7 @@ import { getProductDetail, getProductComment } from "../api/itemsApi";
 import Logo from "../assets/logo.png";
 import Like from "../assets/icons/ic_heart.png";
 import More from "../assets/icons/ic_kebab.png";
+import NoComment from "../assets/no_comment.png";
 import "../styles/ProductDetailPage.css";
 
 interface ProductDetail {
@@ -16,9 +17,16 @@ interface ProductDetail {
   favoriteCount: number;
 }
 
+interface Comment {
+  id: number;
+  content: string;
+  image: string;
+  nickname: string;
+  updatedAt: string;
+}
+
 export default function ProductDetailPage() {
   const navigate = useNavigate();
-  // useParams 어케 쓰는 거더라?
   const { productId } = useParams();
   const [inputText, setInputText] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
@@ -32,15 +40,12 @@ export default function ProductDetailPage() {
     favoriteCount: 0,
   }); // 빈 객체로 초기화
 
+  const [comments, setComments] = useState<Comment[]>([]);
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
     setInputText(e.target.value);
-  };
-
-  const fetchData = async () => {
-    const productDetail = await getProductDetail(productId);
-    setProductDetail(productDetail);
   };
 
   useEffect(() => {
@@ -49,11 +54,23 @@ export default function ProductDetailPage() {
     } else {
       setIsDisabled(true);
     }
-  },[inputText])
+  }, [inputText]);
 
   useEffect(() => {
-    fetchData();
+    const fetchProductInfo = async () => {
+      const productDetail = await getProductDetail(productId);
+      setProductDetail(productDetail);
+    };
+    fetchProductInfo();
   }, []);
+
+  // useEffect(() => {
+  //   const fetchCommentInfo = async () => {
+  //     const comments = await getProductComment(productId);
+  //     setComments(comments);
+  //   };
+  //   fetchCommentInfo();
+  // },[])
 
   return (
     <div>
@@ -117,16 +134,42 @@ export default function ProductDetailPage() {
           <button disabled={isDisabled}>등록</button>
         </form>
 
-        <div className="comment_section"></div>
+        <div className="comment_section">
+          {!comments || comments.length === 0 ? (
+            <div className="no_comment">
+              <img src={NoComment} alt="문의가 없음" />
+              <p>아직 문의가 없습니다</p>
+            </div>
+          ) : (
+            <ul>
+              {comments.map((comment) => {
+                return (
+                  <li key={comment.id}>
+                    <div className="comment_wrapper">
+                      <div className="user_comment">{comment.content}</div>
+                      <div className="user_info">
+                        <img src={comment.image} alt={comment.nickname} />
+                        <div className="user_detail_info">
+                          <div>{comment.nickname}</div>
+                          <div>{comment.updatedAt}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
 
-        <button
-          onClick={() => {
-            navigate("/items");
-          }}
-        >
-          {/* <img src="" alt="돌아가기 버튼" /> */}
-          목록으로 돌아가기
-        </button>
+          <button
+            onClick={() => {
+              navigate("/items");
+            }}
+          >
+            {/* <img src="" alt="돌아가기 버튼" /> */}
+            목록으로 돌아가기
+          </button>
+        </div>
       </div>
     </div>
   );
