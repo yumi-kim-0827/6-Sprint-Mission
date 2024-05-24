@@ -4,11 +4,18 @@ import "./ImageInput.css";
 import imageDeleteIcon from "../../assets/imageFile_x.svg";
 import imageAddIcon from "../../assets/imageFile_+.svg";
 
-function ImageInput({ onImageChange, onImageDelete, image }) {
-  const inputRef = useRef(null);
+interface ImageInputProps {
+  onImageChange: (file: File) => void;
+  onImageDelete: () => void;
+  image: Blob | MediaSource | null;
+  className?: string;
+}
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
+function ImageInput({ onImageChange, onImageDelete, image }: ImageInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
       onImageChange(file);
     }
@@ -26,7 +33,7 @@ function ImageInput({ onImageChange, onImageDelete, image }) {
       <p className="addItemTitle">상품 이미지</p>
       <div className="fileInputContainer">
         <label className="imageFileInput" htmlFor="file">
-          <div class="inputItems">
+          <div className="inputItems">
             <img className="imageAddButton" src={imageAddIcon} alt="Add Icon" />
             <p className="addImage"> 이미지 등록</p>
           </div>

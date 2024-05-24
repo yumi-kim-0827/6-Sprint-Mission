@@ -4,7 +4,11 @@ import profile from "../../assets/profile.svg";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
-function UserStateButton({ isAddItemPage }) {
+interface UserStateButtonProps {
+  isAddItemPage: boolean;
+}
+
+function UserStateButton({ isAddItemPage }: UserStateButtonProps) {
   return isAddItemPage ? (
     <button className="profileButton">
       <img src={profile} alt="프로필 사진" />
@@ -21,7 +25,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-menu">
-        <Link className="logo">
+        <Link to="/" className="logo">
           <img id="logo-img" alt="panda-market" src={logoImg} />
         </Link>
         <Link

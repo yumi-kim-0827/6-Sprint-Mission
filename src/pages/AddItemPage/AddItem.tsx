@@ -1,24 +1,32 @@
-// AddItem.js
 import React, { useState } from "react";
 import ImageInput from "../../components/UI/ImageInput";
 import deleteTagIcon from "../../assets/tag_x.svg";
 import "./AddItem.css";
 
+interface Values {
+  productName: string;
+  description: string;
+  price: string;
+  currentTag: string;
+}
+
 function AddItem() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<Values>({
     productName: "",
     description: "",
     price: "",
     currentTag: "",
   });
 
-  const [tags, setTags] = useState([]);
-  const [image, setImage] = useState(null);
+  const [tags, setTags] = useState<string[]>([]);
+  const [image, setImage] = useState<Blob | null>(null);
 
   const isButtonActive =
     values.productName && values.description && values.price && tags.length > 0;
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setValues((prevValues) => ({
       ...prevValues,
@@ -26,7 +34,7 @@ function AddItem() {
     }));
   };
 
-  const handleImageChange = (file) => {
+  const handleImageChange = (file: File) => {
     setImage(file);
   };
 
@@ -44,11 +52,11 @@ function AddItem() {
     }
   };
 
-  const handleRemoveTag = (tagToRemove) => {
+  const handleRemoveTag = (tagToRemove: string) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       handleAddTag();
@@ -72,7 +80,7 @@ function AddItem() {
         </div>
 
         <ImageInput
-          className="imageInput"
+          className="imageInputItem"
           onImageChange={handleImageChange}
           onImageDelete={handleImageDelete}
           image={image}
