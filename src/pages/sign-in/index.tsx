@@ -33,24 +33,25 @@ const SignIn = () => {
     }
   }, [isValidEmail, isPwShow]);
 
-  const checkEmailValidity = (e: ChangeEvent) => {
-    const { value } = e.target as HTMLInputElement;
+  const setInputValueToUserInfo = (category: string, value: string) => {
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
-      email: value,
+      [category]: value,
     }));
-    const isValid = validOption.email.test(value);
-    setIsValidEmail(isValid ? true : false);
   };
 
-  const checkPwValidity = (e: ChangeEvent) => {
-    const { value } = e.target as HTMLInputElement;
-    setUserInfo((prevUserInfo) => ({
-      ...prevUserInfo,
-      password: value,
-    }));
-    const isValid = validOption.pw.test(value);
-    setIsValidPw(isValid ? true : false);
+  const checkInputValidity = (e: ChangeEvent) => {
+    const { name, value } = e.target as HTMLInputElement;
+
+    if (name === "email") {
+      setInputValueToUserInfo("email", value);
+      const isValid = validOption.email.test(value);
+      setIsValidEmail(isValid ? true : false);
+    } else {
+      setInputValueToUserInfo("password", value);
+      const isValid = validOption.pw.test(value);
+      setIsValidPw(isValid ? true : false);
+    }
   };
 
   const handlePwShow = () => {
@@ -71,9 +72,10 @@ const SignIn = () => {
           <input
             type="email"
             id="email"
+            name="email"
             placeholder="이메일을 입력해주세요"
             autoFocus
-            onChange={checkEmailValidity}
+            onChange={checkInputValidity}
             className={isValidEmail ? "" : "wrong"}
           />
           {isValidEmail || (
@@ -88,8 +90,9 @@ const SignIn = () => {
           <input
             type={isPwShow ? "text" : "password"}
             id="pw"
+            name="password"
             placeholder="비밀번호를 입력해주세요"
-            onChange={checkPwValidity}
+            onChange={checkInputValidity}
             className={isValidPw ? "" : "wrong"}
           />
           {isPwShow ? (

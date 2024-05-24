@@ -50,30 +50,30 @@ const SignUp = () => {
     }
   }, [isValidEmail, isPwShow, isPwMatch, isValidNickname]);
 
-  const checkInputValidity = (category: string, value: string) => {
+  const setInputValueToSignUpInfo = (category: string, value: string) => {
     setSignUpInfo((prevSignUpInfo) => ({
       ...prevSignUpInfo,
       [category]: value,
     }));
   };
 
-  const setInputValueToSignUpInfo = (e: ChangeEvent) => {
+  const checkInputValidity = (e: ChangeEvent) => {
     const { name, value } = e.target as HTMLInputElement;
 
     if (name === "email") {
-      checkInputValidity("email", value);
+      setInputValueToSignUpInfo("email", value);
       const isValid = validOption.email.test(value);
       setIsValidEmail(isValid ? true : false);
     } else if (name === "nickname") {
-      checkInputValidity("nickname", value);
+      setInputValueToSignUpInfo("nickname", value);
       const isValid = validOption.nick.test(value);
       setIsValidNickname(isValid ? true : false);
     } else if (name === "pw") {
-      checkInputValidity("password", value);
+      setInputValueToSignUpInfo("password", value);
       const isValid = validOption.pw.test(value);
       setIsValidPw(isValid ? true : false);
     } else {
-      checkInputValidity("matchPassword", value);
+      setInputValueToSignUpInfo("matchPassword", value);
       const isValid = signUpInfo.password === value;
       setIsPwMatch(isValid ? true : false);
     }
@@ -108,7 +108,7 @@ const SignUp = () => {
             id="email"
             name="email"
             placeholder="이메일을 입력해주세요"
-            onChange={setInputValueToSignUpInfo}
+            onChange={checkInputValidity}
             className={isValidEmail ? "" : "wrong"}
             autoFocus
           />
@@ -127,7 +127,7 @@ const SignUp = () => {
             name="nickname"
             placeholder="닉네임을 입력해주세요"
             className={isValidNickname ? "" : "wrong"}
-            onChange={setInputValueToSignUpInfo}
+            onChange={checkInputValidity}
           />
           {isValidNickname || (
             <span className="wrong-nick">{signUpInfo.nickname === "" && "닉네임을 입력해주세요"}</span>
@@ -142,7 +142,7 @@ const SignUp = () => {
             name="pw"
             placeholder="비밀번호를 입력해주세요"
             className={isValidPw ? "" : "wrong"}
-            onChange={setInputValueToSignUpInfo}
+            onChange={checkInputValidity}
           />
           {isPwShow.password ? (
             <img className="pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
@@ -164,7 +164,7 @@ const SignUp = () => {
             name="re-pw"
             placeholder="비밀번호를 다시 한번 입력해주세요"
             className={isPwMatch ? "" : "wrong"}
-            onChange={setInputValueToSignUpInfo}
+            onChange={checkInputValidity}
           />
           {isPwShow.passwordConfirm ? (
             <img className="re pw-icon" src={showIcon} onClick={handlePwShow} alt="비밀번호 보이기" />
