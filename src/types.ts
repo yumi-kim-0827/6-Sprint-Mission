@@ -6,6 +6,7 @@ export interface Product {
   images: string;
   favoriteCount: number;
   category: string;
+  tags: string[];
 }
 
 export interface GetProductsParams {

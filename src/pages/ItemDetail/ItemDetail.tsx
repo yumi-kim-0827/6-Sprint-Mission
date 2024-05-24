@@ -1,17 +1,22 @@
 import ItemDetailStyles from "./ItemDetail.module.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import getProductDetail from "../../api/getProductDetail";
-import getProductDetailComments from "../../api/getProductDetailComments";
+import getProductDetails from "../../api/getProductDetail";
+import getProductDetailComments, {
+  CommentsResponse,
+} from "../../api/getProductDetailComments";
 import kebabMenu from "../../assets/icon-kebab-menu.svg";
 import likeIcon from "../../assets/icon-like.svg";
 import backIcon from "../../assets/icon-back.svg";
 import { CONTACT_DESCRIPTION } from "../../constants/contactDescription";
+import { Product } from "../../types";
 
-function getTimeAgo(dateString) {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffInSeconds = Math.floor((now - date) / 1000);
+function getTimeAgo(dateString: string): string {
+  const date: Date = new Date(dateString);
+  const now: Date = new Date();
+  const diffInSeconds: number = Math.floor(
+    (now.getTime() - date.getTime()) / 1000
+  );
 
   // 계산된 시간을 기준으로 적절한 포맷으로 반환
   if (diffInSeconds < 60) {
@@ -29,31 +34,50 @@ function getTimeAgo(dateString) {
   }
 }
 
-function formatPrice(price) {
+function formatPrice(price: number) {
   return `${price.toLocaleString("ko-KR")}원`;
 }
 
-const ItemDetail = () => {
-  const [product, setProduct] = useState({ tags: [] });
-  const [comments, setComments] = useState([]);
+interface Writer {
+  id: number;
+  nickname: string;
+  image: string;
+}
+
+interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  writer: Writer;
+}
+
+const ItemDetail: React.FC = () => {
+  const [product, setProduct] = useState<Product>();
+  const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(false);
-  const pathId = useLocation().pathname.split("/").pop();
-  const [price, setPrice] = useState(0);
+  const pathId = useLocation().pathname.split("/").pop() || "";
+  const [price, setPrice] = useState<string>();
   const navigate = useNavigate();
   const [isTextareaActive, setTextareaActive] = useState(false);
 
-  const handleChange = e => {
-    setTextareaActive(!!e.target.value);
+  const handleChange = (e: any) => {
+    const { value } = e.target;
+    if (value) {
+      setTextareaActive(!!value);
+    }
   };
 
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
-        const data = await getProductDetail(pathId);
+        const data = await getProductDetails(pathId);
         setProduct(data);
-        const comments = await getProductDetailComments(pathId);
-        setComments(comments.list);
+        const commentsData = await getProductDetailComments({ id: pathId });
+        if (commentsData?.list) {
+          setComments(commentsData.list);
+        }
         setPrice(formatPrice(data.price));
       } catch (error) {
         console.error(error);
@@ -71,22 +95,22 @@ const ItemDetail = () => {
       ) : (
         <div className={ItemDetailStyles.productContainer}>
           <div className={ItemDetailStyles.imgBox}>
-            <img src={product.images} alt={product.name} />
+            <img src={product?.images} alt={product?.name} />
           </div>
           <div className={ItemDetailStyles.titleBox}>
-            <h2 className={ItemDetailStyles.title}>{product.name}</h2>
+            <h2 className={ItemDetailStyles.title}>{product?.name}</h2>
             <img src={kebabMenu} alt="더보기 옵션 아이콘" />
           </div>
           <span className={ItemDetailStyles.price}>{price}</span>
           <div className={ItemDetailStyles.divider}></div>
           <div className={ItemDetailStyles.descriptionBox}>
             <span className={ItemDetailStyles.descriptionTitle}>상품 소개</span>
-            <p>{product.description}</p>
+            <p>{product?.description}</p>
           </div>
           <div className={ItemDetailStyles.tagContainer}>
             <span>상품 태그</span>
             <div className={ItemDetailStyles.tagBox}>
-              {product.tags.map(tag => (
+              {product?.tags.map(tag => (
                 <div className={ItemDetailStyles.tag} key={tag}>
                   #{tag}
                 </div>
@@ -95,7 +119,7 @@ const ItemDetail = () => {
           </div>
           <div className={ItemDetailStyles.likeBox}>
             <img src={likeIcon} alt="좋아요 아이콘" />
-            <span>{product.favoriteCount}</span>
+            <span>{product?.favoriteCount}</span>
           </div>
           <div className={ItemDetailStyles.divider}></div>
         </div>
