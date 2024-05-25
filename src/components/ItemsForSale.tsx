@@ -1,19 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ItemForSale from './ItemForSale';
-import { ItemList } from 'api/getItems';
+import { GetItem } from 'api/getItems';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
 
-export default function ItemsForSale({ items }: ItemList) {
+interface Item {
+  updatedAt: string;
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+}
+
+interface ItemProps {
+  items: Item[];
+}
+
+export default function ItemsForSale({ items }: ItemProps) {
   const [itemsToShow, setItemsToShow] = useState(10);
   const [title, setTitle] = useState('판매 중인 상품');
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredItems, setFilteredItems] = useState(items.slice(0, itemsToShow));
+  const [filteredItems, setFilteredItems] = useState<Item[]>(items.slice(0, itemsToShow));
 
   const handleSort = (criteria: string) => {
-    let sortedItems: any;
+    let sortedItems: Item[] = [];
     if (criteria === '최신순') {
       sortedItems = items.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     } else if (criteria === '좋아요순') {

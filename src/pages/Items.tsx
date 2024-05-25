@@ -6,20 +6,34 @@ import { getItems } from '../api/getItems';
 
 import '../styles/ItemsPage.css';
 
+interface Item {
+  updatedAt: string;
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+}
+
+interface ItemProps {
+  totalCount: number;
+  list?: Item[];
+}
+
 export default function Items() {
   usePageTitle('판다마켓: 중고마켓');
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const data = await getItems();
-        if (data && data.list) {
-          const wholeItems = data.list;
-          setItems(wholeItems);
-        } else {
-          console.error('정보를 불러오는데 실패했습니다.');
-        }
+        const data: ItemProps = await getItems();
+        const wholeItems = data.list ?? [];
+        setItems(wholeItems);
       } catch (error) {
         console.error('Failed to fetch items:', error);
       }
@@ -27,7 +41,7 @@ export default function Items() {
     fetchItems();
   }, []);
 
-  const getBestItems = () => {
+  const getBestItems = (): Item[] => {
     const sortedItems = [...items];
     sortedItems.sort((a, b) => b.favoriteCount - a.favoriteCount);
     return sortedItems.slice(0, 4);
@@ -35,7 +49,7 @@ export default function Items() {
 
   return (
     <div className='main'>
-      <BestItems items={getBestItems()} />
+      <BestItems list={getBestItems()} />
       <ItemsForSale items={items} />
     </div>
   );

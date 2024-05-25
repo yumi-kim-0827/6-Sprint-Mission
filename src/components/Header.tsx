@@ -28,7 +28,9 @@ export default function Header() {
           </button>
         </NavLink>
       </div>
-      <button className='Header__login-btn'>로그인</button>
+      <Link to='/login'>
+        <button className='Header__login-btn'>로그인</button>
+      </Link>
     </div>
   );
 }

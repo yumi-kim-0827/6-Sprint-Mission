@@ -3,9 +3,9 @@ import './style/ItemForSale.css';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
-  price: number;
-  images: string[];
   favoriteCount: number;
+  images: string[];
+  price: number;
   name: string;
   id: number;
 }

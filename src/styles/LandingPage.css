@@ -212,7 +212,7 @@
 }
 
 /* footer */
-footer {
+.landing-footer {
   width: 100%;
   height: 9.6rem;
   background-color: var(--color-cool-gray900);

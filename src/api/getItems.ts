@@ -1,25 +1,24 @@
 import { instance } from './Axios';
 
-type GetItem = {
+export interface Items {
+  updatedAt: string;
+  createdAt: string;
+  favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
+  id: number;
+}
+
+export interface GetItem {
   totalCount: number;
-  list: ItemList[];
-};
+  list: Items[];
+}
 
-export type ItemList = {
-  items: {
-    createdAt: string;
-    favoriteCount: number;
-    ownerId: number;
-    images: string[];
-    tags: string[];
-    price: number;
-    description: string;
-    name: string;
-    id: number;
-  }[];
-};
-
-export const getItems = async (): Promise<GetItem | undefined> => {
+export const getItems = async (): Promise<GetItem> => {
   try {
     const response = await instance.get<GetItem>('/products');
     return response.data;

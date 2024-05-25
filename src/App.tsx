@@ -7,6 +7,8 @@ import Items from './pages/Items';
 import FreeBoard from './pages/FreeBoard';
 import AddItem from './pages/AddItem';
 import ItemDetails from './pages/ItemDetails';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
           <Route path='/additem' element={<AddItem />} />
           <Route path='/freeboard' element={<FreeBoard />} />
         </Route>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

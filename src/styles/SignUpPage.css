@@ -1,0 +1,219 @@
+.signup-container {
+  margin: auto;
+  width: 64rem;
+  min-height: 108rem;
+  text-align: center;
+  padding-top: 60px;
+}
+
+/* Main - form*/
+.signup-main {
+  padding-top: 4rem;
+}
+
+.signup-form {
+  padding-bottom: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.signup-input_wrap {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+label {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.signup-input {
+  box-sizing: border-box;
+  width: 640px;
+  height: 56px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border-color: #3692ff;
+  padding: 16px 24px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #1f2937;
+}
+
+.border-error {
+  border: 1px solid #f74747;
+}
+
+.signup-input::placeholder {
+  color: #9ca3af;
+  line-height: 2.4rem;
+}
+
+.signup-input:focus {
+  border: 1px solid #3692ff;
+}
+
+.failure-message {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f74747;
+  padding-left: 16px;
+  line-height: 17.9px;
+}
+
+.hide {
+  display: none;
+}
+
+.signup-btn {
+  width: 640px;
+  height: 56px;
+  background-color: #9ca3af;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.activated {
+  background-color: #3692ff;
+}
+
+/* Password Toggle Btn */
+.password_eye_wrap,
+.pw_check_eye_wrap {
+  display: inline;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+}
+
+.password_eye_wrap input[type='checkbox'],
+.pw_check_eye_wrap input[type='checkbox'] {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
+
+.password_eye_wrap label::after,
+.pw_check_eye_wrap label::after {
+  background-image: url(../assets/closed-eye.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+}
+
+.password_eye_wrap label::before,
+.pw_check_eye_wrap label::before {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+}
+
+.password_eye_wrap input[type='checkbox']:checked + label::after,
+.pw_check_eye_wrap input[type='checkbox']:checked + label::after {
+  background-image: url(../assets/open-eye.webp);
+}
+.password_eye_wrap input[type='checkbox']:checked + label::before,
+.pw_check_eye_wrap input[type='checkbox']:checked + label::before {
+  display: none;
+}
+
+/* Main - easy_login */
+.easy_login {
+  box-sizing: border-box;
+  padding: 25px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7.4rem;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+}
+
+.signup-h4 {
+  color: #1f2937;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+}
+
+.easy_login_link {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.easy_login_link img {
+  max-width: 4.2rem;
+}
+
+/* Footer sign-in */
+.signup-footer {
+  padding-top: 24px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.79rem;
+}
+
+.signup-footer a {
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .signup-container {
+    max-width: 400px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+
+  .signup-header {
+    margin: 0 auto;
+    max-width: 198px;
+    max-height: 66px;
+  }
+
+  .signup-header img {
+    width: 100%;
+  }
+
+  .signup-form {
+    gap: 16px;
+  }
+
+  .signup-label {
+    font-size: 1.4rem;
+  }
+
+  .signup-input {
+    width: 100%;
+  }
+
+  .signup-btn {
+    font-size: 1.6rem;
+    width: 100%;
+  }
+
+  .password_eye_wrap,
+  .pw_check_eye_wrap {
+    top: 4rem;
+  }
+}

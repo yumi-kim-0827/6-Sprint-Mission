@@ -79,7 +79,7 @@ export default function LandingPage() {
         </section>
       </main>
 
-      <footer>
+      <footer className='landing-footer'>
         <div className='footer_wrap'>
           <div className='codeit_footer'>©codeit - 2024</div>
           <div className='privacy_footer'>

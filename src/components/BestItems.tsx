@@ -3,18 +3,24 @@ import './style/BestItems.css';
 import BestItem from './BestItem';
 
 interface Item {
-  price: number;
-  images: string;
-  name: string;
+  updatedAt: string;
+  createdAt: string;
   favoriteCount: number;
+  ownerId: number;
+  images: string[];
+  tags: string[];
+  price: number;
+  description: string;
+  name: string;
   id: number;
 }
 
-interface Props {
-  items: Item[];
+interface ItemProps {
+  totalCount?: number;
+  list?: Item[];
 }
 
-export default function BestItems({ items }: Props) {
+export default function BestItems({ list = [] }: ItemProps) {
   const [itemsToShow, setItemsToShow] = useState(getInitialItemsToShow());
 
   function getInitialItemsToShow() {
@@ -42,14 +48,14 @@ export default function BestItems({ items }: Props) {
     <div className='best-items'>
       <h2 className='best-items__title'>베스트 상품</h2>
       <section className='best-items__item'>
-        {items.slice(0, itemsToShow).map(item => (
+        {list.slice(0, itemsToShow).map(item => (
           <BestItem
             key={item.id}
             id={item.id}
             price={item.price}
             favoriteCount={item.favoriteCount}
             name={item.name}
-            images={item.images}
+            images={item.images[0]}
           />
         ))}
       </section>
