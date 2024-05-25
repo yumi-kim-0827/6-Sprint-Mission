@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDetailProduct, getProductComment } from "../../apis/api";
+import { getDetailProduct, getProductComment, GetItemResponse, listResponse } from "../../apis/api";
 import "./DetailItem.css";
 import ShowDetail from "../../components/show-detail";
 import HandleComment from "../../components/handle-comment";
@@ -18,8 +18,8 @@ const DetailItem = (): JSX.Element => {
     favoriteCount: number;
   }
 
-  const [detailItem, setDetailItem] = useState<DetailItem>();
-  const [comments, setComments] = useState<string[]>([]);
+  const [detailItem, setDetailItem] = useState<DetailItem | undefined | GetItemResponse>();
+  const [comments, setComments] = useState<string[] | listResponse[]>([]);
 
   const handleDetailsLoad = async (Id: string | undefined) => {
     const [itemsData, commentsData] = await Promise.all([getDetailProduct(Id), getProductComment(Id)]);
