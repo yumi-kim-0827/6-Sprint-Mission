@@ -1,6 +1,6 @@
 .blue-button {
   background-color: var(--blue-primary);
-  height: 2.625rem;
+  height: 2.63rem;
   padding: 0.72rem 1.88rem;
   border-radius: 0.5rem;
   display: flex;
@@ -9,7 +9,7 @@
   color: white;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 1.1931rem;
+  line-height: 1.19rem;
 }
 
 .blue-button:disabled {

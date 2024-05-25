@@ -22,12 +22,12 @@
 }
 
 .search-input {
-  width: 80%;
+  width: 100%;
   min-width: 200px;
   height: 100%;
   border-radius: 0.75rem;
-  padding-block: 0.5625rem;
-  padding-left: 2.1875rem;
+  padding-block: 0.56rem;
+  padding-left: 2.19rem;
   margin-right: 3rem;
   border: none;
   background-color: var(--gray-100);
