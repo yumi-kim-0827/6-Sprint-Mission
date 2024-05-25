@@ -1,6 +1,6 @@
 import { instance } from './Axios';
 
-export interface Items {
+export interface ItemsResponse {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -13,14 +13,14 @@ export interface Items {
   id: number;
 }
 
-export interface GetItem {
+export interface GetItemResponse {
   totalCount: number;
-  list: Items[];
+  list: ItemsResponse[];
 }
 
-export const getItems = async (): Promise<GetItem> => {
+export const getItems = async (): Promise<GetItemResponse> => {
   try {
-    const response = await instance.get<GetItem>('/products');
+    const response = await instance.get<GetItemResponse>('/products');
     return response.data;
   } catch (error) {
     console.error(`Failed to fetch items: ${error}`);

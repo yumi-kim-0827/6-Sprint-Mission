@@ -1,26 +1,29 @@
 import { instance } from './Axios';
-type Writer = {
+type WriterResponse = {
   nickname: string;
   image: string;
   id: number;
 };
 
-export type GetComments = {
+export type GetCommentsResponse = {
   id: number;
   content: string;
   createdAt: string;
   updatedAt: string;
-  writer: Writer;
+  writer: WriterResponse;
 };
 
-type GetCommentList = {
+type GetCommentListResponse = {
   nextCursor: number;
-  list: GetComments[];
+  list: GetCommentsResponse[];
 };
 
-export const getItemsComments = async (productId: string, limit: number): Promise<GetCommentList | undefined> => {
+export const getItemsComments = async (
+  productId: string,
+  limit: number
+): Promise<GetCommentListResponse | undefined> => {
   try {
-    const response = await instance.get<GetCommentList>(`/products/${productId}/comments`, {
+    const response = await instance.get<GetCommentListResponse>(`/products/${productId}/comments`, {
       params: {
         limit,
       },

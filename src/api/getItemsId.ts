@@ -1,6 +1,6 @@
 import { instance } from './Axios';
 
-export type GetItem = {
+export type GetItemResponse = {
   createdAt: string;
   favoriteCount: number;
   ownerId: number;
@@ -13,10 +13,10 @@ export type GetItem = {
   isFavorite: boolean;
 };
 
-export const getItemsId = async (productId: string): Promise<GetItem | undefined> => {
+export const getItemsId = async (productId: string): Promise<GetItemResponse | undefined> => {
   try {
     const productIdNumber = parseInt(productId);
-    const response = await instance.get<GetItem>(`/products/${productIdNumber}`);
+    const response = await instance.get<GetItemResponse>(`/products/${productIdNumber}`);
     return response.data;
   } catch (error) {
     console.log(`Failed to fetch items: ${error}`);
