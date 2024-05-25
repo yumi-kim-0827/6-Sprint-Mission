@@ -1,5 +1,10 @@
 @import "@/app/css/mixin.scss";
 
+#core
+{
+	overflow-x: hidden;
+}
+
 .button
 {
 	color: #FFFFFF;
