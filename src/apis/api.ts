@@ -1,10 +1,11 @@
 import inctance from "./axioxInstance";
 import { AxiosResponse } from "axios";
+import { ShowDetailValues } from "../components/show-detail";
 
 interface ApiTypeValues {
   orderBy: string;
   page: number;
-  pageSize: number;
+  pageSize: number | undefined;
   keyword: string;
 }
 
@@ -36,11 +37,11 @@ type ComementValue = {
   writer: WriterValue;
 };
 
-type GetItemResponse = {
+export type GetItemResponse = {
   totalCount: number;
   list: listResponse[];
   comment: ComementValue;
-};
+} & ShowDetailValues;
 
 export async function getProduct({
   orderBy = "recent",
@@ -59,7 +60,7 @@ export async function getProduct({
   }
 }
 
-export async function getBestProduct(pageSize: number): Promise<GetItemResponse> {
+export async function getBestProduct(pageSize: number | undefined): Promise<GetItemResponse> {
   try {
     const response: AxiosResponse<GetItemResponse> = await inctance.get(
       `?orderBy=favorite&page=1&pageSize=${pageSize}`
