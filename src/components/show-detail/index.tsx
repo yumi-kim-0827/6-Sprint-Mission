@@ -3,7 +3,7 @@ import "./ShowDetail.css";
 import likeicon from "../../assets/like-icon.png";
 import hamburger from "../../assets/hamburger-icon.png";
 
-interface ShowDetailValues {
+export interface ShowDetailValues {
   images: string;
   name: string;
   price: number;
