@@ -1,12 +1,28 @@
-import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
+import "./index.scss"; import JSX from "@/common/utilities/jsx";
 
-export default function Row(props: Props & { gap?: React.CSSProperties["gap"]; justify?: React.CSSProperties["justifyContent"]; align?: React.CSSProperties["alignItems"]; direction?: "left-to-right" | "right-to-left"; })
+const enum Direction
 {
-	return (
-		<section { ...widget("Row", props, { class: props.direction ?? "left-to-right", style: { "gap": props.gap, "justifyContent": props.justify, "alignItems": props.align }}) }>
-		{
-			props.children
-		}
-		</section>
-	);
+	LEFT_TO_RIGHT = "left-to-right",
+	RIGHT_TO_LEFT = "right-to-left",
 }
+
+const Row = JSX<React.DOMAttributes<HTMLElement> & { gap?: React.CSSProperties["gap"]; align?: React.CSSProperties["alignItems"]; justify?: React.CSSProperties["justifyContent"]; direction?: Direction; }>("Row", (props, self, modify) =>
+{
+	// merge class
+	modify.class = props.direction ?? Direction.LEFT_TO_RIGHT;
+	// merge style
+	modify.style = {
+		gap: props.gap,
+		alignItems: props.align,
+		justifyContent: props.justify
+	};
+	// apply events
+	modify.master = Object.entries(props).reduce((sigma, [key, value]) =>
+	{
+		return /^on/.test(key) ? { ...sigma, [key]: value } : sigma;
+	},
+	{});
+	return props.children;
+});
+
+export default Row;

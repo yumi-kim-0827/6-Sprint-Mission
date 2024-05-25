@@ -1,12 +1,15 @@
-import {} from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
+import "./index.scss"; import JSX from "@/common/utilities/jsx";
 
-export default function Spacer(props: Props & { ratio?: number })
+const Spacer = JSX<React.DOMAttributes<HTMLElement> & { ratio?: number }>("Spacer", (props, self, modify) =>
 {
-	return (
-		<section { ...widget("Spacer", props, { style: { "flexGrow": props.ratio ?? 1.0 } }) }>
-		{
-			props.children
-		}
-		</section>
-	);
-}
+	modify.style = { flexGrow: props.ratio ?? 1.0 };
+	// apply events
+	modify.master = Object.entries(props).reduce((sigma, [key, value]) =>
+	{
+		return /^on/.test(key) ? { ...sigma, [key]: value } : sigma;
+	},
+	{});
+	return props.children;
+});
+
+export default Spacer;

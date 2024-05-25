@@ -1,13 +1,17 @@
-@import "@/app/css/viewport.mixin.scss";
+@import "@/app/css/mixin.scss";
 
-#header
+@include widget("Header")
 {
 	top: 0px;
 	z-index: 69;
 	position: sticky;
 	background: #FFFFFF;
-
-	> .content
+	&
+	{
+		display: flex;
+		align-items: center;
+	}
+	> .container
 	{
 		width: 100%;
 		height: 70px;
@@ -53,6 +57,52 @@
 				@include desktop
 				{
 					width: 128px;
+				}
+			}
+		}
+		.navigate
+		{
+			@include mobile
+			{
+				gap: 8px;
+				padding-left: 16px;
+				padding-right: 16px;
+			}
+			@include tablet
+			{
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			@include desktop
+			{
+				padding-left: 32px;
+				padding-right: 32px;
+			}
+			> a > *
+			{
+				color: #4B5563;
+				font-weight: 700;
+
+				@include mobile
+				{
+					font-size: 16px;
+					line-height: 19.09px;
+				}
+				@include tablet
+				{
+					font-size: 18px;
+					line-height: 21.48px;
+					min-width: 109px;
+					padding-left: 16px;
+					padding-right: 16px;
+				}
+				@include desktop
+				{
+					font-size: 18px;
+					line-height: 21.48px;
+					min-width: 109px;
+					padding-left: 16px;
+					padding-right: 16px;
 				}
 			}
 		}

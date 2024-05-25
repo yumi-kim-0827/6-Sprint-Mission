@@ -1,0 +1,33 @@
+@import "@/app/css/mixin.scss";
+
+@include widget("Layout")
+{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	@include mobile
+	{
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	@include tablet
+	{
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	@include desktop
+	{
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	> *
+	{
+		width: 100%;
+
+		@include desktop
+		{
+			max-width: 1200px;
+		}
+	}
+}

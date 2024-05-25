@@ -1,4 +1,6 @@
-[data-widget="Row"]
+@import "@/app/css/mixin.scss";
+
+@include widget("Row")
 {
 	display: flex;
 

@@ -1,12 +1,28 @@
-import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
+import "./index.scss"; import JSX from "@/common/utilities/jsx";
 
-export default function Column(props: Props & { gap?: React.CSSProperties["gap"]; justify?: React.CSSProperties["justifyContent"]; align?: React.CSSProperties["alignItems"]; direction?: "top-to-bottom" | "bottom-to-top"; })
+const enum Direction
 {
-	return (
-		<section { ...widget("Column", props, { class: props.direction ?? "top-to-bottom", style: { "gap": props.gap, "justifyContent": props.justify, "alignItems": props.align } }) }>
-		{
-			props.children
-		}
-		</section>
-	);
+	TOP_TO_BOTTOM = "top-to-bottom",
+	BOTTOM_TO_TOP = "bottom-to-top",
 }
+
+const Column = JSX<React.DOMAttributes<HTMLElement> & { gap?: React.CSSProperties["gap"]; align?: React.CSSProperties["alignItems"]; justify?: React.CSSProperties["justifyContent"]; direction?: Direction; }>("Column", (props, self, modify) =>
+{
+	// merge class
+	modify.class = props.direction ?? Direction.TOP_TO_BOTTOM;
+	// merge style
+	modify.style = {
+		gap: props.gap,
+		alignItems: props.align,
+		justifyContent: props.justify
+	};
+	// apply events
+	modify.master = Object.entries(props).reduce((sigma, [key, value]) =>
+	{
+		return /^on/.test(key) ? { ...sigma, [key]: value } : sigma;
+	},
+	{});
+	return props.children;
+});
+
+export default Column;

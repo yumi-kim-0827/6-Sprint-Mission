@@ -1,10 +1,12 @@
-import { } from "react"; import "./index.scss";
+import "./index.scss"; import { } from "react";
 
+import Page from "@/app/widgets/Page";
 import Header from "@/app/widgets/Header";
+import Layout from "@/app/widgets/Layout";
+import Footer from "@/app/widgets/Footer";
 import Column from "@/app/widgets/Column";
 import Spacer from "@/app/widgets/Spacer";
 import Center from "@/app/widgets/Center";
-import Footer from "@/app/widgets/Footer";
 
 import { Link } from "react-router-dom";
 
@@ -16,14 +18,18 @@ import home_03_png from "@/common/assets/images/home_03.png";
 import banner_top_png from "@/common/assets/images/banner_top.png";
 import banner_bottom_png from "@/common/assets/images/banner_bottom.png";
 
-export default function Page()
+export default function JSX()
 {
 	const { is_mobile, is_tablet, is_desktop } = useViewport();
 
 	return (
-		<Column data-page="index">
-			<Header></Header>
-			<Spacer id="content">
+		<Page path="index">
+			<Header>
+			{[
+				// TODO: none
+			]}
+			</Header>
+			<Spacer>
 				<Column>
 					<Center class="banner">
 						<div class="wrapper">
@@ -40,7 +46,7 @@ export default function Page()
 							<img class="background" src={banner_top_png}/>
 						</div>
 					</Center>
-					<Column class="main" align="center">
+					<Layout>
 						<div class="segment left">
 							<img class="image" src={home_01_png}/>
 							<Column class="content" justify="center">
@@ -94,8 +100,8 @@ export default function Page()
 									쉽게 등록하세요
 								</div>
 							</Column>
-						</div>
-					</Column>
+						</div>		
+					</Layout>
 					<Center class="banner">
 						<div class="wrapper">
 							<Column class="heading" gap={24}>
@@ -106,9 +112,20 @@ export default function Page()
 							<img class="background" src={banner_bottom_png}/>
 						</div>
 					</Center>
-					<Footer></Footer>
+					<Footer>
+					{[
+						{
+							name: "Privacy Policy",
+							href: "/privacy",
+						},
+						{
+							name: "FAQ",
+							href: "/faq",
+						},
+					]}
+					</Footer>
 				</Column>
 			</Spacer>
-		</Column>
+		</Page>
 	);
 }

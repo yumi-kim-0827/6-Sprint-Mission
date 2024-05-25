@@ -1,13 +1,14 @@
-import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
+import "./index.scss"; import JSX from "@/common/utilities/jsx";
 
-export default function Center(props: Props)
+const Center = JSX<React.DOMAttributes<HTMLElement>>("Center", (props, self, modify) =>
 {
-	return (
-		<section { ...widget("Center", props) }>
-		{
-			props.children
-		}
-		</section>
-	);
-}
- 
+	// apply events
+	modify.master = Object.entries(props).reduce((sigma, [key, value]) =>
+	{
+		return /^on/.test(key) ? { ...sigma, [key]: value } : sigma;
+	},
+	{});
+	return props.children;
+});
+
+export default Center;

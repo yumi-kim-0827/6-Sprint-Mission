@@ -1,4 +1,6 @@
-[data-widget="Spacer"]
+@import "@/app/css/mixin.scss";
+
+@include widget("Spacer")
 {
 	> *
 	{

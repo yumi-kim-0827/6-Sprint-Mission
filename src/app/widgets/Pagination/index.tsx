@@ -1,10 +1,8 @@
-import { } from "react"; import "./index.scss"; import widget from "@/common/utilities/widget.js"; import type { Props } from "@/common/utilities/widget.js";
+import "./index.scss"; import JSX from "@/common/utilities/jsx";
 
-export default function Pagination(props: Props)
+const Pagination = JSX<{ }>("Pagination", (props, self, modify) =>
 {
-	return (
-		<section>
-			
-		</section>
-	);
-}
+	throw new Error("Unimplemented");
+});
+
+export default Pagination;

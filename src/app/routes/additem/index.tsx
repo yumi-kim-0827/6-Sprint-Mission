@@ -1,11 +1,12 @@
-import { } from "react"; import "./index.scss";
+import "./index.scss"; import { } from "react"; 
 
-import Column from "@/app/widgets/Column";
+import Page from "@/app/widgets/Page";
 
-export default function Page()
+export default function JSX()
 {
 	return (
-		<Column>
-		</Column>
+		<Page path="additem">
+			
+		</Page>
 	);
 }

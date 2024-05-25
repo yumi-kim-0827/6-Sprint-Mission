@@ -1,4 +1,6 @@
-[data-widget="Column"]
+@import "@/app/css/mixin.scss";
+
+@include widget("Column")
 {
 	display: flex;
 

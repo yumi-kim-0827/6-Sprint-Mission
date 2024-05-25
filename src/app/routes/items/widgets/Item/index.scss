@@ -1,6 +1,6 @@
-@import "@/app/css/viewport.mixin.scss";
+@import "@/app/css/mixin.scss";
 
-[data-page="items"]
+@include page("items")
 {
 	.item
 	{

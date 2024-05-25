@@ -1,4 +1,6 @@
-[data-widget="Center"]
+@import "@/app/css/mixin.scss";
+
+@include widget("Center")
 {
 	display: flex;
 	align-items: center;
