@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonWithIcon from "../../components/ButtonWithIcon";
+import BaseButton from "../../components/BaseButton";
 import SquareImage from "../../components/SquareImage";
 
 export const ItemDetailPageWrapper = styled.div`
@@ -12,13 +12,17 @@ export const ItemDetailPageWrapper = styled.div`
   max-width: 1200px;
 `;
 
-export const ToGoItemPageBtn = styled(ButtonWithIcon)`
+export const ToGoItemPageBtn = styled(BaseButton)`
   margin: 24px auto 80px auto;
   width: 240px;
   height: 48px;
   font-weight: 600;
   font-size: 18px;
   border-radius: 40px;
+
+  svg {
+    margin-left: 10px;
+  }
 `;
 
 export const EmptyCommentImageSection = styled.div`

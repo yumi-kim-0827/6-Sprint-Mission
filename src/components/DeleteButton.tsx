@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import BaseIcon from "./BaseIcon";
-import XIcon from "../assets/icon/X.svg";
-import activeXIcon from "../assets/icon/activeX.svg";
+import XIcon from "../assets/icon/X.svg?react";
+import ActiveXIcon from "../assets/icon/activeX.svg?react";
 
 interface DeleteButtonProps {
   onClick: () => void;
@@ -11,8 +10,8 @@ interface DeleteButtonProps {
 const DeleteButton = ({ onClick }: DeleteButtonProps) => {
   return (
     <DeleteButtonEl onClick={onClick}>
-      <BaseIcon src={XIcon} />
-      <BaseIcon src={activeXIcon} className="active" />
+      <XIcon />
+      <ActiveXIcon className="active" />
     </DeleteButtonEl>
   );
 };
@@ -28,10 +27,10 @@ const DeleteButtonEl = styled.button`
 
   &:hover,
   &:focus {
-    i {
+    svg {
       display: none;
     }
-    i.active {
+    svg.active {
       display: block;
     }
   }

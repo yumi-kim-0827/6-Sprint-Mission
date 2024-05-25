@@ -5,7 +5,7 @@ import ItemDetailPageCardLarge from "./ItemDetailPageCardLarge.js";
 import CommentInputBox from "../../components/CommentInputBox.js";
 import Comment from "../../components/Comment.js";
 import { getItem, getItemComments } from "../../services/api.js";
-import IconBack from "../../assets/icon/back.svg";
+import BackIcon from "../../assets/icon/back.svg?react";
 import EmptyCommentImage from "../../assets/img/Img_inquiry_empty.png";
 
 interface CommentType {
@@ -69,8 +69,9 @@ const ItemDetailPage = () => {
             <EmptyCommentImageSection />
           )}
           <Link to="/items">
-            <S.ToGoItemPageBtn src={IconBack}>
+            <S.ToGoItemPageBtn>
               목록으로 돌아가기
+              <BackIcon />
             </S.ToGoItemPageBtn>
           </Link>
         </S.ItemDetailPageWrapper>

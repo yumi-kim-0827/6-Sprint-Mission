@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ALinkImageButton from "./ALinkImageButton";
-import IconFacebook from "../assets/icon/facebook.svg";
-import IconTwitter from "../assets/icon/twitter.svg";
-import IconYoutube from "../assets/icon/youtube.svg";
-import IconInstagram from "../assets/icon/insta.svg";
+import FacebookIcon from "../assets/icon/facebook.svg?react";
+import TwitterIcon from "../assets/icon/twitter.svg?react";
+import YoutubeIcon from "../assets/icon/youtube.svg?react";
+import InstagramIcon from "../assets/icon/insta.svg?react";
 
 const SNS_LIST = [
-  { name: "facebook", href: "http://www.facebook.com", icon: IconFacebook },
-  { name: "twitter", href: "http://www.twitter.com", icon: IconTwitter },
-  { name: "youtube", href: "http://www.youtube.com", icon: IconYoutube },
+  { name: "facebook", href: "http://www.facebook.com", icon: <FacebookIcon /> },
+  { name: "twitter", href: "http://www.twitter.com", icon: <TwitterIcon /> },
+  { name: "youtube", href: "http://www.youtube.com", icon: <YoutubeIcon /> },
   {
     name: "instagram",
     href: "http://www.instagram.com",
-    icon: IconInstagram,
+    icon: <InstagramIcon />,
   },
 ];
 
@@ -29,7 +28,9 @@ const AppLayoutFooter = () => {
         </MenuLinks>
         <SocialLinks>
           {SNS_LIST.map(({ name, href, icon }) => (
-            <ALinkImageButton key={name} href={href} src={icon} alt={name} />
+            <a key={name} href={href} target="_blank" rel="noopener noreferrer">
+              {icon}
+            </a>
           ))}
         </SocialLinks>
       </FooterInner>

@@ -2,17 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./Login.style.js";
 import UserForm from "../../components/UserForm.js";
-import ALinkImageButton from "../../components/ALinkImageButton.js";
 import pandaLogo from "../../assets/img/panda-logo.svg";
-import IconGoogle from "../../assets/icon/google-round.svg";
-import IconKaKao from "../../assets/icon/kakao-round.svg";
+import GoogleIcon from "../../assets/icon/google-round.svg?react";
+import KaKaoIcon from "../../assets/icon/kakao-round.svg?react";
 
 const SOCIAL_LOGIN = [
-  { href: "https://www.google.com/", src: IconGoogle, alt: "구글" },
+  { name: "구글", href: "https://www.google.com/", icon: <GoogleIcon /> },
   {
+    name: "카카오",
     href: "https://www.kakaocorp.com/page/",
-    src: IconKaKao,
-    alt: "카카오",
+    icon: <KaKaoIcon />,
   },
 ];
 
@@ -28,8 +27,10 @@ const LogIn = () => {
       <S.SocialLogin>
         <span>간편 로그인 하기</span>
         <div>
-          {SOCIAL_LOGIN.map(({ href, src, alt }) => (
-            <ALinkImageButton key={href} href={href} src={src} alt={alt} />
+          {SOCIAL_LOGIN.map(({ name, href, icon }) => (
+            <a key={name} href={href} target="_blank" rel="noopener noreferrer">
+              {icon}
+            </a>
           ))}
         </div>
       </S.SocialLogin>

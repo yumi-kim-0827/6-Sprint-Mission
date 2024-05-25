@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import BaseIcon from "./BaseIcon";
-import heartIcon from "../assets/icon/heart.svg";
-import heartActiveIcon from "../assets/icon/heart-active.svg";
+import HeartIcon from "../assets/icon/heart.svg?react";
+import HeartActiveIcon from "../assets/icon/heart-active.svg?react";
 
 interface CardFavoritesProps {
   isFavorite: boolean;
@@ -17,8 +16,6 @@ const CardFavorites = ({
   onClick,
   className,
 }: CardFavoritesProps) => {
-  const getFavoriteIcon = isFavorite ? heartActiveIcon : heartIcon;
-
   const handleClick = () => {
     if (onClick) {
       onClick();
@@ -27,7 +24,7 @@ const CardFavorites = ({
 
   return (
     <StyledFavorite className={className} onClick={handleClick}>
-      <BaseIcon src={getFavoriteIcon} />
+      {isFavorite ? <HeartActiveIcon /> : <HeartIcon />}
       {favoriteCount}
     </StyledFavorite>
   );
@@ -41,7 +38,7 @@ const StyledFavorite = styled.button`
   color: #4b5563;
   cursor: pointer;
 
-  i {
+  svg {
     width: 16px;
     height: 16px;
     cursor: pointer;
