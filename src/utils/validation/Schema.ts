@@ -9,10 +9,10 @@ export const loginSchema = yup.object().shape({
   password: yup
     .string()
     .required(Messages.PASSWORD_REQUIRED)
-    .min(8, Messages.INVALID_PASSWORD), // 최소 8자리 이상 API 테스트용이라 8자리로만 해놓음
+    .min(8, Messages.INVALID_PASSWORD),
 });
 
-export const signInSchema = yup.object().shape({
+export const signUpSchema = yup.object().shape({
   email: yup
     .string()
     .required(Messages.EMAIL_REQUIRED)
@@ -21,4 +21,9 @@ export const signInSchema = yup.object().shape({
     .string()
     .required(Messages.PASSWORD_REQUIRED)
     .min(8, Messages.INVALID_PASSWORD),
+  passwordConfirmation: yup
+    .string()
+    .required(Messages.CONFIRM_PASSWORD_REQUIRED)
+    .oneOf([yup.ref("password")], Messages.PASSWORDS_MUST_MATCH),
+  nickname: yup.string().required(Messages.NICKNAME_REQUIRED),
 });

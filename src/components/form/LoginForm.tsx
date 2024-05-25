@@ -6,6 +6,7 @@ import { loginSchema } from "../../utils/validation/Schema";
 import { LoginUser } from "../../Api/loginUser";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
   email: string;
@@ -13,6 +14,7 @@ interface FormValues {
 }
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const resolver = yupResolver(loginSchema);
   const {
     handleSubmit,
@@ -30,6 +32,7 @@ const LoginForm = () => {
         const { token } = response;
         localStorage.setItem("accessToken", token);
         console.log("로그인 성공");
+        navigate("/items");
       }
     } catch (error) {
       console.error("로그인 실패:", error);
