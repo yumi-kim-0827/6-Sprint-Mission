@@ -70,7 +70,7 @@ function Signup() {
       }
       if (passwordConfirm === '') {
         setPasswordConfirmError('비밀번호를 다시 한 번 입력해주세요.')
-      } else if (password === passwordConfirm) {
+      } else if (password !== passwordConfirm) {
         setPasswordConfirmError('비밀번호가 일치하지 않습니다.')
       }
     }
