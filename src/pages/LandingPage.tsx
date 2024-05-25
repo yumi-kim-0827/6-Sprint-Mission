@@ -2,6 +2,13 @@ import '../styles/LandingPage.css';
 import { Link } from 'react-router-dom';
 import Img_home_top from '../assets/Img_home_top.png';
 import Img_home_bottom from '../assets/Img_home_bottom.png';
+import Img_home_hot_item from '../assets/Img_home_hot_item.png';
+import Img_home_search from '../assets/Img_home_search.png';
+import Img_home_register from '../assets/Img_home_register.png';
+import ic_facebook from '../assets/ic_facebook.png';
+import ic_youtube from '../assets/ic_youtube.png';
+import ic_instagram from '../assets/ic_instagram.png';
+import ic_twitter from '../assets/ic_twitter.png';
 
 export default function LandingPage() {
   return (
@@ -17,7 +24,6 @@ export default function LandingPage() {
             </div>
             <div className='main_banner_img'>
               <picture>
-                <source srcSet='/assets/img/home_imgs/Img_home_top.webp' type='image/webp' />
                 <img src={Img_home_top} alt='구경가는 판다 이미지' />
               </picture>
             </div>
@@ -28,8 +34,7 @@ export default function LandingPage() {
           <div className='main_info_background'>
             <div className='main_info'>
               <picture className='img_wrap'>
-                <source srcSet='/assets/img/home_imgs/Img_home_hot_item.webp' type='image/webp' />
-                <img src='/assets/img/home_imgs/Img_home_hot_item.png' alt='핫 아이템 이미지' />
+                <img src={Img_home_hot_item} alt='핫 아이템 이미지' />
               </picture>
               <div className='text_wrap'>
                 <h4 className='blue-title'>Hot item</h4>
@@ -40,8 +45,7 @@ export default function LandingPage() {
 
             <div className='main_info_second'>
               <picture className='img_wrap'>
-                <source srcSet='/assets/img/home_imgs/Img_home_search.webp' type='image/webp' />
-                <img src='/assets/img/home_imgs/Img_home_search.png' alt='검색 이미지' />
+                <img src={Img_home_search} alt='검색 이미지' />
               </picture>
               <div className='text_wrap'>
                 <h4 className='blue-title'>Search</h4>
@@ -52,8 +56,7 @@ export default function LandingPage() {
 
             <div className='main_info'>
               <picture className='img_wrap'>
-                <source srcSet='/assets/img/home_imgs/Img_home_register.webp' type='image/webp' />
-                <img src='/assets/img/home_imgs/Img_home_register.png' alt='등록 이미지' />
+                <img src={Img_home_register} alt='등록 이미지' />
               </picture>
               <div className='text_wrap'>
                 <h4 className='blue-title'>Register</h4>
@@ -70,8 +73,7 @@ export default function LandingPage() {
               <h3 className='title'>믿을 수 있는 판다마켓 중고거래</h3>
             </div>
             <picture className='bottom_banner_img'>
-              <source srcSet='/assets/img/home_imgs/Img_home_bottom.webp' type='image/webp' />
-              <img src='/assets/img/home_imgs/Img_home_bottom.png' alt='믿을 수 있는 판다마켓' />
+              <img src={Img_home_bottom} alt='믿을 수 있는 판다마켓' />
             </picture>
           </div>
         </section>
@@ -86,28 +88,24 @@ export default function LandingPage() {
           </div>
         </div>
         <div className='codeit_footer_link'>
-          <a href='http://facebook.com' target='_blank'>
+          <a href='http://facebook.com' target='_blank' rel='noopener noreferrer'>
             <picture>
-              <source srcSet='/assets/img/icon/ic_facebook.webp' type='image/webp' />
-              <img src='/assets/img/icon/ic_facebook.png' alt='facebook' />
+              <img src={ic_facebook} alt='facebook' />
             </picture>
           </a>
-          <a href='http://twitter.com' target='_blank'>
+          <a href='http://twitter.com' target='_blank' rel='noopener noreferrer'>
             <picture>
-              <source srcSet='/assets/img/icon/ic_twitter.webp' type='image/webp' />
-              <img src='/assets/img/icon/ic_twitter.png' alt='twitter' />
+              <img src={ic_twitter} alt='twitter' />
             </picture>
           </a>
-          <a href='http://youtube.com' target='_blank'>
+          <a href='http://youtube.com' target='_blank' rel='noopener noreferrer'>
             <picture>
-              <source srcSet='/assets/img/icon/ic_youtube.webp' type='image/webp' />
-              <img src='/assets/img/icon/ic_youtube.png' alt='youtube' />
+              <img src={ic_youtube} alt='youtube' />
             </picture>
           </a>
-          <a href='http://instagram.com' target='_blank'>
+          <a href='http://instagram.com' target='_blank' rel='noopener noreferrer'>
             <picture>
-              <source srcSet='/assets/img/icon/ic_instagram.webp' type='image/webp' />
-              <img src='/assets/img/icon/ic_instagram.png' alt='instagram' />
+              <img src={ic_instagram} alt='instagram' />
             </picture>
           </a>
         </div>

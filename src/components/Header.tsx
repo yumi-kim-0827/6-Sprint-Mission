@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 import './style/Header.css';
 
 export default function Header() {
@@ -8,11 +8,13 @@ export default function Header() {
   return (
     <div className='Header'>
       <div className='Header__menu'>
-        <picture className='Header__logo'>
-          <source srcSet='/imgs/logo.webp' media='(max-width: 767px)' width={81} type='image/webp' />
-          <source srcSet='/imgs/img_logo.webp' width={153} type='image/webp' />
-          <img src='/imgs/img_logo.webp' alt='판다마켓로고' />
-        </picture>
+        <Link to='/'>
+          <picture className='Header__logo'>
+            <source srcSet='/imgs/logo.webp' media='(max-width: 767px)' width={81} type='image/webp' />
+            <source srcSet='/imgs/img_logo.webp' width={153} type='image/webp' />
+            <img src='/imgs/img_logo.webp' alt='판다마켓로고' />
+          </picture>
+        </Link>
         <NavLink to='/freeboard'>
           {({ isActive }) => (
             <button className='Header__free-board' style={{ color: isActive ? '#3692FF' : '#4B5563' }}>
