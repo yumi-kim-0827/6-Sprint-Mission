@@ -14,13 +14,13 @@ function Items(): JSX.Element {
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState<number>(1);
 
-  const [pageSize, setPageSize] = useState(10);
-  const [bestPageSize, setBestPageSize] = useState(4);
+  const [pageSize, setPageSize] = useState<number | undefined>();
+  const [bestPageSize, setBestPageSize] = useState<number | undefined>();
 
   interface OrderQuery {
     orderBy: string;
     page: number;
-    pageSize: number;
+    pageSize: number | undefined;
     keyword: string;
   }
 
@@ -29,7 +29,7 @@ function Items(): JSX.Element {
     setProducts(list);
   };
 
-  const handleBestLoad = async (pageSize: number) => {
+  const handleBestLoad = async (pageSize: number | undefined) => {
     const { list } = await getBestProduct(pageSize);
     setBestProducts(list);
   };
@@ -86,10 +86,11 @@ function Items(): JSX.Element {
   }
 
   const handlePageNum = () => {
-    if (typeof totalCount === "number" && !isNaN(totalCount) && totalCount > 0 && pageSize > 0) {
+    if (typeof totalCount === "number" && !isNaN(totalCount) && totalCount > 0 && pageSize && pageSize > 0) {
       const pageNum = Math.ceil(totalCount / pageSize);
       return pageNum;
     }
+    return 0;
   };
 
   const handlePage = (value: number) => {
