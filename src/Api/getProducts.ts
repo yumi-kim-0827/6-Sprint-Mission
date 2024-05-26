@@ -1,11 +1,11 @@
 import { AxiosError } from "axios";
 import { instance } from "./Axios";
 
-interface Product {
+type Product = {
   totalCount: number;
   list: list[];
-}
-export interface list {
+};
+export type list = {
   id: number;
   name: string;
   description: string;
@@ -15,7 +15,7 @@ export interface list {
   favoriteCount: number;
   createdAt: string;
   ownerId: number;
-}
+};
 
 export const getProducts = async (): Promise<Product | undefined> => {
   try {

@@ -1,23 +1,23 @@
 import { instance } from "./Axios";
 
-interface Writer {
+type Writer = {
   image: string;
   nickname: string;
   id: number;
-}
+};
 
-export interface Comment {
+export type Comment = {
   writer: Writer;
   updatedAt: string;
   createdAt: string;
   content: string;
   id: number;
-}
+};
 
-interface CommentsResponse {
+type CommentsResponse = {
   nextCursor: number;
   list: Comment[];
-}
+};
 
 export const getComments = async (
   productId: number,

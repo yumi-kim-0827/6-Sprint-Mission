@@ -3,12 +3,12 @@ import styled, { css } from "styled-components";
 import FileInput from "./FileInputs";
 import InputTag from "./TagInput";
 
-interface Values {
+type Values = {
   title: string;
   description: string;
   price: string;
   imgFile: File | null;
-}
+};
 
 const AddItem = () => {
   const [tags, setTags] = useState<string[]>([]);

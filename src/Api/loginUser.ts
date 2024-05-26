@@ -1,14 +1,14 @@
 import { AxiosError } from "axios";
 import { instance } from "./Axios";
 
-interface LoginData {
+type LoginData = {
   email: string;
   password: string;
-}
+};
 
-interface LoginResponse {
+type LoginResponse = {
   token: string;
-}
+};
 
 export const LoginUser = async (
   data: LoginData
