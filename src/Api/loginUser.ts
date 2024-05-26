@@ -10,12 +10,12 @@ type LoginResponse = {
   token: string;
 };
 
-async function fetchData<T>(
+const fetchData = async <T>(
   url: string,
-  data?: unknown
-): Promise<T | undefined> {
+  data?: LoginData
+): Promise<T | undefined> => {
   try {
-    const response = await instance.post<T>(url, data && JSON.stringify(data));
+    const response = await instance.post<T>(url, JSON.stringify(data));
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -25,7 +25,7 @@ async function fetchData<T>(
     }
     return undefined;
   }
-}
+};
 
 export const loginUser = (
   data: LoginData

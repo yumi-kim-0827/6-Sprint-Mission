@@ -19,10 +19,10 @@ type CommentsResponse = {
   list: Comment[];
 };
 
-async function fetchData<T>(
+const fetchData = async <T>(
   url: string,
   params?: Record<string, unknown>
-): Promise<T | undefined> {
+): Promise<T | undefined> => {
   try {
     const response = await instance.get<T>(url, { params });
     return response.data;
@@ -30,7 +30,7 @@ async function fetchData<T>(
     console.error(error);
     return undefined;
   }
-}
+};
 
 export const getComments = (
   productId: number,

@@ -11,7 +11,7 @@ export type Product = {
   favoriteCount: number;
 };
 
-async function fetchData<T>(url: string): Promise<T | undefined> {
+const fetchData = async <T>(url: string): Promise<T | undefined> => {
   try {
     const response = await instance.get<T>(url);
     return response.data;
@@ -23,7 +23,7 @@ async function fetchData<T>(url: string): Promise<T | undefined> {
     }
     return undefined;
   }
-}
+};
 
 export const getProductById = (
   productId: string

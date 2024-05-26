@@ -12,10 +12,10 @@ type SignUpResponse = {
   token: string;
 };
 
-async function fetchData<T>(
+const fetchData = async <T>(
   url: string,
   data?: SignUpData
-): Promise<T | undefined> {
+): Promise<T | undefined> => {
   try {
     const response = await instance.post<T>(url, JSON.stringify(data));
     return response.data;
@@ -27,7 +27,7 @@ async function fetchData<T>(
     }
     return undefined;
   }
-}
+};
 
 export const signUpUser = (
   data: SignUpData
