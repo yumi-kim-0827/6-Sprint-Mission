@@ -17,4 +17,4 @@ export type ItemProps = {
 };
 
 export type ItemForSaleType = Pick<Item, 'favoriteCount' | 'price' | 'name' | 'id' | 'images'>;
-export type BestItemType = Pick<Item, 'favoriteCount' | 'price' | 'name' | 'id'> & { image: string };
+export type BestItemType = Omit<ItemForSaleType, 'images'> & { image: string };
