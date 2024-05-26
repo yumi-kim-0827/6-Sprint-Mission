@@ -5,11 +5,31 @@ import { BestProductList, ProductList, Pagination } from '../components'
 import { getProducts, getBestProducts } from '../api/api'
 import { useNavigate } from 'react-router-dom'
 
+import icon_search from '../assets/icon_search.png'
+import icon_order from '../assets/icon_order.png'
+import icon_dropdown from '../assets/icon_dropdown.png'
+
+type Products = {
+  sort(arg0: (a: any, b: any) => number): unknown
+  slice(indexOfFirst: number, indexOfLast: number): number
+  id: string
+  name: string
+  images: string[]
+  price: number
+  favoriteCount: number
+  createdAt: string
+}
+
 function Items() {
+  const selectOptions = [
+    { value: 'createdAt', label: '최신순' },
+    { value: 'favoriteCount', label: '좋아요순' },
+  ]
+
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
   const [bestProducts, setBestProducts] = useState([])
-  const [order, setOrder] = useState('createdAt')
+  const [order, setOrder] = useState(selectOptions[0].value)
   const [keyword, setKeyword] = useState('')
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -23,30 +43,19 @@ function Items() {
   const indexOfLast = currentPage * productsPerPage // 현재 페이지의 마지막 상품 인덱스
   const indexOfFirst = indexOfLast - productsPerPage // 현재 페이지의 첫 번째 상품 인덱스
 
-  const selectOptions = [
-    { value: 'createdAt', label: '최신순' },
-    { value: 'favoriteCount', label: '좋아요순' },
-  ]
-
-  const currentProducts = (products) => {
-    let currentProducts = 0
-
-    // 전체 상품 리스트에서 현재 페이지에 해당하는 부분만 잘라내기
-    currentProducts = products.slice(indexOfFirst, indexOfLast)
-    return currentProducts
-  }
+  const currentProducts = products.slice(indexOfFirst, indexOfLast)
 
   const navigate = useNavigate()
   const goToAddItem = () => {
     navigate('/additem')
   }
 
-  const sortProducts = (products, order) => {
+  const sortProducts = (products: Products, order: string) => {
     if (order === 'favoriteCount') {
       return products.sort((a, b) => b.favoriteCount - a.favoriteCount)
     } else {
       return products.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        (a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
       )
     }
   }
@@ -84,7 +93,7 @@ function Items() {
 
   // 반응형에 따라 보여지는 상품의 개수
   // 전체 상품
-  function getProductsPerPage(screenSize) {
+  function getProductsPerPage(screenSize: string) {
     switch (screenSize) {
       case 'desktop':
         return 10
@@ -98,7 +107,7 @@ function Items() {
   }
 
   // 베스트 상품
-  function getBestProductsPerPage(screenSize) {
+  function getBestProductsPerPage(screenSize: string) {
     switch (screenSize) {
       case 'desktop':
         return 4
@@ -147,7 +156,7 @@ function Items() {
     }
   }, [])
 
-  const handleKeywordSearch = (e) => {
+  const handleKeywordSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value)
   }
 
@@ -157,7 +166,7 @@ function Items() {
   }
 
   // 선택된 옵션을 처리하는 함수
-  const selectOption = (value) => {
+  const selectOption = (value: string) => {
     setOrder(value)
     setDropdownView(false) // 옵션 선택 후 드롭다운 닫기
   }
@@ -174,7 +183,7 @@ function Items() {
           <div className={styles['all-products-sub-nav']}>
             <h3 className={styles['products-name']}>전체 상품</h3>
             <div className={styles.search}>
-              <img src={require('../assets/icon_search.png')} />
+              <img src={icon_search} />
               <input
                 className={styles['search-input']}
                 placeholder="검색할 상품을 입력해주세요"
@@ -187,13 +196,16 @@ function Items() {
             <div className={styles.dropdown} onClick={toggleDropdown}>
               <picture>
                 <source
-                  srcset={require('../assets/icon_order.png')}
+                  srcSet={icon_order}
                   media="all and (max-width: 768px)"
                 />
                 <span className={styles.valueName}>
-                  {selectOptions.find((option) => option.value === order).label}
+                  {
+                    selectOptions.find((option) => option.value === order)
+                      ?.label
+                  }
                 </span>
-                <img src={require('../assets/icon_dropdown.png')} />
+                <img src={icon_dropdown} />
               </picture>
               {isDropdownView && (
                 <ul className={styles.dropdownMenu}>
@@ -211,7 +223,7 @@ function Items() {
           </div>
         </div>
 
-        <ProductList products={currentProducts(products)} />
+        <ProductList products={currentProducts} />
       </div>
       <Pagination
         productsPerPage={productsPerPage}

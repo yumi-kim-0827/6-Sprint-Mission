@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import { Link, useParams } from 'react-router-dom'
 import styles from '../styles/itemsdetail.module.css'
@@ -5,68 +6,56 @@ import { useEffect, useState } from 'react'
 import { getProductsComments, getProductsDetail } from '../api/api'
 import { CommentNotFound } from '../components'
 
+import icon_optionbar from '../assets/icon_optionbar.png'
+import icon_back from '../assets/icon_back.png'
+import icon_favorite from '../assets/icon_favorite.png'
+import { displayTime } from '../utils/displayTime.ts'
+
+type ItemData = {
+  id: string
+  name: string
+  images: string[]
+  price: number
+  favoriteCount: number
+  tags: string[]
+  description: string
+}
+
+type CommentData = {
+  map(
+    arg0: (comment: any, index: any) => import('react/jsx-runtime').JSX.Element
+  ): import('react').ReactNode
+  length: number
+  content: string
+  createdAt: string
+  writer: {
+    image: string
+    nickname: string
+  }
+}
+
 function ItemsDetail() {
   const { id } = useParams()
-  const [item, setItem] = useState(null)
-  const [comments, setComments] = useState(null)
+  const [item, setItem] = useState<ItemData | null>(null)
+  const [comments, setComments] = useState<CommentData | null>(null)
+
+  const fetchData = async (id: string) => {
+    const [itemData, commentsData] = await Promise.all([
+      getProductsDetail(id),
+      getProductsComments(id),
+    ])
+    setItem(itemData)
+    setComments(commentsData)
+  }
 
   useEffect(() => {
-    const fetchItem = async () => {
-      try {
-        const data = await getProductsDetail(id)
-        setItem(data)
-      } catch (error) {
-        console.error('상품 정보를 가져오는데 실패했습니다', error)
-      }
+    if (id !== undefined) {
+      fetchData(id)
     }
-    fetchItem()
-
-    const fetchComments = async () => {
-      try {
-        const comments = await getProductsComments(id)
-        setComments(comments)
-        console.log(comments.createdAt)
-      } catch (error) {
-        console.log('댓글을 가져오는데 실패했습니다', error)
-      }
-    }
-    fetchComments()
   }, [id])
 
-  if (!item) {
+  if (!item || !comments) {
     return <div>Loading...</div>
-  }
-
-  if (!comments) {
-    return <div>Loading...</div>
-  }
-
-  const displayTime = (time) => {
-    const date = new Date(time)
-    const now = Date.now()
-
-    const milliSeconds = now - date
-
-    const seconds = milliSeconds / 1000
-    const minutes = seconds / 60
-    const hours = minutes / 60
-    const days = hours / 24
-    const months = days / 30
-    const years = months / 12
-
-    if (seconds < 60) {
-      return '방금 전'
-    } else if (minutes < 60) {
-      return `${Math.floor(minutes)}분 전`
-    } else if (hours < 24) {
-      return `${Math.floor(hours)}시간 전`
-    } else if (days < 30) {
-      return `${Math.floor(days)}일 전`
-    } else if (months < 12) {
-      return `${Math.floor(months)}달 전`
-    } else {
-      return `${Math.floor(years)}년 전`
-    }
   }
 
   return (
@@ -80,10 +69,7 @@ function ItemsDetail() {
         <div className={styles['detail-description']}>
           <div className={styles['detail-nav']}>
             <p className={styles['detail-name']}>{item.name}</p>
-            <img
-              src={require('../assets/icon_optionbar.png')}
-              className={styles.navimg}
-            ></img>
+            <img src={icon_optionbar} className={styles.navimg}></img>
           </div>
           <h1>
             {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
@@ -101,7 +87,7 @@ function ItemsDetail() {
             ))}
           </div>
           <div className={styles.favoriteCount}>
-            <img src={require('../assets/icon_favorite.png')} />
+            <img src={icon_favorite} />
             {item.favoriteCount}
           </div>
         </div>
@@ -125,10 +111,7 @@ function ItemsDetail() {
             <>
               <div className={styles.usernav}>
                 <p>{comment.content}</p>
-                <img
-                  src={require('../assets/icon_optionbar.png')}
-                  className={styles.navimg}
-                ></img>
+                <img src={icon_optionbar} className={styles.navimg}></img>
               </div>
 
               <div key={index} className={styles.user}>
@@ -150,10 +133,7 @@ function ItemsDetail() {
         <Link to={'/items'}>
           <button className={styles.back}>
             목록으로 돌아가기
-            <img
-              src={require('../assets/icon_back.png')}
-              className={styles.backimg}
-            />
+            <img src={icon_back} className={styles.backimg} />
           </button>
         </Link>
       </div>
