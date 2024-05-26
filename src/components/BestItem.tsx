@@ -2,13 +2,13 @@ import React from 'react';
 import './style/BestItem.css';
 import { useNavigate } from 'react-router-dom';
 
-interface Props {
+type Props = {
   price: number;
   images: string;
   name: string;
   favoriteCount: number;
   id: number;
-}
+};
 
 export default function BestItem({ price, images, favoriteCount, name, id }: Props) {
   const formattedPrice = price.toLocaleString();

@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
-import { getItemsComments, GetComments } from '../api/getItemsComments';
+import { getItemsComments, GetCommentsResponse } from '../api/getItemsComments';
 import useItem from '../hooks/useItem';
 import ItemDetailCard from '../components/ItemDetailCard';
 import Comment from '../components/Comment';
@@ -15,7 +15,7 @@ type ParamsType = {
 export default function ItemDetails() {
   const { itemId } = useParams() as ParamsType;
   const item = useItem(itemId);
-  const [comments, setComments] = useState<GetComments[]>([]);
+  const [comments, setComments] = useState<GetCommentsResponse[]>([]);
   const [inquiryComment, setInquiryComment] = useState('');
   const nav = useNavigate();
 

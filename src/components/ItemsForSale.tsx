@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ItemForSale from './ItemForSale';
-import { GetItem } from 'api/getItems';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
 
-interface Item {
+type Item = {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -17,11 +16,11 @@ interface Item {
   description: string;
   name: string;
   id: number;
-}
+};
 
-interface ItemProps {
+type ItemProps = {
   items: Item[];
-}
+};
 
 export default function ItemsForSale({ items }: ItemProps) {
   const [itemsToShow, setItemsToShow] = useState(10);

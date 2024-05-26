@@ -5,19 +5,19 @@ import img_logo_big from '../assets/img_logo_big.png';
 import google from '../assets/google.png';
 import kakao from '../assets/kakao.png';
 
-interface FormState {
+type FormState = {
   email: string;
   nickname: string;
   password: string;
   passwordConfirmation: string;
-}
+};
 
-interface ErrorsState {
+type ErrorsState = {
   email?: string;
   nickname?: string;
   password?: string;
   passwordConfirmation?: string;
-}
+};
 
 export default function SignupPage() {
   const [form, setForm] = useState<FormState>({

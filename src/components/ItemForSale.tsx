@@ -2,13 +2,13 @@ import React from 'react';
 import './style/ItemForSale.css';
 import { useNavigate } from 'react-router-dom';
 
-interface Props {
+type Props = {
   favoriteCount: number;
   images: string[];
   price: number;
   name: string;
   id: number;
-}
+};
 
 export default function ItemForSale({ price, images, favoriteCount, name, id }: Props) {
   const formattedPrice = price.toLocaleString();

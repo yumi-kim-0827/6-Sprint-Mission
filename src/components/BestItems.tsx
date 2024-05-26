@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style/BestItems.css';
 import BestItem from './BestItem';
 
-interface Item {
+type Item = {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -13,12 +13,12 @@ interface Item {
   description: string;
   name: string;
   id: number;
-}
+};
 
-interface ItemProps {
+type ItemProps = {
   totalCount?: number;
   list?: Item[];
-}
+};
 
 export default function BestItems({ list = [] }: ItemProps) {
   const [itemsToShow, setItemsToShow] = useState(getInitialItemsToShow());

@@ -3,9 +3,9 @@ import 'moment/locale/ko';
 import Profile from './Profile';
 import styled from 'styled-components';
 import ic_kebab from '../assets/ic_kebab.png';
-import { GetComments } from 'api/getItemsComments';
+import { GetCommentsResponse } from 'api/getItemsComments';
 
-export default function Comment({ content, createdAt, writer }: GetComments) {
+export default function Comment({ content, createdAt, writer }: GetCommentsResponse) {
   const { nickname, image } = writer;
   let nowDate = moment(createdAt).startOf('hour').fromNow();
 

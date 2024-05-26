@@ -2,11 +2,11 @@ import { MouseEvent, ChangeEvent, useEffect, useRef, useState } from 'react';
 import './style/FileInput.css';
 import DeleteButton from './DeleteButton';
 
-interface Props {
+type Props = {
   name: string;
   value: string | null;
   onChange: (name: string, value: File | null) => void;
-}
+};
 
 export default function FileInput({ name, value, onChange }: Props) {
   const [preview, setPreview] = useState<string>();

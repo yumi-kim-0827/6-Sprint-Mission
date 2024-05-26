@@ -6,7 +6,7 @@ import { getItems } from '../api/getItems';
 
 import '../styles/ItemsPage.css';
 
-interface Item {
+type Item = {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -17,12 +17,12 @@ interface Item {
   description: string;
   name: string;
   id: number;
-}
+};
 
-interface ItemProps {
+type ItemProps = {
   totalCount: number;
   list?: Item[];
-}
+};
 
 export default function Items() {
   usePageTitle('판다마켓: 중고마켓');

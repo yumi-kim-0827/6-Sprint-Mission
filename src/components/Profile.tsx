@@ -2,11 +2,11 @@ import React from 'react';
 import Avatar from './Avatar';
 import styled from 'styled-components';
 
-interface Props {
+type Props = {
   nickname: string;
   image: string;
   children: React.ReactNode;
-}
+};
 
 export default function Profile({ image, nickname, children }: Props): JSX.Element {
   return (

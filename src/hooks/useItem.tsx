@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GetItem, getItemsId } from '../api/getItemsId';
+import { GetItemResponse, getItemsId } from '../api/getItemsId';
 
 export default function useItem(productId: string) {
-  const [item, setItem] = useState<GetItem | null>(null);
+  const [item, setItem] = useState<GetItemResponse | null>(null);
   const nav = useNavigate();
 
   useEffect(() => {

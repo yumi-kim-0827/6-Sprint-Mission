@@ -2,16 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import ic_kebab from '../assets/ic_kebab.png';
 import big_grayHeart from '../assets/big_grayHeart.png';
-import { GetItem } from 'api/getItemsId';
+import { GetItemResponse } from 'api/getItemsId';
 
-interface TitleStyle {
+type TitleStyle = {
   fontSize: string;
   fontWeight: string;
   ipadSize: string;
   deskTopSize: string;
-}
+};
 
-export default function ItemDetailCard({ name, description, images, price, tags, favoriteCount }: Partial<GetItem>) {
+export default function ItemDetailCard({
+  name,
+  description,
+  images,
+  price,
+  tags,
+  favoriteCount,
+}: Partial<GetItemResponse>) {
   const formattedPrice = price?.toLocaleString();
   return (
     <Container>

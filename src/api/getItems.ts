@@ -1,6 +1,6 @@
 import { instance } from './Axios';
 
-export interface ItemsResponse {
+export type ItemsResponse = {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -11,12 +11,12 @@ export interface ItemsResponse {
   description: string;
   name: string;
   id: number;
-}
+};
 
-export interface GetItemResponse {
+export type GetItemResponse = {
   totalCount: number;
   list: ItemsResponse[];
-}
+};
 
 export const getItems = async (): Promise<GetItemResponse> => {
   try {

@@ -5,12 +5,12 @@ import img_logo_big from '../assets/img_logo_big.png';
 import google from '../assets/google.png';
 import kakao from '../assets/kakao.png';
 
-interface ErrorState {
+type ErrorState = {
   emailNull: boolean;
   emailInvalid: boolean;
   passwordNull: boolean;
   passwordInvalid: boolean;
-}
+};
 
 export default function LoginPage(): JSX.Element {
   const [email, setEmail] = useState<string>('');

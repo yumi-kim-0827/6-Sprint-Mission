@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface Props {
+type Props = {
   img: string;
-}
+};
 
 export default function Avatar({ img }: Props) {
   return (
