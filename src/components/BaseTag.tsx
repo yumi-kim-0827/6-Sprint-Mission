@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 
 interface BaseTagProps {
   tag: string;
-  onClick: MouseEventHandler;
+  onClick?: MouseEventHandler;
   isEditable?: boolean;
   className?: string;
 }
@@ -18,7 +18,7 @@ const BaseTag = ({
   return (
     <TagEl className={className}>
       <p>{isEditable ? tag : `#${tag}`}</p>
-      {isEditable && <DeleteButton key={tag} onClick={onClick} />}
+      {isEditable && onClick && <DeleteButton onClick={onClick} />}
     </TagEl>
   );
 };
