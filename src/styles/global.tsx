@@ -95,6 +95,8 @@ body {
     sans-serif ;
   font-weight: 400;
   box-sizing: border-box;
+  overflow-x: hidden;
+  
 }
 
 html, 
