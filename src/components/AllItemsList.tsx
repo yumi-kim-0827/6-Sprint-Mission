@@ -1,24 +1,24 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
-import useFetchItems from '../api/useFetchItems';
-import { arrowDown, favoriteIcon, searchIcon, sortButton } from '../images';
-import paginationStore from '../store/paginationStore';
-import { useProductCountStore } from '../store/productCountStore';
-import formatNumber from '../utils/formatNumber';
-import { Pagination, SortDropdown } from './';
+import useFetchItems from "../api/useFetchItems";
+import { arrowDown, favoriteIcon, searchIcon, sortButton } from "../images";
+import paginationStore from "../store/paginationStore";
+import { useProductCountStore } from "../store/productCountStore";
+import formatNumber from "../utils/formatNumber";
+import { Pagination, SortDropdown } from ".";
 
 export default function AllItemsList() {
   // 정렬 옵션을 위한 객체입니다.
   const sortOptions = {
-    LIKE: '좋아요순',
-    NEWEST: '최신순',
+    LIKE: "좋아요순",
+    NEWEST: "최신순",
   };
 
   // 드롭다운 on off를 위한 state입니다.
   const [dropdownView, setDropdownView] = useState(false);
   // 최신순으로 데이터를 받아올지, 좋아요 순으로 데이터를 받아올지 정하는 state입니다.
-  const [orderBy, setOrderBy] = useState('favorite');
+  const [orderBy, setOrderBy] = useState("favorite");
   // 정렬 후 화면으로 최신순인지 좋아요순인지 보여줍니다.
   // * api를 받은 후 좋아요 순으로 정렬 되어 있어 기본 값을 좋아요순으로 바꾸었습니다.
   const [sortContent, setSortContent] = useState(sortOptions.LIKE);
@@ -29,10 +29,10 @@ export default function AllItemsList() {
   const currentPage = paginationStore((state) => state.currentPage);
 
   // 드롭다운을 외부에서 클릭 시 닫히게 하기위한 Ref와 Effect입니다.
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<any>(null);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: MouseEvent) => {
       // 드롭다운이 존재하고 클릭한 요소가 드롭다운 밖에 있으면 드롭다운을 닫습니다.
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownView(false);
@@ -107,7 +107,7 @@ export default function AllItemsList() {
       </div>
       <ul className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {data.list &&
-          data.list.map((post) => {
+          data.list.map((post: any) => {
             return (
               <li key={post.id}>
                 <Link to={`/items/${post.id}`} state={{ post }}>

@@ -1,7 +1,7 @@
 import { favoriteIcon } from '../images';
 import formatNumber from '../utils/formatNumber';
 
-export default function ItemIntroduction({ postedItems }) {
+export default function ItemIntroduction({ postedItems }: {postedItems: any}) {
   return (
     <div className="flex flex-col justify-center sm:flex-row">
       <img
@@ -21,9 +21,9 @@ export default function ItemIntroduction({ postedItems }) {
         <p className="mt-2">{postedItems.description}</p>
         <p className="mt-6">상품 태그</p>
         <div className="mt-3 flex flex-wrap gap-x-3">
-          {postedItems.tags?.map((tag) => {
+          {postedItems.tags.map((tag: any, idx: number) => {
             return (
-              <p key={tag.id}>
+              <p key={idx}>
                 <span className="flex gap-x-2 rounded-3xl bg-[var(--cool-gray50)] px-4 py-3">
                   #{tag}
                 </span>

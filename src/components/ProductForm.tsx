@@ -13,12 +13,15 @@ const formErrorMessage = {
 
 export default function ProductForm() {
   // 태그에 관한 state입니다.
-  const [tagState, setTagState] = useState({
+  const [tagState, setTagState] = useState<{
+    tags: string[];
+    tagInput: string;
+  }>({
     tags: [],
     tagInput: '',
   });
   // 미리보기 이미지를 위한 state입니다.
-  const [previewImage, setPreviewImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState<any | null>(null);
 
   // react-hook-form으로 form의 유효성 체크 및 에러 관리를 하였습니다.
   const {
@@ -28,11 +31,11 @@ export default function ProductForm() {
   } = useForm();
 
   // 태그를 위한 함수입니다.
-  const handleTagInput = (e) => {
+  const handleTagInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTagState({ ...tagState, tagInput: e.target.value });
   };
 
-  const handleTagKeyDown = (e) => {
+  const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && tagState.tagInput.trim() !== '') {
       e.preventDefault();
       setTagState({
@@ -42,7 +45,7 @@ export default function ProductForm() {
     }
   };
 
-  const handleRemoveTag = (idx) => {
+  const handleRemoveTag = (idx: number) => {
     setTagState({
       ...tagState,
       tags: tagState.tags.filter((_, i) => i !== idx),
@@ -50,7 +53,8 @@ export default function ProductForm() {
   };
 
   // FileReader를 사용하여 미리보기 이미지를 보여주는 함수입니다.
-  const handleImageChange = (e) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
     const file = e.target.files[0];
     const reader = new FileReader();
 
@@ -64,7 +68,7 @@ export default function ProductForm() {
   };
 
   // * onSubmit테스트 코드입니다.
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log('로그인 데이터입니다', {
       ...data,
       tags: tagState.tags,
@@ -142,7 +146,7 @@ export default function ProductForm() {
         />
         {errors.productName && (
           <p className="mt-1 text-sm text-red-500">
-            {errors.productName.message}
+            {errors.productName.message?.toString()}
           </p>
         )}
       </div>
@@ -151,7 +155,7 @@ export default function ProductForm() {
           상품 소개
         </label>
         <textarea
-          type="text"
+          // type="text"
           id="productIntro"
           {...register('productIntro', {
             required: formErrorMessage.required,
@@ -163,7 +167,7 @@ export default function ProductForm() {
         ></textarea>
         {errors.productIntro && (
           <p className="mt-1 text-sm text-red-500">
-            {errors.productIntro.message}
+            {errors.productIntro.message?.toString()}
           </p>
         )}
       </div>
@@ -187,7 +191,9 @@ export default function ProductForm() {
           required
         />
         {errors.price && (
-          <p className="mt-1 text-sm text-red-500">{errors.price.message}</p>
+          <p className="mt-1 text-sm text-red-500">
+            {errors.price.message?.toString()}
+          </p>
         )}
       </div>
       <div className="mt-6 flex flex-col">

@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function CommentInput() {
   const [comment, setComment] = useState('');
 
-  const handleCommentChange = (e) => {
+  const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
 
