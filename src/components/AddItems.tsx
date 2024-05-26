@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaPlus, FaTimes } from "react-icons/fa";
 
@@ -10,18 +10,18 @@ const AddItem = () => {
     productPrice: "",
     productImage: "",
   });
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
   const [currentTag, setCurrentTag] = useState("");
-  const [imagePreview, setImagePreview] = useState("");
+  const [imagePreview, setImagePreview] = useState<string>("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    navigate.push("/");
+    navigate("/");
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       const newTag = currentTag.trim();
@@ -33,7 +33,7 @@ const AddItem = () => {
     }
   };
 
-  const handleTagRemove = (indexToRemove) => {
+  const handleTagRemove = (indexToRemove: number) => {
     setTags((prevTags) =>
       prevTags.filter((_, index) => index !== indexToRemove)
     );
@@ -48,17 +48,17 @@ const AddItem = () => {
     );
   };
 
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    if (selectedImage instanceof Blob) {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedImage = e.target.files?.[0];
+    if (selectedImage) {
       setProduct({
         ...product,
-        productImage: selectedImage,
+        productImage: selectedImage.name,
       });
 
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result);
+        setImagePreview(reader.result as string);
       };
       reader.readAsDataURL(selectedImage);
     } else {
@@ -66,7 +66,7 @@ const AddItem = () => {
     }
   };
 
-  const handleCancelPreview = (e) => {
+  const handleCancelPreview = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setProduct({
       ...product,
@@ -80,6 +80,7 @@ const AddItem = () => {
       <form onSubmit={handleSubmit}>
         <AddItemHeader>
           <AddItemTitle>상품 등록하기</AddItemTitle>
+          <input type="hidden" name="newProductForm" />
           <AddItemsButton type="submit" disabled={!isFormValid()}>
             등록
           </AddItemsButton>
@@ -114,7 +115,7 @@ const AddItem = () => {
             type="text"
             placeholder="상품명을 입력해주세요"
             value={product.productName}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productName: e.target.value })
             }
             required
@@ -126,7 +127,7 @@ const AddItem = () => {
           <StyledTextarea
             placeholder="상품 소개를 입력해주세요"
             value={product.productDescription}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productDescription: e.target.value })
             }
             required
@@ -139,7 +140,7 @@ const AddItem = () => {
             type="text"
             placeholder="판매 가격을 입력해주세요"
             value={product.productPrice}
-            onChange={(e) =>
+            onChange={(e: { target: { value: any } }) =>
               setProduct({ ...product, productPrice: e.target.value })
             }
             required
@@ -151,7 +152,9 @@ const AddItem = () => {
             type="text"
             placeholder="태그를 입력해주세요"
             value={currentTag}
-            onChange={(e) => setCurrentTag(e.target.value)}
+            onChange={(e: { target: { value: any } }) =>
+              setCurrentTag(e.target.value)
+            }
             onKeyDown={handleKeyDown}
             required
           />
@@ -186,30 +189,17 @@ const AddItemTitle = styled.h2`
   margin-bottom: 5px;
 `;
 
-const AddItemsButton = styled(Link)`
-  width: 60px;
-  height: 19px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-family: Pretendard;
+const AddItemsButton = styled.button`
+  padding: 10px 20px;
   font-size: 16px;
-  font-weight: 600;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  text-decoration: none;
-  ${({ disabled }) =>
-    !disabled &&
-    css`
-      background-color: #3691ff;
-    `}
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: #9ca3af;
-      cursor: not-allowed;
-    `}
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  &:disabled {
+    background-color: #ccc;
+  }
 `;
 
 const AddImgContainer = styled.div`

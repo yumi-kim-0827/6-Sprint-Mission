@@ -4,11 +4,31 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchProduct, fetchProductComments } from "../api";
 
+interface Product {
+  images: string[];
+  name: string;
+  price: number;
+  description: string;
+  tags: string[];
+  favoriteCount: number;
+}
+
+interface Comment {
+  content: string;
+  writer: {
+    image: string;
+    nickname: string;
+  };
+  createdAt: string;
+}
+
 const ProductDetail = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [comments, setComments] = useState([]);
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const handleCommentSubmit = () => {
     const newCommentData = {
@@ -31,10 +51,12 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProductDetail = async () => {
       try {
-        const productData = await fetchProduct(productId);
+        const productData = await fetchProduct(Number(productId));
         setProduct(productData);
       } catch (error) {
         console.error("Error fetching product detail:", error);
+        setError("상품 정보를 불러오는 데 실패했습니다.");
+      } finally {
       }
     };
     fetchProductDetail();
@@ -43,7 +65,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const commentsData = await fetchProductComments(productId, 10);
+        const commentsData = await fetchProductComments(Number(productId), 10);
         setComments(commentsData);
       } catch (error) {
         console.error("Error fetching product comments:", error);
@@ -52,8 +74,16 @@ const ProductDetail = () => {
     fetchComments();
   }, [productId]);
 
-  if (!product) {
+  if (loading) {
     return <div>로딩중...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!product) {
+    return <div>상품 정보를 불러올 수 없습니다.</div>;
   }
 
   return (
@@ -75,7 +105,7 @@ const ProductDetail = () => {
           <ProductDetailTagBox>
             <ProductDetailTagTitle>상품 태그</ProductDetailTagTitle>
             <TagContainer>
-              {product.tags.map((tag) => (
+              {product.tags.map((tag: any) => (
                 <Tag key={tag}>#{tag}</Tag>
               ))}
             </TagContainer>
@@ -109,7 +139,7 @@ const ProductDetail = () => {
         ) : (
           comments.map((comment) => (
             <>
-              <ProductDetailComment key={comment}>
+              <ProductDetailComment>
                 <ProductCommentContent>{comment.content}</ProductCommentContent>
                 <ProductDetailCommentWriter
                   src={comment.writer.image}
