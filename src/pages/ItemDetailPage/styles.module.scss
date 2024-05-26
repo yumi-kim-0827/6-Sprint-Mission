@@ -1,0 +1,364 @@
+@import "../../styles/";
+
+.PageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderContainer {
+  width: 1200px;
+
+  display: flex;
+  justify-content: center;
+  padding-block-start: 24px;
+  gap: 10px;
+  padding-block-end: 30px;
+}
+
+.itemDetailImage {
+  width: 486px;
+  height: 486px;
+}
+
+.itemDetailImage > img {
+  width: inherit;
+  height: inherit;
+  border-radius: 28.59px;
+  border: 1px solid var(--font-color);
+  object-fit: cover;
+}
+
+.itemDetailContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline-start: 10px;
+}
+
+.itemDetailContentElement {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.itemDetailHeader {
+  width: 100%;
+  padding-block-start: 20px;
+  border-bottom: 1px solid var(--faq-font-color);
+}
+
+.itemDetailLikeElement {
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block-end: 10px;
+}
+
+.itemDetailTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.itemDetailTitleContent {
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28.64px;
+  padding-block-end: 8px;
+}
+
+.itemDetailPrice {
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 47.73px;
+  padding-block-end: 18px;
+}
+
+.itemDetailLabel {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19.6px;
+}
+
+.itemDetailDescription {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22.4px;
+}
+.itemDetailTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.itemDetailTag {
+  border-radius: 26px;
+  padding: 6px 16px;
+  gap: 10px;
+  width: fit-content;
+  background-color: var(--cool-gray-100);
+  color: var(--cool-gray-800);
+  font-family: Pretendard;
+  font-weight: 400;
+  size: 16px;
+  line-height: 24px;
+}
+
+.LikeCountButton {
+  border-radius: 35px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 87px;
+  height: 40px;
+  background-color: var(--button-font-color);
+  border: 1px solid var(--cool-gray-200);
+}
+
+.fillLikeButton {
+  fill: red;
+}
+
+.LikeCount {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19.09px;
+}
+
+.BottomContainer {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  align-content: center;
+  padding-block-start: 30px;
+  border-top: 1px solid var(--cool-gray-200);
+}
+
+.AskContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.AskContainerForm {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  gap: 10px;
+}
+
+.AskLabel {
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  color: var(--askitem-label-color);
+}
+
+.AskTextarea {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  height: 104px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  background-color: var(--cool-gray-100);
+  resize: none;
+}
+
+.AskSubmitbutton {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  text-align: center;
+
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+
+  padding: 12px 23px;
+
+  background-color: var(--panda-gray-color);
+  color: var(--button-font-color);
+  text-decoration: none;
+  border: none;
+
+  display: flex;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.AskSubmitbuttonActive {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  text-align: center;
+
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+
+  padding: 12px 23px;
+
+  background-color: var(--brand-blue);
+  color: var(--button-font-color);
+  text-decoration: none;
+  border: none;
+
+  display: flex;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.CommentContainer {
+  display: flex;
+  flex-direction: column;
+  padding-block: 20px;
+  gap: 10px;
+}
+
+.CommentBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CommentContent {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+.NoMoreCommentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 15px;
+}
+
+.NoMoreCommentImage {
+}
+
+.NoMoreCommentContent {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--panda-gray-color);
+}
+
+.ProfileBox {
+  display: flex;
+  gap: 10px;
+  padding-block: 20px;
+  border-bottom: 1px solid var(--faq-font-color);
+}
+
+.ProfileImage {
+  width: 40px;
+  height: 40px;
+}
+
+.profileNicknameBox {
+  height: 40px;
+}
+
+.profileNicknameBox {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.71px;
+}
+
+.UploadDate {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.32px;
+  color: var(--panda-gray-color);
+}
+
+.ReturnItemButtonContainer {
+  display: flex;
+  justify-content: center;
+
+  padding-block-start: 20px;
+}
+
+.ReturnItemButton {
+  width: 240px;
+  height: 48px;
+
+  border-radius: 40px;
+  padding: 12px 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background-color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.ReturnItemButtonContent {
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--button-font-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .PageContainer {
+    padding-inline: 30px;
+  }
+  .HeaderContainer {
+    width: 100%;
+  }
+  .BottomContainer {
+    width: 100%;
+  }
+
+  .itemDetailImage {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .PageContainer {
+    padding-inline: 30px;
+  }
+
+  .HeaderContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .BottomContainer {
+    width: 100%;
+  }
+
+  .itemDetailImage {
+    width: 340px;
+    height: 340px;
+  }
+}
