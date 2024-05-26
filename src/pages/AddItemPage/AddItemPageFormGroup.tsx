@@ -4,8 +4,15 @@ import AddItemPageImageInput from "./AddItemPageImageInput";
 import BaseInput from "../../components/BaseInput";
 import BaseTextArea from "../../components/BaseTextArea";
 
-interface Props {
-  label: "name" | "price" | "description" | "tag" | "image";
+enum FormType {
+  name = "상품명",
+  price = "판매가격",
+  description = "상품 소개",
+  tag = "태그",
+  image = "상품 이미지",
+}
+interface AddItemPageFormGroupProps {
+  label: keyof typeof FormType;
   placeholder?: string;
   onChange?: () => void;
   onBlur?: () => void;
@@ -20,27 +27,17 @@ const AddItemPageFormGroup = ({
   onBlur,
   onKeyDown,
   value,
-}: Props) => {
-  const labelTable = {
-    name: "상품명",
-    price: "판매가격",
-    description: "상품 소개",
-    tag: "태그",
-    image: "상품 이미지",
-  };
-
-  const labelName = labelTable[label];
+}: AddItemPageFormGroupProps) => {
+  const labelName = FormType[label];
 
   let InputComponent;
   switch (label) {
     case "image":
       InputComponent = (
         <AddItemPageImageInput
-          className="form__imgInput"
           label={label}
           placeholder={placeholder}
           onChange={onChange}
-          onKeyDown={onKeyDown}
         />
       );
       break;

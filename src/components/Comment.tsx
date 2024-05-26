@@ -2,21 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import UserProfile from "./UserProfile";
 
-interface CommentType {
-  writer: {
-    image: string;
-    nickname: string;
-  };
-  content: string;
-  createdAt: string;
-}
-
 interface CommentProps {
-  data: CommentType;
+  comment: Comment;
 }
 
-const Comment = ({ data }: CommentProps) => {
-  const { writer, content, createdAt } = data;
+const Comment = ({ comment }: CommentProps) => {
+  const { writer, content, createdAt } = comment;
   const { image, nickname } = writer;
 
   return (

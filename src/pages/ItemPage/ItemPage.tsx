@@ -5,18 +5,7 @@ import { getItems } from "../../services/api.js";
 import useWindowSize from "../../hooks/useWindowSize.js";
 import usePagination from "../../hooks/usePagination.js";
 
-interface OrderType {
-  createdAt: string;
-  favoriteCount: string;
-}
-
-interface Item {
-  id: number;
-  name: string;
-  price: number;
-  favoriteCount: number;
-  images: string[];
-}
+type OrderType = "createdAt" | "favoriteCount";
 
 const BEST_ITEMS_LIMIT = {
   small: 1,
@@ -32,13 +21,11 @@ const ITEMS_LIMIT = {
 
 function ItemPage() {
   const [items, setItems] = useState<Item[]>([]);
-  const [bestItems, setBestItems] = useState([]);
-  const [order, setOrder] = useState<keyof OrderType>("createdAt");
+  const [bestItems, setBestItems] = useState<Item[]>([]);
+  const [order, setOrder] = useState<OrderType>("createdAt");
   const [searchValue, setSearchValue] = useState("");
-  const { width } = useWindowSize();
-  const [screenSize, setScreenSize] = useState<"small" | "medium" | "large">(
-    "medium"
-  );
+  const { width = window.innerWidth } = useWindowSize();
+  const [screenSize, setScreenSize] = useState<DeviceSize>("medium");
 
   useEffect(() => {
     width >= 1200

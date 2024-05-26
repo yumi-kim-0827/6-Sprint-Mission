@@ -8,16 +8,6 @@ import { getItem, getItemComments } from "../../services/api.js";
 import BackIcon from "../../assets/icon/back.svg?react";
 import EmptyCommentImage from "../../assets/img/Img_inquiry_empty.png";
 
-interface CommentType {
-  id: number;
-  writer: {
-    image: string;
-    nickname: string;
-  };
-  content: string;
-  createdAt: string;
-}
-
 const EmptyCommentImageSection = () => {
   return (
     <S.EmptyCommentImageSection>
@@ -62,8 +52,8 @@ const ItemDetailPage = () => {
           <ItemDetailPageCardLarge data={product} />
           <CommentInputBox title="문의하기" />
           {comments.length > 0 ? (
-            comments.map((comment: CommentType) => (
-              <Comment key={comment.id} data={comment} />
+            comments.map((comment: Comment) => (
+              <Comment key={comment.id} comment={comment} />
             ))
           ) : (
             <EmptyCommentImageSection />

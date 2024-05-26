@@ -4,14 +4,6 @@ import styled from "styled-components";
 import BaseCard from "../../components/BaseCard";
 import CardFavorites from "../../components/CardFavorites";
 
-interface Item {
-  id: number;
-  name: string;
-  price: number;
-  favoriteCount: number;
-  images: string[];
-}
-
 interface ItemPageCardProps {
   className?: string;
   item: Item;

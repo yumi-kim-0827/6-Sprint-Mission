@@ -7,7 +7,7 @@ import DefaultProfileImage from "../assets/icon/profile.svg";
 interface UserProfileProps {
   image?: string;
   nickname?: string;
-  updatedAt: string;
+  updatedAt: Date;
 }
 
 const UserProfile = ({

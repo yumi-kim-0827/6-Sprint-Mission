@@ -2,24 +2,17 @@ import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import BaseInput from "../../components/BaseInput";
 import DeleteButton from "../../components/DeleteButton";
-import BaseIcon from "../../components/BaseIcon";
-import plus from "../../assets/icon/plus.svg";
+import PlusIcon from "../../assets/icon/plus.svg?react";
 
 interface Props {
   className?: string;
-  label?: string;
   placeholder?: string;
   value?: string;
   onChange?: () => void;
   onKeyDown?: () => void;
 }
 
-const AddItemPageImageInput = ({
-  className,
-  label,
-  placeholder,
-  value,
-}: Props) => {
+const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
   const [postImg, setPostImg] = useState<File[]>([]);
   const [previewImg, setPreviewImg] = useState("");
 
@@ -50,13 +43,15 @@ const AddItemPageImageInput = ({
 
   return (
     <StyledImgInput className={className}>
-      <label>
-        <ImageInputIcon src={plus} />
+      <label htmlFor="itemImages">
+        <PlusIcon />
         <p>{placeholder}</p>
         <BaseInput
+          id="itemImages"
+          name="itemImages"
           type="file"
           accept="image/*"
-          onChange={() => handleUploadFile}
+          onChange={handleUploadFile}
           value={value}
         />
       </label>
@@ -108,6 +103,11 @@ const StyledImgInput = styled.div`
     border-radius: 12px;
   }
 
+  svg {
+    width: 48px;
+    height: 48px;
+  }
+
   @media screen and (min-width: 1200px) {
     label,
     img {
@@ -115,11 +115,6 @@ const StyledImgInput = styled.div`
       height: 282px;
     }
   }
-`;
-
-const ImageInputIcon = styled(BaseIcon)`
-  width: 48px;
-  height: 48px;
 `;
 
 const Preview = styled.div`

@@ -1,4 +1,4 @@
-const BASE_URL = "https://panda-market-api.vercel.app";
+import { API_BASE_URL } from "../constants/common";
 
 export const fetcher = async ({
   resource,
@@ -7,7 +7,9 @@ export const fetcher = async ({
   headers = {},
 }) => {
   const queryString = new URLSearchParams(query).toString();
-  const url = `${BASE_URL}/${resource}${queryString ? `?${queryString}` : ""}`;
+  const url = `${API_BASE_URL}/${resource}${
+    queryString ? `?${queryString}` : ""
+  }`;
 
   try {
     const response = await fetch(url, {

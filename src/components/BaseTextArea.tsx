@@ -42,6 +42,7 @@ const StyledTextArea = styled.textarea`
   border: none;
   border-radius: 12px;
   background-color: var(--color-cool-gray-100);
+  font-size: 16px;
   resize: none;
 
   &::placeholder {

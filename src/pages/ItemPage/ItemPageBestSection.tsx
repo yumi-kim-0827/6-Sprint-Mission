@@ -2,14 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ItemPageCard from "./ItemPageCard";
 
-interface Item {
-  id: number;
-  name: string;
-  price: number;
-  favoriteCount: number;
-  images: string[];
-}
-
 interface BestItems {
   bestItems: Item[];
 }
