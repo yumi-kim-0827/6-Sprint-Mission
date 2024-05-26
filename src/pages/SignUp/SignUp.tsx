@@ -3,17 +3,7 @@ import { Link } from "react-router-dom";
 import * as S from "./SignUp.style.js";
 import UserForm from "../../components/UserForm.js";
 import pandaLogo from "../../assets/img/panda-logo.svg";
-import GoogleIcon from "../../assets/icon/google-round.svg?react";
-import KaKaoIcon from "../../assets/icon/kakao-round.svg?react";
-
-const SOCIAL_LOGIN = [
-  { name: "구글", href: "https://www.google.com/", icon: <GoogleIcon /> },
-  {
-    name: "카카오",
-    href: "https://www.kakaocorp.com/page/",
-    icon: <KaKaoIcon />,
-  },
-];
+import SOCIAL_LOGIN from "../../constants/socialLogin.js";
 
 const SignUp = () => {
   return (
