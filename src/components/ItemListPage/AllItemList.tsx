@@ -1,8 +1,15 @@
-import heartIcon from "../assets/heart-icon.svg";
-import "../styles/AllItemList.css";
+import Item from "types/Item";
+import heartIcon from "assets/icons/heart-icon.svg";
+import "styles/AllItemList.css";
 import { Link } from "react-router-dom";
+import { ChangeEvent, FormEvent } from "react";
 
-function AllItem({ item, className = "" }) {
+interface AllItemProps {
+  item: Item;
+  className?: string;
+}
+
+function AllItem({ item, className = "" }: AllItemProps) {
   const { price, favoriteCount, images, name } = item;
   const classNames = `item-img-container${className}`;
   return (
@@ -20,12 +27,19 @@ function AllItem({ item, className = "" }) {
   );
 }
 
+interface Props {
+  items: Item[];
+  handleSortedChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  className: string;
+  handleSearchSubmit: (e: FormEvent<HTMLFormElement>) => void;
+}
+
 function AllItemList({
   items,
   handleSortedChange,
   className,
   handleSearchSubmit,
-}) {
+}: Props) {
   return (
     <section className="all-item-list">
       <div className="all-item-header">

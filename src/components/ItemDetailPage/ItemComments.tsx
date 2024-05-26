@@ -1,27 +1,32 @@
 import styled from "styled-components";
 import { DescriptionContainer, KebabIcon } from "./ItemDetail";
-import arrowTurn from "../assets/arrow-turn.svg";
-import kebabIcon from "../assets/icon-kebab.svg";
+import arrowTurn from "assets/icons/arrow-turn.svg";
+import kebabIcon from "assets/icons/icon-kebab.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   DARK_GRAY,
   GRAY_200,
   INPUT_COLOR,
   PRIMARY_COLOR,
-} from "../constants/color";
+} from "constants/color";
 import moment from "moment";
 import "moment/locale/ko";
+import ItemComment from "types/comment";
 
-export default function ItemComments({ comments }) {
-  const [comment, setComment] = useState("");
+interface Props {
+  comments: ItemComment[];
+}
 
-  const handleChangeComment = ({ target }) => {
-    setComment(target.value);
+export default function ItemComments({ comments }: Props) {
+  const [comment, setComment] = useState<string>("");
+
+  const handleChangeComment = (e: ChangeEvent<HTMLInputElement>) => {
+    setComment(e.target.value);
   };
 
   // 날짜 및 시간 형식 처리
-  const getTimeAgo = (updatedAt) => {
+  const getTimeAgo = (updatedAt: string) => {
     return moment(updatedAt).fromNow();
   };
 
@@ -120,7 +125,7 @@ const CommentInput = styled.input`
   }
 `;
 
-const CommentButton = styled.button`
+const CommentButton = styled.button<{ comment: string }>`
   background-color: ${({ comment }) => (comment ? PRIMARY_COLOR : DARK_GRAY)};
   border: none;
   border-radius: 8px;

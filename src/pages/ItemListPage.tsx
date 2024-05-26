@@ -1,28 +1,37 @@
 import "../styles/ItemPage.css";
-import { useEffect, useState } from "react";
-import { getItems } from "../services/api";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { getItems } from "services/api";
 import "../styles/main.css";
-import BestItemList from "../components/BestItemList";
-import { AllItemList } from "../components/AllItemList";
-import Pagination from "../components/Pagination";
+import BestItemList from "components/ItemListPage/BestItemList";
+import Pagination from "components/ItemListPage/Pagination";
+import Item from "types/Item";
+import { AllItemList } from "components/ItemListPage/AllItemList";
+
+interface ItemListOptions {
+  order: string;
+  page: number;
+  pageSize: number;
+  keyword?: string;
+}
 
 function ItemListPage() {
-  const [allItems, setAllItems] = useState([]);
-  const [bestItems, setBestItems] = useState([]);
-  const [order, setOrder] = useState("recent");
-  const [keyword, setKeyword] = useState("");
-  const [page, setPage] = useState(1); // 현재 페이지
-  const [pageSize, setPageSize] = useState(10); // 페이지 당 상품 수
-  const [totalItemCount, setTotalItemCount] = useState(0); // 총 상품 갯수
+  const [allItems, setAllItems] = useState<Item[]>([]);
+  const [bestItems, setBestItems] = useState<Item[]>([]);
+  const [order, setOrder] = useState<string>("recent");
+  const [keyword, setKeyword] = useState<string>("");
+  const [page, setPage] = useState<number>(1); // 현재 페이지
+  const [pageSize, setPageSize] = useState<number>(10); // 페이지 당 상품 수
+  const [totalItemCount, setTotalItemCount] = useState<number>(0); // 총 상품 갯수
 
-  const handleSortedChange = (e) => {
+  const handleSortedChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOrder(e.target.value);
   };
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setKeyword(e.target["search"].value);
+    const target = e.currentTarget as HTMLFormElement;
+    setKeyword(target.search.value);
 
-    handLoadAllItemList(keyword);
+    handLoadAllItemList({ order, page, pageSize, keyword });
   };
   const handLoadBestItemList = async () => {
     const { list } = await getItems({
@@ -31,7 +40,7 @@ function ItemListPage() {
     });
     setBestItems(list);
   };
-  const handLoadAllItemList = async (options) => {
+  const handLoadAllItemList = async (options: ItemListOptions) => {
     const { list, totalCount } = await getItems(options);
     setAllItems(list);
     setTotalItemCount(totalCount);

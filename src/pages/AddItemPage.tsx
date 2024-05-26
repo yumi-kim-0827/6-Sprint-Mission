@@ -1,9 +1,17 @@
-import { useEffect, useState } from "react";
-import AddItemFileInput from "../components/AddItemFileInput";
-import "../styles/AddItemPage.css";
-import AddItemTagsInput from "../components/AddItemTagsInput";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import AddItemFileInput from "../components/AddItemPage/AddItemFileInput";
+import "styles/AddItemPage.css";
+import AddItemTagsInput from "../components/AddItemPage/AddItemTagsInput";
 
-const INITIAL_VALUES = {
+interface InitialValues {
+  name: string;
+  description: string;
+  price: string;
+  images: File[];
+  tags: string[];
+}
+
+const INITIAL_VALUES: InitialValues = {
   name: "",
   description: "",
   price: "",
@@ -12,11 +20,11 @@ const INITIAL_VALUES = {
 };
 
 export default function AddItemPage() {
-  const [values, setValues] = useState(INITIAL_VALUES);
+  const [values, setValues] = useState<InitialValues>(INITIAL_VALUES);
 
-  const [isWriteAll, setIsWriteAll] = useState(true);
+  const [isWriteAll, setIsWriteAll] = useState<boolean>(true);
 
-  const handleChange = (name, value) => {
+  const handleChange = (name: string, value: string | File | null) => {
     // 배열(tags) 인 경우 배열을 생성
     setValues((prevValues) => ({
       ...prevValues,
@@ -24,26 +32,28 @@ export default function AddItemPage() {
     }));
   };
 
-  const handleClearClick = (index) => {
+  const handleClearClick = (index: number) => {
     setValues((prevValues) => ({
       ...prevValues,
       tags: prevValues.tags.filter((tag, i) => i !== index),
     }));
   };
 
-  const handleInputChange = ({ target }) => {
-    const { name, value } = target;
+  const handleInputChange = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("description", values.description);
     formData.append("price", values.price);
-    formData.append("images", values.images);
-    formData.append("tags", values.tags);
+    values.images.forEach((image) => formData.append("images", image));
+    values.tags.forEach((tag) => formData.append("tags", tag));
   };
 
   useEffect(() => {

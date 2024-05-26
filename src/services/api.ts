@@ -15,7 +15,7 @@ export async function getItems({
   return body;
 }
 
-export async function getItem(id) {
+export async function getItem(id: string) {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products/${id}`
   );
@@ -26,7 +26,7 @@ export async function getItem(id) {
   return body;
 }
 
-export async function getItemComments(id, limit = 10) {
+export async function getItemComments(id: string, limit = 10) {
   const response = await fetch(
     `https://panda-market-api.vercel.app/products/${id}/comments?limit=${limit}`
   );

@@ -1,9 +1,10 @@
-import Navbar from "./Navbar";
+import Navbar from "./components/common/Navbar";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import ItemListPage from "../pages/ItemListPage";
-import Home from "../pages/Home";
-import AddItemPage from "../pages/AddItemPage";
-import ItemDetailPage from "../pages/ItemDetailPage";
+import ItemListPage from "./pages/ItemListPage";
+import Home from "./pages/Home";
+import AddItemPage from "./pages/AddItemPage";
+import ItemDetailPage from "./pages/ItemDetailPage";
+import LoginPage from "pages/LoginPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/items" element={<ItemListPage />} />
         <Route path="/items/:itemId" element={<ItemDetailPage />} />
         <Route path="/addItem" element={<AddItemPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

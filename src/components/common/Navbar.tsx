@@ -1,12 +1,12 @@
-import "../styles/Navbar.css";
-import pandaLogoImg from "../assets/panda-logo.svg";
-import pandaTextLogoImg from "../assets/panda-text-logo.svg";
+import "styles/Navbar.css";
+import pandaLogoImg from "assets/images/panda-logo.svg";
+import pandaTextLogoImg from "assets/images/panda-text-logo.svg";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
 
-  const isActive = (pathname) => {
+  const isActive = (pathname: string): string => {
     return location.pathname.startsWith(pathname) ? "active-category" : "";
   };
 
@@ -46,7 +46,7 @@ function Navbar() {
           </div>
         </div>
         <li className="login-btn-container">
-          <Link to="/" className="login-btn">
+          <Link to="/login" className="login-btn">
             로그인
           </Link>
         </li>
