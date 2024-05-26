@@ -1,8 +1,7 @@
 import { ChangeEventHandler } from "react";
 import styled from "styled-components";
-import BaseIcon from "./BaseIcon";
 import BaseInput from "./BaseInput";
-import searchIcon from "../assets/icon/search.svg";
+import SearchIcon from "../assets/icon/search.svg?react";
 
 interface SearchInputProps {
   className?: string;
@@ -24,11 +23,11 @@ const SearchInput = ({
 
   return (
     <StyledSearchInput className={className}>
-      <StyledIcon src={searchIcon} />
+      <StyledIcon />
       <StyledInput
         type="text"
         placeholder={placeholder}
-        onChange={() => handleChange}
+        onChange={handleChange}
       />
     </StyledSearchInput>
   );
@@ -40,7 +39,7 @@ const StyledSearchInput = styled.div`
   height: 42px;
 `;
 
-const StyledIcon = styled(BaseIcon)`
+const StyledIcon = styled(SearchIcon)`
   position: absolute;
   top: 9px;
   left: 16px;

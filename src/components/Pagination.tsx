@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import arrowRightIcon from "../assets/icon/arrow-right.svg";
-import arrowLeftIcon from "../assets/icon/arrow-left.svg";
+import ArrowRightIcon from "../assets/icon/arrow-right.svg?react";
+import ArrowLeftIcon from "../assets/icon/arrow-left.svg?react";
 
 interface PaginationProps {
   className?: string;
@@ -33,11 +33,11 @@ const Pagination = ({
   return (
     <StyledPagination className={className}>
       <button onClick={goToPrevPage} disabled={currentPage === 1}>
-        <i className="arrow-left"></i>
+        <ArrowLeftIcon />
       </button>
       {renderPageButtons()}
       <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-        <i className="arrow-right"></i>
+        <ArrowRightIcon />
       </button>
     </StyledPagination>
   );
@@ -67,25 +67,6 @@ const StyledPagination = styled.div`
   .active {
     background-color: var(--color-blue);
     color: #fff;
-  }
-
-  i.arrow-right,
-  i.arrow-left {
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-  }
-
-  i.arrow-right {
-    background-image: url(${arrowRightIcon});
-  }
-
-  i.arrow-left {
-    background-image: url(${arrowLeftIcon});
   }
 `;
 

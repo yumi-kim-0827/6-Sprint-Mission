@@ -1,28 +1,29 @@
 import styled from "styled-components";
 import BaseButton from "./BaseButton";
 import BaseInput from "./BaseInput";
-import BaseIcon from "./BaseIcon";
-import eyeIcon from "../assets/icon/eye.svg";
-import eyeOffIcon from "../assets/icon/eye-off.svg";
+import EyeIcon from "../assets/icon/eye.svg?react";
+import EyeOffIcon from "../assets/icon/eye-off.svg?react";
 
 interface UserFormGroupProps {
   label: "email" | "username" | "password" | "passwordCheck";
   placeholder: string;
+  errorMsg?: string;
   className?: string;
 }
+
+const labelTable = {
+  email: "이메일",
+  username: "닉네임",
+  password: "비밀번호",
+  passwordCheck: "비밀번호 확인",
+};
 
 const UserFormGroup = ({
   label,
   placeholder,
   className,
+  errorMsg,
 }: UserFormGroupProps) => {
-  const labelTable = {
-    email: "이메일",
-    username: "닉네임",
-    password: "비밀번호",
-    passwordCheck: "비밀번호 확인",
-  };
-
   const labelName = labelTable[label];
 
   let type;
@@ -45,12 +46,12 @@ const UserFormGroup = ({
         <BaseInput label={label} type={type} placeholder={placeholder} />
         {label.includes("password") && (
           <button type="button">
-            <BaseIcon src={eyeIcon} />
-            <BaseIcon src={eyeOffIcon} />
+            <EyeIcon />
+            <EyeOffIcon />
           </button>
         )}
       </StyledUserInputBox>
-      <p id={`${label}-error`} className="hidden"></p>
+      <p className="error-message hidden">{errorMsg}</p>
     </StyledUserFormGroup>
   );
 };
@@ -88,7 +89,7 @@ const StyledUserInputBox = styled.div`
     height: 24px;
     background: transparent;
 
-    > i:last-of-type {
+    > svg:last-of-type {
       display: none;
     }
   }
@@ -105,7 +106,7 @@ const UserForm = ({ type, isValidation = false }: UserFormProps) => {
 
   return (
     <>
-      <StyledUserForm action={formAction} className="user-form">
+      <StyledUserForm action={formAction}>
         <UserFormGroup label="email" placeholder="이메일을 입력해주세요" />
         {type === "signup" && (
           <UserFormGroup label="username" placeholder="닉네임을 입력해주세요" />
