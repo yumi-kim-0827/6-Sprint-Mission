@@ -4,19 +4,7 @@ import ItemForSale from './ItemForSale';
 import './style/ItemsForSale.css';
 import SelectBox from './SelectBox';
 import PageButton from './PageButton';
-
-type Item = {
-  updatedAt: string;
-  createdAt: string;
-  favoriteCount: number;
-  ownerId: number;
-  images: string[];
-  tags: string[];
-  price: number;
-  description: string;
-  name: string;
-  id: number;
-};
+import { Item } from 'types/ItemResponse';
 
 type ItemProps = {
   items: Item[];

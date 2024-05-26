@@ -1,6 +1,6 @@
 import { instance } from './Axios';
 
-export type ItemsResponse = {
+type ItemsResponse = {
   updatedAt: string;
   createdAt: string;
   favoriteCount: number;
@@ -13,7 +13,7 @@ export type ItemsResponse = {
   id: number;
 };
 
-export type GetItemResponse = {
+type GetItemResponse = {
   totalCount: number;
   list: ItemsResponse[];
 };

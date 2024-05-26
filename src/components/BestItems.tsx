@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style/BestItems.css';
 import BestItem from './BestItem';
-
-type Item = {
-  updatedAt: string;
-  createdAt: string;
-  favoriteCount: number;
-  ownerId: number;
-  images: string[];
-  tags: string[];
-  price: number;
-  description: string;
-  name: string;
-  id: number;
-};
-
-type ItemProps = {
-  totalCount?: number;
-  list?: Item[];
-};
+import { ItemProps } from 'types/ItemResponse';
 
 export default function BestItems({ list = [] }: ItemProps) {
   const [itemsToShow, setItemsToShow] = useState(getInitialItemsToShow());

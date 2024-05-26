@@ -1,28 +1,10 @@
+import '../styles/ItemsPage.css';
 import usePageTitle from '../hooks/usePageTitle';
 import BestItems from '../components/BestItems';
 import ItemsForSale from '../components/ItemsForSale';
 import { useState, useEffect } from 'react';
 import { getItems } from '../api/getItems';
-
-import '../styles/ItemsPage.css';
-
-type Item = {
-  updatedAt: string;
-  createdAt: string;
-  favoriteCount: number;
-  ownerId: number;
-  images: string[];
-  tags: string[];
-  price: number;
-  description: string;
-  name: string;
-  id: number;
-};
-
-type ItemProps = {
-  totalCount: number;
-  list?: Item[];
-};
+import { Item, ItemProps } from 'types/ItemResponse';
 
 export default function Items() {
   usePageTitle('판다마켓: 중고마켓');
