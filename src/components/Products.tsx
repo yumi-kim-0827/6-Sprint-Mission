@@ -4,11 +4,11 @@ import styled from "styled-components";
 import BestProduct from "./BestProduct";
 import TotalProducts from "./TotalProducts";
 import SearchProducts from "./SearchProducts";
-import { getProducts, list } from "../Api/getProducts";
+import { getProducts, List } from "../Api/getProducts";
 
 const Product = () => {
-  const [products, setProducts] = useState<list[]>([]);
-  const [bestProducts, setBestProducts] = useState<list[]>([]);
+  const [products, setProducts] = useState<List[]>([]);
+  const [bestProducts, setBestProducts] = useState<List[]>([]);
   const [searchProduct, setSearchProduct] = useState("");
   const [sortOrder, setSortOrder] = useState<"newest" | "favorite">("newest");
   const [bestProductsCount, setBestProductsCount] = useState<number>(4);
@@ -32,7 +32,7 @@ const Product = () => {
     fetchProducts();
   }, []);
 
-  const sortedBestProducts = useMemo<list[]>(
+  const sortedBestProducts = useMemo<List[]>(
     () =>
       products
         .slice()
@@ -81,7 +81,7 @@ const Product = () => {
     setSortOrder(order);
   };
 
-  const filteredProducts = useMemo<list[]>(
+  const filteredProducts = useMemo<List[]>(
     () =>
       products.filter((product) =>
         product.name.toLowerCase().includes(searchProduct.toLowerCase())
@@ -89,7 +89,7 @@ const Product = () => {
     [products, searchProduct]
   );
 
-  const sortedProducts = useMemo<list[]>(() => {
+  const sortedProducts = useMemo<List[]>(() => {
     if (sortOrder === "newest") {
       return [...filteredProducts].sort(
         (a, b) =>

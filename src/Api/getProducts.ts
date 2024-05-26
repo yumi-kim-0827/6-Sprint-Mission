@@ -1,11 +1,12 @@
 import { AxiosError } from "axios";
 import { instance } from "./Axios";
 
-type Product = {
+export type Product = {
   totalCount: number;
-  list: list[];
+  list: List[];
 };
-export type list = {
+
+export type List = {
   id: number;
   name: string;
   description: string;
@@ -17,9 +18,9 @@ export type list = {
   ownerId: number;
 };
 
-export const getProducts = async (): Promise<Product | undefined> => {
+async function fetchData<T>(url: string): Promise<T | undefined> {
   try {
-    const response = await instance.get<Product>("/products");
+    const response = await instance.get<T>(url);
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -29,4 +30,8 @@ export const getProducts = async (): Promise<Product | undefined> => {
     }
     return undefined;
   }
+}
+
+export const getProducts = (): Promise<Product | undefined> => {
+  return fetchData<Product>("/products");
 };

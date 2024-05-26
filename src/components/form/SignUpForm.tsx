@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { signUpSchema } from "../../utils/validation/Schema";
-import { SignUpUser } from "../../Api/SignUpUser";
+import { signUpUser } from "../../Api/SignUpUser";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -25,7 +25,7 @@ const SignUpForm = () => {
 
   const handleSignUp = handleSubmit(async (data: FormValues) => {
     try {
-      const response = await SignUpUser(data);
+      const response = await signUpUser(data);
       if (response) {
         console.log("회원가입 성공");
       }

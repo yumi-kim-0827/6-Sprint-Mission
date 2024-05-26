@@ -1,33 +1,36 @@
 import { AxiosError } from "axios";
 import { instance } from "./Axios";
 
-interface SignUpData {
+type SignUpData = {
   email: string;
   password: string;
   passwordConfirmation: string;
   nickname: string;
-}
+};
 
-interface SignUpResponse {
+type SignUpResponse = {
   token: string;
-}
+};
 
-export const SignUpUser = async (
-  data: SignUpData
-): Promise<SignUpResponse | undefined> => {
+async function fetchData<T>(
+  url: string,
+  data?: SignUpData
+): Promise<T | undefined> {
   try {
-    const { email, password, passwordConfirmation, nickname } = data;
-    const response = await instance.post<SignUpResponse>(
-      "/auth/signup",
-      JSON.stringify({ email, password, passwordConfirmation, nickname })
-    );
+    const response = await instance.post<T>(url, JSON.stringify(data));
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.error("회원가입 실패 (Axios error):", error.message);
+      console.error("요청 실패 (Axios error):", error.message);
     } else {
-      console.error("회원가입 실패 (Unknown error):", error);
+      console.error("요청 실패 (Unknown error):", error);
     }
     return undefined;
   }
+}
+
+export const signUpUser = (
+  data: SignUpData
+): Promise<SignUpResponse | undefined> => {
+  return fetchData<SignUpResponse>("/auth/signup", data);
 };

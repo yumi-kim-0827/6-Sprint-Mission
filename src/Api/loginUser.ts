@@ -10,21 +10,25 @@ type LoginResponse = {
   token: string;
 };
 
-export const LoginUser = async (
-  data: LoginData
-): Promise<LoginResponse | undefined> => {
+async function fetchData<T>(
+  url: string,
+  data?: unknown
+): Promise<T | undefined> {
   try {
-    const response = await instance.post<LoginResponse>(
-      "/auth/signIn",
-      JSON.stringify(data)
-    );
+    const response = await instance.post<T>(url, data && JSON.stringify(data));
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.error("로그인 실패 (Axios error):", error.message);
+      console.error("요청 실패 (Axios error):", error.message);
     } else {
-      console.error("로그인 실패 (Unknown error):", error);
+      console.error("요청 실패 (Unknown error):", error);
     }
     return undefined;
   }
+}
+
+export const loginUser = (
+  data: LoginData
+): Promise<LoginResponse | undefined> => {
+  return fetchData<LoginResponse>("/auth/signIn", data);
 };

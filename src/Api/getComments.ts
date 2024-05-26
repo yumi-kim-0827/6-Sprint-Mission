@@ -19,22 +19,24 @@ type CommentsResponse = {
   list: Comment[];
 };
 
-export const getComments = async (
-  productId: number,
-  limit: number
-): Promise<CommentsResponse | undefined> => {
+async function fetchData<T>(
+  url: string,
+  params?: Record<string, unknown>
+): Promise<T | undefined> {
   try {
-    const response = await instance.get<CommentsResponse>(
-      `/products/${productId}/comments`,
-      {
-        params: {
-          limit,
-        },
-      }
-    );
+    const response = await instance.get<T>(url, { params });
     return response.data;
   } catch (error) {
     console.error(error);
     return undefined;
   }
+}
+
+export const getComments = (
+  productId: number,
+  limit: number
+): Promise<CommentsResponse | undefined> => {
+  return fetchData<CommentsResponse>(`/products/${productId}/comments`, {
+    limit,
+  });
 };

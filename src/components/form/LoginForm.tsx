@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GoogleLogo from "../../assets/images/google.png";
 import KakaoLogo from "../../assets/images/kakao.png";
 import { loginSchema } from "../../utils/validation/Schema";
-import { LoginUser } from "../../Api/loginUser";
+import { loginUser } from "../../Api/loginUser";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ const LoginForm = () => {
 
   const handleLogin = handleSubmit(async (data: FormValues) => {
     try {
-      const response = await LoginUser(data);
+      const response = await loginUser(data);
       if (response) {
         const { token } = response;
         localStorage.setItem("accessToken", token);

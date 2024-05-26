@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { instance } from "./Axios";
 
-export interface Product {
+export type Product = {
   id: string;
   name: string;
   description: string;
@@ -9,13 +9,11 @@ export interface Product {
   images: string[];
   tags: string[];
   favoriteCount: number;
-}
+};
 
-export const getProductById = async (
-  productId: string
-): Promise<Product | undefined> => {
+async function fetchData<T>(url: string): Promise<T | undefined> {
   try {
-    const response = await instance.get<Product>(`/products/${productId}`);
+    const response = await instance.get<T>(url);
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -25,4 +23,10 @@ export const getProductById = async (
     }
     return undefined;
   }
+}
+
+export const getProductById = (
+  productId: string
+): Promise<Product | undefined> => {
+  return fetchData<Product>(`/products/${productId}`);
 };
