@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEventHandler, FocusEventHandler } from "react";
 import styled from "styled-components";
 import AddItemPageImageInput from "./AddItemPageImageInput";
 import BaseInput from "../../components/BaseInput";
@@ -14,10 +14,10 @@ enum FormType {
 interface AddItemPageFormGroupProps {
   label: keyof typeof FormType;
   placeholder?: string;
-  onChange?: () => void;
-  onBlur?: () => void;
+  onChange?: ChangeEventHandler;
+  onBlur?: FocusEventHandler;
   onKeyDown?: () => void;
-  value?: string;
+  value?: string | number | string[];
 }
 
 const AddItemPageFormGroup = ({
@@ -35,9 +35,9 @@ const AddItemPageFormGroup = ({
     case "image":
       InputComponent = (
         <AddItemPageImageInput
-          label={label}
           placeholder={placeholder}
           onChange={onChange}
+          value={typeof value !== "number" ? value : ""}
         />
       );
       break;

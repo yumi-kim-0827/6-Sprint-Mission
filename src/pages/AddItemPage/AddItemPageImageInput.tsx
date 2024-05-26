@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
 import styled from "styled-components";
 import BaseInput from "../../components/BaseInput";
 import DeleteButton from "../../components/DeleteButton";
@@ -7,38 +7,38 @@ import PlusIcon from "../../assets/icon/plus.svg?react";
 interface Props {
   className?: string;
   placeholder?: string;
-  value?: string;
-  onChange?: () => void;
+  value?: string | string[];
+  onChange?: ChangeEventHandler;
   onKeyDown?: () => void;
 }
 
 const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
-  const [postImg, setPostImg] = useState<File[]>([]);
+  const [postImg, setPostImg] = useState<string[]>([]);
   const [previewImg, setPreviewImg] = useState("");
 
   const handleUploadFile = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target) {
-      const files = e.target.files;
+    const files = e.target.files;
 
-      if (files) {
-        setPostImg([...files]);
+    if (files) {
+      console.log([...files]);
+      let fileURL;
+      const reader = new FileReader();
+      reader.onload = () => {
+        fileURL = reader.result as string;
+        if (fileURL) {
+          setPreviewImg(fileURL);
+          setPostImg([fileURL]);
+          value = [fileURL];
+        }
+      };
 
-        let fileURL;
-
-        const reader = new FileReader();
-        reader.onload = () => {
-          fileURL = reader.result as string;
-          fileURL && setPreviewImg(fileURL);
-        };
-
-        files && reader.readAsDataURL(files[0]);
-      }
+      files && reader.readAsDataURL(files[0]);
     }
   };
 
-  const handleDeleteFile = (e: Event) => {
-    e.preventDefault();
+  const handleDeleteFile = () => {
     setPreviewImg("");
+    setPostImg([]);
   };
 
   return (
@@ -58,7 +58,7 @@ const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
       {previewImg && (
         <Preview>
           <img alt={previewImg} src={previewImg} />
-          <DeleteButton onClick={() => handleDeleteFile} />
+          <DeleteButton onClick={handleDeleteFile} />
         </Preview>
       )}
     </StyledImgInput>

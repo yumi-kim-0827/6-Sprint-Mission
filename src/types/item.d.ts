@@ -16,7 +16,7 @@ interface ItemList {
   list: Item[];
 }
 
-interface ItemPost {
+interface ItemForPost {
   images: string[];
   tags: string[];
   price: number;

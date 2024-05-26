@@ -17,7 +17,7 @@ const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
   const [inputValue, setInputValue] = useState("");
   const productId = useParams();
 
-  const handleChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInputValue(e.target.value);
   };
 
@@ -35,7 +35,7 @@ const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
       <label>{title}</label>
       <StyledInput
         placeholder={placeholder}
-        onChange={() => handleChangeInput}
+        onChange={handleChange}
         value={inputValue}
       />
       <StyledAddCommentBtn size="small" onSubmit={() => handleSubmitComment}>
