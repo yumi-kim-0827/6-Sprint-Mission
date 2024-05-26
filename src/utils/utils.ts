@@ -15,7 +15,7 @@ export function getTimeAgo(updatedAt: string | number | Date) {
   }
 }
 
-export function debounce<T extends (...args: any[]) => void>(
+export function debounce<T extends (...args: unknown[]) => void>(
   callback: T,
   delay: number
 ): (...args: Parameters<T>) => void {

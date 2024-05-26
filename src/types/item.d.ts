@@ -1,13 +1,15 @@
+type ID = string | number;
+
 interface Item {
   createdAt: Date;
   favoriteCount: number;
-  ownerId: number;
+  ownerId: ID;
   images: string[];
   tags: string[];
   price: number;
   description: string;
   name: string;
-  id: number;
+  id: ID;
   isFavorite: boolean;
 }
 

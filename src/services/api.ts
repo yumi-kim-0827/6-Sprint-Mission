@@ -1,12 +1,29 @@
 import { API_BASE_URL } from "../constants/common";
+interface QueryParams {
+  [key: string]: string | number;
+}
 
-export const fetcher = async ({
-  resource,
+interface Headers {
+  [key: string]: string;
+}
+
+interface FetchOptions<T = unknown> {
+  resource?: string;
+  query?: QueryParams;
+  method?: "GET" | "POST";
+  headers?: Headers;
+  body?: T;
+}
+
+export const fetcher = async <T>({
+  resource = "",
   query = {},
-  body = null,
+  body,
   headers = {},
-}) => {
-  const queryString = new URLSearchParams(query).toString();
+}: FetchOptions<T>) => {
+  const queryString = new URLSearchParams(
+    query as Record<string, string>
+  ).toString();
   const url = `${API_BASE_URL}/${resource}${
     queryString ? `?${queryString}` : ""
   }`;
@@ -33,41 +50,29 @@ export const fetcher = async ({
 };
 
 export async function getItems(query = {}) {
-  try {
-    const data = await fetcher({ resource: "products", query });
-    return data;
-  } catch (error) {
-    throw error;
-  }
+  const data = await fetcher({ resource: "products", query });
+  return data;
 }
 
-export const getItem = async (productId) => {
-  try {
-    const data = await fetcher({ resource: `products/${productId}` });
-    return data;
-  } catch (error) {
-    throw error;
-  }
+export const getItem = async (productId: ID) => {
+  const data = await fetcher({ resource: `products/${productId}` });
+  return data;
 };
 
-export const getItemComments = async (productId, limit = 3) => {
-  try {
-    const data = await fetcher({
-      resource: `products/${productId}/comments`,
-      query: { limit },
-    });
-    return data;
-  } catch (error) {
-    throw error;
-  }
+export const getItemComments = async (productId: ID, limit = 3) => {
+  const data = await fetcher({
+    resource: `products/${productId}/comments`,
+    query: { limit },
+  });
+  return data;
 };
 
-export async function postItemComment(comment, productId) {
+export async function postItemComment(comment: Comment, productId: ID) {
   try {
     const response = await fetcher({
       resource: `products/${productId}/comments`,
       method: "POST",
-      body: { comment },
+      body: comment,
     });
 
     if (!response.ok) {
