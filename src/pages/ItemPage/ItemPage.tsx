@@ -5,8 +5,6 @@ import { getItems } from "../../services/api.js";
 import useWindowSize from "../../hooks/useWindowSize.js";
 import usePagination from "../../hooks/usePagination.js";
 
-type OrderType = "createdAt" | "favoriteCount";
-
 const BEST_ITEMS_LIMIT = {
   small: 1,
   medium: 2,
@@ -22,7 +20,7 @@ const ITEMS_LIMIT = {
 function ItemPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [bestItems, setBestItems] = useState<Item[]>([]);
-  const [order, setOrder] = useState<OrderType>("createdAt");
+  const [order, setOrder] = useState<ItemSortOptionsType>("createdAt");
   const [searchValue, setSearchValue] = useState("");
   const { width = window.innerWidth } = useWindowSize();
   const [screenSize, setScreenSize] = useState<DeviceSize>("medium");
@@ -89,14 +87,13 @@ function ItemPage() {
                 상품 등록하기
               </S.ItemPageAddItemBtn>
             </Link>
-
             <S.ItemPageSearchInput
               placeholder="검색할 상품을 입력해주세요"
               value={searchValue}
               onChange={setSearchValue}
             />
             <S.ItemPageSelectBox
-              onClick={() => setOrder}
+              onClick={setOrder}
               order={order}
               size={
                 screenSize === "small" ? "small" : "medium"

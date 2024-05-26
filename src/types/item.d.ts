@@ -25,3 +25,5 @@ interface ItemForPost {
   description: string;
   name: string;
 }
+
+type ItemSortOptionsType = "createdAt" | "favoriteCount";
