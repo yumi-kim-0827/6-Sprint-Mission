@@ -15,3 +15,6 @@ export type ItemProps = {
   totalCount?: number;
   list?: Item[];
 };
+
+export type ItemForSaleType = Pick<Item, 'favoriteCount' | 'price' | 'name' | 'id' | 'images'>;
+export type BestItemType = Pick<Item, 'favoriteCount' | 'price' | 'name' | 'id'> & { image: string };

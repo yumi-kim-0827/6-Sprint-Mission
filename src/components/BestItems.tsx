@@ -38,7 +38,7 @@ export default function BestItems({ list = [] }: ItemProps) {
             price={item.price}
             favoriteCount={item.favoriteCount}
             name={item.name}
-            images={item.images[0]}
+            image={item.images[0]}
           />
         ))}
       </section>

@@ -1,24 +1,16 @@
-import React from 'react';
 import './style/BestItem.css';
 import { useNavigate } from 'react-router-dom';
+import { BestItemType } from 'types/ItemResponse';
 
-type Props = {
-  price: number;
-  images: string;
-  name: string;
-  favoriteCount: number;
-  id: number;
-};
-
-export default function BestItem({ price, images, favoriteCount, name, id }: Props) {
+export default function BestItem({ price, image, favoriteCount, name, id }: BestItemType) {
   const formattedPrice = price.toLocaleString();
   const nav = useNavigate();
 
   return (
     <div className='item'>
       <div onClick={() => nav(`/items/${id}`)} className='item__img__wrap'>
-        <source srcSet={images} />
-        <img className='item__img' src={images} alt={name} />
+        <source srcSet={image} />
+        <img className='item__img' src={image} alt={name} />
       </div>
 
       <div className='item__description'>

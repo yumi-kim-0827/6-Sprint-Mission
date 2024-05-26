@@ -1,15 +1,9 @@
 import React from 'react';
 import './style/ItemForSale.css';
 import { useNavigate } from 'react-router-dom';
-import { Item } from 'types/ItemResponse';
+import { ItemForSaleType } from 'types/ItemResponse';
 
-export default function ItemForSale({
-  price,
-  images,
-  favoriteCount,
-  name,
-  id,
-}: Pick<Item, 'favoriteCount' | 'price' | 'name' | 'id' | 'images'>) {
+export default function ItemForSale({ price, images, favoriteCount, name, id }: ItemForSaleType) {
   const formattedPrice = price.toLocaleString();
   const nav = useNavigate();
 
