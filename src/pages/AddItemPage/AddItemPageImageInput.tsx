@@ -13,21 +13,18 @@ interface Props {
 }
 
 const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
-  const [postImg, setPostImg] = useState<string[]>([]);
   const [previewImg, setPreviewImg] = useState("");
 
   const handleUploadFile = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
 
     if (files) {
-      console.log([...files]);
       let fileURL;
       const reader = new FileReader();
       reader.onload = () => {
         fileURL = reader.result as string;
         if (fileURL) {
           setPreviewImg(fileURL);
-          setPostImg([fileURL]);
           value = [fileURL];
         }
       };
@@ -38,7 +35,7 @@ const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
 
   const handleDeleteFile = () => {
     setPreviewImg("");
-    setPostImg([]);
+    value = [];
   };
 
   return (

@@ -15,7 +15,7 @@ interface CommentInputBoxProps {
 
 const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
   const [inputValue, setInputValue] = useState("");
-  const productId = useParams();
+  const { id } = useParams();
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInputValue(e.target.value);
@@ -26,8 +26,10 @@ const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
 
     if (!inputValue.trim()) return;
 
-    postItemComment(inputValue, productId);
-    setInputValue("");
+    if (id) {
+      postItemComment(inputValue, id);
+      setInputValue("");
+    }
   };
 
   return (
@@ -50,7 +52,7 @@ const StyledInputGroup = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  label {
+  > label {
     font-size: 16px;
     font-weight: 600;
     color: ##111827;

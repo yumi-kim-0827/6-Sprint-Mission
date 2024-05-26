@@ -67,7 +67,7 @@ export const getItemComments = async (productId: ID, limit = 3) => {
   return data;
 };
 
-export async function postItemComment(comment: Comment, productId: ID) {
+export async function postItemComment(comment: string, productId: ID) {
   try {
     const response = await fetcher({
       resource: `products/${productId}/comments`,

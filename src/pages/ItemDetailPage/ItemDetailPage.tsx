@@ -18,15 +18,17 @@ const EmptyCommentImageSection = () => {
 };
 
 const ItemDetailPage = () => {
-  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [comments, setComments] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const item = await getItem(id);
-        setProduct(item);
+        if (id) {
+          const item = await getItem(id);
+          setProduct(item);
+        }
       } catch (err) {
         console.error("상품을 불러오는 중 오류가 발생했습니다:", err);
       }
@@ -34,8 +36,10 @@ const ItemDetailPage = () => {
 
     const fetchItemComments = async () => {
       try {
-        const itemComments = await getItemComments(id);
-        setComments(itemComments.list);
+        if (id) {
+          const itemComments = await getItemComments(id);
+          setComments(itemComments.list);
+        }
       } catch (err) {
         console.error("상품 댓글을 불러오는 중 오류가 발생했습니다:", err);
       }
