@@ -1,9 +1,4 @@
-import React, {
-  ChangeEvent,
-  FocusEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, FocusEventHandler, useEffect, useState } from "react";
 import * as S from "./AddItemPage.style.js";
 import BaseTag from "../../components/BaseTag.js";
 

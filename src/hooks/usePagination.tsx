@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const usePagination = (data: any[], limit: number) => {
+const usePagination = <T,>(data: T[], limit: number) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalCount = data.length;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./ItemPage.style.js";
 import { getItems } from "../../services/api.js";
@@ -74,7 +74,7 @@ function ItemPage() {
     goToNextPage,
     goToPage,
     paginatedList,
-  } = usePagination(items, ITEMS_LIMIT[screenSize]);
+  } = usePagination<Item>(items, ITEMS_LIMIT[screenSize]);
 
   return (
     <>
@@ -103,7 +103,7 @@ function ItemPage() {
               }></S.ItemPageSelectBox>
           </S.ItemTitleSection>
           <div>
-            {paginatedList.map((item: Item) => (
+            {paginatedList?.map((item: Item) => (
               <S.ItemCard key={item.id} item={item} />
             ))}
           </div>

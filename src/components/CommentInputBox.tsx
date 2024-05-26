@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import styled from "styled-components";
 import BaseButton from "./BaseButton";
 import BaseTextArea from "./BaseTextArea";

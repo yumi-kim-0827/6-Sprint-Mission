@@ -1,8 +1,8 @@
-import React from "react";
+import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 interface BaseButtonProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   onClick?: () => void;
   onSubmit?: () => void;

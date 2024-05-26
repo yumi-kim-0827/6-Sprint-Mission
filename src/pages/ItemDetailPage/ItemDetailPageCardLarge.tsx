@@ -1,19 +1,10 @@
-import React from "react";
 import styled from "styled-components";
 import CardTags from "../../components/CardTags";
 import SquareImage from "../../components/SquareImage";
 import CardFavorites from "../../components/CardFavorites";
 
 interface ItemDetailPageCardLargeProps {
-  data: {
-    name: string;
-    price: number;
-    description: string;
-    tags: string[];
-    images: string;
-    isFavorite: boolean;
-    favoriteCount: number;
-  };
+  data: Item;
 }
 
 const ItemDetailPageCardLarge = ({ data }: ItemDetailPageCardLargeProps) => {
@@ -24,7 +15,7 @@ const ItemDetailPageCardLarge = ({ data }: ItemDetailPageCardLargeProps) => {
 
   return (
     <StyledCardWrapper>
-      <StyledCardImage src={images} alt={name} />
+      <StyledCardImage src={images[0]} alt={name} />
       <div>
         <StyledCardTitle>
           <p>{name}</p>

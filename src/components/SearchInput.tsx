@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import styled from "styled-components";
 import BaseIcon from "./BaseIcon";
 import BaseInput from "./BaseInput";

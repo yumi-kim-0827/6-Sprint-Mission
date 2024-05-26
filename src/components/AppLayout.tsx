@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import AppLayoutNavbar from "./AppLayoutNavbar";
 import AppLayoutFooter from "./AppLayoutFooter";

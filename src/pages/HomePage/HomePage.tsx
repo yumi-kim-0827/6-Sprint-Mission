@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./HomePage.style.js";
 import homeImg01 from "../../assets/img/Img_home_01@2x.jpg";

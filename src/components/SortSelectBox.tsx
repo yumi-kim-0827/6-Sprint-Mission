@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
 import sortIcon from "../assets/icon/sort.svg";
 import arrowDownIcon from "../assets/icon/arrow_down.svg";

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import styled from "styled-components";
 import BaseInput from "../../components/BaseInput";
 import DeleteButton from "../../components/DeleteButton";

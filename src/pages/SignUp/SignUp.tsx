@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./SignUp.style.js";
 import UserForm from "../../components/UserForm.js";

@@ -1,8 +1,8 @@
-import React from "react";
+import { TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
 
 interface BaseTextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
 }
 

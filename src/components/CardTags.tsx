@@ -1,10 +1,8 @@
-import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import BaseTag from "./BaseTag";
 
 interface CardTagsProps {
   tags: string[];
-  onClick: MouseEventHandler;
 }
 
 const CardTags = ({ tags }: CardTagsProps) => {

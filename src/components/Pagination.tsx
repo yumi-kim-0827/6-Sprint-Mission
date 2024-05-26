@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import arrowRightIcon from "../assets/icon/arrow-right.svg";
 import arrowLeftIcon from "../assets/icon/arrow-left.svg";
