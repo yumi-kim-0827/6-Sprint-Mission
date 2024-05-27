@@ -9,7 +9,6 @@ interface Values {
   price: string;
   currentTag: string;
 }
-
 function AddItem() {
   const [values, setValues] = useState<Values>({
     productName: "",
