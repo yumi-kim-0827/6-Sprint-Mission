@@ -1,5 +1,6 @@
 import "./Logo.css";
 
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Desktop, Tablet, Mobile } from "./MediaQuery";

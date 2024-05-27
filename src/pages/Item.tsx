@@ -1,45 +1,66 @@
 // 이미지
 import iconHeart from "../assets/images/items/ic_heart.svg";
-import { ReactComponent as IconBack } from "../assets/images/icon/ic_back.svg";
-import { ReactComponent as IconKebab } from "../assets/images/icon/ic_kebab.svg";
-import { ReactComponent as EmptyQuestion } from "../assets/images/items/question-empty.svg";
+import iconBack from "../assets/images/icon/ic_back.svg";
+import iconKebab from "../assets/images/icon/ic_kebab.svg";
+import emptyQuestion from "../assets/images/items/question-empty.svg";
 
 // API
 import { getComment, getProductId } from "../api/product.api";
 
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+
+import Comments from "../components/Items/Product/Comments";
 
 import "./Item.css";
-import Comments from "../components/Items/Product/Comments";
-import { Link } from "react-router-dom";
 
-const Item = () => {
-  const { productId } = useParams();
+interface Products {
+  price: number;
+  images: string;
+  name: string;
+  description: string;
+  favoriteCount: number;
+  tags: string[];
+}
 
-  const [products, setProducts] = useState();
-  const [comments, setComments] = useState([]);
+interface Comment {
+  id: string;
+  content: string;
+  updatedAt: string;
+  writer: {
+    image: string;
+    nickname: string;
+  };
+}
 
+const Item: React.FC = () => {
+  const { productId } = useParams<{ productId: string }>();
+
+  const [products, setProducts] = useState<Products | null>(null);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [question, setQuestion] = useState(false);
 
-  const handleValidQuestion = (e) => {
+  const handleValidQuestion = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
     setQuestion(!!value);
   };
 
-  const handleLoad = async (itemId) => {
-    const item = await getProductId(itemId);
-    const { list } = await getComment(itemId);
+  const handleLoad = async (itemId: string | undefined) => {
+    if (itemId) {
+      const item = await getProductId(itemId);
+      const { list } = await getComment(itemId);
 
-    setComments(list);
-    setProducts(item);
+      setComments(list);
+      setProducts(item);
+    }
   };
 
   useEffect(() => {
-    handleLoad({ productId });
+    handleLoad(productId);
   }, [productId]);
 
-  if (!products) return;
+  if (!products) return null;
 
   const price = products.price
     ?.toString()
@@ -57,7 +78,7 @@ const Item = () => {
           <span className="item_name">{products.name}</span>
 
           <button className="item_kebab_btn">
-            <IconKebab className="item_kebab_img" alt="더보기" />
+            <img className="item_kebab_img" src={iconKebab} alt="더보기" />
           </button>
         </div>
 
@@ -110,7 +131,11 @@ const Item = () => {
         <div className="questions">
           {isQuestionEmpty ? (
             <div className="question_empty">
-              <EmptyQuestion className="question_empty_img" alt="문의가 없음" />
+              <img
+                className="question_empty_img"
+                src={emptyQuestion}
+                alt="문의가 없음"
+              />
               <span className="question_empty_text">아직 문의가 없습니다.</span>
             </div>
           ) : (
@@ -120,9 +145,9 @@ const Item = () => {
       </section>
 
       <div className="item_back">
-        <Link to={"/Items"} className="item_back_btn">
+        <Link to="/Items" className="item_back_btn">
           목록으로 돌아가기
-          <IconBack className="item_back_img" alt="돌아가기" />
+          <img className="item_back_img" src={iconBack} alt="돌아가기" />
         </Link>
       </div>
     </article>

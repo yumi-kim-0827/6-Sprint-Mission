@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import React from "react";
 import Layout from "./components/Layout";
 
 import Home from "./pages/Home";
@@ -8,8 +9,8 @@ import SignUp from "./pages/SignUp";
 import ItemsList from "./pages/ItemsList";
 import AddItem from "./pages/AddItem";
 import Community from "./pages/Community";
-import NotFound from "./pages/NotFound";
 import Item from "./pages/Item";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

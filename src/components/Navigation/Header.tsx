@@ -3,8 +3,13 @@ import Logo from "../Logo";
 import NavMain from "./NavMain";
 import "../../assets/styles/Root.css";
 import "./Header.css";
+import React from "react";
 
-function Header({ site = "" }) {
+interface HeaderProps {
+  site?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ site = "" }) => {
   return (
     <header className="top_navigation">
       <div className="top_container">
@@ -22,6 +27,6 @@ function Header({ site = "" }) {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

@@ -20,7 +20,7 @@ export async function getProducts({
   }
 }
 
-export async function getProductId({ productId }) {
+export async function getProductId(productId: string | undefined) {
   const response = await instance.get(`/products/${productId}`);
   const body = response.data;
 
@@ -29,7 +29,7 @@ export async function getProductId({ productId }) {
   return body;
 }
 
-export async function getComment({ productId, limit = 3 }) {
+export async function getComment(productId: string | undefined, limit = 3) {
   const response = await instance.get(
     `/products/${productId}/comments?limit=${limit}`
   );

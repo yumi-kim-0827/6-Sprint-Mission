@@ -1,9 +1,23 @@
 import iconHeart from "../../../assets/images/items/ic_heart.svg";
 import { Link } from "react-router-dom";
 
+import React from "react";
 import "./product.css";
 
-const Product = ({ product, isAllSection }) => {
+interface ProductType {
+  id: string;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
+
+interface ProductProps {
+  product: ProductType;
+  isAllSection: boolean;
+}
+
+const Product: React.FC<ProductProps> = ({ product, isAllSection }) => {
   return (
     <Link to={`./${product.id}`} className="product_wrap">
       {isAllSection ? (

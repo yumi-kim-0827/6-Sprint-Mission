@@ -1,17 +1,21 @@
 import styled from "styled-components";
-
-import { useEffect, useRef, useState } from "react";
-import { ReactComponent as PlusIcon } from "../../assets/images/icon/ic_plus.svg";
-
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import PlusIcon from "../../assets/images/icon/ic_plus.svg";
 import AddItemImage from "./AddItemImage";
 
-const FileInput = ({ name, value, onChange }) => {
-  const inputRef = useRef();
+interface FileInputProps {
+  name: string;
+  value: File | null;
+  onChange: (name: string, value: File | null) => void;
+}
 
-  const [preview, setPreview] = useState();
+const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChange = (e) => {
-    const nextValue = e.target.files[0];
+  const [preview, setPreview] = useState<string | undefined>(undefined);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = e.target.files ? e.target.files[0] : null;
     onChange(name, nextValue);
   };
 
@@ -19,9 +23,9 @@ const FileInput = ({ name, value, onChange }) => {
     const inputNode = inputRef.current;
     if (!inputNode) return;
 
-    // console.log(inputNode);
     inputNode.value = "";
     onChange(name, null);
+    setPreview(undefined);
   };
 
   useEffect(() => {
@@ -29,6 +33,10 @@ const FileInput = ({ name, value, onChange }) => {
 
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+
+    return () => {
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
 
   return (
@@ -36,7 +44,7 @@ const FileInput = ({ name, value, onChange }) => {
       <AddImageTitle htmlFor="file_input">상품 이미지</AddImageTitle>
       <AddImageWrap>
         <AddImageLabel htmlFor="file_input">
-          <PlusIcon className="plus" />
+          <img src={PlusIcon} alt="플러스" className="plus" />
           <ImagePlaceholder>이미지 등록</ImagePlaceholder>
         </AddImageLabel>
         <input
@@ -44,6 +52,7 @@ const FileInput = ({ name, value, onChange }) => {
           type="file"
           onChange={handleChange}
           ref={inputRef}
+          style={{ display: "none" }}
         />
 
         <AddItemImage
@@ -65,17 +74,6 @@ const AddImageTitle = styled.label`
 const AddImageWrap = styled.div`
   display: flex;
   gap: 10px;
-
-  & #file_input {
-    &[type="file"] {
-      position: absolute;
-      width: 0;
-      height: 0;
-      padding: 0;
-      overflow: hidden;
-      border: 0;
-    }
-  }
 `;
 
 const AddImageLabel = styled.label`
@@ -91,18 +89,9 @@ const AddImageLabel = styled.label`
   background-color: #f3f4f6;
   cursor: pointer;
 
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Tablet Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
   @media (max-width: 1199px) {
     width: 162px;
     height: 162px;
-  }
-
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Mobile Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  @media (max-width: 767px) {
   }
 `;
 

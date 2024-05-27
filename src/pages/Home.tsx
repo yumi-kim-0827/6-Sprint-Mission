@@ -6,6 +6,7 @@ import homeImg3 from "../assets/images/home/Img_home_03.svg";
 
 import "./Home.css";
 
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {

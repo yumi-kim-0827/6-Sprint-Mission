@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import closeIcon from "../../assets/images/icon/ic_X.svg";
+import React from "react";
 
-const AddItemImage = ({ value, preview, onClearClick }) => {
-  if (!value) return;
+interface AddItemImageProps {
+  value: File | null;
+  preview: string | undefined;
+  onClearClick?: () => void;
+}
+
+const AddItemImage: React.FC<AddItemImageProps> = ({
+  value,
+  preview,
+  onClearClick,
+}) => {
+  if (!value) return null;
 
   return (
     <PreviewImageWrap>
       <PreviewImage src={preview} alt="이미지 미리보기" />
       <CloseIcon onClick={onClearClick}>
-        <img src={closeIcon} alt="" />
+        <img src={closeIcon} alt="닫기 아이콘" />
       </CloseIcon>
     </PreviewImageWrap>
   );
@@ -27,17 +38,11 @@ const PreviewImageWrap = styled.div`
   border-radius: 12px;
   background-color: #f3f4f6;
 
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Tablet Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
   @media (max-width: 1199px) {
     width: 162px;
     height: 162px;
   }
 
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
-  /* Mobile Size================================================================================================================================= */
-  /* -------------------------------------------------------------------------------------------------------------------------------------------- */
   @media (max-width: 767px) {
   }
 `;

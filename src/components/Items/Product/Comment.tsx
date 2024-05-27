@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Comment = ({ comment }) => {
-  // console.log(lastUpdated);
-  // console.log(today);
+interface CommentProps {
+  comment: {
+    content: string;
+    updatedAt: string;
+    writer: {
+      image: string;
+      nickname: string;
+    };
+  };
+}
 
-  const [time, setTime] = useState("");
+const Comment: React.FC<CommentProps> = ({ comment }) => {
+  const [time, setTime] = useState<string>("");
 
-  const getDateDiff = (date) => {
+  const getDateDiff = (date: string) => {
     const lastUpdated = new Date(date);
     const today = new Date();
 
@@ -41,7 +49,6 @@ const Comment = ({ comment }) => {
           <span className="comment_writer_nickname">
             {comment.writer.nickname}
           </span>
-
           <span className="comment_updated_time">{time}</span>
         </div>
       </div>

@@ -1,49 +1,58 @@
 import "../../assets/styles/Root.css";
 import "./AddItemLayout.css";
 
-import { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import FileInput from "./FileInput";
 import AddTag from "./AddTag";
 
-const AddItemLayout = () => {
-  // 상품 정보
-  const [values, setValues] = useState({
+interface Values {
+  imgFile: File | null;
+  title: string;
+  description: string;
+  price: number;
+  tag: string[];
+}
+
+const AddItemLayout: React.FC = () => {
+  const [values, setValues] = useState<Values>({
     imgFile: null,
     title: "",
     description: "",
-    price: "",
+    price: 0,
     tag: [],
   });
 
-  const handleChange = (name, value) => {
+  const handleChange = (
+    name: keyof Values,
+    value: string | number | File | null | string[]
+  ) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    handleChange(name, value);
+    handleChange(name as keyof Values, value);
   };
 
-  // 판매 가격의 3자리 숫자마다 콤마 추가
-  const addComma = (price) => {
+  const handleFileChange = (name: string, value: File | null) => {
+    handleChange(name as keyof Values, value);
+  };
+
+  const addComma = (price: number) => {
     if (isNaN(price)) price = 0;
-    let returnString = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    return returnString;
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  // 콤마 제거하고 배열에 추가
-  const priceChangeHandler = (e) => {
-    const price = Number(e.target.value.replaceAll(",", ""));
-
-    const { name } = e.target;
-    handleChange(name, price);
+  const priceChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const price = Number(e.target.value.replace(/,/g, ""));
+    handleChange("price", price);
   };
 
-  // 상품명, 상품 설명, 상품 가격, 상품 태그에 값이 있는지 화인
   const isValidForm = !!(
     values.title &&
     values.description &&
@@ -51,7 +60,7 @@ const AddItemLayout = () => {
     values.tag.length
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log("등록: ", values);
   };
@@ -70,7 +79,7 @@ const AddItemLayout = () => {
           <FileInput
             name="imgFile"
             value={values.imgFile}
-            onChange={handleChange}
+            onChange={handleFileChange}
           />
         </div>
 
@@ -124,7 +133,7 @@ const AddItemLayout = () => {
 
         <AddTag
           tags={values.tag}
-          setTags={(tags) => handleChange("tag", tags)}
+          setTags={(tags: string[]) => handleChange("tag", tags)}
         />
       </form>
     </main>

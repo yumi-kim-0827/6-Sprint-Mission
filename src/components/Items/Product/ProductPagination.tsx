@@ -2,13 +2,23 @@ import React from "react";
 
 import "./ProductPagination.css";
 
-import { ReactComponent as LeftArrow } from "../../../assets/images/items/arrow_left.svg";
-import { ReactComponent as RightArrow } from "../../../assets/images/items/arrow_right.svg";
+import leftArrow from "../../../assets/images/items/arrow_left.svg";
+import rightArrow from "../../../assets/images/items/arrow_right.svg";
 
-const ProductPagination = ({ totalPage, activePage, onPageChange }) => {
+interface ProductPaginationProps {
+  totalPage: number;
+  activePage: number;
+  onPageChange: (page: number) => void;
+}
+
+const ProductPagination: React.FC<ProductPaginationProps> = ({
+  totalPage,
+  activePage,
+  onPageChange,
+}) => {
   const maxVisiblePages = 5;
 
-  let startPage;
+  let startPage: number;
 
   if (totalPage <= maxVisiblePages) {
     startPage = 1;
@@ -21,6 +31,7 @@ const ProductPagination = ({ totalPage, activePage, onPageChange }) => {
     { length: Math.min(maxVisiblePages, totalPage - startPage + 1) },
     (_, i) => startPage + i
   );
+
   return (
     <div className="paginationBar">
       <button
@@ -28,7 +39,7 @@ const ProductPagination = ({ totalPage, activePage, onPageChange }) => {
         disabled={activePage === 1}
         onClick={() => onPageChange(activePage - 1)}
       >
-        <LeftArrow />
+        <img src={leftArrow} alt="왼쪽으로" />
       </button>
       {pages.map((page) => (
         <button
@@ -44,7 +55,7 @@ const ProductPagination = ({ totalPage, activePage, onPageChange }) => {
         disabled={activePage === totalPage}
         onClick={() => onPageChange(activePage + 1)}
       >
-        <RightArrow />
+        <img src={rightArrow} alt="오른쪽으로" />
       </button>
     </div>
   );
