@@ -5,21 +5,30 @@ import React, { useEffect, useState } from "react";
 import { getComment } from "../../../api/product.api";
 import Comment from "./Comment";
 
-interface ProductProps {
-  productId: string;
+interface CommentType {
+  id: string;
+  content: string;
+  updatedAt: string;
+  writer: {
+    image: string;
+    nickname: string;
+  };
 }
 
-const Comments = ({ productId }: ProductProps) => {
-  const [comments, setComments] = useState([]);
+interface CommentsProps {
+  productId: string | undefined;
+}
 
-  const handleLoad = async (itemId) => {
+const Comments: React.FC<CommentsProps> = ({ productId }) => {
+  const [comments, setComments] = useState<CommentType[]>([]);
+
+  const handleLoad = async (itemId: string | undefined) => {
     const { list } = await getComment(itemId);
-
     setComments(list);
   };
 
   useEffect(() => {
-    handleLoad({ productId });
+    handleLoad(productId);
   }, [productId]);
 
   return (

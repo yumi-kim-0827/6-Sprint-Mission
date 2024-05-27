@@ -1,22 +1,34 @@
 import "./Dropdown.css";
-
 import React, { useState } from "react";
 import { Desktop, Mobile, Tablet } from "../../MediaQuery";
-
-import PropTypes from "prop-types";
-
 import iconArrow from "../../../assets/images/items/ic_arrow_down.svg";
 import iconSort from "../../../assets/images/items/ic_sort.svg";
 
-function Dropdown({ options, className, onChange }) {
+interface Option {
+  label: string;
+  value: string;
+  className?: string;
+}
+
+interface DropdownProps {
+  options: Option[];
+  className?: string;
+  onChange?: (value: string) => void;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({
+  options,
+  className,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
     if (onChange) {
@@ -28,11 +40,11 @@ function Dropdown({ options, className, onChange }) {
     <div className={`dropdown ${className}`}>
       <div className="dropdown-toggle" onClick={toggleDropdown}>
         <Desktop>
-          {selectedOption.label || "최신순"}
+          {selectedOption?.label || "최신순"}
           <img className="arrow-icon" src={iconArrow} alt="iconArrow" />
         </Desktop>
         <Tablet>
-          {selectedOption.label || "최신순"}
+          {selectedOption?.label || "최신순"}
           <img className="arrow-icon" src={iconArrow} alt="iconArrow" />
         </Tablet>
         <Mobile>
@@ -54,18 +66,6 @@ function Dropdown({ options, className, onChange }) {
       )}
     </div>
   );
-}
-
-Dropdown.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired,
-      className: PropTypes.string,
-    })
-  ).isRequired,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
 };
 
 export default Dropdown;

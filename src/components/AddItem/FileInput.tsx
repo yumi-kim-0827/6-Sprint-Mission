@@ -1,11 +1,8 @@
 import styled from "styled-components";
-
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import PlusIcon from "../../assets/images/icon/ic_plus.svg";
-
 import AddItemImage from "./AddItemImage";
 
-// Props의 타입을 정의합니다.
 interface FileInputProps {
   name: string;
   value: File | null;
@@ -13,9 +10,9 @@ interface FileInputProps {
 }
 
 const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const [preview, setPreview] = useState<string>();
+  const [preview, setPreview] = useState<string | undefined>(undefined);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const nextValue = e.target.files ? e.target.files[0] : null;
@@ -28,6 +25,7 @@ const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
 
     inputNode.value = "";
     onChange(name, null);
+    setPreview(undefined);
   };
 
   useEffect(() => {
@@ -36,7 +34,6 @@ const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
 
-    // useEffect 내부에서 생성된 URL을 cleanup 함수에서 해제합니다.
     return () => {
       URL.revokeObjectURL(nextPreview);
     };
@@ -55,6 +52,7 @@ const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
           type="file"
           onChange={handleChange}
           ref={inputRef}
+          style={{ display: "none" }}
         />
 
         <AddItemImage
@@ -76,17 +74,6 @@ const AddImageTitle = styled.label`
 const AddImageWrap = styled.div`
   display: flex;
   gap: 10px;
-
-  & #file_input {
-    &[type="file"] {
-      position: absolute;
-      width: 0;
-      height: 0;
-      padding: 0;
-      overflow: hidden;
-      border: 0;
-    }
-  }
 `;
 
 const AddImageLabel = styled.label`

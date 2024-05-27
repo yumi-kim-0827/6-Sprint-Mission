@@ -10,13 +10,26 @@ import { Desktop, Mobile, Tablet } from "../../MediaQuery";
 import Dropdown from "./Dropdown";
 import Product from "./Product";
 
-const ProductAll = () => {
-  const [order, setOrder] = useState("recent");
+interface ProductType {
+  id: string;
+  images: string;
+  name: string;
+  price: number;
+  favoriteCount: number;
+}
 
-  const [products, setProducts] = useState([]);
+interface GetProductsResponse {
+  list: ProductType[];
+}
 
-  const handleLoad = async (orderQuery) => {
-    const { list } = await getProducts({ orderBy: orderQuery });
+const ProductAll: React.FC = () => {
+  const [order, setOrder] = useState<string>("recent");
+  const [products, setProducts] = useState<ProductType[]>([]);
+
+  const handleLoad = async (orderQuery: string) => {
+    const { list }: GetProductsResponse = await getProducts({
+      orderBy: orderQuery,
+    });
     setProducts(list);
   };
 
@@ -24,7 +37,7 @@ const ProductAll = () => {
     handleLoad(order);
   }, [order]);
 
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     setOrder(value);
   };
 

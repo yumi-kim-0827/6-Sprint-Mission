@@ -1,13 +1,5 @@
 import instance from "./Axios";
 
-interface ProductProps {
-  productId: undefined;
-}
-
-interface CommentProps extends ProductProps {
-  limit: number;
-}
-
 export async function getProducts({
   orderBy = "recent",
   page = 1,
@@ -28,7 +20,7 @@ export async function getProducts({
   }
 }
 
-export async function getProductId({ productId }: ProductProps) {
+export async function getProductId(productId: string | undefined) {
   const response = await instance.get(`/products/${productId}`);
   const body = response.data;
 
@@ -37,7 +29,7 @@ export async function getProductId({ productId }: ProductProps) {
   return body;
 }
 
-export async function getComment({ productId, limit = 3 }: CommentProps) {
+export async function getComment(productId: string | undefined, limit = 3) {
   const response = await instance.get(
     `/products/${productId}/comments?limit=${limit}`
   );
