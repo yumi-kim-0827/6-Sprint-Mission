@@ -66,6 +66,8 @@ const StyledNavLogo = styled.img`
 `;
 
 const StyledNavLogoTypo = styled.img`
+  width: auto;
+  height: 40px;
   margin-right: 8px;
 
   @media screen and (min-width: 768px) {
