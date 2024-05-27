@@ -62,6 +62,7 @@ const StyledPagination = styled.div`
     font-size: 16px;
     line-height: 0;
     color: var(--color-cool-gray-500);
+    overflow: hidden;
   }
 
   .active {
