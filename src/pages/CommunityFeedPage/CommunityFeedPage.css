@@ -36,6 +36,24 @@
   text-decoration: none;
 }
 
+.CommunitySection__button {
+  width: 240px;
+  height: 48px;
+  margin-top: 24px;
+  background: #3692ff;
+  border-radius: 40px;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1279px) {
   .CommunitySection-wrapper {
     width: 100%;

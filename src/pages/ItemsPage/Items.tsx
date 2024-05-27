@@ -102,7 +102,6 @@ function Items() {
             <div className="all-product-menu">
               <h1 className="product-menu-title">전체 상품</h1>
               <div className="all-product-menu-items">
-                {" "}
                 <form onSubmit={handleSubmit}>
                   <input
                     className="search-input"
