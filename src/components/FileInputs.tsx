@@ -1,29 +1,37 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
-const FileInput = ({ name, value, onChange }) => {
-  const [previewImg, setPreviewImg] = useState(null);
-  const inputRef = useRef();
-  const handleChange = (e) => {
-    const selectedFile = e.target.files[0];
+interface FileInputProps {
+  name: string;
+  value: File | null;
+  onChange: (name: string, value: File | null) => void;
+}
+
+const FileInput: React.FC<FileInputProps> = ({ name, value, onChange }) => {
+  const [previewImg, setPreviewImg] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0] || null;
     onChange(name, selectedFile);
   };
 
   const handleRemoveFile = () => {
     const inputNode = inputRef.current;
     if (!inputNode) return;
-
     inputNode.value = "";
     onChange(name, null);
+    setPreviewImg("");
   };
 
   useEffect(() => {
-    if (!value) return;
+    if (!value) {
+      setPreviewImg("");
+      return;
+    }
     const nextPreview = URL.createObjectURL(value);
     setPreviewImg(nextPreview);
-
     return () => {
-      setPreviewImg();
       URL.revokeObjectURL(nextPreview);
     };
   }, [value]);

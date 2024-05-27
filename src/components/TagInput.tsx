@@ -2,14 +2,24 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import DeleteIcon from "../assets/images/ic_X.png";
 
-const InputTag = ({ tags, setTags, setIsTagsEmpty }) => {
-  const [inputValue, setInputValue] = useState("");
+interface InputTagProps {
+  tags: string[];
+  setTags: React.Dispatch<React.SetStateAction<string[]>>;
+  setIsTagsEmpty: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const handleInputChange = (e) => {
+const InputTag: React.FC<InputTagProps> = ({
+  tags,
+  setTags,
+  setIsTagsEmpty,
+}) => {
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleInputKeyDown = (e) => {
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
       setTags([...tags, inputValue.trim()]);
       e.preventDefault();
@@ -18,7 +28,7 @@ const InputTag = ({ tags, setTags, setIsTagsEmpty }) => {
     }
   };
 
-  const handleTagDelete = (index) => {
+  const handleTagDelete = (index: number) => {
     const newTags = [...tags];
     newTags.splice(index, 1);
     setTags(newTags);
@@ -35,10 +45,10 @@ const InputTag = ({ tags, setTags, setIsTagsEmpty }) => {
         placeholder="태그를 입력하세요"
       />
       <TagList>
-        {tags.map((tag) => (
-          <TagItem key={`tag-${tag}`}>
+        {tags.map((tag, index) => (
+          <TagItem key={`tag-${index}`}>
             <TagText>{tag}</TagText>
-            <DeleteButton onClick={() => handleTagDelete(`tag-${tag}`)}>
+            <DeleteButton onClick={() => handleTagDelete(index)}>
               <CloseIcon src={DeleteIcon} alt="삭제 아이콘" />
             </DeleteButton>
           </TagItem>

@@ -6,6 +6,7 @@ import AddItem from "./components/AddItem";
 import GlobalStyle from "./css/GlobalStyle";
 import LoginPage from "./pages/LoginPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import SignUpPage from "pages/SignInPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/items/:productId" element={<ProductDetailPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
     </Router>
   );

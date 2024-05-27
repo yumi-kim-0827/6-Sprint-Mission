@@ -4,15 +4,15 @@ import styled from "styled-components";
 import BestProduct from "./BestProduct";
 import TotalProducts from "./TotalProducts";
 import SearchProducts from "./SearchProducts";
-import { getProducts } from "../Api/getProducts";
+import { getProducts, List } from "../Api/getProducts";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
-  const [bestProducts, setBestProducts] = useState([]);
+  const [products, setProducts] = useState<List[]>([]);
+  const [bestProducts, setBestProducts] = useState<List[]>([]);
   const [searchProduct, setSearchProduct] = useState("");
-  const [sortOrder, setSortOrder] = useState("newest");
-  const [bestProductsCount, setBestProductsCount] = useState(4);
-  const [totalProductsCount, setTotalProductsCount] = useState(10);
+  const [sortOrder, setSortOrder] = useState<"newest" | "favorite">("newest");
+  const [bestProductsCount, setBestProductsCount] = useState<number>(4);
+  const [totalProductsCount, setTotalProductsCount] = useState<number>(10);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Product = () => {
     fetchProducts();
   }, []);
 
-  const sortedBestProducts = useMemo(
+  const sortedBestProducts = useMemo<List[]>(
     () =>
       products
         .slice()
@@ -46,7 +46,7 @@ const Product = () => {
   }, [sortedBestProducts]);
 
   useEffect(() => {
-    let debounceTimer;
+    let debounceTimer: NodeJS.Timeout;
 
     const handleResize = () => {
       clearTimeout(debounceTimer);
@@ -73,15 +73,15 @@ const Product = () => {
     };
   }, []);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchProduct(e.target.value);
   };
 
-  const handleSortOrder = (order) => {
+  const handleSortOrder = (order: "newest" | "favorite") => {
     setSortOrder(order);
   };
 
-  const filteredProducts = useMemo(
+  const filteredProducts = useMemo<List[]>(
     () =>
       products.filter((product) =>
         product.name.toLowerCase().includes(searchProduct.toLowerCase())
@@ -89,10 +89,11 @@ const Product = () => {
     [products, searchProduct]
   );
 
-  const sortedProducts = useMemo(() => {
+  const sortedProducts = useMemo<List[]>(() => {
     if (sortOrder === "newest") {
       return [...filteredProducts].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
     } else {
       return [...filteredProducts].sort(
@@ -115,7 +116,6 @@ const Product = () => {
             handleSearch={handleSearch}
             handleSortOrder={handleSortOrder}
             sortOrder={sortOrder}
-            navigate={navigate}
           />
         </TotalTitleContainer>
         <TotalProducts

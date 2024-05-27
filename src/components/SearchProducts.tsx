@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const SearchContainer = ({
+interface SearchProductsProps {
+  searchProduct: string;
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSortOrder: (order: "newest" | "favorite") => void;
+  sortOrder: "newest" | "favorite";
+}
+
+const SearchContainer: React.FC<SearchProductsProps> = ({
   searchProduct,
   handleSearch,
   handleSortOrder,
@@ -18,7 +25,7 @@ const SearchContainer = ({
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
-  const handleOptionClick = (value) => {
+  const handleOptionClick = (value: "newest" | "favorite") => {
     setSelectedOption(value);
     handleSortOrder(value);
     setIsDropdownOpen(false);
@@ -42,7 +49,7 @@ const SearchContainer = ({
             <DropdownOption onClick={() => handleOptionClick("newest")}>
               최신순
             </DropdownOption>
-            <DropdownOption onClick={() => handleOptionClick("likes")}>
+            <DropdownOption onClick={() => handleOptionClick("favorite")}>
               좋아요순
             </DropdownOption>
           </DropdownList>
