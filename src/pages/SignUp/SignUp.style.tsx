@@ -4,6 +4,7 @@ export const FormContainer = styled.div`
   width: 100vw;
   max-width: 400px;
   margin: 0 auto;
+  padding: 0px 24px;
 
   > h1 {
     display: flex;

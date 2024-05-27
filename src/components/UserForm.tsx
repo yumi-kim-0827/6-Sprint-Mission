@@ -62,7 +62,7 @@ const StyledUserFormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 
   label {
     font-weight: 700;
@@ -70,7 +70,7 @@ const StyledUserFormGroup = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
     label {
       font-size: 18px;
