@@ -73,6 +73,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
 }
 
 .input-image-box {
@@ -84,4 +86,31 @@
 .input-file-box {
   display: flex;
   gap: 19px;
+}
+
+.tags-list {
+  display: flex;
+  gap: 10px;
+}
+
+.tags {
+  height: 36px;
+  padding: 4px 16px;
+  border-radius: 26px;
+  background-color: #F3F4F6;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delete-tag-button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  cursor: pointer;
 }

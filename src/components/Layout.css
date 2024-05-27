@@ -3,8 +3,8 @@
   width: 100%;
   max-width: 1203px;
   height: auto;
-  margin: 94px auto 200px;
-  border: 1px solid #dfdfdf;
+  margin: 120px auto 200px;
+  border: 1px solid white;
 }
 
 .content-label {
@@ -29,6 +29,7 @@
   align-items: center;
   height: 42px;
   margin-bottom: 24px;
+  margin-top: 48px;
 }
 
 .control-box {

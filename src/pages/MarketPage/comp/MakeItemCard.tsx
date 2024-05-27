@@ -2,8 +2,13 @@ import React from "react";
 import heart from "../../../assets/ic_heart.svg";
 import { formatCurrencyWon } from "../../../utils/formatCurrencyWon";
 import { Link } from "react-router-dom";
+import { Product } from "../../../types";
 
-function MakeItemCard({ item }) {
+interface MakeItemCardProps {
+  item: Product;
+}
+
+const MakeItemCard: React.FC<MakeItemCardProps> = ({ item }) => {
   return (
     <div className="items-box">
       <div className="image-box">
@@ -25,6 +30,6 @@ function MakeItemCard({ item }) {
       </div>
     </div>
   );
-}
+};
 
 export default MakeItemCard;
