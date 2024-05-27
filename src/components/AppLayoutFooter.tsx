@@ -5,7 +5,13 @@ import TwitterIcon from "../assets/icon/twitter.svg?react";
 import YoutubeIcon from "../assets/icon/youtube.svg?react";
 import InstagramIcon from "../assets/icon/insta.svg?react";
 
-const SNS_LIST = [
+interface IconType {
+  name: "facebook" | "twitter" | "youtube" | "instagram";
+  href: string;
+  icon: React.ReactElement;
+}
+
+const SNS_LIST: IconType[] = [
   { name: "facebook", href: "http://www.facebook.com", icon: <FacebookIcon /> },
   { name: "twitter", href: "http://www.twitter.com", icon: <TwitterIcon /> },
   { name: "youtube", href: "http://www.youtube.com", icon: <YoutubeIcon /> },
