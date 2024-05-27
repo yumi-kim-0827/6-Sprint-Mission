@@ -1,4 +1,8 @@
 /* Mobile */
+.blueText {
+  color: '#3692FF';
+}
+
 .Header {
   display: flex;
   justify-content: space-around;
