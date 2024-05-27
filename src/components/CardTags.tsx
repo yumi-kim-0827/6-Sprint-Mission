@@ -10,7 +10,7 @@ const CardTags = ({ tags }: CardTagsProps) => {
     <StyledCardTags>
       <p>상품태그</p>
       <TagBox>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <BaseTag key={tag} tag={tag} />
         ))}
       </TagBox>
