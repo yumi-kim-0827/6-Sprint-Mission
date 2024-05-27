@@ -1,15 +1,15 @@
 import styles from "./AddItem.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import ImageUpload from "./ImageUpload";
 import NameInput from "./NameInput";
 import TagInput from "./TagInput";
 import ProductSubmitButton from "./ProductSubmitButton";
 import DescriptionInput from "./DescriptionInput";
 import PriceInput from "./PriceInput";
-import { initialFormState } from "../../utils/initialFormState";
+import { initialFormState, FormState } from "../../utils/initialFormState";
 
-export default function AddItem() {
-  const [values, setValues] = useState(initialFormState);
+const AddItem: React.FC = () => {
+  const [values, setValues] = useState<FormState>(initialFormState);
 
   return (
     <div className={styles.container}>
@@ -24,4 +24,6 @@ export default function AddItem() {
       <TagInput tags={values.tags} setValues={setValues} />
     </div>
   );
-}
+};
+
+export default AddItem;

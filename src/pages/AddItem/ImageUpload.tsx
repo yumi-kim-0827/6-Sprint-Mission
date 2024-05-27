@@ -1,16 +1,26 @@
 import styles from "./ImageUpload.module.css";
 import skeleton from "../../assets/bg-img-skeleton.svg";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { FormState } from "../../utils/initialFormState";
 
-const ImageUpload = ({ preview, setValues }) => {
-  const fileInputRef = useRef(null);
+interface ImageUploadProps {
+  preview: string;
+  setValues: React.Dispatch<React.SetStateAction<FormState>>;
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({ preview, setValues }) => {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const isPreview = preview !== skeleton;
-  const getFile = inputRef => inputRef.current.files[0];
+  const getFile = (
+    inputRef: React.RefObject<HTMLInputElement>
+  ): File | null => {
+    return inputRef.current?.files ? inputRef.current?.files?.[0] : null;
+  };
 
   const handleCloseClick = () =>
-    setValues(prev => ({ ...prev, preview: skeleton }));
+    setValues(prev => ({ ...prev, preview: skeleton, file: null }));
 
-  const updatePreviewAndState = file => {
+  const updatePreviewAndState = (file: File) => {
     setValues(prev => ({
       ...prev,
       preview: URL.createObjectURL(file),
@@ -21,7 +31,9 @@ const ImageUpload = ({ preview, setValues }) => {
   const handleFileInputChange = () => {
     if (fileInputRef.current) {
       const file = getFile(fileInputRef);
-      updatePreviewAndState(file);
+      if (file) {
+        updatePreviewAndState(file);
+      }
     }
   };
 
@@ -40,7 +52,7 @@ const ImageUpload = ({ preview, setValues }) => {
         ) : (
           <div
             className={styles.preview}
-            onClick={() => fileInputRef.current.click()}
+            onClick={() => fileInputRef.current?.click()}
           >
             <img src={preview} alt="상품 이미지 추가 버튼" />
             <input
