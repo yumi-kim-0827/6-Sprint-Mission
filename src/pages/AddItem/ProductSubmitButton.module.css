@@ -1,0 +1,39 @@
+.btn {
+  display: flex;
+  width: 88px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #3692ff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #ffffff;
+}
+.btn:disabled {
+  background-color: #9ca3af;
+}
+
+.containerSubmit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleSubmit {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+@media (min-width: 744px) {
+  .titleSubmit {
+    font-size: 28px;
+  }
+  .btn {
+    font-size: 19px;
+  }
+}
