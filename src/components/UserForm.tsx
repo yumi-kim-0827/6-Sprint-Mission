@@ -4,14 +4,15 @@ import BaseInput from "./BaseInput";
 import EyeIcon from "../assets/icon/eye.svg?react";
 import EyeOffIcon from "../assets/icon/eye-off.svg?react";
 
+type Label = "email" | "username" | "password" | "passwordCheck";
 interface UserFormGroupProps {
-  label: "email" | "username" | "password" | "passwordCheck";
+  label: Label;
   placeholder: string;
   errorMsg?: string;
   className?: string;
 }
 
-const labelTable = {
+const labelTable: Record<Label, string> = {
   email: "이메일",
   username: "닉네임",
   password: "비밀번호",

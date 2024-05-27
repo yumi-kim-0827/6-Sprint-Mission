@@ -1,10 +1,9 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import DeleteButton from "./DeleteButton";
 
 interface BaseTagProps {
   tag: string;
-  onClick?: MouseEventHandler;
+  onClick?: React.MouseEventHandler;
   isEditable?: boolean;
   className?: string;
 }

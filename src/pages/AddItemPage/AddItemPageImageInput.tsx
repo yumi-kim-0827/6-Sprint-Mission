@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import BaseInput from "../../components/BaseInput";
 import DeleteButton from "../../components/DeleteButton";
@@ -8,14 +8,14 @@ interface Props {
   className?: string;
   placeholder?: string;
   value?: string | string[];
-  onChange?: ChangeEventHandler;
+  onChange?: React.ChangeEventHandler;
   onKeyDown?: () => void;
 }
 
 const AddItemPageImageInput = ({ className, placeholder, value }: Props) => {
   const [previewImg, setPreviewImg] = useState("");
 
-  const handleUploadFile = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleUploadFile: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const files = e.target.files;
 
     if (files) {

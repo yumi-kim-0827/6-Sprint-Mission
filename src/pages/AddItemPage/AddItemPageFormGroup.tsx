@@ -1,4 +1,3 @@
-import { ChangeEventHandler, FocusEventHandler } from "react";
 import styled from "styled-components";
 import AddItemPageImageInput from "./AddItemPageImageInput";
 import BaseInput from "../../components/BaseInput";
@@ -14,8 +13,8 @@ enum FormType {
 interface AddItemPageFormGroupProps {
   label: keyof typeof FormType;
   placeholder?: string;
-  onChange?: ChangeEventHandler;
-  onBlur?: FocusEventHandler;
+  onChange?: React.ChangeEventHandler;
+  onBlur?: React.FocusEventHandler;
   onKeyDown?: () => void;
   value?: string | number | string[];
 }

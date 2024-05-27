@@ -1,10 +1,9 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import XIcon from "../assets/icon/X.svg?react";
 import ActiveXIcon from "../assets/icon/activeX.svg?react";
 
 interface DeleteButtonProps {
-  onClick: MouseEventHandler;
+  onClick: React.MouseEventHandler;
 }
 
 const DeleteButton = ({ onClick }: DeleteButtonProps) => {

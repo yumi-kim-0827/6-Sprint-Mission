@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import BaseButton from "./BaseButton";
 import BaseTextArea from "./BaseTextArea";
@@ -17,11 +17,11 @@ const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
   const [inputValue, setInputValue] = useState("");
   const { id } = useParams();
 
-  const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmitComment = (e: Event) => {
+  const handleAddComment: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
 
     if (!inputValue.trim()) return;
@@ -40,7 +40,7 @@ const CommentInputBox = ({ className, title }: CommentInputBoxProps) => {
         onChange={handleChange}
         value={inputValue}
       />
-      <StyledAddCommentBtn size="small" onSubmit={() => handleSubmitComment}>
+      <StyledAddCommentBtn size="small" onSubmit={() => handleAddComment}>
         등록
       </StyledAddCommentBtn>
     </StyledInputGroup>

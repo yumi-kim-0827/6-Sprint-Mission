@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./AddItemPage.style.js";
 import BaseTag from "../../components/BaseTag.js";
 
@@ -23,7 +23,7 @@ const AddItemPage = () => {
 
   const formatPrice = Number(price).toLocaleString();
 
-  const handleChangePrice = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangePrice: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const formatValue = e.target.value.replace(/\D/g, "");
     setValues((prevValues) => ({
       ...prevValues,
@@ -31,12 +31,12 @@ const AddItemPage = () => {
     }));
   };
 
-  const handleChangeTag = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeTag: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const formatValue = e.target.value.replaceAll(" ", "");
     setTag(formatValue);
   };
 
-  const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeValue: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
     setValues((prevValues) => ({
       ...prevValues,
@@ -44,7 +44,7 @@ const AddItemPage = () => {
     }));
   };
 
-  const handleUpdateTag: FocusEventHandler = (e) => {
+  const handleUpdateTag: React.FocusEventHandler = (e) => {
     const target = e.target as HTMLInputElement;
     const value = target?.value;
     if (value && tags.length < TAG_LIMIT && !tags.includes(value)) {

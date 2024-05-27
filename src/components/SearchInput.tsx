@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 import styled from "styled-components";
 import BaseInput from "./BaseInput";
 import SearchIcon from "../assets/icon/search.svg?react";
@@ -16,7 +15,7 @@ const SearchInput = ({
   value,
   onChange,
 }: SearchInputProps) => {
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     value = e.target.value;
     onChange(value);
   };
