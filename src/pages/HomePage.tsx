@@ -88,7 +88,7 @@ export default function HomePage() {
               상품을 등록하세요
             </h1>
             <h3>
-              어떤 물거이든 판매하고 싶은 상품을 <br />
+              어떤 물건이든 판매하고 싶은 상품을 <br />
               쉽게 등록하세요
             </h3>
           </div>
