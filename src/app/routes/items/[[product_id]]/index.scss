@@ -1,6 +1,6 @@
 @import "@/app/css/mixin.scss";
 
-[data-page="items/{product_id}"]
+@include page("items/{product_id")
 {
 	#header
 	{

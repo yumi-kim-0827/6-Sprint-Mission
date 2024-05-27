@@ -10,7 +10,7 @@ import $signup from "@/app/routes/signup";
 import $items from "@/app/routes/items"; import $items$product_id from "@/app/routes/items/[[product_id]]";
 import $additem from "@/app/routes/additem";
 
-createRoot(document.getElementById("core")!!).render(
+createRoot(document.getElementById("root")!!).render(
 	<StrictMode>
 		<BrowserRouter>
 			<Routes>
@@ -42,7 +42,7 @@ enum Screen
 	MOBILE_MIN = 375, MOBILE_MAX = 768 - 1, TABLET_MIN = 768, TABLET_MAX = 1200 - 1, PC_MIN = 1200, PC_FHD = 1920,
 }
 
-if (false && /localhost/.test(window.location.toString()))
+if (true && /localhost/.test(window.location.toString()))
 {
 	switch (window.opener)
 	{
