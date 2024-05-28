@@ -1,0 +1,72 @@
+.headerContainer {
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+@media (max-width: 1023px) {
+  .headerContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .headerContainer {
+    padding: 0 5px;
+  }
+}
+
+.goLogin {
+  background-color: #3692ff;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 13px 23px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menuContainer {
+  display: flex;
+  align-items: center;
+  height: 69px;
+  gap: 15px; /* 메뉴 간격 조정 */
+  opacity: 1;
+}
+
+.logoutIconContainer {
+  cursor: pointer;
+}
+
+.logoutIconImg {
+  width: 24px;
+  height: 24px;
+}
+
+.freeBoard,
+.usedMarket {
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.usedMarketActive {
+  color: #3692ff;
+}
+
+.pandaLogo {
+  cursor: pointer;
+}

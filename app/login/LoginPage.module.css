@@ -1,0 +1,31 @@
+.authContainer {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.goSignUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.signUpLink {
+  padding-left: 5px;
+  color: #3182f6;
+  cursor: pointer;
+}
