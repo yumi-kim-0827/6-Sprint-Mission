@@ -30,7 +30,7 @@ export default function Board() {
   const [order, setOrder] = useState<"recent" | "like">("recent");
 
   async function getPosts() {
-    const res = await axios.get("/articles"); // 일단 기본값(recent) 기준으로 다불러옴
+    const res = await axios.get("/articles");
     const posts = res.data.list ?? [];
     setPosts(posts);
   }
@@ -54,6 +54,10 @@ export default function Board() {
     }
   };
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
   useEffect(() => {
     try {
       getPosts();
@@ -63,16 +67,23 @@ export default function Board() {
   }, []);
 
   useEffect(() => {
-    // sortData(posts, order as "recent" | "like");
     const sortedPosts = sortData(posts, order);
     setPosts(sortedPosts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[order])
+
+  useEffect(() => {
+    const filteredPosts = posts.filter(post =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setPosts(filteredPosts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm.length]);
 
   return (
     <div className={styles.BoardContainer}>
       <div className={styles.bestContainer}>
         <span className={styles.bestTopText}>베스트 게시글</span>
-        {/* 베스트3개 컴포넌트 */}
         <div className={styles.bestPosts}>
           <BestPost />
         </div>
@@ -83,13 +94,10 @@ export default function Board() {
           <LinkButton href="/">글쓰기</LinkButton>
         </div>
         <div className={styles.postsMiddle}>
-          {/* 검색 컴포넌트 */}
-          <SearchInput searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
-          {/* 드롭다운 컴포넌트 */}
+          <SearchInput value={searchTerm} onChange={handleSearchChange} />
           <Dropdown onChange={handleSortOrderChange}/>
         </div>
         <div className={styles.postsContainer}>
-          {/* 게시글 컴포넌트  */}
           <Posts posts={posts} />
         </div>
       </div>
