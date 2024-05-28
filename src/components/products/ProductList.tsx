@@ -1,11 +1,11 @@
-import styles from '@/styles/Items/product.module.css';
+import styles from '@/styles/Items/ProductList.module.css';
 
 import ProductAll from './ProductAll';
 import ProductBest from './ProductBest';
 
 const ProductList = () => {
 	return (
-		<div className='product_container'>
+		<div className={styles.product_container}>
 			<ProductBest />
 			<ProductAll />
 		</div>

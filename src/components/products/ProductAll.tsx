@@ -1,10 +1,15 @@
 import iconSearch from '@/assets/images/items/ic_search.svg';
+
 import styles from '@/styles/Items/ProductAll.module.css';
+
 import React, { useState, useEffect } from 'react';
+
 import Product from './Product';
+import { getProducts } from '@/api/product.api';
+import Dropdown from '@/components/products/Dropdown';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { getProducts } from '@/api/product.api';
 
 interface ProductType {
 	id: string;
@@ -26,12 +31,14 @@ const ProductAll: React.FC = () => {
 		const { list }: GetProductsResponse = await getProducts({
 			orderBy: orderQuery,
 		});
-		setProducts(list || []); // list가 undefined일 경우 빈 배열로 처리
+		setProducts(list || []);
 	};
 
 	useEffect(() => {
 		handleLoad(order);
 	}, [order]);
+
+	console.log(products);
 
 	const handleChange = (value: string) => {
 		setOrder(value);
@@ -51,22 +58,15 @@ const ProductAll: React.FC = () => {
 					상품 등록하기
 				</Link>
 
-				{/* <div className={styles.all_sort_wrap}>
-          <Dropdown
-            options={[
-              {
-                label: '최신순',
-                value: 'recent',
-              },
-              {
-                label: '좋아요순',
-                value: 'favorite',
-              },
-            ]}
-            className={styles.custom-dropdown}
-            onChange={handleChange}
-          />
-        </div> */}
+				<div className={styles.all_sort_wrap}>
+					<Dropdown
+						options={[
+							{ label: '최신순', value: 'recent' },
+							{ label: '좋아요순', value: 'favorite' },
+						]}
+						onChange={handleChange}
+					/>
+				</div>
 			</div>
 
 			<div className={styles.all_content}>

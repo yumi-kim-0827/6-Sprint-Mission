@@ -23,7 +23,7 @@ const Product: React.FC<ProductProps> = ({ product, isAllSection }) => {
 		<Link href={`./${product.id}`} className={styles.product_wrap}>
 			{isAllSection ? (
 				<>
-					<Image className={styles.all_img} src={product.images} alt={product.name}></Image>
+					<Image className={styles.all_img} src={product.images[0]} alt={product.name} width={300} height={300} />
 					<div className={styles.all_name}>{product.name}</div>
 					<div className={styles.all_price}>{product.price}원</div>
 					<div className={styles.all_heart}>
@@ -33,7 +33,7 @@ const Product: React.FC<ProductProps> = ({ product, isAllSection }) => {
 				</>
 			) : (
 				<>
-					<Image className={styles.best_img} src={product.images} alt={product.name}></Image>
+					<Image className={styles.best_img} src={product.images[0]} alt={product.name} width={300} height={300} />
 					<div className={styles.best_name}>{product.name}</div>
 					<div className={styles.best_price}>{product.price}원</div>
 					<div className={styles.best_heart}>

@@ -1,59 +1,59 @@
 /* Dropdown.css */
 
 .dropdown {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  padding: 8px 12px 8px 24px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
+.dropdown_toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	padding: 8px 12px 8px 24px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 12px;
 }
 
-.dropdown-menu {
-  width: 100%;
-  position: absolute;
-  margin-top: 8px;
-  top: 100%;
-  right: 0;
-  background-color: #fff;
-  border: #e5e7eb solid 0.5px;
-  border-radius: 12px;
+.dropdown_menu {
+	width: 100%;
+	position: absolute;
+	margin-top: 8px;
+	top: 100%;
+	right: 0;
+	background-color: #fff;
+	border: #e5e7eb solid 0.5px;
+	border-radius: 12px;
 }
 
-.dropdown-menu .option {
-  padding: 8px 12px;
-  cursor: pointer;
-  border-bottom: #e5e7eb solid 0.5px;
+.dropdown_menu .option {
+	padding: 8px 12px;
+	cursor: pointer;
+	border-bottom: #e5e7eb solid 0.5px;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Mobile Size================================================================================================================================= */
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  .dropdown-toggle {
-    justify-content: center;
-    padding: 8px 12px;
-  }
+	.dropdown_toggle {
+		justify-content: center;
+		padding: 8px 12px;
+	}
 
-  .dropdown-menu {
-    width: 130px;
-    top: 100%;
-  }
+	.dropdown_menu {
+		width: 130px;
+		top: 100%;
+	}
 
-  .dropdown-menu .option {
-    height: 42px;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-bottom: #e5e7eb solid 0.5px;
-  }
+	.dropdown_menu .option {
+		height: 42px;
+		padding: 8px 12px;
+		cursor: pointer;
+		border-bottom: #e5e7eb solid 0.5px;
+	}
 }
