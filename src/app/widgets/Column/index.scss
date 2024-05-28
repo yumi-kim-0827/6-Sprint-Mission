@@ -1,0 +1,15 @@
+@import "@/app/css/mixin.scss";
+
+@include widget("Column")
+{
+	display: flex;
+
+	&.top-to-bottom
+	{
+		flex-direction: column;
+	}
+	&.bottom-to-top
+	{
+		flex-direction: column-reverse;
+	}
+}

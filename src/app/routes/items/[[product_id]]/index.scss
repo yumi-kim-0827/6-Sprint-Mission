@@ -1,0 +1,11 @@
+@import "@/app/css/mixin.scss";
+
+@include page("items/{product_id")
+{
+	#header
+	{
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #DFDFDF;
+	}
+}

@@ -1,0 +1,198 @@
+@import "@/app/css/mixin.scss";
+
+@include page("items")
+{
+	@include widget("Header")
+	{
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #DFDFDF;
+	}
+	@include widget("Spacer")
+	{
+		overflow: auto;
+
+		.segment
+		{
+			@include mobile
+			{
+				&:first-of-type
+				{
+					padding-top: 24px;
+				}
+				&:last-of-type
+				{
+					padding-bottom: 24px;
+				}
+			}
+			@include tablet
+			{
+				&:first-of-type
+				{
+					padding-top: 24px;
+				}
+				&:last-of-type
+				{
+					padding-bottom: 24px;
+				}
+			}
+			@include desktop
+			{
+				max-width: 1200px;
+
+				&:first-of-type
+				{
+					padding-top: 16px;
+				}
+				&:last-of-type
+				{
+					padding-bottom: 16px;
+				}
+			}
+			&.best
+			{
+				gap: 16px;
+
+				.products
+				{
+					gap: 24px;
+				}
+			}
+			&.sale
+			{
+				@include mobile
+				{
+					gap: 16px;
+				}
+				@include tablet
+				{
+					gap: 24px;
+				}
+				@include desktop
+				{
+					gap: 24px;
+				}
+				.heading
+				{
+					@include mobile
+					{
+						margin-bottom: calc(42px + 8px);
+					}
+					> *
+					{
+						height: 100%;
+					}
+					> .search
+					{
+						padding-left: 20px;
+						padding-right: 20px;
+						border-radius: 12px;
+						background-color: #F3F4F6;
+	
+						@include mobile
+						{
+							position: absolute;
+							top: 100%;
+							width: calc(100% - 42px - 12px);
+							margin-top: 8px;
+						}
+						@include tablet
+						{
+							width: 240px;
+						}
+						@include desktop
+						{
+							width: 325px;
+						}
+						input
+						{
+							font-size: 16px;
+							font-weight: 500;
+							line-height: 24px;
+	
+							&::placeholder
+							{
+								color: #1F2937;
+							}
+						}
+					}
+					@include widget("DropDown")
+					{
+						@include mobile
+						{
+							position: absolute;
+							top: 100%;
+							right: 0px;
+							margin-top: 8px;
+						}
+					}
+				}
+				.products
+				{
+					@include mobile
+					{
+						gap: 8px;
+					}
+					@include tablet
+					{
+						gap: 16px;
+					}
+					@include desktop
+					{
+						gap: 24px;
+					}
+				}
+			}
+			> .heading
+			{
+				height: 42px;
+				position: relative;
+				font-size: 20px;
+				font-weight: 700;
+				
+				.button
+				{
+					height: 42px;
+					font-size: 16px;
+					font-weight: 600;
+					padding-left: 23px;
+					padding-right: 23px;
+					border-radius: 8px;
+				}
+			}
+			> .products
+			{
+				display: grid;
+			}
+		}
+	}
+	#pagination
+	{
+		padding-top: 15px;
+		padding-bottom: 15px;
+		border-top-width: thin;
+		border-top-style: solid;
+		border-top-color: #DFDFDF;
+
+		> .button
+		{
+			width: 40px;
+			height: 40px;
+			border-width: thin;
+			border-style: solid;
+			border-color: #E5E7EB;
+			border-radius: 50%;
+
+			&.indexing
+			{
+				color: #FFFFFF;
+				background-color: #3692FF;
+			}
+			&:not(.indexing)
+			{
+				color: #6B7280;
+				background-color: #FFFFFF;
+			}
+		}
+	}
+}

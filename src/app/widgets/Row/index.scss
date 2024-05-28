@@ -1,0 +1,15 @@
+@import "@/app/css/mixin.scss";
+
+@include widget("Row")
+{
+	display: flex;
+
+	&.left-to-right
+	{
+		flex-direction: row;
+	}
+	&.right-to-left
+	{
+		flex-direction: row-reverse;
+	}
+}

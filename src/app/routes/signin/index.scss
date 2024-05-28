@@ -1,0 +1,149 @@
+@import "@/app/css/mixin.scss";
+
+@include page("signin")
+{
+	@include mobile
+	{
+		gap: 24px;
+	}
+	@include tablet
+	{
+		gap: 40px;
+	}
+	@include desktop
+	{
+		gap: 40px;
+	}
+	#company
+	{
+		@include mobile
+		{
+			width: 198px;
+			height: 66px;
+			margin-top: 24px;
+		}
+		@include tablet
+		{
+			width: 396px;
+			height: 132px;
+			margin-top: 48px;
+		}
+		@include desktop
+		{
+			width: 396px;
+			height: 132px;
+			margin-top: 60px;
+		}
+	}
+	.container
+	{
+		width: calc(100% - 24px - 24px);
+		margin-left: 24px;
+		margin-right: 24px;
+
+		@include tablet
+		{
+			max-width: 640px;
+		}
+		@include desktop
+		{
+			max-width: 640px;
+		}
+		> form
+		{
+			> .auth
+			{
+				> .field
+				{
+					@include mobile
+					{
+						gap: 8px;
+					}
+					@include tablet
+					{
+						gap: 16px;
+					}
+					@include desktop
+					{
+						gap: 16px;
+					}
+					> label
+					{
+						font-weight: 700;
+		
+						@include mobile
+						{
+							font-size: 14px;
+							line-height: 16.71px;
+						}
+						@include tablet
+						{
+							font-size: 18px;
+							line-height: 21.48px;
+						}
+						@include desktop
+						{
+							font-size: 18px;
+							line-height: 21.48px;
+						}
+					}
+					> .input
+					{
+						height: 56px;
+						padding-left: 24px;
+						padding-right: 24px;
+						border-radius: 12px;
+						background-color: #F3F4F6;
+
+						input
+						{
+							font-size: 16px;
+							font-weight: 500;
+							line-height: 24px;
+
+							&::placeholder
+							{
+								color: #9CA3AF;
+								font-size: 16px;
+								font-weight: 400;
+								line-height: 24px;
+							}
+						}
+					}
+				}
+				> .button
+				{
+					height: 56px;
+					font-size: 20px;
+					font-weight: 600;
+					line-height: 24px;
+					border-radius: 40px;
+				}
+			}
+		}
+		> .\33rd-party
+		{
+			height: 75px;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 24px;
+			padding-left: 24px;
+			padding-right: 24px;
+			border-radius: 8px;
+			background-color: #E6F2FF;
+		}
+		> .assistance
+		{
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 17.9px;
+			text-align: center;
+
+			> a
+			{
+				color: #3182F6;
+				text-decoration: underline;
+			}
+		}
+	}
+}

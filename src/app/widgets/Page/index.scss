@@ -1,0 +1,8 @@
+@import "@/app/css/mixin.scss";
+
+@include widget("Page")
+{
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+}

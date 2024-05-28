@@ -1,0 +1,52 @@
+@import "@/app/css/mixin.scss";
+
+@include page("items")
+{
+	.item
+	{
+		width: 100%;
+
+		> .image
+		{
+			overflow: hidden;
+			position: relative;
+			aspect-ratio: 1 / 1;
+			border-radius: 16px;
+
+			&::after
+			{
+				content: "";
+				top: 0px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				position: absolute;
+				box-shadow: inset 0px 0px 50px 0 rgba(0, 0, 0, 10%);
+			}
+		}
+		> .title
+		{
+			color: #1F2937;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 16.71px;
+			margin-top: 16px;
+		}
+		> .price
+		{
+			color: #1F2937;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 19.09px;
+			margin-top: 6px;
+		}
+		> .likes
+		{
+			color: #4B5563;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 14.32px;
+			margin-top: 6px;
+		}
+	}
+}

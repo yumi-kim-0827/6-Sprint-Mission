@@ -1,0 +1,24 @@
+{
+	"compilerOptions":
+	{
+		"lib":
+		[
+			"DOM",
+			"ESNext",
+		],
+		"paths":
+		{
+			"@/*": ["./src/*"]
+		},
+		"jsx": "react-jsx", "target": "ESNext",
+		"module": "ESNext", "moduleResolution": "bundler",
+		"isolatedModules": true, "resolveJsonModule": true,
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"experimentalDecorators": true,
+		"noFallthroughCasesInSwitch": true,
+	},
+	"include": ["src", "typings"], "references": [{ "path": "./tsconfig.node.json" }],
+}
