@@ -1,0 +1,115 @@
+.top_navigation {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #dfdfdf;
+	height: 70px;
+	z-index: 50;
+}
+
+.top_container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.top_navigation_wrap {
+	margin-left: 200px;
+}
+
+.top_navigation_main {
+	display: flex;
+	flex-grow: 9;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1rem;
+}
+
+.top_navigation_login {
+	margin-right: 200px;
+}
+
+.login_btn {
+	width: 8rem;
+	height: 3rem;
+	border-radius: 8px;
+	gap: 10px;
+	padding: 14px 24px;
+	text-align: center;
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.nav_menu {
+	display: flex;
+	gap: 1rem;
+}
+
+.menu_community,
+.menu_used_market {
+	font-size: 1.125rem;
+	font-weight: 700;
+}
+
+.menu_community {
+	color: #4b5563;
+}
+
+.menu_used_market {
+	color: #4b5563;
+}
+
+.active {
+	color: var(--blue);
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Tablet Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+	.top_navigation_wrap {
+		margin-left: 24px;
+	}
+
+	.top_navigation_login {
+		margin-right: 24px;
+	}
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Mobile Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+	.top_navigation_wrap {
+		margin-left: 16px;
+	}
+
+	.top_navigation_login {
+		margin-right: 16px;
+	}
+}
+
+@media (max-width: 767px) {
+	.nav_menu {
+		gap: 0.5rem;
+	}
+
+	.menu_community,
+	.menu_used_market {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Mobile Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+	.logo_img {
+		width: 5.2rem;
+	}
+}

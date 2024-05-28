@@ -1,0 +1,165 @@
+.all_top_warp {
+  display: grid;
+  grid-template-columns: 1fr 325px 133px 130px;
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-bottom: 24px;
+  height: 42px;
+}
+
+.all_title {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.all_top_main {
+  display: grid;
+  grid-template-columns: 1fr 133px 130px;
+  grid-template-rows: auto;
+  gap: 1rem;
+  height: 100%;
+}
+
+.all_search_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+}
+
+.all_search_icon {
+  position: absolute;
+  left: 10px;
+}
+
+.all_search {
+  width: 325px;
+  height: 100%;
+  background-color: var(--gray-100);
+  border: none;
+  border-radius: 12px;
+  padding: 9px 10px 9px 34px;
+}
+
+.all_search::placeholder {
+  color: var(--gray-400);
+}
+
+.all_add_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 23px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.all_sort_wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.all_sort {
+  width: 130px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1f2937;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.sort_arrow {
+  position: absolute;
+  right: 2px;
+}
+
+.all_sort_btn {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown_menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+
+.all_sort_option {
+  background-color: red;
+}
+
+.all_content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Tablet Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .all_content {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Mobile Size================================================================================================================================= */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .all_top_warp {
+    grid-template-columns: 1fr 1.5fr 1fr 50px;
+    grid-template-areas:
+      "title title add_item add_item"
+      "search search search sort";
+    gap: 0.5rem;
+    margin-bottom: 60px;
+  }
+
+  .all_title {
+    width: 100%;
+    grid-area: title;
+  }
+
+  .all_search_wrap {
+    width: 100%;
+    grid-area: search;
+  }
+  .all_add_item {
+    width: 100%;
+    grid-area: add_item;
+  }
+  .all_sort_wrap {
+    width: 100%;
+    grid-area: sort;
+  }
+
+  .all_sort {
+    width: 100%;
+  }
+
+  .all_content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
