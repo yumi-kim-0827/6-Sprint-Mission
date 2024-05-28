@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import BestItemSection from "../components/BestItemSection";
-import AllItemSection from "../components/AllItemSection";
+import BestItemSection from "./components/BestItemSection";
+import AllItemSection from "./components/AllItemSection";
 
-function UsedMarket() {
+function MarketPage() {
   return (
     <>
       <AllItemSection />
@@ -14,4 +14,4 @@ function UsedMarket() {
   );
 }
 
-export default UsedMarket;
+export default MarketPage;

@@ -17,6 +17,7 @@
   text-align: left;
   color: #fff;
   border: 0px solid #fff;
+  text-decoration: none;
 }
 
 .headerBar li {
@@ -31,8 +32,4 @@
 
 .headerBar li:hover {
   color: #3692ff;
-}
-
-.headerBar li link {
-  text-decoration: none;
 }

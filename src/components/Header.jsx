@@ -2,7 +2,6 @@
 
 import { Link, NavLink } from "react-router-dom";
 import logo from "../imgs/logo/logo.svg";
-import "./Header.css";
 
 function getLinkStyle({ isActive }) {
   return { color: isActive ? "var(--blue)" : undefined };

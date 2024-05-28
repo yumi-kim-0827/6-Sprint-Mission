@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProduct } from "../api/api";
+import { getProduct } from "../../../api/api";
 //전체 상품
 
 function AllItemSection() {

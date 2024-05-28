@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getProduct } from "../api/api";
+import React, { useEffect, useState } from "react";
+import { getProduct } from "../../../api/api";
 import ItemCard from "./ItemCard";
 //베스트 상품
 
@@ -16,7 +16,7 @@ const getPageSize = () => {
 
 function BestItemSection() {
   const [item, setItem] = useState([]);
-  const [pageSize, setPageSize] = useState();
+  const [pageSize, setPageSize] = useState(getPageSize());
 
   const fetchDate = async ({ order, pageSize }) => {
     const products = await getProduct({ order, pageSize });
@@ -25,7 +25,7 @@ function BestItemSection() {
 
   useEffect(() => {
     const handleResize = () => {
-      setPageSize(getPageSize);
+      setPageSize(getPageSize());
     };
     window.addEventListener("resize", handleResize);
     fetchDate({ order: "favorite", pageSize });
