@@ -14,7 +14,7 @@ export const ItemCard = ({ item, cardType }) => {
         className={"card__image card__image" + cardType}
       />
       <h2 className="card__name">{name}</h2>
-      <p className="card__price">{formatPrice(price)}</p>
+      <p className="card__price">{formatPrice(price)}원</p>
       <div className="card__footer">
         <img src={likeIcon} alt="like button" />
         <p className="card__favoriteCount">{favoriteCount}</p>

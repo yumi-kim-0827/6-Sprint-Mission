@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import App from "./App";
+import App from "../app/App";
 import { Items } from "../pages/items";
 import { RegisterPage } from "../pages/RegisterPage";
 import { ErrorPage } from "../pages/ErrorPage";

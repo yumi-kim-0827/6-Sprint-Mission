@@ -6,6 +6,31 @@ import { FlexContainer } from "../../../shared/ui/Container";
 import KebabIcon from "../../../shared/asset/ic_kebab.png";
 import inquiryEmtpyImage from "../../../shared/asset/Img_inquiry_empty.png";
 
+export const ProductCommentsSection = ({ comments }) => {
+  return (
+    <section>
+      {comments.length > 0 ? (
+        comments.map((v) => (
+          <NewComment key={v.id} direction="column" gap="24px">
+            <FlexContainer justify="space-between">
+              <ProductComment>{v.content}</ProductComment>
+              <EditButton>
+                <img src={KebabIcon} />
+              </EditButton>
+            </FlexContainer>
+            <Profile writer={v.writer} updatedAt={v.updatedAt} />
+            <Line />
+          </NewComment>
+        ))
+      ) : (
+        <InquiryEmpty>
+          <InquiryDescription>아직 문의가 없습니다.</InquiryDescription>
+        </InquiryEmpty>
+      )}
+    </section>
+  );
+};
+
 const NewComment = styled(FlexContainer)`
   padding-bottom: 24px;
 `;
@@ -46,29 +71,3 @@ const InquiryDescription = styled.span`
     background: none;
   }
 `;
-
-export const ProductCommentsSection = ({ comments }) => {
-  console.log(comments.length !== 0);
-  return (
-    <section>
-      {comments.length !== 0 ? (
-        comments.map((v) => (
-          <NewComment key={v.id} direction="column" gap="24px">
-            <FlexContainer justify="space-between">
-              <ProductComment>{v.content}</ProductComment>
-              <EditButton>
-                <img src={KebabIcon} />
-              </EditButton>
-            </FlexContainer>
-            <Profile writer={v.writer} updatedAt={v.updatedAt} />
-            <Line />
-          </NewComment>
-        ))
-      ) : (
-        <InquiryEmpty>
-          <InquiryDescription>아직 문의가 없습니다.</InquiryDescription>
-        </InquiryEmpty>
-      )}
-    </section>
-  );
-};
