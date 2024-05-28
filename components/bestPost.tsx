@@ -32,7 +32,12 @@ export default function BestPost() {
   }
 
   useEffect(() => {
-    getBest();
+    try {
+      getBest();
+    } catch (error) {
+      console.log(error);
+    }
+    
   }, []);
 
   return (
@@ -56,10 +61,12 @@ export default function BestPost() {
             )}
           </div>
           <div className={style.BestInfo}>
-            <div>
+            <div className={style.BestInfoFirst}>
               <span>{item.writer.nickname}</span>
-              {/* <Image fill alt="하트" src={heartImg} /> */}
-              <span>{item.likeCount}</span>
+              <div className={style.BestInfoHeart}>
+                <Image width={16} height={16} alt="하트" src={heartImg} />
+                <span>{item.likeCount}</span>
+              </div>
             </div>
             <div>
               <span>{timeString(item.createdAt)}</span>

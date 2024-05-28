@@ -2,7 +2,7 @@
   width: 384px;
   height: 169px;
   border-radius: 8px;
-  background-color: #dddddd;
+  background-color: #F9FAFB;
   padding: 0 18px;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,6 @@
 
 .BestTitle {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -31,4 +30,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.BestInfoFirst {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.BestInfoHeart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
 }

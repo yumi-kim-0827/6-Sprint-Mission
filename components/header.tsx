@@ -31,26 +31,21 @@ const NavBar: React.FC = () => {
       </Link>
       <div className={styles.menus}>
         <Link
-          href="/board"
-          className={router.pathname === "/board" ? styles.focus : ""}
+          href="/boards"
+          className={router.pathname === "/boards" ? styles.focus : ""}
         >
           <span>자유게시판</span>
         </Link>
         <Link
           href="/items"
-          className={
-            router.pathname.startsWith("/items") ||
-            router.pathname === "/additem"
-              ? styles.focus
-              : ""
-          }
+          className={router.pathname === "/items" ? styles.focus : ""}
         >
           <span>중고마켓</span>
         </Link>
       </div>
-      <LinkButton href="/mypage">
+      <Link href="/mypage">
         <Image width={40} height={40} alt="user-icon" src={user_icon} />
-      </LinkButton>
+      </Link>
     </nav>
   );
 };
