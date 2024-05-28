@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
-import { getItemDetail } from "../api/api";
-import { useAsync } from "../hooks/useAsync";
 import { useCallback, useEffect, useState } from "react";
-import icoHeart from "../img/ic_heart.svg";
-import icoKebab from "../img/ic_kebab.svg";
-import Button from "../components/Button";
-import Input from "../components/Input";
+import { useParams } from "react-router-dom";
+import { getItemDetail } from "api/api";
+import { useAsync } from "hooks/useAsync";
+import Button from "components/Button";
+import Input from "components/Input";
 import "./ItemDetailPage.scss";
+import icoHeart from "img/ic_heart.svg";
+import icoKebab from "img/ic_kebab.svg";
 
 export function ItemDetailPage() {
   const { productId } = useParams();

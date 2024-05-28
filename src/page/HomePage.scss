@@ -40,6 +40,9 @@
   }
   .link {
     @include btnLarge();
+    &:visited {
+      color: #fff;
+    }
   }
   .section-wrap {
     display: flex;

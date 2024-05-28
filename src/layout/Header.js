@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { GNB } from "../components/GNB";
-import { Logo } from "../components/Logo";
+import { GNB } from "components/GNB";
+import { Logo } from "components/Logo";
 
 export function Header() {
   return (

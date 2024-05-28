@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { ItemList } from "../components/ItemList";
-import Input from "../components/Input";
-import { useResponsive } from "../hooks/useResponsive";
 import { Link, useSearchParams } from "react-router-dom";
+import { useResponsive } from "hooks/useResponsive";
+import { ItemList } from "components/ItemList";
+import Input from "components/Input";
 import "./ItemPage.scss";
 
 export function ItemPage() {

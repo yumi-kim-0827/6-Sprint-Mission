@@ -1,6 +1,6 @@
 import Styles from "./Input.module.scss";
 
-export default function SearchInput({
+export default function EmailInput({
   name,
   value,
   onChange,
@@ -10,7 +10,7 @@ export default function SearchInput({
 }) {
   return (
     <input
-      type="text"
+      type="email"
       name={name}
       value={value}
       onChange={onChange}

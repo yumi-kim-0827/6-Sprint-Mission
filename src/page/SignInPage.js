@@ -1,8 +1,44 @@
-import Button from "../components/Button";
-import Input from "../components/Input";
+import Button from "components/Button";
+import Input from "components/Input";
 import "./SignPage.scss";
+import LogoImg from "img/logo-big.png";
+import IcoGoogle from "img/ic_google.svg";
+import IcoKakao from "img/ic_kakao.svg";
+import { useState } from "react";
 
 export function SignInPage() {
+  const [isEmailInvalid, setIsEmailInvalid] = useState(true);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(true);
+  const [isFormInvalid, setIsFormInvalid] = useState(true);
+
+  const handleChange = (e) => {
+
+    switch (e.target.type) {
+      case "email":
+        if (e.target.checkValidity()) {
+          setIsEmailInvalid(false);
+        } else {
+          setIsEmailInvalid(true);
+        }
+        break;
+      case "password":
+        if (e.target.value.length < 8) {
+          setIsPasswordInvalid(true);
+        } else {
+          setIsPasswordInvalid(false);
+        }
+        break;
+      default:
+        break;
+    }
+
+    if (!isEmailInvalid && !isPasswordInvalid) {
+      setIsFormInvalid(false);
+    } else {
+      setIsFormInvalid(true);
+    }
+  };
+
   return (
     <div className="wrap wrap-form">
       <section className="section-form">
@@ -10,7 +46,7 @@ export function SignInPage() {
           <h1 className="blind">로그인 페이지</h1>
           <a href="/" className="link-home">
             <img
-              src="/img/logo-big.png"
+              src={LogoImg}
               alt="판다마켓 로고 이미지"
               className="img-home"
             />
@@ -18,7 +54,7 @@ export function SignInPage() {
           </a>
         </header>
         <div className="section-form__content">
-          <form action="/items.html">
+          <form action="/items.html" onChange={handleChange}>
             <fieldset className="section-form__form">
               <legend className="blind">로그인 폼</legend>
               <div className="section-form__box">
@@ -47,7 +83,7 @@ export function SignInPage() {
                   type="submit"
                   id="btn-submit"
                   className="section-form__btn btn-large"
-                  disabled
+                  disabled={isFormInvalid}
                 >
                   로그인
                 </Button.Large>
@@ -60,12 +96,12 @@ export function SignInPage() {
           <ul className="section-other__content">
             <li className="section-other__list">
               <a href="https://www.google.com" className="link">
-                <img src="/img/ic_google.svg" alt="구글 로그인 바로가기" />
+                <img src={IcoGoogle} alt="구글 로그인 바로가기" />
               </a>
             </li>
             <li className="section-other__list">
               <a href="https://www.kakaocorp.com/page/" className="link">
-                <img src="/img/ic_kakao.svg" alt="카카오 로그인 바로가기" />
+                <img src={IcoKakao} alt="카카오 로그인 바로가기" />
               </a>
             </li>
           </ul>

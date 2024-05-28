@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useAsync } from "../hooks/useAsync";
 import { Navigate } from "react-router-dom";
-import { createItems } from "../api/api";
-import Input from "../components/Input";
-import Button from "../components/Button";
+import { useAsync } from "hooks/useAsync";
+import { createItems } from "api/api";
+import Input from "components/Input";
+import Button from "components/Button";
 
 const INITIAL_VALUES = {
   name: null,
