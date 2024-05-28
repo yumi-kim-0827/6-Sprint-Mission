@@ -1,0 +1,100 @@
+.Footer {
+  height: 160px;
+  background-color: var(--gray900);
+  color: #fff;
+  padding: 30px 300px 0 300px;
+  font-weight: 100;
+}
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Footer .info-container,
+.Footer .policy-container a {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray400);
+}
+.Footer .info-container .policy-container,
+.Footer .info-container .link-container {
+  display: flex;
+  gap: 20px;
+}
+
+.Footer .info-container .link-container .img {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .Footer {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    height: 160px;
+    background-color: var(--gray900);
+    padding: auto;
+    color: #fff;
+  }
+  .Footer .info-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "policy link"
+      "info .";
+  }
+  .Footer .info-container,
+  .Footer .policy-container a {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray400);
+  }
+  .Footer .info-container .policy-container {
+    display: flex;
+    gap: 10px;
+  }
+  .Footer .info {
+    grid-area: info;
+  }
+  .Footer .policy-container {
+    grid-area: policy;
+    margin: 0 auto;
+  }
+  .Footer .info-container .link-container img {
+    width: 15px;
+  }
+  .Footer .link-container {
+    grid-area: link;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .Footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 160px;
+    padding: 0 100px 0 100px;
+    background-color: var(--gray900);
+    color: #fff;
+  }
+  .Footer .info-container {
+    width: 100%;
+    position: relative;
+    top: -30px;
+  }
+  .Footer .info-container,
+  .Footer .policy-container a {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray400);
+  }
+  .Footer .info-container .policy-container {
+    display: flex;
+    gap: 30px;
+  }
+}
