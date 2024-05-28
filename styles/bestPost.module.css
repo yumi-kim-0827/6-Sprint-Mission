@@ -1,0 +1,34 @@
+.BestContainer {
+  width: 384px;
+  height: 169px;
+  border-radius: 8px;
+  background-color: #dddddd;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.BestBadge {
+    padding-bottom: 10px;
+}
+
+.BestTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.BestTitleText {
+    font-weight: 600;
+    font-size: 20px;
+    color: #1f2937;
+}
+
+.BestInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

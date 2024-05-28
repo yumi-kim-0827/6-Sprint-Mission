@@ -1,5 +1,25 @@
 .BoardContainer {
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 auto;
+  margin: 0 auto;
 }
+
+.bestContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.bestTopText {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 18px 0;
+}
+
+.bestPosts {
+  display: flex;
+  gap: 24px;
+}
+
