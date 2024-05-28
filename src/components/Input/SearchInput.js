@@ -11,13 +11,13 @@ export default function SearchInput({
   return (
     <div className={className}>
       <form onSubmit={onSubmit} className={`${Styles.search}`}>
-        <img src={icoSearch} alt="검색" className={Styles.searchIco} />
+        <img src={icoSearch} alt="검색" className={Styles["search__ico"]} />
         <input
           type="text"
           name={name}
           value={value}
           onChange={onChange}
-          className={Styles.searchInput}
+          className={Styles["search__input"]}
           placeholder="검색할 상품을 입력해주세요"
         />
       </form>

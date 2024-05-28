@@ -8,6 +8,7 @@ import IcoYoutube from "../img/ic_youtube.svg";
 import IcoTwitter from "../img/ic_twitter.svg";
 import IcoInstagram from "../img/ic_instagram.svg";
 import { Link } from "react-router-dom";
+import "./HomePage.scss";
 
 export function HomePage() {
   return (

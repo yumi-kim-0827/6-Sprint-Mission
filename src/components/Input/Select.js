@@ -24,7 +24,7 @@ export default function Select({
   return (
     <div className={`${Styles.select} ${className}`}>
       <form onChange={handleClick}>
-        <div className={Styles.selectMain}>
+        <div className={Styles["select-main"]}>
           <button
             type="button"
             name={name}
@@ -32,7 +32,7 @@ export default function Select({
             aria-expanded={isShow}
             aria-controls="select-box"
             onClick={onClick}
-            className={Styles.selectMainBtn}
+            className={Styles["select-main__btn"]}
           >
             {(isPC || isTablet) && (
               <>
@@ -58,11 +58,11 @@ export default function Select({
           <ul
             id="select-box"
             aria-hidden={onPop}
-            className={Styles.selectLists}
+            className={Styles["select-lists"]}
           >
             {OPTIONS.map((option, index) => {
               return (
-                <li className={Styles.selectList}>
+                <li className={Styles["select-list"]}>
                   <input
                     type="radio"
                     name={name}
@@ -74,7 +74,7 @@ export default function Select({
                   <label
                     type="radio"
                     htmlFor={`select-${index + 1}`}
-                    className={Styles.selectListBtn}
+                    className={Styles["select-list__btn"]}
                   >
                     {option.name}
                   </label>

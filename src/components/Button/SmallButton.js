@@ -13,7 +13,7 @@ export default function SmallButton({
       type={type}
       onClick={onClick}
       id={id}
-      className={`${Styles.btnSmall} ${className}`}
+      className={`${Styles["btn-small"]} ${className}`}
       disabled={disabled}
     >
       {children}

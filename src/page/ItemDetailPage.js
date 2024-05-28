@@ -6,6 +6,7 @@ import icoHeart from "../img/ic_heart.svg";
 import icoKebab from "../img/ic_kebab.svg";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import "./ItemDetailPage.scss";
 
 export function ItemDetailPage() {
   const { productId } = useParams();

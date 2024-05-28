@@ -1,7 +1,7 @@
 @import "../../style/scss/common";
 
-.btnLarge,
-.btnSmall {
+.btn-large,
+.btn-small {
   &:visited {
     color: #fff;
   }
@@ -21,10 +21,10 @@
     color: #fff;
   }
 }
-.btnLarge {
+.btn-large {
   @include btnLarge();
 }
 
-.btnSmall {
+.btn-small {
   @include btnSmall();
 }

@@ -58,10 +58,10 @@ textarea.input {
   padding: 9px 16px;
   background: var(--cool-grey100);
   border-radius: 12px;
-  &Ico {
+  &__ico {
     flex: 0 0;
   }
-  &Input {
+  &__input {
     flex: 1 1;
     font-size: 16px;
     font-weight: 400;
@@ -75,14 +75,14 @@ textarea.input {
 .select {
   position: relative;
   width: 130px;
-  &Main {
+  &-main {
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     @media screen and (max-width: $size-tablet) {
       width: 48px;
     }
-    &Btn {
+    &__btn {
       height: 48px;
       padding: 0 20px;
       justify-content: space-between;
@@ -100,7 +100,7 @@ textarea.input {
       }
     }
   }
-  .selectLists {
+  .select-lists {
     position: absolute;
     z-index: 1;
     right: 0;
@@ -112,7 +112,7 @@ textarea.input {
     @media screen and (max-width: $size-tablet) {
       width: 130px;
     }
-    .selectList {
+    .select-list {
       border-top: 1px solid #e5e7eb;
       &:first-child {
         border-top: none;
@@ -121,13 +121,13 @@ textarea.input {
     .radio {
       display: none;
     }
-    .selectListBtn {
+    .select-list__btn {
       justify-content: center;
       cursor: pointer;
     }
   }
-  .selectMainBtn,
-  .selectListBtn {
+  .select-main__btn,
+  .select-list__btn {
     box-sizing: border-box;
     display: flex;
     width: 100%;
@@ -142,7 +142,7 @@ textarea.input {
   }
 }
 
-.fileView {
+.file-view {
   display: grid;
   grid-template-columns: 282px 282px;
   gap: 24px;
@@ -150,10 +150,10 @@ textarea.input {
     grid-template-columns: 1fr 1fr;
   }
 
-  &Input {
+  &__input {
     display: none;
   }
-  &Label {
+  &__label {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -167,18 +167,18 @@ textarea.input {
       height: calc(50vw - 72px);
     }
 
-    .labelImg {
+    .img {
       width: 48px;
       height: 48px;
     }
-    .labelTxt {
+    .txt {
       font-size: 16px;
       font-weight: 400;
       line-height: 2rem;
       color: #9ca3af;
     }
   }
-  &Preview {
+  &__preview {
     position: relative;
     height: 282px;
     border: 1px solid #f9fafb;
@@ -187,12 +187,12 @@ textarea.input {
     @media screen and (max-width: $size-tablet) {
       height: calc(50vw - 72px);
     }
-    .fileViewImg {
+    .img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .fileViewBtn {
+    .btn-close {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -201,16 +201,16 @@ textarea.input {
   }
 }
 
-.tagView {
+.tag-view {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  .tagContainer {
+  .tag-container {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
   }
-  &List {
+  &__list {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -218,11 +218,11 @@ textarea.input {
     background: #f9fafb;
     border-radius: 9999px;
   }
-  &Txt {
+  &__txt {
     font-size: 16px;
     font-weight: 400;
   }
-  &Btn {
+  &__btn {
     @include btn-close(#9ca3af);
   }
 }

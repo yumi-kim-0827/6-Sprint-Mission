@@ -13,7 +13,7 @@ export default function LargeButton({
       type={type}
       onClick={onClick}
       id={id}
-      className={`${Styles.btnLarge} ${className}`}
+      className={`${Styles["btn-large"]} ${className}`}
       disabled={disabled}
     >
       {children}

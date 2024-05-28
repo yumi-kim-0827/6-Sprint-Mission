@@ -27,15 +27,15 @@ export default function FileInput({ name, value, initialPreview, onChange }) {
   }, [value, initialPreview]);
 
   return (
-    <div className={Styles.fileView}>
-      <label htmlFor="item-file" className={Styles.fileViewLabel}>
+    <div className={Styles["file-view"]}>
+      <label htmlFor="item-file" className={Styles["file-view__label"]}>
         <img
           src={icoPlus}
           alt="아이콘"
           aria-hidden="true"
-          className={Styles.labelImg}
+          className={Styles.img}
         />
-        <span className={Styles.labelTxt}>이미지 등록</span>
+        <span className={Styles.txt}>이미지 등록</span>
       </label>
       <input
         type="file"
@@ -43,21 +43,17 @@ export default function FileInput({ name, value, initialPreview, onChange }) {
         ref={fileInput}
         onChange={handleChange}
         id="item-file"
-        className={Styles.fileViewInput}
+        className={Styles["file-view__input"]}
         multiple
       />
 
       {preview && (
-        <div className={Styles.fileViewPreview}>
-          <img
-            src={preview}
-            alt="이미지 미리보기"
-            className={Styles.fileViewImg}
-          />
+        <div className={Styles["file-view__preview"]}>
+          <img src={preview} alt="이미지 미리보기" className={Styles.img} />
           <button
             type="button"
             onClick={handleClearClick}
-            className={Styles.fileViewBtn}
+            className={Styles["btn-close"]}
           >
             <img src={icoX} alt="아이콘" aria-hidden="true" />
           </button>

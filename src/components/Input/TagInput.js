@@ -29,7 +29,7 @@ export default function TagInput({ name, onChange }) {
   }, [tagArr, name]);
 
   return (
-    <div className={Styles.tagView}>
+    <div className={Styles["tag-view"]}>
       <input
         type="text"
         onKeyDown={handleKeydown}
@@ -37,16 +37,16 @@ export default function TagInput({ name, onChange }) {
         className={Styles.input}
         placeholder="태그를 입력해주세요"
       />
-      <ul className={Styles.tagContainer}>
+      <ul className={Styles["tag-container"]}>
         {tagArr.map((tag, index) => {
           return (
-            <li key={index} className={Styles.tagViewList}>
-              <span className={Styles.tagViewTxt}>{tag}</span>
+            <li key={index} className={Styles["tag-view__list"]}>
+              <span className={Styles["tag-view__txt"]}>{tag}</span>
               <button
                 type="button"
                 value={index}
                 onClick={handleDelete}
-                className={Styles.tagViewBtn}
+                className={Styles["tag-view__btn"]}
               >
                 <img src={icoX} alt="아이콘" aria-hidden="true" />
               </button>

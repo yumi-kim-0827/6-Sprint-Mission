@@ -1,32 +1,4 @@
-/* component */
-
-.line {
-  margin: 0;
-  border: 1px solid #e5e7eb;
-}
-
-.gnb {
-  display: flex;
-  align-items: stretch;
-  .gnb-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 109px;
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.6px;
-    text-align: center;
-    @media screen and (max-width: $size-tablet) {
-      min-width: auto;
-      padding: 0 4px;
-    }
-  }
-  .link.on {
-    color: var(--brand-blue);
-  }
-}
+@import "../style/scss/common";
 
 .pagination {
   display: flex;

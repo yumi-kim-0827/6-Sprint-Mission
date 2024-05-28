@@ -54,6 +54,10 @@ $size-mobile: 375px;
     color: #4b5563;
   }
 }
+.line {
+  margin: 0;
+  border: 1px solid #e5e7eb;
+}
 .error {
   display: flex;
   justify-content: center;

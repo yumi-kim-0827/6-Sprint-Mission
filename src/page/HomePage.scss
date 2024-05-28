@@ -1,7 +1,9 @@
+@import "../style/scss/common";
+
 /* index */
 .section-banner {
   &.top {
-    background: url("../../img/Img_home_top.png") no-repeat #cfe5ff;
+    background: url("../img/Img_home_top.png") no-repeat #cfe5ff;
     background-position: left calc(50% + 238px) bottom 0;
     @media screen and (max-width: $size-desktop) {
       background-position: center bottom;
@@ -19,7 +21,7 @@
     }
   }
   &.bottom {
-    background: url("../../img/Img_home_bottom.png") no-repeat #cfe5ff;
+    background: url("../img/Img_home_bottom.png") no-repeat #cfe5ff;
     background-position: left calc(50% + 238px) bottom 0;
     @media screen and (max-width: $size-desktop) {
       background-position: center bottom;

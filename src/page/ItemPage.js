@@ -3,6 +3,7 @@ import { ItemList } from "../components/ItemList";
 import Input from "../components/Input";
 import { useResponsive } from "../hooks/useResponsive";
 import { Link, useSearchParams } from "react-router-dom";
+import "./ItemPage.scss";
 
 export function ItemPage() {
   const [isPC, isTablet, isMobile] = useResponsive();

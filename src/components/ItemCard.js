@@ -5,7 +5,7 @@ import icoHeart from "../img/ic_heart.svg";
 export function ItemCard({ item }) {
   return (
     <>
-      <div className={Styles.imgWrap}>
+      <div className={Styles["img-wrap"]}>
         <Link to={`/items/${item.id}`} className="link">
           <img
             src={item.images[0]}
