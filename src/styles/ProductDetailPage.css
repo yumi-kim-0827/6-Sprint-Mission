@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+
+  /* max-width: 1920px; */
+  width: 100%;
+  height: 70px;
+
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #4b5563;
+}
+
+.login_button {
+  background-color: #3692ff;
+  width: 128px;
+  height: 48px;
+
+  border-radius: 8px;
+  border: none;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #fff;
+}
+
+.login_button:hover {
+  cursor: pointer;
+  background-color: #1251aa;
+}
+
+/* ==================================== */
+
+.product_detail_wrapper {
+  width: 1200px;
+  margin: 94px auto;
+}
+
+.product_detail_wrapper button {
+  width: 240px;
+  height: 48px;
+
+  margin-top: 24px;
+  border-radius: 40px;
+  border: none;
+  background-color: #3692ff;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #fff;
+}
+
+.product_detail_wrapper button:hover {
+  cursor: pointer;
+  background-color: #1251aa;
+}
+
+/* ==================================== */
+
+.item_detail_section {
+  display: flex;
+  border-bottom: 1px solid #efe7eb;
+  padding-bottom: 32px;
+  margin-bottom: 24px;
+}
+
+.item_detail_section img {
+  width: 486px;
+  height: 486px;
+  border-radius: 16px;
+}
+
+.item_detail_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 680px;
+  width: 100%;
+}
+
+.item_detail_main_info {
+  position: relative;
+  max-width: 680px;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+}
+.item_detail_main_info img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.item_name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.item_pirce {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  color: #1f2937;
+  padding-bottom: 16px;
+}
+
+.item_introduce {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.item_description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #1f2937;
+  margin-bottom: 23px;
+}
+
+.item_tag {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.item_tagList ul {
+  display: flex;
+  gap: 8px;
+}
+
+.item_tagList ul li {
+  padding: 6px 16px;
+  border-radius: 26px;
+  background-color: #f3f4f6;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.item_likeCount {
+  position: absolute;
+  top: 446px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  width: 87px;
+  height: 40px;
+  padding: 4px 12px;
+  border-radius: 35px;
+  border: 1px solid #e5e7eb;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+.item_likeCount img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ==================================== */
+
+.qustion_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.qustion_section label {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  margin-bottom: 16px;
+}
+
+.qustion_section textarea {
+  width: 100%;
+  height: 104px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  background-color: #f3f4f6;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  resize: none;
+}
+
+.qustion_section button {
+  width: 74px;
+  height: 42px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3692ff;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #fff;
+}
+
+.qustion_section button:disabled {
+  background-color: #9ca3af;
+}
+
+/* ==================================== */
+
+.comment_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_comment img {
+  width: 200px;
+  height: 200px;
+}
+
+.no_comment p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #9ca3af;
+}
+
+/* ==================================== */
