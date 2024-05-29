@@ -2,8 +2,6 @@ import React from "react";
 import styles from "@/styles/Articles.module.css";
 import { WriterType } from "@/pages/apis/api";
 import Image from "next/image";
-import profile from "@/public/assets/Articles/profile.png";
-import likeIcon from "@/public/assets/Articles/likeIcon.svg";
 import formatTime from "@/utils/formatTime";
 
 type Props = {
@@ -27,7 +25,7 @@ const Articles = ({ createdAt, image, likeCount, title, writer }: Props) => {
         <div className={styles["article-item-bottom__left"]}>
           <Image
             className={styles["article-item-bottom__profile"]}
-            src={profile}
+            src="/images/Articles/profile.png"
             alt="게시글 작성자 프로필 이미지"
             width={24}
             height={24}
@@ -38,7 +36,13 @@ const Articles = ({ createdAt, image, likeCount, title, writer }: Props) => {
         <div className={styles["article-item-bottom__right"]}>
           {likeCount > 0 && (
             <>
-              <Image className={styles["article-item-bottom__like"]} src={likeIcon} alt="게시글 좋아요 아이콘" />
+              <Image
+                className={styles["article-item-bottom__like"]}
+                src="/images/Articles/likeIcon.svg"
+                alt="게시글 좋아요 아이콘"
+                width={24}
+                height={24}
+              />
               <span className={styles["article-item-bottom__likeCount"]}>{likeCount}</span>
             </>
           )}

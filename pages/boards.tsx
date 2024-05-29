@@ -1,13 +1,11 @@
 import React, { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/Board.module.css";
 import Articles from "@/components/Articles";
 import BestArticles from "@/components/BestArticles";
 import Image from "next/image";
 import Link from "next/link";
 import { getArticles, getBestArticles, list } from "./apis/api";
-import dropdownIcon from "@/public/assets/Articles/dropdown-arrow.png";
-import dropdownIconMobile from "@/public/assets/Articles/dropdown-mobile.png";
-import searchIcon from "@/public/assets/Articles/search-icon.png";
 
 interface BoardNavBarProps {
   formatCategory: (value: string | null) => void;
@@ -49,7 +47,14 @@ const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProp
 
       <div className={styles["board-nav-bar__bottom"]}>
         <label htmlFor="search"></label>
-        <Image id="search-icon" className={styles["board-nav-bar__search-icon"]} src={searchIcon} alt="검색 아이콘" />
+        <Image
+          id="search-icon"
+          className={styles["board-nav-bar__search-icon"]}
+          src="/images/Articles/search-icon.png"
+          alt="검색 아이콘"
+          width={16}
+          height={16}
+        />
         <input
           onChange={handleSearchInput}
           className={styles["board-nav-bar__search-bar"]}
@@ -61,11 +66,19 @@ const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProp
         <div className={styles["board-nav-bar__dropdown"]} onClick={handleDropdownOpen}>
           <span className={styles["dropdown-value"]}>{dropdownMenu}</span>
           <Image
-            src={dropdownIconMobile}
+            src="/images/Articles/dropdown-mobile.png"
             className={styles["dropdown-mobile-icon"]}
             alt="제품 페이지 드롭다운 메뉴 모바일 아이콘"
+            width={24}
+            height={24}
           />
-          <Image src={dropdownIcon} className={styles["dropdown-icon"]} alt="제품 페이지 드롭다운 메뉴 아이콘" />
+          <Image
+            src="/images/Articles/dropdown-arrow.png"
+            className={styles["dropdown-icon"]}
+            alt="제품 페이지 드롭다운 메뉴 아이콘"
+            width={24}
+            height={24}
+          />
         </div>
         {isDropdownOpen && (
           <div className={styles["dropdown-menu"]} onClick={setDropDownMenuByClick}>
@@ -84,6 +97,7 @@ interface option {
 }
 
 const Board = () => {
+  const router = useRouter();
   const [articles, setArticles] = useState<list[]>([]);
   const [orderBy, setOrderBy] = useState<string>("recent");
   const [keyword, setKeyword] = useState<string>("");
@@ -91,11 +105,19 @@ const Board = () => {
 
   const setResultToSearchValue = (value: string) => {
     setKeyword(value);
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, keyword: value },
+    });
   };
 
   const formatCategory = (value: string | null) => {
     const newValue = value === "최신순" ? "recent" : "like";
     setOrderBy(newValue);
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, orderBy: newValue },
+    });
   };
 
   const getArticlesList = async (option: option) => {
@@ -106,6 +128,15 @@ const Board = () => {
   useEffect(() => {
     getArticlesList({ orderBy, keyword });
   }, [orderBy, keyword]);
+
+  useEffect(() => {
+    if (router.query.orderBy) {
+      setOrderBy(router.query.orderBy as string);
+    }
+    if (router.query.keyword) {
+      setKeyword(router.query.keyword as string);
+    }
+  }, [router.query]);
 
   return (
     <div className={styles.container}>

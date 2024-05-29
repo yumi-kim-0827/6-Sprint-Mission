@@ -63,8 +63,9 @@
     grid-area: policy;
     margin: 0 auto;
   }
-  .Footer .info-container .link-container img {
+  .Footer .info-container .link-container .img {
     width: 15px;
+    height: 15px;
   }
   .Footer .link-container {
     grid-area: link;

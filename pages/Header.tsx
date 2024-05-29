@@ -3,8 +3,6 @@ import styles from "@/styles/Header.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import longLogo from "@/public/assets/Header/logoWithIcon.png";
-import shortLogo from "@/public/assets/Header/logoWithNone.png";
 
 const Header = (): JSX.Element => {
   const pathname = usePathname();
@@ -14,11 +12,19 @@ const Header = (): JSX.Element => {
       <header className={styles.Header}>
         <div className={styles["Header-container"]}>
           <Link href="/">
-            <Image className={styles["Header-long-img"]} src={longLogo} alt="판다 아이콘이 포함된 로고" />
+            <Image
+              className={styles["Header-long-img"]}
+              src="/images/Header/logoWithIcon.png"
+              alt="판다 아이콘이 포함된 로고"
+              width={153}
+              height={51}
+            />
             <Image
               className={styles["Header-short-img"]}
-              src={shortLogo}
+              src="/images/Header/logoWithNone.png"
               alt="판다 아이콘이 포함되지 않은 모바일용 로고"
+              width={81}
+              height={27}
             />
           </Link>
           <ul className={styles["Header-btns"]}>
