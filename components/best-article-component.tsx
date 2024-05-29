@@ -5,10 +5,10 @@ import mockimg from '@/public/images/mockimg.png';
 
 export default function BestArticleComponent() {
   return (
-    <div className='min-w-[384px] h-[169px] px-6 pb-6 bg-cool-gray50 rounded-lg'>
+    <div className='h-[169px] px-6 pb-6 bg-cool-gray50 rounded-lg sm:min-w-[343px] md:min-w-[340px] lg:min-w-[384px]'>
       <Image src={image_badge} alt='베스트 뱃지' />
-      <div className='flex mt-4 mb-4 h-[72px]'>
-        <div className='text-xl w-[256px] text-cool-gray800'>
+      <div className='flex gap-2 mt-4 mb-4 h-[72px]'>
+        <div className=' text-cool-gray800 text-[18px] leading-5 sm:min-w[212px] lg:w-[256px] lg:text-xl'>
           맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야하나요?
         </div>
         <Image src={mockimg} alt='메롱'></Image>
