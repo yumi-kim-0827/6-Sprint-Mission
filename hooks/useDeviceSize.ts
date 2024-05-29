@@ -7,23 +7,23 @@ import {
 
 const useDeviceSize = () => {
   const [windowSize, setWindowSize] = useState({
-    width: global.innerWidth,
-    height: global.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
     function handleResize() {
       setWindowSize({
-        width: global.innerWidth,
-        height: global.innerHeight,
+        width: window.innerWidth,
+        height: window.innerHeight,
       });
     }
 
     const debouncedResize = debounce(handleResize, 150);
 
-    global.addEventListener("resize", debouncedResize);
+    window.addEventListener("resize", debouncedResize);
 
-    return () => global.removeEventListener("resize", debouncedResize);
+    return () => window.removeEventListener("resize", debouncedResize);
   }, []);
 
   const getDeviceSize = (width: number) => {
