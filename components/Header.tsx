@@ -1,25 +1,41 @@
 import styled from "styled-components";
 import React from "react";
-import Logo from "../images/logo.svg";
-import { Link } from "react-router-dom";
+import Logo from "@/images/logo.svg";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
 function Header() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
-    <HeaderContainer>
-      <MenuContainer>
-        <StyledLink to="/">
-          <img src={Logo} alt="판다마켓 로고" width={"153px"} />
-        </StyledLink>
-        <nav style={{ display: "flex", gap: "20px" }}>
-          <FreeBoard>자유게시판</FreeBoard>
-          <StyledLink to="/items">
-            <UsedMarket>중고마켓</UsedMarket>
-          </StyledLink>
-        </nav>
-      </MenuContainer>
-      <Login>로그인</Login>
-    </HeaderContainer>
+    <>
+      {isClient ? (
+        <HeaderContainer>
+          <MenuContainer>
+            <Link href="/" passHref>
+              <LogoLink>
+                <Logo />
+              </LogoLink>
+            </Link>
+            <nav style={{ display: "flex", gap: "20px" }}>
+              <FreeBoard href="/">자유게시판</FreeBoard>
+              <Link href="/items" passHref>
+                <UsedMarket>중고마켓</UsedMarket>
+              </Link>
+            </nav>
+          </MenuContainer>
+          <Login href="/login">로그인</Login>
+        </HeaderContainer>
+      ) : (
+        "This is never prerendered"
+      )}
+    </>
   );
 }
+
 const HeaderContainer = styled.div`
   box-sizing: border-box;
   position: sticky;
@@ -33,6 +49,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   z-index: 2;
 `;
+
 const MenuContainer = styled.div`
   margin-left: 200px;
   display: flex;
@@ -42,6 +59,12 @@ const MenuContainer = styled.div`
     margin-left: 24px;
   }
 `;
+
+const LogoLink = styled.a`
+  display: flex;
+  align-items: center;
+`;
+
 const FreeBoard = styled.a`
   font-family: "Pretendard";
   font-style: normal;
@@ -53,9 +76,7 @@ const FreeBoard = styled.a`
   text-align: center;
   color: #4b5563;
 `;
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
+
 const UsedMarket = styled.a`
   font-family: "Pretendard";
   font-style: normal;
@@ -67,6 +88,7 @@ const UsedMarket = styled.a`
   text-align: center;
   color: #3692ff;
 `;
+
 const Login = styled.a`
   display: flex;
   flex-direction: row;
@@ -82,11 +104,10 @@ const Login = styled.a`
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  display: flex;
-  align-items: center;
   color: #ffffff;
   @media (max-width: 1199px) {
     margin: 0 24px 0 auto;
   }
 `;
+
 export default Header;
