@@ -5,6 +5,7 @@ import { AddItemPage } from "./page/AddItemPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
 import { HomePage } from "./page/HomePage";
 import { SignInPage } from "./page/SignInPage";
+import { JoinPage } from "page/JoinPage";
 
 export default function Main() {
   return (
@@ -13,6 +14,7 @@ export default function Main() {
         <Route path="/">
           <Route index element={<HomePage />} />
           <Route path="signin" element={<SignInPage />} />
+          <Route path="join" element={<JoinPage />} />
           <Route path="items" element={<App />}>
             <Route index element={<ItemPage />} />
             <Route path=":productId" element={<ItemDetailPage />} />

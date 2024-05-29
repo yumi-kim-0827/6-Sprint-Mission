@@ -61,9 +61,18 @@ $size-mobile: 375px;
 .error {
   display: flex;
   justify-content: center;
-  .errorTxt {
+  .error-txt {
     font-size: 16px;
   }
+}
+.alert {
+  display: block;
+  padding: 8px 16px;
+  font-family: Pretendard;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.79rem;
+  color: var(--error-red);
 }
 
 @mixin btnLarge() {

@@ -12,26 +12,6 @@ export function SignInPage() {
   const [isFormInvalid, setIsFormInvalid] = useState(true);
 
   const handleChange = (e) => {
-
-    switch (e.target.type) {
-      case "email":
-        if (e.target.checkValidity()) {
-          setIsEmailInvalid(false);
-        } else {
-          setIsEmailInvalid(true);
-        }
-        break;
-      case "password":
-        if (e.target.value.length < 8) {
-          setIsPasswordInvalid(true);
-        } else {
-          setIsPasswordInvalid(false);
-        }
-        break;
-      default:
-        break;
-    }
-
     if (!isEmailInvalid && !isPasswordInvalid) {
       setIsFormInvalid(false);
     } else {
@@ -58,7 +38,7 @@ export function SignInPage() {
             <fieldset className="section-form__form">
               <legend className="blind">로그인 폼</legend>
               <div className="section-form__box">
-                <label for="login-email" className="section-form__label">
+                <label htmlFor="login-email" className="section-form__label">
                   이메일
                 </label>
                 <span className="section-form__input-box">
@@ -67,15 +47,19 @@ export function SignInPage() {
                     className="section-form__input"
                     placeholder="이메일을 입력해주세요"
                     required={true}
+                    isInvalid={setIsEmailInvalid}
                   />
                 </span>
               </div>
               <div className="section-form__box">
-                <label for="login-pw" className="section-form__label">
+                <label htmlFor="login-pw" className="section-form__label">
                   비밀번호
                 </label>
                 <span className="section-form__input-box">
-                  <Input.Password />
+                  <Input.Password
+                    id="login-pw"
+                    isInvalid={setIsPasswordInvalid}
+                  />
                 </span>
               </div>
               <div className="section-form__box">
@@ -109,7 +93,7 @@ export function SignInPage() {
         <section className="section-form__info">
           <p className="content">
             판다마켓이 처음이신가요?{" "}
-            <a href="/join.html" className="link">
+            <a href="/join" className="link">
               회원가입
             </a>
           </p>

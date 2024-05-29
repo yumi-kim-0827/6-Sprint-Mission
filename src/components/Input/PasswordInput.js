@@ -1,36 +1,59 @@
 import { useState } from "react";
 import Styles from "./Input.module.scss";
 
-export default function TextInput({ id, className, required }) {
-  const [type, setType] = useState("password");
+export default function PasswordInput({
+  id,
+  className,
+  required,
+  inputRef,
+  isInvalid,
+}) {
+  const [isEmpty, setIsEmpty] = useState(false);
+
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      inputRef.current.type = "text";
+    } else {
+      inputRef.current.type = "password";
+    }
+  };
+
   const handleChange = (e) => {
-    if(e.target.checked) {
-      setType("text");
+    if (e.target.value.length < 8) {
+      isInvalid(true);
+    } else {
+      isInvalid(false);
     }
-    else {
-      setType("password");
+    if (e.target.value.length === 0) {
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
     }
-  }
+  };
 
   return (
-    <span className="section-form__pw-box">
-      <input
-        type={type}
-        id={id}
-        className={`${Styles.input} ${className}`}
-        data-form="password"
-        placeholder="비밀번호를 입력해주세요"
-        minlength="8"
-        required={required}
-      />
-      <input
-        type="checkbox"
-        id="login-pw-show"
-        className="blind chk-visibility" onChange={handleChange}
-      />
-      <label for="login-pw-show" className="spr visibility-off">
-        <span className="blind">비밀번호 보기/숨기기</span>
-      </label>
-    </span>
+    <>
+      <span className="section-form__pw-box">
+        <input
+          type="password"
+          className={`${Styles.input} ${className}`}
+          placeholder="비밀번호를 입력해주세요"
+          minLength="8"
+          required={required}
+          ref={inputRef}
+          onChange={handleChange}
+        />
+        <input
+          type="checkbox"
+          id={id}
+          className="blind chk-visibility"
+          onChange={handleCheck}
+        />
+        <label htmlFor={id} className="spr visibility-off">
+          <span className="blind">비밀번호 보기/숨기기</span>
+        </label>
+      </span>
+      {isEmpty && <p className="alert">비밀번호를 입력하세요.</p>}
+    </>
   );
 }
