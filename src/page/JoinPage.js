@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 export function JoinPage() {
   const [isEmailInvalid, setIsEmailInvalid] = useState(null);
   const [isNameInvalid, setIsNameInvalid] = useState(true);
-  const [isPasswordInvalid, setIsPasswordInvalid] = useState(true);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(null);
   const [isRePasswordInvalid, setIsRePasswordInvalid] = useState(true);
   const [isPasswordNotSame, setIsPasswordNotSame] = useState(null);
   const [isFormInvalid, setIsFormInvalid] = useState(true);
@@ -27,8 +27,8 @@ export function JoinPage() {
         break;
       case "password":
         if (
-          inputPW.current.value.length !== 0 &&
-          inputRePW.current.value.length !== 0 &&
+          inputPW.current.value.length >= 8 &&
+          inputRePW.current.value.length >= 8 &&
           inputPW.current.value !== inputRePW.current.value
         ) {
           setIsPasswordNotSame(true);

@@ -24,7 +24,7 @@ export default function PasswordInput({
     } else {
       isInvalid(false);
     }
-    if (e.target.value.length === 0) {
+    if (e.target.value.length < 8) {
       setIsEmpty(true);
     } else {
       setIsEmpty(false);
@@ -53,7 +53,7 @@ export default function PasswordInput({
           <span className="blind">비밀번호 보기/숨기기</span>
         </label>
       </span>
-      {isEmpty && <p className="alert">비밀번호를 입력하세요.</p>}
+      {isEmpty && <p className="alert">비밀번호를 8자 이상 입력하세요.</p>}
     </>
   );
 }
