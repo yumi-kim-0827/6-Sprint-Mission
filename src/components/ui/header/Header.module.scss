@@ -1,0 +1,52 @@
+@import "@/src/styles/_mixin";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--grey-200);
+  z-index: 999;
+}
+
+.image {
+  @include image;
+}
+
+.headerLeft {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+
+  .navContainer {
+    @include font-style(18px, 700, var(--grey-600));
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.signInButton {
+  @include primary-button;
+  border-radius: 8px;
+  padding: 12px 24px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .navContainer {
+    @include font-style(16px, 700, var(--grey-600));
+  }
+}
+
+/* tablet */
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 24px;
+  }
+}

@@ -1,0 +1,16 @@
+@mixin font-style($size: 16px, $weight: 400, $color: var(--grey-800)) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin primary-button {
+  @include font-style(16px, 600, var(--white));
+  background-color: var(--blue);
+}
+
+@mixin image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
