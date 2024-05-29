@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'cool-gray50': '#f9fafb',
         'cool-gray100': '#f3f4f6',
         'cool-gray200': '#e5e7eb',
         'cool-gray400': '#9ca3af',
@@ -13,6 +14,7 @@ module.exports = {
         'cool-gray700': '#374151',
         'cool-gray800': '#1f2937',
         'cool-gray900': '#111827',
+        'brand-blue': '#3692ff',
       },
     },
     screens: {
