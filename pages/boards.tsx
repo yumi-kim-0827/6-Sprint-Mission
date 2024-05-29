@@ -6,7 +6,6 @@ import LinkButton from "@/utils/Button";
 import { useEffect, useState } from "react";
 import axios from "@/utils/axios";
 import Dropdown from "@/components/dropdown";
-import Head from "next/head";
 
 interface List {
   id: number;
@@ -77,10 +76,6 @@ export default function Board() {
   );
 
   return (
-    <>
-      <Head>
-        <title>판다마켓</title>
-      </Head>
       <div className={styles.BoardContainer}>
         <div className={styles.bestContainer}>
           <span className={styles.bestTopText}>베스트 게시글</span>
@@ -104,6 +99,5 @@ export default function Board() {
           </div>
         </div>
       </div>
-    </>
   );
 }
