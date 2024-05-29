@@ -23,24 +23,25 @@ const StyledDiv = styled.div`
 
 const StyledP = styled.p`
   position: absolute;
-  top: 44%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 700;
-  font-size: 50px;
+  font-size: 32px;
   text-align: center;
+  letter-spacing: 4px;
 `;
 
-const S404 = styled.p`
+const S404 = styled.div`
   position: relative;
-  display: inline-block;
-  margin-bottom: 16px;
-  font-size: 160px;
+  margin-bottom: 24px;
+  font-size: 102px;
+  white-space: nowrap;
 `;
 
 const AnimationP = styled.div`
   display: inline-block;
-  margin: 0 28px;
+  margin: 0 14px;
   animation: floating-emoji 5s cubic-bezier(0.82, 0, 0.14, 0.98) infinite;
 
   @keyframes floating-emoji {
