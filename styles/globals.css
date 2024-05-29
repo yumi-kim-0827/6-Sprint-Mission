@@ -145,3 +145,13 @@ a {
   text-decoration: none;
   color: #4b5563;
 }
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  src: url('../public/font/PretendardVariable.ttf') format('truetype');
+}
+
+body * {
+  font-family: 'Pretendard', sans-serif;
+}

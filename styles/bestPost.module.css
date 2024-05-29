@@ -44,3 +44,21 @@
   gap: 5px;
   justify-content: center;
 }
+
+.Writer {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.LikeCount {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.times {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+}

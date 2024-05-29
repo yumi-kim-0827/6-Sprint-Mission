@@ -26,8 +26,6 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
-  // const [itemPerScroll, setItemPerScroll] = useState() // 스크롤하면 더생기는거? 무한스크롤? 은 나중에 해야되면 하고 일단 그냥 모든데이터 다 보여주는걸로
-
   return (
     <Link href={`/post/${posts.id}`}>
       <div key={posts.id} className={styles.postContainer}>
@@ -40,13 +38,13 @@ export default function Posts({ posts }: PostsProps) {
         <div className={styles.postsBottom}>
           <div className={styles.BestInfoFirst}>
             <Image width={24} height={24} alt="프로필사진" src={user_icon} />
-            <span>{posts.writer.nickname}</span>
-            <span>{timeString(posts.createdAt)}</span>
+            <span className={styles.Writer}>{posts.writer.nickname}</span>
+            <span className={styles.times}>{timeString(posts.createdAt)}</span>
           </div>
           <div>
             <div className={styles.BestInfoHeart}>
               <Image width={16} height={16} alt="하트" src={heartImg} />
-              <span>{posts.likeCount}</span>
+              <span className={styles.LikeCount}>{posts.likeCount}</span>
             </div>
           </div>
         </div>

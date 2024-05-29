@@ -53,6 +53,7 @@ export default function BestPost() {
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTablet, isMobile]);
 
   return (
@@ -70,21 +71,20 @@ export default function BestPost() {
           </div>
           <div className={style.BestTitle}>
             <span className={style.BestTitleText}>{item.title}</span>
-            {/* 이미지가 널이 아니면 */}
             {item.image && (
               <Image width={72} height={72} alt="이미지" src={item.image} />
             )}
           </div>
           <div className={style.BestInfo}>
             <div className={style.BestInfoFirst}>
-              <span>{item.writer.nickname}</span>
+              <span className={style.Writer}>{item.writer.nickname}</span>
               <div className={style.BestInfoHeart}>
                 <Image width={16} height={16} alt="하트" src={heartImg} />
-                <span>{item.likeCount}</span>
+                <span className={style.LikeCount}>{item.likeCount}</span>
               </div>
             </div>
             <div>
-              <span>{timeString(item.createdAt)}</span>
+              <span className={style.times}>{timeString(item.createdAt)}</span>
             </div>
           </div>
         </div>
