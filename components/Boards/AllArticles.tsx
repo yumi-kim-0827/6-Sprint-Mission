@@ -1,11 +1,12 @@
 import axios from "@/api/axios";
 import { Article } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const PAGE_SIZE_MAX = 10;
 
-export default function Articles() {
+export default function AllArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageNum, setPageNum] = useState<number>(1);
   const [orderBy, setOrderBy] = useState<string>("recent");
@@ -31,6 +32,10 @@ export default function Articles() {
 
   return (
     <section className="flex flex-col gap-8">
+      <div>게시글</div>
+      <Link href="/" className="w-20 h-10">
+        글쓰기
+      </Link>
       {articles &&
         articles.map(function (article) {
           return (

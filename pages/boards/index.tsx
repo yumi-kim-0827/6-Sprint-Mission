@@ -1,9 +1,9 @@
-import Articles from "@/components/Boards/Articles";
+import AllArticles from "@/components/Boards/AllArticles";
 
 export default function Boards() {
   return (
     <>
-      <Articles />
+      <AllArticles />
     </>
   );
 }
