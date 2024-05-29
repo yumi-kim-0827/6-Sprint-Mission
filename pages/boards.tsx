@@ -3,10 +3,10 @@ import Posts from "@/components/posts";
 import SearchInput from "@/components/search";
 import styles from "@/styles/Board.module.css";
 import LinkButton from "@/utils/Button";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "@/utils/axios";
 import Dropdown from "@/components/dropdown";
+import Head from "next/head";
 
 interface List {
   id: number;
@@ -77,28 +77,33 @@ export default function Board() {
   );
 
   return (
-    <div className={styles.BoardContainer}>
-      <div className={styles.bestContainer}>
-        <span className={styles.bestTopText}>베스트 게시글</span>
-        <div className={styles.bestPosts}>
-          <BestPost />
+    <>
+      <Head>
+        <title>판다마켓</title>
+      </Head>
+      <div className={styles.BoardContainer}>
+        <div className={styles.bestContainer}>
+          <span className={styles.bestTopText}>베스트 게시글</span>
+          <div className={styles.bestPosts}>
+            <BestPost />
+          </div>
+        </div>
+        <div className={styles.posts}>
+          <div className={styles.postsTop}>
+            <span className={styles.bestTopText}>게시글</span>
+            <LinkButton href="/">글쓰기</LinkButton>
+          </div>
+          <div className={styles.postsMiddle}>
+            <SearchInput value={searchTerm} onChange={handleSearchChange} />
+            <Dropdown onChange={handleSortOrderChange} />
+          </div>
+          <div className={styles.postsContainer}>
+            {filteredData.map((post) => (
+              <Posts key={post.id} posts={post} />
+            ))}
+          </div>
         </div>
       </div>
-      <div className={styles.posts}>
-        <div className={styles.postsTop}>
-          <span className={styles.bestTopText}>게시글</span>
-          <LinkButton href="/">글쓰기</LinkButton>
-        </div>
-        <div className={styles.postsMiddle}>
-          <SearchInput value={searchTerm} onChange={handleSearchChange} />
-          <Dropdown onChange={handleSortOrderChange} />
-        </div>
-        <div className={styles.postsContainer}>
-          {filteredData.map((post) => (
-            <Posts key={post.id} posts={post} />
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
