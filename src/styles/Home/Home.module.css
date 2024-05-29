@@ -58,7 +58,8 @@ a:disabled.blue {
 
 /* 상단 배너 이미지 */
 img.banner_top_img {
-	height: 440px;
+	height: 380px;
+	width: auto;
 }
 
 /* 메인 콘텐츠 =========================================================================================================== */
@@ -87,6 +88,7 @@ img.banner_top_img {
 /* 콘텐츠 이미지 */
 .content_item_img {
 	width: 350px;
+	height: auto;
 	flex-grow: 1;
 }
 
@@ -149,7 +151,6 @@ img.banner_top_img {
 
 /* 하단 배너 이미지 */
 .banner_floor_img {
-	width: 830px;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -177,6 +178,7 @@ img.banner_top_img {
 	/* 상단 배너 이미지 */
 	.banner_top_img {
 		width: 100dvw;
+		height: auto;
 	}
 
 	/* 메인 콘텐츠 */
@@ -192,6 +194,7 @@ img.banner_top_img {
 	/* 콘텐츠 이미지 */
 	.content_item_img {
 		width: 95dvw;
+		height: auto;
 	}
 
 	/* 콘텐츠 내용 */
@@ -216,6 +219,7 @@ img.banner_top_img {
 	/* 하단 배너 이미지 */
 	.banner_floor_img {
 		width: 100dvw;
+		height: auto;
 	}
 }
 
@@ -243,9 +247,5 @@ img.banner_top_img {
 
 	.banner_top_content br {
 		display: inline;
-	}
-	/* 상단 배너 이미지 */
-	.banner_top_img {
-		width: 100dvw;
 	}
 }

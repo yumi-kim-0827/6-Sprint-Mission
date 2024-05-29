@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Home/Home.module.css';
 import Header from '@/components/navigation/Header';
 import Footer from '@/components/navigation/Footer';
 
@@ -41,13 +41,20 @@ export default function Home() {
 							</Link>
 						</div>
 
-						<Image className={styles.banner_top_img} src={bannerTopImg} alt='상단 배너' />
+						<Image
+							className={styles.banner_top_img}
+							src={bannerTopImg}
+							alt='상단 배너'
+							width={840}
+							height={450}
+							priority
+						/>
 					</section>
 
 					{/* 메인 콘텐츠 */}
 					<section className={styles.container_content}>
 						<div className={styles.content_item}>
-							<Image className={styles.content_item_img} src={homeImg1} alt='이미지1' />
+							<Image className={styles.content_item_img} src={homeImg1} alt='이미지1' width={588} height={444} />
 
 							<div className={styles.content_item_sub}>
 								<h2 className={styles.content_tag}>Hot item</h2>
@@ -67,7 +74,7 @@ export default function Home() {
 						</div>
 
 						<div className={`${styles.content_item} ${styles.right_item}`}>
-							<Image className={styles.content_item_img} src={homeImg2} alt='이미지2' />
+							<Image className={styles.content_item_img} src={homeImg2} alt='이미지2' width={588} height={444} />
 							<div className={`${styles.content_item_sub} ${styles.right_item}`}>
 								<h2 className={styles.content_tag}>Search</h2>
 
@@ -86,7 +93,7 @@ export default function Home() {
 						</div>
 
 						<div className={styles.content_item}>
-							<Image className={styles.content_item_img} src={homeImg3} alt='이미지3' />
+							<Image className={styles.content_item_img} src={homeImg3} alt='이미지3' width={588} height={444} />
 
 							<div className={styles.content_item_sub}>
 								<h2 className={styles.content_tag}>Register</h2>
@@ -115,7 +122,7 @@ export default function Home() {
 							</h1>
 						</div>
 
-						<Image className={styles.banner_floor_img} src={bannerBottomImg} alt='하단 배너' />
+						<Image className={styles.banner_floor_img} src={bannerBottomImg} alt='하단 배너' width={840} height={450} />
 					</section>
 				</article>
 				<Footer />

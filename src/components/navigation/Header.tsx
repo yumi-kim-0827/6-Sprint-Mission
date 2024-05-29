@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 			<div className={styles.top_container}>
 				<div className={styles.top_navigation_wrap}>
 					<Link href='/' className='logo_btn'>
-						<Image className={styles.logo_img} src={title_img} alt='Desktop_logo_img'></Image>
+						<Image className={styles.logo_img} src={title_img} alt='Desktop_logo_img' width={152} height={60} />
 					</Link>
 				</div>
 				<div className={styles.top_navigation_main}>
