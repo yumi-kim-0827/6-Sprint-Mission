@@ -2,8 +2,8 @@ import "@/src/styles/global.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-import Layout from "@/src/components/ui/layout/Layout";
-import Header from "@/src/components/ui/header/Header";
+import Layout from "@/src/components/layout/Layout";
+import Header from "@/src/components/header/Header";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
