@@ -34,8 +34,9 @@ const TopNavigation = () => {
               isMobile ? '/images/panda-logo-sm.png' : '/images/panda-logo.png'
             }
             alt="판다마켓 로고"
-            width={isMobile ? 81 : 153}
-            height={isMobile ? 40 : 51}
+            width={isMobile ? '81' : '153'}
+            height={isMobile ? '40' : '51'}
+            priority
           />
         </Link>
         <nav>
@@ -65,8 +66,8 @@ const TopNavigation = () => {
         <Image
           src="/images/profile.png"
           alt="유저 프로필"
-          width={40}
-          height={40}
+          width="40"
+          height="40"
         />
       </div>
     </header>

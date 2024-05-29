@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>판다마켓</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="./favicon.png" />
+        <link rel="icon" href="./images/favicon.png" />
       </Head>
       <div>
         <TopNavigation />

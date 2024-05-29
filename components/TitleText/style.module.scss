@@ -1,0 +1,10 @@
+@import '../../styles';
+
+.title {
+  @include font-base($cool-gray900, 700, 20px, 24px);
+  margin-bottom: 24px;
+
+  @media (max-width: $mobile-size) {
+    margin-bottom: 16px;
+  }
+}
