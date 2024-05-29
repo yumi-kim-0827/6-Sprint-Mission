@@ -6,6 +6,7 @@ import heartImg from "@/public/icon/ic_heart.svg";
 import Image from "next/image";
 import timeString from "@/utils/timeString";
 import { useMediaQuery } from "react-responsive";
+import Link from "next/link";
 
 interface List {
   id: number;
@@ -42,7 +43,9 @@ export default function BestPost() {
 
   async function getBest() {
     const pageSize = pageSizePerSize();
-    const res = await axios.get(`/articles?page=1&pageSize=${pageSize}&orderBy=like`);
+    const res = await axios.get(
+      `/articles?page=1&pageSize=${pageSize}&orderBy=like`
+    );
     const posts = res.data.list ?? [];
     setBestPosts(posts);
   }
@@ -59,35 +62,39 @@ export default function BestPost() {
   return (
     <>
       {bestPosts.map((item) => (
-        <div className={style.BestContainer} key={item.id}>
-          <div className={style.BestBadge}>
-            <Image
-              width={102}
-              height={30}
-              src={bestBadge}
-              alt="베스트뱃지"
-              className={style.bestBadge}
-            />
-          </div>
-          <div className={style.BestTitle}>
-            <span className={style.BestTitleText}>{item.title}</span>
-            {item.image && (
-              <Image width={72} height={72} alt="이미지" src={item.image} />
-            )}
-          </div>
-          <div className={style.BestInfo}>
-            <div className={style.BestInfoFirst}>
-              <span className={style.Writer}>{item.writer.nickname}</span>
-              <div className={style.BestInfoHeart}>
-                <Image width={16} height={16} alt="하트" src={heartImg} />
-                <span className={style.LikeCount}>{item.likeCount}</span>
+        <Link key={item.id} href={`/post/${item.id}`}>
+          <div className={style.BestContainer} >
+            <div className={style.BestBadge}>
+              <Image
+                width={102}
+                height={30}
+                src={bestBadge}
+                alt="베스트뱃지"
+                className={style.bestBadge}
+              />
+            </div>
+            <div className={style.BestTitle}>
+              <span className={style.BestTitleText}>{item.title}</span>
+              {item.image && (
+                <Image width={72} height={72} alt="이미지" src={item.image} />
+              )}
+            </div>
+            <div className={style.BestInfo}>
+              <div className={style.BestInfoFirst}>
+                <span className={style.Writer}>{item.writer.nickname}</span>
+                <div className={style.BestInfoHeart}>
+                  <Image width={16} height={16} alt="하트" src={heartImg} />
+                  <span className={style.LikeCount}>{item.likeCount}</span>
+                </div>
+              </div>
+              <div>
+                <span className={style.times}>
+                  {timeString(item.createdAt)}
+                </span>
               </div>
             </div>
-            <div>
-              <span className={style.times}>{timeString(item.createdAt)}</span>
-            </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
