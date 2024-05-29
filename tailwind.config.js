@@ -1,8 +1,34 @@
 /** @type {import('tailwindcss').Config} */
+const pxToRem = (px, base = 16) => `${px / base}rem`;
+
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'cool-gray100': '#f3f4f6',
+        'cool-gray200': '#e5e7eb',
+        'cool-gray400': '#9ca3af',
+        'cool-gray600': '#4b5563',
+        'cool-gray700': '#374151',
+        'cool-gray800': '#1f2937',
+        'cool-gray900': '#111827',
+      },
+    },
+    screens: {
+      sm: { min: '0px', max: '767px' },
+      md: { min: '768px', max: '1199px' },
+      lg: { min: '1200px' },
+    },
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      6: '6px',
+      8: '8px',
+    },
   },
   plugins: [],
 };
