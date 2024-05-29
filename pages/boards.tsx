@@ -70,15 +70,11 @@ export default function Board() {
     const sortedPosts = sortData(posts, order);
     setPosts(sortedPosts);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[order])
+  }, [order]);
 
-  useEffect(() => {
-    const filteredPosts = posts.filter(post =>
-      post.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setPosts(filteredPosts);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm.length]);
+  const filteredData = posts.filter((item) =>
+    item.title.toLowerCase().trim().includes(searchTerm.toLowerCase().trim())
+  );
 
   return (
     <div className={styles.BoardContainer}>
@@ -95,10 +91,12 @@ export default function Board() {
         </div>
         <div className={styles.postsMiddle}>
           <SearchInput value={searchTerm} onChange={handleSearchChange} />
-          <Dropdown onChange={handleSortOrderChange}/>
+          <Dropdown onChange={handleSortOrderChange} />
         </div>
         <div className={styles.postsContainer}>
-          <Posts posts={posts} />
+          {filteredData.map((post) => (
+            <Posts key={post.id} posts={post} />
+          ))}
         </div>
       </div>
     </div>

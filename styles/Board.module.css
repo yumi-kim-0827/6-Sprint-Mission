@@ -1,7 +1,8 @@
 .BoardContainer {
   max-width: 1200px;
+  min-width: 368px;
   width: 100%;
-  padding: 0 auto;
+  padding: 0 34px;
   margin: 0 auto;
 }
 
@@ -21,67 +22,74 @@
 .bestPosts {
   display: flex;
   gap: 24px;
+  justify-content: center;
 }
 
 .posts {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .postsTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .button {
-    align-items: center;
-    background-color: #3692ff;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    font-size: 16px;
-    font-weight: 600;
-    height: 42px;
-    justify-content: center;
-    min-width: 88px;
-    padding: 12px 23px;
+  align-items: center;
+  background-color: #3692ff;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  height: 42px;
+  justify-content: center;
+  min-width: 88px;
+  padding: 12px 23px;
 }
 
 .postsContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .postsMiddle {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .SearchInput {
-    width: 100%;
-    height: 100%;
-    border:none;
-    background-color: #f3f4f6;
-    border-radius: 12px;
-    padding: 9px 20px 9px 16px;
-    padding-left: 45px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #9CA3AF;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 9px 20px 9px 16px;
+  padding-left: 45px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9ca3af;
 }
 
 .SearchContainer {
-    position: relative;
-    width: 100%;
-    margin-right: 20px;
+  position: relative;
+  width: 100%;
+  margin-right: 20px;
 }
 
 .SearchIcon {
-    position: absolute;
-    top: 13px;
-    left: 20px;
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  .SearchContainer {
+    margin-right: 10px;
+  }
 }

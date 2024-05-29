@@ -5,6 +5,7 @@ import bestBadge from "@/public/icon/img_badge.svg";
 import heartImg from "@/public/icon/ic_heart.svg";
 import Image from "next/image";
 import timeString from "@/utils/timeString";
+import { useMediaQuery } from "react-responsive";
 
 interface List {
   id: number;
@@ -25,8 +26,23 @@ interface Writer {
 export default function BestPost() {
   const [bestPosts, setBestPosts] = useState<List[]>([]);
 
+  const isTablet = useMediaQuery({
+    query: `(max-width: 1024px)`,
+  });
+
+  const isMobile = useMediaQuery({
+    query: `(max-width: 768px)`,
+  });
+
+  function pageSizePerSize() {
+    if (isMobile) return 1;
+    else if (isTablet) return 2;
+    else return 3;
+  }
+
   async function getBest() {
-    const res = await axios.get("/articles?page=1&pageSize=3&orderBy=like");
+    const pageSize = pageSizePerSize();
+    const res = await axios.get(`/articles?page=1&pageSize=${pageSize}&orderBy=like`);
     const posts = res.data.list ?? [];
     setBestPosts(posts);
   }
@@ -37,8 +53,7 @@ export default function BestPost() {
     } catch (error) {
       console.log(error);
     }
-    
-  }, []);
+  }, [isTablet, isMobile]);
 
   return (
     <>

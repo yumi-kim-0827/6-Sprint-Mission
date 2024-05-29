@@ -2,7 +2,7 @@
   width: 384px;
   height: 169px;
   border-radius: 8px;
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
   padding: 0 18px;
   display: flex;
   flex-direction: column;
@@ -12,35 +12,35 @@
 }
 
 .BestBadge {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .BestTitle {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .BestTitleText {
-    font-weight: 600;
-    font-size: 20px;
-    color: #1f2937;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1f2937;
 }
 
 .BestInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .BestInfoFirst {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .BestInfoHeart {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
 }

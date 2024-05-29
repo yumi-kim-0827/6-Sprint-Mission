@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-// import arrow_up from "@/public/icon/Stroke-up.svg";
-// import arrow_down from "@/public/icon/Stroke-down.svg";
 import arrow from "@/public/icon/ic_arrow_down.svg";
+import sort from "@/public/icon/ic_sort.svg";
 import style from "@/styles/dropdown.module.css";
+import { useMediaQuery } from "react-responsive";
 
 interface DropdownProps {
   onChange: (order: "recent" | "like") => void;
@@ -16,6 +16,21 @@ export default function Dropdown({ onChange }: DropdownProps) {
   const ORDER_KR = {
     recent: "최신순",
     like: "좋아요순",
+  };
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
+  const handleMobileChange = () => {
+    if (isMobile) return <Image src={sort} alt="arrow-icon" />;
+    else
+      return (
+        <>
+          <span>{order === "recent" ? "최신순" : "좋아요순"}</span>
+          <Image src={arrow} alt="arrow-icon" />
+        </>
+      );
   };
 
   const dropdownContainerRef = useRef<HTMLDivElement>(null);
@@ -58,23 +73,22 @@ export default function Dropdown({ onChange }: DropdownProps) {
       >
         <div className={style.dropdown_button}>
           <div className={style.select}>
-            <span>{order === "recent" ? "최신순" : "좋아요순"}</span>
-            <Image
-              // src={isDropdownOpen ? arrow_up : arrow_down}
-              src={arrow}
-              alt="arrow-icon"
-            />
+          {handleMobileChange()}
           </div>
           {isDropdownOpen && (
             <ul className={style.dropdown_contents}>
-              <li 
-                className={`${style.dropdown_li} ${order === "recent" ? style.selected : ""}`}
+              <li
+                className={`${style.dropdown_li} ${
+                  order === "recent" ? style.selected : ""
+                }`}
                 onClick={() => handleOrderChange("recent")}
               >
                 최신순
               </li>
               <li
-                className={`${style.dropdown_li} ${order === "like" ? style.selected : ""}`}
+                className={`${style.dropdown_li} ${
+                  order === "like" ? style.selected : ""
+                }`}
                 onClick={() => handleOrderChange("like")}
               >
                 좋아요순
