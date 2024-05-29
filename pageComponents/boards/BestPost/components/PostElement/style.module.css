@@ -1,0 +1,121 @@
+.container {
+  width: 38.4rem;
+  height: 16.9rem;
+  background-color: var(--coolGray50);
+}
+
+.contents {
+  margin: 0 auto;
+  max-width: 33.6rem;
+  height: 15.3rem;
+}
+
+.best {
+  width: 10.2rem;
+  height: 3rem;
+  border-radius: 0px 0px 32px 32px;
+  background-color: var(--main);
+  padding-top: 0.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.best_contents {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 5.4rem;
+  height: 2.4rem;
+}
+
+.best_logo {
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.best_contents span {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: white;
+}
+
+.post {
+  height: 7.2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  overflow-y: hidden;
+}
+
+.post_image {
+  position: relative;
+  width: 7.2rem;
+  height: 7.2rem;
+  flex-shrink: 0;
+}
+
+.post_title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: var(--coolGray800);
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.writer_likes {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+  color: var(--coolGray500);
+}
+.likes {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.likes_icon {
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.date {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+  color: var(--coolGray400);
+}
+
+@media (max-width: 744px) {
+  .container {
+    width: 34rem;
+    height: 16.7rem;
+  }
+
+  .contents {
+    max-width: 29.2rem;
+    height: 15.1rem;
+  }
+
+  .post {
+    margin-bottom: 1.6rem;
+  }
+
+  .post_title {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+}
+
+@media (max-width: 375px) {
+}

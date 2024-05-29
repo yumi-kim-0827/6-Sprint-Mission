@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  height: 21.7rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.posts {
+  width: 100%;
+  height: 16.9rem;
+  display: flex;
+  gap: 2.4rem;
+}
+
+@media (max-width: 744px) {
+  .container {
+    height: 21.5rem;
+  }
+  .posts {
+    height: 16.7rem;
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    height: 20.7rem;
+  }
+}
