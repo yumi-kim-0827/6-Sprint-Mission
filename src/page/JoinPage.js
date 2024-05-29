@@ -86,7 +86,7 @@ export function JoinPage() {
                 <span className="section-form__input-box">
                   <Input.Text
                     id="join-name"
-                    name="name"
+                    name="nickname"
                     placeholder="닉네임을 입력해주세요"
                   />
                 </span>

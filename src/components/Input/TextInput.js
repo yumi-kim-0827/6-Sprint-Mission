@@ -19,7 +19,7 @@ export default function TextInput({
     }
   };
 
-  if (name === "name") {
+  if (name === "nickname") {
     return (
       <>
         <input
