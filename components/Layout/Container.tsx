@@ -16,8 +16,12 @@ const StyledContainer = styled.div`
   height: auto;
   min-height: 80vh;
 
-  @media (max-width: 738px) {
+  @media (min-width: 738px) {
     padding: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 24px 0;
   }
 `;
 
