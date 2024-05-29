@@ -24,12 +24,12 @@ const Header = () => {
   const handleLoginClick = () => {
     router.push("/login");
   };
+  const freeBoardActive = pathname === "/boards";
 
   const isUsedMarketActive =
     pathname === "/items" ||
     pathname === "/additem" ||
     /^\/items\/\d+$/.test(pathname);
-
   return (
     <div className={styles.headerContainer}>
       <div className={styles.menuContainer}>
@@ -44,7 +44,14 @@ const Header = () => {
         </div>
         {isLoggedIn && (
           <>
-            <div className={styles.freeBoard}>자유게시판</div>
+            <div
+              className={`${styles.freeBoard} ${
+                freeBoardActive ? styles.freeBoardActive : ""
+              }`}
+              onClick={() => router.push("/boards")}
+            >
+              자유게시판
+            </div>
             <div
               className={`${styles.usedMarket} ${
                 isUsedMarketActive ? styles.usedMarketActive : ""
