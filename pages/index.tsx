@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <div className="">푸바오</div>
+        <div className="text-9xl">아바디뱅</div>
       </div>
     </>
   );
