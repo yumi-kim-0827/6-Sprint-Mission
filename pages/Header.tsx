@@ -56,7 +56,7 @@ const Header: React.FC = () => {
       {/* <Link href="/login" className="text-gray-600 hover:text-blue-500">
         로그인
       </Link> */}
-      <Image src="/profile_icon.svg" alt="프로필" width={40} height={40} />
+      <Image src="/ic_profile.svg" alt="프로필" width={40} height={40} />
     </header>
   );
 };
