@@ -1,7 +1,7 @@
 import instance from "@/lib/axios";
 import { AxiosResponse } from "axios";
 
-export type list = {
+export type listType = {
   id: number;
   title: string;
   content: string;
@@ -18,14 +18,23 @@ export type WriterType = {
 };
 
 export type ArticlesType = {
-  list: list[];
+  list: listType[];
   totalCount: number;
 };
 
-export async function getArticles({ orderBy = "recent", keyword = "" }) {
+export async function getArticles({
+  orderBy = "recent",
+  keyword = "",
+}: {
+  orderBy?: string | string[];
+  keyword?: string | string[];
+}) {
+  const formattedOrderBy = Array.isArray(orderBy) ? orderBy[0] : orderBy;
+  const formattedKeyword = Array.isArray(keyword) ? keyword[0] : keyword;
+
   const params = new URLSearchParams({
-    orderBy: orderBy,
-    keyword: keyword,
+    orderBy: formattedOrderBy,
+    keyword: formattedKeyword,
   });
   try {
     const response: AxiosResponse<ArticlesType> = await instance.get(`?${params.toString()}`);
