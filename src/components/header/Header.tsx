@@ -1,9 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styles from "./Header.module.scss";
 import Button from "@/src/components/Button/Button";
+import { isMobileDevice } from "@/src/utils/isMobileDevice";
+import logoIcon from "@/public/svgs/logo.svg";
+import mobileLogoIcon from "@/public/svgs/logo-mobile.svg";
+
+const isMobile = typeof window !== "undefined" && isMobileDevice();
 
 export default function Header() {
+  const router = useRouter();
   const setCurrentPage = (path: string) => {
     return {
       color:
@@ -18,7 +25,7 @@ export default function Header() {
       <div className={styles.headerLeft}>
         <Link href="/" passHref>
           <Image
-            src="/svgs/logo.svg"
+            src={isMobile ? mobileLogoIcon : logoIcon}
             alt="판다마켓 로고"
             width={154}
             height={50}
@@ -34,11 +41,7 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <Button>
-        <Link href="/signin" className={styles.signInButton}>
-          로그인
-        </Link>
-      </Button>
+      <Button onClick={() => router.push("/signin")}> 로그인</Button>
     </header>
   );
 }

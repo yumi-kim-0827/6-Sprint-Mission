@@ -28,13 +28,19 @@
     @include font-style(18px, 700, var(--grey-600));
     display: flex;
     gap: 24px;
+    width: max-content;
   }
 }
 
 /* mobile */
 @media (max-width: 768px) {
-  .navContainer {
-    @include font-style(16px, 700, var(--grey-600));
+  .headerLeft {
+    gap: 16px;
+
+    .navContainer {
+      @include font-style(16px, 700, var(--grey-600));
+      gap: 8px;
+    }
   }
 }
 
