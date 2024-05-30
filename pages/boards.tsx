@@ -81,7 +81,6 @@ export default function Board({ PostsData }: Props) {
     item.title.toLowerCase().trim().includes(searchTerm.toLowerCase().trim())
   );
 
-  // Update posts when order changes
   useEffect(() => {
     const sortedPosts = sortData(PostsData, order);
     setPosts(sortedPosts);
