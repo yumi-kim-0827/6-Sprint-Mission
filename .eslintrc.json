@@ -26,6 +26,9 @@
     "@typescript-eslint/semi": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
     "no-useless-catch": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/require-default-props": "off",
+    "react/jsx-no-useless-fragment": "warn",
     "import/order": [
       "error",
       {
