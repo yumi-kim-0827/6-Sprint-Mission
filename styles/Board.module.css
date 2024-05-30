@@ -1,11 +1,30 @@
 .container {
   min-height: 100vh;
-  padding: 18px;
+  width: 343px;
+  margin: 0 auto;
+}
+
+.best-article-list,
+.all-article-list {
+  width: 100%;
+}
+
+.best-article-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-top-text {
+  margin: 90px 0 20px 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gray900);
 }
 
 .board-nav-bar {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 20px;
   justify-content: space-between;
 }
@@ -119,6 +138,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    width: 696px;
+  }
   .board-nav-bar__dropdown {
     width: 130px;
     height: 42px;
@@ -170,8 +192,9 @@
 
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1236px;
+    max-width: 1236px;
+    padding: 0 18px;
+    width: 100%;
     margin: 0 auto;
-    padding-top: 70px;
   }
 }
