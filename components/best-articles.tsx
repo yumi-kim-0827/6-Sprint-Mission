@@ -1,6 +1,6 @@
 import BestArticleComponent from './best-article-component';
 import { useEffect, useState } from 'react';
-import { getArticles, ListProps } from '@/lib/getArticles';
+import { getBestArticles, ListProps } from '@/lib/getArticles';
 
 const PAGE_NUM = 1;
 const PAGE_SIZE = 3;
@@ -12,7 +12,7 @@ export default function BestArticles() {
   useEffect(() => {
     const fetchBestArticles = async () => {
       try {
-        const data = await getArticles(PAGE_NUM, PAGE_SIZE, ORDERBY);
+        const data = await getBestArticles(PAGE_NUM, PAGE_SIZE, ORDERBY);
         setBestArticles(data);
       } catch (error) {
         console.error('Failed to fetch items:', error);
