@@ -1,7 +1,7 @@
 import { MouseEvent } from "react";
 import Image from "next/image";
 import useResponsive from "@/hooks/useResponsive";
-import Order from "@/components/models/order";
+import Order from "@/models/order";
 
 interface Props {
   currentOrder: Order;

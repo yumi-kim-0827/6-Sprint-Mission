@@ -1,8 +1,9 @@
-import { MouseEvent, useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
+import { MouseEvent, useState } from "react";
+import Navbar from "@/components/commons/Navbar";
 import Dropdown from "@/components/commons/Dropdown";
 import Layout from "@/components/commons/Layout";
-import Order from "@/components/models/order";
+import Order from "@/models/order";
+import PostCard from "@/components/boards/PostCard";
 
 export default function FreeBoard() {
   const [currentOrder, setCurrentOrder] = useState<Order>(Order.recent);
@@ -18,12 +19,13 @@ export default function FreeBoard() {
     <>
       <Navbar />
       <Layout.Main>
-        <div className="fixed right-0">
+        <PostCard />
+        {/* <div className="fixed right-0">
           <Dropdown.Order
             currentOrder={currentOrder}
             handleOrder={handleOrder}
           />
-        </div>
+        </div> */}
       </Layout.Main>
     </>
   );
