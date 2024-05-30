@@ -1,0 +1,24 @@
+.bestitems-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bestitems-writter {
+  width: 94px;
+  height: 28px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.bestitem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.bestitem-image {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}

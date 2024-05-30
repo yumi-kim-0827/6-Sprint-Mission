@@ -1,0 +1,102 @@
+[
+  {
+    "favoriteCount": 10,
+    "images": [
+      "https://c.pxhere.com/photos/d7/de/book_read_old_literature_pages_books_bookshelf_old_books-495484.jpg!s1"
+    ],
+    "price": 5000,
+    "description": "이 상품은 책입니다.",
+    "name": "책",
+    "id": 1
+  },
+  {
+    "favoriteCount": 5,
+    "images": [
+      "https://c.pxhere.com/photos/ec/33/camera_vintage_photography_film_antique-173.jpg!s1"
+    ],
+    "price": 3000000,
+    "description": "이 상품은 카메라입니다.",
+    "name": "카메라",
+    "id": 2
+  },
+  {
+    "favoriteCount": 15,
+    "images": [
+      "https://c.pxhere.com/photos/1c/ab/classroom_chairs_tables_school_seminar_class_learning_furniture-875185.jpg!s1"
+    ],
+    "price": 7000,
+    "description": "이 상품은 학교 의자입니다.",
+    "name": "학교 의자",
+    "id": 3
+  },
+  {
+    "favoriteCount": 3,
+    "images": [
+      "https://c.pxhere.com/photos/1a/bf/guitar_ropes_instrument_music_wood_musical_sound-1146895.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 기타입니다.",
+    "name": "기타",
+    "id": 4
+  },
+  {
+    "favoriteCount": 18,
+    "images": [
+      "https://c.pxhere.com/photos/1a/bf/guitar_ropes_instrument_music_wood_musical_sound-1146895.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "기타",
+    "id": 5
+  },
+  {
+    "favoriteCount": 2,
+    "images": [
+      "https://c.pxhere.com/photos/1a/bf/guitar_ropes_instrument_music_wood_musical_sound-1146895.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "기타",
+    "id": 6
+  },
+  {
+    "favoriteCount": 40,
+    "images": [
+      "https://c.pxhere.com/photos/1a/bf/guitar_ropes_instrument_music_wood_musical_sound-1146895.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "기타",
+    "id": 7
+  },
+  {
+    "favoriteCount": 80,
+    "images": [
+      "https://c.pxhere.com/photos/bc/8c/clock_time_time_of_time_indicating_pointer_watches_hour_wrist_watch-757871.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "아이템18",
+    "id": 8
+  },
+  {
+    "favoriteCount": 1000,
+    "images": [
+      "https://c.pxhere.com/photos/ab/eb/nut_bolt_metallic_metal_white_tool_head_screw-1349437.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "아이템12",
+    "id": 9
+  },
+  {
+    "favoriteCount": 300,
+    "images": [
+      "https://c.pxhere.com/photos/83/8e/camera_photography_lens_equipment_photographer_technology_digital_photographic-1074009.jpg!s1"
+    ],
+    "price": 20000,
+    "description": "이 상품은 ..입니다.",
+    "name": "아이템1",
+    "id": 10
+  }
+]
