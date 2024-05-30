@@ -1,6 +1,6 @@
-import testImage from "@/public/images/adam.jpeg";
 import Image from "next/image";
 import Link from "next/link";
+import imgProfile from "@/public/images/skeleton_profile.png";
 
 export default function Navigator() {
   return (
@@ -20,9 +20,9 @@ export default function Navigator() {
             Market
           </Link>
         </div>
-        <div>
-          <Image src={testImage} alt="testImage" className="w-6 h-6" />
-        </div>
+        <Link href="/">
+          <Image src={imgProfile} alt="testImage" width={40} height={40} />
+        </Link>
       </nav>
     </>
   );
