@@ -10,3 +10,17 @@
 .page.container {
   margin-top: 100px;
 }
+
+/* mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* tablet */
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 24px;
+  }
+}
