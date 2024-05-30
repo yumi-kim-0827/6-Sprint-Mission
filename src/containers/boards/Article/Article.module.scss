@@ -1,0 +1,80 @@
+@import "@/src/styles/_mixin";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .article {
+    margin: 24px 0;
+
+    .hr {
+      border: 1px solid var(--grey-200);
+      margin-top: 24px;
+    }
+  }
+}
+
+.containerTitleSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .containerTitle {
+    @include font-style(20px, 700, var(--grey-900));
+    cursor: default;
+  }
+}
+
+.contentSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.writerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.subContentSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  cursor: default;
+}
+
+.title {
+  @include font-style(20px, 600, var(--grey-800));
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+}
+
+.nickname {
+  @include font-style(14px, 400, var(--grey-600));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.date {
+  @include font-style(14px, 400, var(--grey-400));
+}
+
+.likeCount {
+  @include font-style(16px, 400, var(--grey-500));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

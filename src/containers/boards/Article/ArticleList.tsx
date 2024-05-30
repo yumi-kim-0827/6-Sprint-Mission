@@ -5,6 +5,8 @@ import Article from "./Article";
 import DropDown from "@/src/components/DropDown/DropDown";
 import SearchBar from "@/src/components/SearchBar/SearchBar";
 import Spinner from "@/src/components/Spinner/Spinner";
+import Button from "@/src/components/Button/Button";
+import styles from "./Article.module.scss";
 
 export default function ArticleList() {
   const [orderBy, setOrderBy] = useState("recent");
@@ -33,8 +35,12 @@ export default function ArticleList() {
   }
 
   return (
-    <div className="container">
-      <div>게시글</div>
+    <div className={styles.container}>
+      <div className={styles.containerTitleSection}>
+        <div className={styles.containerTitle}>게시글</div>
+
+        <Button>글쓰기</Button>
+      </div>
 
       <DropDown orderBy={handleOrderBy} />
       <SearchBar keyword={handleSearchTitle} />
