@@ -4,11 +4,6 @@
   color: $color;
 }
 
-@mixin primary-button {
-  @include font-style(16px, 600, var(--white));
-  background-color: var(--blue);
-}
-
 @mixin image {
   position: relative;
   width: 100%;
