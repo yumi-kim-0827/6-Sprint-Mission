@@ -1,0 +1,22 @@
+.likes {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  width: fit-content;
+
+  border-radius: 35px;
+  border: 1px solid var(--gray200);
+
+  padding: 4px 12px;
+}
+
+.icon {
+  width: 32px;
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray500);
+}

@@ -1,0 +1,19 @@
+.productPresenter {
+  display: flex;
+
+  width: 100%;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gray200);
+}
+
+@media all and (max-width: 1199px) {
+  .productPresenter {
+    padding-bottom: 24px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .productPresenter {
+    flex-direction: column;
+  }
+}

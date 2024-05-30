@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { getItems } from "../api";
+import { getItems } from "../api/api";
 import "../css/BestItems.css";
-import { calculatePageSize } from "../module";
+import { calculatePageSize } from "../utils/module";
 import Item from "./Item";
 
 function BestItems({ className, pageSize }) {

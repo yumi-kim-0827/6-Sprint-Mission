@@ -1,0 +1,15 @@
+.productImage {
+  max-width: 486px;
+
+  width: 100%;
+  height: fit-content;
+
+  border-radius: 16px;
+}
+
+@media all and (max-width: 743px) {
+  .productImage {
+    max-width: none;
+    margin-bottom: 16px;
+  }
+}

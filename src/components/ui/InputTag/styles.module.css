@@ -1,0 +1,7 @@
+.tagsPresenter {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  height: 42px;
+  margin: 12px 0 100px;
+}

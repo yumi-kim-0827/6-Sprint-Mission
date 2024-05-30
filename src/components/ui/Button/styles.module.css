@@ -1,0 +1,20 @@
+.button {
+  width: fit-content;
+
+  padding: 12px 23px;
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1251aa;
+}
+
+.button:disabled {
+  background-color: var(--gray400);
+  cursor: default;
+}

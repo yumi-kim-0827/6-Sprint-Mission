@@ -1,0 +1,19 @@
+.link {
+  display: block;
+  width: fit-content;
+  background-color: var(--blue);
+  border-radius: 40px;
+
+  text-decoration: none;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+
+  background-image: url("../../../assets/icons/ic_back.svg");
+  background-repeat: no-repeat;
+  background-position: right 38.5px center;
+
+  padding: 12px 72.5px 12px 38.5px;
+  margin: 0 auto;
+}

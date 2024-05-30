@@ -1,0 +1,8 @@
+.authenticatedProfileButton {
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  cursor: pointer;
+
+  background-image: url("../../../assets/icons/ic_user.svg");
+}

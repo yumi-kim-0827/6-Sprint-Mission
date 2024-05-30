@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import "../css/Dropdown.css";
-import { isMobile } from "../module";
+import { isMobile } from "../utils/module";
 
 function Dropdown({ order, setOrder, children }) {
   const dropdownRef = useRef();

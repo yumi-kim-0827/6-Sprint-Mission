@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import LoginLink from "../components/LoginLink";
 import PaginationProvider from "../contexts/paginationContext";
 import "../css/ItemsPage.css";
-import { calculatePageSize } from "../module";
+import { calculatePageSize } from "../utils/module";
 
 function ItemsPage() {
   const [entireItemsPageSize, setEntireItemsPageSize] =

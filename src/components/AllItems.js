@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getItems } from "../api";
+import { getItems } from "../api/api";
 import searchIcon from "../assets/icons/ic_search.svg";
 import { usePagination } from "../contexts/paginationContext";
 import "../css/AllItems.css";
-import { isDesktop } from "../module";
+import { isDesktop } from "../utils/module";
 import Dropdown from "./Dropdown";
 import DropdownItem from "./DropdownItem";
 import Item from "./Item";

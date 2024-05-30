@@ -1,0 +1,19 @@
+.aligner {
+  margin: 0 auto;
+
+  max-width: 1200px;
+  padding: 24px 0 200px;
+}
+
+@media all and (max-width: 1199px) {
+  .aligner {
+    max-width: none;
+    padding: 24px 24px 200px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .aligner {
+    padding: 16px 16px 200px;
+  }
+}
