@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import BestPostList from "@/components/boards/BestPostList";
 import NormalPostList from "@/components/boards/NormalPostList";
 import BaseButton from "@/components/BaseButton";
@@ -18,9 +18,9 @@ const BEST_POST_LIMIT: { [key in DeviceSizes]: number } = {
 
 const boards = () => {
   const { isLoading, error, axiosFetcher } = useDataFetch();
-  const [data, setData] = useState<Post[]>([]);
+  const [data, setData] = useState<Post[]>(null);
   const [order, setOrder] = useState<SortOptions>("recent");
-  const [best, setBest] = useState<Post[]>([]);
+  const [best, setBest] = useState<Post[]>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const deviceSize = useDeviceSize();
 
@@ -91,7 +91,7 @@ const boards = () => {
   }, [searchQuery]);
 
   // 로딩, 에러에 따른 화면 표시
-  if (isLoading) {
+  if (isLoading || !data) {
     return <Loading />;
   }
 
@@ -100,10 +100,8 @@ const boards = () => {
   }
 
   return (
-    <div>
-      {data.length === 0 ? (
-        <Loading />
-      ) : (
+    <>
+      {data && data.length > 0 && (
         <>
           <div className="text-[20px] font-bold text-cool-gray-800">
             베스트 게시글
@@ -125,7 +123,7 @@ const boards = () => {
           <NormalPostList data={data} />
         </>
       )}
-    </div>
+    </>
   );
 };
 

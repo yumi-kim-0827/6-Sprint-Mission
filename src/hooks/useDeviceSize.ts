@@ -5,10 +5,17 @@ import {
   LARGE_DEVICE_WIDTH,
 } from "@/constants/deviceSize";
 
+type WindowSize = {
+  width: number;
+  height: number;
+};
+
 const useDeviceSize = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
+  const isClient = typeof window !== "undefined";
+
+  const [windowSize, setWindowSize] = useState<WindowSize>({
+    width: isClient ? window.innerWidth : 0,
+    height: isClient ? window.innerHeight : 0,
   });
 
   useEffect(() => {
@@ -20,13 +27,11 @@ const useDeviceSize = () => {
     }
 
     const debouncedResize = debounce(handleResize, 150);
-    debouncedResize();
     window.addEventListener("resize", debouncedResize);
-
     return () => window.removeEventListener("resize", debouncedResize);
   }, []);
 
-  const getDeviceSize = (width: number) => {
+  const getDeviceSize = (width: number | null) => {
     if (MEDIUM_DEVICE_WIDTH > width) return "small";
     if (LARGE_DEVICE_WIDTH > width) return "medium";
     return "large";
