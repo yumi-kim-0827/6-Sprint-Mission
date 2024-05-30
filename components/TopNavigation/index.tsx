@@ -68,6 +68,7 @@ const TopNavigation = () => {
           alt="유저 프로필"
           width="40"
           height="40"
+          priority
         />
       </div>
     </header>

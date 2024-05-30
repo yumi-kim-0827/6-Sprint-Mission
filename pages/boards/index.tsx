@@ -1,45 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import TitleText from '@/components/TitleText';
-import { useEffect, useState } from 'react';
-import baseAxios from '@/lib/baseAxios';
+import { useEffect, useState, useCallback } from 'react';
 import { Post } from '@/types/post';
 import BestPost from '@/components/BestPost';
 import style from './style.module.scss';
-import { MOBILE_SIZE, TABLET_SIZE } from '@/constants/windowSize';
+import { getArticleList } from '@/apis/getArticleList';
+import useNumberOfItemToShow from '@/hooks/useNumberOfItemToShow';
+import { useFetch } from '@/hooks/useFetch';
 
 const Boards = () => {
-  const [originPostList, setOriginPostList] = useState<Post[]>([]);
   const [postList, setPostList] = useState<Post[]>([]);
+  const pageSize = useNumberOfItemToShow({ desktop: 3, tablet: 2, mobile: 1 });
+  const { isLoading, loadError, handleFetch } = useFetch(getArticleList);
 
-  const getPostList = async () => {
-    const res = await baseAxios.get(`/articles?page=1&pageSize=3&orderBy=like`);
-    setOriginPostList(res.data.list);
-    setPostList(res.data.list.slice(0, 3));
+  const fetchPostListData = async ({ pageSize }: { pageSize: number }) => {
+    const data = await handleFetch({ pageSize });
+    if (data) setPostList(data.list);
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= MOBILE_SIZE) {
-        setPostList(originPostList.slice(0, 1));
-      } else if (window.innerWidth <= TABLET_SIZE) {
-        setPostList(originPostList.slice(0, 2));
-      } else {
-        setPostList(originPostList.slice(0, 3));
-      }
-    };
+    fetchPostListData({ pageSize });
+  }, [pageSize]);
 
-    window.addEventListener('resize', handleResize);
+  if (isLoading) {
+    return <h1>로딩중</h1>;
+  }
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [originPostList]);
-
-  useEffect(() => {
-    getPostList();
-  }, []);
-
-  if (postList.length === 0) {
-    return <h1>아직</h1>;
+  if (loadError) {
+    return <h1>{loadError.message}</h1>;
   }
 
   return (
