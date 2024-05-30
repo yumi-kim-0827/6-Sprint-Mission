@@ -4,7 +4,7 @@ import { WriterType } from "@/pages/apis/api";
 import Image from "next/image";
 import formatTime from "@/utils/formatTime";
 
-type Props = {
+export type Props = {
   createdAt: string;
   image: string;
   likeCount: number;
