@@ -36,14 +36,14 @@ export async function getArticles({ orderBy = "recent", keyword = "" }) {
   }
 }
 
-export async function getBestArticles(page = 1, pageSize = 3, orderBy = "recent") {
+export async function getBestArticles(pageSize: number) {
   const params = new URLSearchParams({
-    page: page.toString(),
+    page: "1",
     pageSize: pageSize.toString(),
-    orderBy: orderBy,
+    orderBy: "like",
   });
   try {
-    const response = await instance.get(`?${params.toString()}`);
+    const response: AxiosResponse<ArticlesType> = await instance.get(`?${params.toString()}`);
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
