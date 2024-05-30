@@ -21,7 +21,7 @@ function Header() {
               </LogoLink>
             </Link>
             <nav style={{ display: "flex", gap: "20px" }}>
-              <FreeBoard href="/">자유게시판</FreeBoard>
+              <FreeBoard href="/boards">자유게시판</FreeBoard>
               <Link href="/items" passHref>
                 <UsedMarket>중고마켓</UsedMarket>
               </Link>
