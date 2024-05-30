@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 // TODO: href 변경
-export default function PostCard() {
+export default function ArticleCard() {
   return (
     <Link href="/">
-      <div className="h-[167px] w-full min-w-[300px] rounded-lg bg-cool-gray-200 px-6 pb-4">
+      <div className="h-[167px] w-full min-w-[292px] rounded-lg bg-cool-gray-200 px-6 pb-4">
         <div className="flex h-[30px] w-[102px] items-center justify-center gap-1 rounded-b-[32px] bg-main-blue">
           <Image src="/icons/ic_medal.svg" alt="medal" width={16} height={16} />
           <span className="font-semibold text-white">Best</span>

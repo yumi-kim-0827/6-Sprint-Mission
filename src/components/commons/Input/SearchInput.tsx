@@ -9,7 +9,7 @@ interface Props {
 
 export default function SearchInput({ value, placeholder, onChange }: Props) {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <input
         placeholder={placeholder}
         value={value}

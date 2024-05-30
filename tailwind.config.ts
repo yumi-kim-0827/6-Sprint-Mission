@@ -18,7 +18,6 @@ const config: Config = {
       colors: {
         "main-blue": "#3692ff",
         "dark-main-blue": "#2f80ed",
-        "black-800": "#111827",
         "gray-50": "#f7f7f8",
         "gray-100": "#e8ebed",
         "gray-200": "#e5e7eb",
@@ -34,6 +33,7 @@ const config: Config = {
         "cool-gray-600": "#4b5563",
         "cool-gray-700": "#374151",
         "cool-gray-800": "#1f2937",
+        "cool-gray-900": "#111827",
         error: "#f74747",
       },
     },
