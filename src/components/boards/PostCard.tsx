@@ -5,24 +5,23 @@ import Link from "next/link";
 export default function PostCard() {
   return (
     <Link href="/">
-      <div className="h-[167px] w-full max-w-[384px] rounded-lg bg-cool-gray-200 px-6 pb-4">
+      <div className="h-[167px] w-full min-w-[300px] rounded-lg bg-cool-gray-200 px-6 pb-4">
         <div className="flex h-[30px] w-[102px] items-center justify-center gap-1 rounded-b-[32px] bg-main-blue">
           <Image src="/icons/ic_medal.svg" alt="medal" width={16} height={16} />
           <span className="font-semibold text-white">Best</span>
         </div>
 
-        <div className="mt-4 flex h-[72px] gap-2">
-          <h1 className="line-clamp-2 h-[60px] text-lg font-semibold">
+        <div className="mt-4 flex h-[72px] justify-between gap-2">
+          <h1 className="line-clamp-3 h-[60px] text-lg font-semibold leading-5">
             맥북 16인치 16기가 1테라 정도 사양이면 얼마에 팔아야 하나요?
           </h1>
-
           <div className="flex size-[72px] flex-shrink-0 items-center justify-center rounded-lg border-[0.75px] border-[#e5e7eb] bg-white p-3">
             <Image
               src="/icons/image_71.png"
               alt="test"
               width={48}
               height={48}
-              className="border object-cover"
+              className="object-cover"
             />
           </div>
         </div>

@@ -4,6 +4,7 @@ import Dropdown from "@/components/commons/Dropdown";
 import Layout from "@/components/commons/Layout";
 import Order from "@/models/order";
 import PostCard from "@/components/boards/PostCard";
+import PostPreview from "@/components/boards/PostPreview";
 
 export default function FreeBoard() {
   const [currentOrder, setCurrentOrder] = useState<Order>(Order.recent);
@@ -19,7 +20,12 @@ export default function FreeBoard() {
     <>
       <Navbar />
       <Layout.Main>
+        {/* <div className="grid grid-cols-3"> */}
         <PostCard />
+        {/* </div> */}
+        <PostPreview />
+        <PostPreview />
+        <PostPreview />
         {/* <div className="fixed right-0">
           <Dropdown.Order
             currentOrder={currentOrder}
