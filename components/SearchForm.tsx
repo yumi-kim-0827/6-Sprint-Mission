@@ -20,7 +20,7 @@ export default function SearchForm({ initvalue = "" }) {
   return (
     <form onSubmit={handleSubmit}>
       <input name="q" value={value} onChange={handleChange} />
-      <button>검색</button>
+      <button>검색1</button>
     </form>
   );
 }
