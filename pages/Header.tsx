@@ -18,6 +18,8 @@ const Header = (): JSX.Element => {
               alt="판다 아이콘이 포함된 로고"
               width={153}
               height={51}
+              quality={100}
+              priority={true}
             />
             <Image
               className={styles["Header-short-img"]}
@@ -25,6 +27,7 @@ const Header = (): JSX.Element => {
               alt="판다 아이콘이 포함되지 않은 모바일용 로고"
               width={81}
               height={27}
+              quality={100}
             />
           </Link>
           <ul className={styles["Header-btns"]}>
