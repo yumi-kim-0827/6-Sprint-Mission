@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import styles from "./SearchBar.module.scss";
+import searchIcon from "@/public/svgs/search.svg";
 
 interface SearchBarProps {
   keyword: (searchTerm: string) => void;
@@ -17,14 +20,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ keyword }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.container}>
+      <div className={styles.searchIcon}>
+        <Image src={searchIcon} alt="검색 아이콘" width={24} height={24} />
+      </div>
       <input
+        className={styles.searchBar}
         type="text"
-        placeholder="제목 검색"
+        placeholder="검색할 상품을 입력해주세요"
         value={searchTerm}
         onChange={handleChange}
       />
-      <button type="submit">검색</button>
     </form>
   );
 };

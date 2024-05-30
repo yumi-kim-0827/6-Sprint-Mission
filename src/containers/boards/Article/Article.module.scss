@@ -27,6 +27,14 @@
   }
 }
 
+.controlSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+}
+
 .contentSection {
   display: flex;
   justify-content: space-between;

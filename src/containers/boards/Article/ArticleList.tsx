@@ -42,8 +42,10 @@ export default function ArticleList() {
         <Button>글쓰기</Button>
       </div>
 
-      <DropDown orderBy={handleOrderBy} />
-      <SearchBar keyword={handleSearchTitle} />
+      <div className={styles.controlSection}>
+        <SearchBar keyword={handleSearchTitle} />
+        <DropDown orderBy={handleOrderBy} />
+      </div>
 
       <div className="list">
         {ArticleList?.list?.map((article) => (
