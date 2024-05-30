@@ -12,11 +12,13 @@ const Header = () => {
             <div className="hidden w-10 h-10 sm:block">
               <Image src={pandaLogo} alt="판다마켓 로고 이미지" />
             </div>
-            <span className="font-ROKAFSans logo-text">판다마켓</span>
+            <span className="font-ROKAFSans text-blue text-[26px] font-bold leading-14 text-left">
+              판다마켓
+            </span>
           </Link>
           <ul className="flex justify-center items-center ml-4 sm:ml-5 md:ml-8 gap-2">
             <li className="md:min-w-[110px] text-center">
-              <Link href="/free" className="text-gray-600 font-bold text-lg">
+              <Link href="/boards" className="text-gray-600 font-bold text-lg">
                 자유게시판
               </Link>
             </li>

@@ -4,8 +4,6 @@
 
 @import url(./fonts.css);
 
-@layer base {
-  .logo-text {
-    @apply text-blue text-[26px] font-bold leading-14 text-left;
-  }
+li::marker {
+  content: none;
 }
