@@ -20,15 +20,18 @@ interface Article {
 
 interface BestArticleProps {
   articles: Article[];
+  visibleArticlesCount: number;
 }
-export default function BestArticle({ articles }: BestArticleProps) {
+export default function BestArticle({
+  articles,
+  visibleArticlesCount,
+}: BestArticleProps) {
   const sortedArticles = articles.sort((a, b) => b.likeCount - a.likeCount);
-
-  const top3Articles = sortedArticles.slice(0, 3);
+  const topArticles = sortedArticles.slice(0, visibleArticlesCount);
 
   return (
     <>
-      {top3Articles.map((article) => (
+      {topArticles.map((article) => (
         <div key={article.id}>
           <Container>
             <Badge />
@@ -60,6 +63,9 @@ const Container = styled.div`
   border-radius: 8px;
   position: relative;
   padding: 0 30px;
+  @media (max-width: 1199px) {
+    width: 340px;
+  }
 `;
 const Content = styled.div`
   display: flex;

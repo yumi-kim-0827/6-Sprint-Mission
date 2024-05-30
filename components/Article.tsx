@@ -57,6 +57,12 @@ export default function Article({ articles }: ArticleProps) {
 const Container = styled.div`
   margin: 20px auto;
   width: 1200px;
+  @media (max-width: 1199px) {
+    width: 696px;
+  }
+  @media (max-width: 767px) {
+    width: 344px;
+  }
 `;
 const Content = styled.p`
   font-family: "Pretendard";
@@ -66,7 +72,7 @@ const Content = styled.p`
   line-height: 24px;
   color: #1f2937;
   width: 1120px;
-  height: 112px;
+  min-height: 112px;
   padding: 20px 0;
 `;
 const Divider = styled.div`
@@ -77,7 +83,7 @@ const Divider = styled.div`
 `;
 const StyledImage = styled.img`
   box-sizing: border-box;
-  margin: 0 0 0 auto;
+  margin: 20px 0 20px auto;
   width: 72px;
   height: 72px;
   background: #ffffff;
