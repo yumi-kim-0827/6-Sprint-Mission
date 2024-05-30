@@ -11,7 +11,6 @@ import styles from "./Article.module.scss";
 export default function ArticleList() {
   const [orderBy, setOrderBy] = useState("recent");
   const [searchTitle, setSearchTitle] = useState("");
-
   const fetchArticles = useFetchData<ArticleListResponse>(
     `articles?page=1`,
     10,
@@ -19,6 +18,10 @@ export default function ArticleList() {
     searchTitle
   );
   const { data: ArticleList, isLoading } = fetchArticles;
+  const orderOptions = {
+    최신순: "recent",
+    인기순: "like",
+  };
 
   const handleOrderBy = (orderByOption: string) => {
     setOrderBy(orderByOption);
@@ -44,7 +47,7 @@ export default function ArticleList() {
 
       <div className={styles.controlSection}>
         <SearchBar keyword={handleSearchTitle} />
-        <DropDown orderBy={handleOrderBy} />
+        <DropDown options={orderOptions} setOption={handleOrderBy} />
       </div>
 
       <div className="list">
