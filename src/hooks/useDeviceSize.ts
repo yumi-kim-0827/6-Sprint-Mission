@@ -31,7 +31,7 @@ const useDeviceSize = () => {
     return () => window.removeEventListener("resize", debouncedResize);
   }, []);
 
-  const getDeviceSize = (width: number | null) => {
+  const getDeviceSize = (width: number) => {
     if (MEDIUM_DEVICE_WIDTH > width) return "small";
     if (LARGE_DEVICE_WIDTH > width) return "medium";
     return "large";

@@ -18,9 +18,9 @@ const BEST_POST_LIMIT: { [key in DeviceSizes]: number } = {
 
 const boards = () => {
   const { isLoading, error, axiosFetcher } = useDataFetch();
-  const [data, setData] = useState<Post[]>(null);
+  const [data, setData] = useState<Post[] | null>(null);
   const [order, setOrder] = useState<SortOptions>("recent");
-  const [best, setBest] = useState<Post[]>(null);
+  const [best, setBest] = useState<Post[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const deviceSize = useDeviceSize();
 
