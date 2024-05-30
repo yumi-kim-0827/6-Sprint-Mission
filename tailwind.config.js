@@ -10,6 +10,7 @@ module.exports = {
         'cool-gray100': '#f3f4f6',
         'cool-gray200': '#e5e7eb',
         'cool-gray400': '#9ca3af',
+        'cool-gray500': '#6B7280',
         'cool-gray600': '#4b5563',
         'cool-gray700': '#374151',
         'cool-gray800': '#1f2937',
