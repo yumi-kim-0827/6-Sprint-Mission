@@ -3,6 +3,7 @@ import useFetchData from "@/src/hooks/useFetchData";
 import { ArticleListResponse } from "@/src/interfaces/Article.interface";
 import BestArticle from "./BestArticle";
 import Spinner from "@/src/components/Spinner/Spinner";
+import styles from "./BestArticle.module.scss";
 
 const getPageSize = () => {
   if (typeof window === "undefined") {
@@ -46,9 +47,10 @@ export default function BestArticleList() {
   }
 
   return (
-    <div className="container">
-      <div>베스트 게시글</div>
-      <div className="list">
+    <div className={styles.container}>
+      <div className={styles.containerTitle}>베스트 게시글</div>
+
+      <div className={styles.articlesSection}>
         {ArticleList?.list?.map((article) => (
           <BestArticle article={article} key={article.id} />
         ))}
