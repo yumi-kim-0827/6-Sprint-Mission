@@ -1,0 +1,13 @@
+.dropDown {
+  width: 130px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  color: #ffffff;
+}
+
+.dropDowntoggle {
+  border: none;
+  text-align: center;
+}
