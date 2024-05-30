@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ArticleComponent from './article-component';
 import ic_search from '../public/images/ic_search.png';
 import SelectBox from './select-box';
@@ -48,7 +49,9 @@ export default function Articles() {
       </div>
       <div className='flex flex-col gap-6'>
         {articles.map(article => (
-          <ArticleComponent key={article.id} {...article} />
+          <Link key={article.id} href={`/boards/${article.id}`}>
+            <ArticleComponent {...article} />
+          </Link>
         ))}
       </div>
     </div>

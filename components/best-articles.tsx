@@ -1,6 +1,7 @@
 import BestArticleComponent from './best-article-component';
 import { useEffect, useState } from 'react';
 import { getBestArticles, ListProps } from '@/lib/getArticles';
+import Link from 'next/link';
 
 const PAGE_NUM = 1;
 const PAGE_SIZE = 3;
@@ -24,7 +25,9 @@ export default function BestArticles() {
   return (
     <div className='flex gap-6 md:gap-4'>
       {bestArticles.map(article => (
-        <BestArticleComponent key={article.id} {...article} />
+        <Link key={article.id} href={`/boards/${article.id}`}>
+          <BestArticleComponent {...article} />
+        </Link>
       ))}
     </div>
   );
