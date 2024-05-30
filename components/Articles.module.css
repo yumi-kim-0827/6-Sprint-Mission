@@ -1,0 +1,33 @@
+.Link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Articles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-decoration: none;
+}
+
+.ArticlesList {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.authorInfo {
+  display: flex;
+}
+
+.postInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.favoriteCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
