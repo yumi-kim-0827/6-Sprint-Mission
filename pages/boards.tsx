@@ -87,7 +87,7 @@ const BoardNavBar = () => {
           />
           <Image
             src="/images/Articles/dropdown-arrow.png"
-            className={styles["dropdown-icon"]}
+            className={styles[isDropdownOpen ? "dropdown-open-icon" : "dropdown-icon"]}
             alt="제품 페이지 드롭다운 메뉴 아이콘"
             width={24}
             height={24}
