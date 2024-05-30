@@ -12,7 +12,7 @@ export interface Article {
   };
 }
 
-export default interface ArticleListResponse {
+export interface ArticleListResponse {
   list: Article[];
   totalCount: number;
 }
