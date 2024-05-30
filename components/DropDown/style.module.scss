@@ -1,0 +1,57 @@
+@import '../../styles/';
+
+.wrapper {
+  position: relative;
+}
+
+.button {
+  cursor: pointer;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+  border: 1px solid $cool-gray200;
+
+  background-color: white;
+
+  &:hover {
+    background-color: $cool-gray200;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 120%;
+  right: 0;
+
+  width: 130px;
+
+  border-radius: 12px;
+  border: 1px solid $cool-gray200;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+
+  li:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+
+  li:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+.item {
+  cursor: pointer;
+
+  width: 100%;
+  padding-block: 10px;
+
+  &:hover {
+    background-color: $cool-gray200;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SortType, SORT_TYPE_DICT } from '@/constants/sortOption';
 import SortIcon from '@/public/svgs/sort-icon.svg';
+import style from './style.module.scss';
 
 interface OptionProps {
   label: SortType;
@@ -20,15 +21,19 @@ const DropDown = ({ options, handleClickItem }: DropdownProps) => {
   };
 
   return (
-    <div>
-      <button onClick={() => setIsVisible(!isVisible)}>
+    <div className={style.wrapper}>
+      <button className={style.button} onClick={() => setIsVisible(!isVisible)}>
         <SortIcon />
       </button>
 
       {isVisible && (
-        <ul>
+        <ul className={style.container}>
           {options.map((option) => (
-            <li key={option.label} onClick={() => onClickItem(option.label)}>
+            <li
+              className={style.item}
+              key={option.label}
+              onClick={() => onClickItem(option.label)}
+            >
               {SORT_TYPE_DICT[option.label]}
             </li>
           ))}

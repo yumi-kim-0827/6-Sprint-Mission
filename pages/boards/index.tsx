@@ -19,6 +19,8 @@ const Boards = () => {
     setKeyword(keyword);
   };
 
+  console.log(order, keyword);
+
   return (
     <main>
       <section>
@@ -30,7 +32,7 @@ const Boards = () => {
           <TitleText title="게시물" />
           <Button>글쓰기</Button>
         </div>
-        <div>
+        <div className={style.board_mid}>
           <SearchBar handleSearchItem={handleSearchItem} />
           <DropDown
             options={[{ label: 'recent' }, { label: 'like' }]}
