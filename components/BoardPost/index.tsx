@@ -1,24 +1,17 @@
-import React from 'react';
 import { Post } from '@/types/post';
-import Image from 'next/image';
+import React from 'react';
 import style from './style.module.scss';
+import Image from 'next/image';
 import { dateToString } from '@/utils/dateToString';
 import HeartIcon from '@/public/svgs/heart-icon.svg';
 
-interface BestPostProps {
+interface BoardPostProps {
   post: Post;
 }
 
-const BestPost = ({ post }: BestPostProps) => {
+const BoardPost = ({ post }: BoardPostProps) => {
   return (
     <article className={style.container}>
-      <Image
-        src="/images/best-badge.png"
-        alt="베스트 게시물 뱃지"
-        width="102"
-        height="30"
-        priority
-      />
       <div className={style.top_info}>
         <h3>{post.title}</h3>
         {post.image && (
@@ -34,14 +27,23 @@ const BestPost = ({ post }: BestPostProps) => {
       </div>
       <div className={style.bottom_info}>
         <div className={style.bottom_left}>
+          <Image
+            src="/images/profile.png"
+            alt="유저 프로필"
+            width="24"
+            height="24"
+            priority
+          />
           <span>{post.writer.nickname}</span>
+          <span>{dateToString(post.createdAt)}</span>
+        </div>
+        <div className={style.like}>
           <HeartIcon />
           <span>{post.likeCount}</span>
         </div>
-        <span>{dateToString(post.createdAt)}</span>
       </div>
     </article>
   );
 };
 
-export default BestPost;
+export default BoardPost;

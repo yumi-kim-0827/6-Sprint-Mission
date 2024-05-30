@@ -6,6 +6,7 @@ import SearchBar from '@/components/SearchBar';
 import DropDown from '@/components/DropDown';
 import { SortType } from '@/constants/sortOption';
 import BestPostContainer from '@/components/BestPostContainer';
+import BoardPostContainer from '@/components/BoardPostContainer';
 
 const Boards = () => {
   const [order, setOrder] = useState<SortType>('recent');
@@ -18,8 +19,6 @@ const Boards = () => {
   const handleSearchItem = (keyword: string) => {
     setKeyword(keyword);
   };
-
-  console.log(order, keyword);
 
   return (
     <main>
@@ -39,6 +38,7 @@ const Boards = () => {
             handleClickItem={handleClickItem}
           />
         </div>
+        <BoardPostContainer orderBy={order} keyword={keyword} />
       </section>
     </main>
   );

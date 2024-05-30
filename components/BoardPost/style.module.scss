@@ -1,12 +1,7 @@
 @import '../../styles/';
 
 .container {
-  flex: 1;
-  padding-inline: 24px;
-
-  border-radius: 8px;
-
-  background-color: $cool-gray50;
+  border-bottom: 1px solid $cool-gray200;
 }
 
 .top_info {
@@ -15,11 +10,11 @@
   gap: 8px;
 
   height: 72px;
-  margin-top: 16px;
+  margin-top: 24px;
 
   & h3 {
     @include font-base($cool-gray800, 600, 20px, 24px);
-    width: 75%;
+    width: 80%;
   }
 }
 
@@ -42,20 +37,36 @@
 
 .bottom_info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   margin-block: 16px;
-
-  & span {
-    @include font-base($cool-gray400, 400, 14px, 17px);
-  }
 }
 
 .bottom_left {
   display: flex;
   gap: 8px;
 
-  & span {
-    @include font-base($cool-gray600, 400, 14px, 18px);
+  span:nth-child(2) {
+    margin-top: 5px;
+    @include font-base($cool-gray600, 400, 14px, 17px);
+  }
+
+  span:nth-child(3) {
+    margin-top: 5px;
+    @include font-base($cool-gray400, 400, 14px, 17px);
+  }
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  span {
+    @include font-base($cool-gray500, 400, 16px, 24px);
+  }
+  svg {
+    margin-bottom: 2px;
   }
 }
