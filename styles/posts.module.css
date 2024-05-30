@@ -1,0 +1,38 @@
+.medal {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main);
+  height: 30px;
+  width: 102px;
+  border-radius: 0 0 5rem 5rem;
+}
+
+.medal p {
+  color: #fff;
+  font-size: 16px;
+}
+
+.bestPostBox {
+  width: 336px;
+  height: 153px;
+  background-color: var(--gray50);
+  border-radius: 1rem;
+}
+
+.titleImage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postImg {
+  width: 72px;
+  height: 72px;
+  border: 1.5px solid var(--gray100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
