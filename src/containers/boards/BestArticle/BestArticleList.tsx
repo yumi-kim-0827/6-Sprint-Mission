@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import useFetchData from "@/src/hooks/useFetchData";
-import ArticleListResponse from "@/src/interfaces/Article.interface";
+import { ArticleListResponse } from "@/src/interfaces/Article.interface";
 import BestArticle from "./BestArticle";
+import Spinner from "@/src/components/Spinner/Spinner";
 
 const getPageSize = () => {
   if (typeof window === "undefined") {
@@ -22,8 +23,8 @@ export default function BestArticleList() {
     `articles?page=1`,
     pageSize,
     "like"
-  ) || { list: [], totalCount: 0 };
-  const { list: ArticleList } = fetchArticles;
+  );
+  const { data: ArticleList, isLoading } = fetchArticles;
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,11 +38,18 @@ export default function BestArticleList() {
     };
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (ArticleList?.totalCount === 0) {
+    return <>게시글이 없습니다.</>;
+  }
+
   return (
     <div className="container">
       <div>베스트 게시글</div>
       <div className="list">
-        {ArticleList?.map((article) => (
+        {ArticleList?.list?.map((article) => (
           <BestArticle article={article} key={article.id} />
         ))}
       </div>
