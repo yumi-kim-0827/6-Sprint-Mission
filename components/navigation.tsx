@@ -18,14 +18,16 @@ export default function Navigation() {
               <Image className='sm:hidden md:block' src={img_logo} width={153} alt='판다마켓로고' />
             </div>
           </Link>
-          <div className='flex justify-around font-bold sm:w-[135px]gap-2 md:w-[218px]'>
+          <div className='flex justify-around font-bold sm:min-w-[135px] sm:gap-2 md:w-[218px]'>
             <Link href='/boards'>
-              <button className='block h-[70px] sm:w-[73px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
+              <button className='font-bold block h-[70px] sm:w-[73px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
                 자유게시판
               </button>
             </Link>
             <Link href='/'>
-              <button className='block h-[70px] sm:w-[58px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>중고마켓</button>
+              <button className='font-bold block h-[70px] sm:w-[58px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
+                중고마켓
+              </button>
             </Link>
           </div>
         </div>
