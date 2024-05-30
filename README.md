@@ -1,6 +1,6 @@
 # 판다 마켓
 
-`by NextJS & TypeScript`
+by NextJS & TypeScript
 
 <br/>
 
