@@ -4,10 +4,10 @@ import ic_sort from '@/public/images/ic_sort.svg';
 import ic_arrow_down from '@/public/images/ic_arrow_down.svg';
 
 type Props = {
-  handleSort: (sortType: string) => void;
+  handleOrder: (sortType: string) => void;
 };
 
-export default function SelectBox({ handleSort }: Props) {
+export default function SelectBox({ handleOrder }: Props) {
   const [isDisplay, setIsDisplay] = useState(false);
   const ulRef = useRef(null);
   const [title, setTitle] = useState('최신순');
@@ -19,13 +19,13 @@ export default function SelectBox({ handleSort }: Props) {
   const handleNewestClick = () => {
     setTitle('최신순');
     setIsDisplay(false);
-    handleSort('최신순');
+    handleOrder('recent');
   };
 
   const handleLikesClick = () => {
     setTitle('좋아요순');
     setIsDisplay(false);
-    handleSort('좋아요순');
+    handleOrder('like');
   };
 
   return (
@@ -40,7 +40,7 @@ export default function SelectBox({ handleSort }: Props) {
         </p>
       </button>
       {isDisplay && (
-        <ul className='absolute mt-1 bg-white' ref={ulRef}>
+        <ul className='absolute mt-1 bg-white sm:right-0' ref={ulRef}>
           <li>
             <button
               className='w-[130px] h-[42px] border rounded-t-xl border-cool-gray200'
