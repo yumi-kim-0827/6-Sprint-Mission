@@ -2,10 +2,7 @@ import Head from 'next/head';
 import BestArticles from '@/components/best-articles';
 import Articles from '@/components/articles';
 
-import { useState } from 'react';
-
 export default function Boards() {
-  const [article, setArticle] = useState([]);
   return (
     <>
       <Head>
