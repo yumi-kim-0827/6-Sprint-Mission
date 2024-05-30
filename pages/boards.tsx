@@ -5,21 +5,21 @@ import Articles from "@/components/Articles";
 import BestArticles from "@/components/BestArticles";
 import Image from "next/image";
 import Link from "next/link";
-import { getArticles, getBestArticles, list } from "./apis/api";
+import Head from "next/head";
+import { GetServerSidePropsContext } from "next";
+import { getArticles, getBestArticles, listType } from "../lib/apis/api";
 import useMediaQuery from "@/hooks/useMatchMedia";
 
-interface BoardNavBarProps {
-  formatCategory: (value: string | null) => void;
-  setResultToSearchValue: (value: string) => void;
-}
-
-const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProps) => {
+const BoardNavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dropdownMenu, setDropdownMenu] = useState<string | null>("최신순");
+  const router = useRouter();
+  const [keyword, setKeyword] = useState(router.query.keyword || "");
+  const [orderBy, setOrderBy] = useState(router.query.orderBy || "recent");
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setResultToSearchValue(value);
+    setKeyword(value);
   };
 
   const handleDropdownOpen = () => {
@@ -30,12 +30,24 @@ const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProp
     const { textContent } = e.target as HTMLElement;
     setDropdownMenu(textContent);
     setIsDropdownOpen(false);
-    setCategory(textContent);
+    if (textContent) {
+      if (textContent === "최신순") {
+        setOrderBy("recent");
+      } else {
+        setOrderBy("like");
+      }
+    }
   };
 
-  const setCategory = (value: string | null) => {
-    formatCategory(value);
-  };
+  useEffect(() => {
+    router.push({
+      pathname: "/boards",
+      query: {
+        orderBy,
+        keyword,
+      },
+    });
+  }, [keyword, orderBy]);
 
   return (
     <div className={styles["board-nav-bar"]}>
@@ -92,57 +104,41 @@ const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProp
   );
 };
 
-interface option {
-  orderBy: string | undefined;
-  keyword: string | undefined;
+export interface QueryOption {
+  orderBy?: string | string[];
+  keyword?: string | string[];
 }
 
-// eslint-disable-next-line @next/next/no-typos
-export async function GetServerSideProps() {}
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const orderBy = context.query["orderBy"];
+  const keyword = context.query["keyword"];
 
-const Board = () => {
-  const router = useRouter();
-  const [articles, setArticles] = useState<list[]>([]);
-  const [orderBy, setOrderBy] = useState<string>("recent");
-  const [keyword, setKeyword] = useState<string>("");
+  const res = await getArticles({ orderBy, keyword });
+  const articles = res.list ?? [];
 
-  const [bestArticles, setBestArticles] = useState<list[]>([]);
+  return {
+    props: {
+      articles,
+    },
+  };
+}
+
+type Articles = {
+  articles: listType[];
+};
+
+const Board = ({ articles }: Articles) => {
+  const [bestArticles, setBestArticles] = useState<listType[]>([]);
   const [pageSize, setPageSize] = useState<number>(3);
 
   const isSmallScreen = useMediaQuery("(min-width: 380px) and (max-width: 767px)");
   const isMediumScreen = useMediaQuery("(min-width: 768px) and (max-width: 1199px)");
   const isLargeScreen = useMediaQuery("(min-width: 1200px)");
 
-  const setResultToSearchValue = (value: string) => {
-    setKeyword(value);
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, keyword: value },
-    });
-  };
-
-  const formatCategory = (value: string | null) => {
-    const newValue = value === "최신순" ? "recent" : "like";
-    setOrderBy(newValue);
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, orderBy: newValue },
-    });
-  };
-
-  const getArticlesList = async (option: option) => {
-    const { list } = await getArticles(option);
-    setArticles(list);
-  };
-
-  const getBestArticlesList = async (option: number) => {
+  const getBestArticleList = async (option: number) => {
     const { list } = await getBestArticles(option);
     setBestArticles(list);
   };
-
-  useEffect(() => {
-    getArticlesList({ orderBy, keyword });
-  }, [orderBy, keyword]);
 
   useEffect(() => {
     if (isLargeScreen) {
@@ -156,34 +152,30 @@ const Board = () => {
 
   useEffect(() => {
     if (isLargeScreen || isMediumScreen || isSmallScreen) {
-      getBestArticlesList(pageSize);
+      getBestArticleList(pageSize);
     }
   }, [pageSize]);
 
-  useEffect(() => {
-    if (router.query.orderBy) {
-      setOrderBy(router.query.orderBy as string);
-    }
-    if (router.query.keyword) {
-      setKeyword(router.query.keyword as string);
-    }
-  }, [router.query]);
-
   return (
-    <div className={styles.container}>
-      <h2 className={styles["article-top-text"]}>베스트 게시글</h2>
-      <section className={styles["best-article-list"]}>
-        {bestArticles.map((article) => {
-          return <BestArticles key={article.title} {...article} />;
-        })}
-      </section>
-      <BoardNavBar formatCategory={formatCategory} setResultToSearchValue={setResultToSearchValue} />
-      <section className={styles["all-article-list"]}>
-        {articles.map((article: list) => {
-          return <Articles key={article.title} {...article} />;
-        })}
-      </section>
-    </div>
+    <>
+      <Head>
+        <title>자유게시판</title>
+      </Head>
+      <div className={styles.container}>
+        <h2 className={styles["article-top-text"]}>베스트 게시글</h2>
+        <section className={styles["best-article-list"]}>
+          {bestArticles.map((article) => {
+            return <BestArticles key={article.title} {...article} />;
+          })}
+        </section>
+        <BoardNavBar />
+        <section className={styles["all-article-list"]}>
+          {articles.map((article: listType) => {
+            return <Articles key={article.title} {...article} />;
+          })}
+        </section>
+      </div>
+    </>
   );
 };
 
