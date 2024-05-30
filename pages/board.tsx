@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Container from '@/components/Container';
 
 export default function Board() {
   return (
@@ -9,13 +10,17 @@ export default function Board() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mt-[100px]">
-        <h1>베스트 게시글</h1>
-        <div></div>
-      </div>
-      <div>
-        <h1>게시글</h1>
-        <div></div>
+      <div className="flex justify-center items-start">
+        <Container>
+          <section>
+            <h1>베스트 게시글</h1>
+            <div></div>
+          </section>
+          <section>
+            <h1>게시글</h1>
+            <div></div>
+          </section>
+        </Container>
       </div>
     </>
   );
