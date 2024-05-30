@@ -1,1 +1,1 @@
-export default function Header() {}
+export { Header } from "./ui/header";

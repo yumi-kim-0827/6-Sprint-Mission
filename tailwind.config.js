@@ -7,6 +7,10 @@ module.exports = {
     "./widgets/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      gray: "#DFDFDF",
+      blue: "#3692FF",
+    },
     screens: {
       md: "744px",
       lg: "1199px",
