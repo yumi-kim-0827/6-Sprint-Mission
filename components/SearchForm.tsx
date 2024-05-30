@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export default function SearchForm({ initvalue = "" }) {
   const [value, setValue] = useState(initvalue);
@@ -9,7 +9,7 @@ export default function SearchForm({ initvalue = "" }) {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (!value) {
       router.push("/");
