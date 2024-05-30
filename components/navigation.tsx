@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-
 import img_logo from '@/public/images/img_logo.png';
 import text_logo from '@/public/images/text_logo.png';
 import ic_profile from '@/public/images/ic_profile.png';
+import { useRouter } from 'next/router';
 
 export default function Navigation() {
-  // const router = useRouter();
+  const router = useRouter();
+
   return (
     <nav className='flex justify-center items-center h-[70px] border-b border-solid border-[#DFDFDF]'>
       <div className='flex w-[1200px] justify-between px-4'>
@@ -21,12 +21,12 @@ export default function Navigation() {
           <div className='flex justify-around font-bold sm:min-w-[135px] sm:gap-2 md:w-[218px]'>
             <Link href='/boards'>
               <button className='font-bold block h-[70px] sm:w-[73px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
-                자유게시판
+                <span className={router.pathname.startsWith('/boards') ? `${'text-brand-blue'}` : ''}>자유게시판</span>
               </button>
             </Link>
             <Link href='/'>
               <button className='font-bold block h-[70px] sm:w-[58px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
-                중고마켓
+                <span>중고마켓</span>
               </button>
             </Link>
           </div>
