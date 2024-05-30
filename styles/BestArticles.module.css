@@ -1,0 +1,90 @@
+.article-item {
+  width: 343px;
+  height: 167px;
+  margin: 0 0 50px 0;
+  padding: 0 24px 16px 24px;
+  margin: 0 0 20px 0;
+  background-color: var(--cool-gray50);
+  border-radius: 8px;
+}
+
+.article-best-medal-container {
+  background-color: var(--blue);
+  width: 102px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 32px 32px;
+}
+
+.article-best-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.article-item-top {
+  display: flex;
+  margin: 10px 0 10px 0;
+  justify-content: space-between;
+}
+.article-item-top__title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.article-item-top__img {
+  border: solid 1px var(--cool-gray100);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.article-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.article-item-bottom-no-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 62px;
+}
+
+.article-item-bottom__left {
+  display: flex;
+  align-items: center;
+}
+
+.article-item-bottom__name {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray500);
+  margin-right: 10px;
+}
+
+.article-item-bottom__like {
+  position: relative;
+  top: 1px;
+  margin-right: 5px;
+}
+
+.article-item-bottom__likeCount {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray500);
+}
+
+.article-item-bottom__createdAt {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray500);
+}
+
+@media screen and (min-width: 1200px) {
+  .article-item {
+    width: 384px;
+    justify-content: flex-start;
+  }
+}
