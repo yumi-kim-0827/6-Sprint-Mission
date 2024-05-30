@@ -1,47 +1,42 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import TitleText from '@/components/TitleText';
-import { useEffect, useState, useCallback } from 'react';
-import { Post } from '@/types/post';
-import BestPost from '@/components/BestPost';
+import { useState } from 'react';
 import style from './style.module.scss';
-import { getArticleList } from '@/apis/getArticleList';
-import useNumberOfItemToShow from '@/hooks/useNumberOfItemToShow';
-import { useFetch } from '@/hooks/useFetch';
+import Button from '@/components/Button';
+import SearchBar from '@/components/SearchBar';
+import DropDown from '@/components/DropDown';
+import { SortType } from '@/constants/sortOption';
+import BestPostContainer from '@/components/BestPostContainer';
 
 const Boards = () => {
-  const [postList, setPostList] = useState<Post[]>([]);
-  const pageSize = useNumberOfItemToShow({ desktop: 3, tablet: 2, mobile: 1 });
-  const { isLoading, loadError, handleFetch } = useFetch(getArticleList);
+  const [order, setOrder] = useState<SortType>('recent');
+  const [keyword, setKeyword] = useState('');
 
-  const fetchPostListData = async ({ pageSize }: { pageSize: number }) => {
-    const data = await handleFetch({ pageSize });
-    if (data) setPostList(data.list);
+  const handleClickItem = (sort: SortType) => {
+    setOrder(sort);
   };
 
-  useEffect(() => {
-    fetchPostListData({ pageSize });
-  }, [pageSize]);
-
-  if (isLoading) {
-    return <h1>로딩중</h1>;
-  }
-
-  if (loadError) {
-    return <h1>{loadError.message}</h1>;
-  }
+  const handleSearchItem = (keyword: string) => {
+    setKeyword(keyword);
+  };
 
   return (
     <main>
       <section>
         <TitleText title="베스트 게시물" />
-        <div className={style.best_wrapper}>
-          {postList.map((post) => (
-            <BestPost key={post.id} post={post} />
-          ))}
-        </div>
+        <BestPostContainer />
       </section>
       <section>
-        <TitleText title="게시물" />
+        <div className={style.board_top}>
+          <TitleText title="게시물" />
+          <Button>글쓰기</Button>
+        </div>
+        <div>
+          <SearchBar handleSearchItem={handleSearchItem} />
+          <DropDown
+            options={[{ label: 'recent' }, { label: 'like' }]}
+            handleClickItem={handleClickItem}
+          />
+        </div>
       </section>
     </main>
   );
