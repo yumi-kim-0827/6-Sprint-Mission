@@ -6,6 +6,7 @@ import BestArticles from "@/components/BestArticles";
 import Image from "next/image";
 import Link from "next/link";
 import { getArticles, getBestArticles, list } from "./apis/api";
+import useMediaQuery from "@/hooks/useMatchMedia";
 
 interface BoardNavBarProps {
   formatCategory: (value: string | null) => void;
@@ -92,16 +93,25 @@ const BoardNavBar = ({ formatCategory, setResultToSearchValue }: BoardNavBarProp
 };
 
 interface option {
-  orderBy?: string | undefined;
-  keyword?: string | undefined;
+  orderBy: string | undefined;
+  keyword: string | undefined;
 }
+
+// eslint-disable-next-line @next/next/no-typos
+export async function GetServerSideProps() {}
 
 const Board = () => {
   const router = useRouter();
   const [articles, setArticles] = useState<list[]>([]);
   const [orderBy, setOrderBy] = useState<string>("recent");
   const [keyword, setKeyword] = useState<string>("");
-  const [bestArticles, setBestArticles] = useState([]);
+
+  const [bestArticles, setBestArticles] = useState<list[]>([]);
+  const [pageSize, setPageSize] = useState<number>(3);
+
+  const isSmallScreen = useMediaQuery("(min-width: 380px) and (max-width: 767px)");
+  const isMediumScreen = useMediaQuery("(min-width: 768px) and (max-width: 1199px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1200px)");
 
   const setResultToSearchValue = (value: string) => {
     setKeyword(value);
@@ -125,9 +135,30 @@ const Board = () => {
     setArticles(list);
   };
 
+  const getBestArticlesList = async (option: number) => {
+    const { list } = await getBestArticles(option);
+    setBestArticles(list);
+  };
+
   useEffect(() => {
     getArticlesList({ orderBy, keyword });
   }, [orderBy, keyword]);
+
+  useEffect(() => {
+    if (isLargeScreen) {
+      setPageSize(3);
+    } else if (isMediumScreen) {
+      setPageSize(2);
+    } else {
+      setPageSize(1);
+    }
+  }, [isLargeScreen, isMediumScreen, isSmallScreen]);
+
+  useEffect(() => {
+    if (isLargeScreen || isMediumScreen || isSmallScreen) {
+      getBestArticlesList(pageSize);
+    }
+  }, [pageSize]);
 
   useEffect(() => {
     if (router.query.orderBy) {
@@ -140,8 +171,11 @@ const Board = () => {
 
   return (
     <div className={styles.container}>
+      <h2 className={styles["article-top-text"]}>베스트 게시글</h2>
       <section className={styles["best-article-list"]}>
-        <BestArticles />
+        {bestArticles.map((article) => {
+          return <BestArticles key={article.title} {...article} />;
+        })}
       </section>
       <BoardNavBar formatCategory={formatCategory} setResultToSearchValue={setResultToSearchValue} />
       <section className={styles["all-article-list"]}>
