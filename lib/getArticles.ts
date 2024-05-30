@@ -1,6 +1,6 @@
 import instance from './axios';
 
-interface ListProps {
+export interface ListProps {
   updatedAt: string;
   createdAt: string;
   likeCount: number;

@@ -1,32 +1,13 @@
 import BestArticleComponent from './best-article-component';
 import { useEffect, useState } from 'react';
-import { getArticles } from '@/lib/getArticles';
-
-interface ArticlesListProps {
-  totalCount?: number;
-  list: ArticleProps[];
-}
-interface ArticleProps {
-  updatedAt: string;
-  createdAt: string;
-  likeCount: number;
-  writer: Writer;
-  image: string;
-  content: string;
-  title: string;
-  id: number;
-}
-interface Writer {
-  nickname: string;
-  id: number;
-}
+import { getArticles, ListProps } from '@/lib/getArticles';
 
 const PAGE_NUM = 1;
 const PAGE_SIZE = 3;
 const ORDERBY = 'like';
 
 export default function BestArticles() {
-  const [bestArticles, setBestArticles] = useState<ArticleProps[]>([]);
+  const [bestArticles, setBestArticles] = useState<ListProps[]>([]);
 
   useEffect(() => {
     const fetchBestArticles = async () => {
