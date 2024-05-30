@@ -14,16 +14,19 @@
 }
 
 .bestPostBox {
-  width: 336px;
-  height: 153px;
+  width: 384px;
+  height: 169px;
   background-color: var(--gray50);
   border-radius: 1rem;
+  padding: 0 2rem 0.5rem;
 }
 
 .titleImage {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 80px;
+  gap: 0.3rem;
 }
 
 .postImg {
@@ -35,4 +38,27 @@
   justify-content: center;
   padding: 1rem;
   border-radius: 0.3rem;
+}
+
+.writer {
+  font-size: 14px;
+  color: var(--gray600);
+}
+
+.date {
+  font-size: 14px;
+  color: var(--gray400);
+}
+
+.writerContent {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.2rem;
+}
+
+.bestPostFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }

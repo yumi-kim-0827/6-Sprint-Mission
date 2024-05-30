@@ -38,38 +38,47 @@ export default function BestPosts() {
   }, [])
 
   return (
-    <div className={styles.bestPostBox}>
+    <>
       {bestPosts.map((post) => {
         return (
           <>
-            <div key={post.id}>
-              <div className={styles.medal}>
-                <Image src={icon_medal} alt="메달" width={16} height={16} />
-                <p>Best</p>
-              </div>
-              <div className={styles.titleImage}>
-                <p>{post.title}</p>
-                {post.image && (
-                  <div className={styles.postImg}>
+            <div className={styles.bestPostBox}>
+              <div key={post.id}>
+                <div className={styles.medal}>
+                  <Image src={icon_medal} alt="메달" width={16} height={16} />
+                  <p>Best</p>
+                </div>
+                <div className={styles.titleImage}>
+                  <h3 className={styles.titleP}>{post.title}</h3>
+                  {post.image && (
+                    <div className={styles.postImg}>
+                      <Image
+                        src={post.image}
+                        alt="포스트 이미지"
+                        width={48}
+                        height={48}
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className={styles.bestPostFooter}>
+                  <div className={styles.writerContent}>
+                    <p className={styles.writer}>{post.writer.nickname}</p>
                     <Image
-                      src={post.image}
-                      alt="포스트 이미지"
-                      width={48}
-                      height={48}
+                      src={icon_favorite}
+                      alt="하트"
+                      width={16}
+                      height={16}
                     />
+                    <p className={styles.writer}>{post.likeCount}</p>
                   </div>
-                )}
-              </div>
-              <div>
-                <p>{post.writer.nickname}</p>
-                <Image src={icon_favorite} alt="하트" width={16} height={16} />
-                <p>{post.likeCount}</p>
-                <p>{formatDate(post.createdAt)}</p>
+                  <p className={styles.date}>{formatDate(post.createdAt)}</p>
+                </div>
               </div>
             </div>
           </>
         )
       })}
-    </div>
+    </>
   )
 }
