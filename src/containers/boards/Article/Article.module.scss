@@ -38,6 +38,7 @@
 .contentSection {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .writerSection {
@@ -85,4 +86,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+}
+
+/* tablet */
+@media (max-width: 1280px) {
+  .title {
+    @include font-style(18px, 600, var(--grey-800));
+  }
 }

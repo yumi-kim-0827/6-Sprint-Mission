@@ -50,7 +50,7 @@ export default function ArticleList() {
         <DropDown options={orderOptions} setOption={handleOrderBy} />
       </div>
 
-      <div className="list">
+      <div>
         {ArticleList?.list?.map((article) => (
           <Article article={article} key={article.id} />
         ))}
