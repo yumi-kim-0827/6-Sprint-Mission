@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.scss";
+import Button from "@/src/components/Button/Button";
 
 export default function Header() {
   const setCurrentPage = (path: string) => {
@@ -33,9 +34,11 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <Link href="/signin" className={styles.signInButton}>
-        로그인
-      </Link>
+      <Button>
+        <Link href="/signin" className={styles.signInButton}>
+          로그인
+        </Link>
+      </Button>
     </header>
   );
 }

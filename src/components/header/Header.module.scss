@@ -31,12 +31,6 @@
   }
 }
 
-.signInButton {
-  @include primary-button;
-  border-radius: 8px;
-  padding: 12px 24px;
-}
-
 /* mobile */
 @media (max-width: 768px) {
   .navContainer {
