@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/boards.module.css'
 import BestPosts from '@/components/BestPosts'
+import Posts from '@/components/Posts'
 
 export default function boards() {
   return (
@@ -10,6 +11,7 @@ export default function boards() {
       <div className={styles.postsNav}>
         <h3>게시글</h3>
         <button>글쓰기</button>
+        <Posts />
       </div>
     </div>
   )
