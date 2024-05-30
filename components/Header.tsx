@@ -11,18 +11,12 @@ export default function Header() {
   return (
     <header className={styles.globalHeader}>
       <div className={styles.headerLeft}>
-        <Link href="/">
-          <Image
-            src={Logo}
-            alt="판다마켓"
-            width={153}
-            height={50}
-            className={styles.headerlogo}
-          />
+        <Link href="/" className={styles.headerLogo}>
+          <Image src={Logo} alt="판다마켓" width={153} height={50} />
         </Link>
-        <div>
-          <div className={styles.globalHeaderNav}>
-            <div className={styles.navList}>
+        <nav>
+          <ul className={styles.globalHeaderNav}>
+            <li className={styles.navList}>
               <Link href="/boards">
                 <span
                   className={`${styles.navListLink} ${
@@ -34,8 +28,8 @@ export default function Header() {
                   자유게시판
                 </span>
               </Link>
-            </div>
-            <div className={styles.navList}>
+            </li>
+            <li className={styles.navList}>
               <Link href="/items">
                 <span
                   className={`${styles.navListLink} ${
@@ -45,9 +39,9 @@ export default function Header() {
                   중고마켓
                 </span>
               </Link>
-            </div>
-          </div>
-        </div>
+            </li>
+          </ul>
+        </nav>
       </div>
 
       <Link href="/">
