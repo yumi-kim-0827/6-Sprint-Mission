@@ -9,11 +9,11 @@ export default function Home() {
       <SearchForm />
       <ul>
         <li>
-          <Link href="/market/1"> dfd1 아이템</Link>
-          <Link href="/market/2"> 2 아이템</Link>
-          <Link href="/market/3">3 아이템</Link>
-          <Link href="/market/4">4 아이템</Link>
-          <Link href="/market/5">5 아이템</Link>
+          <Link href="/item/1"> 1아이템</Link>
+          <Link href="/item/2"> 2 아이템</Link>
+          <Link href="/item/3">3 아이템</Link>
+          <Link href="/item/4">4 아이템</Link>
+          <Link href="/item/5">5 아이템</Link>
         </li>
       </ul>
     </>
