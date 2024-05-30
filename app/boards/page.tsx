@@ -37,17 +37,21 @@ export default async function BoardPage({ searchParams }: Props) {
   const bestList: List[] = (bestListData as RootObject).list;
 
   return (
-    <div>
+    <div className={styles.bestPageContainer}>
       <div className={styles.bestBoardTitle}>베스트 게시글</div>
       <div>
         <BestList bestList={bestList} />
       </div>
-      <div className={styles.boardListTitle}>게시글</div>
+      <div className={styles.boardListContainer}>
+        <div className={styles.boardListTitle}>게시글</div>
+        <button className={styles.writeButton}>글쓰기</button>
+      </div>
       <SearchTitle
         articles={articles}
         keyword={keyword}
         page={page}
         pageSize={pageSize}
+        orderBy={orderBy}
       />
     </div>
   );

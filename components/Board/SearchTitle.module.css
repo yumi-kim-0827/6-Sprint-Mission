@@ -7,49 +7,197 @@
 .articleItem {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 16px;
+  align-items: flex-start;
+  padding: 20px;
   border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.articleWriterWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.articleItem:hover {
+  background-color: #f5f5f5;
+}
+
+.articleItemsWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .articleContent {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .articleTitle {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23.87px;
+  text-align: left;
 }
 
 .articleInfo {
   display: flex;
-  align-items: center;
   font-size: 14px;
   color: #666;
+  padding-top: 20px;
+  justify-content: space-between;
 }
 
 .articleWriter {
-  margin-right: 8px;
+  margin-right: 12px;
+  margin-left: 5px;
 }
 
 .articleDate {
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 .articleLike {
-  color: #666;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+  gap: 8px;
+}
+
+.articleLike > img {
+  align-items: center;
 }
 
 .articleImage {
-  width: 80px;
-  height: 80px;
-  margin-left: 16px;
+  border-radius: 8px;
+  width: 72px;
+  height: 72px;
+  padding: 13px 12px 13px 12px;
+  border: 1px solid #e0e0e0;
+  flex-shrink: 0;
 }
 
 .articleImage img {
   width: 100%;
   height: 100%;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 4px;
+}
+
+.searchInput {
+  width: 1054px;
+  height: 42px;
+  padding: 9px 20px 9px 16px;
+  gap: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3692ff;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.sortDropdown {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 42px;
+  margin-left: 8px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.sortDropdownToggle {
+  font-family: Pretendard;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sortDropdownIcon {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666666;
+}
+
+.sortDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  min-width: 120px;
+  padding: 8px 0;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+}
+
+.sortDropdownMenu li {
+  padding: 10px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.sortDropdownMenu li:hover {
+  background-color: #f5f5f5;
+}
+
+/* 모바일 사이즈 */
+@media (max-width: 767px) {
+  .articleTitle {
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+  .articleImage {
+    margin-left: 8px;
+  }
+}
+
+/* 태블릿 사이즈 이상 */
+@media (max-width: 1204px) {
+  .sortDropdown {
+    width: 120px;
+  }
+
+  .sortDropdownToggle {
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+  }
 }

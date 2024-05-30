@@ -18,6 +18,7 @@ const Header = () => {
 
   const handleLogoutClick = () => {
     localStorage.removeItem("accessToken");
+    setIsLoggedIn(false);
     router.push("/login");
   };
 
