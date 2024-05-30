@@ -4,7 +4,6 @@ import SmallMainLogo from "@/public/icon/main_logo_small.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import LinkButton from "@/utils/Button";
 import styles from "@/styles/Header.module.css";
 import user_icon from "@/public/icon/user_icon.svg";
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styles from "@/styles/posts.module.css";
 import Image from "next/image";
 import heartImg from "@/public/icon/ic_heart.svg";
