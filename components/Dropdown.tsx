@@ -17,8 +17,6 @@ const Dropdown = ({
   useEffect(() => {
     const text = order === "recent" ? "최신순" : "인기순";
     setButtonText(text);
-    console.log(text);
-    console.log(order);
   }, [order]);
 
   const handleClickContainer = () => {

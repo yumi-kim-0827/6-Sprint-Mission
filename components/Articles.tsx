@@ -73,7 +73,6 @@ interface ArticlesProps {
 }
 
 function Articles({ articles }: ArticlesProps) {
-  console.log(articles);
   return (
     <ul>
       {articles.map((article) => (
