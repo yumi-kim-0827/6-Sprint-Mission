@@ -8,7 +8,8 @@ const useFetchData = <T>(
   orderBy: string,
   keyword?: string
 ) => {
-  const [data, setData] = useState<T | null>(null);
+  const [data, setData] = useState<T>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +22,15 @@ const useFetchData = <T>(
         setData(result.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [query, pageSize, orderBy, keyword]);
 
-  return data; // data : response JSON
+  return { data, isLoading };
 };
 
 export default useFetchData;
