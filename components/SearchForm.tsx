@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useState, ChangeEvent, FormEvent } from "react";
-import Dropdown from "./Dropdown";
 import styles from "./SearchForm.module.css";
 
 interface SearchFromProps {
@@ -10,14 +9,9 @@ interface SearchFromProps {
 export default function SearchForm({ initialValue = "" }: SearchFromProps) {
   const router = useRouter();
   const [value, setValue] = useState<string>(initialValue);
-  const [sortBy, setSortBy] = useState<string>("latest");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  };
-
-  const handleDropdownSelect = (selectedSort: string) => {
-    setSortBy(selectedSort);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -26,7 +20,7 @@ export default function SearchForm({ initialValue = "" }: SearchFromProps) {
       router.push("/");
       return;
     }
-    router.push(`/articles?q=${value}&sortBy=${sortBy}`);
+    router.push(`/articles?q=${value}`);
   };
 
   return (
@@ -38,7 +32,6 @@ export default function SearchForm({ initialValue = "" }: SearchFromProps) {
         placeholder="검색할 상품을 입력해주세요."
         onChange={handleChange}
       />
-      <Dropdown onSelect={handleDropdownSelect} />
     </form>
   );
 }
