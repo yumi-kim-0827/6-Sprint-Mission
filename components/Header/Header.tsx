@@ -1,8 +1,8 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import LogOutIcon from "../../app/assets/images/ic_profile.png";
-import Logo from "../../app/assets/images/logo.png";
-import styles from "./Header.module.css";
+import LogOutIcon from "@/app/assets/images/ic_profile.png";
+import Logo from "@/app/assets/images/logo.png";
+import styles from "@/components/Header/Header.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
