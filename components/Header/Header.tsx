@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LogOutIcon from "../../app/assets/images/ic_profile.png";
 import Logo from "../../app/assets/images/logo.png";
 import styles from "./Header.module.css";
@@ -7,30 +7,55 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const router = useRouter();
   const pathname = usePathname();
+  const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     setIsLoggedIn(!!token);
+    setIsChecked(true);
+  }, []);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const token = localStorage.getItem("accessToken");
+      setIsLoggedIn(!!token);
+    };
+
+    handleRouteChange();
+
+    const handleStorageChange = () => {
+      handleRouteChange();
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   const handleLogoutClick = () => {
     localStorage.removeItem("accessToken");
     setIsLoggedIn(false);
-    router.push("/login");
   };
 
   const handleLoginClick = () => {
     router.push("/login");
   };
-  const freeBoardActive = pathname === "/boards";
 
+  const freeBoardActive = pathname === "/boards";
   const isUsedMarketActive =
     pathname === "/items" ||
     pathname === "/additem" ||
     /^\/items\/\d+$/.test(pathname);
+
+  if (!isChecked) {
+    return null;
+  }
+
   return (
     <div className={styles.headerContainer}>
       <div className={styles.menuContainer}>

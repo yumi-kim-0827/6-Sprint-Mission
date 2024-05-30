@@ -5,6 +5,7 @@ import { List } from "@/app/apis/getArticle";
 import { formatDate } from "@/app/utils/formateDate";
 import heartIcon from "@/app/assets/images/ic_heart.svg";
 import profileIcon from "@/app/assets/images/ic_profile.png";
+import searchIcon from "@/app/assets/images/ic_search.png";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -51,7 +52,7 @@ export default function SearchTitle({
       <div className={styles.searchForm}>
         <input
           type="text"
-          placeholder="검색어를 입력하세요"
+          placeholder="검색할상품을 입력하세요"
           defaultValue={keyword}
           onChange={handleSearchChange}
           className={styles.searchInput}
