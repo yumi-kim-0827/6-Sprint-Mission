@@ -25,19 +25,20 @@ const GNBNavLink = ({ href, children }: GNBNavLinkProps) => {
       href={href}
       activeClassName={GNBLinkStyles.activeStyle}
       inactiveClassName={GNBLinkStyles.inactiveStyle}
-      className={GNBLinkStyles.baseStyle}>
+      className={GNBLinkStyles.baseStyle}
+    >
       {children}
     </NavLink>
   );
 };
 
 const GNBButton = ({ children }: GNBButtonProps) => (
-  <BaseButton className="w-[88px] h-[42px] ml-auto">{children}</BaseButton>
+  <BaseButton className="ml-auto h-[42px] w-[88px]">{children}</BaseButton>
 );
 
 function Header() {
   return (
-    <nav className="fixed top-0 flex items-center gap-[8px] w-full h-[70px] px-[16px] xl:px-[200px] md:px-[24px] border-b border-gray-200 bg-white z-20">
+    <nav className="fixed top-0 z-20 flex h-[70px] w-full items-center gap-[8px] border-b border-gray-200 bg-white px-[16px] md:px-[24px] xl:px-[200px]">
       <Link href="/">
         <div className="hidden md:block lg:mr-[20px]">
           <Image
@@ -49,7 +50,7 @@ function Header() {
           />
         </div>
       </Link>
-      <div className="md:hidden mr-[8px]">
+      <div className="mr-[8px] md:hidden">
         <Image
           src="/images/img_panda-logo-typo.svg"
           alt="판다마켓"

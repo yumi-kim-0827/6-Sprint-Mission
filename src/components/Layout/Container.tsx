@@ -4,7 +4,7 @@ interface ContainerProps {
 
 const Container = ({ children }: ContainerProps) => {
   return (
-    <div className="mx-auto mt-20 px-4 md:px-24 lg:px-40 max-w-7xl min-h-screen">
+    <div className="mx-auto mt-20 min-h-screen max-w-7xl px-4 md:px-24 lg:px-40">
       {children}
     </div>
   );

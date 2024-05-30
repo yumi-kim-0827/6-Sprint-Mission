@@ -15,8 +15,9 @@ const PostContent = ({
 }: PostContentProps) => {
   return (
     <div
-      className={`flex justify-between gap-3 w-full min-h-[72px] ${className} [&>div:last-of-type]:shrink-0`}>
-      <div className="font-semibold text-xl text-gray-800 line-clamp-2">
+      className={`flex min-h-[72px] w-full justify-between gap-3 ${className} [&>div:last-of-type]:shrink-0`}
+    >
+      <div className="line-clamp-2 text-xl font-semibold text-gray-800">
         {title}
       </div>
       {image && <PostImage src={image} alt={`${title} image`} />}

@@ -22,8 +22,9 @@ const CardFavorites = ({
 
   return (
     <button
-      className={`flex items-center gap-1 p-0 bg-transparent font-medium text-xs cursor-pointer ${className}`}
-      onClick={handleClick}>
+      className={`flex cursor-pointer items-center gap-1 bg-transparent p-0 text-xs font-medium ${className}`}
+      onClick={handleClick}
+    >
       {isFavorite ? (
         <HeartActiveIcon width="16" height="16" viewBox="0 0 24 24" />
       ) : (

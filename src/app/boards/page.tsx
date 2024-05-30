@@ -106,12 +106,12 @@ const boards = () => {
           <div className="text-[20px] font-bold text-cool-gray-800">
             베스트 게시글
           </div>
-          <BestPostList data={best} className="mt-[16px] mb-[40px]" />
-          <div className="flex items-center justify-between mb-4">
+          <BestPostList data={best} className="mb-[40px] mt-[16px]" />
+          <div className="mb-4 flex items-center justify-between">
             <div className="text-[20px] font-bold text-cool-gray-800">
               게시글
             </div>
-            <BaseButton className="w-[88px] h-[42px]">글쓰기</BaseButton>
+            <BaseButton className="h-[42px] w-[88px]">글쓰기</BaseButton>
           </div>
           <div className="flex items-center justify-between gap-[8px] md:gap-[16px]">
             <SearchInput

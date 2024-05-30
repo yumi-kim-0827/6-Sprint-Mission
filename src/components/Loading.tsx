@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Loading = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-screen">
-      <div className="relative w-12 h-12">
+    <div className=" flex h-screen w-full flex-col items-center justify-center">
+      <div className="relative  h-12 w-12">
         <Image
           className="animate-spin"
           src="/images/ic_spinner.svg"

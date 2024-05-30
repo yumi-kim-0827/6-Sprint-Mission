@@ -28,17 +28,19 @@ const SortDropdown = ({ className, order, onClick }: SortDropdownProps) => {
         deviceSize === "small" ? (
           <SortIcon />
         ) : (
-          <div className="flex justify-between items-center w-24 px-3 ">
+          <div className="flex w-24 items-center justify-between px-3 ">
             <p>{SortOptions[order]}</p>
             <ArrowDownIcon />
           </div>
         )
-      }>
+      }
+    >
       {Object.keys(SortOptions).map((option) => (
         <button
           key={option}
           onClick={() => handleOptionClick(option as keyof typeof SortOptions)}
-          className="flex justify-center w-32 p-2 text-base font-normal border-b border-gray-200 first:rounded-t-[12px] last:border-0 last:rounded-b-[12px]">
+          className="flex w-32 justify-center border-b border-gray-200 p-2 text-base font-normal first:rounded-t-[12px] last:rounded-b-[12px] last:border-0"
+        >
           {SortOptions[option as keyof typeof SortOptions]}
         </button>
       ))}

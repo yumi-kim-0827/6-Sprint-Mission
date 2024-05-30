@@ -12,9 +12,10 @@ const NormalPost = ({ className = "", data }: NormalPostProps) => {
 
   return (
     <div
-      className={`min-w-[343px] w-full min-h-[136px] mt-6 bg-white ${className}`}>
+      className={`mt-6 min-h-[136px] w-full min-w-[343px] bg-white ${className}`}
+    >
       <PostContent title={title} content={content} image={image} />
-      <div className="flex items-center pt-4 [&>.postInfoWriter]:mr-[8px] [&>.postInfoFavorites]:ml-auto">
+      <div className="flex items-center pt-4 [&>.postInfoFavorites]:ml-auto [&>.postInfoWriter]:mr-[8px]">
         <PostInfo
           writer={writer}
           likeCount={likeCount}

@@ -13,12 +13,13 @@ const BestPost = ({ className = "", data }: BestPostProps) => {
 
   return (
     <div
-      className={`${className} w-[343px] h-[167px] px-[24px] pb-[16px] rounded-[8px] bg-cool-gray-100`}>
+      className={`${className} h-[167px] w-[343px] rounded-[8px] bg-cool-gray-100 px-[24px] pb-[16px]`}
+    >
       <BestBadge />
       <div className="mt-4">
         <PostContent title={title} content={content} image={image} />
       </div>
-      <div className="grid grid-areas-postInfo grid-cols-postInfo mt-4 [&>.postInfoWriter]:grid-in-writer [&>.postInfoWriter]:mr-2 [&>.postInfoFavorites]:grid-in-favorites [&>.postInfoFavorites]:mr-auto [&>.postInfoCreatedAt]:grid-in-createdAt [&>.postInfoCreatedAt]:ml-auto">
+      <div className="mt-4 grid grid-cols-postInfo grid-areas-postInfo [&>.postInfoCreatedAt]:ml-auto [&>.postInfoCreatedAt]:grid-in-createdAt [&>.postInfoFavorites]:mr-auto [&>.postInfoFavorites]:grid-in-favorites [&>.postInfoWriter]:mr-2 [&>.postInfoWriter]:grid-in-writer">
         <PostInfo
           showProfile={false}
           writer={writer}

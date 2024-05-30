@@ -23,12 +23,12 @@ const SNS_LIST: IconType[] = [
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center w-full min-h-[160px] bg-gray-900">
-      <div className="grid w-full max-w-[1520px] grid-areas-footer py-[32px] px-[16px] text-[16px] text-white md:flex md:justify-between md:flex-grow-[1] md:px-[108px] xl:px-[200px]">
-        <div className="grid-in-copyright mt-[60px] opacity-50 md:mt-0 xl:opacity-100">
+    <footer className="flex min-h-[160px] w-full justify-center bg-gray-900">
+      <div className="grid w-full max-w-[1520px] px-[16px] py-[32px] text-[16px] text-white grid-areas-footer md:flex md:flex-grow-[1] md:justify-between md:px-[108px] xl:px-[200px]">
+        <div className="mt-[60px] opacity-50 grid-in-copyright md:mt-0 xl:opacity-100">
           @codeit - 2024
         </div>
-        <div className="grid-in-menus flex gap-[30px]">
+        <div className="flex gap-[30px] grid-in-menus">
           <Link href="/privacy" className="text-white">
             Privacy Policy
           </Link>
@@ -36,7 +36,7 @@ const Footer = () => {
             FAQ
           </Link>
         </div>
-        <div className="grid-in-socials flex justify-end gap-[12px] md:justify-start">
+        <div className="flex justify-end gap-[12px] grid-in-socials md:justify-start">
           {SNS_LIST.map(({ name, href, icon }) => (
             <Link key={name} href={href}>
               {icon}

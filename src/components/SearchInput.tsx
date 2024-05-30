@@ -29,8 +29,8 @@ const SearchInput = ({
   };
 
   return (
-    <div className={`relative min-w-[294px] w-full h-10 ${className}`}>
-      <div className="absolute top-2 left-4">
+    <div className={`relative h-10 w-full min-w-[294px] ${className}`}>
+      <div className="absolute left-4 top-2">
         <SearchIcon />
       </div>
       <BaseInput

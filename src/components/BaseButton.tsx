@@ -19,10 +19,11 @@ function BaseButton({
   return (
     <button
       type={type}
-      className={`flexcenter "w-32 h-12 text-base font-semibold text-white border-none rounded-[8px] focus:outline-none bg-blue hover:bg-[#1967d6] active:bg-[#1251aa] disabled:bg-gray-400 disabled:cursor-not-allowed ${className}`}
+      className={`flexcenter "w-32 h-12 rounded-[8px] border-none bg-blue text-base font-semibold text-white hover:bg-[#1967d6] focus:outline-none active:bg-[#1251aa] disabled:cursor-not-allowed disabled:bg-gray-400 ${className}`}
       onClick={onClick}
       onSubmit={onSubmit}
-      disabled={disabled}>
+      disabled={disabled}
+    >
       {children}
     </button>
   );

@@ -20,7 +20,7 @@ const PostInfo = ({
   return (
     <>
       {showProfile && writer && (
-        <div className="w-6 h-6 mr-2">
+        <div className="mr-2 h-6 w-6">
           <Image
             src="/images/img_default-profile.png"
             alt="Writer Image"

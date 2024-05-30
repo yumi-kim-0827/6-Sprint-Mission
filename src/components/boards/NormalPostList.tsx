@@ -17,7 +17,7 @@ const NormalPostList = ({ className = "", data }: NormalPostListProps) => {
           />
         ))
       ) : (
-        <div className="text-center py-4">아직 게시글이 없어요</div>
+        <div className="py-4 text-center">아직 게시글이 없어요</div>
       )}
     </div>
   );

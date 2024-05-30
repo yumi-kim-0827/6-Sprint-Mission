@@ -36,15 +36,17 @@ const BaseDropdown = ({
 
   return (
     <div
-      className={`relative [&_button:hover]:bg-[#00000005] focus:outline-none ${className}`}
-      ref={dropdownRef}>
+      className={`relative focus:outline-none [&_button:hover]:bg-[#00000005] ${className}`}
+      ref={dropdownRef}
+    >
       <div
-        className="flexcenter h-[42px] px-[12px] border border-gray-200 rounded-[12px] bg-white text-[16px] "
-        onClick={toggleDropdown}>
+        className="flexcenter h-[42px] rounded-[12px] border border-gray-200 bg-white px-[12px] text-[16px] "
+        onClick={toggleDropdown}
+      >
         {buttonContent}
       </div>
       {isVisible && (
-        <div className="absolute top-full right-0 z-[2] mt-1 border border-gray-200 rounded-[12px] bg-white">
+        <div className="absolute right-0 top-full z-[2] mt-1 rounded-[12px] border border-gray-200 bg-white">
           {children}
         </div>
       )}

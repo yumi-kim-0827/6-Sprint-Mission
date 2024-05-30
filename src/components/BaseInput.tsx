@@ -17,7 +17,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
 }) => {
   return (
     <input
-      className={`w-full h-full p-4 text-base bg-cool-gray-100 rounded-[12px] placeholder-cool-gray-400 focus:outline-blue-500 ${className}`}
+      className={`focus:outline-blue-500 h-full w-full rounded-[12px] bg-cool-gray-100 p-4 text-base placeholder-cool-gray-400 ${className}`}
       id={label}
       name={label}
       type={type}
