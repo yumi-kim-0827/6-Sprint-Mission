@@ -1,0 +1,55 @@
+.articleList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.articleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.articleContent {
+  flex-grow: 1;
+}
+
+.articleTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.articleInfo {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.articleWriter {
+  margin-right: 8px;
+}
+
+.articleDate {
+  margin-right: 8px;
+}
+
+.articleLike {
+  color: #666;
+}
+
+.articleImage {
+  width: 80px;
+  height: 80px;
+  margin-left: 16px;
+}
+
+.articleImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}

@@ -43,6 +43,11 @@
   border-radius: 6px;
   border: 1px solid #e5e7eb;
 }
+.bestImage > img {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+}
 .InfoWrapper {
   display: flex;
   flex-direction: row;
@@ -63,8 +68,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1px;
   color: #65676b;
+}
+.bestLike > img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  margin-top: 2px;
 }
 
 .bestDate {
