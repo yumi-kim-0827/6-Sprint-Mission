@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from '@/lib/axios';
-import ArticleList from '@/components/ArticleList';
-import SearchForm from '@/components/SearchForm';
+import axios from '@/src/libs/axios';
+import ArticleList from '@/src/components/ArticleList';
+import SearchForm from '@/src/components/SearchForm';
 
 export default function BoardPage() {
   const [articles, setArticles] = useState([]);

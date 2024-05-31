@@ -1,4 +1,4 @@
-import formatDate from '@/lib/formatDate';
+import formatDate from '@/src/libs/formatDate';
 import IconProfile from '@/public/images/icon-profile.svg';
 
 type Article = {
