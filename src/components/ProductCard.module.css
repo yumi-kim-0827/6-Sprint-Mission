@@ -1,0 +1,13 @@
+.ProductCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section_image {
+  width: 282px;
+  height: 282px;
+}
+
+.section_content {
+}
