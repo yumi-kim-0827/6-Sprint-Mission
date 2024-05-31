@@ -9,24 +9,30 @@ function getLinkStyle({ isActive }) {
 
 function Header() {
   return (
-    <header className="flex items-center">
-      <div className="flex items-center list-none gap-[8px] text-[18px] font-[700] text-[#4b5563]">
-        <Link to="/">
-          <img src={logo} alt="판다마켓 로고" />
-        </Link>
-        <li className="hover:text-[var(--blue50)]">
-          <NavLink to="/freeboard" style={getLinkStyle}>
-            자유게시판
-          </NavLink>
-        </li>
-        <li className="hover:text-[#3692ff]">
-          <NavLink to="/items" style={getLinkStyle}>
-            중고마켓
-          </NavLink>
-        </li>
-        <button className="w-[88px] h-[42px] p-[12px 23px] gap-[10px] rounded-md bg-[#3692ff] text-[16px] font-[600] text-[#fff] hover:bg-[var(--blue70)]">
-          <Link to="/login">로그인</Link>
-        </button>
+    <header>
+      <div className="flex items-center justify-between list-none gap-[8px] text-[18px] font-[700] text-[#4b5563] px-[200px]">
+        <div className="flex gap-[32px]">
+          <Link to="/">
+            <img src={logo} alt="판다마켓 로고" />
+          </Link>
+          <div className="flex items-center gap-[24px]">
+            <li className="w-[90px] hover:text-[var(--blue50)]">
+              <NavLink to="/freeboard" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
+            </li>
+            <li className="w-[75px] hover:text-[#3692ff]">
+              <NavLink to="/items" style={getLinkStyle}>
+                중고마켓
+              </NavLink>
+            </li>
+          </div>
+        </div>
+        <div className="flex">
+          <button className="w-[88px] h-[42px] p-[12px 23px] gap-[10px] rounded-md bg-[#3692ff] text-[16px] font-[600] text-[#fff] hover:bg-[var(--blue70)]">
+            <Link to="/login">로그인</Link>
+          </button>
+        </div>
       </div>
     </header>
   );
