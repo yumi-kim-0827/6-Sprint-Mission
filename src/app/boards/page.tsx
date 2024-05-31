@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import BestPostList from "@/components/boards/BestPostList";
 import NormalPostList from "@/components/boards/NormalPostList";
 import BaseButton from "@/components/BaseButton";
@@ -17,16 +17,15 @@ const BEST_POST_LIMIT: { [key in DeviceSizes]: number } = {
   large: 3,
 };
 
-const Boards = () => {
+const Boards = ({ searchParams }: any) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { isLoading, error, axiosFetcher } = useDataFetch();
   const [data, setData] = useState<Post[] | null>(null);
   const [order, setOrder] = useState<SortOptions>("recent");
   const [best, setBest] = useState<Post[]>([]);
   const deviceSize = useDeviceSize();
 
-  const keyword = searchParams.get("keyword");
+  const keyword = searchParams.keyword;
 
   // 게시글을 받아오는 fetchPosts함수 정의
   const fetchPosts = async (order: SortOptions, searchQuery: string | null) => {
