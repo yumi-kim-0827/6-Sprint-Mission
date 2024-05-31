@@ -3,26 +3,43 @@ import axios from '@/src/libs/axios';
 import ArticleList from '@/src/components/ArticleList';
 import SearchForm from '@/src/components/SearchForm';
 import DropDownMenu from '@/src/components/DropDownMenu';
-import { Article } from '@/src/types/type';
+import { Article, SortBy } from '@/src/types/type';
 
 export default function BoardPage() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [filteredArticles, setFilteredArticles] = useState<Article[]>([]);
+  const [searchedArticles, setSearchedArticles] = useState<Article[]>([]);
+  const [sortBy, setSortBy] = useState<SortBy>('recent');
 
   async function getArticles() {
     const res = await axios.get('/articles');
     const nextArticles = res.data.list;
     setArticles(nextArticles);
-    setFilteredArticles(nextArticles);
+    setSearchedArticles(nextArticles);
+  }
+
+  async function getSortedArticles() {
+    const res = await axios.get(`/articles?orderBy=${sortBy}`);
+    const nextSrotedArticles = res.data.list;
+    setSearchedArticles(nextSrotedArticles);
   }
 
   useEffect(() => {
     getArticles();
   }, []);
 
+  useEffect(() => {
+    if (sortBy === 'recent' || sortBy === 'like') {
+      getSortedArticles();
+    }
+  }, [sortBy]);
+
   const handleSearch = (keyword: string) => {
-    const filtered = articles.filter((article) => article.title.includes(keyword));
-    setFilteredArticles(filtered);
+    const searched = articles.filter((article) => article.title.includes(keyword));
+    setSearchedArticles(searched);
+  };
+
+  const handleSortOptionClick = (sortOption: SortBy) => {
+    setSortBy(sortOption);
   };
 
   return (
@@ -33,8 +50,8 @@ export default function BoardPage() {
       <section>
         <h2>게시글</h2>
         <SearchForm onSearch={handleSearch} />
-        <DropDownMenu />
-        <ArticleList articles={filteredArticles} />
+        <DropDownMenu onSortOption={handleSortOptionClick} />
+        <ArticleList articles={searchedArticles} />
       </section>
     </>
   );

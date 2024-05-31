@@ -8,3 +8,5 @@ export type Article = {
   likeCount: number;
   createdAt: string;
 };
+
+export type SortBy = 'recent' | 'like';
