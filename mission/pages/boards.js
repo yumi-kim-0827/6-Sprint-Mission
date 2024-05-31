@@ -7,15 +7,18 @@ import Search from "@/components/Search";
 
 export default function Boards() {
   const [posts, setPosts] = useState([]);
+
   async function getPosts() {
     const res = await axios.get("/articles");
     const nextData = res.data.list ?? [];
-    setPosts(nextData);
+    const sortedData = [...nextData].sort(function (a, b) {
+      return a.likeCount > b.likeCount ? -1 : a.likeCount < b.likeCount ? 1 : 0;
+    });
+    setPosts(sortedData);
   }
 
   useEffect(() => {
     getPosts();
-    console.log(posts);
   }, []);
   return (
     <div>
