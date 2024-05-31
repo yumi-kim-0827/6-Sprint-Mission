@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '@/styles/TotalPosts.module.css';
 import Link from 'next/link';
-import SelectContainer from './SelectContainer';
+import SelectAndSearchContainer from './SelectAndSearchContainer';
 import TotalPostsContainer from './TotalPostsContainer';
 const TotalPosts = () => {
   return (
@@ -12,7 +12,7 @@ const TotalPosts = () => {
           글쓰기
         </Link>
       </div>
-      <SelectContainer />
+      <SelectAndSearchContainer />
       <div className={style.totalPostsFrame}>
         <TotalPostsContainer />
       </div>

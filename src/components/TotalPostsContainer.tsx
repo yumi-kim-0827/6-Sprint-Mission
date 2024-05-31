@@ -5,7 +5,7 @@ import Post from './Post';
 export const URL = `page=1&pageSize=5`;
 const TotalPostsContainer = () => {
   const router = useRouter();
-  const { orderBy } = router.query;
+  const { orderBy, keyword } = router.query;
 
   const [posts, setPosts] = useState<writing[]>([]);
   const getPosts = async () => {
@@ -15,19 +15,27 @@ const TotalPostsContainer = () => {
         setPosts(result);
       } catch (error) {}
     }
+    if (keyword) {
+      try {
+        const result = await getTotalPosts(`${URL}&keyword=${keyword}`);
+        setPosts(result);
+      } catch (error) {}
+    }
   };
   useEffect(() => {
     getPosts();
-  }, [orderBy]);
+  }, [orderBy, keyword]);
   return (
     <>
       {posts.map((element) => (
-        <Post  key={element.id}
-        image={element.image}
-        content={element.title}
-        likeCount={element.likeCount}
-        nickName={element.writer.nickname}
-        createdAt={element.createdAt} />
+        <Post
+          key={element.id}
+          image={element.image}
+          content={element.title}
+          likeCount={element.likeCount}
+          nickName={element.writer.nickname}
+          createdAt={element.createdAt}
+        />
       ))}
     </>
   );
