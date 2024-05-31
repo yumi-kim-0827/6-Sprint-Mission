@@ -4,30 +4,18 @@ import logo_text from '../public/assets/logo_text.png'
 import logo from '../public/assets/logo.png'
 import Image from 'next/image'
 import styles from '../styles/main.module.css'
+import Link from 'next/link'
 
 export default function Header() {
   const router = useRouter()
 
   const goToMain = () => router.push('/')
 
-  const isItemsPage =
-    typeof window !== 'undefined' &&
-    (location.pathname === '/items' || location.pathname === '/additem')
-
-  const isBoardPage =
-    typeof window !== 'undefined' && location.pathname === '/boards'
-
-  const goToItems = () => {
-    router.push('/items')
-  }
-
-  const goToBoards = () => {
-    router.push('/boards')
-  }
-
   const goToSignin = () => {
     router.push('/signin')
   }
+
+  const pathName = router.pathname
 
   return (
     <div>
@@ -46,18 +34,18 @@ export default function Header() {
           </div>
         </div>
         <nav className={styles['header-nav']}>
-          <p
-            onClick={goToBoards}
-            style={{ color: isBoardPage ? '#3692FF' : 'inherit' }}
+          <Link
+            href={'/boards'}
+            style={{ color: pathName === '/boards' ? '#3692FF' : 'inherit' }}
           >
             자유게시판
-          </p>
-          <p
-            onClick={goToItems}
-            style={{ color: isItemsPage ? '#3692FF' : 'inherit' }}
+          </Link>
+          <Link
+            href={'/items'}
+            style={{ color: pathName === '/items' ? '#3692FF' : 'inherit' }}
           >
             중고마켓
-          </p>
+          </Link>
         </nav>
         <button id="btn_small" onClick={goToSignin}>
           로그인
