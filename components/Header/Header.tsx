@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Navigator from "./Navigator";
-import iconLogo from "@/public/images/icon_panda.png";
-import textLogo from "@/public/images/text_panda.png";
+import iconLogo from "@/public/icons/logo_panda.svg";
+import textLogo from "@/public/icons/logo_text.svg";
 import Link from "next/link";
 
 export default function Header() {

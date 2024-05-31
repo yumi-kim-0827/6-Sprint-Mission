@@ -8,10 +8,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>판다마켓</title>
-        <link rel="icon" href="/images/icon_panda.png" />
+        <link rel="icon" href="/icons/logo_panda.svg" />
       </Head>
       <Header />
-      <main className="w-[1200px] mx-auto mt-20 border-[1px] border-dashed border-pink-100">
+      <main className="w-[1200px] mx-auto mt-24 border-[1px] border-dashed border-pink-100">
         <Component {...pageProps} />
       </main>
     </>

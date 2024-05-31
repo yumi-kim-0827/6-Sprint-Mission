@@ -3,6 +3,10 @@ import { Article } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import article_badge from "@/public/icons/icon_article_badge.svg";
+import heart_active from "@/public/images/heart_active.png";
+import heart_inactive from "@/public/images/heart_inactive.png";
+import formatDate from "@/utils/formatDate";
 
 const PAGE_SIZE = 3;
 const ORDER_BY = "like";
@@ -28,7 +32,7 @@ export default function BestArticles() {
 
   useEffect(() => {
     getArticlesByPageNum();
-  }, [pageNum]);
+  });
 
   return (
     <section className="flex flex-col gap-6">
@@ -37,21 +41,40 @@ export default function BestArticles() {
         {articles &&
           articles.map(function (article) {
             return (
-              <div className="" key={article.id}>
-                <div>{article.title}</div>
-                <div>{article.content}</div>
-                {article.image && (
-                  <Image
-                    height={100}
-                    width={100}
-                    src={article.image}
-                    alt={article.title}
-                  />
-                )}
-                <div>{article.likeCount}</div>
-                <div>{article.createdAt}</div>
-                <div>{article.updatedAt}</div>
-                <div>{article.writer.nickname}</div>
+              <div
+                className="w-96 h-44 px-6 pb-4 bg-gray-50 rounded-box flex flex-col gap-4"
+                key={article.id}
+              >
+                <Image
+                  width={102}
+                  height={30}
+                  src={article_badge}
+                  alt="베스트게시글뱃지"
+                />
+                <div className="h-20 flex gap-2">
+                  <p className="font-semibold">{article.title}</p>
+                  {article.image && (
+                    <Image
+                      height={72}
+                      width={72}
+                      src={article.image}
+                      alt={article.title}
+                    />
+                  )}
+                </div>
+                <div className="flex justify-between text-gray-500 text-sm font-normal">
+                  <div className="flex items-center gap-1 ">
+                    {article.writer.nickname}
+                    <Image
+                      width={16}
+                      height={16}
+                      src={heart_inactive}
+                      alt="좋아요"
+                    />
+                    {article.likeCount}
+                  </div>
+                  <p>{formatDate(article.createdAt)}</p>
+                </div>
               </div>
             );
           })}

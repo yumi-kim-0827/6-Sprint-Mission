@@ -29,7 +29,7 @@ export default function AllArticles() {
 
   useEffect(() => {
     getArticlesByPageNum();
-  }, [orderBy, pageNum]);
+  });
 
   return (
     <section className="flex flex-col gap-6">
