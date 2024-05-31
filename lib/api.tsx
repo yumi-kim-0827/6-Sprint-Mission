@@ -11,23 +11,17 @@ async function fetchData(url: string) {
 }
 
 interface URLSearchParamsProps {
-  page?: number;
   limit?: number;
   order?: string;
-  keyword?: string;
 }
 
 export async function getArticles({
-  page = 1,
   limit = 10,
   order = "recent",
-  keyword = "",
 }: Partial<URLSearchParamsProps> = {}) {
   const query = new URLSearchParams({
-    page: page.toString(),
     limit: limit.toString(),
     orderBy: order,
-    keyword,
   }).toString();
   const url = `/articles?${query}`;
 

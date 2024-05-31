@@ -29,12 +29,10 @@ export default function Boards() {
   const [filteredArticles, setFilteredArticles] = useState<ArticleListProps[]>(
     []
   );
-  const [limit, setLimit] = useState<number>(40);
-
   const fetchArticles = async (order: string) => {
     setLoading(true);
     try {
-      const data = await getArticles({ page: 1, limit: 10, order });
+      const data = await getArticles({ limit: 10, order });
       setArticles(data);
       setFilteredArticles(data);
     } catch (error) {
@@ -48,7 +46,6 @@ export default function Boards() {
     if (typeof window !== "undefined") {
       const bestArticlesLimit = getBestArticlesLimit();
       const bestArticles = await getArticles({
-        page: 1,
         limit: 10,
         order: "like",
       });
@@ -94,13 +91,13 @@ export default function Boards() {
   return (
     <section className={styles.ArticleSection}>
       <section className={styles.bestArticleSection}>
-        <h1>베스트 게시글</h1>
+        <h1 className={styles.ArticleSectionTitle}>베스트 게시글</h1>
         <Articles articles={bestArticles} />
       </section>
       <section>
         <div>
           <div>
-            <h1>게시글</h1>
+            <h1 className={styles.ArticleSectionTitle}>게시글</h1>
             <button>글쓰기</button>
           </div>
           <div>
