@@ -18,6 +18,6 @@
     },
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/FleaMarketPage", "pages/boards.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/FleaMarketPage", "pages/boards.jsx", "utils/formatData.js"],
   "exclude": ["node_modules"]
 }
