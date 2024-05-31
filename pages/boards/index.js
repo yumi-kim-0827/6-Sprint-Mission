@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from '@/lib/axios';
 import ArticleList from '@/components/ArticleList';
+import SearchForm from '@/components/SearchForm';
 
 export default function BoardPage() {
-  const [articles, setArticles] = useState();
+  const [articles, setArticles] = useState([]);
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   async function getArticles() {
     const res = await axios.get('/articles');
     const nextArticles = res.data.list;
     setArticles(nextArticles);
+    setFilteredArticles(nextArticles);
   }
 
   useEffect(() => {
     getArticles();
   }, []);
+
+  const handleSearch = (keyword) => {
+    const filtered = articles.filter((article) => article.title.includes(keyword));
+    setFilteredArticles(filtered);
+  };
 
   return (
     <>
@@ -22,7 +30,8 @@ export default function BoardPage() {
       </section>
       <section>
         <h2>게시글</h2>
-        <ArticleList articles={articles} />
+        <SearchForm onSearch={handleSearch} />
+        <ArticleList articles={filteredArticles} />
       </section>
     </>
   );
