@@ -18,15 +18,19 @@ const Header: React.FC = () => {
           aria-label="홈으로 이동"
         >
           <Image
+            className="hidden md:block"
             src={"/logo.svg"}
             alt="판다마켓 로고"
             width={153}
             height={50}
           />
+          <p className="block md:hidden font-rokaf font-bold text-fs-20 font-bold text-bland-blue">
+            판다마켓
+          </p>
         </Link>
 
         <nav>
-          <ul className="flex list-none gap-2 font-bold text-lg text-gray-600 md:gap-9 md:text-xl">
+          <ul className="flex list-none gap-2 font-bold text-base text-gray-600 md:gap-9 md:text-lg">
             <li>
               <Link
                 href="/boards"
