@@ -1,19 +1,24 @@
 import AllArticles from "@/components/Boards/AllArticles";
 import BestArticles from "@/components/Boards/BestArticles";
 import instance from "@/lib/axios";
+import { Article } from "@/types";
 
-export default function Boards() {
+const PAGE_SIZE_MAX = 10;
+
+export default function Boards({ articles }: { articles: Article[] }) {
   return (
     <div className="flex flex-col gap-10">
       <BestArticles />
-      <AllArticles />
+      <AllArticles articleData={articles} />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const { data } = await instance.get(`/articles`);
-  const articles = data;
+  const { data } = await instance.get(
+    `/articles?page=1&pageSize=10&orderBy=recent`
+  );
+  const articles: Article[] = data;
   return {
     props: {
       articles,

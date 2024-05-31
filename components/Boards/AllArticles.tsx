@@ -13,7 +13,11 @@ import useClickOutside from "@/hooks/useClickOutside";
 
 const PAGE_SIZE_MAX = 10;
 
-export default function AllArticles() {
+export default function AllArticles({
+  articleData,
+}: {
+  articleData: Article[];
+}) {
   const [articles, setArticles] = useState<Article[]>([]);
   const [pageNum, setPageNum] = useState<number>(1);
   const [orderBy, setOrderBy] = useState<string>("recent");
