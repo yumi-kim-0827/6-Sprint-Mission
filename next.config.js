@@ -10,7 +10,6 @@ const nextConfig = {
         pathname: "/Sprint_Mission/user/28/**",
       },
     ],
-    domains: ["encrypted-tbn0.gstatic.com"],
   },
 };
 

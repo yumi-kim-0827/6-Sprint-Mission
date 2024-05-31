@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import PostElement from "./components/PostElement";
 import styles from "./style.module.css";
 import useSetNumOfItemsToShow from "@/hooks/useSetNumberOfItemsToShow";
-// import { bestPost } from "@/constants/mock";
 import useLoad from "@/hooks/useLoad";
 import { getArticle } from "@/apis/getArticles";
 import { FAVORITE, RECENT } from "@/constants/sortBy";
