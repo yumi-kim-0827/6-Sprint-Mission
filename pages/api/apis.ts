@@ -9,7 +9,7 @@ export interface ILoadArticlesParams {
 
 export async function loadArticles({
   page = 1,
-  pageSize = 10,
+  pageSize = 99,
   orderBy = 'recent',
   keyword = '',
 }: ILoadArticlesParams) {

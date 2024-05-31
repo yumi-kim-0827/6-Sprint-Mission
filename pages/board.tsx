@@ -33,7 +33,7 @@ export default function Board() {
   const [bestArticles, setBestArticles] = useState<IArticle[]>([]);
   const [params, setParams] = useState<ILoadArticlesParams>({
     page: 1,
-    pageSize: 10,
+    pageSize: 99,
     orderBy: 'recent',
     keyword: '',
   });
