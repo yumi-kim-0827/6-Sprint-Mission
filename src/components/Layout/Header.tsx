@@ -4,6 +4,48 @@ import styled from "styled-components";
 import { StyledLink } from "../../styles/CommonStyles";
 import { useRouter } from "next/router";
 
+export default function Header() {
+  const router = useRouter();
+
+  function getLinkStyle({ isActive }: { isActive: boolean }) {
+    return { color: isActive ? "var(--blue)" : undefined };
+  }
+
+  return (
+    <GlobalHeader>
+      <HeaderLeft>
+        <HeaderLogo to="/" aria-label="홈으로 이동">
+          <img src={Logo} alt="판다마켓 로고" width="153" />
+        </HeaderLogo>
+
+        <nav>
+          <NavList>
+            <NavItem>
+              <NavLink to="/community" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                to="/items"
+                style={({ isActive }) =>
+                  router.pathname === "/additem" || isActive
+                    ? { color: "var(--blue)" }
+                    : {}
+                }
+              >
+                중고마켓
+              </NavLink>
+            </NavItem>
+          </NavList>
+        </nav>
+      </HeaderLeft>
+
+      <LoginLink to="/login">로그인</LoginLink>
+    </GlobalHeader>
+  );
+}
+
 const GlobalHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -48,47 +90,3 @@ const NavItem = styled.li`
 `;
 
 const LoginLink = styled(StyledLink)``;
-
-function getLinkStyle({ isActive }: { isActive: boolean }) {
-  return { color: isActive ? "var(--blue)" : undefined };
-}
-
-const Header: React.FC = () => {
-  const router = useRouter();
-
-  return (
-    <GlobalHeader>
-      <HeaderLeft>
-        <HeaderLogo to="/" aria-label="홈으로 이동">
-          <img src={Logo} alt="판다마켓 로고" width="153" />
-        </HeaderLogo>
-
-        <nav>
-          <NavList>
-            <NavItem>
-              <NavLink to="/community" style={getLinkStyle}>
-                자유게시판
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                to="/items"
-                style={({ isActive }) =>
-                  router.pathname === "/additem" || isActive
-                    ? { color: "var(--blue)" }
-                    : {}
-                }
-              >
-                중고마켓
-              </NavLink>
-            </NavItem>
-          </NavList>
-        </nav>
-      </HeaderLeft>
-
-      <LoginLink to="/login">로그인</LoginLink>
-    </GlobalHeader>
-  );
-};
-
-export default Header;
