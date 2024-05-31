@@ -1,0 +1,47 @@
+.AllProductsHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.all_item {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.editor {
+  display: flex;
+  gap: 12px;
+}
+
+.editor > img {
+  height: 24px;
+  background-color: #f3f4f6;
+  position: relative;
+  top: 10px;
+  left: 52px;
+}
+
+.editor > input {
+  width: 325px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  padding: 9px 20px 9px 44px;
+}
+
+.editor > input::placeholder {
+  color: #9ca3af;
+}
+
+.button {
+  padding: 12px 23px;
+  color: #ffffff;
+  background-color: #3692ff;
+  border-radius: 8px;
+  text-decoration: none;
+}

@@ -19,11 +19,11 @@ const BestProducts = () => {
   }, []);
 
   return (
-    <div className={BestProducts}>
-      <div className={styles.bestItem}>베스트 상품</div>
+    <div className={styles.BestProducts}>
+      <div className={styles.best_item}>베스트 상품</div>
       <div className={styles.products_list}>
         {products.map((item) => (
-          <ProductCard item={item} key={item.id} />
+          <ProductCard item={item} key={item.id} bestSize={true} />
         ))}
       </div>
     </div>
