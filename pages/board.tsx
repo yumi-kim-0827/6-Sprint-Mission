@@ -7,9 +7,9 @@ import { loadArticles, ILoadArticlesParams } from './api/apis';
 import Button from '@/components/Button';
 import ArticleListItem from '@/components/ArticlesListItem';
 import Container from '@/components/Container';
+import FilterBox from '@/components/FilterBox';
 
 import ICON_MAGNIFY from '@/public/icon-magnify.svg';
-import ICON_ARROW_DOWN from '@/public/icon-arrow-down.svg';
 import BestArticleItem from '@/components/BestArticleItem';
 
 export interface IArticle {
@@ -40,6 +40,18 @@ export default function Board() {
 
   const [displaySize, setDisplaySize] = useState<TDisplaySize>();
 
+  const fetchArticles = async () => {
+    const articleList = await loadArticles(params);
+    setArticles(articleList || []);
+  };
+  const fetchBestArticles = async () => {
+    const BestArticleList = await loadArticles({
+      pageSize: 3,
+      orderBy: 'like',
+    });
+    setBestArticles(BestArticleList || []);
+  };
+
   function paramsHandler(
     key: keyof ILoadArticlesParams,
     value: string | number,
@@ -48,17 +60,6 @@ export default function Board() {
   }
 
   useEffect(() => {
-    const fetchArticles = async () => {
-      const articleList = await loadArticles(params);
-      setArticles(articleList || []);
-    };
-    const fetchBestArticles = async () => {
-      const BestArticleList = await loadArticles({
-        pageSize: 3,
-        orderBy: 'like',
-      });
-      setBestArticles(BestArticleList || []);
-    };
     function getDisplaySize() {
       const width = window.innerWidth;
       if (width < 768) {
@@ -86,8 +87,8 @@ export default function Board() {
   }, []);
 
   useEffect(() => {
-    console.log(articles);
-  }, [articles]);
+    fetchArticles();
+  }, [params.orderBy]);
 
   return (
     <>
@@ -131,6 +132,16 @@ export default function Board() {
                 <input
                   className="w-[100%] h-[100%] pl-[35px] bg-[#f3f4f6] rounded-xl"
                   type="text"
+                  value={params.keyword}
+                  onChange={(e) => {
+                    paramsHandler('keyword', e.target.value);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      fetchArticles();
+                    }
+                  }}
                   placeholder="검색할 상품을 입력해주세요"
                 />
                 <Image
@@ -139,10 +150,11 @@ export default function Board() {
                   alt="검색 아이콘 이미지"
                 />
               </div>
-              <div className="flex justify-between items-center pt-[12px] pr-[20px] pb-[12px] pl-[20px] w-[130px] h-[100%] border border-[#e5e7eb] rounded-lg">
-                <p>{params.orderBy === 'recent' ? '최신순' : '좋아요순'}</p>
-                <Image src={ICON_ARROW_DOWN} alt={'필터 버튼'} />
-              </div>
+              <FilterBox
+                orderBy={params.orderBy || 'recent'}
+                paramsHandler={paramsHandler}
+                displaySize={displaySize || 'desktop'}
+              />
             </div>
             <div>
               {articles?.map((article) => (
