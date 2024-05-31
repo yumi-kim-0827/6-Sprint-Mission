@@ -1,10 +1,13 @@
 .postFrame {
+  border-radius: 10px;
   width: 384px;
   height: 169px;
   background-color: #f3f4f6;
 }
 .wrap {
+  width: 384px;
 }
+
 .badge {
   width: 102px;
   height: 30px;

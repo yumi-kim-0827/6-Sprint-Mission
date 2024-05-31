@@ -4,6 +4,7 @@ const SELECT_LIST = [
   { name: '최신순', value: 'recent' },
   { name: '좋아요순', value: 'like' },
 ];
+
 interface SearchBarProps {
   selectOption: string;
   onChangeSelectHandler: (e: ChangeEvent<HTMLSelectElement>) => void;

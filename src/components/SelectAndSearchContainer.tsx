@@ -1,11 +1,5 @@
 import { useRouter } from 'next/router';
-import React, {
-  ChangeEvent,
-  SelectHTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import SearchBar from './SearchBar';
 
 const SelectAndSearchContainer = () => {
