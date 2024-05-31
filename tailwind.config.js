@@ -10,13 +10,18 @@ module.exports = {
     colors: {
       gray: "#DFDFDF",
       blue: "#3692FF",
+      white: "#ffffff",
     },
     screens: {
       sm: "375px",
       md: "744px",
       lg: "1200px",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "input-placeholder": "url('/icons/input-placeholder.svg')",
+      },
+    },
   },
   plugins: [],
 };
