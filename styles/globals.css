@@ -1,4 +1,8 @@
-body {
+body.dark {
   background-color: black;
   color: white;
+}
+body.white {
+  background-color: white;
+  color: black;
 }
