@@ -14,12 +14,12 @@ export default function DropdownMenu({ onSortSelection }: DropdownMenuProps) {
   };
 
   return (
-    <div className={styles.DropdownMenuProps}>
+    <div className={styles.dropdownMenuContainer}>
       <button
         className={styles.sortDropdownTriggerButton}
         onClick={toggleDropdown}
       >
-        <SortIcon />
+        <img src={SortIcon} alt="Sort Icon" />
       </button>
 
       {isDropdownVisible && (

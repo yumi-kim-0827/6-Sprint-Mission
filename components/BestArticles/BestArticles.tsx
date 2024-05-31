@@ -3,11 +3,11 @@ import medalIcon from "@/images/logo/medal.svg";
 import Heart from "@/images/logo/Heart.svg";
 import Image from "next/image";
 
-interface BestsArticlesProps {
+interface BestArticlesProps {
   article: Article;
 }
 
-export default function BestArticles({ article }: BestsArticlesProps) {
+export default function BestArticles({ article }: BestArticlesProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
