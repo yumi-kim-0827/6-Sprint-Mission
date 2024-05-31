@@ -1,33 +1,15 @@
 import { GetServerSideProps } from "next";
+import { useEffect, useState } from "react";
+
+import { List, BoardsProps } from "@/types";
 import BestPost from "@/components/bestPost";
 import Posts from "@/components/posts";
 import SearchInput from "@/components/search";
-import styles from "@/styles/Board.module.css";
-import LinkButton from "@/utils/Button";
 import Dropdown from "@/components/dropdown";
-import { useEffect, useState } from "react";
+import LinkButton from "@/utils/Button";
 import axios from "@/utils/axios";
 
-interface List {
-  id: number;
-  title: string;
-  content: string;
-  image: null | string;
-  likeCount: number;
-  createdAt: string;
-  updatedAt: string;
-  writer: Writer;
-}
-
-interface Writer {
-  id: number;
-  nickname: string;
-}
-
-interface Props {
-  PostsData: List[];
-}
-
+import styles from "@/styles/Board.module.css";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
@@ -49,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 };
 
-export default function Board({ PostsData }: Props) {
+export default function Board({ PostsData }: BoardsProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [posts, setPosts] = useState<List[]>(PostsData);
   const [order, setOrder] = useState<"recent" | "like">("recent");
@@ -112,4 +94,3 @@ export default function Board({ PostsData }: Props) {
     </div>
   );
 }
-

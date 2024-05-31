@@ -1,28 +1,14 @@
-import styles from "@/styles/posts.module.css";
 import Image from "next/image";
-import heartImg from "@/public/icon/ic_heart.svg";
-import timeString from "@/utils/timeString";
-import user_icon from "@/public/icon/user_icon.svg";
 import Link from "next/link";
 
-interface List {
-  id: number;
-  title: string;
-  content: string;
-  image: null | string;
-  likeCount: number;
-  createdAt: string;
-  updatedAt: string;
-  writer: Writer;
-}
-interface Writer {
-  id: number;
-  nickname: string;
-}
+import { PostsProps } from "@/types";
+import timeString from "@/utils/timeString";
 
-interface PostsProps {
-  posts: List;
-}
+import styles from "@/styles/posts.module.css";
+import heartImg from "@/public/icon/ic_heart.svg";
+import user_icon from "@/public/icon/user_icon.svg";
+
+
 
 export default function Posts({ posts }: PostsProps) {
   return (
