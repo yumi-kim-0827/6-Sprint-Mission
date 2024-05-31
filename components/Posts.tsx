@@ -25,8 +25,8 @@ type PostsData = {
 
 export default function Posts() {
   const selectOptions = [
-    { value: 'createdAt', label: '최신순' },
-    { value: 'favoriteCount', label: '좋아요순' },
+    { value: 'recent', label: '최신순' },
+    { value: 'like', label: '좋아요순' },
   ]
 
   const [posts, setPosts] = useState<PostsData[]>([])
@@ -38,17 +38,16 @@ export default function Posts() {
     const fetchData = async () => {
       try {
         const data = await getPosts({
-          page: 1,
-          pageSize: 10,
-          order: 'recent',
-          keyword: '',
+          orderBy: order,
+          keyword: keyword,
         })
+        console.log(data)
+
         setPosts(data)
       } catch (error) {
         console.error('posts 가져오는데 문제 발생:', error)
       }
     }
-
     fetchData()
   }, [order, keyword])
 
