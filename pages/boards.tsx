@@ -1,5 +1,6 @@
 import axios from "@/lib/axios";
 import Image from "next/image";
+import formatDate from "@/util/formatDate";
 import Badge from "@/assets/images/ui/best_badge.svg";
 import Heart from "@/assets/images/icons/ic_heart.svg";
 import Search from "@/assets/images/icons/ic_search.svg";
@@ -25,6 +26,8 @@ interface Article {
 export default function CommunityFeedPage() {
   const [bestArticles, setBestArticles] = useState<Article[]>([]);
   const [allArticles, setAllArticles] = useState<Article[]>([]);
+
+  
 
   async function getBestArticle() {
     const response = await axios.get("articles/?pageSize=3&orderBy=like");
@@ -73,7 +76,7 @@ export default function CommunityFeedPage() {
                       {bestArticle.likeCount}
                     </div>
                   </div>
-                  <div>{bestArticle.createdAt}</div>
+                  <div>{formatDate(bestArticle.createdAt)}</div>
                 </div>
               </div>
             </div>
@@ -115,7 +118,7 @@ export default function CommunityFeedPage() {
                 <div className={styles.allArticleBottomLeft}>
                   <Image src={Profile} alt="게시자 아이콘" />
                   <div>{allArticle.writer.nickname}</div>
-                  <div>{allArticle.createdAt}</div>
+                  <div>{formatDate(allArticle.createdAt)}</div>
                 </div>
 
                 <div className={styles.likeCountWrapper}>
