@@ -41,7 +41,8 @@ export default function BestArticles() {
         {articles &&
           articles.map(function (article) {
             return (
-              <div
+              <Link
+                href={`/boards/${article.id}`}
                 className="w-96 h-44 px-6 pb-4 bg-gray-50 rounded-box flex flex-col gap-4"
                 key={article.id}
               >
@@ -64,7 +65,7 @@ export default function BestArticles() {
                 </div>
                 <div className="flex justify-between text-gray-500 text-sm font-normal">
                   <div className="flex items-center gap-1 ">
-                    {article.writer.nickname}
+                    <p className="text-gray-600">{article.writer.nickname}</p>
                     <Image
                       width={16}
                       height={16}
@@ -75,7 +76,7 @@ export default function BestArticles() {
                   </div>
                   <p>{formatDate(article.createdAt)}</p>
                 </div>
-              </div>
+              </Link>
             );
           })}
       </article>

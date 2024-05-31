@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/icons/logo_panda.svg" />
       </Head>
       <Header />
-      <main className="w-[1200px] mx-auto mt-24 border-[1px] border-dashed border-pink-100">
+      <main className="w-[1200px] mx-auto my-24 border-[1px] border-dashed border-pink-100">
         <Component {...pageProps} />
       </main>
     </>
