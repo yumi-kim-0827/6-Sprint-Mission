@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from '@/src/libs/axios';
 import ArticleList from '@/src/components/ArticleList';
 import SearchForm from '@/src/components/SearchForm';
+import { Article } from '@/src/types/type';
 
 export default function BoardPage() {
-  const [articles, setArticles] = useState([]);
-  const [filteredArticles, setFilteredArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [filteredArticles, setFilteredArticles] = useState<Article[]>([]);
 
   async function getArticles() {
     const res = await axios.get('/articles');
@@ -18,7 +19,7 @@ export default function BoardPage() {
     getArticles();
   }, []);
 
-  const handleSearch = (keyword) => {
+  const handleSearch = (keyword: string) => {
     const filtered = articles.filter((article) => article.title.includes(keyword));
     setFilteredArticles(filtered);
   };

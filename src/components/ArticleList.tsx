@@ -1,16 +1,6 @@
 import formatDate from '@/src/libs/formatDate';
+import { Article } from '@/src/types/type';
 import IconProfile from '@/public/images/icon-profile.svg';
-
-type Article = {
-  id: number;
-  title: string;
-  writer: {
-    nickname: string;
-  };
-  image?: string;
-  likeCount: number;
-  createdAt: string;
-};
 
 interface ArticleProps {
   articles: Article[];
