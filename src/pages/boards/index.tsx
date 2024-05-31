@@ -14,33 +14,41 @@ import useAxiosFetch from "@/hooks/useAxiosFetch";
 import { Article, DataFormat } from "@/models/api_response";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
 import axios from "@/libs/axios";
+import Pagination from "@/components/commons/Pagination";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { orderBy, keyword } = context.query;
+  const { orderBy, keyword, pageSize, page } = context.query;
 
   const res = await axios({
     url: "/articles",
     params: {
       orderBy,
       keyword,
+      pageSize,
+      page,
     },
   });
-  const articleList = res?.data?.list;
+
+  const articleListData = res?.data;
 
   return {
     props: {
-      articleList,
+      articleListData,
     },
   };
 }
 
-export default function FreeBoard({ articleList }: { articleList: Article[] }) {
+export default function FreeBoard({
+  articleListData,
+}: {
+  articleListData: DataFormat<Article>;
+}) {
   return (
     <>
       <Navbar />
       <Layout.Main>
         <BestArticles />
-        <ArticleList articleList={articleList} />
+        <ArticleList articleListData={articleListData} />
       </Layout.Main>
     </>
   );
@@ -89,9 +97,17 @@ function BestArticles() {
   );
 }
 
-function ArticleList({ articleList }: { articleList: Article[] }) {
+const PAGE_SIZE = 5;
+
+function ArticleList({
+  articleListData,
+}: {
+  articleListData: DataFormat<Article>;
+}) {
+  const { list: articleList, totalCount } = articleListData;
   const [currentOrder, setCurrentOrder] = useState<Order>(Order.recent);
   const [keyword, setKeyword] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -105,14 +121,24 @@ function ArticleList({ articleList }: { articleList: Article[] }) {
     if (name === "sort-by-likes") setCurrentOrder(Order.likes);
   };
 
+  const handlePageChange = (targetPage: number) => {
+    setCurrentPage(targetPage);
+  };
+
   useEffect(() => {
     router.push({
       pathname: "/boards",
       query: {
         keyword,
         orderBy: currentOrder === "최신순" ? "recent" : "like",
+        pageSize: PAGE_SIZE,
+        page: currentPage,
       },
     });
+  }, [currentOrder, keyword, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
   }, [currentOrder, keyword]);
 
   return (
@@ -136,6 +162,14 @@ function ArticleList({ articleList }: { articleList: Article[] }) {
           <ArticlePreview key={article.id} data={article} />
         ))}
       </div>
+
+      {totalCount > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(totalCount / PAGE_SIZE)}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 }
