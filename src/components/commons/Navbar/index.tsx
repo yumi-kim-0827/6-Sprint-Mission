@@ -10,7 +10,7 @@ export default function Navbar() {
   const deviceState = useDeviceState();
 
   return (
-    <nav className="sticky top-0 flex h-[70px] items-center border-b-[1px] border-b-[#dfdfdf] bg-white px-4 py-[10px] md:px-[34px] xl:px-[200px]">
+    <nav className="sticky top-0 z-nav flex h-[70px] items-center border-b-[1px] border-b-[#dfdfdf] bg-white px-4 py-[10px] md:px-[34px] xl:px-[200px]">
       <Link href="/">
         {deviceState === Device.MOBILE ? (
           <Image

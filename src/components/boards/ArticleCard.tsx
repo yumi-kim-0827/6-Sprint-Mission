@@ -27,7 +27,7 @@ export default function ArticleCard({ data }: { data: Article }) {
             <div className="flex size-[72px] flex-shrink-0 items-center justify-center rounded-lg border-[0.75px] border-[#e5e7eb] bg-white p-3">
               <Image
                 src={image}
-                alt="test"
+                alt="thumbnail"
                 width={48}
                 height={48}
                 className="object-cover"

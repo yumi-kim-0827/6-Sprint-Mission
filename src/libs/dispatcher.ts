@@ -13,9 +13,7 @@ type Dispatcher = <T>(
 ) => Promise<AxiosResponse<T>>;
 
 const dispatcher: Dispatcher = async (options) => {
-  const result = axiosInstance({ ...options });
-
-  await result;
+  const result = await axiosInstance({ ...options });
   return result;
 };
 

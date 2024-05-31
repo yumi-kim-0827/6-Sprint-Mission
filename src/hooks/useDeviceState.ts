@@ -27,6 +27,7 @@ export default function useDeviceState() {
       });
     }
 
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
