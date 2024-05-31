@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { getArticle } from "../../api/api";
 import { Articles, OrderBy, Post } from "../../../types/articleTypes";
 import PostFeed from "./PostFeed";
@@ -7,11 +7,12 @@ const AllPost = () => {
   const [article, setArticle] = useState<Articles | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [orderBy, setOrderBy] = useState<OrderBy>("recent");
+  const [searchText, setSearchText] = useState("");
   const articleList: Post[] = article ? article.list : [];
   useEffect(() => {
     async function fetchArticle() {
       try {
-        const response: Articles = await getArticle(orderBy, 10);
+        const response: Articles = await getArticle(orderBy, 10, searchText);
         if (!response) {
           throw new Error("게시물을 찾을 수 없습니다");
         }
@@ -25,14 +26,20 @@ const AllPost = () => {
       }
     }
     fetchArticle();
-  }, [orderBy]);
+  }, [orderBy, searchText]);
 
   const handleSortSelection = (orderBy: OrderBy) => {
     setOrderBy(orderBy);
   };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
+  console.log(searchText);
   return (
     <>
       <h1>게시글</h1>
+      <input value={searchText} onChange={handleInputChange} />
       <DropDownMenu onSortSelection={handleSortSelection} />
       {articleList.map((article) => (
         <PostFeed key={article.id} article={article} />

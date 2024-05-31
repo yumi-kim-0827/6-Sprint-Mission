@@ -2,10 +2,14 @@ import { BreakPoint, OrderBy } from "../../types/articleTypes";
 
 const BASEURL = "https://panda-market-api.vercel.app";
 
-export async function getArticle(orderBy: OrderBy, pageSize: number) {
+export async function getArticle(
+  orderBy: OrderBy,
+  pageSize: number,
+  keyword: string = ""
+) {
   try {
     const response = await fetch(
-      `${BASEURL}/articles?pageSize=${pageSize}&orderBy=${orderBy}`
+      `${BASEURL}/articles?pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
