@@ -1,0 +1,25 @@
+.tag_buttons_section {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  @include flex-container;
+  background-color: get_color(gray_50);
+  color: get_color(gray_800);
+  padding: 14px 14px 14px 16px;
+  border-radius: 999px;
+  min-width: 100px;
+}
+
+.tag_text {
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 8px;
+  max-width: calc(100% - 28px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

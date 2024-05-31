@@ -1,0 +1,66 @@
+@import "/styles/globals.scss";
+
+@mixin square_style {
+  width: calc(50% - 4px);
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+
+  @include tablet {
+    width: 162px;
+  }
+
+  @include desktop {
+    width: 282px;
+  }
+}
+
+.image_upload_container {
+  display: flex;
+  gap: 8px;
+
+  @include tablet {
+    gap: 18px;
+  }
+
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.upload_button {
+  background-color: get_color(gray_100);
+  color: get_color(gray_400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: get_color(gray_50);
+  }
+
+  @include square_style;
+}
+
+.image_preview {
+  display: inline-block;
+  width: cover;
+  position: relative;
+  aspect-ratio: 1/1;
+
+  @include square_style;
+}
+
+.delete_button_wrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.hidden_file_input {
+  display: none;
+}

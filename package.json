@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "13.5.6",
+    "node-sass": "^9.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.6"
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "13.5.6"
+    "eslint-config-next": "13.5.6",
+    "sass": "^1.77.3",
+    "typescript": "^5",
+    "typescript-plugin-css-modules": "^5.1.0"
   }
 }

@@ -1,0 +1,54 @@
+$colors: (
+  // gray_color
+  gray_900: #111827,
+  gray_800: #1f2937,
+  gray_700: #374151,
+  gray_600: #4b5563,
+  gray_500: #6b7280,
+  gray_400: #9ca3af,
+  gray_200: #e5e7eb,
+  gray_100: #f3f4f6,
+  gray_50: #f9fafb,
+  // blue_color
+  blue_primary: #3692ff,
+  blue_hover: #1967d6,
+  blue_focus: #1251aa,
+  // red_color
+  red: #f74747,
+  // white_color
+  white: #fff,
+  black: #000
+);
+
+$media: (
+  mobile: "screen and (max-width: )",
+  tablet: "screen and (min-width: 768px)",
+  desktop: "screen and (min-width: 1280px)",
+);
+
+@function get_color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "`#{$colors}` is not available";
+  @return null;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
