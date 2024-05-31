@@ -1,0 +1,61 @@
+.postFrame {
+  margin-bottom: 30px;
+  height: 112px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.contentFrame {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  font-weight: 600;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.contentImage {
+  width: 72px;
+  height: 72px;
+}
+
+.noImage {
+  width: 72px;
+  height: 72px;
+}
+.userInfoFrame {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfo {
+  width: 180px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.userInfo .profileImage {
+  width: 24px;
+  height: 24px;
+}
+.userInfo .nickName {
+  font-weight: 400;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.userInfo .contentDate {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.likeInfo {
+  margin-top: 10px;
+  width: 82px;
+  height: 24px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+

@@ -22,7 +22,12 @@ const TotalPostsContainer = () => {
   return (
     <>
       {posts.map((element) => (
-        <Post />
+        <Post  key={element.id}
+        image={element.image}
+        content={element.title}
+        likeCount={element.likeCount}
+        nickName={element.writer.nickname}
+        createdAt={element.createdAt} />
       ))}
     </>
   );

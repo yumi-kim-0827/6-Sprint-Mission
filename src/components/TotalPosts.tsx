@@ -5,7 +5,7 @@ import SelectContainer from './SelectContainer';
 import TotalPostsContainer from './TotalPostsContainer';
 const TotalPosts = () => {
   return (
-    <div className={style.totalPostsFrame}>
+    <div>
       <div className={style.header}>
         <p className={style.title}>게시글</p>
         <Link className={style.writeButton} href={'/'}>
@@ -13,7 +13,9 @@ const TotalPosts = () => {
         </Link>
       </div>
       <SelectContainer />
-      <TotalPostsContainer />
+      <div className={style.totalPostsFrame}>
+        <TotalPostsContainer />
+      </div>
     </div>
   );
 };
