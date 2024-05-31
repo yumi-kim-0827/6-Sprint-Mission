@@ -1,7 +1,9 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin: 0 auto;
+  gap: 1.5rem;
 }
 
 .medal {
@@ -20,7 +22,7 @@
 }
 
 .bestPostBox {
-  width: 384px;
+  width: 100%;
   height: 169px;
   background-color: var(--gray50);
   border-radius: 1rem;
@@ -188,6 +190,10 @@
   .navSearch {
     padding-right: 4rem;
   }
+  .bestPostBox {
+    width: 340px;
+    height: 167px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
@@ -204,5 +210,9 @@
   .dropdownMenu {
     width: max-content;
     left: -2.5rem;
+  }
+  .bestPostBox {
+    width: 343px;
+    height: 167px;
   }
 }

@@ -7,7 +7,9 @@ export default function boards() {
   return (
     <div className={styles.container}>
       <h3>베스트 게시글</h3>
-      <BestPosts />
+      <div className={styles.bestPosts}>
+        <BestPosts />
+      </div>
       <div className={styles.postsNav}>
         <h3>게시글</h3>
         <button>글쓰기</button>
