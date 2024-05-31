@@ -32,7 +32,7 @@ export default function BestArticles() {
 
   useEffect(() => {
     getArticlesByPageNum();
-  });
+  }, []);
 
   return (
     <section className="flex flex-col gap-6">

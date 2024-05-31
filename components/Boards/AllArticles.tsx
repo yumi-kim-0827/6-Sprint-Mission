@@ -3,7 +3,7 @@ import { Article } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import iconArrow from "@/public/images/icon_arrow_down.png";
+import iconArrow from "@/public/icons/icon_arrow_down.svg";
 import formatDate from "@/utils/formatDate";
 import heart_active from "@/public/images/heart_active.png";
 import heart_inactive from "@/public/images/heart_inactive.png";
@@ -17,6 +17,7 @@ export default function AllArticles() {
   const [pageNum, setPageNum] = useState<number>(1);
   const [orderBy, setOrderBy] = useState<string>("recent");
   const [keyword, setKeyword] = useState<string>("");
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const pathName: string = `/articles?${new URLSearchParams({
     page: pageNum.toString(),
@@ -40,6 +41,15 @@ export default function AllArticles() {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     getArticlesByPageNum();
+  };
+
+  const handleChangeOrderBy = (orderBy: string) => {
+    setOrderBy(orderBy);
+    setShowDropdown(false);
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -71,13 +81,38 @@ export default function AllArticles() {
           height={24}
           className="text-white absolute top-auto left-2 translate-y-[45%]"
         />
-        <div className="w-32 h-10 border-solid border-gray-200 border-[1px] rounded-box flex justify-center items-center gap-3">
+        <div className="w-32 h-10 px-4 border-solid border-gray-200 border-[1px] rounded-box flex justify-between items-center gap-3 relative hover:bg-hover-gray">
           {orderBy === "recent" ? "최신순" : "좋아요순"}
-          <Image src={iconArrow} alt="게시물정렬" width={24} height={24} />
+          <Image
+            className="transform rotate-0 transition-transform duration-300"
+            style={{
+              transform: showDropdown ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+            src={iconArrow}
+            alt="게시물정렬"
+            width={24}
+            height={24}
+            onClick={toggleDropdown}
+          />
+          {showDropdown && (
+            <div className="w-32 h-20 absolute top-10 left-0 border-solid border-gray-200 border-[1px] rounded-box flex flex-col">
+              <button
+                className="w-32 h-10 hover:bg-hover-gray px-5 rounded-t-button"
+                type="button"
+                onClick={() => handleChangeOrderBy("recent")}
+              >
+                최신순
+              </button>
+              <button
+                className="w-32 h-10 hover:bg-hover-gray px-5 rounded-b-button"
+                type="button"
+                onClick={() => handleChangeOrderBy("like")}
+              >
+                좋아요순
+              </button>
+            </div>
+          )}
         </div>
-        <ul className="">
-          <li>최신순</li>
-        </ul>
       </form>
       <article className="">
         {articles &&
@@ -92,15 +127,17 @@ export default function AllArticles() {
             )
             .map(function (article) {
               return (
-                <Link
-                  href={`/boards/${article.id}`}
-                  className="h-36 border-b-gray-200 border-solid border-b-[1px] pb-6 flex flex-col gap-4"
+                <div
+                  className="h-32 border-b-gray-200 border-solid border-b-[1px] pb-6 flex flex-col gap-4"
                   key={article.id}
                 >
-                  <div className="h-24 flex justify-between">
-                    <p className="text-gray-800 font-semibold text-xl">
+                  <div className="h-16 flex justify-between">
+                    <Link
+                      className="text-gray-800 font-semibold text-xl"
+                      href={`/boards/${article.id}`}
+                    >
                       {article.title}
-                    </p>
+                    </Link>
                     {article.image && (
                       <Image
                         height={72}
@@ -122,16 +159,18 @@ export default function AllArticles() {
                       <p>{formatDate(article.createdAt)}</p>
                     </div>
                     <div className="min-w-16 flex items-center gap-2">
-                      <Image
-                        width={24}
-                        height={24}
-                        src={heart_inactive}
-                        alt="좋아요"
-                      />
+                      <button>
+                        <Image
+                          width={24}
+                          height={24}
+                          src={heart_inactive}
+                          alt="좋아요"
+                        />
+                      </button>
                       <p>{article.likeCount}</p>
                     </div>
                   </div>
-                </Link>
+                </div>
               );
             })}
       </article>
