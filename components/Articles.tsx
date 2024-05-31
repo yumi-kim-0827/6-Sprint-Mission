@@ -74,7 +74,7 @@ interface ArticlesProps {
 
 function Articles({ articles }: ArticlesProps) {
   return (
-    <ul>
+    <ul className={styles.totalArticles}>
       {articles.map((article) => (
         <li className={styles.Articles} key={article.id}>
           <ArticleList {...article} />

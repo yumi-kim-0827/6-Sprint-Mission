@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import debounce from "lodash-es/debounce";
 import Articles, { ArticleListProps } from "../components/Articles";
 import { getArticles } from "../lib/api";
+import BestArticlesSection from "../components/BestArticlesSection";
 import Dropdown from "../components/Dropdown";
 import SearchBar from "../components/SearchBar";
 import useResizeHandler from "../components/useResizeHandler";
@@ -92,7 +93,7 @@ export default function Boards() {
     <section className={styles.ArticleSection}>
       <section className={styles.bestArticleSection}>
         <h1 className={styles.ArticleSectionTitle}>베스트 게시글</h1>
-        <Articles articles={bestArticles} />
+        <BestArticlesSection articles={bestArticles} />
       </section>
       <section>
         <div>

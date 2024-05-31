@@ -1,6 +1,7 @@
 .ArticleSection {
   margin-top: 94px;
-  padding: 0 360px;
+  width: 1200px;
+  margin: 94px auto;
 }
 
 .ArticleSectionTitle {

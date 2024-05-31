@@ -1,0 +1,75 @@
+.Link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bestArticles {
+  width: 1200px;
+  display: flex;
+  gap: 24px;
+}
+
+.bestArticlesCard {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 384px;
+  height: 169px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 0 24px 16px;
+  margin-top: 24px;
+}
+
+.bestArticlesCardTopItems {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bestcardimageWrapper {
+  width: 72px;
+  height: 72px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bestcardTitle {
+  width: 256px;
+  height: 72px;
+  margin-top: 16px;
+}
+
+.bestcardimage {
+  width: 48px;
+  height: 45px;
+  margin: 0;
+}
+
+.bestArticlesCardBottomItems {
+  display: flex;
+  margin-top: 18px;
+  justify-content: space-between;
+}
+
+.bestArticlesCardBottomItem {
+  display: flex;
+  gap: 8px;
+}
+
+.bestCardNickname {
+  color: #4b5563;
+}
+
+.bestCardLikeCount {
+  color: #6b7280;
+}
+
+.bestCardCreatedAt {
+  color: #9ca3af;
+}
