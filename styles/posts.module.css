@@ -195,4 +195,8 @@
     width: 3rem;
     padding: 0.5rem 1rem;
   }
+  .dropdownMenu {
+    width: max-content;
+    left: -2.5rem;
+  }
 }
