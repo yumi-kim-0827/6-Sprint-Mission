@@ -9,7 +9,7 @@ interface CardFavoritesProps {
 }
 
 const CardFavorites = ({
-  isFavorite,
+  isFavorite = false,
   favoriteCount,
   onClick,
   className = "",
@@ -28,7 +28,11 @@ const CardFavorites = ({
       {isFavorite ? (
         <HeartActiveIcon width="16" height="16" viewBox="0 0 24 24" />
       ) : (
-        <HeartIcon width="16" height="16" viewBox="0 0 24 24" />
+        <HeartIcon
+          width="16"
+          height="16"
+          styles="color: var(--color-cool-gray-500)"
+        />
       )}
       {favoriteCount}
     </button>

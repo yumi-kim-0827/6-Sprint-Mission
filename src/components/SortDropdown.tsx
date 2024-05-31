@@ -28,7 +28,7 @@ const SortDropdown = ({ className, order, onClick }: SortDropdownProps) => {
         deviceSize === "small" ? (
           <SortIcon />
         ) : (
-          <div className="flex w-24 items-center justify-between px-3 ">
+          <div className="flexcenter w-24">
             <p>{SortOptions[order]}</p>
             <ArrowDownIcon />
           </div>

@@ -42,7 +42,7 @@ const PostInfo = ({
       {likeCount !== undefined && (
         <CardFavorites
           className="postInfoFavorites text-sm font-normal text-cool-gray-500"
-          isFavorite={true}
+          isFavorite={false}
           favoriteCount={likeCount}
         />
       )}
