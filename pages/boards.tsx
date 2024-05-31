@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, MouseEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/Board.module.css";
 import Articles from "@/components/Articles";
@@ -19,7 +19,16 @@ const BoardNavBar = () => {
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setKeyword(value);
+    if (value === "") {
+      setKeyword(value);
+    }
+  };
+
+  const handleSearchInputKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      const { value } = e.target as HTMLInputElement;
+      setKeyword(value);
+    }
   };
 
   const handleDropdownOpen = () => {
@@ -70,6 +79,7 @@ const BoardNavBar = () => {
         />
         <input
           onChange={handleSearchInput}
+          onKeyDown={handleSearchInputKeyDown}
           className={styles["board-nav-bar__search-bar"]}
           id="search"
           type="text"
@@ -145,7 +155,7 @@ const Board = ({ articles }: Articles) => {
       setPageSize(3);
     } else if (isMediumScreen) {
       setPageSize(2);
-    } else {
+    } else if (isSmallScreen) {
       setPageSize(1);
     }
   }, [isLargeScreen, isMediumScreen, isSmallScreen]);
@@ -154,7 +164,7 @@ const Board = ({ articles }: Articles) => {
     if (isLargeScreen || isMediumScreen || isSmallScreen) {
       getBestArticleList(pageSize);
     }
-  }, [pageSize]);
+  }, [pageSize, isLargeScreen, isMediumScreen, isSmallScreen]);
 
   return (
     <>
