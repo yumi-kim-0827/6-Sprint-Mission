@@ -9,8 +9,8 @@ export interface Post {
   content: string;
   image: string | null;
   likeCount: number;
-  createAt: string;
-  updateAt: string;
+  createdAt: string;
+  updatedAt: string;
   writer: Writer;
 }
 

@@ -1,5 +1,14 @@
 import React from "react";
-const PostCard = ({ article }) => {
+import { formatDate } from "../../../utils/utils";
+import { Post } from "@/types/articleTypes";
+
+interface PostCardProps {
+  article: Post;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ article }) => {
+  const dateObject = new Date(article.createdAt);
+  const date = formatDate(dateObject);
   return (
     <>
       <div>{article.title}</div>
@@ -8,7 +17,8 @@ const PostCard = ({ article }) => {
       )}
       <div>{article.writer.nickname}</div>
       <div>{article.likeCount}</div>
-      <div>----</div>
+      <div>{date}</div>
+      <hr />
     </>
   );
 };

@@ -6,16 +6,23 @@ import useBreakPoint from "../../../hooks/useBreakPoint";
 const BestPosts = () => {
   const [article, setArticle] = useState<Articles | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const { isMobile, isTablet, isDesktop } = useBreakPoint();
+  const breakPoint = useBreakPoint();
+  const articleList = article ? article.list : [];
+  let pageSize = 0;
+
+  const getPageSize = () => {
+    if (breakPoint.isDesktop) return 3;
+    if (breakPoint.isTablet) return 2;
+    if (breakPoint.isMobile) return 1;
+    return 0;
+  };
 
   useEffect(() => {
     async function fetchArticle() {
+      const pageSize = getPageSize();
+      if (pageSize === 0) return;
       try {
-        const response: Articles = await getArticle("like", {
-          isMobile,
-          isTablet,
-          isDesktop,
-        });
+        const response: Articles = await getArticle("like", pageSize);
         if (!response) {
           throw new Error("게시물을 찾을 수 없습니다");
         }
@@ -29,17 +36,17 @@ const BestPosts = () => {
       }
     }
     fetchArticle();
-  }, [isMobile, isTablet, isDesktop]);
+  }, [breakPoint.isMobile, breakPoint.isTablet, breakPoint.isDesktop]);
 
   useEffect(() => {});
 
-  if (error) {
-    alert(`오류: ${error}`);
-  }
+  // if (error) {
+  //   alert(`오류: ${error}`);
+  // }
   console.log(article);
-  const articleList = article ? article.list : [];
   return (
     <>
+      <h1>베스트 게시글</h1>
       {articleList.map((article) => (
         <PostCard key={article.id} article={article} />
       ))}
