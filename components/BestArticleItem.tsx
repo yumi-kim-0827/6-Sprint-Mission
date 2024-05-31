@@ -46,7 +46,7 @@ export default function BestArticleItem({ article }: BestArticleItemProps) {
           <Image src={ICON_HEART} alt="좋아요 버튼" width={20} />
           <p className="text-[16px] text-[#6b7280]">{likeCount}</p>
         </div>
-        <p className="text-[14px] text-[#9ca3af]">{formatDate(createdAt)}</p>
+        <p className="text-[14px] text-[#9ca3af]">{formatDate(updatedAt)}</p>
       </div>
     </div>
   );

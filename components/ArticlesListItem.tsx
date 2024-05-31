@@ -41,7 +41,7 @@ export default function ArticleListItem({ article }: ArticleListItemProps) {
           <Image src={IMG_PROFILE} alt="프로필 이미지" width={24} />
           <p className="text-[14px] text-[#4b5563]">{writer.nickname}</p>
           <p className="text-[14px] text-[#9ca3af]">
-            {formatDate(createdAt) +
+            {formatDate(updatedAt) +
               `${createdAt !== updatedAt ? ' (수정됨)' : ''}`}
           </p>
         </div>
