@@ -1,5 +1,19 @@
 import type { Config } from "tailwindcss";
 
+const createPxMap = (size: number): Record<string, string> => {
+  return Array.from({ length: size + 1 }, (_, i) => `${i}px`).reduce(
+    (acc, val, i) => {
+      acc[i] = val;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+};
+
+const px0_10 = createPxMap(10);
+const px0_100 = createPxMap(100);
+const px0_500 = createPxMap(500);
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +22,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: px0_10,
+      borderRadius: px0_100,
+      fontSize: px0_100,
+      lineHeight: px0_100,
+      minWidth: px0_500,
+      minHeight: px0_500,
+      spacing: px0_500,
       keyframes: {
         buttonHover: {
           "0%": {

@@ -20,7 +20,7 @@ const PostInfo = ({
   return (
     <>
       {showProfile && writer && (
-        <div className="mr-2 h-6 w-6">
+        <div className="mr-8 h-24 w-24">
           <Image
             src="/images/img_default-profile.png"
             alt="Writer Image"
@@ -30,18 +30,18 @@ const PostInfo = ({
         </div>
       )}
       {writer && (
-        <div className="postInfoWriter text-sm font-normal text-cool-gray-600">
+        <div className="postInfoWriter text-14 font-normal text-cool-gray-600">
           {writer.nickname}
         </div>
       )}
       {createdAt && (
-        <div className="postInfoCreatedAt text-sm font-normal text-cool-gray-400">
+        <div className="postInfoCreatedAt text-14 font-normal text-cool-gray-400">
           {createdAt}
         </div>
       )}
       {likeCount !== undefined && (
         <CardFavorites
-          className="postInfoFavorites text-sm font-normal text-cool-gray-500"
+          className="postInfoFavorites text-14 font-normal text-cool-gray-500"
           isFavorite={false}
           favoriteCount={likeCount}
         />

@@ -1,5 +1,4 @@
 import { ChangeEventHandler, KeyboardEventHandler } from "react";
-import Image from "next/image";
 import BaseInput from "./BaseInput";
 import SearchIcon from "/public/images/ic_search.svg";
 
@@ -31,8 +30,8 @@ const SearchInput = ({
   };
 
   return (
-    <div className={`relative h-10 w-full min-w-[294px] ${className}`}>
-      <div className="absolute left-4 top-2">
+    <div className={`min-w-294 relative h-40 w-full ${className}`}>
+      <div className="absolute left-16 top-8">
         <SearchIcon />
       </div>
       <BaseInput
@@ -41,7 +40,7 @@ const SearchInput = ({
         defaultValue={defaultValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="pl-11"
+        className="pl-44"
       />
     </div>
   );

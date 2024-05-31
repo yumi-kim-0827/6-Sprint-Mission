@@ -40,13 +40,13 @@ const BaseDropdown = ({
       ref={dropdownRef}
     >
       <div
-        className="flexcenter h-[42px] rounded-[12px] border border-gray-200 bg-white px-[12px] text-[16px] "
+        className="flexcenter h-42 rounded-12 text-16 border border-gray-200 bg-white px-12"
         onClick={toggleDropdown}
       >
         {buttonContent}
       </div>
       {isVisible && (
-        <div className="absolute right-0 top-full z-[2] mt-1 rounded-[12px] border border-gray-200 bg-white">
+        <div className="rounded-12 z-2 absolute right-0 top-full mt-4 border border-gray-200 bg-white">
           {children}
         </div>
       )}

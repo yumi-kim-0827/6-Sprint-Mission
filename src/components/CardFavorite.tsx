@@ -22,7 +22,7 @@ const CardFavorites = ({
 
   return (
     <button
-      className={`flex cursor-pointer items-center gap-1 bg-transparent p-0 text-xs font-medium ${className}`}
+      className={`text-12 flex cursor-pointer items-center gap-4 bg-transparent p-0 font-medium ${className}`}
       onClick={handleClick}
     >
       {isFavorite ? (

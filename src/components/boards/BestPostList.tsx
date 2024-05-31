@@ -7,7 +7,7 @@ interface BestPostListProps {
 
 const BestPostList = ({ className = "", data }: BestPostListProps) => {
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={`flex gap-8 ${className}`}>
       {data && data.length !== 0 ? (
         data.map((post) => (
           <BestPost key={post.id} data={post} className="flex-grow" />

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Loading = () => {
   return (
-    <div className=" flex h-screen w-full flex-col items-center justify-center">
-      <div className="relative  h-12 w-12">
+    <div className="flexcenter h-screen w-full flex-col">
+      <div className="relative h-48 w-48">
         <Image
           className="animate-spin"
           src="/images/ic_spinner.svg"
@@ -13,7 +13,7 @@ const Loading = () => {
           style={{ objectFit: "contain" }}
         />
       </div>
-      <div className="mt-2 text-lg font-medium text-gray-600">Loading...</div>
+      <div className="text-18 mt-8 font-medium text-gray-600">Loading...</div>
     </div>
   );
 };

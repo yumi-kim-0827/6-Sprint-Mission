@@ -18,7 +18,7 @@ const NormalPostList = ({ className = "", data }: NormalPostListProps) => {
           />
         ))
       ) : (
-        <div className="flexcenter mt-16 flex-col py-4 text-[20px] font-medium text-gray-500">
+        <div className="flexcenter text-20 mt-64 flex-col py-16 font-medium text-gray-500">
           <Image
             src="/images/img_inquiry-empty.svg"
             alt="아무것도 없어요 u.u"

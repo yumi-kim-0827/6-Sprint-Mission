@@ -2,7 +2,7 @@ import MedalIcon from "/public/images/ic_medal.svg";
 
 const BestBadge = () => {
   return (
-    <div className="flexcenter h-[30px] w-[102px] gap-[4px] rounded-b-[32px] bg-blue text-[16px] font-semibold text-white">
+    <div className="flexcenter h-30 w-102 rounded-b-32 text-16 gap-4 bg-blue font-semibold text-white">
       <MedalIcon />
       Best
     </div>

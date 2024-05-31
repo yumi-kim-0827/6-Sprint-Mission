@@ -23,12 +23,12 @@ const SNS_LIST: IconType[] = [
 
 const Footer = () => {
   return (
-    <footer className="flex min-h-[160px] w-full justify-center bg-gray-900">
-      <div className="grid w-full max-w-[1520px] px-[16px] py-[32px] text-[16px] text-white grid-areas-footer md:flex md:flex-grow-[1] md:justify-between md:px-[108px] xl:px-[200px]">
-        <div className="mt-[60px] opacity-50 grid-in-copyright md:mt-0 xl:opacity-100">
+    <footer className="min-h-160 flex w-full justify-center bg-gray-900">
+      <div className="text-16 md:px-108 xl:px-200 grid w-full max-w-[1520px] px-16 py-32 text-white grid-areas-footer md:flex md:flex-grow-[1] md:justify-between">
+        <div className="mt-60 opacity-50 grid-in-copyright md:mt-0 xl:opacity-100">
           @codeit - 2024
         </div>
-        <div className="flex gap-[30px] grid-in-menus">
+        <div className="gap-30 flex grid-in-menus">
           <Link href="/privacy" className="text-white">
             Privacy Policy
           </Link>
@@ -36,7 +36,7 @@ const Footer = () => {
             FAQ
           </Link>
         </div>
-        <div className="flex justify-end gap-[12px] grid-in-socials md:justify-start">
+        <div className="flex justify-end gap-12 grid-in-socials md:justify-start">
           {SNS_LIST.map(({ name, href, icon }) => (
             <Link key={name} href={href}>
               {icon}
