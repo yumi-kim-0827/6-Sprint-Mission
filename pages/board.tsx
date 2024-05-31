@@ -10,6 +10,7 @@ import Container from '@/components/Container';
 
 import ICON_MAGNIFY from '@/public/icon-magnify.svg';
 import ICON_ARROW_DOWN from '@/public/icon-arrow-down.svg';
+import BestArticleItem from '@/components/BestArticleItem';
 
 export interface IArticle {
   id: number;
@@ -25,14 +26,19 @@ export interface IArticle {
   };
 }
 
+type TDisplaySize = 'desktop' | 'tablet' | 'mobile';
+
 export default function Board() {
-  const [articles, setArticles] = useState<IArticle[]>();
+  const [articles, setArticles] = useState<IArticle[]>([]);
+  const [bestArticles, setBestArticles] = useState<IArticle[]>([]);
   const [params, setParams] = useState<ILoadArticlesParams>({
     page: 1,
     pageSize: 10,
     orderBy: 'recent',
     keyword: '',
   });
+
+  const [displaySize, setDisplaySize] = useState<TDisplaySize>();
 
   function paramsHandler(
     key: keyof ILoadArticlesParams,
@@ -46,7 +52,37 @@ export default function Board() {
       const articleList = await loadArticles(params);
       setArticles(articleList || []);
     };
+    const fetchBestArticles = async () => {
+      const BestArticleList = await loadArticles({
+        pageSize: 3,
+        orderBy: 'like',
+      });
+      setBestArticles(BestArticleList || []);
+    };
+    function getDisplaySize() {
+      const width = window.innerWidth;
+      if (width < 768) {
+        return 'mobile';
+      } else if (width < 1200) {
+        return 'tablet';
+      } else {
+        return 'desktop';
+      }
+    }
+
     fetchArticles();
+    fetchBestArticles();
+    setDisplaySize(getDisplaySize());
+
+    window.addEventListener('resize', () => {
+      setDisplaySize(getDisplaySize());
+    });
+
+    return () => {
+      window.removeEventListener('resize', () => {
+        setDisplaySize(getDisplaySize());
+      });
+    };
   }, []);
 
   useEffect(() => {
@@ -64,8 +100,24 @@ export default function Board() {
       <div className="flex items-start justify-center">
         <Container>
           <section>
-            <h1 className="font-bold text-[20px]">베스트 게시글</h1>
-            <div></div>
+            <h1 className="font-bold text-[20px] mb-[20px]">베스트 게시글</h1>
+            <div className="flex justify-around md:gap-[10px] mb-[30px]">
+              {bestArticles
+                ?.slice(
+                  0,
+                  displaySize === 'desktop'
+                    ? 3
+                    : displaySize === 'tablet'
+                    ? 2
+                    : 1,
+                )
+                .map((article) => (
+                  <BestArticleItem
+                    key={`BestArticle-${article.id}`}
+                    article={article}
+                  />
+                ))}
+            </div>
           </section>
           <section>
             <div className="flex items-center justify-between mb-[20px]">
@@ -94,7 +146,10 @@ export default function Board() {
             </div>
             <div>
               {articles?.map((article) => (
-                <ArticleListItem article={article} />
+                <ArticleListItem
+                  key={`article-${article.id}`}
+                  article={article}
+                />
               ))}
             </div>
           </section>

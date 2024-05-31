@@ -1,25 +1,29 @@
 import Image from 'next/image';
 import { IArticle } from '@/pages/board';
 import { formatDate } from '@/utils/utils';
-import IMG_PROFILE from '@/public/profile.svg';
+
+import IMG_BADGE_BEST from '@/public/img-badge-best.svg';
 import ICON_HEART from '@/public/icon-heart.svg';
 
-interface ArticleListItemProps {
+interface BestArticleItemProps {
   article: IArticle;
 }
 
-export default function ArticleListItem({ article }: ArticleListItemProps) {
+export default function BestArticleItem({ article }: BestArticleItemProps) {
   const { title, image, writer, likeCount, createdAt, updatedAt } = article;
 
   const imageWrapperClassName =
     'w-[72px] h-[72px] rounded-lg border border-[#E5E5EB] flex items-center justify-center';
 
   return (
-    <div className="border-b mt-[20px] cursor-pointer">
-      <div className="flex justify-between mb-[30px]">
-        <h1 className="text-[20px] text-[#1f2937] font-semibold flex-1">
-          {title}
-        </h1>
+    <div className="border box-border w-[384px] h-[169px] rounded-xl">
+      <Image
+        className="ml-[25px]"
+        src={IMG_BADGE_BEST}
+        alt="베스트 게시글 뱃지 이미지"
+      />
+      <div className="flex justify-between mt-[10px] pl-[20px] pr-[20px]">
+        <h1 className="text-[20px] text-[#1f2937] font-semibold ">{title}</h1>
         {image ? (
           <div className={imageWrapperClassName}>
             <Image
@@ -36,19 +40,13 @@ export default function ArticleListItem({ article }: ArticleListItemProps) {
           </div>
         )}
       </div>
-      <div className="flex justify-between mb-[20px]">
+      <div className="flex justify-between items-center mt-[20px] pl-[20px] pr-[20px]">
         <div className="flex items-center gap-[5px]">
-          <Image src={IMG_PROFILE} alt="프로필 이미지" width={24} />
           <p className="text-[14px] text-[#4b5563]">{writer.nickname}</p>
-          <p className="text-[14px] text-[#9ca3af]">
-            {formatDate(createdAt) +
-              `${createdAt !== updatedAt ? ' (수정됨)' : ''}`}
-          </p>
-        </div>
-        <div className="flex items-center gap-[5px]">
           <Image src={ICON_HEART} alt="좋아요 버튼" width={20} />
           <p className="text-[16px] text-[#6b7280]">{likeCount}</p>
         </div>
+        <p className="text-[14px] text-[#9ca3af]">{formatDate(createdAt)}</p>
       </div>
     </div>
   );
