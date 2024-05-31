@@ -5,6 +5,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
+      <Link href="/boards">
+        <h2>게시판으로 이동</h2>
+      </Link>
       <h2 className={styles.title}>스타일 적용하기</h2>;
       <SearchForm />
       <ul>
