@@ -8,7 +8,7 @@ const useMediaQuery = (query: string) => {
     const handleMediaChange = () => setMatches(mediaQuery.matches);
 
     mediaQuery.addListener(handleMediaChange);
-    handleMediaChange(); // Check immediately
+    handleMediaChange();
 
     return () => mediaQuery.removeListener(handleMediaChange);
   }, [query]);
