@@ -1,4 +1,5 @@
 import baseAxios from './baseAxios';
+import { articleErrorMessage } from '@/constants/errorMessage';
 
 interface GetArticleListParams {
   page?: number;
@@ -19,6 +20,6 @@ export const getArticleList = async ({
     });
     return response.data;
   } catch (error) {
-    throw new Error('데이터 불러오기 실패');
+    throw new Error(articleErrorMessage);
   }
 };

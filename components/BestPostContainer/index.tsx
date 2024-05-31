@@ -7,6 +7,7 @@ import style from './style.module.scss';
 import { getArticleList } from '@/apis/getArticleList';
 import useNumberOfItemToShow from '@/hooks/useNumberOfItemToShow';
 import { useFetch } from '@/hooks/useFetch';
+import LoadingSpinner from '@/public/svgs/spinner.svg';
 
 const BestPostContainer = () => {
   const [postList, setPostList] = useState<Post[]>([]);
@@ -23,7 +24,7 @@ const BestPostContainer = () => {
   }, [pageSize]);
 
   if (isLoading) {
-    return <h1>로딩중</h1>;
+    return <LoadingSpinner className={style.spinner} />;
   }
   if (loadError) {
     return <h1>{loadError.message}</h1>;
