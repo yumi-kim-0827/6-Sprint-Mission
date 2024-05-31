@@ -11,8 +11,8 @@ interface BoardListProps {
 const BoardList = (props: BoardListProps) => {
   const { title, createdAt, image, likeCount, writer } = props.list;
   const { nickname } = writer;
-
   const customDate = new Date(createdAt).toLocaleDateString();
+
   return (
     <>
       <div className="flex justify-between gap-2 min-h-12">
@@ -20,8 +20,14 @@ const BoardList = (props: BoardListProps) => {
           {title}
         </p>
         {image !== null ? (
-          <div className="w-[72px] h-[72px] rounded-lg border border-gray-100">
-            <Image src={image} alt="프로필" width={72} height={72} />
+          <div className="w-[72px] h-[72px] rounded-lg border border-gray-100 flex justify-center items-center">
+            <Image
+              src={image}
+              alt="프로필"
+              width={72}
+              height={72}
+              objectFit="cover"
+            />
           </div>
         ) : null}
       </div>
