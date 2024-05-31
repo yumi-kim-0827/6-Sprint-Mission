@@ -2,6 +2,23 @@ import { useResponsive } from "../../hooks/useResponsive";
 import Styles from "./Input.module.scss";
 import icoArrow from "../../img/ic_arrow_down.svg";
 import icoSort from "../../img/ic_sort.svg";
+import { ChangeEvent, MouseEventHandler } from "react";
+
+interface Option {
+  value: string;
+  name: string;
+}
+
+interface SelectProps {
+  isShow: boolean;
+  selectOptions: Option[];
+  name: string;
+  value: string;
+  onPop: (value: boolean) => void;
+  onClick: () => void;
+  onChange: (name: string, value: string) => void;
+  className?: string;
+}
 
 export default function Select({
   isShow,
@@ -12,18 +29,18 @@ export default function Select({
   onClick,
   onChange,
   className,
-}) {
+}: SelectProps) {
   const [isPC, isTablet, isMobile] = useResponsive();
   const OPTIONS = selectOptions;
 
-  const handleClick = (e) => {
-    onChange(name, e.target.value);
+  const handleClick: MouseEventHandler<HTMLInputElement> = (e) => {
+    onChange(name, e.currentTarget.value);
     onPop(false);
   };
 
   return (
     <div className={`${Styles.select} ${className}`}>
-      <form onChange={handleClick}>
+      <form>
         <div className={Styles["select-main"]}>
           <button
             type="button"
@@ -37,7 +54,7 @@ export default function Select({
             {(isPC || isTablet) && (
               <>
                 <span aria-hidden="true">
-                  {OPTIONS.find((el) => el.value === value).name}
+                  {OPTIONS.find((el) => el.value === value)?.name}
                 </span>
                 <img
                   src={icoArrow}
@@ -55,11 +72,7 @@ export default function Select({
           </button>
         </div>
         {isShow && (
-          <ul
-            id="select-box"
-            aria-hidden={onPop}
-            className={Styles["select-lists"]}
-          >
+          <ul id="select-box" className={Styles["select-lists"]}>
             {OPTIONS.map((option, index) => {
               return (
                 <li className={Styles["select-list"]}>
@@ -72,7 +85,6 @@ export default function Select({
                     className={Styles.radio}
                   />
                   <label
-                    type="radio"
                     htmlFor={`select-${index + 1}`}
                     className={Styles["select-list__btn"]}
                   >
