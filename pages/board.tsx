@@ -1,12 +1,15 @@
-import styles from './board.module.css';
+import BestPost from '@/components/BestPost';
+import styles from '@/styles/Board.module.css';
 import LinkButton from '@/utils/Button';
 
 export default function Board() {
   return (
     <div className={styles.BoardContainer}>
       <div className={styles.bestContainer}>
-        <span>베스트 게시글</span>
-        {/* 베스트3개 컴포넌트 */}
+        <span className={styles.bestTopText}>베스트 게시글</span>
+        <div className={styles.bestPosts}>
+          <BestPost />
+        </div>
       </div>
       <div className={styles.posts}>
         <div className={styles.postsTop}>
