@@ -63,3 +63,36 @@
   justify-content: space-between;
   align-items: flex-end;
 }
+
+.postBox {
+  width: 100%;
+  max-width: 1200px;
+  border-bottom: 1px solid var(--gray100);
+  padding-top: 1rem;
+  padding-right: 4rem;
+}
+
+.titleImageWide {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80px;
+  gap: 0.3rem;
+}
+
+.postTitle {
+  margin: 0;
+  padding: 0;
+}
+
+.writerProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

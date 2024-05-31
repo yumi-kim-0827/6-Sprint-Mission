@@ -11,8 +11,8 @@ export default function boards() {
       <div className={styles.postsNav}>
         <h3>게시글</h3>
         <button>글쓰기</button>
-        <Posts />
       </div>
+      <Posts />
     </div>
   )
 }

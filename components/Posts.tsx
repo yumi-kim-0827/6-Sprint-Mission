@@ -1,5 +1,10 @@
 import { getPosts } from '@/api/api'
 import React, { useEffect, useState } from 'react'
+import styles from '@/styles/posts.module.css'
+import formatDate from '@/utils/formatDate'
+import Image from 'next/image'
+import icon_favorite from '@/public/assets/icon_favorite.png'
+import img_profile from '@/public/assets/img_profile.png'
 
 type PostsData = {
   id: number
@@ -41,8 +46,44 @@ export default function Posts() {
         {posts.map((post) => {
           return (
             <>
-              <div key={post.id}>
-                <p>{post.title}</p>
+              <div className={styles.postBox}>
+                <div key={post.id}>
+                  <div className={styles.titleImageWide}>
+                    <h3 className={styles.postTitle}>{post.title}</h3>
+                    {post.image && (
+                      <div className={styles.postImg}>
+                        <Image
+                          src={post.image}
+                          alt="포스트 이미지"
+                          width={48}
+                          height={48}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className={styles.postFooter}>
+                  <div className={styles.writerProfile}>
+                    <Image
+                      src={img_profile}
+                      alt="프로필 이미지"
+                      width={24}
+                      height={24}
+                    />
+                    <p className={styles.writer}>{post.writer.nickname}</p>
+                    <p className={styles.date}>{formatDate(post.createdAt)}</p>
+                  </div>
+                  <div className={styles.writerContent}>
+                    <Image
+                      src={icon_favorite}
+                      alt="하트"
+                      width={16}
+                      height={16}
+                    />
+                    <p className={styles.writer}>{post.likeCount}</p>
+                  </div>
+                </div>
               </div>
             </>
           )
