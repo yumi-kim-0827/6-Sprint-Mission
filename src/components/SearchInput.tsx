@@ -6,6 +6,7 @@ import SearchIcon from "/public/images/ic_search.svg";
 interface SearchInputProps {
   className?: string;
   placeholder?: string;
+  defaultValue?: string;
   onChange?: (value: string) => void;
   onKeyDown?: (value: string) => void;
 }
@@ -13,6 +14,7 @@ interface SearchInputProps {
 const SearchInput = ({
   className = "",
   placeholder,
+  defaultValue = "",
   onChange,
   onKeyDown,
 }: SearchInputProps) => {
@@ -36,6 +38,7 @@ const SearchInput = ({
       <BaseInput
         type="text"
         placeholder={placeholder}
+        defaultValue={defaultValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         className="pl-11"

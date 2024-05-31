@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import BestPostList from "@/components/boards/BestPostList";
 import NormalPostList from "@/components/boards/NormalPostList";
 import BaseButton from "@/components/BaseButton";
@@ -17,12 +18,33 @@ const BEST_POST_LIMIT: { [key in DeviceSizes]: number } = {
 };
 
 const boards = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { isLoading, error, axiosFetcher } = useDataFetch();
   const [data, setData] = useState<Post[] | null>(null);
   const [order, setOrder] = useState<SortOptions>("recent");
   const [best, setBest] = useState<Post[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const deviceSize = useDeviceSize();
+
+  const keyword = searchParams.get("keyword");
+
+  // 게시글을 받아오는 fetchPosts함수 정의
+  const fetchPosts = async (order: SortOptions, searchQuery: string | null) => {
+    const options = {
+      method: "GET",
+      url: "articles",
+      params: {
+        orderBy: order,
+        ...(searchQuery && { keyword: searchQuery }),
+      },
+    };
+
+    const response = await axiosFetcher(options);
+
+    if (!error) {
+      setData(response.data.list);
+    }
+  };
 
   // 화면 사이즈에 맞게, 좋아요순으로 베스트 게시글을 받아와서 세팅하는 useEffect
   useEffect(() => {
@@ -46,49 +68,14 @@ const boards = () => {
     fetchData();
   }, [deviceSize, error]);
 
-  // 기본값(최신순)으로 게시글 받아오는 useEffect
+  // order, searchParams에 따라 data를 가져오는 useEffect
   useEffect(() => {
-    const fetchData = async (order: SortOptions) => {
-      const options = {
-        method: "GET",
-        url: "articles",
-        params: {
-          orderBy: order,
-        },
-      };
+    fetchPosts(order, keyword);
+  }, [order, keyword, error]);
 
-      const response = await axiosFetcher(options);
-
-      if (!error) {
-        setData(response.data.list);
-      }
-    };
-
-    fetchData(order);
-  }, [order]);
-
-  // 검색어가 있을때 검색된 결과를 받아오는 useEffect
-  useEffect(() => {
-    if (searchQuery === "") return;
-
-    const fetchData = async (searchQuery: string) => {
-      const options = {
-        method: "GET",
-        url: "articles",
-        params: {
-          keyword: searchQuery,
-        },
-      };
-
-      const response = await axiosFetcher(options);
-
-      if (!error) {
-        setData(response.data.list);
-      }
-    };
-
-    fetchData(searchQuery);
-  }, [searchQuery]);
+  const handleSearch = (query: string) => {
+    router.replace(`/boards?keyword=${query}`);
+  };
 
   // 로딩, 에러에 따른 화면 표시
   if (isLoading || !data) {
@@ -101,7 +88,7 @@ const boards = () => {
 
   return (
     <>
-      {data && data.length > 0 && (
+      {data && (
         <>
           <div className="text-[20px] font-bold text-cool-gray-800">
             베스트 게시글
@@ -116,7 +103,8 @@ const boards = () => {
           <div className="flex items-center justify-between gap-[8px] md:gap-[16px]">
             <SearchInput
               placeholder="검색할 상품을 입력해주세요"
-              onKeyDown={setSearchQuery}
+              defaultValue={keyword ? keyword : ""}
+              onKeyDown={handleSearch}
             />
             <SortDropdown order={order} onClick={setOrder} />
           </div>
