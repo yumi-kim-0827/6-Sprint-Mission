@@ -1,3 +1,5 @@
+import IconProfile from '@/public/images/icon-profile.svg';
+
 type Article = {
   id: number;
   title: string;
@@ -20,7 +22,7 @@ export default function ArticleList({ articles }: ArticleProps) {
           <div>
             <h3>{article.title}</h3>
             <div>
-              <img src="" alt="프로필 아이콘" />
+              <IconProfile />
               <span>{article.writer.nickname}</span>
               <span>작성 날짜</span>
             </div>
