@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import useIsMobile from '@/hooks/useIsMobile';
+import ProfileIcon from '@/public/svgs/profile.svg';
+import LogoBig from '@/public/svgs/logo-bg.svg';
+import LogoSmall from '@/public/svgs/logo-sm.svg';
 
 const TopNavigation = () => {
   const { pathname } = useRouter();
@@ -13,17 +16,7 @@ const TopNavigation = () => {
   return (
     <header className={style.header}>
       <div className={style.left_header}>
-        <Link href="/">
-          <Image
-            src={
-              isMobile ? '/images/panda-logo-sm.png' : '/images/panda-logo.png'
-            }
-            alt="판다마켓 로고"
-            width={isMobile ? '81' : '153'}
-            height={isMobile ? '40' : '51'}
-            priority
-          />
-        </Link>
+        <Link href="/">{isMobile ? <LogoSmall /> : <LogoBig />}</Link>
         <nav>
           <ul className={style.nav}>
             <Link href="/boards">
@@ -48,13 +41,7 @@ const TopNavigation = () => {
         </nav>
       </div>
       <div className={style.profile}>
-        <Image
-          src="/images/profile.png"
-          alt="유저 프로필"
-          width="40"
-          height="40"
-          priority
-        />
+        <ProfileIcon width="40" height="40" />
       </div>
     </header>
   );
