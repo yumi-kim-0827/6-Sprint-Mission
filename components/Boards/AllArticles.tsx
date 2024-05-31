@@ -2,13 +2,14 @@ import axios from "@/lib/axios";
 import { Article } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import iconArrow from "@/public/icons/icon_arrow_down.svg";
 import formatDate from "@/utils/formatDate";
 import heart_active from "@/public/images/heart_active.png";
 import heart_inactive from "@/public/images/heart_inactive.png";
 import imgProfile from "@/public/images/skeleton_profile.png";
 import icon_search from "@/public/icons/icon_search.svg";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const PAGE_SIZE_MAX = 10;
 
@@ -52,12 +53,15 @@ export default function AllArticles() {
     setShowDropdown(!showDropdown);
   };
 
+  const dropDownRef = useRef<HTMLDivElement>(null);
+  useClickOutside(dropDownRef, () => setShowDropdown(false));
+
   return (
     <section className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
         <h2 className=" text-xl text-gray-900 font-bold">게시글</h2>
         <Link
-          className="w-20 h-10 flex justify-center items-center bg-blue-default rounded-button text-white"
+          className="w-20 h-10 flex justify-center items-center bg-blue-default rounded-button text-white hover:bg-hover-blue"
           href="/"
         >
           글쓰기
@@ -81,7 +85,10 @@ export default function AllArticles() {
           height={24}
           className="text-white absolute top-auto left-2 translate-y-[45%]"
         />
-        <div className="w-32 h-10 px-4 border-solid border-gray-200 border-[1px] rounded-box flex justify-between items-center gap-3 relative hover:bg-hover-gray">
+        <div
+          className="w-32 h-11 px-4 border-solid border-gray-200 border-[1px] rounded-box flex justify-between items-center gap-3 relative"
+          ref={dropDownRef}
+        >
           {orderBy === "recent" ? "최신순" : "좋아요순"}
           <Image
             className="transform rotate-0 transition-transform duration-300"
@@ -95,16 +102,16 @@ export default function AllArticles() {
             onClick={toggleDropdown}
           />
           {showDropdown && (
-            <div className="w-32 h-20 absolute top-10 left-0 border-solid border-gray-200 border-[1px] rounded-box flex flex-col">
+            <div className="w-32 absolute top-11 left-0 border-solid border-gray-200 border-[1px] rounded-box flex flex-col">
               <button
-                className="w-32 h-10 hover:bg-hover-gray px-5 rounded-t-button"
+                className="w-32 h-11 hover:bg-hover-gray px-5 rounded-t-button"
                 type="button"
                 onClick={() => handleChangeOrderBy("recent")}
               >
                 최신순
               </button>
               <button
-                className="w-32 h-10 hover:bg-hover-gray px-5 rounded-b-button"
+                className="w-32 h-11 hover:bg-hover-gray px-5 rounded-b-button"
                 type="button"
                 onClick={() => handleChangeOrderBy("like")}
               >
