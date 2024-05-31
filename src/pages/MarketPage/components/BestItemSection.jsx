@@ -37,9 +37,9 @@ function BestItemSection() {
   }, [pageSize]);
 
   return (
-    <div>
-      <h1>베스트 상품</h1>
-      <div>
+    <div className="w-[1200px] h-[406px]">
+      <h1 className="text-[20px] font-[700]">베스트 상품</h1>
+      <div className="gap-[24px] w-[282px] h-[362px]">
         {item?.map((item) => (
           <ItemCard item={item} key={`best-item-${item.id}`} />
         ))}

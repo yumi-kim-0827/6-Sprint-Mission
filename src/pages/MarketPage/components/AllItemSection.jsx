@@ -50,9 +50,9 @@ function AllItemSection() {
   };
 
   return (
-    <div>
-      <h1>전체 상품</h1>
-      <div>
+    <div className="w-[1200px] h-[706px]">
+      <h1 className="text-[20px] font-[700]">전체 상품</h1>
+      <div className="gap-[24px] w-[282px] h-[362px]">
         {item?.map((item) => (
           <ItemCard item={item} key={`best-item-${item.id}`} />
         ))}
