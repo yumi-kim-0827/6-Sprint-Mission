@@ -6,6 +6,7 @@ import { useFetch } from '@/hooks/useFetch';
 import { getArticleList } from '@/apis/getArticleList';
 import style from './style.module.scss';
 import { SortType } from '@/constants/sortOption';
+import LoadingSpinner from '@/public/svgs/spinner.svg';
 
 interface BoardPostContainerProps {
   orderBy: SortType;
@@ -26,7 +27,7 @@ const BoardPostContainer = ({ orderBy, keyword }: BoardPostContainerProps) => {
   }, [orderBy, keyword]);
 
   if (isLoading) {
-    return <h1>로딩중</h1>;
+    return <LoadingSpinner className={style.spinner} />;
   }
   if (loadError) {
     return <h1>{loadError.message}</h1>;

@@ -1,29 +1,14 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import style from './style.module.scss';
 import Image from 'next/image';
-import { MOBILE_SIZE } from '@/constants/windowSize';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
+import useIsMobile from '@/hooks/useIsMobile';
 
 const TopNavigation = () => {
   const { pathname } = useRouter();
-
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= MOBILE_SIZE);
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <header className={style.header}>
