@@ -4,6 +4,7 @@ import Image from 'next/image';
 import style from './style.module.scss';
 import { dateToString } from '@/utils/dateToString';
 import HeartIcon from '@/public/svgs/heart-icon.svg';
+import BestBadge from '@/public/svgs/best_badge.svg';
 
 interface BestPostProps {
   post: Post;
@@ -12,13 +13,7 @@ interface BestPostProps {
 const BestPost = ({ post }: BestPostProps) => {
   return (
     <article className={style.container}>
-      <Image
-        src="/images/best-badge.png"
-        alt="베스트 게시물 뱃지"
-        width="102"
-        height="30"
-        priority
-      />
+      <BestBadge width="102" height="30" />
       <div className={style.top_info}>
         <h3>{post.title}</h3>
         {post.image && (
