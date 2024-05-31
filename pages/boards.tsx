@@ -1,7 +1,12 @@
+import BestPostsContainer from '@/src/components/BestPostsContainer';
 import React from 'react';
-
+import style from '../styles/BoardFrame.module.css';
 const boards = () => {
-  return <div>여기는 board입니다</div>;
+  return (
+    <div className={style.boardFrame}>
+      <BestPostsContainer />
+    </div>
+  );
 };
 
 export default boards;

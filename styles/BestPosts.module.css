@@ -1,0 +1,19 @@
+.bestPostsFrame {
+  height: 217px;
+  overflow: hidden;
+}
+
+.bestPostsTitle {
+  font-weight: 700;
+  font-size: 20px;
+  color: #111827;
+}
+
+.bestPostsBoxes {
+  margin-top: 10px;
+
+  height: 169px;
+  display: flex;
+  gap: 15px;
+}
+
