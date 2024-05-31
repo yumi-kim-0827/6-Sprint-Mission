@@ -54,3 +54,15 @@
     margin-left: 8px;
   }
 }
+/*tablet*/
+@media (max-width: 1199px) {
+  .postList {
+    width: 696px;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  .postList {
+    width: 343px;
+  }
+}
