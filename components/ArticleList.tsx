@@ -1,3 +1,4 @@
+import formatDate from '@/lib/formatDate';
 import IconProfile from '@/public/images/icon-profile.svg';
 
 type Article = {
@@ -8,6 +9,7 @@ type Article = {
   };
   image?: string;
   likeCount: number;
+  createdAt: string;
 };
 
 interface ArticleProps {
@@ -24,7 +26,7 @@ export default function ArticleList({ articles }: ArticleProps) {
             <div>
               <IconProfile />
               <span>{article.writer.nickname}</span>
-              <span>작성 날짜</span>
+              <span>{formatDate(new Date(article.createdAt))}</span>
             </div>
             <div>
               {article.image ? <img src={article.image} /> : null}
