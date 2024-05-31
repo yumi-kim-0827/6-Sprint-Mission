@@ -58,8 +58,11 @@ const Boards = () => {
     });
   };
 
-  const onChangeSearchInput: void = (e) => {
+  const onChangeSearchInput: React.ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
     setSearchKeyword(e.target.value);
+    return;
   };
 
   const getArticles = async () => {

@@ -4,14 +4,14 @@ import searchIcon from "@/src/assets/icons/search_icon.svg";
 
 interface SearchFormProps {
   value: string;
-  onChange: void;
-  onSubmit: void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 
 const SearchForm = ({ value, onChange, onSubmit }: SearchFormProps) => {
-  const handleSubmitSearch = (e: React.FormEvent) => {
+  const handleSubmitSearch: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(e);
   };
 
   return (
