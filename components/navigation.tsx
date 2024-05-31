@@ -19,7 +19,7 @@ export default function Navigation() {
             </div>
           </Link>
           <div className='flex justify-around font-bold sm:min-w-[135px] sm:gap-2 md:w-[218px]'>
-            <Link href='/boards'>
+            <Link href='/boards' prefetch={false}>
               <button className='font-bold block h-[70px] sm:w-[73px] md:w-[109px] lg:w-[109px] text-[#4B5563]'>
                 <span className={router.pathname.startsWith('/boards') ? `${'text-brand-blue'}` : ''}>자유게시판</span>
               </button>
