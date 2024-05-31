@@ -43,6 +43,8 @@
   width: 256px;
   height: 72px;
   margin-top: 16px;
+  font-size: 20px;
+  color: #1f2937;
 }
 
 .bestcardimage {
@@ -64,12 +66,15 @@
 
 .bestCardNickname {
   color: #4b5563;
+  font-size: 14px;
 }
 
 .bestCardLikeCount {
   color: #6b7280;
+  font-size: 14px;
 }
 
 .bestCardCreatedAt {
   color: #9ca3af;
+  font-size: 14px;
 }

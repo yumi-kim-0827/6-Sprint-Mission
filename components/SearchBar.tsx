@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = ({
   onSearch,
@@ -19,6 +20,7 @@ const SearchBar = ({
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className={styles.SearchBar}
         type="text"
         value={searchTerm}
         onChange={handleChange}

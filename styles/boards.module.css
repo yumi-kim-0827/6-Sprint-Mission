@@ -8,4 +8,28 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  display: block;
+}
+
+.ArticleSectioMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  margin-top: 40px;
+}
+
+.ArticleSectionButton {
+  width: 88px;
+  height: 42px;
+  background-color: #3692ff;
+  border-style: none;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.searchbarDropdownWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
 }

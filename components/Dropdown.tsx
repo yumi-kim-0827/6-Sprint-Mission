@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Dropdown.module.css";
 
 interface DropdownContainerProps {
   onSortByNewest: () => void;
@@ -30,18 +31,20 @@ const Dropdown = ({
 
   return (
     <div>
-      <div className="dropdown-container" onClick={handleClickContainer}>
-        <button className="dropdown-button">{buttonText} ▼</button>
+      <div className={styles.dropdownContainer} onClick={handleClickContainer}>
+        <button className={styles.dropdownButton}>
+          {buttonText} &nbsp;&nbsp; ▼
+        </button>
         {isDropdownView && (
-          <ul className="dropdown-items">
+          <ul className={styles.dropdownItems}>
             <li
-              className="dropdown-item"
+              className={styles.dropdownItem}
               onClick={() => handleItemClick(onSortByNewest)}
             >
               최신순
             </li>
             <li
-              className="dropdown-item"
+              className={styles.dropdownItem}
               onClick={() => handleItemClick(onSortByBest)}
             >
               인기순

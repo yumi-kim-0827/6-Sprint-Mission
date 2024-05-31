@@ -46,7 +46,6 @@ export async function getBestArticles({
 
   try {
     const data = await fetchData(url);
-    console.log(limit);
     return data.list;
   } catch (error) {
     console.error("Failed to fetch articles:", error);

@@ -38,29 +38,34 @@ function ArticleList({
   return (
     <Link className={styles.Link} href={`/items/${id}`}>
       <section className={styles.ArticlesList}>
-        <div>
-          <p>{title}</p>
-          <div className={styles.authorInfo}>
-            <p> {writer.nickname}</p>
+        <div className={styles.articlesListTopItems}>
+          <p className={styles.articlesListTitle}>{title}</p>
+          {image && (
+            <div className={styles.articleListImageWrapper}>
+              <img className={styles.articleListImage} src={image} />
+            </div>
+          )}
+        </div>
+
+        <div className={styles.articleListBottomItems}>
+          <div className={styles.postInfo}>
             <Image
               src="/images/profile.svg"
               alt="프로필 사진"
               width={24}
               height={24}
             />
-            <p> {formattedDate} </p>
+            <p className={styles.articleListNickname}> {writer.nickname}</p>
+            <p className={styles.articleCreatedAt}> {formattedDate} </p>
           </div>
-        </div>
-        <div className={styles.postInfo}>
-          <img width={120} src={image} />
           <div className={styles.favoriteCountContainer}>
             <Image
               src="/images/favoriteIcon.svg"
-              width={20}
-              height={17}
+              width={16}
+              height={16}
               alt="favorite icon"
             />
-            <p>{likeCount}</p>
+            <p className={styles.articleLikeCount}>{likeCount}</p>
           </div>
         </div>
       </section>

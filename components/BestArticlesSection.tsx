@@ -57,8 +57,8 @@ function BestArticlesCard({
             <p className={styles.bestCardNickname}> {writer.nickname}</p>
             <Image
               src="/images/favoriteIcon.svg"
-              width={20}
-              height={17}
+              width={16}
+              height={16}
               alt="favorite icon"
             />
             <p className={styles.bestCardLikeCount}>{likeCount}</p>

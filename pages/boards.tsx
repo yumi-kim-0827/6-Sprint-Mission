@@ -99,17 +99,19 @@ export default function Boards() {
       </section>
       <section>
         <div>
-          <div>
+          <div className={styles.ArticleSectioMenu}>
             <h1 className={styles.ArticleSectionTitle}>게시글</h1>
-            <button>글쓰기</button>
+            <button className={styles.ArticleSectionButton}>글쓰기</button>
           </div>
-          <div>
+          <div className={styles.searchbarDropdownWrapper}>
             <SearchBar onSearch={handleSearch} />
-            <Dropdown
-              onSortByNewest={() => handleSortChange("recent")}
-              onSortByBest={() => handleSortChange("like")}
-              order={currentOrder}
-            />
+            <div>
+              <Dropdown
+                onSortByNewest={() => handleSortChange("recent")}
+                onSortByBest={() => handleSortChange("like")}
+                order={currentOrder}
+              />
+            </div>
           </div>
         </div>
         <Articles articles={filteredArticles} />
