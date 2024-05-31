@@ -1,11 +1,14 @@
 import styles from '@/styles/boards/AllArticles.module.css';
 
+import ic_search from '@/assets/images/items/ic_search.svg';
+
 import { useEffect, useState } from 'react';
 import { getBoards } from '@/api/boards.api';
 
 import AllSection from './AllSection';
 import Link from 'next/link';
 import Dropdown from '@/components/common/DropDown';
+import Image from 'next/image';
 
 interface WriterType {
 	id: number;
@@ -26,23 +29,33 @@ interface GetBoardsResponse {
 	list: BoardType[];
 }
 
-const AllArticles = () => {
+interface GetBoardsQuery {
+	orderBy: string;
+	page?: number;
+	pageSize?: number;
+	search?: string;
+}
+
+const AllArticles: React.FC = () => {
 	const [order, setOrder] = useState<string>('recent');
+	const [search, setSearch] = useState<string>('');
 	const [boards, setBoards] = useState<BoardType[]>([]);
 
-	const handleLoad = async (orderQuery: string) => {
-		const { list }: GetBoardsResponse = await getBoards({
-			orderBy: orderQuery,
-		});
+	const handleLoad = async (query: GetBoardsQuery) => {
+		const { list }: GetBoardsResponse = await getBoards(query);
 		setBoards(list || []);
 	};
 
 	useEffect(() => {
-		handleLoad(order);
-	}, [order]);
+		handleLoad({ orderBy: order, search: search });
+	}, [order, search]);
 
 	const handleChange = (value: string) => {
 		setOrder(value);
+	};
+
+	const handleSearch = (value: string) => {
+		setSearch(value);
 	};
 
 	return (
@@ -54,8 +67,16 @@ const AllArticles = () => {
 				</Link>
 			</div>
 			<div className={styles.all_articles_sort_wrap}>
-				<input className={styles.all_articles_input} type='text' />
-
+				<div className={styles.all_search_icon}>
+					<Image src={ic_search} alt='검색 아이콘' fill />
+				</div>
+				<input
+					className={styles.all_articles_input}
+					maxLength={50}
+					type='text'
+					onChange={(e) => handleSearch(e.target.value)}
+					placeholder='검색할 상품을 입력해주세요'
+				/>
 				<Dropdown
 					className={styles.all_articles_dropdown}
 					name='order'

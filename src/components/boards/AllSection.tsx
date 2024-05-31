@@ -28,11 +28,12 @@ interface AllSectionProps {
 const AllSection: React.FC<AllSectionProps> = ({ board }) => {
 	const createdAt = new Date(board.createdAt).toLocaleDateString();
 	const content = board.content.length > 200 ? board.content.slice(0, 200) + '...' : board.content;
+	const likeCount = board.likeCount > 9999 ? '9999+' : board.likeCount;
 
 	return (
 		<div className={styles.all_section_wrap}>
 			<div className={styles.all_section_main}>
-				<span className={styles.all_section_content}>{board.content}</span>
+				<span className={styles.all_section_content}>{content}</span>
 
 				{board.image && (
 					<div className={styles.all_section_border}>
@@ -57,7 +58,7 @@ const AllSection: React.FC<AllSectionProps> = ({ board }) => {
 					<div className={styles.all_section_like_ic}>
 						<Image src={ic_heart} alt='좋아요 아이콘' fill />
 					</div>
-					<span className={styles.all_section_like}>{board.likeCount}</span>
+					<span className={styles.all_section_like}>{likeCount}</span>
 				</div>
 			</div>
 		</div>
