@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       <Header />
-      <Container>
+      <Container page={true}>
         <Component {...pageProps} />
       </Container>
     </ThemeProvider>

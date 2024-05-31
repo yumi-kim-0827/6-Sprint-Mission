@@ -13,10 +13,10 @@ export default function SearchForm({ keyword = "", onChangeKeyword }) {
     e.preventDefault();
     onChangeKeyword(value);
     if (!value) {
-      router.push("/board");
+      router.push("/boards");
       return;
     }
-    router.push(`board?keyword=${value}`);
+    router.push(`boards?keyword=${value}`);
   };
   return (
     <form onSubmit={handleSubmit}>
