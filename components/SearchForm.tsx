@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-export default function SearchForm({ initvalue = "" }) {
-  const [value, setValue] = useState(initvalue);
+export default function SearchForm({ keyword = "", onChangeKeyword }) {
+  const [value, setValue] = useState(keyword);
   const router = useRouter();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,16 +11,17 @@ export default function SearchForm({ initvalue = "" }) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    onChangeKeyword(value);
     if (!value) {
-      router.push("/");
+      router.push("/board");
       return;
     }
-    router.push(`market?q=${value}`);
+    router.push(`board?keyword=${value}`);
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input name="q" value={value} onChange={handleChange} />
-      <button>검색1</button>
+      <input name="keyword" value={value} onChange={handleChange} />
+      <button>검색</button>
     </form>
   );
 }
