@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from '@/src/libs/axios';
 import ArticleList from '@/src/components/ArticleList';
 import SearchForm from '@/src/components/SearchForm';
+import DropDownMenu from '@/src/components/DropDownMenu';
 import { Article } from '@/src/types/type';
 
 export default function BoardPage() {
@@ -32,6 +33,7 @@ export default function BoardPage() {
       <section>
         <h2>게시글</h2>
         <SearchForm onSearch={handleSearch} />
+        <DropDownMenu />
         <ArticleList articles={filteredArticles} />
       </section>
     </>
