@@ -53,7 +53,6 @@ body {
   background-color: #fcfcfc;
 }
 
-/* 버튼 스타일링 */
 button {
   background-color: var(--btn1);
   color: #fff;
@@ -65,6 +64,11 @@ button {
   height: 42px;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
+}
+
+button:hover {
+  background-color: var(--btn2);
+  cursor: pointer;
 }
 
 #btn_small {
