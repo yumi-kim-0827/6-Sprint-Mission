@@ -3,6 +3,9 @@
   height: 16.9rem;
   background-color: var(--coolGray50);
 }
+.container:hover {
+  background-color: var(--gray100);
+}
 
 .contents {
   margin: 0 auto;

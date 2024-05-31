@@ -2,6 +2,9 @@
   padding-bottom: 2.4rem;
   border-bottom: 1px solid var(--gray200);
 }
+.container:hover {
+  background-color: var(--gray100);
+}
 
 .title_img {
   width: 100%;

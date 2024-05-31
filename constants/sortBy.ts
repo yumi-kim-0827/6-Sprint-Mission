@@ -1,2 +1,2 @@
 export const RECENT = "recent";
-export const FAVORITE = "favorite";
+export const FAVORITE = "like";
