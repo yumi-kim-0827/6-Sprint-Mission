@@ -25,7 +25,7 @@ interface ArticleType {
 
 const SearchPost = () => {
   const [posts, setPost] = useState<ArticleType[]>([]);
-  const [order, setOrder] = useState(FAVORITE);
+  const [order, setOrder] = useState(RECENT);
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
   const [isLoading, loadingError, handleLoad] = useLoad(getArticle);
