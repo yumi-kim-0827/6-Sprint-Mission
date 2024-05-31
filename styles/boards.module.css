@@ -1,16 +1,44 @@
-.bestArticle_header_title {
+.articleContainer{
+  margin: 24px auto 16px;
+
+}
+
+.articleHeader {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.articleTitle {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
   color: #111827;
 }
 
+.articleContentBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likeCountWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========================= */
+
 .bestArticleList {
   display: flex;
   gap: 24px;
+  margin-bottom: 40px;
 }
 
-.bestArticle_wrapper {
+.bestArticleWrapper {
   position: relative;
   width: 384px;
   height: 169px;
@@ -18,13 +46,7 @@
   background-color: #f9fafb;
 }
 
-.bestArticleBadge {
-  position: absolute;
-  top: 0;
-  left: 24px;
-}
-
-.bestArticle_content {
+.bestArticleContent {
   position: absolute;
   top: 46px;
   left: 24px;
@@ -35,40 +57,9 @@
   width: 330px;
 }
 
-.bestArticle_content_bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* ========================= */
 
-.userInfo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.likeCount_wrapper {
-  display: flex;
-  align-items: center;
-}
-
-/* ====================================== */
-
-.allArticle_header {
-  width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.allArticle_header_title {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  color: #111827;
-}
-
-.allArticle_header_button {
+.writeButton {
   width: 88px;
   height: 42px;
   border-radius: 8px;
@@ -80,19 +71,13 @@
   color: #fff;
 }
 
+/* ========================= */
 
-.allArticle_middle_wrapper{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.allArticle_input_wrapper{
+.searchInputWrapper{
   position: relative;
-  margin: 24px auto;
 }
 
-.allArticle_input {
+.searchInput {
   width: 1054px;
   height: 42px;
   border-radius: 12px;
@@ -104,7 +89,7 @@
   line-height: 24px;
 }
 
-.allArticleSort_button{
+.sortButton{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,9 +101,9 @@
   background-color: #fff;
 }
 
-/* =================================== */
+/* ========================= */
 
-.allArticle_wrapper{
+.allArticleWrapper{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -130,14 +115,8 @@
   padding: 24px 0;
 }
 
-.allArticle_useInfo{
+.allArticleBottomLeft{
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.allArticle_content_bottom{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

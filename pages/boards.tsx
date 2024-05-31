@@ -44,29 +44,31 @@ export default function CommunityFeedPage() {
     getBestArticle();
     getAllArticle();
   }, []);
+
   return (
     <>
-      <div>
-        <h1 className={styles.bestArticle_header_title}>베스트 게시글</h1>
+      <div className={styles.articleContainer}>
+        <div className={styles.articleHeader}>
+          <h1 className={styles.articleTitle}>베스트 게시글</h1>
+        </div>
+
+        {/* container */}
         <div className={styles.bestArticleList}>
           {bestArticles?.map((bestArticle: any) => (
-            <div key={bestArticle.id} className={styles.bestArticle_wrapper}>
+            <div key={bestArticle.id} className={styles.bestArticleWrapper}>
               <Image
                 src={Badge}
                 alt="베스트게시글 뱃지"
-                className={styles.bestArticleBadge}
+                style={{ position: "absolute", top: 0, left: 24 }}
               />
-              <div className={styles.bestArticle_content}>
-                <div>
-                  {bestArticle.title}
-                  <Image src="" alt="게시글 이미지" width={72} height={72} />
-                </div>
-
-                <div className={styles.bestArticle_content_bottom}>
-                  <div className={styles.userInfo}>
+              <div className={styles.bestArticleContent}>
+                {/* content */}
+                <div className={styles.articleTitle}>{bestArticle.title}</div>
+                <div className={styles.articleContentBottom}>
+                  <div className={styles.allArticleBottomLeft}>
                     {bestArticle.writer.nickname}
 
-                    <div className={styles.likeCount_wrapper}>
+                    <div className={styles.likeCountWrapper}>
                       <Image src={Heart} alt="좋아요 아이콘" />
                       {bestArticle.likeCount}
                     </div>
@@ -78,14 +80,14 @@ export default function CommunityFeedPage() {
           ))}
         </div>
       </div>
-      <div>
-        <div className={styles.allArticle_header}>
-          <h1 className={styles.allArticle_header_title}>게시글</h1>
-          <button className={styles.allArticle_header_button}>글쓰기</button>
-        </div>
 
-        <div className={styles.allArticle_middle_wrapper}>
-          <div className={styles.allArticle_input_wrapper}>
+      <div className={styles.articleContainer}>
+        <div className={styles.articleHeader}>
+          <h1 className={styles.articleTitle}>게시글</h1>
+          <button className={styles.writeButton}>글쓰기</button>
+        </div>
+        <div className={styles.articleHeader}>
+          <div className={styles.searchInputWrapper}>
             <Image
               src={Search}
               alt="검색 아이콘"
@@ -94,28 +96,31 @@ export default function CommunityFeedPage() {
             <input
               type="text"
               placeholder="검색할 상품을 입력해주세요"
-              className={styles.allArticle_input}
+              className={styles.searchInput}
             />
           </div>
-          <button className={styles.allArticleSort_button}>
+          <button className={styles.sortButton}>
             최신순
             <Image src={Sort} alt="정렬 아이콘" />
           </button>
         </div>
 
-        <div>
+        {/* container */}
+        <div className="allArticleList">
           {allArticles.map((allArticle) => (
-            <div key={allArticle.id} className={styles.allArticle_wrapper}>
-              <div className="">{allArticle.title}</div>
-              <div className={styles.allArticle_content_bottom}>
-                <div className={styles.allArticle_useInfo}>
+            <div key={allArticle.id} className={styles.allArticleWrapper}>
+              {/* content */}
+              <div className={styles.articleTitle}>{allArticle.title}</div>
+              <div className={styles.articleContentBottom}>
+                <div className={styles.allArticleBottomLeft}>
                   <Image src={Profile} alt="게시자 아이콘" />
-                  {allArticle.writer.nickname}
-                  {allArticle.createdAt};
+                  <div>{allArticle.writer.nickname}</div>
+                  <div>{allArticle.createdAt}</div>
                 </div>
-                <div className={styles.likeCount_wrapper}>
+
+                <div className={styles.likeCountWrapper}>
                   <Image src={Heart} alt="좋아요 아이콘" />
-                  {allArticle.likeCount}
+                  <div>{allArticle.likeCount}</div>
                 </div>
               </div>
             </div>
