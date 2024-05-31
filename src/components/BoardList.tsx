@@ -3,8 +3,9 @@ import Profile from "./Profile";
 import Image from "next/image";
 import likeImg from "@/src/assets/icons/favorite_icon.svg";
 import { ArticleType } from "@/pages/boards";
+import BoardTitleImage from "./BoardTitleImage";
 
-interface BoardListProps {
+export interface BoardListProps {
   list: ArticleType;
 }
 
@@ -16,20 +17,7 @@ const BoardList = (props: BoardListProps) => {
   return (
     <>
       <div className="flex justify-between gap-2 min-h-12">
-        <p className="flex-1 font-semibold text-lg md:text-xl leading-12">
-          {title}
-        </p>
-        {image !== null ? (
-          <div className="w-[72px] h-[72px] rounded-lg border border-gray-100 flex justify-center items-center">
-            <Image
-              src={image}
-              alt="프로필"
-              width={72}
-              height={72}
-              objectFit="cover"
-            />
-          </div>
-        ) : null}
+        <BoardTitleImage title={title} image={image} />
       </div>
       <div className="flex justify-between gap-2">
         <div className="flex items-center flex-wrap gap-2">

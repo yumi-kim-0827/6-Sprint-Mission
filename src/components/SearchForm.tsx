@@ -19,7 +19,7 @@ const SearchForm = ({ value, onChange, onSubmit }: SearchFormProps) => {
       onSubmit={handleSubmitSearch}
       className="w-full py-[9px] px-4 bg-gray-100 rounded-xl flex items-center gap-2"
     >
-      <Image src={searchIcon} alt="검색" width={24} height={24} />
+      <Image src={searchIcon} alt="검색" width={15} />
       <input
         value={value}
         onChange={onChange}

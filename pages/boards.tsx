@@ -4,6 +4,7 @@ import BoardList from "@/src/components/BoardList";
 import Title from "@/src/components/Title";
 import LinkButton from "@/src/components/LinkButton";
 import SearchForm from "@/src/components/SearchForm";
+import BestBoardList from "@/src/components/BestBoardList";
 
 export interface ArticleType {
   content: string;
@@ -29,9 +30,22 @@ export interface IApiOption {
   keyword: string;
 }
 
+export interface IBestApiOption {
+  orderBy: string;
+  pageSize: number;
+}
+
 const Boards = () => {
+  // state
   const [articles, setArticles] = useState<ArticleArrayType["list"]>([]);
+  const [bestArticles, setBestArticles] = useState<ArticleArrayType["list"]>(
+    []
+  );
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [bestOption, setBestOption] = useState<IBestApiOption>({
+    orderBy: "like",
+    pageSize: 3,
+  });
   const [option, setOption] = useState<IApiOption>({
     orderBy: "recent",
     keyword: "",
@@ -58,14 +72,37 @@ const Boards = () => {
     }
   };
 
+  const getBestArticles = async () => {
+    try {
+      const bestArticles: ArticleArrayType = await getArticlesApi(bestOption);
+      const { list }: { list: ArticleArrayType["list"] } = bestArticles;
+      setBestArticles(list);
+    } catch (error) {
+      console.error("Failed tooo fetch best articles: ", error);
+    }
+  };
+
+  console.log(bestArticles);
+
+  useEffect(() => {
+    getBestArticles();
+  }, []);
+
   useEffect(() => {
     getArticles();
   }, [option]);
 
   return (
-    <main className="max-w-[1200px] px-4 py-4 mx-auto grid gap-10 sm:px-6 sm:py-6">
+    <main className="max-w-[1200px] px-4 py-4 mx-auto grid gap-10 sm:px-6 sm:py-6 box-content">
       <section className="grid gap-4 md:gap-6">
         <Title>베스트 게시글</Title>
+        <div className="flex gap-6">
+          <ul className="flex w-full gap-6">
+            {bestArticles?.map((best) => {
+              return <BestBoardList key={best.id} list={best} />;
+            })}
+          </ul>
+        </div>
       </section>
 
       <section className="grid gap-4 md:gap-6">
