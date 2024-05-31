@@ -6,6 +6,7 @@
   margin: 0 0 20px 0;
   background-color: var(--cool-gray50);
   border-radius: 8px;
+  min-width: 343px;
 }
 
 .article-best-medal-container {

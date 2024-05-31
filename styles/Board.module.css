@@ -11,6 +11,14 @@
 
 .best-article-list {
   display: flex;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.best-article-list {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -213,6 +221,9 @@
     padding: 0 18px;
     width: 100%;
     margin: 0 auto;
+  }
+  .best-article-list {
+    justify-content: flex-start;
   }
   .dropdown-menu {
     width: 115px;
