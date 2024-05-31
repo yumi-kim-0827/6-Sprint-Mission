@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from '@/src/libs/axios';
 import ArticleList from '@/src/components/ArticleList';
 import SearchForm from '@/src/components/SearchForm';
-import DropDownMenu from '@/src/components/DropDownMenu';
+import DropDown from '@/src/components/DropDown';
 import BestArticleList from '@/src/components/BestArticleList';
 import { Article, SortBy } from '@/src/types/type';
 
@@ -52,7 +52,7 @@ export default function BoardPage() {
       <section>
         <h2>게시글</h2>
         <SearchForm onSearch={handleSearch} />
-        <DropDownMenu onSortOption={handleSortOptionClick} />
+        <DropDown onSortOption={handleSortOptionClick} />
         <ArticleList articles={searchedArticles} />
       </section>
     </>
