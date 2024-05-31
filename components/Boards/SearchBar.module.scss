@@ -1,0 +1,28 @@
+@import "/styles/index.scss";
+
+.container {
+  display: flex;
+  background-color: get_color(gray_100);
+
+  border-radius: 12px;
+  padding: 9px 16px;
+  flex: 1;
+  align-items: center;
+
+  .input_field {
+    border: none;
+    flex: 1;
+    background-color: inherit;
+    margin-left: 4px;
+
+    @include font-base(get_color(gray_900), 400, 16px, 24px);
+
+    &::placeholder {
+      color: get_color(gray_400);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

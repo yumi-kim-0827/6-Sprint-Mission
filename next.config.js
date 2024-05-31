@@ -3,6 +3,7 @@ const path = require("path");
 
 const nextConfig = {
   reactStrictMode: true,
+  // assetPrefix: ".",
   async redirects() {
     return [
       {
@@ -16,11 +17,20 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com",
+        hostname: "sprint-fe-project.s3.ap-northeast-2.amazonaws.com",
         port: "",
-        pathname: "/codeitmall/**",
+        pathname: "/Sprint_Mission/**",
       },
     ],
+  },
+
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
   },
 };
 

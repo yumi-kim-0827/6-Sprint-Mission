@@ -20,12 +20,6 @@ $colors: (
   black: #000
 );
 
-$media: (
-  mobile: "screen and (max-width: )",
-  tablet: "screen and (min-width: 768px)",
-  desktop: "screen and (min-width: 1280px)",
-);
-
 @function get_color($key) {
   @if map-has-key($colors, $key) {
     @return map-get($colors, $key);

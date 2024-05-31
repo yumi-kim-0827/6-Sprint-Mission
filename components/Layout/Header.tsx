@@ -1,6 +1,6 @@
 import React from "react";
 
-import Logo from "@/src/assets/images/logo/logo.svg";
+import Logo from "../../src/assets/images/logo/logo.svg";
 import style from "./Header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,11 +17,11 @@ export default function Header() {
   return (
     <div className={style.header}>
       <div className={style.header_left}>
-        <Link href="/" aria-label="홈으로 이동">
-          <div className={style.logo_image}>
-            <Image fill src={Logo} alt="판다마켓 로고" />
-          </div>
-        </Link>
+        <div className={style.homepage}>
+          <Link href="/" aria-label="홈으로 이동">
+            <Logo />
+          </Link>
+        </div>
         <nav>
           <ul className={style.nav_list}>
             {menuItems.map((menuItem) => {
