@@ -53,4 +53,5 @@ const DrowDownButton = styled(DropDownStyles)`
 const DropDownMenu = styled(DropDownStyles)`
   position: absolute;
   padding: 9px;
+  width: 100%;
 `;
