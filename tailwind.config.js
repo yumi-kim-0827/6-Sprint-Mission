@@ -12,8 +12,9 @@ module.exports = {
       blue: "#3692FF",
     },
     screens: {
+      sm: "375px",
       md: "744px",
-      lg: "1199px",
+      lg: "1200px",
     },
     extend: {},
   },

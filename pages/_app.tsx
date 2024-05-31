@@ -13,10 +13,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>판다마켓</title>
         <link rel="icon" type="image/x-icon" href="/icons/pandaIcon.png" />
       </Head>
-      <main className={myFont.className}>
+      <div className={myFont.className}>
         <Header />
-        <Component {...pageProps} />
-      </main>
+        <div className={`px-4 md:px-6 lg:flex lg:justify-center`}>
+          <main className="lg:w-[1200px]">
+            <Component {...pageProps} />
+          </main>
+        </div>
+      </div>
     </>
   );
 }
