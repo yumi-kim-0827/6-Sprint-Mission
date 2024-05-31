@@ -27,7 +27,7 @@ export function Header() {
           </div>
           <nav className="flex gap-2 md:gap-0 text-base md:text-lg font-bold">
             <Link
-              href="/freeBoard"
+              href="/boards"
               className="text-blue no-underline md:px-[15px]"
             >
               자유게시판
