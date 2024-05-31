@@ -3,6 +3,7 @@ import axios from '@/src/libs/axios';
 import ArticleList from '@/src/components/ArticleList';
 import SearchForm from '@/src/components/SearchForm';
 import DropDownMenu from '@/src/components/DropDownMenu';
+import BestArticleList from '@/src/components/BestArticleList';
 import { Article, SortBy } from '@/src/types/type';
 
 export default function BoardPage() {
@@ -46,6 +47,7 @@ export default function BoardPage() {
     <>
       <section>
         <h2>베스트 게시글</h2>
+        <BestArticleList />
       </section>
       <section>
         <h2>게시글</h2>
