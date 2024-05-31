@@ -4,6 +4,7 @@ import style from './style.module.scss';
 import Image from 'next/image';
 import { dateToString } from '@/utils/dateToString';
 import HeartIcon from '@/public/svgs/heart-icon.svg';
+import ProfileIcon from '@/public/svgs/profile.svg';
 
 interface BoardPostProps {
   post: Post;
@@ -27,13 +28,7 @@ const BoardPost = ({ post }: BoardPostProps) => {
       </div>
       <div className={style.bottom_info}>
         <div className={style.bottom_left}>
-          <Image
-            src="/images/profile.png"
-            alt="유저 프로필"
-            width="24"
-            height="24"
-            priority
-          />
+          <ProfileIcon width="24" height="24" />
           <span>{post.writer.nickname}</span>
           <span>{dateToString(post.createdAt)}</span>
         </div>
