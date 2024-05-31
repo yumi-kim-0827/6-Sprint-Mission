@@ -1,0 +1,27 @@
+.article {
+  width: 1,200px;
+  height: 136px; 
+}
+
+.article-content {
+
+}
+
+.article-title{
+
+}
+
+.article-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-info-container1 {
+  display: flex;
+}
+
+.article-info-container2 {
+  display: flex;
+}
+
+/* css도 나중에..... */
