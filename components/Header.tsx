@@ -43,8 +43,8 @@ function Navbar() {
             <Image
               src="/images/profile.svg"
               alt="프로필 사진"
-              width={153}
-              height={51}
+              width={40}
+              height={40}
             />
           </button>
         </div>

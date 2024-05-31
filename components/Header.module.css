@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 200px 9px 200px;
+  padding: 0 200px;
   background-color: #ffffff;
   height: 70px;
   position: fixed;
@@ -51,7 +51,6 @@
 
 @media (max-width: 1199px) {
   .navbar {
-    width: 100%;
     padding: 0 24px;
     align-items: center;
   }

@@ -5,6 +5,7 @@ import { getArticles } from "../lib/api";
 import Dropdown from "../components/Dropdown";
 import SearchBar from "../components/SearchBar";
 import useResizeHandler from "../components/useResizeHandler";
+import styles from "../styles/boards.module.css";
 
 const getBestArticlesLimit = () => {
   if (typeof window !== "undefined") {
@@ -91,8 +92,8 @@ export default function Boards() {
   }
 
   return (
-    <section>
-      <section>
+    <section className={styles.ArticleSection}>
+      <section className={styles.bestArticleSection}>
         <h1>베스트 게시글</h1>
         <Articles articles={bestArticles} />
       </section>
