@@ -1,6 +1,5 @@
 .bestPostsFrame {
   height: 217px;
-  overflow: hidden;
 }
 
 .bestPostsTitle {
@@ -10,8 +9,8 @@
 }
 
 .bestPostsBoxes {
+  overflow: hidden;
   margin-top: 10px;
-
   height: 169px;
   display: flex;
   gap: 15px;

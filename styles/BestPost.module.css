@@ -4,7 +4,6 @@
   background-color: #f3f4f6;
 }
 .wrap {
-  margin: 0px 10px;
 }
 .badge {
   width: 102px;
@@ -19,12 +18,12 @@
   font-size: 16px;
   color: #ffffff;
 }
+
 .contentFrame {
   margin-top: 5px;
-  width: 336px;
-  height: 153px;
 }
 .contentBox {
+  margin: 0px 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -46,7 +45,7 @@
 }
 
 .userInfoFrame {
-  margin-top: 30px;
+  margin: 30px 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -56,13 +55,13 @@
 }
 
 @media (max-width: 1199px) {
-  .postFrame {
+  .wrap {
     width: 340px;
   }
 }
 
 @media (max-width: 769px) {
-  .postFrame {
+  .wrap {
     width: 343px;
   }
 }

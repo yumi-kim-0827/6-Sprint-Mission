@@ -1,0 +1,34 @@
+.searchBarFrame {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  width: 1004px;
+
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.filter {
+  border-radius: 12px;
+  width: 130px;
+  height: 42px;
+}
+
+@media (max-width: 1199px) {
+  .search {
+    width: 560px;
+  }
+  .filter {
+    width: 120px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 769px) {
+}
+
