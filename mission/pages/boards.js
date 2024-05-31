@@ -3,6 +3,7 @@ import PostList from "@/components/PostList";
 import { useState, useEffect } from "react";
 import axios from "@/pages/api/axios";
 import styles from "@/styles/boards.module.scss";
+import Search from "@/components/Search";
 
 export default function Boards() {
   const [posts, setPosts] = useState([]);
@@ -20,11 +21,14 @@ export default function Boards() {
     <div>
       <h1 className={styles.title}>베스트 게시글</h1>
       <BestPostBoard />
-      <div className={styles.titleContainer}>
-        <h1 className={styles.title}>게시글</h1>
-        <button className={styles.writeButton}>글쓰기</button>
+      <div className={styles.postListContainer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>게시글</h1>
+          <button className={styles.writeButton}>글쓰기</button>
+        </div>
+        <Search />
+        <PostList posts={posts} />
       </div>
-      <PostList posts={posts} />
     </div>
   );
 }
