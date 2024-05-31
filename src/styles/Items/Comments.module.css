@@ -20,7 +20,9 @@
 }
 
 .comment_writer_img {
+	position: relative;
 	width: 40px;
+	height: 40px;
 }
 
 .comment_writer_main {

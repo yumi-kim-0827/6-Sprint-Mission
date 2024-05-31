@@ -34,8 +34,6 @@ const ProductBest: React.FC = () => {
 		handleLoad({ orderBy: 'favorite', page: 1, pageSize: 4 });
 	}, []);
 
-	console.log(products);
-
 	return (
 		<>
 			<span className={styles.best_title}>베스트 상품</span>

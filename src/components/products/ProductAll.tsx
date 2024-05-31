@@ -38,8 +38,6 @@ const ProductAll: React.FC = () => {
 		handleLoad(order);
 	}, [order]);
 
-	console.log(products);
-
 	const handleChange = (value: string) => {
 		setOrder(value);
 	};

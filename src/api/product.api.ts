@@ -1,58 +1,35 @@
 import instance from './Axios';
 
-interface Product {
-	id: string;
-	images: string;
-	name: string;
-	price: number;
-	favoriteCount: number;
-}
-
-interface GetProductsParams {
-	orderBy?: string;
-	page?: number;
-	pageSize?: number;
-}
-
-interface GetProductsResponse {
-	list: Product[];
-}
-
-interface GetCommentResponse {
-	comments: Comment[];
-}
-
-export async function getProducts({
-	orderBy = 'recent',
-	page = 1,
-	pageSize = 10,
-}: GetProductsParams): Promise<GetProductsResponse> {
+export async function getProducts({ orderBy = 'recent', page = 1, pageSize = 10 }) {
 	const query = `orderBy=${orderBy}&page=${page}&pageSize=${pageSize}`;
+	// console.log(query);
 	try {
 		const response = await instance.get(`/products?${query}`);
-		return response.data;
+
+		const body = response.data;
+
+		// console.log(body);
+
+		return body;
 	} catch (error) {
 		console.error('API 오류 \n', error);
-		return { list: [] }; // 오류 발생 시 기본 값 반환
 	}
 }
 
-export async function getProductId(productId: string): Promise<Product | null> {
-	try {
-		const response = await instance.get(`/products/${productId}`);
-		return response.data;
-	} catch (error) {
-		console.error('API 오류 \n', error);
-		return null; // 오류 발생 시 기본 값 반환
-	}
+export async function getProductId(productId: string | string[]) {
+	const response = await instance.get(`/products/${productId}`);
+	const body = response.data;
+
+	// console.log(body);
+
+	return body;
 }
 
-export async function getComment(productId: string, limit = 3): Promise<GetCommentResponse> {
-	try {
-		const response = await instance.get(`/products/${productId}/comments?limit=${limit}`);
-		return response.data;
-	} catch (error) {
-		console.error('API 오류 \n', error);
-		return { comments: [] }; // 오류 발생 시 기본 값 반환
-	}
+export async function getComment(productId: string | string[], limit = 3) {
+	const response = await instance.get(`/products/${productId}/comments?limit=${limit}`);
+	const body = response.data;
+
+	// console.log(body);
+
+	return body;
 }

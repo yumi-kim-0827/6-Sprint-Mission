@@ -10,7 +10,9 @@ import { useEffect } from 'react';
 
 const Header: React.FC = () => {
 	const nowSite = useRouter().pathname;
-	const isActive = nowSite === '/AddItem' || nowSite === '/Items';
+
+	const isItems = nowSite === '/AddItem' || nowSite === '/items' || nowSite === '/items/[id]';
+	const isBoards = nowSite === '/boards' || nowSite === '/boards/[id]';
 
 	return (
 		<header className={styles.top_navigation}>
@@ -24,12 +26,12 @@ const Header: React.FC = () => {
 					<nav className={styles.main_nav}>
 						<div className={styles.nav_menu}>
 							{/* 자유게시판 링크 */}
-							<Link href='/community' className={styles.menu_community}>
+							<Link href='/community' className={`${styles.menu_community} ${isBoards ? `${styles.active}` : ''}`}>
 								자유게시판
 							</Link>
 
 							{/* 중고마켓 링크 */}
-							<Link href='/Items' className={`${styles.menu_used_market} ${isActive ? `${styles.active}` : ''}`}>
+							<Link href='/items' className={`${styles.menu_used_market} ${isItems ? `${styles.active}` : ''}`}>
 								중고마켓
 							</Link>
 						</div>
@@ -37,7 +39,7 @@ const Header: React.FC = () => {
 				</div>
 
 				<div className={styles.top_navigation_login}>
-					<Link href='/SignIn' className={`${styles.login_btn} blue`}>
+					<Link href='/signIn' className={`${styles.login_btn} blue`}>
 						로그인
 					</Link>
 				</div>
