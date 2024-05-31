@@ -1,3 +1,3 @@
 export default function Home() {
-  return (<>Next.js</>);
+  return (<>자유게시판click</>);
 }
