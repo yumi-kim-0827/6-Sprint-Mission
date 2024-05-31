@@ -73,7 +73,7 @@ export default function Posts() {
           </div>
           <input
             className={styles.searchInput}
-            placeholder="검색할 상품을 입력해주세요"
+            placeholder="검색할 게시글 제목을 입력해주세요"
             onChange={handleKeywordSearch}
           />
         </div>
