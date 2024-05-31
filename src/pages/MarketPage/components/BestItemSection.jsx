@@ -56,8 +56,10 @@ function BestItemSection() {
   // };
 
   return (
-    <div className="max-w-[1200px] h-[406px]">
-      <h1 className="text-[20px] font-[700]">베스트 상품</h1>
+    <div className="max-w-[1200px] h-[406px] m-auto">
+      <h1 className="text-[20px] font-[700] mb-[16px] mt-[24px]">
+        베스트 상품
+      </h1>
       <div className="flex gap-[24px]">
         {item?.map((item) => (
           <ItemCard item={item} key={`best-item-${item.id}`} />

@@ -58,12 +58,15 @@ function AllItemSection() {
   // };
 
   return (
-    <div className="max-w-[1200px]">
+    <div className="max-w-[1200px] m-auto">
       <div className="flex gap-[12px]">
-        <h1 className="flex-1 text-[20px] font-[700]">전체 상품</h1>
+        <h1 className="flex-1 text-[20px] font-[700] mb-[16px] mt-[24px]">
+          전체 상품
+        </h1>
         <input
-          className="flex-none w-[325px] h-[42px] p-[10px]"
+          className="flex-none w-[325px] h-[42px] p-[10px] bg-[var(--gray100)] rounded-md"
           type="text"
+          placeholder="검색할 상품을 입력해주세요"
           id="name"
         ></input>
         <button className="flex-none w-[133px] h-[42px] p-[12px 23px] gap-[10px] rounded-md bg-[var(--blue50)] text-[16px] font-[600] text-[#fff] hover:bg-[var(--blue70)]">
