@@ -29,7 +29,7 @@ export default function Article({ articles }: ArticleProps) {
         <div key={article.id}>
           <Container>
             <div style={{ display: "flex" }}>
-              <Content>{article.content}</Content>
+              <Content>{article.title}</Content>
               {article.image ? (
                 <StyledImage src={article.image} alt="이미지" />
               ) : (

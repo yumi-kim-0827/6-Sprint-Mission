@@ -36,7 +36,7 @@ export default function BestArticle({
           <Container>
             <Badge />
             <Content>
-              <Text>{article.content}</Text>
+              <Text>{article.title}</Text>
               {article.image ? (
                 <StyledImage src={article.image} alt="이미지" />
               ) : (
