@@ -1,4 +1,3 @@
-import React from "react";
 import "./main.css";
 import ImgHomeTop from "../../assets/logo/Img_home_top.png";
 import ImgHome01 from "../../assets/logo/Img_home_01.png";
