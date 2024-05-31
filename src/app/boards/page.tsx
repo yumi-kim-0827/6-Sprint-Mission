@@ -17,7 +17,7 @@ const BEST_POST_LIMIT: { [key in DeviceSizes]: number } = {
   large: 3,
 };
 
-const boards = () => {
+const Boards = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isLoading, error, axiosFetcher } = useDataFetch();
@@ -115,4 +115,4 @@ const boards = () => {
   );
 };
 
-export default boards;
+export default Boards;
