@@ -31,7 +31,7 @@ export default function BestArticleComponent({ createdAt, likeCount, image, titl
         </div>
         {image && (
           <div className='flex justify-center items-center bg-white border border-solid rounded-md border-cool-gray200 w-[72px] h-[72px]'>
-            <Image src={image} alt='메롱' width={48} height={45} />
+            <Image src={image} alt='게시글 이미지' width={48} height={45} />
           </div>
         )}
       </div>

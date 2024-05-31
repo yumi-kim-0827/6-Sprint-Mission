@@ -4,22 +4,42 @@ import { getBestArticles, ListProps } from '@/lib/getArticles';
 import Link from 'next/link';
 
 const PAGE_NUM = 1;
-const PAGE_SIZE = 3;
 const ORDERBY = 'like';
+
+function getPageSize() {
+  const width = window.innerWidth;
+  if (typeof window === 'undefined') {
+    return 3;
+  }
+  if (width < 768) return 1;
+  else if (width < 1199) return 2;
+  else return 3;
+}
 
 export default function BestArticles() {
   const [bestArticles, setBestArticles] = useState<ListProps[]>([]);
+  const [pageSize, setPageSize] = useState(3);
 
   useEffect(() => {
     const fetchBestArticles = async () => {
       try {
-        const data = await getBestArticles(PAGE_NUM, PAGE_SIZE, ORDERBY);
+        const data = await getBestArticles(PAGE_NUM, pageSize, ORDERBY);
         setBestArticles(data);
       } catch (error) {
         console.error('Failed to fetch items:', error);
       }
     };
     fetchBestArticles();
+  }, [pageSize]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setPageSize(getPageSize());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
