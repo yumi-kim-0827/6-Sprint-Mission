@@ -29,13 +29,16 @@ export default function BoardsPage({
   const [isLoading, setLoading] = useState<boolean>(true);
   const [keyword, setKeyword] = useState<string>("");
   const [value, setValue] = useState<string>("");
+  const [isOpenDropDown, setIsOpenDropDown] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setKeyword(value);
   };
 
-  const handleClick = (e: ChangeEvent<HTMLDivElement>) => {};
+  const handleClick = () => {
+    setIsOpenDropDown(() => !isOpenDropDown);
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(() => e.target.value);
@@ -45,7 +48,6 @@ export default function BoardsPage({
     fetch(`${BASE_URL}/articles?orderBy=${sort}&&keyword=${keyword}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setArticle(data.list ?? []);
         setLoading(false);
       });
@@ -83,7 +85,8 @@ export default function BoardsPage({
             />
             <button
               type="button"
-              className="flex items-center border-[#e5e7eb] border rounded-xl p-[9px] md:px-5 md:py-3 text-base h-[42px]"
+              onClick={handleClick}
+              className="flex items-center border-[#e5e7eb] border rounded-xl p-[9px] md:px-5 md:py-3 text-base h-[42px] relative"
             >
               <OnlyMobileComponent>
                 <Image
@@ -106,6 +109,16 @@ export default function BoardsPage({
                   />
                 </div>
               </UpperTabletComponent>
+              {isOpenDropDown && (
+                <ul className="absolute top-0 right-0 w-[125px] bg-white border border-[#e5e7eb] rounded-xl">
+                  <li className="h-[42px] flex justify-center items-center border-[#e5e7eb] border hover:bg-[#9CA3AF]">
+                    최신 순
+                  </li>
+                  <li className="h-[42px] flex justify-center items-center border-[#e5e7eb] border hover:bg-[#9CA3AF]">
+                    좋아요 순
+                  </li>
+                </ul>
+              )}
             </button>
           </section>
         </form>
