@@ -11,7 +11,7 @@ const LinkButton = ({ children, href }: LinkButtonProps) => {
   return (
     <Link
       href={href}
-      className="py-3 px-[23px] rounded-lg font-semibold bg-blue text-white flex justify-center items-center leading-11"
+      className="py-3 px-[23px] rounded-lg font-semibold bg-blue text-white flex justify-center items-center leading-[1.1]"
     >
       {children}
     </Link>

@@ -18,15 +18,17 @@ const BestBoardList = ({ list }: BoardListProps) => {
       </div>
       <div className="flex justify-between items-center mt-[2px]">
         <div className="flex gap-2">
-          <h6 className="text-sm text-gray-600 leading-12">{nickname}</h6>
+          <h6 className="text-sm text-gray-600 leading-[1.2]">{nickname}</h6>
           <div className="flex items-center gap-1">
             <Image src={likeImage} alt="좋아요" width={14} height={14} />
-            <span className="text-sm leading-12 text-gray-500">
+            <span className="text-sm leading-[1.2] text-gray-500">
               {likeCount}
             </span>
           </div>
         </div>
-        <span className="text-sm leading-12 text-gray-400">{customDate}</span>
+        <span className="text-sm leading-[1.2] text-gray-400">
+          {customDate}
+        </span>
       </div>
     </li>
   );

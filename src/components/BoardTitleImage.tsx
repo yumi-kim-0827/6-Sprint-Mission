@@ -9,7 +9,7 @@ interface BoardTitleImageProps {
 const BoardTitleImage = ({ title, image }: BoardTitleImageProps) => {
   return (
     <>
-      <p className="flex-1 font-semibold text-lg md:text-xl leading-12 truncate line-clamp-2 whitespace-normal h-fit">
+      <p className="flex-1 font-semibold text-lg md:text-xl leading-[1.2] truncate line-clamp-2 whitespace-normal h-fit">
         {title}
       </p>
       {image !== null ? (

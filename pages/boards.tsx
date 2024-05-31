@@ -85,8 +85,6 @@ const Boards = () => {
     }
   };
 
-  console.log(bestArticles);
-
   useEffect(() => {
     getBestArticles();
   }, []);

@@ -12,7 +12,7 @@ const Header = () => {
             <div className="hidden w-10 h-10 sm:block">
               <Image src={pandaLogo} alt="판다마켓 로고 이미지" />
             </div>
-            <span className="font-ROKAFSans text-blue text-[26px] font-bold leading-14 text-left">
+            <span className="font-ROKAFSans text-blue text-[26px] font-bold leading-[1.4] text-left">
               판다마켓
             </span>
           </Link>

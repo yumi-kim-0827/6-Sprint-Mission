@@ -23,7 +23,7 @@ const SearchForm = ({ value, onChange, onSubmit }: SearchFormProps) => {
       <input
         value={value}
         onChange={onChange}
-        className=" text-gray-400 leading-15 bg-transparent flex-1 focus:outline-0"
+        className=" text-gray-400 leading-[1.5] bg-transparent flex-1 focus:outline-0"
         placeholder="검색할 상품을 입력해주세요"
       />
     </form>

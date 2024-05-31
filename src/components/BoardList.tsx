@@ -24,8 +24,10 @@ const BoardList = (props: BoardListProps) => {
           <div className="w-6 h-6 rounded-full overflow-hidden">
             <Profile />
           </div>
-          <h6 className="text-sm text-gray-600 leading-12">{nickname}</h6>
-          <span className="text-sm leading-12 text-gray-400">{customDate}</span>
+          <h6 className="text-sm text-gray-600 leading-[1.2]">{nickname}</h6>
+          <span className="text-sm leading-[1.2] text-gray-400">
+            {customDate}
+          </span>
         </div>
         <div className="flex items-center gap-[10px]">
           <Image
@@ -34,7 +36,7 @@ const BoardList = (props: BoardListProps) => {
             width={20}
             className="cursor-pointer"
           />
-          <span className="leading-12 text-gray-500">{likeCount}</span>
+          <span className="leading-[1.2] text-gray-500">{likeCount}</span>
         </div>
       </div>
     </>

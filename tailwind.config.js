@@ -31,12 +31,6 @@ module.exports = {
       ROKAFSans: ["ROKAF Sans"],
       Abel: ["Abel"],
     },
-    lineHeight: {
-      11: 1.1,
-      12: 1.2,
-      14: 1.4,
-      15: 1.5,
-    },
   },
   plugins: [],
 };
