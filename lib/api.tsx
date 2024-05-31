@@ -20,13 +20,33 @@ export async function getArticles({
   order = "recent",
 }: Partial<URLSearchParamsProps> = {}) {
   const query = new URLSearchParams({
-    limit: limit.toString(),
+    pageSize: limit.toString(),
     orderBy: order,
   }).toString();
   const url = `/articles?${query}`;
 
   try {
     const data = await fetchData(url);
+    return data.list;
+  } catch (error) {
+    console.error("Failed to fetch articles:", error);
+    throw error;
+  }
+}
+
+export async function getBestArticles({
+  limit = 3,
+  order = "like",
+}: Partial<URLSearchParamsProps> = {}) {
+  const query = new URLSearchParams({
+    pageSize: limit.toString(),
+    orderBy: order,
+  }).toString();
+  const url = `/articles?${query}`;
+
+  try {
+    const data = await fetchData(url);
+    console.log(limit);
     return data.list;
   } catch (error) {
     console.error("Failed to fetch articles:", error);

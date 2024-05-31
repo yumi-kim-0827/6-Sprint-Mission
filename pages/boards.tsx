@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import debounce from "lodash-es/debounce";
 import Articles, { ArticleListProps } from "../components/Articles";
-import { getArticles } from "../lib/api";
+import { getArticles, getBestArticles } from "../lib/api";
 import BestArticlesSection from "../components/BestArticlesSection";
 import Dropdown from "../components/Dropdown";
 import SearchBar from "../components/SearchBar";
@@ -30,6 +30,8 @@ export default function Boards() {
   const [filteredArticles, setFilteredArticles] = useState<ArticleListProps[]>(
     []
   );
+  const [limit, setLimit] = useState<number>(3);
+
   const fetchArticles = async (order: string) => {
     setLoading(true);
     try {
@@ -46,12 +48,11 @@ export default function Boards() {
   const fetchBestArticles = async () => {
     if (typeof window !== "undefined") {
       const bestArticlesLimit = getBestArticlesLimit();
-      const bestArticles = await getArticles({
-        limit: 10,
+      const bestArticles = await getBestArticles({
+        limit: bestArticlesLimit,
         order: "like",
       });
-      const bestArticlesLimited = bestArticles.slice(0, bestArticlesLimit);
-      setBestArticles(bestArticlesLimited);
+      setBestArticles(bestArticles);
     }
   };
 
@@ -61,7 +62,7 @@ export default function Boards() {
 
   useEffect(() => {
     fetchBestArticles();
-  }, []);
+  }, [limit]);
 
   const handleSortChange = async (order: string) => {
     setCurrentOrder(order);
@@ -80,6 +81,7 @@ export default function Boards() {
   };
 
   const handleResize = () => {
+    setLimit(getBestArticlesLimit());
     fetchBestArticles();
   };
 
