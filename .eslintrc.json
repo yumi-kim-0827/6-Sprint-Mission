@@ -29,6 +29,7 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "react/require-default-props": "off",
     "react/jsx-no-useless-fragment": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "import/order": [
       "error",
       {
@@ -51,5 +52,13 @@
         "pathGroupsExcludedImportTypes": ["react*"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "off"
+      }
+    }
+  ]
 }

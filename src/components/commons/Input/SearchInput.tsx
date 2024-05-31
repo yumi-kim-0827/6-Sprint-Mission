@@ -17,7 +17,7 @@ export default function SearchInput({ value, placeholder, onChange }: Props) {
         className="h-[42px] w-full min-w-[242px] rounded-xl border-none bg-cool-gray-300 indent-[44px] font-normal outline-none placeholder:text-cool-gray-400"
       />
       <Image
-        src="/icons/ic_search.svg"
+        src="/images/ic_search.svg"
         alt="search-icon"
         width={15}
         height={15}

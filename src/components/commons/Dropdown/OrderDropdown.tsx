@@ -1,7 +1,7 @@
 import { MouseEvent } from "react";
 import Image from "next/image";
-import useResponsive from "@/hooks/useResponsive";
 import Order from "@/models/order";
+import useDeviceState, { Device } from "@/hooks/useDeviceState";
 
 interface Props {
   currentOrder: Order;
@@ -9,18 +9,18 @@ interface Props {
 }
 
 export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
-  const [isMobile] = useResponsive();
+  const deviceState = useDeviceState();
 
   return (
     <div className="dropdown dropdown-end dropdown-hover">
       <div
         tabIndex={0}
         role="button"
-        className={`relative flex size-[42px] cursor-pointer select-none items-center justify-center rounded-xl border border-gray-200 font-normal text-cool-gray-800 ${!isMobile && "min-w-[130px]"}`}
+        className={`relative flex size-[42px] cursor-pointer select-none items-center justify-center rounded-xl border border-gray-200 font-normal text-cool-gray-800 ${deviceState !== Device.MOBILE && "min-w-[130px]"}`}
       >
-        {isMobile ? (
+        {deviceState === Device.MOBILE ? (
           <Image
-            src="/icons/ic_sort.svg"
+            src="/images/ic_sort.svg"
             alt="sort-icon"
             width={24}
             height={24}
@@ -29,7 +29,7 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
           <div className="align-center flex w-full justify-between px-5">
             <span>{currentOrder}</span>
             <Image
-              src="/icons/ic_arrow_down.svg"
+              src="/images/ic_arrow_down.svg"
               alt="arrow-down"
               width={24}
               height={24}

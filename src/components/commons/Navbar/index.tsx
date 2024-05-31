@@ -2,19 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Button from "@/components/commons/Button";
-import useResponsive from "@/hooks/useResponsive";
+import useDeviceState, { Device } from "@/hooks/useDeviceState";
 
 export default function Navbar() {
   const router = useRouter();
   const { pathname } = router;
-  const [isMobile] = useResponsive();
+  const deviceState = useDeviceState();
 
   return (
     <nav className="sticky top-0 flex h-[70px] items-center border-b-[1px] border-b-[#dfdfdf] bg-white px-4 py-[10px] md:px-[34px] xl:px-[200px]">
       <Link href="/">
-        {isMobile ? (
+        {deviceState === Device.MOBILE ? (
           <Image
-            src="/icons/main_logo_small.svg"
+            src="/images/main_logo_small.svg"
             alt="logo"
             width={81}
             height={40}
@@ -22,7 +22,7 @@ export default function Navbar() {
           />
         ) : (
           <Image
-            src="/icons/main_logo.svg"
+            src="/images/main_logo.svg"
             alt="logo"
             width={153}
             height={51}
