@@ -15,11 +15,13 @@ const getPageSize = () => {
 };
 
 function BestItemSection() {
+  const pageFromStorage = Number(sessionStorage.getItem("page")) || 1;
   const [item, setItem] = useState([]);
+  const [page, setPage] = useState(pageFromStorage);
   const [pageSize, setPageSize] = useState(getPageSize());
 
-  const fetchDate = async ({ order, pageSize }) => {
-    const products = await getProduct({ order, pageSize });
+  const fetchDate = async ({ order }) => {
+    const products = await getProduct({ order, page, pageSize });
     setItem(products.list);
   };
 

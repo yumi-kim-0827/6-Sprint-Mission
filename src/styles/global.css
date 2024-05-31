@@ -1,9 +1,14 @@
-.headerBar {
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .headerBar {
   display: flex;
   align-items: center;
-}
+} */
 
-.loginButton {
+/* .loginButton {
   width: Hug (88px) px;
   height: Fixed (42px) px;
   padding: 12px 23px;
@@ -32,4 +37,4 @@
 
 .headerBar li:hover {
   color: #3692ff;
-}
+} */

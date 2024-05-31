@@ -10,7 +10,7 @@ function getLinkStyle({ isActive }) {
 function Header() {
   return (
     <header>
-      <div className="headerBar">
+      <div>
         <Link to="/">
           <img src={logo} alt="판다마켓 로고" />
         </Link>
@@ -24,7 +24,8 @@ function Header() {
             중고마켓
           </NavLink>
         </li>
-        <button className="loginButton">
+        {/* className="loginButton" */}
+        <button>
           <Link to="/login">로그인</Link>
         </button>
       </div>
