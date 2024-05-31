@@ -1,10 +1,11 @@
 import baseAxios from './baseAxios';
 import { articleErrorMessage } from '@/constants/errorMessage';
+import { SortType } from '@/constants/sortOption';
 
 interface GetArticleListParams {
   page?: number;
   pageSize?: number;
-  orderBy?: string;
+  orderBy?: SortType;
   keyword?: string;
 }
 

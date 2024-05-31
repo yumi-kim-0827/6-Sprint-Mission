@@ -27,7 +27,7 @@ const BestPostContainer = () => {
     return <LoadingSpinner className={style.spinner} />;
   }
   if (loadError) {
-    return <h1>{loadError.message}</h1>;
+    return <span>{loadError.message}</span>;
   }
 
   return (

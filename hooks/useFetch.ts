@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export const useFetch = (fetchFun: Function) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<Error | null>(null);
 
   const handleFetch = async (...args: any[]) => {
