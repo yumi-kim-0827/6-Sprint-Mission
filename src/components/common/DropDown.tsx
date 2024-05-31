@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, MouseEvent } from 'react';
-import styles from './Dropdown.module.css';
+import styles from '@/styles/common/Dropdown.module.css';
 
 interface Option {
 	label: string;

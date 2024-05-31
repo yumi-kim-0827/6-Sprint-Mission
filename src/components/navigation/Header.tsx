@@ -22,11 +22,12 @@ const Header: React.FC = () => {
 						<Image className={styles.logo_img} src={title_img} alt='Desktop_logo_img' width={152} height={60} />
 					</Link>
 				</div>
+
 				<div className={styles.top_navigation_main}>
 					<nav className={styles.main_nav}>
 						<div className={styles.nav_menu}>
 							{/* 자유게시판 링크 */}
-							<Link href='/community' className={`${styles.menu_community} ${isBoards ? `${styles.active}` : ''}`}>
+							<Link href='/boards' className={`${styles.menu_community} ${isBoards ? `${styles.active}` : ''}`}>
 								자유게시판
 							</Link>
 

@@ -1,10 +1,10 @@
-import instance from './Axios';
+import instance from '@/api/Axios';
 
 export async function getBoards({ orderBy = 'recent', page = 1, pageSize = 10 }) {
 	const query = `orderBy=${orderBy}&page=${page}&pageSize=${pageSize}`;
+
 	try {
 		const response = await instance.get(`/articles?${query}`);
-
 		const body = response.data;
 
 		return body;
