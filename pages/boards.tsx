@@ -2,13 +2,32 @@ import BestPostsContainer from '@/src/components/BestPostsContainer';
 import TotalPosts from '@/src/components/TotalPosts';
 import React from 'react';
 import style from '../styles/BoardFrame.module.css';
-const boards = () => {
+import { GetServerSideProps } from 'next';
+import { AxiosError } from 'axios';
+import { getBestPosts, writing } from '@/src/api/api';
+interface bestPosts {
+  bestPosts: writing[];
+}
+
+const boards: React.FC<bestPosts> = ({ bestPosts }) => {
   return (
     <div className={style.boardFrame}>
-      <BestPostsContainer />
+      <BestPostsContainer bestPosts={bestPosts} />
       <TotalPosts />
     </div>
   );
+};
+export const getServerSideProps: GetServerSideProps<bestPosts> = async () => {
+  const URL = 'page=1&pageSize=3&orderBy=like';
+  try {
+    const bestPosts = await getBestPosts(URL);
+    return {
+      props: { bestPosts },
+    };
+  } catch (error) {
+    const err = error as AxiosError;
+    throw err;
+  }
 };
 
 export default boards;
