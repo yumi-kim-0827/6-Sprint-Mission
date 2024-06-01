@@ -8,6 +8,7 @@ import { dispatcher } from "lib/axios";
 import useRequest from "hooks/useRequest";
 import useInterSectionObserver from "hooks/useInterSectionObserver";
 import { Article, InitialDataProps } from "types/type";
+import useDeviceState, { Device } from "hooks/useDeviceState";
 
 const PAGE_SIZE = 5;
 
@@ -41,74 +42,75 @@ export async function getStaticProps() {
   }
 } 
 
-export default function Boards({ initialData, initialTotalCount }: InitialDataProps) {
-  const [bestArticles, setBestArticles] = useState<Article[]>(initialData);
-  const [articles, setArticles] = useState<Article[]>(initialData);
+function BestArticles() {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const { isLoading, error, requestFunc } = useRequest();
+  const deviceState = useDeviceState();
 
-  const [bestArticlesPage, setBestArticlesPage] = useState(2);
-  const [articlesPage, setArticlesPage] = useState(2);
-
-  const [totalBestArticles, setTotalBestArticles] = useState(initialTotalCount);
-  const [totalArticles, setTotalArticles] = useState(initialTotalCount);
-
-  const bestArticlesRef = useRef<HTMLDivElement>(null);
-  const articlesRef = useRef<HTMLDivElement>(null);
-
-  const isBestArticlesIntersection = useInterSectionObserver(bestArticlesRef);
-  const isArticlesIntersection = useInterSectionObserver(articlesRef);
-
-  const [orderBy, setOrderBy] = useState("like");
-
-  const { isLoading: bestArticlesLoading, requestFunc: getBestArticlesData } =
-    useRequest({
-      options: {
-        method: "get",
-        url: "articles",
-        params: {
-          page: bestArticlesPage,
-          pageSize: PAGE_SIZE,
-          orderBy: "like",
-        },
+  const getArticles = async (pageSize: number) => {
+    const res = await requestFunc ({
+      method: "get",
+      url: "articles",
+      params: {
+        pageSize,
+        orderBy: "like",
       },
     });
 
-  const { isLoading: articlesLoading, requestFunc: getArticlesData } =
-    useRequest({
-      options: {
-        method: "get",
-        url: "articles",
-        params: {
-          page: articlesPage,
-          pageSize: PAGE_SIZE,
-          orderBy: orderBy,
-        },
-      },
-    });
+    setArticles(res?.data?.list);
+  };
 
   useEffect(() => {
-    (async () => {
-      if (
-        !isBestArticlesIntersection ||
-        bestArticles.length >= totalBestArticles
-      )
-        return;
+    if (!deviceState) return;
 
-      const result = await getBestArticlesData();
+    let pageSize;
+    if (deviceState === Device.MOBILE) pageSize = 1;
+    if (deviceState === Device.TABLET) pageSize = 2;
+    if (deviceState === Device.PC) pageSize = 3;
 
-      setBestArticles((prev) => [...prev, ...result?.data?.list]);
-      setBestArticlesPage((prev) => prev + 1);
-      setTotalBestArticles(result?.data?.totalCount);
-    })();
-  }, [isBestArticlesIntersection]);
+    getArticles(pageSize as number);
+  }, [deviceState]);
+
+  return (
+    <>
+        <Card articles={articles} />
+    </>
+  );
+}
+
+
+export default function Boards({ initialData, initialTotalCount }: InitialDataProps) {
+  const [articles, setArticles] = useState<Article[]>(initialData);
+  const [articlesPage, setArticlesPage] = useState(2);
+  const [totalArticles, setTotalArticles] = useState(initialTotalCount);
+  const articlesRef = useRef<HTMLDivElement>(null);
+  const isArticlesIntersection = useInterSectionObserver(articlesRef);
+  const [orderBy, setOrderBy] = useState("like");
+  const { isLoading, error, requestFunc } = useRequest();
+
+  const getArticles = async () => {
+    const res = await requestFunc({
+      method: "get",
+      url: "articles",
+      params: {
+        page: articlesPage,
+        pageSize: PAGE_SIZE,
+        orderBy: orderBy,
+      },
+    })
+
+    return res;
+  }
+
 
   useEffect(() => {
     (async () => {
       if (!isArticlesIntersection || articles.length >= totalArticles) return;
 
-      const result = await getArticlesData();
-      setArticles((prev) => [...prev, ...result?.data?.list]);
+      const res = await getArticles();
+      setArticles((prev) => [...prev, ...res?.data?.list]);
       setArticlesPage((prev) => prev + 1);
-      setTotalArticles(result?.data?.totalCount);
+      setTotalArticles(res?.data?.totalCount);
     })();
   }, [isArticlesIntersection]);
 
@@ -126,9 +128,7 @@ export default function Boards({ initialData, initialTotalCount }: InitialDataPr
       </TitleContainer>
       <ScrollX>
         <CardContainer>
-          <Card articles={bestArticles} />
-          {bestArticlesLoading && <Loading>Loading..</Loading>}
-          <div ref={bestArticlesRef}></div>
+          <BestArticles />
         </CardContainer>
       </ScrollX>
       <TitleContainer>
@@ -139,7 +139,7 @@ export default function Boards({ initialData, initialTotalCount }: InitialDataPr
         <SearchForm handleSortChange={handleSortChange} />
       </SearchContainer>
       <Post articles={articles} />
-      {articlesLoading && <Loading>Loading..</Loading>}
+      {isLoading && <Loading>Loading..</Loading>}
       <div ref={articlesRef}></div>
     </>
   );
