@@ -5,8 +5,8 @@ import Button from '@/components/Button';
 import SearchBar from '@/components/SearchBar';
 import DropDown from '@/components/DropDown';
 import { SortType } from '@/constants/sortOption';
-import BestPostContainer from '@/components/BestPostContainer';
-import BoardPostContainer from '@/components/BoardPostContainer';
+import BestPostListContainer from '@/components/BestPostListContainer';
+import BoardPostListContainer from '@/components/BoardPostListContainer';
 
 const Boards = () => {
   const [order, setOrder] = useState<SortType>('recent');
@@ -24,7 +24,7 @@ const Boards = () => {
     <main>
       <section>
         <TitleText title="베스트 게시물" />
-        <BestPostContainer />
+        <BestPostListContainer />
       </section>
       <section>
         <div className={style.board_top}>
@@ -38,7 +38,7 @@ const Boards = () => {
             handleClickItem={handleClickItem}
           />
         </div>
-        <BoardPostContainer orderBy={order} keyword={keyword} />
+        <BoardPostListContainer orderBy={order} keyword={keyword} />
       </section>
     </main>
   );

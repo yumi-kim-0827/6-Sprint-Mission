@@ -1,24 +1,28 @@
 import React, { useMemo } from 'react';
+import BoardPost from '@/components/BoardPost';
 import { Post } from '@/types/post';
-import BestPost from '@/components/BestPost';
-import style from './style.module.scss';
 import { getArticleList } from '@/apis/getArticleList';
-import useItemsCountOnWindowSize from '@/hooks/useItemsCountOnWindowSize';
-import { useFetch } from '@/hooks/useFetch';
+import style from './style.module.scss';
+import { SortType } from '@/constants/sortOption';
 import LoadingSpinner from '@/public/svgs/spinner.svg';
+import { useFetch } from '@/hooks/useFetch';
 
-const BestPostContainer = () => {
-  const pageSize = useItemsCountOnWindowSize({
-    desktop: 3,
-    tablet: 2,
-    mobile: 1,
-  });
+interface BoardPostListContainerProps {
+  orderBy: SortType;
+  keyword: string;
+}
 
+const BoardPostListContainer = ({
+  orderBy,
+  keyword,
+}: BoardPostListContainerProps) => {
   const params = useMemo(
     () => ({
-      pageSize,
+      orderBy,
+      pageSize: 10,
+      keyword,
     }),
-    [pageSize]
+    [orderBy, keyword]
   );
 
   const { data, isLoading, loadError } = useFetch<{ list: Post[] }>(
@@ -35,9 +39,9 @@ const BestPostContainer = () => {
 
   return (
     <div className={style.wrapper}>
-      {data && data.list.map((post) => <BestPost key={post.id} post={post} />)}
+      {data && data.list.map((post) => <BoardPost key={post.id} post={post} />)}
     </div>
   );
 };
 
-export default BestPostContainer;
+export default BoardPostListContainer;
