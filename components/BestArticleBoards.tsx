@@ -4,6 +4,7 @@ import { ArticleType } from "@/types/type";
 import DropdownMenu from "./DropdownMenu";
 import axios from "@/lib/axios";
 import BestArticleList from "./BestArticle";
+import styles from "@/styles/BestArticleBoards.module.css";
 
 export default function BestArticleBoards() {
   const [article, setArticle] = useState<ArticleType[]>([]);
@@ -51,7 +52,10 @@ export default function BestArticleBoards() {
 
   return (
     <>
-      <BestArticleList articleList={article} />
+      <div className={styles["Boards-header-title"]}>베스트 게시글</div>
+      <div className={styles["Boards-container"]}>
+        <BestArticleList articleList={article} />
+      </div>
     </>
   );
 }
