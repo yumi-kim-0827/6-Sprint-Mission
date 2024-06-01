@@ -3,12 +3,16 @@ import { Post } from '@/types/post';
 import BestPost from '@/components/BestPost';
 import style from './style.module.scss';
 import { getArticleList } from '@/apis/getArticleList';
-import useNumberOfItemToShow from '@/hooks/useNumberOfItemToShow';
+import useItemsCountOnWindowSize from '@/hooks/useItemsCountOnWindowSize';
 import { useFetch } from '@/hooks/useFetch';
 import LoadingSpinner from '@/public/svgs/spinner.svg';
 
 const BestPostContainer = () => {
-  const pageSize = useNumberOfItemToShow({ desktop: 3, tablet: 2, mobile: 1 });
+  const pageSize = useItemsCountOnWindowSize({
+    desktop: 3,
+    tablet: 2,
+    mobile: 1,
+  });
 
   const params = useMemo(
     () => ({

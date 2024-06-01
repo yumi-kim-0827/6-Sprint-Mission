@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { MOBILE_SIZE, TABLET_SIZE } from '@/constants/windowSize';
 
-interface UseNumberOfItemToShowProps {
+interface UseItemsCountOnWindowSizeProps {
   desktop: number;
   tablet: number;
   mobile: number;
@@ -21,11 +21,11 @@ const firstWindowSize = (numberOfItems: number[]) => {
   return numberOfItems[0];
 };
 
-const useNumberOfItemToShow = ({
+const useItemsCountOnWindowSize = ({
   desktop,
   tablet,
   mobile,
-}: UseNumberOfItemToShowProps): number => {
+}: UseItemsCountOnWindowSizeProps): number => {
   const numberOfItems = [desktop, tablet, mobile];
   const [numOfItemsToShow, setsNumOfItemsToShow] = useState(
     firstWindowSize(numberOfItems)
@@ -46,4 +46,4 @@ const useNumberOfItemToShow = ({
   return numOfItemsToShow;
 };
 
-export default useNumberOfItemToShow;
+export default useItemsCountOnWindowSize;
