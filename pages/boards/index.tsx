@@ -2,7 +2,8 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { GetStaticProps } from "next";
 import axiosInstance from "@/lib/axiosInstance";
 import Image from "next/image";
-import { useResponsive } from "../lib/useMediaQuery";
+import { useResponsive } from "../../lib/useMediaQuery";
+import { debounce } from "lodash";
 
 interface List {
   id: number;
@@ -28,6 +29,8 @@ interface bestArticle extends List {}
 
 const Boards: React.FC<BoardsProps> = ({ articles: initialArticles }) => {
   const [articles, setArticles] = useState<List[]>(initialArticles);
+  const [originalArticles, setOriginalArticles] =
+    useState<List[]>(initialArticles);
   const [bestArticles, setBestArticles] = useState<bestArticle[]>([]);
   const { isMobile, isTablet, isDesktop } = useResponsive();
 
@@ -48,6 +51,21 @@ const Boards: React.FC<BoardsProps> = ({ articles: initialArticles }) => {
   };
 
   const itemsToShow = isMobile ? 1 : isTablet ? 2 : 3;
+
+  const handleInputChange = debounce((e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const isEmptyValue = value === "";
+
+    if (isEmptyValue) {
+      setArticles(originalArticles);
+      return;
+    }
+
+    const filteredArticles = originalArticles.filter(article =>
+      article.title.toLowerCase().includes(value.toLowerCase())
+    );
+    setArticles(filteredArticles);
+  }, 1000);
 
   return (
     <div className="container m-auto w-[343px] md:w-[696px] xl:w-[1200px]">
@@ -125,6 +143,7 @@ const Boards: React.FC<BoardsProps> = ({ articles: initialArticles }) => {
         <input
           className="w-[293px] md:w-[560px] xl:w-[1054px] h-[42px] rounded-2xl bg-cool-gary-100 py-4 pl-11"
           placeholder="검색할 상품을 입력해주세요."
+          onChange={handleInputChange}
         />
         {isMobile ? (
           <Image src={"/ic_sort.svg"} alt="정렬아이콘" width={42} height={42} />
