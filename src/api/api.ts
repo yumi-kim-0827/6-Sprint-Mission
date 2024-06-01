@@ -14,10 +14,16 @@ export const getBestPosts = async (params: string): Promise<writing[]> => {
   const URL = `/articles?${params}`;
   try {
     const response: AxiosResponse<any> = await instance.get(URL);
-    response;
     return response.data.list;
   } catch (error) {
-    return [];
+    const err = error as AxiosError;
+    if (err.response) {
+      console.error('Response error:', err.response.status);
+      console.error('Response data:', err.response.data);
+      throw err;
+    }
+
+    throw error;
   }
 };
 
@@ -25,10 +31,17 @@ export const getTotalPosts = async (params: string): Promise<writing[]> => {
   const URL = `/articles?${params}`;
   try {
     const response: AxiosResponse<any> = await instance.get(URL);
-    response;
     return response.data.list;
   } catch (error) {
-    return [];
+    const err = error as AxiosError;
+    if (err.response) {
+      console.error('Response error:', err.response.status);
+      console.error('Response data:', err.response.data);
+      throw err;
+    }
+
+    console.error(error);
+    throw error;
   }
 };
 

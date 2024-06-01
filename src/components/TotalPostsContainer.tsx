@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getTotalPosts, writing } from '../api/api';
 import Post from './Post';
+import { AxiosError } from 'axios';
 export const URL = `page=1&pageSize=5`;
 const TotalPostsContainer = () => {
   const router = useRouter();
@@ -13,13 +14,17 @@ const TotalPostsContainer = () => {
       try {
         const result = await getTotalPosts(`${URL}&orderBy=${orderBy}`);
         setPosts(result);
-      } catch (error) {}
+      } catch (error) {
+        const err = error as AxiosError;
+      }
     }
     if (keyword) {
       try {
         const result = await getTotalPosts(`${URL}&keyword=${keyword}`);
         setPosts(result);
-      } catch (error) {}
+      } catch (error) {
+        const err = error as AxiosError;
+      }
     }
   };
   useEffect(() => {
