@@ -32,9 +32,9 @@ const Boards: React.FC<BoardsProps> = ({ articles }) => {
     setBestArticles([articles[2]]);
   }, [articles]);
   return (
-    <div className="container mx-4">
-      <h2 className="font-bold text-fs-20">베스트 게시글</h2>
-      <div className="w-[343px] h-[167px] px-[24px] pb-[16px] rounded-[8px] bg-cool-gary-50 flex flex-col justify-between gap-4">
+    <div className="container m-auto w-[343px] md:w-[696px]">
+      <h2 className="font-bold text-fs-20 mb-4">베스트 게시글</h2>
+      <div className="w-[343px] h-[167px] px-[24px] pb-[16px] rounded-[8px] bg-cool-gary-50 flex flex-col justify-between">
         <div className="bg-bland-blue w-[102px] h-[30px] rounded-bottom flex justify-center items-center gap-1 text-white font-semibold">
           <Image
             src={"/ic_best.svg"}
@@ -45,18 +45,18 @@ const Boards: React.FC<BoardsProps> = ({ articles }) => {
           <span>Best</span>
         </div>
         {/* 제목과 이미지 */}
-        <div className="flex gap-2">
-          <div className="font-semibold text-lg leading-5">
+        <div className="flex gap-2 flex-between ">
+          <div className="font-semibold text-lg leading-5 text-clip w-[212px]  h-[72px]">
             {bestArticles[0]?.title}
           </div>
           {bestArticles[0]?.image ? (
-            <div className="rounded-lg bg-white w-[149px] h-[72px] flex items-center justify-center border border-cool-gary-200">
+            <div className="rounded-lg bg-white w-[72px] h-[72px] flex items-center justify-center border border-cool-gary-200">
               <Image
                 className="object-contain"
                 src={bestArticles[0].image}
                 alt="첨부이미지"
                 width={48}
-                height={44}
+                height={42}
               />
             </div>
           ) : null}
@@ -77,26 +77,76 @@ const Boards: React.FC<BoardsProps> = ({ articles }) => {
           </p>
         </div>
       </div>
-      <div className="h-3"></div>
+      <div className="container flex justify-between items-center mt-10 mb-4">
+        <h2 className="font-bold text-fs-20">게시글</h2>
+        <button className="w-btn-width h-btn-height bg-bland-blue rounded-lg text-white font-semibold">
+          글쓰기
+        </button>
+      </div>
+      <div className="container flex justify-between items-center mb-6 relative">
+        <Image
+          className="absolute left-4"
+          src={"/ic_search.svg"}
+          alt="검색아이콘"
+          width={24}
+          height={24}
+        />
+        <input
+          className="w-[293px] md:w-[560px] h-[42px] rounded-2xl bg-cool-gary-100 py-4 pl-11"
+          placeholder="검색할 상품을 입력해주세요."
+        />
+        {/* <Image src={"/ic_sort.svg"} alt="정렬아이콘" width={42} height={42} /> */}
+        <div className="flex items-center gap-[14px] rounded-lg border px-5  h-[42px]">
+          <span>최신순</span>
+          <Image
+            src={"/ic_arrow.svg"}
+            alt="드롭다운화살표"
+            width={24}
+            height={24}
+          />
+        </div>
+      </div>
       <ul>
         {articles.map(article => (
-          <li key={article.id}>
-            <h2>{article.title}</h2>
-            <p>{article.content}</p>
-            <p>좋아요: {article.likeCount}</p>
-            <p>작성일: {new Date(article.createdAt).toLocaleDateString()}</p>
-            <p>수정일: {new Date(article.updatedAt).toLocaleDateString()}</p>
-            <p>작성자: {article.writer.nickname}</p>
-            <p>작성자ID: {article.writer.id}</p>
-            <div>
+          <li
+            className="w-[343px] md:w-[696px] h-[136px] border-b mt-6 justify-between flex flex-col pb-6"
+            key={article.id}
+          >
+            <div className="flex justify-between gap-2">
+              <p className="text-clip w-[263px] h-[72px] flex-auto font-semibold text-lg leading-5">
+                {article.title}
+              </p>
               {article.image ? (
-                <Image
-                  src={article.image}
-                  alt={"첨부이미지"}
-                  width={200}
-                  height={200}
-                />
+                <div className="rounded-lg bg-white w-[72px] h-[72px] flex items-center justify-center border border-cool-gary-200">
+                  <Image
+                    src={article.image}
+                    alt={"첨부이미지"}
+                    width={48}
+                    height={42}
+                  />
+                </div>
               ) : null}
+            </div>
+            <div className="flex justify-between items-center gap-2">
+              <Image
+                src={"/ic_profile.svg"}
+                alt="프로필이미지"
+                width={24}
+                height={24}
+              />
+              <p>{article.writer.nickname}</p>
+              <p className="flex-auto text-cool-gary-400">
+                {new Date(article.updatedAt).toLocaleDateString()}
+              </p>
+              <div className="w-[82px] flex justify-end gap-2">
+                <Image
+                  src="/ic_heart.svg"
+                  alt="하트아이콘"
+                  width={16}
+                  height={16}
+                />
+                <p>{article.likeCount}</p>
+              </div>
             </div>
           </li>
         ))}
