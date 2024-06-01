@@ -1,20 +1,7 @@
 import Image from 'next/image';
 import image_badge from '@/public/images/img_badge.svg';
 import ic_heart from '@/public/images/ic_heart.png';
-interface ListProps {
-  updatedAt: string;
-  createdAt: string;
-  likeCount: number;
-  writer: Writer;
-  image: string;
-  content: string;
-  title: string;
-  id: number;
-}
-interface Writer {
-  nickname: string;
-  id: number;
-}
+import { ListProps } from '@/lib/getArticles';
 
 export default function BestArticleComponent({ createdAt, likeCount, image, title, writer }: ListProps) {
   const date = new Date(createdAt).getDate();
