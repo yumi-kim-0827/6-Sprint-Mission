@@ -1,6 +1,8 @@
 import BestBadge from "@/public/bestbadge.svg";
 import { ArticleType } from "@/types/type";
 import Image from "next/image";
+import styles from "@/styles/BestArticle.module.css";
+import heart from "@/public/heart.svg";
 
 interface BestArticleProps {
   article: ArticleType;
@@ -19,20 +21,48 @@ function BestArticle({ article }: BestArticleProps) {
 
   return (
     <>
-      <Image src={BestBadge} alt="Best Badge" />
-      <div>{article.title}</div>
-      <div>{article.image}</div>
-      <div>{article.writer.nickname}</div>
-      <div>{article.writer.id}</div>
-      <div>{article.likeCount}</div>
-      <div>{createdDate}</div>
+      <div className={styles["Article-container"]}>
+        <Image
+          className={styles["Article-BestBadge"]}
+          src={BestBadge}
+          alt="Best Badge"
+        />
+        <div className={styles["Article-container-text"]}>
+          <div className={styles["Article-header"]}>
+            <div className={styles["Article-header-title"]}>
+              {article.title}
+            </div>
+
+            {article.image && (
+              <div className={styles["Article-img-container"]}>
+                <Image
+                  className={styles["Article-img"]}
+                  src={article.image}
+                  alt={`${article.title} 게시글 이미지`}
+                  width={44}
+                  height={44}
+                />
+              </div>
+            )}
+          </div>
+          <div className={styles["Article-user"]}>
+            <div className={styles["Article-user-name"]}>
+              {article.writer.nickname}
+              <Image src={heart} alt="하트!" width={16} />
+              {article.likeCount}+
+            </div>
+
+            <div className={styles["Article-date"]}>{createdDate}</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
 export default function BestArticleList({ articleList }: BestArticleListProps) {
   return (
-    <div>
+    <div className={styles["Boards-container"]}>
       {articleList.map((article) => (
         <BestArticle key={article.id} article={article} />
       ))}
