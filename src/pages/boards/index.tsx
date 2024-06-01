@@ -1,4 +1,10 @@
-import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  KeyboardEvent,
+  MouseEvent,
+  useEffect,
+  useState,
+} from "react";
 import { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
@@ -11,20 +17,22 @@ import ArticlePreview from "@/components/boards/ArticlePreview";
 import Button from "@/components/commons/Button";
 import Input from "@/components/commons/Input";
 import useAxiosFetch from "@/hooks/useAxiosFetch";
-import { Article, DataFormat } from "@/models/api_response";
+import { Article, DataFormat, Query } from "@/models/api_response";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
 import axios from "@/libs/axios";
 import Pagination from "@/components/commons/Pagination";
 
+const PAGE_SIZE = 5;
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { orderBy, keyword, pageSize, page } = context.query;
+  const { orderBy, keyword, page } = context.query;
 
   const res = await axios({
     url: "/articles",
     params: {
       orderBy,
       keyword,
-      pageSize,
+      pageSize: PAGE_SIZE,
       page,
     },
   });
@@ -97,49 +105,52 @@ function BestArticles() {
   );
 }
 
-const PAGE_SIZE = 5;
-
 function ArticleList({
   articleListData,
 }: {
   articleListData: DataFormat<Article>;
 }) {
   const { list: articleList, totalCount } = articleListData;
-  const [currentOrder, setCurrentOrder] = useState<Order>(Order.recent);
-  const [keyword, setKeyword] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
+  const [currentOrder, setCurrentOrder] = useState<Order | Query>(
+    !router.query.orderBy || router.query.orderBy === "최신순"
+      ? Order.recent
+      : Order.likes,
+  );
+  const [keyword, setKeyword] = useState(router.query.keyword || "");
+  const [currentPage, setCurrentPage] = useState(router.query.page || 1);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setKeyword(e.currentTarget.value);
+    const { value } = e.currentTarget;
+
+    setKeyword(value);
+    setCurrentPage(1);
+  };
+
+  const handleSearch = (value: Query) => {
+    router.push({
+      query: { ...router.query, keyword: value, page: 1 },
+    });
+    setCurrentPage(1);
   };
 
   const handleOrder = (e: MouseEvent<HTMLButtonElement>) => {
     const { name } = e.currentTarget;
 
-    if (name === "sort-by-recent") setCurrentOrder(Order.recent);
-    if (name === "sort-by-likes") setCurrentOrder(Order.likes);
+    if (name === "sort-by-recent") {
+      setCurrentOrder(Order.recent);
+      router.push({ query: { ...router.query, orderBy: "recent" } });
+    }
+    if (name === "sort-by-likes") {
+      setCurrentOrder(Order.likes);
+      router.push({ query: { ...router.query, orderBy: "like" } });
+    }
   };
 
   const handlePageChange = (targetPage: number) => {
     setCurrentPage(targetPage);
+    router.push({ query: { ...router.query, page: String(targetPage) } });
   };
-
-  useEffect(() => {
-    router.push({
-      pathname: "/boards",
-      query: {
-        keyword,
-        orderBy: currentOrder === "최신순" ? "recent" : "like",
-        pageSize: PAGE_SIZE,
-        page: currentPage,
-      },
-    });
-  }, [currentOrder, keyword, currentPage]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [currentOrder, keyword]);
 
   return (
     <div className="mt-10">
@@ -153,6 +164,7 @@ function ArticleList({
           value={keyword}
           placeholder="검색할 상품을 입력해주세요"
           onChange={handleInputChange}
+          handleSearch={handleSearch}
         />
         <Dropdown.Order currentOrder={currentOrder} handleOrder={handleOrder} />
       </div>

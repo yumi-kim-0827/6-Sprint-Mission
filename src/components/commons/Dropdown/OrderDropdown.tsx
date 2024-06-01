@@ -2,9 +2,10 @@ import { MouseEvent } from "react";
 import Image from "next/image";
 import Order from "@/models/order";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
+import { Query } from "@/models/api_response";
 
 interface Props {
-  currentOrder: Order;
+  currentOrder: Order | Query;
   handleOrder: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 

@@ -3,6 +3,8 @@ interface Writer {
   id: number;
 }
 
+export type Query = string | string[];
+
 export interface DataFormat<T> {
   list: T[];
   totalCount: number;
