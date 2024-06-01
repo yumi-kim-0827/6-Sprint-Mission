@@ -1,0 +1,69 @@
+/* styles.css */
+.Article-container {
+  border-bottom: 1px solid #e5e7eb;
+  margin: 24px 16px;
+}
+
+.Article-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.Article-header-title {
+  font-weight: 600;
+  color: #4b5563;
+  min-height: 48px;
+  min-width: 263px;
+}
+
+.Article-header-img {
+  margin: 12px;
+}
+
+.Article-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.Article-user-name {
+  color: #4b5563;
+}
+
+.Article-date {
+  color: #9ca3af;
+}
+
+.Article-like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Article-like-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .Article-header {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 1024px) {
+  .Article-header {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
