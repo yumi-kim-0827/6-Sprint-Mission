@@ -1,15 +1,24 @@
+import { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import FileInput from "./FileInput";
 
-const INITIAL_VALUES = {
+type InputValue = string | number | File | null;
+interface FormValues {
+  name: string;
+  description: string;
+  price: number;
+  tags: string[];
+  images: File | null;
+}
+const INITIAL_VALUES: FormValues = {
   name: "",
   description: "",
-  price: null,
+  price: 0,
   tags: [],
   images: null,
 };
 
-function sanitize(type, value) {
+function sanitize(type: string, value: InputValue) {
   switch (type) {
     case "number":
       return Number(value) || 0;
@@ -20,29 +29,24 @@ function sanitize(type, value) {
 }
 
 function AddItemForm() {
-  const [values, setValues] = useState(INITIAL_VALUES);
+  const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
 
-  const handleValueChange = (name, value) => {
+  const handleValueChange = (name: string, value: InputValue) => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
     handleValueChange(name, sanitize(type, value));
   };
 
-  const handleFormSubmit = (e) => {
-    // API 연동은 7주차에 추가할 예정
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", values.name);
-    formData.append("description", values.description);
-    formData.append("price", values.price);
-    formData.append("tags", values.tags);
-    formData.append("images", values.images);
   };
 
   return (
@@ -60,7 +64,7 @@ function AddItemForm() {
           <FileInput
             name="images"
             value={values.images}
-            onChange={handleValueChange}
+            onImageChange={handleValueChange}
           />
         </div>
         <div className="add-item-name">

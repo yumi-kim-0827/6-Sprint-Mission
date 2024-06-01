@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ItemDetailSection from "./components/ItemDetailSection";
-import CommentSection from "./components/Comment/CommentSection";
+import CommentSection from "./components/comment/CommentSection";
 import BackIconUrl from "../../assets/icons/icon-back-page.svg";
 import "./ItemDetailPage.scss";
 

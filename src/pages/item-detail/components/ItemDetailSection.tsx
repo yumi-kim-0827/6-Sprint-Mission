@@ -1,25 +1,31 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getProductDetail } from "../../../services/api";
-import HeartIconUrl from "../../../assets/icons/icon-heart.svg";
+import { getProductDetail } from "services/api";
+import { Item } from "interfaces/item.interface";
+import HeartIconUrl from "assets/icons/icon-heart.svg";
+import useFetch from "hooks/useFetch";
+
+const INITIAL_ITEM_DETAIL: Item = {
+  id: 0,
+  name: "",
+  description: "",
+  price: 0,
+  tags: [],
+  images: [],
+  favoriteCount: 0,
+  createdAt: "",
+};
 
 function ItemDetailSection() {
-  const [itemDetail, setItemDetail] = useState({});
-
   const { productId } = useParams();
-  const fetchData = async () => {
-    const productDetail = await getProductDetail(productId);
-    setItemDetail(productDetail);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const itemDetail = useFetch<Item>(
+    () => getProductDetail(productId),
+    INITIAL_ITEM_DETAIL
+  );
 
   return (
     <div className="item-detail-section">
       <img
-        src={itemDetail.images}
+        src={itemDetail.images[0]}
         alt={itemDetail.name}
         className="item-detail-img"
       />
@@ -45,7 +51,7 @@ function ItemDetailSection() {
         </div>
 
         <nav className="item-detail-favorite">
-          <img src={HeartIconUrl} />
+          <img src={HeartIconUrl} alt="하트 아이콘" />
           {itemDetail.favoriteCount}
         </nav>
       </div>

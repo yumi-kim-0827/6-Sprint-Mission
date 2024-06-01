@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 function AddComment() {
-  const [addComment, setAddComment] = useState();
+  const [addComment, setAddComment] = useState("");
 
-  const handleCommentChange = (e) => {
+  const handleCommentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setAddComment(e.target.value);
   };
-  const handleCommentSubmit = (e) => {
+  const handleCommentSubmit = (e: FormEvent) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("addComment", addComment);
+    // 여기서 코멘트를 처리하거나 제출합니다.
   };
 
   return (

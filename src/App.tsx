@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ItemPage from "./pages/ItemPage/ItemPage";
-import HomePage from "./pages/HomePage/HomePage";
-import AddItemPage from "./pages/AddItemPage/AddItemPage";
-import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
-import Header from "./components/Layout/Header";
+import ItemPage from "./pages/item-list/ItemPage";
+import HomePage from "./pages/home/HomePage";
+import AddItemPage from "./pages/add-item/AddItemPage";
+import ItemDetailPage from "./pages/item-detail/ItemDetailPage";
+import Header from "components/Layout/Header";
 
 function App() {
   return (

@@ -1,4 +1,6 @@
-function CommentList({ comment }) {
+import { Comment } from "interfaces/comment.interface";
+
+function CommentList({ comment }: { comment: Comment }) {
   const dateString = comment.createdAt.split("T")[0];
 
   return (

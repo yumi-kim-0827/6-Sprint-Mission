@@ -1,21 +1,20 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getComments } from "../../../../services/api";
+import { getComments } from "services/api";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
+import { CommentListResponse } from "interfaces/comment.interface";
+import useFetch from "hooks/useFetch";
 
 function CommentSection() {
-  const [commentList, setCommentList] = useState([]);
-
   const { productId } = useParams();
-  const fetchData = async () => {
-    const comments = await getComments(productId);
-    setCommentList(comments.list);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const fetchComments = useFetch<CommentListResponse>(
+    () => getComments(productId),
+    {
+      list: [],
+      totalCount: 0,
+    }
+  );
+  const { list: commentList } = fetchComments;
 
   return (
     <div className="comment-section">

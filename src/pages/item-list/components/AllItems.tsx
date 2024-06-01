@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../../../services/api";
+import { getProducts } from "services/api";
 import ItemCard from "./ItemCard";
-import PaginationBar from "../../../components/UI/PaginationBar";
+import PaginationBar from "components/UI/PaginationBar";
+import { Item } from "interfaces/item.interface";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -15,19 +16,35 @@ function AllItems() {
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
-  const [pageTotal, setPageTotal] = useState();
-  const [itemList, setItemList] = useState([]);
+  const [pageTotal, setPageTotal] = useState(0);
+  const [itemList, setItemList] = useState<Item[]>([]);
   const [isOrderDrop, setIsOrderDrop] = useState(false);
 
-  const fetchData = async ({ orderBy, page, pageSize }) => {
+  const fetchData = async ({
+    orderBy,
+    page,
+    pageSize,
+  }: {
+    orderBy: string;
+    page: number;
+    pageSize: number;
+  }) => {
     const products = await getProducts({ orderBy, page, pageSize });
     setItemList(products.list);
     setPageTotal(Math.ceil(products.totalCount / pageSize));
   };
 
-  const handleSortSelection = (sortOption) => {
+  const handleSortItems = (sortOption: string) => {
     setOrderBy(sortOption);
     setIsOrderDrop(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsOrderDrop(!isOrderDrop);
+  };
+
+  const onPageChange = (pageNumber: number) => {
+    setPage(pageNumber);
   };
 
   useEffect(() => {
@@ -42,14 +59,6 @@ function AllItems() {
       window.removeEventListener("resize", handleResize);
     };
   }, [orderBy, page, pageSize]);
-
-  const toggleDropdown = () => {
-    setIsOrderDrop(!isOrderDrop);
-  };
-
-  const onPageChange = (pageNumber) => {
-    setPage(pageNumber);
-  };
 
   return (
     <div className="all-item-container">
@@ -68,10 +77,8 @@ function AllItems() {
             </button>
             {isOrderDrop && (
               <ul className="btn-sort-list">
-                <li onClick={() => handleSortSelection("recent")}>최신순</li>
-                <li onClick={() => handleSortSelection("favorite")}>
-                  좋아요순
-                </li>
+                <li onClick={() => handleSortItems("recent")}>최신순</li>
+                <li onClick={() => handleSortItems("favorite")}>좋아요순</li>
               </ul>
             )}
           </div>
