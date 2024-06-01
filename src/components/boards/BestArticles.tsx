@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { getBoards, BoardType, GetBoardsResponse, GetBoardsQuery } from '@/api/boards.api';
 import useDeviceSize from '@/hooks/useDeviceSize';
 import BestSection from './BestSection';
@@ -28,6 +28,18 @@ const BestArticles: React.FC<BestArticlesProps> = ({ initialBoards }) => {
 			return 3;
 		}
 	};
+
+	useEffect(() => {
+		if (deviceSize === 'mobile') {
+			if (boards.length > 1) {
+				setBoards(boards.slice(0, 1));
+			}
+		} else if (deviceSize === 'tablet') {
+			if (boards.length > 2) {
+				setBoards(boards.slice(0, 2));
+			}
+		}
+	}, [deviceSize]);
 
 	const handleLoad = async () => {
 		const { list }: GetBoardsResponse = await getBoards({ orderBy: 'like', page: 1, pageSize: pageSize() });

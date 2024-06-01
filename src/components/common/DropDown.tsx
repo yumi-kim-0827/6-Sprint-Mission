@@ -1,5 +1,11 @@
 import { useEffect, useState, useRef, MouseEvent } from 'react';
+import Image from 'next/image';
+
 import styles from '@/styles/common/Dropdown.module.css';
+
+import useDeviceSize from '@/hooks/useDeviceSize';
+
+import ic_sort from '@/assets/images/items/ic_sort.svg';
 
 interface Option {
 	label: string;
@@ -17,6 +23,9 @@ interface DropdownProps {
 const Dropdown: React.FC<DropdownProps> = ({ className = '', name, value, options, onChange }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const inputRef = useRef<HTMLDivElement | null>(null);
+
+	const deviceSize = useDeviceSize();
+	const isMobile = deviceSize === 'mobile';
 
 	const handleInputClick = () => {
 		setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -44,7 +53,13 @@ const Dropdown: React.FC<DropdownProps> = ({ className = '', name, value, option
 
 	return (
 		<div className={classNames} onClick={handleInputClick} onBlur={handleBlur} ref={inputRef}>
-			{selectedOption?.label}
+			{isMobile ? (
+				<div className={styles.sort}>
+					<Image src={ic_sort} alt='정렬' fill />
+				</div>
+			) : (
+				<span>{selectedOption?.label}</span>
+			)}
 			<span className={styles.arrow}>▲</span>
 			{isOpen && (
 				<div className={styles.options}>

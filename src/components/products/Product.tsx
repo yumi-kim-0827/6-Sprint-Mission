@@ -1,4 +1,4 @@
-import iconHeart from '@/assets/images/items/ic_heart.svg';
+import iconHeart from '@/assets/images/icon/ic_heart.svg';
 
 import styles from '@/styles/Items/product.module.css';
 import Image from 'next/image';

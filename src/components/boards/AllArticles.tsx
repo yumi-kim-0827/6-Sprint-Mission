@@ -11,6 +11,7 @@ interface AllArticlesProps {
 	initialBoards: BoardType[];
 }
 
+// 전체 게시글 컴포넌트
 const AllArticles: React.FC<AllArticlesProps> = ({ initialBoards }) => {
 	const [order, setOrder] = useState<string>('recent');
 	const [search, setSearch] = useState<string>('');

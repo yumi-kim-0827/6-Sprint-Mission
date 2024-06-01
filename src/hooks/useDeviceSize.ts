@@ -12,10 +12,9 @@ import { useEffect, useState } from 'react';
  * console.log(deviceSize); // 'mobile' | 'tablet' | 'desktop'
  * @returns {('mobile' | 'tablet' | 'desktop')}
  */
-const getDeviceSize = (): 'mobile' | 'tablet' | 'desktop' => {
+const getDeviceSize = () => {
 	if (typeof window !== 'undefined') {
 		const screenWidth = window.innerWidth;
-
 		if (screenWidth < 768) {
 			return 'mobile';
 		} else if (screenWidth <= 1200) {
@@ -24,7 +23,7 @@ const getDeviceSize = (): 'mobile' | 'tablet' | 'desktop' => {
 			return 'desktop';
 		}
 	}
-	return 'desktop';
+	return 'desktop'; // 기본 값
 };
 
 /**
@@ -38,22 +37,20 @@ const getDeviceSize = (): 'mobile' | 'tablet' | 'desktop' => {
  * const deviceSize = useDeviceSize();
  * console.log(deviceSize); // 'mobile' | 'tablet' | 'desktop'
  */
-const useDeviceSize = (): 'mobile' | 'tablet' | 'desktop' => {
-	const [deviceSize, setDeviceSize] = useState<'mobile' | 'tablet' | 'desktop'>(getDeviceSize());
+const useDeviceSize = () => {
+	const [deviceSize, setDeviceSize] = useState('desktop');
 
-	// 리사이즈 이벤트 핸들러
 	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			const handleResize = throttle(() => {
-				setDeviceSize(getDeviceSize());
-			}, 200);
+		const handleResize = () => {
+			setDeviceSize(getDeviceSize());
+		};
 
-			window.addEventListener('resize', handleResize);
+		window.addEventListener('resize', handleResize);
+		handleResize(); // 초기 사이즈 설정
 
-			return () => {
-				window.removeEventListener('resize', handleResize);
-			};
-		}
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	}, []);
 
 	return deviceSize;

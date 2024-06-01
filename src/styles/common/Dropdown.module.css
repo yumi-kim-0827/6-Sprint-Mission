@@ -25,6 +25,12 @@
 	color: #505050;
 } */
 
+.sort {
+	position: relative;
+	width: 30px;
+	height: 30px;
+}
+
 .arrow {
 	transform: rotate(180deg);
 	transition: transform 0.2s ease;
