@@ -5,7 +5,7 @@ export interface ListProps {
   createdAt: string;
   likeCount: number;
   writer: Writer;
-  image: string;
+  image: null | string;
   content: string;
   title: string;
   id: number;
@@ -19,8 +19,8 @@ interface Writer {
 export const getArticles = async (
   page: number,
   pageSize: number,
-  orderBy: string,
-  keyword?: string
+  orderBy: string[] | string,
+  keyword?: string[] | string
 ): Promise<ListProps[]> => {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`;
   try {
