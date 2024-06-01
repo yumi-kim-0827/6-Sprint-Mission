@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 
-/**
- * Modified from link below
- * @see https://observablehq.com/@werehamster/avoiding-hydration-mismatch-when-using-react-hooks
- * @param mediaQueryString
- * @returns {unknown}
- */
-export default function useBetterMediaQuery(mediaQueryString: string) {
-  const [matches, setMatches] = useState<boolean>();
+export const useScreenDetector = () => {
+  const [width, setWidth] = useState(0);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  };
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(mediaQueryString);
-    const listener = () => setMatches(!!mediaQueryList.matches);
-    listener();
-    mediaQueryList.addEventListener("change", listener);
-    return () => mediaQueryList.removeEventListener("change", listener);
-  }, [mediaQueryString]);
+    window.addEventListener("resize", handleWindowSizeChange);
+    setWidth(window.innerWidth);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
-  return matches;
-}
+  const isMobile = width <= 744;
+  const isTablet = width <= 1199;
+  const isDesktop = width > 1200;
+
+  return { isMobile, isTablet, isDesktop };
+};
