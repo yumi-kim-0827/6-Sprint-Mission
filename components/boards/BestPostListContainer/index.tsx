@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Post } from '@/types/post';
-import BestPost from '@/components/BestPost';
+import BestPost from '../BestPost';
 import style from './style.module.scss';
 import { getArticleList } from '@/apis/getArticleList';
 import useItemsCountOnWindowSize from '@/hooks/useItemsCountOnWindowSize';

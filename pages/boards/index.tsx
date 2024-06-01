@@ -1,12 +1,12 @@
-import TitleText from '@/components/TitleText';
+import TitleText from '@/components/common/TitleText';
 import { useState } from 'react';
 import style from './style.module.scss';
-import Button from '@/components/Button';
-import SearchBar from '@/components/SearchBar';
-import DropDown from '@/components/DropDown';
+import Button from '@/components/common/Button';
+import SearchBar from '@/components/common/SearchBar';
+import DropDown from '@/components/common/DropDown';
 import { SortType } from '@/constants/sortOption';
-import BestPostListContainer from '@/components/BestPostListContainer';
-import BoardPostListContainer from '@/components/BoardPostListContainer';
+import BestPostListContainer from '@/components/boards/BestPostListContainer';
+import BoardPostListContainer from '@/components/boards/BoardPostListContainer';
 
 const Boards = () => {
   const [order, setOrder] = useState<SortType>('recent');

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import BoardPost from '@/components/BoardPost';
+import BoardPost from '../BoardPost';
 import { Post } from '@/types/post';
 import { getArticleList } from '@/apis/getArticleList';
 import style from './style.module.scss';

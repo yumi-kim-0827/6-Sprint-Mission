@@ -1,8 +1,8 @@
 import '@/styles/reset.scss';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import TopNavigation from '@/components/TopNavigation';
-import Container from '@/components/Container';
+import TopNavigation from '@/components/common/TopNavigation';
+import Container from '@/components/common/Container';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
