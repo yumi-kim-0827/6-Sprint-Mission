@@ -2,24 +2,10 @@ import ic_best from '@/assets/images/icon/ic_best.svg';
 import ic_heart from '@/assets/images/icon/ic_heart.svg';
 
 import styles from '@/styles/boards/BestArticles.module.css';
+import { BoardType } from '@/api/boards.api';
 
 import Image from 'next/image';
 import React from 'react';
-
-interface WriterType {
-	id: number;
-	nickname: string;
-}
-
-interface BoardType {
-	id: number;
-	content: string;
-	image: string;
-	likeCount: number;
-	createdAt: string;
-	updatedAt: string;
-	writer: WriterType;
-}
 
 interface BestSectionProps {
 	board: BoardType;

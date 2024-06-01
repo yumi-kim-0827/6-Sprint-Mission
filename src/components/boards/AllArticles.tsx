@@ -19,9 +19,18 @@ const AllArticles: React.FC<AllArticlesProps> = ({ initialBoards }) => {
 
 	const [isLoading, setIsLoading] = useState(true);
 
+	/**
+	 * 게시글을 로드하는 함수
+	 * @async handleLoad
+	 * @param {GetBoardsQuery} query - 게시글 검색 조건
+	 */
 	const handleLoad = async (query: GetBoardsQuery) => {
 		const { list }: GetBoardsResponse = await getBoards(query);
 		setBoards(list || []);
+	};
+
+	const handleSearch = (value: string) => {
+		setSearch(value);
 	};
 
 	useEffect(() => {
@@ -33,10 +42,6 @@ const AllArticles: React.FC<AllArticlesProps> = ({ initialBoards }) => {
 
 		handleLoad({ orderBy: order, search: search });
 	}, [order, search]);
-
-	const handleSearch = (value: string) => {
-		setSearch(value);
-	};
 
 	return (
 		<section className={styles.all_articles_wrap}>

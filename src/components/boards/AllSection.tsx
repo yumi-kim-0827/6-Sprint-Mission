@@ -3,24 +3,11 @@ import ic_heart from '@/assets/images/icon/ic_heart.svg';
 
 import styles from '@/styles/boards/AllArticles.module.css';
 
+import useDeviceSize from '@/hooks/useDeviceSize';
+import { BoardType } from '@/api/boards.api';
+
 import Image from 'next/image';
 import React from 'react';
-import useDeviceSize from '@/hooks/useDeviceSize';
-
-interface WriterType {
-	id: number;
-	nickname: string;
-}
-
-interface BoardType {
-	id: number;
-	content: string;
-	image: string;
-	likeCount: number;
-	createdAt: string;
-	updatedAt: string;
-	writer: WriterType;
-}
 
 interface AllSectionProps {
 	board: BoardType;
@@ -29,6 +16,10 @@ interface AllSectionProps {
 const AllSection: React.FC<AllSectionProps> = ({ board }) => {
 	const deviceSize = useDeviceSize();
 
+	/**
+	 * 게시글 내용을 장치 사이즈에 맞게 잘라서 반환하는 함수
+	 * @returns {string} - 잘라진 게시글 내용
+	 */
 	const content = () => {
 		if (deviceSize === 'mobile') {
 			return board.content.length > 50 ? board.content.slice(0, 50) + '...' : board.content;

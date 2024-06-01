@@ -29,17 +29,17 @@ const BestArticles: React.FC<BestArticlesProps> = ({ initialBoards }) => {
 		}
 	};
 
-	useEffect(() => {
-		if (deviceSize === 'mobile') {
-			if (boards.length > 1) {
-				setBoards(boards.slice(0, 1));
-			}
-		} else if (deviceSize === 'tablet') {
-			if (boards.length > 2) {
-				setBoards(boards.slice(0, 2));
-			}
-		}
-	}, [deviceSize]);
+	// useEffect(() => {
+	// 	if (deviceSize === 'mobile') {
+	// 		if (boards.length > 1) {
+	// 			setBoards(boards.slice(0, 1));
+	// 		}
+	// 	} else if (deviceSize === 'tablet') {
+	// 		if (boards.length > 2) {
+	// 			setBoards(boards.slice(0, 2));
+	// 		}
+	// 	}
+	// }, [deviceSize]);
 
 	const handleLoad = async () => {
 		const { list }: GetBoardsResponse = await getBoards({ orderBy: 'like', page: 1, pageSize: pageSize() });
