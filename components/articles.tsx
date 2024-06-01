@@ -4,7 +4,8 @@ import ArticleComponent from './article-component';
 import ic_search from '../public/images/ic_search.png';
 import SelectBox from './select-box';
 import { getArticles, ListProps } from '@/lib/getArticles';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useEffect } from 'react';
+import useDebounce from '@/hooks/useDebounce';
 
 const PAGE_NUM = 1;
 const PAGE_SIZE = 10;
@@ -17,6 +18,7 @@ export default function Articles({ articlesServer }: Props) {
   const [orderBy, setOrderby] = useState('recent');
   const [keyword, setKeyword] = useState('');
   const [articles, setArticles] = useState<ListProps[]>(articlesServer);
+  const debouncedValue = useDebounce(keyword, 300);
 
   const handleOrderClick = async (sortType: string): Promise<void> => {
     setOrderby(sortType);
@@ -30,19 +32,27 @@ export default function Articles({ articlesServer }: Props) {
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>): Promise<void> => {
     setKeyword(e.target.value);
-    try {
-      const sortData = await getArticles(PAGE_NUM, PAGE_SIZE, orderBy, e.target.value);
-      setArticles(sortData);
-    } catch (error) {
-      console.error(error);
-    }
   };
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const sortData = await getArticles(PAGE_NUM, PAGE_SIZE, orderBy, debouncedValue);
+        setArticles(sortData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchArticles();
+  }, [debouncedValue, orderBy]);
 
   return (
     <div>
       <div className='relative flex justify-between gap-2 mb-6'>
         <Image src={ic_search} width={24} alt='돋보기' className='absolute z-10 top-2 left-3' />
         <input
+          value={keyword}
           onChange={handleChange}
           type='text'
           placeholder='검색할 상품을 입력해주세요'
