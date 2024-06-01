@@ -1,22 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-export const useFetch = (fetchFun: Function) => {
-  const [isLoading, setIsLoading] = useState(true);
+interface UseFetchReturn<T> {
+  data: T | null;
+  isLoading: boolean;
+  loadError: Error | null;
+}
+
+export const useFetch = <T>(
+  fetchFunction: (args: any) => Promise<T>,
+  args: any
+): UseFetchReturn<T> => {
+  const [data, setData] = useState<T | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loadError, setLoadError] = useState<Error | null>(null);
 
-  const handleFetch = async (...args: any[]) => {
-    try {
+  useEffect(() => {
+    const fetchData = async () => {
       setIsLoading(true);
       setLoadError(null);
-      let result = await fetchFun(...args);
-      return result;
-    } catch (error) {
-      setLoadError(error as Error);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      try {
+        const result = await fetchFunction(args);
+        setData(result);
+      } catch (error) {
+        setLoadError(error as Error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  return { isLoading, loadError, handleFetch };
+    fetchData();
+  }, [args, fetchFunction]);
+
+  return { data, isLoading, loadError };
 };
