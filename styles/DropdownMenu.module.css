@@ -1,0 +1,80 @@
+/* DropdownMenu.module.css */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: flex;
+  width: 146px;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  gap: 14px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px 0;
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* DropdownMenu.module.css */
+
+.dropdown-toggle-mob {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dropdown-toggle div {
+    display: none; /* 모바일에서는 선택 옵션 텍스트 숨기기 */
+  }
+
+  .dropdown-toggle-img {
+    display: none; /* 모바일에서는 arrowdown 이미지 숨기기 */
+  }
+
+  .dropdown-toggle-mob {
+    display: inline; /* 모바일에서는 sort 이미지 보이기 */
+  }
+
+  .dropdown-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 0px;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown-menu {
+    width: 120px;
+  }
+}

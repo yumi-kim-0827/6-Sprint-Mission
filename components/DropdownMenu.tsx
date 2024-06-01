@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import styles from "@/styles/DropdownMenu.module.css";
+import Image from "next/image";
+import arrowdown from "@/public/arrowdown.svg";
+import sort from "@/public/sort.svg";
 
 interface DropDownProps {
   orderBySort: (orderby: string) => void;
@@ -22,21 +26,35 @@ export default function DropdownMenu({ orderBySort }: DropDownProps) {
   };
 
   return (
-    <div className="dropdown">
-      <button onClick={toggleDropdown} className="dropdown-toggle">
-        {selectedOption}
+    <div className={styles.dropdown}>
+      <button onClick={toggleDropdown} className={styles["dropdown-toggle"]}>
+        <div>{selectedOption}</div>
+        <Image
+          className={styles["dropdown-toggle-img"]}
+          width={24}
+          height={24}
+          src={arrowdown}
+          alt="드롭다운 화살표"
+        />
+        <Image
+          className={styles["dropdown-toggle-mob"]}
+          width={24}
+          height={24}
+          src={sort}
+          alt="모바일 드롭다운"
+        />
       </button>
       {isOpen && (
-        <div className="dropdown-menu">
+        <div className={styles["dropdown-menu"]}>
           <div
             onClick={() => handleOptionClick("최신순")}
-            className="dropdown-item"
+            className={styles["dropdown-item"]}
           >
             최신순
           </div>
           <div
             onClick={() => handleOptionClick("좋아요순")}
-            className="dropdown-item"
+            className={styles["dropdown-item"]}
           >
             좋아요순
           </div>
