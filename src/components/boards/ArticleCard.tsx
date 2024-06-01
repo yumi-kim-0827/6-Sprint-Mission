@@ -55,3 +55,11 @@ export default function ArticleCard({ data }: { data: Article }) {
     </Link>
   );
 }
+
+function ArticleCardSkeleton() {
+  return (
+    <div className="h-[167px] w-full min-w-[292px] rounded-lg bg-cool-gray-300 px-6 pb-4" />
+  );
+}
+
+ArticleCard.Skeleton = ArticleCardSkeleton;
