@@ -23,7 +23,29 @@ type PostsData = {
   }
 }
 
-export default function Posts() {
+type PostsProps = {
+  initialPosts: PostsData[]
+}
+
+export async function getStaticProps() {
+  try {
+    const initialPosts = await getPosts({ orderBy: 'recent', keyword: '' })
+    return {
+      props: {
+        initialPosts,
+      },
+    }
+  } catch (error) {
+    console.error('posts 가져오는데 문제 발생', error)
+    return {
+      props: {
+        initialPosts: [],
+      },
+    }
+  }
+}
+
+export default function Posts({ initialPosts }: PostsProps) {
   const selectOptions = [
     { value: 'recent', label: '최신순' },
     { value: 'like', label: '좋아요순' },
