@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 70px;
+  border-bottom: solid 1px #dfdfdf;
+  padding: 16px;
+}
+
+.Header-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
