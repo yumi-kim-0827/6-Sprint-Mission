@@ -4,6 +4,7 @@ import BestSection from './BestSection';
 
 import { getBoards } from '@/api/boards.api';
 import { useEffect, useState } from 'react';
+import useDeviceSize from '@/hooks/useDeviceSize';
 
 interface WriterType {
 	id: number;
@@ -33,14 +34,26 @@ interface GetBoardsQuery {
 const BestArticles: React.FC = () => {
 	const [boards, setBoards] = useState<BoardType[]>([]);
 
+	const deviceSize = useDeviceSize();
+
+	const pageSize = () => {
+		if (deviceSize === 'mobile') {
+			return 1;
+		} else if (deviceSize === 'tablet') {
+			return 2;
+		} else {
+			return 3;
+		}
+	};
+
 	const handleLoad = async (query: GetBoardsQuery) => {
 		const { list }: GetBoardsResponse = await getBoards(query);
 		setBoards(list || []);
 	};
 
 	useEffect(() => {
-		handleLoad({ orderBy: 'like', page: 1, pageSize: 3 });
-	}, []);
+		handleLoad({ orderBy: 'like', page: 1, pageSize: pageSize() });
+	}, [deviceSize]);
 
 	return (
 		<section className={styles.best_articles_main}>

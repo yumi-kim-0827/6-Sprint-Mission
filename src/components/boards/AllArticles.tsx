@@ -7,7 +7,7 @@ import { getBoards } from '@/api/boards.api';
 
 import AllSection from './AllSection';
 import Link from 'next/link';
-import Dropdown from '@/components/common/DropDown';
+import Dropdown from '@/components/common/Dropdown';
 import Image from 'next/image';
 
 interface WriterType {

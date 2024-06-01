@@ -10,7 +10,9 @@
 		"prettier": "prettier --write --config ./.prettierrc './src/**/*.{ts,tsx}'"
 	},
 	"dependencies": {
+		"@types/lodash": "^4.17.4",
 		"axios": "^1.7.2",
+		"lodash": "^4.17.21",
 		"next": "^13.5.6",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"

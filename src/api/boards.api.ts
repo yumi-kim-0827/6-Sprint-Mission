@@ -29,7 +29,7 @@ interface GetBoardsResponse {
 export async function getBoards({
 	orderBy = 'recent',
 	page = 1,
-	pageSize = 10,
+	pageSize = 5,
 	search = '',
 }: GetBoardsQuery): Promise<GetBoardsResponse> {
 	const query = search

@@ -5,6 +5,7 @@ import styles from '@/styles/boards/AllArticles.module.css';
 
 import Image from 'next/image';
 import React from 'react';
+import useDeviceSize from '@/hooks/useDeviceSize';
 
 interface WriterType {
 	id: number;
@@ -26,14 +27,25 @@ interface AllSectionProps {
 }
 
 const AllSection: React.FC<AllSectionProps> = ({ board }) => {
+	const deviceSize = useDeviceSize();
+
+	const content = () => {
+		if (deviceSize === 'mobile') {
+			return board.content.length > 50 ? board.content.slice(0, 50) + '...' : board.content;
+		} else if (deviceSize === 'tablet') {
+			return board.content.length > 120 ? board.content.slice(0, 120) + '...' : board.content;
+		} else {
+			board.content.length > 200 ? board.content.slice(0, 200) + '...' : board.content;
+		}
+	};
+
 	const createdAt = new Date(board.createdAt).toLocaleDateString();
-	const content = board.content.length > 200 ? board.content.slice(0, 200) + '...' : board.content;
 	const likeCount = board.likeCount > 9999 ? '9999+' : board.likeCount;
 
 	return (
 		<div className={styles.all_section_wrap}>
 			<div className={styles.all_section_main}>
-				<span className={styles.all_section_content}>{content}</span>
+				<span className={styles.all_section_content}>{content()}</span>
 
 				{board.image && (
 					<div className={styles.all_section_border}>
