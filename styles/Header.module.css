@@ -14,7 +14,7 @@
 }
 
 .Header-empty {
-  height: 62px;
+  height: 70px;
 }
 
 .Header-container {
@@ -22,9 +22,8 @@
   align-items: center;
 }
 
-/* 모바일 기기(기본) */
 .Header-logo {
-  display: none; /* 모바일에서는 기본 로고를 숨깁니다 */
+  display: none;
 }
 
 .Header-logo-mob {
@@ -42,6 +41,7 @@
   font-weight: 700;
   line-height: 19px;
   color: #4b5563;
+  min-width: 80px;
 }
 
 .Header-link-act {
@@ -49,6 +49,7 @@
   font-weight: 700;
   line-height: 19px;
   color: #3692ff;
+  min-width: 80px;
 }
 
 .Header-profile {
@@ -68,11 +69,11 @@
 /* 태블릿 */
 @media (min-width: 768px) and (max-width: 1023px) {
   .Header-logo-mob {
-    display: none; /* 태블릿에서는 모바일 로고를 숨깁니다 */
+    display: none;
   }
 
   .Header-logo {
-    display: flex; /* 태블릿에서는 기본 로고를 보여줍니다 */
+    display: flex;
     margin: 10px 20px;
   }
 
@@ -98,11 +99,11 @@
 /* 데스크탑 */
 @media (min-width: 1024px) {
   .Header-logo-mob {
-    display: none; /* 데스크탑에서는 모바일 로고를 숨깁니다 */
+    display: none;
   }
 
   .Header-logo {
-    display: flex; /* 데스크탑에서는 기본 로고를 보여줍니다 */
+    display: flex;
     margin: 10px 20px;
   }
 
