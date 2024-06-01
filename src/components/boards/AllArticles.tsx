@@ -1,45 +1,22 @@
 import styles from '@/styles/boards/AllArticles.module.css';
-
 import ic_search from '@/assets/images/items/ic_search.svg';
-
 import { useEffect, useState } from 'react';
-import { getBoards } from '@/api/boards.api';
-
+import { getBoards, BoardType, GetBoardsResponse, GetBoardsQuery } from '@/api/boards.api';
 import AllSection from './AllSection';
 import Link from 'next/link';
 import Dropdown from '@/components/common/Dropdown';
 import Image from 'next/image';
 
-interface WriterType {
-	id: number;
-	nickname: string;
+interface AllArticlesProps {
+	initialBoards: BoardType[];
 }
 
-interface BoardType {
-	id: number;
-	content: string;
-	image: string;
-	likeCount: number;
-	createdAt: string;
-	updatedAt: string;
-	writer: WriterType;
-}
-
-interface GetBoardsResponse {
-	list: BoardType[];
-}
-
-interface GetBoardsQuery {
-	orderBy: string;
-	page?: number;
-	pageSize?: number;
-	search?: string;
-}
-
-const AllArticles: React.FC = () => {
+const AllArticles: React.FC<AllArticlesProps> = ({ initialBoards }) => {
 	const [order, setOrder] = useState<string>('recent');
 	const [search, setSearch] = useState<string>('');
-	const [boards, setBoards] = useState<BoardType[]>([]);
+	const [boards, setBoards] = useState<BoardType[]>(initialBoards);
+
+	const [isLoading, setIsLoading] = useState(true);
 
 	const handleLoad = async (query: GetBoardsQuery) => {
 		const { list }: GetBoardsResponse = await getBoards(query);
@@ -47,12 +24,14 @@ const AllArticles: React.FC = () => {
 	};
 
 	useEffect(() => {
+		// 처음 렌더링 시에는 실행하지 않음
+		if (isLoading) {
+			setIsLoading(false);
+			return;
+		}
+
 		handleLoad({ orderBy: order, search: search });
 	}, [order, search]);
-
-	const handleChange = (value: string) => {
-		setOrder(value);
-	};
 
 	const handleSearch = (value: string) => {
 		setSearch(value);

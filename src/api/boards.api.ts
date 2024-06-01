@@ -1,6 +1,6 @@
 import instance from '@/api/Axios';
 
-interface GetBoardsQuery {
+export interface GetBoardsQuery {
 	orderBy?: string;
 	page?: number;
 	pageSize?: number;
@@ -12,7 +12,7 @@ interface WriterType {
 	nickname: string;
 }
 
-interface BoardType {
+export interface BoardType {
 	id: number;
 	content: string;
 	image: string;
@@ -22,7 +22,7 @@ interface BoardType {
 	writer: WriterType;
 }
 
-interface GetBoardsResponse {
+export interface GetBoardsResponse {
 	list: BoardType[];
 }
 

@@ -35,7 +35,7 @@ const AllSection: React.FC<AllSectionProps> = ({ board }) => {
 		} else if (deviceSize === 'tablet') {
 			return board.content.length > 120 ? board.content.slice(0, 120) + '...' : board.content;
 		} else {
-			board.content.length > 200 ? board.content.slice(0, 200) + '...' : board.content;
+			return board.content.length > 200 ? board.content.slice(0, 200) + '...' : board.content;
 		}
 	};
 
