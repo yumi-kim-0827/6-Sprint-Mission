@@ -4,36 +4,39 @@ import ArticleComponent from './article-component';
 import ic_search from '../public/images/ic_search.png';
 import SelectBox from './select-box';
 import { getArticles, ListProps } from '@/lib/getArticles';
-import { ChangeEvent, useState, useEffect } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 const PAGE_NUM = 1;
 const PAGE_SIZE = 10;
 
-export default function Articles() {
-  const [orderby, setOrderby] = useState('like');
+interface Props {
+  articlesServer: ListProps[];
+}
+
+export default function Articles({ articlesServer }: Props) {
+  const [orderBy, setOrderby] = useState('recent');
   const [keyword, setKeyword] = useState('');
-  const [articles, setArticles] = useState<ListProps[]>([]);
+  const [articles, setArticles] = useState<ListProps[]>(articlesServer);
 
-  const handleOrderClick = (sortType: string): void => {
+  const handleOrderClick = async (sortType: string): Promise<void> => {
     setOrderby(sortType);
+    try {
+      const sortData = await getArticles(PAGE_NUM, PAGE_SIZE, sortType, keyword);
+      setArticles(sortData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setKeyword(value);
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>): Promise<void> => {
+    setKeyword(e.target.value);
+    try {
+      const sortData = await getArticles(PAGE_NUM, PAGE_SIZE, orderBy, e.target.value);
+      setArticles(sortData);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const data = await getArticles(PAGE_NUM, PAGE_SIZE, orderby, keyword);
-        setArticles(data);
-      } catch (error) {
-        console.error('Failed to fetch items:', error);
-      }
-    };
-    fetchArticles();
-  }, [orderby, keyword]);
 
   return (
     <div>
