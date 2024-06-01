@@ -4,6 +4,9 @@ import { ArticleType } from "@/types/type";
 import DropdownMenu from "./DropdownMenu";
 import axios from "@/lib/axios";
 import ArticleList from "./Article";
+import styles from "@/styles/ArticleBoards.module.css";
+import search from "@/public/search.svg";
+import Image from "next/image";
 
 export default function ArticleBoards() {
   const [article, setArticle] = useState<ArticleType[]>([]);
@@ -34,14 +37,28 @@ export default function ArticleBoards() {
 
   return (
     <>
-      <DropdownMenu orderBySort={setOrderby} />
-      <input
-        type="text"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="검색어를 입력하세요"
-      />
+      <div className={styles["Boards-header"]}>
+        <div className={styles["Boards-header-title"]}>게시글</div>
+        <div className={styles["Boards-header-writing"]}>글쓰기</div>
+      </div>
+      <div className={styles["Boards-container"]}>
+        <input
+          className={styles["Search"]}
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="검색어를 입력하세요"
+        />
+        <Image
+          className={styles["Search-img"]}
+          src={search}
+          alt="검색"
+          width={24}
+          height={24}
+        />
+        <DropdownMenu orderBySort={setOrderby} />
+      </div>
       <ArticleList articleList={article} />
     </>
   );
