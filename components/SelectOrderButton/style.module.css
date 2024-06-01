@@ -1,0 +1,57 @@
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.select_btn {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  cursor: pointer;
+  border-radius: 1.2rem;
+  border: 1px solid var(--gray200);
+  background-color: white;
+}
+
+.select_options {
+  list-style-type: none;
+  position: absolute;
+  top: 4.6rem;
+}
+.select_options li {
+  width: 12rem;
+  height: 4.2rem;
+  border: 1px solid var(--gray200);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+.select_options li:first-child {
+  border-radius: 12px 12px 0 0;
+}
+.select_options li:last-child {
+  border-radius: 0 0 12px 12px;
+}
+.select_options li:hover {
+  background-color: var(--btn1);
+}
+
+@media (max-width: 375px) {
+  .select_options {
+    right: 0.5rem;
+  }
+}

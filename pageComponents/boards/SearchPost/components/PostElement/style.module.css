@@ -1,0 +1,67 @@
+.container {
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid var(--gray200);
+}
+.container:hover {
+  background-color: var(--gray100);
+}
+
+.title_img {
+  width: 100%;
+  min-height: 4.8rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+  gap: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: var(--coolGray800);
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.writer_date {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nickName {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+  color: var(--coolGray600);
+}
+
+.date {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+  color: var(--coolGray400);
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.likes_count {
+  width: 5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+@media (max-width: 744px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}

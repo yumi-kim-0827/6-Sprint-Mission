@@ -1,0 +1,76 @@
+/* 헤더 */
+.header {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.contents {
+  display: grid;
+  height: 7rem;
+  grid-template-columns:
+    20rem 15.3rem 3.2rem 21.8rem minmax(min-content, 103rem)
+    8.8rem 20rem;
+  background-color: white;
+}
+.logo {
+  position: relative;
+  grid-column: 2/3;
+  margin: auto 0;
+  text-align: end;
+  width: 100%;
+  height: 5.1rem;
+}
+.navLinks {
+  grid-column: 4/5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navLink {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+  color: var(--btn5);
+  white-space: nowrap;
+}
+
+.active {
+  color: var(--main);
+}
+.login {
+  grid-column: 6/7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user_icon {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+}
+
+@media (max-width: 744px) {
+  .header {
+    display: block;
+  }
+
+  .contents {
+    grid-template-columns:
+      2.4rem 15.3rem minmax(auto, 3.2rem) minmax(auto, 21.8rem)
+      1fr minmax(auto, 8.8rem) 2.4rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .contents {
+    grid-template-columns:
+      2.4rem 15.3rem minmax(auto, 3.2rem) minmax(auto, 13.5rem)
+      minmax(0.2rem, 1fr) minmax(auto, 8.8rem) 2.4rem;
+  }
+  .navLink {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,22 @@
+.container {
+  margin: 2.4rem auto 4rem auto;
+
+  max-width: 121rem;
+  padding: 0 0.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (max-width: 744px) {
+  .container {
+    max-width: 69.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 34.4rem;
+  }
+}
