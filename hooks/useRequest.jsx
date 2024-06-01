@@ -1,32 +1,24 @@
 import { useState, useEffect } from "react";
 import { dispatcher } from "lib/axios";
 
-export default function useRequest({ options, skip = false, deps = [] }) {
-  const [data, setData] = useState(null);
+export default function useRequest() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const requestFunc = async (...args) => {
+  const requestFunc = async (options) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await dispatcher({ ...options, ...args });
-
-      setData(() => response);
-      return response;
+      const res = await dispatcher({ ...options });
+      return res;
     } catch (err) {
-      setError(() => err);
+      setError(err);
       return err;
     } finally {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (skip) return;
-    requestFunc();
-  }, deps);
-
-  return { data, isLoading, error, requestFunc };
+  
+  return { isLoading, error, requestFunc };
 }
