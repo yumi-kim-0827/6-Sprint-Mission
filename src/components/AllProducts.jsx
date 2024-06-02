@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
-import getProducts from "../api/products";
+import getProducts, { PAGE_SIZE } from "../api/products";
 import ProductCard from "./ProductCard";
 import AllProductsHeader from "./AllProductsHeader";
 import styles from "./AllProducts.module.css";
+import Pagination from "./Pagination";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [totalPage, setTotalPage] = useState(1);
+  const [page, setPage] = useState(1);
+
+  //   function isKoreanString(str) {
+  //   const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  //   return koreanRegex.test(str);
+  // }
 
   const onChange = (e) => {
     setSearch(e.target.value);
@@ -17,6 +25,7 @@ const AllProducts = () => {
       return products;
     }
     return products.filter((item) => {
+      // includes 인수로 전달한 값이 호출한 프로퍼티에 포함된지 찾아서 있으면 true 없으면 false (item.name)
       item.name.toLowerCase().includes(search.toLowerCase());
     });
   };
@@ -25,12 +34,13 @@ const AllProducts = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getProducts({});
-      setProducts(data);
+      const data = await getProducts({ page: page });
+      setProducts(data.list);
+      setTotalPage(Math.ceil(data.totalCount / PAGE_SIZE));
     }
 
     fetchData();
-  }, []);
+  }, [page]);
 
   return (
     <div>
@@ -44,6 +54,7 @@ const AllProducts = () => {
           <ProductCard item={item} key={item.id} />
         ))}
       </div>
+      <Pagination totalPage={totalPage} page={page} setPage={setPage} />
     </div>
   );
 };

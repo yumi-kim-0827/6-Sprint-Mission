@@ -12,7 +12,7 @@ const BestProducts = () => {
         pageSize: 4,
         orderBy: "favorite",
       });
-      setProducts(data);
+      setProducts(data.list);
     }
 
     fetchData();

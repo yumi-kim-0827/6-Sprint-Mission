@@ -1,8 +1,9 @@
 const BASE_URL = "https://panda-market-api.vercel.app/products";
+export const PAGE_SIZE = 12;
 
-export default async function getProducts({
+export default async function getProductsData({
   page = 1,
-  pageSize = 10,
+  pageSize = PAGE_SIZE,
   orderBy = "recent",
   keyword = "",
 }) {
@@ -11,5 +12,5 @@ export default async function getProducts({
   const data = await res.json();
   // console.log(data);
 
-  return data.list;
+  return data;
 }

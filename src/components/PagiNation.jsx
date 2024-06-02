@@ -1,7 +1,21 @@
 import React from "react";
+import styles from "./Pagination.module.css";
 
-const pagiNation = () => {
-  return <div></div>;
+const Pagination = ({ totalPage, page, setPage }) => {
+  const handlePageClick = (e) => {
+    console.log(e.target.value);
+    setPage(e.target.value);
+  };
+
+  return (
+    <div className={styles.Pagination}>
+      {[...Array(totalPage)].map((_, index) => (
+        <button value={index + 1} onClick={handlePageClick}>
+          {index + 1}
+        </button>
+      ))}
+    </div>
+  );
 };
 
-export default pagiNation;
+export default Pagination;
