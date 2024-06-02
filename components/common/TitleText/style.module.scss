@@ -1,0 +1,5 @@
+@import '../../../styles';
+
+.title {
+  @include font-base($cool-gray900, 700, 20px, 24px);
+}

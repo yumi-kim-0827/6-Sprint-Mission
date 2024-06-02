@@ -1,0 +1,28 @@
+@import '../../styles/';
+
+.best_wrapper {
+  display: flex;
+  gap: 24px;
+
+  margin-top: 24px;
+
+  @media (max-width: $mobile-size) {
+    margin-top: 16px;
+  }
+}
+
+.board_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 40px;
+}
+
+.board_mid {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-top: 24px;
+}

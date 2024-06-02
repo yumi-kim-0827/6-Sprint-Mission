@@ -1,0 +1,74 @@
+@import '../../../styles/';
+
+.wrapper {
+  position: relative;
+}
+
+.button {
+  cursor: pointer;
+
+  width: 130px;
+  height: 42px;
+
+  border-radius: 12px;
+  border: 1px solid $cool-gray200;
+
+  background-color: white;
+
+  &:hover {
+    background-color: $cool-gray200;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  span {
+    @include font-base($cool-gray800, 400, 16px, 24px);
+  }
+}
+
+.mobile {
+  width: 42px;
+}
+
+.container {
+  position: absolute;
+  top: 120%;
+  right: 0;
+
+  width: 130px;
+
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid $cool-gray200;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+
+  li:first-child {
+    border-bottom: 1px solid $cool-gray200;
+    border-radius: 12px 12px 0 0;
+  }
+
+  li:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+
+  z-index: 1;
+}
+
+.item {
+  cursor: pointer;
+
+  width: 100%;
+  padding-block: 10px;
+
+  &:hover {
+    background-color: $cool-gray200;
+  }
+}

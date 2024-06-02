@@ -1,4 +1,4 @@
-const Home = () => {
+const Items = () => {
   return (
     <>
       <main>미구현 페이지 입니다.</main>
@@ -6,4 +6,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Items;

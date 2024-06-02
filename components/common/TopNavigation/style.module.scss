@@ -1,0 +1,57 @@
+@import '../../../styles';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: $border;
+
+  padding: 10px 200px;
+  margin-bottom: 24px;
+
+  @media (max-width: $tablet-size) {
+    padding-inline: 24px;
+  }
+
+  @media (max-width: $mobile-size) {
+    padding: 15px 16px;
+  }
+}
+
+.left_header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: $tablet-size) {
+    gap: 20px;
+  }
+
+  @media (max-width: $mobile-size) {
+    gap: 16px;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: $mobile-size) {
+    gap: 8px;
+  }
+}
+
+.nav_item {
+  @include font-base($cool-gray600, 700, 18px, 21px);
+
+  @media (max-width: $mobile-size) {
+    font-size: 16px;
+  }
+}
+
+.active {
+  color: $brand-blue;
+}

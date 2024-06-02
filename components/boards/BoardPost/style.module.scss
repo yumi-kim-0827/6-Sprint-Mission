@@ -1,0 +1,72 @@
+@import '../../../styles/';
+
+.container {
+  border-bottom: 1px solid $cool-gray200;
+}
+
+.top_info {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  height: 72px;
+  margin-top: 24px;
+
+  & h3 {
+    @include font-base($cool-gray800, 600, 20px, 24px);
+    width: 80%;
+  }
+}
+
+.image {
+  position: relative;
+
+  width: 72px;
+
+  border-radius: 6px;
+  border: 1px solid $cool-gray200;
+
+  background-color: white;
+
+  & img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+  }
+}
+
+.bottom_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-block: 16px;
+}
+
+.bottom_left {
+  display: flex;
+  gap: 8px;
+
+  span:nth-child(2) {
+    margin-top: 5px;
+    @include font-base($cool-gray600, 400, 14px, 17px);
+  }
+
+  span:nth-child(3) {
+    margin-top: 5px;
+    @include font-base($cool-gray400, 400, 14px, 17px);
+  }
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  span {
+    @include font-base($cool-gray500, 400, 16px, 24px);
+  }
+  svg {
+    margin-bottom: 2px;
+  }
+}

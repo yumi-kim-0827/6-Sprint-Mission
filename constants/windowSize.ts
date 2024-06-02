@@ -1,0 +1,4 @@
+const MOBILE_SIZE = 744;
+const TABLET_SIZE = 1024;
+
+export { MOBILE_SIZE, TABLET_SIZE };
