@@ -6,7 +6,6 @@ import ProfileImage from "../../src/assets/images/ui/ic_profile_small.svg";
 import { useEffect, useState } from "react";
 import { getArticles } from "../../api/getArticles";
 import formatDate from "../../lib/formatDate";
-import getCountsOfData from "../../hooks/getCountsOfData";
 
 interface ArticleList {
   posts: Article[];
@@ -34,9 +33,8 @@ interface ArticlePropsType {
   keyword: string;
 }
 
-export default function BestArticle({ orderBy, keyword }: ArticlePropsType) {
+export default function WholeArticle({ orderBy, keyword }: ArticlePropsType) {
   const [articles, setArticles] = useState<Article[]>([]);
-  const pageSize = getCountsOfData({ desktop: 3, tablet: 2, mobile: 1 });
 
   async function getArticleData() {
     const res = await getArticles({ orderBy, pageSize: 6, keyword });
@@ -53,11 +51,13 @@ export default function BestArticle({ orderBy, keyword }: ArticlePropsType) {
         <li key={article.id} className={style.article}>
           <div className={style.article_top}>
             <h2>{article.title}</h2>
-            <div className={style.image}>
-              {article.image && (
+            {article.image ? (
+              <div className={style.image}>
                 <Image fill src={article.image} alt={article.title} />
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className={style.no_image}></div>
+            )}
           </div>
           <div className={style.article_bottom}>
             <div className={style.bottom_left}>

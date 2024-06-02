@@ -6,7 +6,7 @@ import HeartIcon from "../../src/assets/images/board/heart-icon.svg";
 import { useEffect, useState } from "react";
 import { getArticles } from "../../api/getArticles";
 import formatDate from "../../lib/formatDate";
-import getCountsOfData from "../../hooks/getCountsOfData";
+import useGetCountsOfData from "../../hooks/useGetCountsOfData";
 
 interface ArticleList {
   posts: Article[];
@@ -31,7 +31,7 @@ interface WriterInfo {
 
 export default function BestArticle() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const pageSize = getCountsOfData({ desktop: 3, tablet: 2, mobile: 1 });
+  const pageSize = useGetCountsOfData({ desktop: 3, tablet: 2, mobile: 1 });
 
   async function getArticleData({ pageSize }: { pageSize: number }) {
     const res = await getArticles({ pageSize });
@@ -49,11 +49,13 @@ export default function BestArticle() {
           <BestBadge />
           <div className={style.article_top}>
             <h2 className={style.title}>{article.title}</h2>
-            <div className={style.image}>
-              {article.image && (
+            {article.image ? (
+              <div className={style.image}>
                 <Image fill src={article.image} alt={article.title} />
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className={style.no_image}></div>
+            )}
           </div>
           <div className={style.article_bottom}>
             <div className={style.bottom_left}>

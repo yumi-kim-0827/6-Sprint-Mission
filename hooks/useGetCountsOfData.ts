@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
-interface getCountsOfDataProps {
+interface useGetCountsOfDataProps {
   desktop: number;
   tablet: number;
   mobile: number;
@@ -20,13 +20,15 @@ const getWindowSize = (ItemsCount: number[]) => {
   return ItemsCount[0];
 };
 
-export default function getCountsOfData({
+export default function useGetCountsOfData({
   desktop,
   tablet,
   mobile,
-}: getCountsOfDataProps): number {
+}: useGetCountsOfDataProps): number {
   const itemsCounts = [desktop, tablet, mobile];
-  const [itemsCount, setItemsCount] = useState(getWindowSize(itemsCounts));
+  const [itemsCount, setItemsCount] = useState<number>(
+    getWindowSize(itemsCounts)
+  );
 
   useEffect(() => {
     const handleResize = () => {

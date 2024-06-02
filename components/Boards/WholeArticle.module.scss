@@ -37,6 +37,12 @@
         border: 1px solid get_color(gray_200);
         aspect-ratio: 1/1;
       }
+      .no_image {
+        position: relative;
+        display: inline-block;
+        width: 72px;
+        aspect-ratio: 1/1;
+      }
     }
 
     .article_bottom {
