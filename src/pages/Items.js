@@ -5,7 +5,7 @@ import AllProducts from "../components/AllProducts";
 
 const Items = () => {
   return (
-    <div>
+    <div className={styles.Items}>
       <BestProducts />
       <AllProducts />
     </div>

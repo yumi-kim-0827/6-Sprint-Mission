@@ -12,13 +12,21 @@
   border-bottom: 1px solid #dfdfdf;
 }
 
-.Nav_left {
+.links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  margin-left: 32px;
 }
 
-.Nav_left > h3 {
+.links a {
+  padding: 16px;
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.links .active {
   color: #3692ff;
 }
 
@@ -28,14 +36,7 @@
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  margin-left: auto;
   width: 40px;
   height: 40px;
-}
-
-.Nav_left > span {
-  font-size: 18px;
-  font-weight: 700;
-  color: #4b5563;
 }
