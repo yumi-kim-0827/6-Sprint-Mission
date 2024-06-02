@@ -1,4 +1,5 @@
 import { BestPostCard } from "@/entities/bestPostCard";
+import { PostCard } from "@/entities/postCard/ui/postCard";
 import { BASE_URL, SORT_OBJECT_KEY_TYPE } from "@/shared/constants/constants";
 import { useScreenDetector } from "@/shared/lib/hooks";
 import { Article, ArticleData } from "@/shared/model";
@@ -21,6 +22,7 @@ export default function BoardsPage({
   likeList,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [article, setArticle] = useState<Article[]>([]);
+  const [bestArticle, setBestArticle] = useState<Article[]>(likeList);
   const [sort, setSort] = useState<SORT_OBJECT_KEY_TYPE>("recent");
   const [isLoading, setLoading] = useState<boolean>(true);
   const [keyword, setKeyword] = useState<string>("");
@@ -35,6 +37,17 @@ export default function BoardsPage({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(() => e.target.value);
   };
+
+  useEffect(() => {
+    fetch(
+      `${BASE_URL}/articles?orderBy=like&&pageSize=${isMobile ? 1 : isTablet ? 2 : 3}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBestArticle(data.list ?? []);
+        setLoading(false);
+      });
+  }, [isMobile, isTablet]);
 
   useEffect(() => {
     fetch(`${BASE_URL}/articles?orderBy=${sort}&&keyword=${keyword}`)
@@ -53,7 +66,7 @@ export default function BoardsPage({
       <article className="flex flex-col gap-4 mt-4 md:mt-6">
         <header className="text-xl font-bold">베스트 게시글</header>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4 lg:gap-6">
-          {likeList.map((item) => (
+          {bestArticle.map((item) => (
             <Fragment key={item.id}>
               <BestPostCard article={item} />
             </Fragment>
@@ -81,11 +94,7 @@ export default function BoardsPage({
           </section>
         </form>
         <section>
-          {isLoading ? (
-            <div>로딩중입니다.</div>
-          ) : (
-            article?.map((v) => <div key={v.id}>{v.content}</div>)
-          )}
+          {isLoading ? <div>로딩중입니다.</div> : <PostCard items={article} />}
         </section>
       </article>
     </>
