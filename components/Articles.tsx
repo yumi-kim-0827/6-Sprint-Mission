@@ -42,7 +42,13 @@ function ArticleList({
           <p className={styles.articlesListTitle}>{title}</p>
           {image && (
             <div className={styles.articleListImageWrapper}>
-              <img className={styles.articleListImage} src={image} />
+              <Image
+                width={72}
+                height={72}
+                className={styles.articleListImage}
+                src={image}
+                alt="article image"
+              />
             </div>
           )}
         </div>

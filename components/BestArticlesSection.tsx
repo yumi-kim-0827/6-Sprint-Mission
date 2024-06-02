@@ -48,7 +48,13 @@ function BestArticlesCard({
           <p className={styles.bestcardTitle}>{title}</p>
           {image && (
             <div className={styles.bestcardimageWrapper}>
-              <img className={styles.bestcardimage} src={image} />
+              <Image
+                width={72}
+                height={72}
+                className={styles.bestcardimage}
+                src={image}
+                alt="best article image"
+              />
             </div>
           )}
         </div>
