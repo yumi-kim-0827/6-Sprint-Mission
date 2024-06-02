@@ -1,5 +1,6 @@
 import { formatDate } from "@/shared/lib/formatDate";
 import { Article } from "@/shared/model";
+import { ItemImage } from "@/shared/ui/itemImage";
 import Image from "next/image";
 
 interface Props {
@@ -26,18 +27,7 @@ export function BestPostCard({ article }: Props) {
       <main className="overflow-hidden">
         <header className="text-lg scrollbar-hide font-semibold flex gap-2 mt-4 h-[72px] overflow-auto">
           {article.title}
-          {article.image !== null && (
-            <figure className="rounded-lg bg-white relative p-3 w-[72px] h-[72px] flex-shrink-0 flex-grow-0">
-              <div className="relative z-10 h-full w-full">
-                <Image
-                  fill
-                  src={article.image}
-                  alt="상품 이미지"
-                  className="absolute z-20"
-                />
-              </div>
-            </figure>
-          )}
+          <ItemImage imageUrl={article.image} />
         </header>
       </main>
       <footer className="mt-4 text-sm flex justify-between">
@@ -56,7 +46,7 @@ export function BestPostCard({ article }: Props) {
           </figure>
         </header>
         <footer className="text-[#9ca3af]">
-          {formatDate(new Date(article.updatedAt))}
+          {formatDate(new Date(article.createdAt))}
         </footer>
       </footer>
     </section>

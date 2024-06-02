@@ -74,7 +74,7 @@ export const Dropdown = ({ ...props }: Props) => {
           {Object.keys(SORT_OBJECT).map((item, index) => (
             <li
               key={index}
-              onClick={() => setValue(() => item as SORT_OBJECT_KEY_TYPE)}
+              onClick={() => setValue(item as SORT_OBJECT_KEY_TYPE)}
               className="h-[42px] flex justify-center items-center border-[#e5e7eb] border hover:bg-[#9CA3AF]"
             >
               {SORT_OBJECT[item as SORT_OBJECT_KEY_TYPE]}
