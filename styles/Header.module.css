@@ -1,0 +1,172 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 200px;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.Header-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.Header-long-img {
+  width: 153px;
+  height: 51px;
+  cursor: pointer;
+}
+.Header-short-img {
+  display: none;
+}
+
+.Header-btns {
+  display: flex;
+  align-items: center;
+}
+.Header-btn {
+  margin-right: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.48px;
+  cursor: pointer;
+  color: var(--items-header-btn-color-nonactive);
+}
+
+.Header-btn-active {
+  margin-right: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.48px;
+  cursor: pointer;
+  color: var(--items-header-btn-color-active);
+}
+
+.Header-login-btn {
+  background-color: var(--blue);
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.Header-login-btn:hover {
+  background-color: var(--hover-blue);
+}
+.Header-login-btn:active {
+  background-color: var(--click-blue);
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .Header {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .Header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .Header-long-img {
+    display: none;
+  }
+  .Header-short-img {
+    display: block;
+    width: 81px;
+    height: 27px;
+    cursor: pointer;
+  }
+  .Header-btns {
+    display: flex;
+    align-items: center;
+  }
+  .Header-btn {
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.48px;
+    cursor: pointer;
+    color: var(--items-header-btn-color-nonactive);
+  }
+
+  .Header-btn-active {
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.48px;
+    cursor: pointer;
+    color: var(--items-header-btn-color-active);
+  }
+  .Header-login-btn {
+    background-color: var(--blue);
+    width: 88px;
+    height: 42px;
+    border-radius: 8px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .Header-login-btn:hover {
+    background-color: var(--hover-blue);
+  }
+  .Header-login-btn:active {
+    background-color: var(--click-blue);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .Header {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  .Header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .Header-long-img {
+    width: 153px;
+    height: 51px;
+    cursor: pointer;
+  }
+  .Header-short-img {
+    display: none;
+  }
+
+  .Header-btns {
+    display: flex;
+    align-items: center;
+  }
+  .Header-btn {
+    margin-right: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.48px;
+    cursor: pointer;
+    color: var(--items-header-btn-color-nonactive);
+  }
+
+  .Header-btn .active {
+    color: var(--items-header-btn-color-active);
+  }
+}

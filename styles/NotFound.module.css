@@ -1,0 +1,44 @@
+.not-found-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray100);
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border-radius: 18px;
+}
+
+.not-found-container__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-text {
+  font-size: 21px;
+  margin-bottom: 30px;
+}
+
+.go-home-btn {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 18px;
+}
+
+.go-home-btn:hover {
+  background-color: var(--hover-blue);
+}
+.go-home-btn:active {
+  background-color: var(--click-blue);
+}
