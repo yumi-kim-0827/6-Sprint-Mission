@@ -5,7 +5,7 @@ import Article from "@/components/Article";
 import BestArticle from "@/components/BestArticle";
 import Head from "next/head";
 import { GetServerSidePropsContext } from "next";
-import { getArticles, getBestArticles, listType } from "../lib/apis/api";
+import { getArticles, getBestArticles, ArticleResponse } from "../lib/apis/api";
 import useMediaQuery from "@/hooks/useMatchMedia";
 
 export interface QueryOption {
@@ -28,11 +28,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 type Articles = {
-  articles: listType[];
+  articles: ArticleResponse[];
 };
 
 const Board = ({ articles }: Articles) => {
-  const [bestArticles, setBestArticles] = useState<listType[]>([]);
+  const [bestArticles, setBestArticles] = useState<ArticleResponse[]>([]);
   const [pageSize, setPageSize] = useState<number>(3);
 
   const isSmallScreen = useMediaQuery("(min-width: 380px) and (max-width: 767px)");
@@ -72,7 +72,7 @@ const Board = ({ articles }: Articles) => {
         </section>
         <BoardNavBar />
         <section className={styles["all-article-list"]}>
-          {articles.map((article: listType) => {
+          {articles.map((article) => {
             return <Article key={article.title} {...article} />;
           })}
         </section>

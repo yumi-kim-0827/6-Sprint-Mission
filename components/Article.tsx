@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/styles/Articles.module.css";
-import { WriterType } from "@/lib/apis/api";
+import { WriterResponse } from "@/lib/apis/api";
 import Image from "next/image";
 import formatTime from "@/utils/formatTime";
 
@@ -9,7 +9,7 @@ export type Props = {
   image: string;
   likeCount: number;
   title: string;
-  writer: WriterType;
+  writer: WriterResponse;
 };
 
 const Article = ({ createdAt, image, likeCount, title, writer }: Props) => {

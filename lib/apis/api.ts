@@ -1,7 +1,7 @@
 import instance from "@/lib/axios";
 import { AxiosResponse } from "axios";
 
-export type listType = {
+export type ArticleResponse = {
   id: number;
   title: string;
   content: string;
@@ -9,16 +9,16 @@ export type listType = {
   likeCount: number;
   createdAt: string;
   updatedAt: string;
-  writer: WriterType;
+  writer: WriterResponse;
 };
 
-export type WriterType = {
+export type WriterResponse = {
   id: number;
   nickname: string;
 };
 
-export type ArticlesType = {
-  list: listType[];
+export type ArticlesResponse = {
+  list: ArticleResponse[];
   totalCount: number;
 };
 
@@ -37,7 +37,7 @@ export async function getArticles({
     keyword: formattedKeyword,
   });
   try {
-    const response: AxiosResponse<ArticlesType> = await instance.get(`?${params.toString()}`);
+    const response: AxiosResponse<ArticlesResponse> = await instance.get(`?${params.toString()}`);
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
@@ -52,7 +52,7 @@ export async function getBestArticles(pageSize: number) {
     orderBy: "like",
   });
   try {
-    const response: AxiosResponse<ArticlesType> = await instance.get(`?${params.toString()}`);
+    const response: AxiosResponse<ArticlesResponse> = await instance.get(`?${params.toString()}`);
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
