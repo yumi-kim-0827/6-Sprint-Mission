@@ -20,16 +20,10 @@ export function ItemPage() {
     order: "recent",
     page: 1,
   });
-  const [isPopDropdown, setPopState] = useState(false);
-  const sortOptions = [
-    { value: "recent", name: "최신순" },
-    { value: "favorite", name: "좋아요순" },
-  ];
 
   const handlePop = (e: React.MouseEvent<HTMLButtonElement>) => {
     let { name, value } = e.currentTarget;
 
-    setPopState(!isPopDropdown);
     handleChange(name, value);
   };
 
@@ -78,12 +72,12 @@ export function ItemPage() {
               상품 등록하기
             </Link>
             <Input.Select
-              isShow={isPopDropdown}
-              selectOptions={sortOptions}
+              selectOptions={[
+                { value: "recent", name: "최신순" },
+                { value: "favorite", name: "좋아요순" },
+              ]}
               name="order"
               value={values.order}
-              onPop={setPopState}
-              onClick={handlePop}
               onChange={handleChange}
               className="section-item__dropdown"
             ></Input.Select>
