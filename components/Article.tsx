@@ -12,7 +12,7 @@ export type Props = {
   writer: WriterType;
 };
 
-const Articles = ({ createdAt, image, likeCount, title, writer }: Props) => {
+const Article = ({ createdAt, image, likeCount, title, writer }: Props) => {
   return (
     <article className={styles[image ? "article-item" : "article-item__none-img"]}>
       <div className={styles["article-item-top"]}>
@@ -52,4 +52,4 @@ const Articles = ({ createdAt, image, likeCount, title, writer }: Props) => {
   );
 };
 
-export default Articles;
+export default Article;

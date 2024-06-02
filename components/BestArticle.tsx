@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "@/styles/BestArticles.module.css";
 import Image from "next/image";
-import { Props } from "./Articles";
+import { Props } from "./Article";
 import formatTime from "@/utils/formatTime";
 
-const BestArticles = ({ createdAt, image, likeCount, title, writer }: Props) => {
+const BestArticle = ({ createdAt, image, likeCount, title, writer }: Props) => {
   return (
     <>
       <article className={styles["article-item"]}>
@@ -59,4 +59,4 @@ const BestArticles = ({ createdAt, image, likeCount, title, writer }: Props) => 
   );
 };
 
-export default BestArticles;
+export default BestArticle;
