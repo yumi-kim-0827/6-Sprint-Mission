@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { v4 as uuidv4 } from "uuid";
 import useAxiosFetch from "@/hooks/useAxiosFetch";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
-import { Article, DataFormat } from "@/models/api_response";
+import { Article, DataFormat } from "@/@types/api_response";
 import ArticleCard from "./ArticleCard";
 
 export default function BestArticles() {

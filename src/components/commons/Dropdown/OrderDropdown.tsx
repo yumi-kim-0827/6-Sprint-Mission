@@ -1,23 +1,28 @@
 import { MouseEvent } from "react";
 import Image from "next/image";
-import Order from "@/models/order";
+import classNames from "classnames";
+import SortType from "@/@types/sort_type";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
-import { Query } from "@/models/api_response";
+import { QueryString } from "@/@types/api_response";
 
 interface Props {
-  currentOrder: Order | Query;
+  currentOrder: SortType | QueryString;
   handleOrder: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
   const deviceState = useDeviceState();
 
+  const buttonResponsiveStyle = classNames({
+    "min-w-[130px]": deviceState !== Device.MOBILE,
+  });
+
   return (
     <div className="dropdown dropdown-end dropdown-hover">
       <div
         tabIndex={0}
         role="button"
-        className={`relative flex size-[42px] cursor-pointer select-none items-center justify-center rounded-xl border border-gray-200 font-normal text-cool-gray-800 ${deviceState !== Device.MOBILE && "min-w-[130px]"}`}
+        className={`relative flex size-[42px] cursor-pointer select-none items-center justify-center rounded-xl border border-gray-200 font-normal text-cool-gray-800 ${buttonResponsiveStyle}`}
       >
         {deviceState === Device.MOBILE ? (
           <Image
@@ -45,7 +50,7 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
           onClick={handleOrder}
           className="w-full hover:rounded-t-lg hover:bg-gray-50"
         >
-          {Order.recent}
+          {SortType.recent}
         </button>
         <button
           type="button"
@@ -53,7 +58,7 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
           onClick={handleOrder}
           className="w-full border-none hover:rounded-b-lg hover:bg-gray-50"
         >
-          {Order.likes}
+          {SortType.likes}
         </button>
       </div>
     </div>

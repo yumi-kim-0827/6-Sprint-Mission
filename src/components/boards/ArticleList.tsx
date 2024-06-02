@@ -1,7 +1,7 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { useRouter } from "next/router";
-import { Article, DataFormat, Query } from "@/models/api_response";
-import Order from "@/models/order";
+import { Article, DataFormat, QueryString } from "@/@types/api_response";
+import SortType from "@/@types/sort_type";
 import Button from "@/components/commons/Button";
 import Input from "@/components/commons/Input";
 import Dropdown from "@/components/commons/Dropdown";
@@ -24,20 +24,22 @@ export default function ArticleList({
 
   const [keyword, setKeyword] = useState(initialKeyword || "");
   const [currentPage, setCurrentPage] = useState(initialPage || 1);
-  const [currentOrder, setCurrentOrder] = useState<Order | Query>(
-    !initialOrder || initialOrder === "최신순" ? Order.recent : Order.likes,
+  const [currentOrder, setCurrentOrder] = useState<SortType | QueryString>(
+    !initialOrder || initialOrder === "최신순"
+      ? SortType.recent
+      : SortType.likes,
   );
 
   const { list: articleList, totalCount } = articleListData;
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
+    const { value } = e.target;
 
     setKeyword(value);
     setCurrentPage(1);
   };
 
-  const handleSearch = (value: Query) => {
+  const handleSearch = (value: QueryString) => {
     router.push({
       query: { ...router.query, keyword: value, page: 1 },
     });
@@ -45,15 +47,15 @@ export default function ArticleList({
   };
 
   const handleOrder = (e: MouseEvent<HTMLButtonElement>) => {
-    const { name } = e.currentTarget;
+    const { name } = e.target as HTMLButtonElement;
 
     if (name === "sort-by-recent") {
-      setCurrentOrder(Order.recent);
+      setCurrentOrder(SortType.recent);
       router.push({ query: { ...router.query, orderBy: "recent" } });
     }
 
     if (name === "sort-by-likes") {
-      setCurrentOrder(Order.likes);
+      setCurrentOrder(SortType.likes);
       router.push({ query: { ...router.query, orderBy: "like" } });
     }
   };

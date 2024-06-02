@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Image from "next/image";
 import classNames from "classnames";
-import { Query } from "@/models/api_response";
+import { QueryString } from "@/@types/api_response";
 
 interface PageButtonProps {
   children: ReactNode;
@@ -28,7 +28,7 @@ function PageButton({ children, isFocus, onClick }: PageButtonProps) {
 }
 
 interface PaginationProps {
-  currentPage: number | Query;
+  currentPage: number | QueryString;
   totalPages: number;
   handlePageChange: (targetPage: number) => void;
 }
@@ -43,13 +43,13 @@ export default function Pagination({
   };
 
   const handleLeftClick = () => {
-    if (+currentPage === 1) return;
-    handlePageChange(+currentPage - 1);
+    if (Number(currentPage) === 1) return;
+    handlePageChange(Number(currentPage) - 1);
   };
 
   const handleRightClick = () => {
     if (currentPage === totalPages) return;
-    handlePageChange(+currentPage + 1);
+    handlePageChange(Number(currentPage) + 1);
   };
 
   return (

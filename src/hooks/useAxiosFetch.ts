@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AxiosRequestConfig } from "axios";
-import dispatcher from "@/libs/dispatcher";
+import { axiosRequester } from "@/libs/axios";
 
 export default function useAxiosFetch() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ export default function useAxiosFetch() {
     setError(null);
 
     try {
-      const response = await dispatcher({ ...options });
+      const response = await axiosRequester({ ...options });
       return response;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {

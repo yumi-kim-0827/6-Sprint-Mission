@@ -1,12 +1,12 @@
 import { ChangeEvent, KeyboardEvent } from "react";
 import Image from "next/image";
-import { Query } from "@/models/api_response";
+import { QueryString } from "@/@types/api_response";
 
 interface Props {
-  value: Query;
+  value: QueryString;
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSearch: (value: Query) => void;
+  handleSearch: (value: QueryString) => void;
 }
 
 export default function SearchInput({
@@ -17,12 +17,13 @@ export default function SearchInput({
 }: Props) {
   const onEnterPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
-    handleSearch(e.currentTarget.value);
+    handleSearch((e.target as HTMLInputElement).value);
   };
 
   return (
     <div className="relative w-full">
       <input
+        type="search"
         placeholder={placeholder}
         value={value}
         onChange={onChange}

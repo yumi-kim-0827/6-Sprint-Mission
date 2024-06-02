@@ -3,7 +3,7 @@ interface Writer {
   id: number;
 }
 
-export type Query = string | string[];
+export type QueryString = string | string[];
 
 export interface DataFormat<T> {
   list: T[];

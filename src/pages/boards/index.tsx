@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from "next";
 import Navbar from "@/components/commons/Navbar";
 import Layout from "@/components/commons/Layout";
-import { Article, DataFormat } from "@/models/api_response";
+import { Article, DataFormat } from "@/@types/api_response";
 import axios from "@/libs/axios";
 import BestArticles from "@/components/boards/BestArticles";
 import ArticleList from "@/components/boards/ArticleList";

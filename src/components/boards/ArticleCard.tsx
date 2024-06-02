@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Article } from "@/models/api_response";
-import formatDate from "@/libs/formatDate";
+import { Article } from "@/@types/api_response";
+import { formatDate } from "@/libs/date";
 
 export default function ArticleCard({ data }: { data: Article }) {
   const { id, title, image, writer, likeCount, createdAt } = data;
@@ -49,7 +49,9 @@ export default function ArticleCard({ data }: { data: Article }) {
             <span className="ml-1">{likeCount}</span>
           </div>
 
-          <span className="text-cool-gray-400">{formatDate(createdAt)}</span>
+          <time dateTime={createdAt} className="text-cool-gray-400">
+            {formatDate(createdAt)}
+          </time>
         </div>
       </div>
     </Link>

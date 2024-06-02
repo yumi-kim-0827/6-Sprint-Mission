@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Article } from "@/models/api_response";
-import formatDate from "@/libs/formatDate";
+import { Article } from "@/@types/api_response";
+import { formatDate } from "@/libs/date";
 
 export default function ArticlePreview({ data }: { data: Article }) {
   const { id, title, image, writer, likeCount, createdAt } = data;
@@ -35,7 +35,9 @@ export default function ArticlePreview({ data }: { data: Article }) {
             <span className="line-clamp-1 max-w-[120px] text-cool-gray-600">
               {writer.nickname}
             </span>
-            <span className="text-cool-gray-400">{formatDate(createdAt)}</span>
+            <time dateTime={createdAt} className="text-cool-gray-400">
+              {formatDate(createdAt)}
+            </time>
           </div>
 
           <div className="flex gap-2">

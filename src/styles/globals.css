@@ -21,4 +21,18 @@
       "Helvetica Neue",
       sans-serif;
   }
+
+  /* delete search input's clear icon */
+  /* IE */
+  input::-ms-clear,
+  input::-ms-reveal {
+    opacity: 0;
+  }
+  /* chrome */
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  input::-webkit-search-results-button,
+  input::-webkit-search-results-decoration {
+    opacity: 0;
+  }
 }
