@@ -1,0 +1,35 @@
+@import "/styles/globals.scss";
+
+.sort_button_wrapper {
+  position: relative;
+}
+
+.sort_dropdown_trigger_button {
+  border: 1px solid get_color(gray_200);
+  border-radius: 12px;
+  padding: 9px;
+  margin-left: 8px;
+}
+
+.dropdown_menu_container {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid get_color(gray_200);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.dropdown_item {
+  padding: 12px 44px;
+  border: 1px solid get_color(gray_200);
+  font-size: 16px;
+  color: get_color(gray_800);
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

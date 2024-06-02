@@ -1,0 +1,49 @@
+@import "/styles/index.scss";
+
+.footer {
+  background-color: var(--gray-900);
+  color: var(--gray-400);
+  font-size: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+
+  @include tablet {
+    padding: 32px 104px 108px 104px;
+  }
+
+  @include desktop {
+    padding: 32px 200px 108px 200px;
+  }
+}
+
+.copyright {
+  order: 3;
+  flex-basis: 100%;
+
+  @include tablet {
+    flex-basis: auto;
+    order: 0;
+  }
+}
+
+.footer_menu {
+  display: flex;
+  gap: 30px;
+  color: var(--gray-200);
+}
+
+.social_media {
+  display: flex;
+  gap: 12px;
+}
+
+.image {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  aspect-ratio: 1/1;
+}

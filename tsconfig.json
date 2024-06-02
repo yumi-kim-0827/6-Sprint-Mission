@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": true, // 타입스크립트 프로젝트에 자바스크립트 파일을 포함할 수 있게 설정
+    "checkJs": false, // 자바스크립트 파일에서도 타입 검사를 수행할지의 여부
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -14,9 +15,10 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["/*"]
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "declarations.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

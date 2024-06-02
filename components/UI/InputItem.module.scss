@@ -1,0 +1,50 @@
+@import "/styles/globals.scss";
+
+@mixin input_style {
+  padding: 16px 24px;
+  background-color: get_color(gray_100);
+  color: get_color(gray_800);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+
+  &::placeholder {
+    color: get_color(gray_400);
+  }
+
+  &:focus {
+    outline-color: get_color(blue_primary);
+  }
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.input_field {
+  @include input_style;
+}
+
+.textarea {
+  @include input_style;
+  height: 200px;
+  resize: none;
+}
+
+.error_message {
+  color: get_color(red);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 8px;
+  display: block;
+}

@@ -1,0 +1,38 @@
+@import "../../styles/index.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.article_container {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    @include font-base(get_color(gray_900), 700, 18px, 23.87px);
+  }
+
+  .article_container_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-end: 20px;
+
+    .button {
+      width: 88px;
+      height: 42px;
+      border-radius: 8px;
+      padding: 12px 23px;
+      background-color: get_color(blue_primary);
+      @include font-base(get_color(white), 600, 16px, 19.09px);
+    }
+  }
+
+  .article_container_middle {
+    display: flex;
+    justify-content: space-between;
+    padding-block-end: 20px;
+  }
+}
