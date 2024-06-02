@@ -1,17 +1,16 @@
-.ArticleSection {
-  margin-top: 94px;
-  width: 1200px;
+.articleSection {
+  max-width: 1200px;
   margin: 94px auto;
 }
 
-.ArticleSectionTitle {
+.articleSectionTitle {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   display: block;
 }
 
-.ArticleSectioMenu {
+.articleSectioMenu {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +18,7 @@
   margin-top: 40px;
 }
 
-.ArticleSectionButton {
+.articleSectionButton {
   width: 88px;
   height: 42px;
   background-color: #3692ff;
@@ -30,6 +29,32 @@
 
 .searchbarDropdownWrapper {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   margin-top: 24px;
+}
+
+@media (max-width: 1279px) {
+  .articleSectionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .articleSection {
+    width: 696px;
+  }
+
+  .searchbarDropdownWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .articleSection {
+    width: 343px;
+  }
+
+  .searchbarDropdownWrapper {
+    gap: 8px;
+  }
 }

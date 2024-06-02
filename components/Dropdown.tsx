@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./Dropdown.module.css";
 
 interface DropdownContainerProps {
@@ -33,7 +34,16 @@ const Dropdown = ({
     <div>
       <div className={styles.dropdownContainer} onClick={handleClickContainer}>
         <button className={styles.dropdownButton}>
-          {buttonText} &nbsp;&nbsp; ▼
+          <span className={styles.dropdownButtonText}>
+            {buttonText} &nbsp;&nbsp; ▼
+          </span>
+          <Image
+            className={styles.dropdownButtonImage}
+            src="/images/btnSort.svg"
+            width={42}
+            height={42}
+            alt="dropdown button"
+          />
         </button>
         {isDropdownView && (
           <ul className={styles.dropdownItems}>

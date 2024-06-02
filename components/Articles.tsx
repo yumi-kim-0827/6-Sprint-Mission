@@ -37,7 +37,7 @@ function ArticleList({
   const formattedDate = formatDate(createdAt);
   return (
     <Link className={styles.Link} href={`/items/${id}`}>
-      <section className={styles.ArticlesList}>
+      <section className={styles.articlesList}>
         <div className={styles.articlesListTopItems}>
           <p className={styles.articlesListTitle}>{title}</p>
           {image && (
@@ -81,7 +81,7 @@ function Articles({ articles }: ArticlesProps) {
   return (
     <ul className={styles.totalArticles}>
       {articles.map((article) => (
-        <li className={styles.Articles} key={article.id}>
+        <li className={styles.articles} key={article.id}>
           <ArticleList {...article} />
         </li>
       ))}

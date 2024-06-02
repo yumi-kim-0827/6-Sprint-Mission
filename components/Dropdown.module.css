@@ -22,7 +22,6 @@
   border-radius: 12px;
   position: absolute;
   top: 41px;
-  left: 0px;
   z-index: 1;
 }
 
@@ -38,4 +37,41 @@
 
 .dropdownItem:last-child {
   border-bottom: none;
+}
+
+.dropdownButtontext {
+  display: inline-block;
+}
+
+.dropdownButtonImage {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .dropdownButton {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdownButtonText {
+    display: none;
+  }
+
+  .dropdownButtonImage {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .dropdownButton {
+    width: 42px;
+    height: 42px;
+    border-style: none;
+    padding: 0;
+  }
+
+  .dropdownItems {
+    right: 0;
+    width: 100px;
+  }
 }

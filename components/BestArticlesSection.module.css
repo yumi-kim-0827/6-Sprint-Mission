@@ -78,3 +78,14 @@
   color: #9ca3af;
   font-size: 14px;
 }
+
+@media (max-width: 1279px) {
+  .bestArticles {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .bestArticlesCard {
+    width: 340px;
+  }
+}

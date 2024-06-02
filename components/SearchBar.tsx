@@ -20,7 +20,7 @@ const SearchBar = ({
   return (
     <form onSubmit={handleSubmit}>
       <input
-        className={styles.SearchBar}
+        className={styles.searchBar}
         type="text"
         value={searchTerm}
         onChange={handleChange}

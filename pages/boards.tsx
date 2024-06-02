@@ -92,30 +92,32 @@ export default function Boards() {
   }
 
   return (
-    <section className={styles.ArticleSection}>
-      <section className={styles.bestArticleSection}>
-        <h1 className={styles.ArticleSectionTitle}>베스트 게시글</h1>
-        <BestArticlesSection articles={bestArticles} />
-      </section>
-      <section>
-        <div>
-          <div className={styles.ArticleSectioMenu}>
-            <h1 className={styles.ArticleSectionTitle}>게시글</h1>
-            <button className={styles.ArticleSectionButton}>글쓰기</button>
-          </div>
-          <div className={styles.searchbarDropdownWrapper}>
-            <SearchBar onSearch={handleSearch} />
-            <div>
-              <Dropdown
-                onSortByNewest={() => handleSortChange("recent")}
-                onSortByBest={() => handleSortChange("like")}
-                order={currentOrder}
-              />
+    <div className={styles.articleSectionWrapper}>
+      <section className={styles.articleSection}>
+        <section className={styles.bestArticleSection}>
+          <h1 className={styles.articleSectionTitle}>베스트 게시글</h1>
+          <BestArticlesSection articles={bestArticles} />
+        </section>
+        <section>
+          <div>
+            <div className={styles.articleSectioMenu}>
+              <h1 className={styles.articleSectionTitle}>게시글</h1>
+              <button className={styles.articleSectionButton}>글쓰기</button>
+            </div>
+            <div className={styles.searchbarDropdownWrapper}>
+              <SearchBar onSearch={handleSearch} />
+              <div>
+                <Dropdown
+                  onSortByNewest={() => handleSortChange("recent")}
+                  onSortByBest={() => handleSortChange("like")}
+                  order={currentOrder}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <Articles articles={filteredArticles} />
+          <Articles articles={filteredArticles} />
+        </section>
       </section>
-    </section>
+    </div>
   );
 }

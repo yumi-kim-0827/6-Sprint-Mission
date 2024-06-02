@@ -1,4 +1,4 @@
-.SearchBar {
+.searchBar {
   width: 1054px;
   height: 42px;
   padding: 0 44px;
@@ -9,4 +9,16 @@
   background-repeat: no-repeat;
   background-size: 24px 24px;
   background-position: 16px center;
+}
+
+@media (max-width: 1279px) {
+  .searchBar {
+    width: 560px;
+  }
+}
+
+@media (max-width: 767px) {
+  .searchBar {
+    width: 293px;
+  }
 }

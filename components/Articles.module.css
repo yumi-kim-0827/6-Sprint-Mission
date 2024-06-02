@@ -3,15 +3,16 @@
   color: inherit;
 }
 
-.Articles {
+.articles {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   text-decoration: none;
 }
-.ArticlesList {
-  width: 1200px;
+
+.articlesList {
+  width: 100%;
   height: 136px;
   display: flex;
   flex-direction: column;
