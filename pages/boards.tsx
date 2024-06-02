@@ -55,10 +55,8 @@ const Board = ({ articles }: Articles) => {
   }, [isLargeScreen, isMediumScreen, isSmallScreen]);
 
   useEffect(() => {
-    if (isLargeScreen || isMediumScreen || isSmallScreen) {
-      getBestArticleList(pageSize);
-    }
-  }, [pageSize, isLargeScreen, isMediumScreen, isSmallScreen]);
+    getBestArticleList(pageSize);
+  }, [pageSize]);
 
   return (
     <>
