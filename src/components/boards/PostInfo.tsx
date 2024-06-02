@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CardFavorites from "../CardFavorite";
+import CardFavorites from "@/components/CardFavorite";
 
 interface PostInfoProps {
   showProfile?: boolean;

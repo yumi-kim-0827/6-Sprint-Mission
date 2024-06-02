@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import debounce from "@/utils/debounce";
+import debounce from "@/lib/utils/debounce";
 import {
   MEDIUM_DEVICE_WIDTH,
   LARGE_DEVICE_WIDTH,

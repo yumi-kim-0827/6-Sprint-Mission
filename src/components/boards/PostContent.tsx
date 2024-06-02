@@ -1,4 +1,4 @@
-import PostImage from "./PostImage";
+import PostImage from "@/components/boards/PostImage";
 
 interface PostContentProps {
   className?: string;
@@ -17,7 +17,7 @@ const PostContent = ({
     <div
       className={`flex min-h-72 w-full justify-between gap-12 ${className} [&>div:last-of-type]:shrink-0`}
     >
-      <div className="text-20 line-clamp-2 font-semibold text-gray-800">
+      <div className="line-clamp-2 text-20 font-semibold text-gray-800">
         {title}
       </div>
       {image && <PostImage src={image} alt={`${title} image`} />}

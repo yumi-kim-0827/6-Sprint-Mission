@@ -1,5 +1,4 @@
-import { ChangeEventHandler, KeyboardEventHandler } from "react";
-import BaseInput from "./BaseInput";
+import BaseInput from "@/components/BaseInput";
 import SearchIcon from "/public/images/ic_search.svg";
 
 interface SearchInputProps {
@@ -17,20 +16,20 @@ const SearchInput = ({
   onChange,
   onKeyDown,
 }: SearchInputProps) => {
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (onChange) {
       onChange(e.target.value);
     }
   };
 
-  const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === "Enter" && onKeyDown) {
       onKeyDown(e.currentTarget.value);
     }
   };
 
   return (
-    <div className={`min-w-294 relative h-40 w-full ${className}`}>
+    <div className={`relative h-40 w-full min-w-294 ${className}`}>
       <div className="absolute left-16 top-8">
         <SearchIcon />
       </div>

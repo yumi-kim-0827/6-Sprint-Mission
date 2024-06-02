@@ -1,7 +1,7 @@
-import SortIcon from "/public/images/ic_sort.svg";
-import ArrowDownIcon from "/public/images/ic_arrow-down.svg";
 import BaseDropdown from "./BaseDropdown";
 import useDeviceSize from "@/hooks/useDeviceSize";
+import SortIcon from "/public/images/ic_sort.svg";
+import ArrowDownIcon from "/public/images/ic_arrow-down.svg";
 
 const SortOptions = {
   recent: "최신순",
@@ -39,7 +39,7 @@ const SortDropdown = ({ className, order, onClick }: SortDropdownProps) => {
         <button
           key={option}
           onClick={() => handleOptionClick(option as keyof typeof SortOptions)}
-          className="w-128 first:rounded-t-12 last:rounded-b-12 flex justify-center border-b border-gray-200 p-8 text-base font-normal last:border-0"
+          className="flex w-128 justify-center border-b border-gray-200 p-8 text-base font-normal first:rounded-t-12 last:rounded-b-12 last:border-0"
         >
           {SortOptions[option as keyof typeof SortOptions]}
         </button>

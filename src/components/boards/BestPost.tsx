@@ -1,7 +1,7 @@
-import BestBadge from "./BestBadge";
-import PostInfo from "./PostInfo";
-import PostContent from "./PostContent";
-import formatDate from "@/utils/formatDate";
+import BestBadge from "@/components/boards/BestBadge";
+import PostInfo from "@/components/boards/PostInfo";
+import PostContent from "@/components/boards/PostContent";
+import formatDate from "@/lib/utils/formatDate";
 
 interface BestPostProps {
   className?: string;

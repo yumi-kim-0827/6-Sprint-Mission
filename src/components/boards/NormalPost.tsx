@@ -1,6 +1,6 @@
-import PostInfo from "./PostInfo";
-import PostContent from "./PostContent";
-import formatDate from "@/utils/formatDate";
+import PostInfo from "@/components/boards/PostInfo";
+import PostContent from "@/components/boards/PostContent";
+import formatDate from "@/lib/utils/formatDate";
 
 interface NormalPostProps {
   className?: string;
@@ -11,7 +11,7 @@ const NormalPost = ({ className = "", data }: NormalPostProps) => {
   const { title, content, image, likeCount, createdAt, writer } = data;
 
   return (
-    <div className={`min-h-136 min-w-343 mt-24 w-full bg-white ${className}`}>
+    <div className={`mt-24 min-h-136 w-full min-w-343 bg-white ${className}`}>
       <PostContent title={title} content={content} image={image} />
       <div className="flex items-center pt-16 [&>.postInfoFavorites]:ml-auto [&>.postInfoWriter]:mr-8">
         <PostInfo
