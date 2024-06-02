@@ -12,31 +12,19 @@ const AllProducts = () => {
   const [page, setPage] = useState(1);
   const [order, setOrder] = useState("recent");
 
-  const onChange = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const getFilteredData = () => {
-    if (search === "") {
-      return products;
-    }
-    return products.filter((item) => {
-      // includes 인수로 전달한 값이 호출한 프로퍼티에 포함된지 찾아서 있으면 true 없으면 false (item.name)
-      item.name.toLowerCase().includes(search.toLowerCase());
-    });
-  };
-
-  const filteredProducts = getFilteredData();
-
   useEffect(() => {
     async function fetchData() {
-      const data = await getProducts({ page: page, orderBy: order });
+      const data = await getProducts({
+        page: page,
+        orderBy: order,
+        keyword: search,
+      });
       setProducts(data.list);
       setTotalPage(Math.ceil(data.totalCount / PAGE_SIZE));
     }
 
     fetchData();
-  }, [page, order]);
+  }, [page, order, search]);
 
   return (
     <div>
@@ -44,10 +32,10 @@ const AllProducts = () => {
         setOrder={setOrder}
         search={search}
         products={products}
-        onChange={onChange}
+        setSearch={setSearch}
       />
       <div className={styles.products}>
-        {filteredProducts.map((item) => (
+        {products.map((item) => (
           <ProductCard item={item} key={item.id} />
         ))}
       </div>

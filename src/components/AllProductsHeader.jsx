@@ -4,9 +4,9 @@ import Dropdown from "./Dropdown";
 import styles from "./AllProductsHeader.module.css";
 import searchIcon from "../image/search_Icon.svg";
 
-const AllProductsHeader = ({ onChange, setOrder }) => {
+const AllProductsHeader = ({ setOrder, setSearch }) => {
   const handleInputChange = (e) => {
-    onChange(e);
+    setSearch(e.target.value);
   };
 
   return (
