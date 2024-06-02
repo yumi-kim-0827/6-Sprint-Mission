@@ -1,7 +1,6 @@
 import { BestPostCard } from "@/entities/bestPostCard";
 import { PostCard } from "@/entities/postCard/ui/postCard";
 import { BASE_URL, SORT_OBJECT_KEY_TYPE } from "@/shared/constants/constants";
-import { useScreenDetector } from "@/shared/lib/hooks";
 import { Article, ArticleData } from "@/shared/model";
 import { Button } from "@/shared/ui/button";
 import { Dropdown } from "@/widgets/DropDown";
@@ -22,12 +21,10 @@ export default function BoardsPage({
   likeList,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [article, setArticle] = useState<Article[]>([]);
-  const [bestArticle, setBestArticle] = useState<Article[]>(likeList);
   const [sort, setSort] = useState<SORT_OBJECT_KEY_TYPE>("recent");
   const [isLoading, setLoading] = useState<boolean>(true);
   const [keyword, setKeyword] = useState<string>("");
   const [value, setValue] = useState<string>("");
-  const { isMobile, isTablet } = useScreenDetector();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,17 +34,6 @@ export default function BoardsPage({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(() => e.target.value);
   };
-
-  useEffect(() => {
-    fetch(
-      `${BASE_URL}/articles?orderBy=like&&pageSize=${isMobile ? 1 : isTablet ? 2 : 3}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setBestArticle(data.list ?? []);
-        setLoading(false);
-      });
-  }, [isMobile, isTablet]);
 
   useEffect(() => {
     fetch(`${BASE_URL}/articles?orderBy=${sort}&&keyword=${keyword}`)
@@ -65,11 +51,20 @@ export default function BoardsPage({
       </Head>
       <article className="flex flex-col gap-4 mt-4 md:mt-6">
         <header className="text-xl font-bold">베스트 게시글</header>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4 lg:gap-6">
-          {bestArticle.map((item) => (
-            <Fragment key={item.id}>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4 lg:gap-6 h-[167px]">
+          {likeList.map((item, index) => (
+            <article
+              key={item.id}
+              className={
+                index === 0
+                  ? "h-[167px]"
+                  : index === 1
+                    ? "hidden md:block h-[167px]"
+                    : "hidden lg:block h-[167px]"
+              }
+            >
               <BestPostCard article={item} />
-            </Fragment>
+            </article>
           ))}
         </section>
       </article>

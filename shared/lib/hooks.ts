@@ -1,23 +1,39 @@
 import { useEffect, useState } from "react";
 
 export const useScreenDetector = () => {
-  const [width, setWidth] = useState(0);
+  const [screen, setScreen] = useState({
+    isMobile: false,
+    isTablet: false,
+    isDesktop: false,
+  });
 
   const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
+    if (window.innerWidth <= 744)
+      setScreen((prev) => ({
+        isMobile: true,
+        isTablet: false,
+        isDesktop: false,
+      }));
+    else if (window.innerWidth > 1200)
+      setScreen((prev) => ({
+        isMobile: false,
+        isTablet: false,
+        isDesktop: true,
+      }));
+    else
+      setScreen((prev) => ({
+        isMobile: false,
+        isTablet: true,
+        isDesktop: false,
+      }));
   };
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
-    setWidth(window.innerWidth);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
   }, []);
 
-  const isMobile = width <= 744;
-  const isTablet = width <= 1199;
-  const isDesktop = width > 1200;
-
-  return { isMobile, isTablet, isDesktop };
+  return screen;
 };
