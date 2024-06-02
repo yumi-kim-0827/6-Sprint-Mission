@@ -6,6 +6,7 @@ import AllSection from './AllSection';
 import Link from 'next/link';
 import Dropdown from '@/components/common/Dropdown';
 import Image from 'next/image';
+import { debounce } from 'lodash';
 
 interface AllArticlesProps {
 	initialBoards: BoardType[];
@@ -39,8 +40,7 @@ const AllArticles: React.FC<AllArticlesProps> = ({ initialBoards }) => {
 			setIsLoading(false);
 			return;
 		}
-
-		handleLoad({ orderBy: order, search: search });
+		debounce(() => handleLoad({ orderBy: order, search: search }), 500)();
 	}, [order, search]);
 
 	return (
