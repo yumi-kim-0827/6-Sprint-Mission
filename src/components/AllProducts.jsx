@@ -10,11 +10,7 @@ const AllProducts = () => {
   const [search, setSearch] = useState("");
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
-
-  //   function isKoreanString(str) {
-  //   const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-  //   return koreanRegex.test(str);
-  // }
+  const [order, setOrder] = useState("recent");
 
   const onChange = (e) => {
     setSearch(e.target.value);
@@ -34,17 +30,18 @@ const AllProducts = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getProducts({ page: page });
+      const data = await getProducts({ page: page, orderBy: order });
       setProducts(data.list);
       setTotalPage(Math.ceil(data.totalCount / PAGE_SIZE));
     }
 
     fetchData();
-  }, [page]);
+  }, [page, order]);
 
   return (
     <div>
       <AllProductsHeader
+        setOrder={setOrder}
         search={search}
         products={products}
         onChange={onChange}

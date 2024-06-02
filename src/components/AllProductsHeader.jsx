@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 import styles from "./AllProductsHeader.module.css";
 import searchIcon from "../image/search_Icon.svg";
 
-const AllProductsHeader = ({ onChange }) => {
+const AllProductsHeader = ({ onChange, setOrder }) => {
   const handleInputChange = (e) => {
     onChange(e);
   };
@@ -21,7 +21,7 @@ const AllProductsHeader = ({ onChange }) => {
         <Link to="/additem" className={styles.button}>
           상품 등록하기
         </Link>
-        <Dropdown />
+        <Dropdown setOrder={setOrder} />
       </div>
     </div>
   );
