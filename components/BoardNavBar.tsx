@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, MouseEvent } from "react";
 import { useRouter } from "next/router";
-import { ChangeEvent } from "react";
+import { ChangeEvent, KeyboardEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/BoardNavBar.module.css";
+
+export interface QueryOption {
+  orderBy?: string | string[];
+  keyword?: string | string[];
+}
 
 const BoardNavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
