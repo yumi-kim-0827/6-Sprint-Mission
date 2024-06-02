@@ -11,12 +11,10 @@
 }
 
 .products_list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
 @media all and (max-width: 767px) {
-  .AnswerState {
-    margin-bottom: 24px;
-  }
 }

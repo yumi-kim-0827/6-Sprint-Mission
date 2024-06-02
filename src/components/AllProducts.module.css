@@ -1,5 +1,12 @@
 .products {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
-  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
 }

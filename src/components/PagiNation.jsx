@@ -10,7 +10,12 @@ const Pagination = ({ totalPage, page, setPage }) => {
   return (
     <div className={styles.Pagination}>
       {[...Array(totalPage)].map((_, index) => (
-        <button value={index + 1} onClick={handlePageClick}>
+        <button
+          key={index}
+          className={styles.button}
+          value={index + 1}
+          onClick={handlePageClick}
+        >
           {index + 1}
         </button>
       ))}

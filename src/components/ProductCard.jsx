@@ -8,13 +8,7 @@ const ProductCard = ({ item, bestSize }) => {
   return (
     <div className={styles.ProductCard}>
       <div>
-        <img
-          src={images}
-          alt="product"
-          className={`${styles.section_image} ${
-            bestSize ? styles.big : styles.small
-          }`}
-        />
+        <img src={images} alt="product" className={styles.section_image} />
       </div>
       <div className={styles.card}>
         <div className={styles.name}>{name}</div>

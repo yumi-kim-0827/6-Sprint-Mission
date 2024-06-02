@@ -7,17 +7,19 @@
 
 .section_image {
   border-radius: 16px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
-.section_image.big {
+/* .section_image.big {
   width: 282px;
   height: 282px;
-}
+} */
 
-.section_image.small {
+/* .section_image.small {
   width: 221px;
   height: 221px;
-}
+} */
 
 .card {
   display: flex;
