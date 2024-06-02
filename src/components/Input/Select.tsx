@@ -44,7 +44,7 @@ export default function Select({
           <button
             type="button"
             name={name}
-            value={value}
+            value={mainValue}
             aria-expanded={isShow}
             aria-controls="select-box"
             onClick={handleMainClick}
