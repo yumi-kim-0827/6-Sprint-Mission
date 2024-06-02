@@ -1,0 +1,99 @@
+.Article-container {
+  width: 100%;
+  height: 167px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 20px 0;
+  position: relative;
+}
+
+.Article-BestBadge {
+  margin: 0px 0px 0px 20px;
+}
+
+.Article-container-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 14px 24px;
+  width: 292px;
+  height: 107px;
+}
+
+.Article-header {
+  width: 292px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.Article-header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.Article-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.Article-img {
+  border: solid 1px #e5e7eb;
+  border-radius: 8px;
+}
+
+.Article-user {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0px 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.Article-user-name {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  color: #4b5563;
+}
+
+.Article-date {
+  color: #9ca3af;
+}
+
+.Article-like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Article-like-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.Boards-container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media (min-width: 1024px) {
+}

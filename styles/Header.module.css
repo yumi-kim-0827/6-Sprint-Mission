@@ -1,0 +1,123 @@
+.Header {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  border-bottom: solid 1px #dfdfdf;
+  text-decoration: none;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.Header-empty {
+  height: 70px;
+}
+
+.Header-container {
+  display: flex;
+  align-items: center;
+}
+
+.Header-logo {
+  display: none;
+}
+
+.Header-logo-mob {
+  margin: 22px 16px;
+  display: flex;
+}
+
+.Header-link-container {
+  display: flex;
+  gap: 8px;
+}
+
+.Header-link {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #4b5563;
+  min-width: 80px;
+}
+
+.Header-link-act {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #3692ff;
+  min-width: 80px;
+}
+
+.Header-profile {
+  padding: 16px;
+}
+
+@media (max-width: 767px) {
+  .Header-logo-mob {
+    display: flex;
+  }
+
+  .Header-logo {
+    display: none;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .Header-logo-mob {
+    display: none;
+  }
+
+  .Header-logo {
+    display: flex;
+    margin: 10px 20px;
+  }
+
+  .Header-link-container {
+    gap: 0px;
+  }
+
+  .Header-link {
+    font-size: 18px;
+    padding: 24px 16px;
+  }
+
+  .Header-link-act {
+    font-size: 18px;
+    padding: 24px 16px;
+  }
+
+  .Header-profile {
+    padding: 16px 24px;
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 1024px) {
+  .Header-logo-mob {
+    display: none;
+  }
+
+  .Header-logo {
+    display: flex;
+    margin: 10px 20px;
+  }
+
+  .Header-link {
+    font-size: 18px;
+    padding: 24px 16px;
+  }
+
+  .Header-link-act {
+    font-size: 18px;
+    padding: 24px 16px;
+  }
+
+  .Header-profile {
+    padding: 16px 24px;
+  }
+}

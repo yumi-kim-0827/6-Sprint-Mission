@@ -1,0 +1,63 @@
+.Boards-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.Boards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.Boards-header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.Boards-header-writing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 40px;
+  padding: 0;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3692ff;
+  cursor: pointer;
+}
+
+.Search {
+  width: 100%;
+  height: 42px;
+  padding: 9px 20px 9px 40px;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #9ca3af;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+
+.Search-img {
+  position: absolute;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px), (min-width: 1024px) {
+  .Boards-container {
+    margin-top: 24px;
+  }
+}
