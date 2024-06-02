@@ -5,11 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/BoardNavBar.module.css";
 
-export interface QueryOption {
-  orderBy?: string | string[];
-  keyword?: string | string[];
-}
-
 const BoardNavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dropdownMenu, setDropdownMenu] = useState<string | null>("최신순");

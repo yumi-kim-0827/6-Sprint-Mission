@@ -39,6 +39,7 @@
   border: solid 1px var(--cool-gray100);
   padding: 10px;
   border-radius: 8px;
+  background-color: var(--white);
 }
 
 .article-item-bottom {
