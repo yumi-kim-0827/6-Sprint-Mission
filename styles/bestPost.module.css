@@ -1,0 +1,64 @@
+.BestContainer {
+  width: 384px;
+  height: 169px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.BestBadge {
+  padding-bottom: 10px;
+}
+
+.BestTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.BestTitleText {
+  font-weight: 600;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.BestInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.BestInfoFirst {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.BestInfoHeart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.Writer {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+}
+
+.LikeCount {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.times {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9ca3af;
+}
