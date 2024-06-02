@@ -45,7 +45,7 @@ export default function BoardsPage({
   }, [sort, keyword]);
 
   return (
-    <>
+    <div>
       <Head>
         <title>자유 게시판</title>
       </Head>
@@ -89,9 +89,13 @@ export default function BoardsPage({
           </section>
         </form>
         <section>
-          {isLoading ? <div>로딩중입니다.</div> : <PostCard items={article} />}
+          {isLoading ? (
+            <div>로딩중입니다.</div>
+          ) : (
+            article.map((item) => <PostCard key={item.id} item={item} />)
+          )}
         </section>
       </article>
-    </>
+    </div>
   );
 }

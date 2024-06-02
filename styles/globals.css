@@ -7,3 +7,14 @@
     box-sizing: border-box;
   }
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(54 146 255);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(21, 89, 172);
+}

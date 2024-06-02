@@ -1,15 +1,9 @@
 import { Article } from "@/shared/model";
 
 interface Props {
-  items: Article[];
+  item: Article;
 }
 
-export function PostCard({ items }: Props) {
-  return (
-    <>
-      {items.map((v) => (
-        <div key={v.id}>{v.content}</div>
-      ))}
-    </>
-  );
+export function PostCard({ item }: Props) {
+  return <section className="h-[136px]">{item.content}</section>;
 }
