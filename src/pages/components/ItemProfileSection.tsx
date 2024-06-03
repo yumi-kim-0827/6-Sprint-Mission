@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { LineDivider } from "../../../styles/CommonStyles";
+import { LineDivider } from "../../styles/CommonStyles";
 import TagDisplay from "./TagDisplay";
 import LikeButton from "./LikeButton";
 import { ReactComponent as SeeMoreIcon } from "../../../assets/images/icons/ic_kebab.svg";
-import { Product } from "../../../types/productTypes";
+import { Product } from "../../types/productTypes";
 
 const SectionContainer = styled.section`
   display: flex;

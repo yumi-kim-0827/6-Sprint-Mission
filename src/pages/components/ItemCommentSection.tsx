@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
-import { Button } from "../../../styles/CommonStyles";
+import { Button } from "../../styles/CommonStyles";
 import CommentThread from "./CommentThread";
 
 const COMMENT_PLACEHOLDER =

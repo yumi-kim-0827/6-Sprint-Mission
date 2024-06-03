@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { getProductComments } from "../../../api/itemApi";
+import { getProductComments } from "../../api/itemApi";
 import styled from "styled-components";
 import { ReactComponent as EmptyStateImage } from "../../../assets/images/ui/empty-comments.svg";
 import { ReactComponent as SeeMoreIcon } from "../../../assets/images/icons/ic_kebab.svg";
 import DefaultProfileImage from "../../../assets/images/ui/ic_profile.svg";
-import { LineDivider } from "../../../styles/CommonStyles";
-import { formatUpdatedAt } from "../../../utils/dateUtils";
+import { LineDivider } from "../../styles/CommonStyles";
+import { formatUpdatedAt } from "../../utils/dateUtils";
 import {
   ProductComment,
   ProductCommentListResponse,
-} from "../../../types/commentTypes";
+} from "../../types/commentTypes";
 
 const CommentContainer = styled.div`
   padding: 24px 0;

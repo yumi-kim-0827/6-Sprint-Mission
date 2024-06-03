@@ -1,54 +1,27 @@
-import { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
-import GlobalStyle from "../styles/GlobalStyle";
-import { BrowserRouter as Router } from "react-router-dom";
-import Header from "../components/Layout/Header";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+// 다른 페이지 및 컴포넌트 import 구문
 
-export default function App() {
+const MainContent: React.FC = () => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsBrowser(true);
+    }
+  }, []);
+
+  const location = useLocation();
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/signup";
+
   return (
-    <Router>
-      <Header></Header>
-      {/* 다른 컴포넌트들 */}
-    </Router>
+    <>
+      {/* {!hideHeader && <Header />} */}
+
+      <main className={isAuthPage ? "" : "withHeader"}>
+        <Routes>{/* Route 구성 */}</Routes>
+      </main>
+    </>
   );
-}
-
-// // useLocation 훅을 사용하기 위해 router 컴포넌트를 분리했어요.
-// const MainContent: React.FC = () => {
-//   const location = useLocation();
-//   const isAuthPage =
-//     location.pathname === "/login" || location.pathname === "/signup";
-//   // 네비게이션바를 숨김 처리하고자 하는 pathname 목록
-//   const hideHeader = isAuthPage;
-
-//   return (
-//     <>
-//       {!hideHeader && <Header />}
-
-//       <main className={isAuthPage ? "" : "withHeader"}>
-//         <Routes>
-//           <Route index element={<HomePage />} />
-//           <Route path="login" element={<LoginPage />} />
-//           <Route path="signup" element={<SignupPage />} />
-//           <Route path="items" element={<MarketPage />} />
-//           <Route path="items/:productId" element={<ItemPage />} />
-//           <Route path="additem" element={<AddItemPage />} />
-//           <Route path="community" element={<CommunityFeedPage />} />
-//           <Route path="privacy" element={<PolicyPage />} />
-//           <Route path="faq" element={<FaqPage />} />
-//         </Routes>
-//       </main>
-//     </>
-//   );
-// };
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <MainContent />
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
+};
