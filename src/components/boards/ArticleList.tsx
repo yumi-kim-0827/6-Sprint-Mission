@@ -1,11 +1,15 @@
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { Article, DataFormat } from "@/@types/api_response";
-import SortType from "@/@types/sort_type";
 import Button from "@/components/commons/Button";
 import Input from "@/components/commons/Input";
 import Dropdown from "@/components/commons/Dropdown";
 import Pagination from "@/components/commons/Pagination";
 import useAxiosFetch from "@/hooks/useAxiosFetch";
+import {
+  SortTypeAtAPI,
+  SortTypeAtUI,
+  SortTypeAtUIValue,
+} from "@/@types/sort_type";
 import ArticlePreview from "./ArticlePreview";
 
 const PAGE_SIZE = 5;
@@ -18,7 +22,9 @@ export default function ArticleList({
   const { list: initialData, totalCount: initialTotalCount } = articleListData;
 
   const [articleList, setArticleList] = useState<Article[]>([...initialData]);
-  const [currentOrder, setCurrentOrder] = useState<SortType>(SortType.recent);
+  const [currentOrder, setCurrentOrder] = useState<SortTypeAtUIValue>(
+    SortTypeAtUI.Recent,
+  );
   const [keyword, setKeyword] = useState("");
   const [totalCount, setTotalCount] = useState(initialTotalCount);
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +37,8 @@ export default function ArticleList({
   const handleOrder = (e: MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement;
 
-    if (name === "sort-by-recent") setCurrentOrder(SortType.recent);
-    if (name === "sort-by-likes") setCurrentOrder(SortType.likes);
+    if (name === "sort-by-recent") setCurrentOrder(SortTypeAtUI.Recent);
+    if (name === "sort-by-like") setCurrentOrder(SortTypeAtUI.Like);
   };
 
   const handlePageChange = (targetPage: number) => {
@@ -43,7 +49,10 @@ export default function ArticleList({
     const res = await axiosFetch<DataFormat<Article>>({
       url: "/articles",
       params: {
-        orderBy: currentOrder === "최신순" ? "recent" : "like",
+        orderBy:
+          currentOrder === SortTypeAtUI.Recent
+            ? SortTypeAtAPI.Recent
+            : SortTypeAtAPI.Like,
         keyword,
         pageSize: PAGE_SIZE,
         page: currentPage,

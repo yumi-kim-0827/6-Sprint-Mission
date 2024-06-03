@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import useDeviceState, { Device } from "@/hooks/useDeviceState";
+import useDeviceState from "@/hooks/useDeviceState";
 import { Article, DataFormat } from "@/@types/api_response";
+import Device from "@/@types/device";
 import ArticleCard from "./ArticleCard";
 
 export default function BestArticles({
@@ -16,11 +17,11 @@ export default function BestArticles({
   useEffect(() => {
     if (!deviceState) return;
 
-    if (deviceState === Device.MOBILE) {
+    if (deviceState === Device.Mobile) {
       setArticleList([...initialData.slice(0, 1)]);
     }
 
-    if (deviceState === Device.TABLET) {
+    if (deviceState === Device.Tablet) {
       setArticleList([...initialData.slice(0, 2)]);
     }
 

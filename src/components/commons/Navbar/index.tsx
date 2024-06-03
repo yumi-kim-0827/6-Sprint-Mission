@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Button from "@/components/commons/Button";
-import useDeviceState, { Device } from "@/hooks/useDeviceState";
+import useDeviceState from "@/hooks/useDeviceState";
+import Device from "@/@types/device";
 
 export default function Navbar() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-nav flex h-[70px] items-center border-b-[1px] border-b-[#dfdfdf] bg-white px-4 py-[10px] md:px-[34px] xl:px-[200px]">
       <Link href="/">
-        {deviceState === Device.MOBILE ? (
+        {deviceState === Device.Mobile ? (
           <Image
             src="/images/main_logo_small.svg"
             alt="logo"

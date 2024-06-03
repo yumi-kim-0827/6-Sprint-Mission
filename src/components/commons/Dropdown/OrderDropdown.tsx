@@ -1,12 +1,13 @@
 import { MouseEvent } from "react";
 import Image from "next/image";
 import classNames from "classnames";
-import SortType from "@/@types/sort_type";
-import useDeviceState, { Device } from "@/hooks/useDeviceState";
+import { SortTypeAtUI, SortTypeAtUIValue } from "@/@types/sort_type";
+import useDeviceState from "@/hooks/useDeviceState";
 import { QueryString } from "@/@types/api_response";
+import Device from "@/@types/device";
 
 interface Props {
-  currentOrder: SortType | QueryString;
+  currentOrder: SortTypeAtUIValue | QueryString;
   handleOrder: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -14,7 +15,7 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
   const deviceState = useDeviceState();
 
   const buttonResponsiveStyle = classNames({
-    "min-w-[130px]": deviceState !== Device.MOBILE,
+    "min-w-[130px]": deviceState !== Device.Mobile,
   });
 
   return (
@@ -24,7 +25,7 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
         role="button"
         className={`relative flex size-[42px] cursor-pointer select-none items-center justify-center rounded-xl border border-gray-200 font-normal text-cool-gray-800 ${buttonResponsiveStyle}`}
       >
-        {deviceState === Device.MOBILE ? (
+        {deviceState === Device.Mobile ? (
           <Image
             src="/images/ic_sort.svg"
             alt="sort-icon"
@@ -50,15 +51,15 @@ export default function OrderDropdown({ currentOrder, handleOrder }: Props) {
           onClick={handleOrder}
           className="w-full hover:rounded-t-lg hover:bg-gray-50"
         >
-          {SortType.recent}
+          {SortTypeAtUI.Recent}
         </button>
         <button
           type="button"
-          name="sort-by-likes"
+          name="sort-by-like"
           onClick={handleOrder}
           className="w-full border-none hover:rounded-b-lg hover:bg-gray-50"
         >
-          {SortType.likes}
+          {SortTypeAtUI.Like}
         </button>
       </div>
     </div>

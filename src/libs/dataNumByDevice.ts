@@ -1,23 +1,18 @@
-const DEVICE_MIN_WIDTH = {
-  TABLET: 768,
-  PC: 1280,
-};
+const MIN_TABLET_WIDTH = 768;
+const MIN_DESKTOP_WIDTH = 1280;
 
 export default function dataNumbByDevice(
   dataNumArray: [number, number, number],
 ) {
   const windowWidth = window.innerWidth;
 
-  if (windowWidth < DEVICE_MIN_WIDTH.TABLET) return dataNumArray[0];
+  if (windowWidth < MIN_TABLET_WIDTH) return dataNumArray[0];
 
-  if (
-    windowWidth >= DEVICE_MIN_WIDTH.TABLET &&
-    windowWidth < DEVICE_MIN_WIDTH.PC
-  ) {
+  if (windowWidth >= MIN_TABLET_WIDTH && windowWidth < MIN_DESKTOP_WIDTH) {
     return dataNumArray[1];
   }
 
-  if (windowWidth >= DEVICE_MIN_WIDTH.PC) {
+  if (windowWidth >= MIN_DESKTOP_WIDTH) {
     return dataNumArray[2];
   }
 
