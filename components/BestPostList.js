@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./BestPostList.module.css";
 import badge from "@/public/badge.svg";
+import { BASE_URL } from "@/api/base";
 
 export default function BestPostList({ className = "", articles }) {
   return (
