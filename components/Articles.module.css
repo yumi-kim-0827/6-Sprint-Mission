@@ -1,0 +1,86 @@
+.Link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.articles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-decoration: none;
+}
+
+.articlesList {
+  width: 100%;
+  height: 136px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  margin-top: 24px;
+}
+
+.articlesListTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.articlesListTopItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.articleListBottomItems {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.postInfo {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleListNickname {
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.articleLikeCount {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.articleCreatedAt {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.favoriteCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.articleListImageWrapper {
+  width: 72px;
+  height: 72px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleListImage {
+  width: 48px;
+  height: 45px;
+  margin: 0;
+}

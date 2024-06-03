@@ -1,0 +1,60 @@
+.articleSection {
+  max-width: 1200px;
+  margin: 94px auto;
+}
+
+.articleSectionTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: block;
+}
+
+.articleSectioMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  margin-top: 40px;
+}
+
+.articleSectionButton {
+  width: 88px;
+  height: 42px;
+  background-color: #3692ff;
+  border-style: none;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.searchbarDropdownWrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1279px) {
+  .articleSectionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .articleSection {
+    width: 696px;
+  }
+
+  .searchbarDropdownWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .articleSection {
+    width: 343px;
+  }
+
+  .searchbarDropdownWrapper {
+    gap: 8px;
+  }
+}
