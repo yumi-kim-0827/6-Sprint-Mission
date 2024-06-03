@@ -1,11 +1,11 @@
-import { ChangeEvent, MouseEvent, useState } from "react";
-import { useRouter } from "next/router";
-import { Article, DataFormat, QueryString } from "@/@types/api_response";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import { Article, DataFormat } from "@/@types/api_response";
 import SortType from "@/@types/sort_type";
 import Button from "@/components/commons/Button";
 import Input from "@/components/commons/Input";
 import Dropdown from "@/components/commons/Dropdown";
 import Pagination from "@/components/commons/Pagination";
+import useAxiosFetch from "@/hooks/useAxiosFetch";
 import ArticlePreview from "./ArticlePreview";
 
 const PAGE_SIZE = 5;
@@ -15,55 +15,49 @@ export default function ArticleList({
 }: {
   articleListData: DataFormat<Article>;
 }) {
-  const router = useRouter();
-  const {
-    keyword: initialKeyword,
-    orderBy: initialOrder,
-    page: initialPage,
-  } = router.query;
+  const { list: initialData, totalCount: initialTotalCount } = articleListData;
 
-  const [keyword, setKeyword] = useState(initialKeyword || "");
-  const [currentPage, setCurrentPage] = useState(initialPage || 1);
-  const [currentOrder, setCurrentOrder] = useState<SortType | QueryString>(
-    !initialOrder || initialOrder === "최신순"
-      ? SortType.recent
-      : SortType.likes,
-  );
-
-  const { list: articleList, totalCount } = articleListData;
+  const [articleList, setArticleList] = useState<Article[]>([...initialData]);
+  const [currentOrder, setCurrentOrder] = useState<SortType>(SortType.recent);
+  const [keyword, setKeyword] = useState("");
+  const [totalCount, setTotalCount] = useState(initialTotalCount);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-
-    setKeyword(value);
-    setCurrentPage(1);
-  };
-
-  const handleSearch = (value: QueryString) => {
-    router.push({
-      query: { ...router.query, keyword: value, page: 1 },
-    });
-    setCurrentPage(1);
+    setKeyword(e.target.value);
   };
 
   const handleOrder = (e: MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as HTMLButtonElement;
 
-    if (name === "sort-by-recent") {
-      setCurrentOrder(SortType.recent);
-      router.push({ query: { ...router.query, orderBy: "recent" } });
-    }
-
-    if (name === "sort-by-likes") {
-      setCurrentOrder(SortType.likes);
-      router.push({ query: { ...router.query, orderBy: "like" } });
-    }
+    if (name === "sort-by-recent") setCurrentOrder(SortType.recent);
+    if (name === "sort-by-likes") setCurrentOrder(SortType.likes);
   };
 
   const handlePageChange = (targetPage: number) => {
     setCurrentPage(targetPage);
-    router.push({ query: { ...router.query, page: String(targetPage) } });
   };
+
+  const getArticles = async () => {
+    const res = await axiosFetch<DataFormat<Article>>({
+      url: "/articles",
+      params: {
+        orderBy: currentOrder === "최신순" ? "recent" : "like",
+        keyword,
+        pageSize: PAGE_SIZE,
+        page: currentPage,
+      },
+    });
+
+    setArticleList(res?.data?.list);
+    setTotalCount(res?.data?.totalCount);
+  };
+
+  useEffect(() => {
+    if (keyword) setCurrentPage(1);
+    getArticles();
+  }, [currentOrder, keyword, currentPage]);
 
   return (
     <div className="mt-10">
@@ -77,7 +71,6 @@ export default function ArticleList({
           value={keyword}
           placeholder="검색할 상품을 입력해주세요"
           onChange={handleInputChange}
-          handleSearch={handleSearch}
         />
         <Dropdown.Order currentOrder={currentOrder} handleOrder={handleOrder} />
       </div>
