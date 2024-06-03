@@ -12,7 +12,7 @@ export default function Home() {
     const articles = res.data.results ?? [];
     //like 가 많은 순으로 order
     articles.sort((a, b) => b.like - a.like);
-    //get the top 3 articles
+    //3개로 자르기
     const topArticles = articles.slice(0, 3);
     setArticles(topArticles);
   }
