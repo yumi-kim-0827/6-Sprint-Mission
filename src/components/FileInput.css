@@ -9,6 +9,31 @@
   margin-bottom: 12px;
 }
 
+.file_input_container {
+  display: flex;
+  gap: 24px;
+  height: 290px;
+}
+
+.preview {
+  position: relative;
+}
+
+.preview_img {
+  width: 282px;
+  height: 282px;
+}
+
+.x_icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
 .file_input_label {
   width: 282px;
   height: 282px;
@@ -24,9 +49,11 @@
 .file_input_text {
   font-size: 16px;
   font-weight: 400;
+  background: transparent;
 }
 
 .file_input_plus_text {
   font-size: 56px;
   font-weight: 200;
+  background: transparent;
 }
