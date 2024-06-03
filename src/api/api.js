@@ -1,9 +1,9 @@
-export async function getProduct(order = {}) {
-  const query = new URLSearchParams(order).toString();
+export async function getProduct({ order, page, pageSize }) {
+  const query = `page=${page}&pageSize=${pageSize}&orderBy=${order}`;
 
   try {
     const response = await fetch(
-      `https://panda-market-api.vercel.app/docs/#/?${query}`
+      `https://panda-market-api.vercel.app/products?${query}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
