@@ -1,0 +1,159 @@
+.best_articles_main {
+	display: flex;
+	flex-direction: column;
+	width: 1200px;
+	margin: 24px auto 0;
+}
+
+.best_articles_title {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 23.87px;
+	color: var(--gray-900);
+}
+
+.best_articles_wrap {
+	display: flex;
+	gap: 24px;
+}
+
+/* ----------------------------------------- */
+
+.best_section_wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	margin: 20px 0;
+	padding: 0 24px 16px 24px;
+	gap: 16px;
+
+	width: 384px;
+	height: 169px;
+
+	border-radius: 8px;
+
+	background-color: var(--gray-50);
+}
+
+.best_icon_wrap {
+	display: flex;
+	width: 102px;
+	height: 30px;
+	gap: 4px;
+	border-radius: 0px 0px 32px 32px;
+	opacity: 0px;
+	background-color: var(--blue);
+	align-items: center;
+	justify-content: center;
+}
+
+.best_icon_image {
+	position: relative;
+	width: 12px;
+	height: 14px;
+}
+
+.best_icon_title {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	text-align: left;
+	color: #fff;
+}
+
+.best_section_main {
+	display: flex;
+}
+
+.best_section_content {
+	width: 100%;
+
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 23px;
+	text-align: left;
+
+	flex-grow: 1;
+}
+
+.best_section_border {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	max-width: 72px;
+	max-height: 72px;
+	padding: 12px;
+
+	border: 1px solid var(--gray-200);
+	border-radius: 6px;
+
+	flex-grow: 1;
+}
+
+.best_section_image {
+	position: relative;
+	width: 46px;
+	height: 46px;
+}
+
+.best_section_user {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+}
+
+.best_section_user_data {
+	display: flex;
+	gap: 10px;
+}
+
+.best_section_nickname {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.71px;
+	text-align: left;
+	color: var(--gray-600);
+}
+
+.best_section_like_wrap {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.best_section_like_ic {
+	position: relative;
+	width: 16px;
+	height: 16px;
+}
+
+.best_section_like {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.71px;
+	text-align: left;
+	color: var(--gray-500);
+}
+
+.best_section_createdAt {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.71px;
+	text-align: left;
+	color: var(--gray-400);
+}
+
+@media (max-width: 1199px) {
+	.best_articles_main {
+		width: 768px;
+	}
+}
+
+@media (max-width: 767px) {
+	.best_articles_main {
+		width: 360px;
+	}
+}

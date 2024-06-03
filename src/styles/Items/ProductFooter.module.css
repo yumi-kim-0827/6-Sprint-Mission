@@ -1,0 +1,19 @@
+.footer_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0 4rem;
+}
+
+.footer_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-400);
+  border-radius: 999999999px;
+  background-color: white;
+  color: #000;
+  width: 40px;
+  height: 40px;
+}

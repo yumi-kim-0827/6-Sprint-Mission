@@ -1,0 +1,38 @@
+/* 하단 */
+.bottom_container {
+	background-color: var(--gray-900);
+	height: 160px;
+}
+
+/* 하단 내부 */
+
+.bottom_content {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 30px;
+}
+
+.bottom_copyright {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4;
+	color: var(--gray-400);
+}
+
+.bottom_middle {
+	display: flex;
+	gap: clamp(0.2rem, 3dvw, 5rem);
+}
+
+.privacy,
+.faq {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4;
+	color: var(--gray-200);
+}
+
+.bottom_social {
+	display: flex;
+	gap: 1dvw;
+}
