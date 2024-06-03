@@ -1,10 +1,15 @@
 import React from "react";
 import "./Button.css";
 
-const Button = () => {
+const Button = ({ handleButtonSubmit }) => {
   return (
     <div>
-      <button className="Button">등록</button>
+      <button
+        disabled={handleButtonSubmit}
+        className={handleButtonSubmit ? "Button" : "Button activation"}
+      >
+        등록
+      </button>
     </div>
   );
 };
