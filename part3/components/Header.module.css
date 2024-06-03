@@ -1,0 +1,54 @@
+.linkStyles{
+    text-Decoration: none;
+    padding: 24px 23px;
+    color: #4b5563;
+}
+.linkStyles:hover{
+    color: #3692ff;
+}
+
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 200px;
+    background-color: #ffffff;
+}
+
+
+.logo{
+    position: relative;
+    width: 153px;
+    height: 51px;
+}
+
+.navMenu {
+    display: flex;
+    list-style: none;
+}
+
+.navMenu li {
+    padding: 24px 23px;
+}
+
+.loginBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 48px;
+    background: #3692FF;
+    border-radius: 8px;
+}
+
+.loginBtn:hover {
+    background-color: #1967D6;
+}
+
+.loginBtnText {
+    color: #ffffff;
+}
