@@ -10,7 +10,6 @@ const FileInput = () => {
   const handleFileChange = (e) => {
     const fileValue = e.target.files[0];
     const previewURL = URL.createObjectURL(fileValue);
-    // console.log(e.target.files);
     setFile(fileValue);
     setPreview(previewURL);
     setInputValue(e.target.value);
