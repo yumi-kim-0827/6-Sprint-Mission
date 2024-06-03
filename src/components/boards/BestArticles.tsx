@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AxiosResponse } from "axios";
 import { v4 as uuidv4 } from "uuid";
 import useAxiosFetch from "@/hooks/useAxiosFetch";
 import useDeviceState, { Device } from "@/hooks/useDeviceState";
@@ -13,7 +12,7 @@ export default function BestArticles() {
   const deviceState = useDeviceState();
 
   const getArticles = async (pageSize: number) => {
-    const res = await axiosFetch<AxiosResponse<DataFormat<Article>>>({
+    const res = await axiosFetch<DataFormat<Article>>({
       url: "/articles",
       params: {
         pageSize,
