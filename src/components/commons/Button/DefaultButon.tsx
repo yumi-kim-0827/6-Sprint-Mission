@@ -1,0 +1,23 @@
+import { ReactNode } from "react";
+
+interface Props {
+  children: ReactNode;
+  roundness?: "sm" | "lg" | "xl";
+  onClick?: () => void;
+}
+
+export default function DefaultButton({
+  children,
+  roundness = "lg",
+  onClick,
+}: Props) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="flex h-[42px] w-max min-w-[88px] select-none items-center justify-center rounded-lg bg-main-blue px-[23px] py-3 font-semibold text-white focus:hover:bg-dark-main-blue"
+    >
+      {children}
+    </button>
+  );
+}

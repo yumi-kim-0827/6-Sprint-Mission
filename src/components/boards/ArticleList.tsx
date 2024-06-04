@@ -1,0 +1,102 @@
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import { Article, DataFormat } from "@/@types/api_response";
+import Button from "@/components/commons/Button";
+import Input from "@/components/commons/Input";
+import Dropdown from "@/components/commons/Dropdown";
+import Pagination from "@/components/commons/Pagination";
+import useAxiosFetch from "@/hooks/useAxiosFetch";
+import {
+  SortTypeAtAPI,
+  SortTypeAtUI,
+  SortTypeAtUIValue,
+} from "@/@types/sort_type";
+import ArticlePreview from "./ArticlePreview";
+
+const PAGE_SIZE = 5;
+
+export default function ArticleList({
+  articleListData,
+}: {
+  articleListData: DataFormat<Article>;
+}) {
+  const { list: initialData, totalCount: initialTotalCount } = articleListData;
+
+  const [articleList, setArticleList] = useState<Article[]>([...initialData]);
+  const [currentOrder, setCurrentOrder] = useState<SortTypeAtUIValue>(
+    SortTypeAtUI.Recent,
+  );
+  const [keyword, setKeyword] = useState("");
+  const [totalCount, setTotalCount] = useState(initialTotalCount);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { isLoading, error, axiosFetch } = useAxiosFetch();
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleOrder = (e: MouseEvent<HTMLButtonElement>) => {
+    const { name } = e.target as HTMLButtonElement;
+
+    if (name === "sort-by-recent") setCurrentOrder(SortTypeAtUI.Recent);
+    if (name === "sort-by-like") setCurrentOrder(SortTypeAtUI.Like);
+  };
+
+  const handlePageChange = (targetPage: number) => {
+    setCurrentPage(targetPage);
+  };
+
+  const getArticles = async () => {
+    const res = await axiosFetch<DataFormat<Article>>({
+      url: "/articles",
+      params: {
+        orderBy:
+          currentOrder === SortTypeAtUI.Recent
+            ? SortTypeAtAPI.Recent
+            : SortTypeAtAPI.Like,
+        keyword,
+        pageSize: PAGE_SIZE,
+        page: currentPage,
+      },
+    });
+
+    setArticleList(res?.data?.list);
+    setTotalCount(res?.data?.totalCount);
+  };
+
+  useEffect(() => {
+    if (keyword) setCurrentPage(1);
+    getArticles();
+  }, [currentOrder, keyword, currentPage]);
+
+  return (
+    <div className="mt-10">
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl font-bold text-cool-gray-900">게시글</h1>
+        <Button.Link href="/boards/write">글쓰기</Button.Link>
+      </div>
+
+      <div className="mt-4 flex items-center justify-between gap-2 md:mt-6 md:gap-4">
+        <Input.Search
+          value={keyword}
+          placeholder="검색할 상품을 입력해주세요"
+          onChange={handleInputChange}
+        />
+        <Dropdown.Order currentOrder={currentOrder} handleOrder={handleOrder} />
+      </div>
+
+      <div className="mt-6">
+        {articleList.map((article) => (
+          <ArticlePreview key={article.id} data={article} />
+        ))}
+      </div>
+
+      {totalCount > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(totalCount / PAGE_SIZE)}
+          handlePageChange={handlePageChange}
+        />
+      )}
+    </div>
+  );
+}
