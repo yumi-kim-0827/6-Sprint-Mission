@@ -7,6 +7,9 @@ import Search from "@/components/Search";
 
 export default function Boards() {
   const [posts, setPosts] = useState([]);
+  const [order, setOrder] = useState("likeCount");
+
+  const changeOrder = () => {};
 
   async function getPosts() {
     const res = await axios.get("/articles");
