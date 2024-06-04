@@ -1,0 +1,22 @@
+.productInput {
+  width: 1000px;
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 20px 9px 16px;
+  background-color: #f3f4f6;
+  font-weight: 400;
+  font-size: 16px;
+  color: #f3f4f6;
+}
+/*tablet*/
+@media (max-width: 1199px) {
+  .productInput {
+    width: 560px;
+  }
+}
+/*mobile*/
+@media (max-width: 767px) {
+  .productInput {
+    width: 293px;
+  }
+}
