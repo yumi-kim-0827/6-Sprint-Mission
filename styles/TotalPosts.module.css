@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .title {
+  font-size: 700;
+  font-weight: 700;
+  font-size: 20px;
+  color: #111827;
+}
+.header .writeButton {
+  border-radius: 8px;
+  width: 88px;
+  height: 42px;
+  background-color: #3692ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.totalPostsFrame {
+  margin-top: 40px;
+}
+
