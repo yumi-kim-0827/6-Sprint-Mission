@@ -1,0 +1,15 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/additem": "pages/additem.js",
+  "/components/Button": "pages/components/Button.js",
+  "/components/Header": "pages/components/Header.js",
+  "/": "pages/index.js",
+  "/components/Paginate": "pages/components/Paginate.js",
+  "/items": "pages/items.js",
+  "/login": "pages/login.js",
+  "/services/GetBestItem": "pages/services/GetBestItem.js",
+  "/signup": "pages/signup.js",
+  "/services/GetAllItem": "pages/services/GetAllItem.js"
+}
