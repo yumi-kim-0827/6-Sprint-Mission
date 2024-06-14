@@ -1,6 +1,6 @@
 # 💡Simple todo pwa
 
-스프린트 쇼핑몰 실습 과제 11122
+스프린트 쇼핑몰 실습 과제
 
 # 🖥️View web site
 

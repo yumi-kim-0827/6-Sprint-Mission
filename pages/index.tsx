@@ -3,10 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "@/styles/Home.module.scss";
+import Header from "@/pages/components/Header";
 import Button from "@/pages/components/Button";
 
 export default function Home() {
   const router = useRouter();
+  const menuData = [
+    { href: "/items", menuName: "아이템" },
+    { href: "/additem", menuName: "아이템추가" },
+    { href: "/additem", menuName: "자유게시판" },
+  ];
   return (
     <>
       <Head>
@@ -15,34 +21,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={styles.header}>
-        <div className={styles.header_wrap}>
-          <h1>
-            <Link href="/">
-              <Image src="/logo.png" alt="로고" width="150" height="51" />
-            </Link>
-          </h1>
-          <ul className={styles.header_menu}>
-            <li>
-              <Link href="/items">아이템</Link>
-            </li>
-            <li>
-              <Link href="/additem">아이템추가</Link>
-            </li>
-            <li>
-              <Link href="/items">중고마켓</Link>
-            </li>
-            <li>
-              <Link href="/">자유게시판</Link>
-            </li>
-          </ul>
-          <Button
-            text={"로그인"}
-            className={"btn_style"}
-            onClick={() => router.push("/login")}
-          />
-        </div>
-      </header>
+      <Header menuData={menuData} />
       <main>
         <div className={styles.main_visual}>
           <div className={styles.main_visual_text}>

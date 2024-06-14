@@ -25,6 +25,10 @@ const Items = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("recent");
   const [search, setSearch] = useState("");
+  const menuData = [
+    { href: "/items", menuName: "자유게시판" },
+    { href: "/additem", menuName: "중고마켓" },
+  ];
 
   const handleBestItems = async () => {
     try {
@@ -35,6 +39,7 @@ const Items = () => {
       console.log("베스트상품 get 에러");
     }
   };
+
   useEffect(() => {
     handleBestItems();
   }, []);
@@ -74,7 +79,7 @@ const Items = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header menuData={menuData} />
       <main className={styles.padding_content}>
         <section className={styles.best_items_area}>
           <div className={styles.sub_category_area}>

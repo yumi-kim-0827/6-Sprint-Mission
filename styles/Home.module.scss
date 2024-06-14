@@ -56,26 +56,6 @@ $sub2-color: #000000;
   }
 }
 
-/*  Header */
-.header {
-  padding: 10px;
-  border-bottom: 1px solid $secondary-color;
-  .header_wrap {
-    margin: 0 auto;
-    max-width: 1200px;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    width: 100%;
-    h1 {
-      a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-    }
-  }
-}
 /*  Main */
 .main_visual {
   padding: 100px 0;
