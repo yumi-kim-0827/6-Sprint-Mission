@@ -12,6 +12,6 @@ export default async function getAllItems(
     );
     return responses;
   } catch (error) {
-    console.log(`에러 유형 : ${error}`);
+    console.error(error);
   }
 }

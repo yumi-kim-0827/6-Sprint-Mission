@@ -36,7 +36,7 @@ const Items = () => {
       setBestItems(responses?.data.list);
       setTotal(responses?.data.totalCount);
     } catch (error) {
-      console.log("베스트상품 get 에러");
+      console.error(error);
     }
   };
 
@@ -50,7 +50,7 @@ const Items = () => {
       setAllItems(responses?.data.list);
       console.log("아이템 불러오기!");
     } catch (error) {
-      console.log("모든 상품 get 에러");
+      console.error(error);
     }
   };
 
