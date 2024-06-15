@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/additem": "pages/additem.js",
+  "/_error": "pages/_error.js",
+  "/": "pages/index.js",
+  "/login": "pages/login.js",
+  "/items": "pages/items.js",
+  "/signup": "pages/signup.js",
+  "/services/GetBestItem": "pages/services/GetBestItem.js",
+  "/services/GetAllItem": "pages/services/GetAllItem.js"
+}

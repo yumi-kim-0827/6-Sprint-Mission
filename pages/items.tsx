@@ -83,7 +83,7 @@ const Items = () => {
       <main className={styles.padding_content}>
         <section className={styles.best_items_area}>
           <div className={styles.sub_category_area}>
-            <p className={styles.sub_category_text}>베스트 상품</p>
+            <p className={styles.sub_category_text}>베스트</p>
           </div>
           <div className={styles.items_list}>
             {bestItems.map((item) => {
