@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/Home.module.scss";
-import Button from "@/pages/components/Button";
-import Header from "@/pages/components/Header";
+import Button from "@/components/Button";
+import Header from "@/components/Header";
 
 const Additem = () => {
   return (

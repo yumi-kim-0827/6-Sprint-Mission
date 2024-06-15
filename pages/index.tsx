@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "@/styles/Home.module.scss";
-import Header from "@/pages/components/Header";
-import Button from "@/pages/components/Button";
+import Header from "@/components/Header";
+import Button from "@/components/Button";
 
 export default function Home() {
   const router = useRouter();

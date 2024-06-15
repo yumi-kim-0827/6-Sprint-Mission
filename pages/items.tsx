@@ -4,9 +4,9 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import getAllItems from "@/pages/services/GetAllItem";
 import getBestItems from "@/pages/services/GetBestItem";
-import Paginate from "@/pages/components/Paginate";
-import Button from "@/pages/components/Button";
-import Header from "@/pages/components/Header";
+import Paginate from "@/components/Paginate";
+import Button from "@/components/Button";
+import Header from "@/components/Header";
 import { CgHeart } from "react-icons/cg";
 
 type PriductItem = {

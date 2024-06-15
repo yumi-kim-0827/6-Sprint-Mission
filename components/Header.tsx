@@ -2,14 +2,12 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "@/pages/components/Header.module.scss";
-import Button from "@/pages/components/Button";
-import Menu from "@/pages/components/Menu";
+import styles from "@/components/Header.module.scss";
+import Button from "@/components/Button";
+import Menu from "@/components/Menu";
+import { MenuDataProps } from "@/types/menu";
 
-interface HeaderProps {
-  menuData: { href: string; menuName: string }[];
-}
-const Header: React.FC<HeaderProps> = ({ menuData }) => {
+const Header: React.FC<MenuDataProps> = ({ menuData }) => {
   const router = useRouter();
   return (
     <header className={styles.header}>
@@ -19,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ menuData }) => {
             <Image src="/logo.png" alt="로고" width="150" height="51" />
           </Link>
         </h1>
-        <Menu menuData={menuData} />
+        {menuData ? <Menu menuData={menuData} /> : null}
         <div className={styles.header_button}>
           <Button
             text={"로그인"}

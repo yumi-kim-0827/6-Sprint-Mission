@@ -1,14 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { MenuDataProps } from "@/types/menu";
 
-interface MenuItemsProps {
-  menuData: { href: string; menuName: string }[];
-}
-
-const MenuItems: React.FC<MenuItemsProps> = ({ menuData }) => {
+const MenuItems: React.FC<MenuDataProps> = ({ menuData }) => {
   return (
     <>
-      {menuData.map((item, id) => {
+      {menuData?.map((item, id) => {
         return (
           <li key={id}>
             <Link href={item.href}>{item.menuName}</Link>
