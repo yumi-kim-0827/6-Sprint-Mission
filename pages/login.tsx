@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Home.module.scss";
+import Button from "@/components/Button";
 
 interface Input {
   email: string;
@@ -109,7 +110,7 @@ const Login = () => {
               />
               <span>{message.passwordMsg}</span>
             </div>
-            <button className={styles.btn_style}>로그인</button>
+            <Button text={"로그인"} className={"btn_style"} />
           </form>
         </div>
         <div className={styles.sign_notice}>
